@@ -11,13 +11,30 @@ together {
 		+ run(rawCmdLineArgs: string[], defaultConfig: ProcessConfiguration, console: Console): bool
 	}
 	Process "1" *-- RawCmdLineArgParser
+	Process "1" *-- Console
 	Process "1" *-- StringToMathAstConverter
 	Process "1" *-- MathAstToExpressionConverter
 	Process "1" *-- ExpressionToStringConverter
+	Process .> ProcessConfiguration
+	Process ..> Calculation
 	
 	
 	class RawCmdLineArgParser {
 		+ parseRawCmdLineArgs(rawCmdLineArgs: string[], defaultConfig: ProcessConfiguration): ProcessConfiguration
+	}
+
+	class Console {
+		+ write(text: string, mode: EWriteMode): void
+		+ writeLine(text: string, mode: EWriteMode): void
+		+ getInput(): string
+	}
+
+	Console .> EWriteMode
+
+	enum EWriteMode {
+		Info
+		Error
+		Debug
 	}
 	
 	
@@ -37,13 +54,9 @@ together {
 	
 	
 	class CalculationPreferences {
-		+ shouldFullyEvaluate: bool
+		+ precision: int
 		+ shouldPreferDecimalsOverIntegers: bool
 		+ shouldPreferSignExpressionForPositiveValues: bool
-		+ shouldPreferFractionsOverDecimals: bool
-		+ shouldPreferSqrtOverRootOperator: bool
-		+ shouldPreferExponentsOverRootOperator: bool
-		+ shouldPreferNegativeExponentsOverDivision: bool
 		+ shouldPreferLeadingZeroOverWholelessNumbers: bool
 		+ shouldPreferTrailingZeroOverEmptyDecimalPlace: bool
 	}

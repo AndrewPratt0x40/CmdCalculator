@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DevInfo", "DevInfo", "{BFD3
 		general_info.txt = general_info.txt
 		mathast_class_diagram.txt = mathast_class_diagram.txt
 		packages.drawio = packages.drawio
+		program_mockup.md = program_mockup.md
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CmdCalculator", "CmdCalculator\CmdCalculator.vcxproj", "{04BAED67-6B9A-4D4D-A1A1-CBB2EB87ECD5}"
