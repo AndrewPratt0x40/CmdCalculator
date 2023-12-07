@@ -1,0 +1,26 @@
+/* This EBNF describes the grammar of math expressions that may be inputted to the program */
+
+<sep> ::= " "*
+
+<fullExpression> ::= <sep> <expression> <sep>
+<expression> ::= <operand> (<sep> <binaryOperator> <sep> <operand>)*
+
+<operand> ::= <number> | <signOperation> | <squareRootOperation> | <grouping> | <groupingMultiplication> | <absoluteValue>
+
+<binaryOperator> ::= "+" | "-" | "*" | "/" | "^" | "_" | "%"
+
+<digit> ::= [0-9]
+<number> ::= <wholefulNumber> | <wholelessNumber>
+<wholefulNumber> ::= <digit>+ ("." <digit>*)?
+<wholelessNumber> ::= "." <digit>+
+
+<signOperation> ::= <signOperator> <sep> <operand>
+<signOperator> ::= "+" | "-"
+
+<squareRootOperation> ::= "sqrt" <sep> <operand>
+
+<grouping> ::= "(" <sep> <expression> <sep> ")"
+
+<groupingMultiplication> ::= <operand> (<sep> <grouping>)+
+
+<absoluteValue> ::= "|" <sep> <expression> <sep> "|"

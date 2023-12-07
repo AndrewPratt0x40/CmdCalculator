@@ -1,0 +1,113 @@
+'This diagram may be viewed at: https://www.planttext.com/
+
+@startuml
+skinparam groupInheritance 2
+
+title CmdCalculator::MathAst Class Diagram
+
+package MathAst {
+	class MathAstNode {
+		+ leadingTrivia: string
+		+ trailingTrivia: string
+		+ getAsString(): string
+	}
+	
+	
+	class ExpressionNode {
+	}
+	
+	MathAstNode <|-- ExpressionNode
+	ExpressionNode "0.." *- ExpressionPartNode
+	
+	
+	class ExpressionPartNode {
+	}
+	
+	MathAstNode <|-- ExpressionPartNode
+	
+	
+	class OperandNode {
+	}
+	
+	ExpressionPartNode <|-- OperandNode
+	
+	
+	class BinaryOperatorNode {
+	}
+	
+	ExpressionPartNode <|-- BinaryOperatorNode
+	BinaryOperatorNode "1" *- EBinaryOperatorKind
+	
+	enum EBinaryOperatorKind {
+		Addition
+		Subtraction
+		Multiplication
+		Division
+		Exponentiation
+		NthRoot
+		Modulo
+	}
+	
+	
+	class NumberLiteralNode {
+		+ wholePart: int
+		+ fractionalPart: int
+		+ hasDecimalPoint: bool
+		+ hasWholePart: bool
+		+ hasFractionalPart: bool
+	}
+	
+	OperandNode <|-- NumberLiteralNode
+	
+	
+	class UnaryOperationNode {
+		+ innerTrivia: string
+	}
+	
+	OperandNode <|-- UnaryOperationNode
+	UnaryOperationNode "1" *-- OperandNode
+	
+	
+	class SignOperationNode {
+		+ isPositive: bool
+	}
+	
+	UnaryOperationNode <|-- SignOperationNode
+	
+	
+	class SquareRootOperationNode {
+	}
+	
+	UnaryOperationNode <|-- SquareRootOperationNode
+	
+	
+	class ExpressionContainingNode {
+		+ leadingInnerTrivia: string
+		+ trailingInnerTrivia: string
+	}
+	
+	OperandNode <|-- ExpressionContainingNode
+	ExpressionContainingNode "0.." *-- ExpressionNode
+	
+	
+	class GroupingNode {
+	}
+	
+	ExpressionContainingNode <|-- GroupingNode
+	
+	
+	class GroupingMultiplicationNode {
+	}
+	
+	OperandNode <|-- GroupingMultiplicationNode
+	GroupingMultiplicationNode "1" *-- OperandNode: headMultiplicand
+	GroupingMultiplicationNode "0.." *-- GroupingNode: tailMultiplicands
+	
+	
+	class AbsoluteValueNode {
+	}
+	
+	ExpressionContainingNode <|-- AbsoluteValueNode
+}
+
+@enduml

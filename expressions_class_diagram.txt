@@ -1,0 +1,94 @@
+'This diagram may be viewed at: https://www.planttext.com/
+
+@startuml
+skinparam groupInheritance 2
+
+title CmdCalculator::Expressions Class Diagram
+
+package Expressions {
+	class Expression {
+		+ isSimplifiable: bool
+		+ isEvaluatable: bool
+		+ fullSimplification: Expression
+		+ evaluation: Expression
+	}
+	
+	
+	class Number {
+		+ value: decimal
+	}
+	
+	Expression <|-- Number
+	
+	
+	class NegationOperation {
+		+ operand: Expression
+	}
+	
+	Expression <|-- NegationOperation
+	
+	
+	class AdditionOperation {
+		+ augend: Expression
+		+ addend: Expression
+	}
+	
+	Expression <|-- AdditionOperation
+	
+	
+	class SubtractionOperation {
+		+ minuend: Expression
+		+ subtrahend: Expression
+	}
+	
+	Expression <|-- SubtractionOperation
+	
+	
+	class MultiplicationOperation {
+		+ multiplier: Expression
+		+ multiplicand: Expression
+	}
+	
+	Expression <|-- MultiplicationOperation
+	
+	
+	class DivisionOperation {
+		+ dividend: Expression
+		+ divisor: Expression
+	}
+	
+	Expression <|-- DivisionOperation
+	
+	
+	class ExponentiationOperation {
+		+ base: Expression
+		+ exponent: Expression
+	}
+	
+	Expression <|-- ExponentiationOperation
+	
+	
+	class NthRootOperation {
+		+ degree: Expression
+		+ radicand: Expression
+	}
+	
+	Expression <|-- NthRootOperation
+	
+	
+	class ModuloOperation {
+		+ dividend: Expression
+		+ divisor: Expression
+	}
+	
+	Expression <|-- ModuloOperation
+	
+	
+	class AbsoluteValueOperation {
+		+ operand: Expression
+	}
+	
+	Expression <|-- AbsoluteValueOperation
+}
+
+@enduml

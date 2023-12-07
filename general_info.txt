@@ -1,0 +1,3 @@
+Name: CmdCalculator
+Purpose: A command-line calculator
+Author: Andrew Pratt
