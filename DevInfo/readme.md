@@ -1,0 +1,2 @@
+# DevInfo
+All of the files in this directory are information and planning for the development of CmdCalculator. These files do not reflect CmdCalculator in it's finished state, only the initial ideas and specifications that it should be developed by.

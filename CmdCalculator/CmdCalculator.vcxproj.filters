@@ -4,5 +4,21 @@
     <Filter Include="Source Code">
       <UniqueIdentifier>{d9c1e6b0-97ca-4c73-a701-6133e954e817}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\CalculationConfiguration">
+      <UniqueIdentifier>{2d53abbe-d655-46e6-a863-3db42d185559}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CalculationConfiguration.h">
+      <Filter>Source Code\CalculationConfiguration</Filter>
+    </ClInclude>
+    <ClInclude Include="NotImplementedException.h">
+      <Filter>Source Code</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CalculationConfiguration.cpp">
+      <Filter>Source Code\CalculationConfiguration</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

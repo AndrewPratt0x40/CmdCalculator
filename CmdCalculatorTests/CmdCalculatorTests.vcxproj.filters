@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="test.cpp">
-      <Filter>Source Code\Tests</Filter>
-    </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Source Code\pch</Filter>
+    </ClCompile>
+    <ClCompile Include="CalculationConfigurationTests.cpp">
+      <Filter>Source Code\Tests</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -23,5 +23,8 @@
     <ClInclude Include="pch.h">
       <Filter>Source Code\pch</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

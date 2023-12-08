@@ -5,14 +5,16 @@ VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DevInfo", "DevInfo", "{BFD38C8F-6A9A-4975-8CC2-D08EEBAD2FAD}"
 	ProjectSection(SolutionItems) = preProject
-		class_diagram.txt = class_diagram.txt
-		expressions_class_diagram.txt = expressions_class_diagram.txt
-		expression_ebnf.txt = expression_ebnf.txt
-		flowchart.drawio = flowchart.drawio
-		general_info.txt = general_info.txt
-		mathast_class_diagram.txt = mathast_class_diagram.txt
-		packages.drawio = packages.drawio
-		program_mockup.md = program_mockup.md
+		DevInfo\class_diagram.drawio = DevInfo\class_diagram.drawio
+		DevInfo\class_diagram.txt = DevInfo\class_diagram.txt
+		DevInfo\expressions_class_diagram.txt = DevInfo\expressions_class_diagram.txt
+		DevInfo\expression_ebnf.txt = DevInfo\expression_ebnf.txt
+		DevInfo\flowchart.drawio = DevInfo\flowchart.drawio
+		DevInfo\general_info.txt = DevInfo\general_info.txt
+		DevInfo\mathast_class_diagram.txt = DevInfo\mathast_class_diagram.txt
+		DevInfo\packages.drawio = DevInfo\packages.drawio
+		DevInfo\program_mockup.md = DevInfo\program_mockup.md
+		DevInfo\readme.md = DevInfo\readme.md
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CmdCalculator", "CmdCalculator\CmdCalculator.vcxproj", "{04BAED67-6B9A-4D4D-A1A1-CBB2EB87ECD5}"

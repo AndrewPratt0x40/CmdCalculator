@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="class_cmd_calculator_1_1_calculation_configuration" kind="class"><name>CmdCalculator::CalculationConfiguration</name>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1a145e305db4994417b9df79c5f8109352" kind="function"><name>getPrecision</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1a97b1721dbc47612ad98d4d4e61c400e7" kind="function"><name>shouldPreferDecimalsOverIntegers</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1ac4ce56163602dca95bfb6be6c680d330" kind="function"><name>shouldPreferSignExpressionForPositiveValues</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1ac3e3d539a6e80b00a15495a0490aa106" kind="function"><name>shouldPreferLeadingZeroOverWholelessNumbers</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1a49c9954eb90bfb41da179e7c5fd1b871" kind="function"><name>shouldPreferTrailingZeroOverEmptyDecimalPlace</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1a728f7de916eb80d91db47fc49d6d4258" kind="function"><name>CalculationConfiguration</name></member>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_process" kind="class"><name>CmdCalculator::Process</name>
+  </compound>
+  <compound refid="namespace_cmd_calculator" kind="namespace"><name>CmdCalculator</name>
+  </compound>
+  <compound refid="_calculation_configuration_8cpp" kind="file"><name>CalculationConfiguration.cpp</name>
+  </compound>
+  <compound refid="_calculation_configuration_8h" kind="file"><name>CalculationConfiguration.h</name>
+  </compound>
+  <compound refid="_process_8h" kind="file"><name>Process.h</name>
+  </compound>
+</doxygenindex>

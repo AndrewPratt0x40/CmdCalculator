@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_cmd_calculator_1_1_calculation_configuration" kind="class" language="C++" prot="public">
+    <compoundname>CmdCalculator::CalculationConfiguration</compoundname>
+    <includes refid="_calculation_configuration_8h" local="no">CalculationConfiguration.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_cmd_calculator_1_1_calculation_configuration_1a145e305db4994417b9df79c5f8109352" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CmdCalculator::CalculationConfiguration::getPrecision</definition>
+        <argsstring>()</argsstring>
+        <name>getPrecision</name>
+        <qualifiedname>CmdCalculator::CalculationConfiguration::getPrecision</qualifiedname>
+        <briefdescription>
+<para>Accessor for the preferred precision. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>How many decimal places are to be included in the answer of a calculation. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CalculationConfiguration.h" line="12" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_calculation_configuration_1a97b1721dbc47612ad98d4d4e61c400e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CmdCalculator::CalculationConfiguration::shouldPreferDecimalsOverIntegers</definition>
+        <argsstring>()</argsstring>
+        <name>shouldPreferDecimalsOverIntegers</name>
+        <qualifiedname>CmdCalculator::CalculationConfiguration::shouldPreferDecimalsOverIntegers</qualifiedname>
+        <briefdescription>
+<para>Accessor for the preferred representation of integers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if integers should have decimal points in the answer of a calculation, false if integers should have no decimal points. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CalculationConfiguration.h" line="17" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_calculation_configuration_1ac4ce56163602dca95bfb6be6c680d330" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CmdCalculator::CalculationConfiguration::shouldPreferSignExpressionForPositiveValues</definition>
+        <argsstring>()</argsstring>
+        <name>shouldPreferSignExpressionForPositiveValues</name>
+        <qualifiedname>CmdCalculator::CalculationConfiguration::shouldPreferSignExpressionForPositiveValues</qualifiedname>
+        <briefdescription>
+<para>Accessor for the preferred representation of positive values. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if positive values should be displayed as a sign expression in the answer of a calculation, false if positive values should stay as-is. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CalculationConfiguration.h" line="22" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_calculation_configuration_1ac3e3d539a6e80b00a15495a0490aa106" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CmdCalculator::CalculationConfiguration::shouldPreferLeadingZeroOverWholelessNumbers</definition>
+        <argsstring>()</argsstring>
+        <name>shouldPreferLeadingZeroOverWholelessNumbers</name>
+        <qualifiedname>CmdCalculator::CalculationConfiguration::shouldPreferLeadingZeroOverWholelessNumbers</qualifiedname>
+        <briefdescription>
+<para>Accessor for the preferred representation of leading zeros. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if numbers with an absolute value greater than zero and less than one should be shown with a leading zero before the decimal point in the answer of a calculation, false to show nothing before the decimal point. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CalculationConfiguration.h" line="27" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_calculation_configuration_1a49c9954eb90bfb41da179e7c5fd1b871" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CmdCalculator::CalculationConfiguration::shouldPreferTrailingZeroOverEmptyDecimalPlace</definition>
+        <argsstring>()</argsstring>
+        <name>shouldPreferTrailingZeroOverEmptyDecimalPlace</name>
+        <qualifiedname>CmdCalculator::CalculationConfiguration::shouldPreferTrailingZeroOverEmptyDecimalPlace</qualifiedname>
+        <briefdescription>
+<para>Accessor for the preferred representation of trailing zeros. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if integers should be shown with a trailing zero after the decimal point in the answer of a calculation, false to show nothing after the decimal point. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CalculationConfiguration.h" line="32" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_calculation_configuration_1a728f7de916eb80d91db47fc49d6d4258" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CmdCalculator::CalculationConfiguration::CalculationConfiguration</definition>
+        <argsstring>(int precision, bool shouldPreferDecimalsOverIntegers, bool shouldPreferSignExpressionForPositiveValues, bool shouldPreferLeadingZeroOverWholelessNumbers, bool shouldPreferTrailingZeroOverEmptyDecimalPlace)</argsstring>
+        <name>CalculationConfiguration</name>
+        <qualifiedname>CmdCalculator::CalculationConfiguration::CalculationConfiguration</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>precision</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>shouldPreferDecimalsOverIntegers</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>shouldPreferSignExpressionForPositiveValues</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>shouldPreferLeadingZeroOverWholelessNumbers</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>shouldPreferTrailingZeroOverEmptyDecimalPlace</declname>
+        </param>
+        <briefdescription>
+<para>Creates a new instance of the <ref refid="class_cmd_calculator_1_1_calculation_configuration" kindref="compound">CalculationConfiguration</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">precision</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>How many decimal places are to be included in the answer of a calculation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">shouldPreferDecimalsOverIntegers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if integers should have decimal points in the answer of a calculation, false if integers should have no decimal points. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">shouldPreferSignExpressionForPositiveValues</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if positive values should be displayed as a sign expression in the answer of a calculation, false if positive values should stay as-is. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">shouldPreferLeadingZeroOverWholelessNumbers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if numbers with an absolute value greater than zero and less than one should be shown with a leading zero before the decimal point in the answer of a calculation, false to show nothing before the decimal point. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">shouldPreferTrailingZeroOverEmptyDecimalPlace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True if integers should be shown with a trailing zero after the decimal point in the answer of a calculation, false to show nothing after the decimal point. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CalculationConfiguration.h" line="41" column="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A collection of preferences for how calculations should be done. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="CalculationConfiguration.h" line="7" column="1" bodyfile="CalculationConfiguration.h" bodystart="8" bodyend="49"/>
+    <listofallmembers>
+      <member refid="class_cmd_calculator_1_1_calculation_configuration_1a728f7de916eb80d91db47fc49d6d4258" prot="public" virt="non-virtual"><scope>CmdCalculator::CalculationConfiguration</scope><name>CalculationConfiguration</name></member>
+      <member refid="class_cmd_calculator_1_1_calculation_configuration_1a145e305db4994417b9df79c5f8109352" prot="public" virt="non-virtual"><scope>CmdCalculator::CalculationConfiguration</scope><name>getPrecision</name></member>
+      <member refid="class_cmd_calculator_1_1_calculation_configuration_1a97b1721dbc47612ad98d4d4e61c400e7" prot="public" virt="non-virtual"><scope>CmdCalculator::CalculationConfiguration</scope><name>shouldPreferDecimalsOverIntegers</name></member>
+      <member refid="class_cmd_calculator_1_1_calculation_configuration_1ac3e3d539a6e80b00a15495a0490aa106" prot="public" virt="non-virtual"><scope>CmdCalculator::CalculationConfiguration</scope><name>shouldPreferLeadingZeroOverWholelessNumbers</name></member>
+      <member refid="class_cmd_calculator_1_1_calculation_configuration_1ac4ce56163602dca95bfb6be6c680d330" prot="public" virt="non-virtual"><scope>CmdCalculator::CalculationConfiguration</scope><name>shouldPreferSignExpressionForPositiveValues</name></member>
+      <member refid="class_cmd_calculator_1_1_calculation_configuration_1a49c9954eb90bfb41da179e7c5fd1b871" prot="public" virt="non-virtual"><scope>CmdCalculator::CalculationConfiguration</scope><name>shouldPreferTrailingZeroOverEmptyDecimalPlace</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

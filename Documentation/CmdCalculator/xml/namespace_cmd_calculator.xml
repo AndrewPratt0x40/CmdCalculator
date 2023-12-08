@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespace_cmd_calculator" kind="namespace" language="C++">
+    <compoundname>CmdCalculator</compoundname>
+    <innerclass refid="class_cmd_calculator_1_1_calculation_configuration" prot="public">CmdCalculator::CalculationConfiguration</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_process" prot="public">CmdCalculator::Process</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="CalculationConfiguration.h" line="4" column="1"/>
+  </compounddef>
+</doxygen>
