@@ -7,6 +7,9 @@
     <ClCompile Include="CalculationConfigurationTests.cpp">
       <Filter>Source Code\Tests</Filter>
     </ClCompile>
+    <ClCompile Include="stringsTests.cpp">
+      <Filter>Source Code\Tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -22,6 +25,9 @@
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Source Code\pch</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>Source Code</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

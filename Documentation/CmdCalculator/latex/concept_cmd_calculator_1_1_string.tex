@@ -1,0 +1,31 @@
+\doxysection{Cmd\+Calculator\+::String Concept Reference}
+\hypertarget{concept_cmd_calculator_1_1_string}{}\label{concept_cmd_calculator_1_1_string}\index{CmdCalculator::String@{CmdCalculator::String}}
+
+
+A string type.  
+
+
+
+
+{\ttfamily \#include $<$strings.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T,\ \textcolor{keyword}{class}\ CharT>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_string}{CmdCalculator::String}}\ =\ \ std::common\_with<T,\ std::basic\_string<CharT>>}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+A string type. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The string type. \\
+\hline
+{\em CharT} & The type of the characters of {\ttfamily T}.\\
+\hline
+\end{DoxyTemplParams}
+To satisfy this concept, {\ttfamily T} must be able to be represented by std\+::basic\+\_\+string\texorpdfstring{$<$}{<}{\ttfamily CharT\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}}. 

@@ -48,7 +48,7 @@ namespace CmdCalculator
 		bool shouldPreferTrailingZeroOverEmptyDecimalPlace();
 
 
-		/// \brief Creates a new instance of the <see cref="CalculationConfiguration"/> class.
+		/// \brief Creates a new instance of the \ref CalculationConfiguration class.
 		/// \param[in] precision How many decimal places are to be included in the answer of a calculation.
 		/// \param[in] shouldPreferDecimalsOverIntegers True if integers should have decimal points in the answer of a calculation, false if integers should have no decimal points.
 		/// \param[in] shouldPreferSignExpressionForPositiveValues True if positive values should be displayed as a sign expression in the answer of a calculation, false if positive values should stay as-is.

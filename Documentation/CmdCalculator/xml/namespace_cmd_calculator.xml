@@ -3,7 +3,8 @@
   <compounddef id="namespace_cmd_calculator" kind="namespace" language="C++">
     <compoundname>CmdCalculator</compoundname>
     <innerclass refid="class_cmd_calculator_1_1_calculation_configuration" prot="public">CmdCalculator::CalculationConfiguration</innerclass>
-    <innerclass refid="class_cmd_calculator_1_1_process" prot="public">CmdCalculator::Process</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_not_implemented_exception" prot="public">CmdCalculator::NotImplementedException</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_process_configuration" prot="public">CmdCalculator::ProcessConfiguration</innerclass>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

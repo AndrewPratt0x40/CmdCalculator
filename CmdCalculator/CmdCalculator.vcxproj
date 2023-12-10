@@ -145,6 +145,8 @@
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h" />
     <ClInclude Include="NotImplementedException.h" />
+    <ClInclude Include="ProcessConfiguration.h" />
+    <ClInclude Include="strings.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp" />

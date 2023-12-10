@@ -120,7 +120,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a49c9954eb90bfb41da179e7c5fd1b871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor for the preferred representation of trailing zeros.  <br /></td></tr>
 <tr class="separator:a49c9954eb90bfb41da179e7c5fd1b871"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a728f7de916eb80d91db47fc49d6d4258" id="r_a728f7de916eb80d91db47fc49d6d4258"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cmd_calculator_1_1_calculation_configuration.html#a728f7de916eb80d91db47fc49d6d4258">CalculationConfiguration</a> (int precision, bool <a class="el" href="class_cmd_calculator_1_1_calculation_configuration.html#a97b1721dbc47612ad98d4d4e61c400e7">shouldPreferDecimalsOverIntegers</a>, bool <a class="el" href="class_cmd_calculator_1_1_calculation_configuration.html#ac4ce56163602dca95bfb6be6c680d330">shouldPreferSignExpressionForPositiveValues</a>, bool <a class="el" href="class_cmd_calculator_1_1_calculation_configuration.html#ac3e3d539a6e80b00a15495a0490aa106">shouldPreferLeadingZeroOverWholelessNumbers</a>, bool <a class="el" href="class_cmd_calculator_1_1_calculation_configuration.html#a49c9954eb90bfb41da179e7c5fd1b871">shouldPreferTrailingZeroOverEmptyDecimalPlace</a>)</td></tr>
-<tr class="memdesc:a728f7de916eb80d91db47fc49d6d4258"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new instance of the <a class="el" href="class_cmd_calculator_1_1_calculation_configuration.html" title="A collection of preferences for how calculations should be done.">CalculationConfiguration</a> class.  <br /></td></tr>
+<tr class="memdesc:a728f7de916eb80d91db47fc49d6d4258"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new instance of the <a class="el" href="class_cmd_calculator_1_1_calculation_configuration.html">CalculationConfiguration</a> class.  <br /></td></tr>
 <tr class="separator:a728f7de916eb80d91db47fc49d6d4258"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -170,7 +170,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a new instance of the <a class="el" href="class_cmd_calculator_1_1_calculation_configuration.html" title="A collection of preferences for how calculations should be done.">CalculationConfiguration</a> class. </p>
+<p>Creates a new instance of the <a class="el" href="class_cmd_calculator_1_1_calculation_configuration.html">CalculationConfiguration</a> class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">precision</td><td>How many decimal places are to be included in the answer of a calculation. </td></tr>
@@ -178,6 +178,12 @@ Public Member Functions</h2></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">shouldPreferSignExpressionForPositiveValues</td><td>True if positive values should be displayed as a sign expression in the answer of a calculation, false if positive values should stay as-is. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">shouldPreferLeadingZeroOverWholelessNumbers</td><td>True if numbers with an absolute value greater than zero and less than one should be shown with a leading zero before the decimal point in the answer of a calculation, false to show nothing before the decimal point. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">shouldPreferTrailingZeroOverEmptyDecimalPlace</td><td>True if integers should be shown with a trailing zero after the decimal point in the answer of a calculation, false to show nothing after the decimal point. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td><code>precision</code> is negative. </td></tr>
   </table>
   </dd>
 </dl>
@@ -285,8 +291,9 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_calculation_configuration_8h_source.html">CalculationConfiguration.h</a></li>
+<li><a class="el" href="_calculation_configuration_8cpp.html">CalculationConfiguration.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

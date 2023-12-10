@@ -15,6 +15,12 @@
     <ClInclude Include="NotImplementedException.h">
       <Filter>Source Code</Filter>
     </ClInclude>
+    <ClInclude Include="ProcessConfiguration.h">
+      <Filter>Source Code</Filter>
+    </ClInclude>
+    <ClInclude Include="strings.h">
+      <Filter>Source Code</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">

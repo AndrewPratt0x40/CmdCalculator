@@ -1,6 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
   <compound refid="class_cmd_calculator_1_1_calculation_configuration" kind="class"><name>CmdCalculator::CalculationConfiguration</name>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1a6d63a128eeffb60054c003693de279d9" kind="variable"><name>m_precision</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1a5ea12308cbbcc4a6a9ab3dc7f90b1dd3" kind="variable"><name>m_shouldPreferDecimalsOverIntegers</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1a3d6fa3508ef55e34eacb09046a0d566e" kind="variable"><name>m_shouldPreferSignExpressionForPositiveValues</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1a8489170745681b397cb5de6b18f9c6dd" kind="variable"><name>m_shouldPreferLeadingZeroOverWholelessNumbers</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1a6789121d2e790a46298aa8dc9a6cab71" kind="variable"><name>m_shouldPreferTrailingZeroOverEmptyDecimalPlace</name></member>
     <member refid="class_cmd_calculator_1_1_calculation_configuration_1a145e305db4994417b9df79c5f8109352" kind="function"><name>getPrecision</name></member>
     <member refid="class_cmd_calculator_1_1_calculation_configuration_1a97b1721dbc47612ad98d4d4e61c400e7" kind="function"><name>shouldPreferDecimalsOverIntegers</name></member>
     <member refid="class_cmd_calculator_1_1_calculation_configuration_1ac4ce56163602dca95bfb6be6c680d330" kind="function"><name>shouldPreferSignExpressionForPositiveValues</name></member>
@@ -8,14 +13,25 @@
     <member refid="class_cmd_calculator_1_1_calculation_configuration_1a49c9954eb90bfb41da179e7c5fd1b871" kind="function"><name>shouldPreferTrailingZeroOverEmptyDecimalPlace</name></member>
     <member refid="class_cmd_calculator_1_1_calculation_configuration_1a728f7de916eb80d91db47fc49d6d4258" kind="function"><name>CalculationConfiguration</name></member>
   </compound>
-  <compound refid="class_cmd_calculator_1_1_process" kind="class"><name>CmdCalculator::Process</name>
+  <compound refid="class_cmd_calculator_1_1_not_implemented_exception" kind="class"><name>CmdCalculator::NotImplementedException</name>
+    <member refid="class_cmd_calculator_1_1_not_implemented_exception_1adf953109a6c4dd067db41dc5af237e96" kind="function"><name>what</name></member>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_process_configuration" kind="class"><name>CmdCalculator::ProcessConfiguration</name>
+  </compound>
+  <compound refid="concept_cmd_calculator_1_1_string" kind="concept"><name>CmdCalculator::String</name>
   </compound>
   <compound refid="namespace_cmd_calculator" kind="namespace"><name>CmdCalculator</name>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
   </compound>
   <compound refid="_calculation_configuration_8cpp" kind="file"><name>CalculationConfiguration.cpp</name>
   </compound>
   <compound refid="_calculation_configuration_8h" kind="file"><name>CalculationConfiguration.h</name>
   </compound>
-  <compound refid="_process_8h" kind="file"><name>Process.h</name>
+  <compound refid="_not_implemented_exception_8h" kind="file"><name>NotImplementedException.h</name>
+  </compound>
+  <compound refid="_process_configuration_8h" kind="file"><name>ProcessConfiguration.h</name>
+  </compound>
+  <compound refid="strings_8h" kind="file"><name>strings.h</name>
   </compound>
 </doxygenindex>
