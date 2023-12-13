@@ -12,8 +12,16 @@ A string type.
 \doxysubsection{Concept definition}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T,\ \textcolor{keyword}{class}\ CharT>}
-\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_string}{CmdCalculator::String}}\ =\ \ std::common\_with<T,\ std::basic\_string<CharT>>}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_string}{CmdCalculator::String}}\ =\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{requires}()}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ T::value\_type;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ T::traits\_type;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ T::allocator\_type;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string_of_char}{StringOfChar<T,\ typename\ T::value\_type>}}}
+\DoxyCodeLine{\ \ \ \ }
 
 \end{DoxyCode}
 
@@ -23,9 +31,7 @@ A string type.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em T} & The string type. \\
-\hline
-{\em CharT} & The type of the characters of {\ttfamily T}.\\
+{\em T} & The string type.\\
 \hline
 \end{DoxyTemplParams}
-To satisfy this concept, {\ttfamily T} must be able to be represented by std\+::basic\+\_\+string\texorpdfstring{$<$}{<}{\ttfamily CharT\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}}. 
+To satisfy this concept, {\ttfamily T} must be able to be represented by std\+::basic\+\_\+string. 

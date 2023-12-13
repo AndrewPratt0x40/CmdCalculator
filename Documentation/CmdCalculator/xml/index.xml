@@ -13,20 +13,38 @@
     <member refid="class_cmd_calculator_1_1_calculation_configuration_1a49c9954eb90bfb41da179e7c5fd1b871" kind="function"><name>shouldPreferTrailingZeroOverEmptyDecimalPlace</name></member>
     <member refid="class_cmd_calculator_1_1_calculation_configuration_1a728f7de916eb80d91db47fc49d6d4258" kind="function"><name>CalculationConfiguration</name></member>
   </compound>
+  <compound refid="class_cmd_calculator_1_1_foo" kind="class"><name>CmdCalculator::Foo</name>
+  </compound>
   <compound refid="class_cmd_calculator_1_1_not_implemented_exception" kind="class"><name>CmdCalculator::NotImplementedException</name>
     <member refid="class_cmd_calculator_1_1_not_implemented_exception_1adf953109a6c4dd067db41dc5af237e96" kind="function"><name>what</name></member>
   </compound>
-  <compound refid="class_cmd_calculator_1_1_process_configuration" kind="class"><name>CmdCalculator::ProcessConfiguration</name>
+  <compound refid="struct_cmd_calculator_1_1_process_configuration" kind="struct"><name>CmdCalculator::ProcessConfiguration</name>
+    <member refid="struct_cmd_calculator_1_1_process_configuration_1a618b4e295a90e377fc627e16a7e20b18" kind="variable"><name>givenExpression</name></member>
+    <member refid="struct_cmd_calculator_1_1_process_configuration_1af2e5405b1b429b4f1307a7d6e8a6aa24" kind="variable"><name>CalculationConfiguration</name></member>
+  </compound>
+  <compound refid="concept_cmd_calculator_1_1_console" kind="concept"><name>CmdCalculator::Console</name>
   </compound>
   <compound refid="concept_cmd_calculator_1_1_string" kind="concept"><name>CmdCalculator::String</name>
   </compound>
+  <compound refid="concept_cmd_calculator_1_1_string_of_char" kind="concept"><name>CmdCalculator::StringOfChar</name>
+  </compound>
+  <compound refid="concept_cmd_calculator_1_1_string_view" kind="concept"><name>CmdCalculator::StringView</name>
+  </compound>
+  <compound refid="concept_cmd_calculator_1_1_string_view_of_char" kind="concept"><name>CmdCalculator::StringViewOfChar</name>
+  </compound>
   <compound refid="namespace_cmd_calculator" kind="namespace"><name>CmdCalculator</name>
+    <member refid="namespace_cmd_calculator_1a8e769d3360222ca267d3f48bfb16f5b1" kind="enum"><name>EWriteMode</name></member>
+    <member refid="namespace_cmd_calculator_1a8e769d3360222ca267d3f48bfb16f5b1a4059b0251f66a18cb56f544728796875" kind="enumvalue"><name>Info</name></member>
+    <member refid="namespace_cmd_calculator_1a8e769d3360222ca267d3f48bfb16f5b1a902b0d55fddef6f8d651fe1035b7d4bd" kind="enumvalue"><name>Error</name></member>
+    <member refid="namespace_cmd_calculator_1a8e769d3360222ca267d3f48bfb16f5b1aa603905470e2a5b8c13e96b579ef0dba" kind="enumvalue"><name>Debug</name></member>
   </compound>
   <compound refid="namespacestd" kind="namespace"><name>std</name>
   </compound>
   <compound refid="_calculation_configuration_8cpp" kind="file"><name>CalculationConfiguration.cpp</name>
   </compound>
   <compound refid="_calculation_configuration_8h" kind="file"><name>CalculationConfiguration.h</name>
+  </compound>
+  <compound refid="_console_8h" kind="file"><name>Console.h</name>
   </compound>
   <compound refid="_not_implemented_exception_8h" kind="file"><name>NotImplementedException.h</name>
   </compound>

@@ -7,6 +7,9 @@
     <Filter Include="Source Code\CalculationConfiguration">
       <UniqueIdentifier>{2d53abbe-d655-46e6-a863-3db42d185559}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Console">
+      <UniqueIdentifier>{03fd4d71-8fcb-4692-8d31-8b286168e75b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -20,6 +23,9 @@
     </ClInclude>
     <ClInclude Include="strings.h">
       <Filter>Source Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Console.h">
+      <Filter>Source Code\Console</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

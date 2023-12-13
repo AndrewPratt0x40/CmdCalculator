@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['notimplementedexception_0',['NotImplementedException',['../class_cmd_calculator_1_1_not_implemented_exception.html',1,'CmdCalculator']]],
-  ['notimplementedexception_2eh_1',['NotImplementedException.h',['../_not_implemented_exception_8h.html',1,'']]]
+  ['error_0',['Error',['../namespace_cmd_calculator.html#a8e769d3360222ca267d3f48bfb16f5b1a902b0d55fddef6f8d651fe1035b7d4bd',1,'CmdCalculator']]],
+  ['ewritemode_1',['EWriteMode',['../namespace_cmd_calculator.html#a8e769d3360222ca267d3f48bfb16f5b1',1,'CmdCalculator']]]
 ];

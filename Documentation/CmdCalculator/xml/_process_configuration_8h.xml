@@ -3,12 +3,13 @@
   <compounddef id="_process_configuration_8h" kind="file" language="C++">
     <compoundname>ProcessConfiguration.h</compoundname>
     <includes local="no">optional</includes>
+    <includes refid="strings_8h" local="yes">strings.h</includes>
     <includes refid="_calculation_configuration_8h" local="yes">CalculationConfiguration.h</includes>
     <incdepgraph>
-      <node id="3">
+      <node id="5">
         <label>CalculationConfiguration.h</label>
         <link refid="_calculation_configuration_8h"/>
-        <childnode refid="4" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -18,15 +19,26 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>strings.h</label>
+        <link refid="strings_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>optional</label>
       </node>
-      <node id="4">
+      <node id="6">
         <label>stdexcept</label>
       </node>
+      <node id="4">
+        <label>string</label>
+      </node>
     </incdepgraph>
-    <innerclass refid="class_cmd_calculator_1_1_process_configuration" prot="public">CmdCalculator::ProcessConfiguration</innerclass>
+    <innerclass refid="struct_cmd_calculator_1_1_process_configuration" prot="public">CmdCalculator::ProcessConfiguration</innerclass>
     <innernamespace refid="namespace_cmd_calculator">CmdCalculator</innernamespace>
     <briefdescription>
     </briefdescription>
@@ -37,16 +49,19 @@
 <codeline lineno="2"><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;optional&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_calculation_configuration_8h" kindref="compound">CalculationConfiguration.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_cmd_calculator" kindref="compound">CmdCalculator</ref></highlight></codeline>
-<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="9" refid="class_cmd_calculator_1_1_process_configuration" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_cmd_calculator_1_1_process_configuration" kindref="compound">ProcessConfiguration</ref></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::optional&lt;string&gt;</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="strings_8h" kindref="compound">strings.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_calculation_configuration_8h" kindref="compound">CalculationConfiguration.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_cmd_calculator" kindref="compound">CmdCalculator</ref></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;String<sp/>StringT&gt;</highlight></codeline>
+<codeline lineno="13" refid="struct_cmd_calculator_1_1_process_configuration" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cmd_calculator_1_1_process_configuration" kindref="compound">ProcessConfiguration</ref></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="16" refid="struct_cmd_calculator_1_1_process_configuration_1a618b4e295a90e377fc627e16a7e20b18" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::optional&lt;StringT&gt;<sp/><ref refid="struct_cmd_calculator_1_1_process_configuration_1a618b4e295a90e377fc627e16a7e20b18" kindref="member">givenExpression</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="struct_cmd_calculator_1_1_process_configuration_1af2e5405b1b429b4f1307a7d6e8a6aa24" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_cmd_calculator_1_1_calculation_configuration" kindref="compound">CalculationConfiguration</ref><sp/><ref refid="struct_cmd_calculator_1_1_process_configuration_1af2e5405b1b429b4f1307a7d6e8a6aa24" kindref="member">CalculationConfiguration</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="ProcessConfiguration.h"/>
   </compounddef>

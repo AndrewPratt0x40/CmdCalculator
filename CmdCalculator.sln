@@ -5,7 +5,6 @@ VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DevInfo", "DevInfo", "{BFD38C8F-6A9A-4975-8CC2-D08EEBAD2FAD}"
 	ProjectSection(SolutionItems) = preProject
-		DevInfo\class_diagram.drawio = DevInfo\class_diagram.drawio
 		DevInfo\class_diagram.txt = DevInfo\class_diagram.txt
 		DevInfo\expressions_class_diagram.txt = DevInfo\expressions_class_diagram.txt
 		DevInfo\expression_ebnf.txt = DevInfo\expression_ebnf.txt
@@ -30,6 +29,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{94B19B99-48C7-4FAA-AFE9-750A93F7DDEE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{EE1F3324-4809-4E25-AB21-D727DA9CC8D0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CmdCalculatorTestDoubles", "CmdCalculatorTestDoubles\CmdCalculatorTestDoubles.vcxproj", "{80AA43E2-F1C0-4A47-B09F-1656A1C96FAE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CmdCalculatorTestDoubleTests", "CmdCalculatorTestDoubleTests\CmdCalculatorTestDoubleTests.vcxproj", "{99091EB1-272B-4168-B042-AAE57C8C5E20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,9 +70,32 @@ Global
 		{EE0F80BE-945C-45E8-A699-FC1230169D3C}.Release|x64.Build.0 = Release|x64
 		{EE0F80BE-945C-45E8-A699-FC1230169D3C}.Release|x86.ActiveCfg = Release|Win32
 		{EE0F80BE-945C-45E8-A699-FC1230169D3C}.Release|x86.Build.0 = Release|Win32
+		{80AA43E2-F1C0-4A47-B09F-1656A1C96FAE}.Debug|x64.ActiveCfg = Debug|x64
+		{80AA43E2-F1C0-4A47-B09F-1656A1C96FAE}.Debug|x64.Build.0 = Debug|x64
+		{80AA43E2-F1C0-4A47-B09F-1656A1C96FAE}.Debug|x86.ActiveCfg = Debug|Win32
+		{80AA43E2-F1C0-4A47-B09F-1656A1C96FAE}.Debug|x86.Build.0 = Debug|Win32
+		{80AA43E2-F1C0-4A47-B09F-1656A1C96FAE}.Release|x64.ActiveCfg = Release|x64
+		{80AA43E2-F1C0-4A47-B09F-1656A1C96FAE}.Release|x64.Build.0 = Release|x64
+		{80AA43E2-F1C0-4A47-B09F-1656A1C96FAE}.Release|x86.ActiveCfg = Release|Win32
+		{80AA43E2-F1C0-4A47-B09F-1656A1C96FAE}.Release|x86.Build.0 = Release|Win32
+		{99091EB1-272B-4168-B042-AAE57C8C5E20}.Debug|x64.ActiveCfg = Debug|x64
+		{99091EB1-272B-4168-B042-AAE57C8C5E20}.Debug|x64.Build.0 = Debug|x64
+		{99091EB1-272B-4168-B042-AAE57C8C5E20}.Debug|x86.ActiveCfg = Debug|Win32
+		{99091EB1-272B-4168-B042-AAE57C8C5E20}.Debug|x86.Build.0 = Debug|Win32
+		{99091EB1-272B-4168-B042-AAE57C8C5E20}.Release|x64.ActiveCfg = Release|x64
+		{99091EB1-272B-4168-B042-AAE57C8C5E20}.Release|x64.Build.0 = Release|x64
+		{99091EB1-272B-4168-B042-AAE57C8C5E20}.Release|x86.ActiveCfg = Release|Win32
+		{99091EB1-272B-4168-B042-AAE57C8C5E20}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{04BAED67-6B9A-4D4D-A1A1-CBB2EB87ECD5} = {EE1F3324-4809-4E25-AB21-D727DA9CC8D0}
+		{ED068EE3-BE52-4C59-9B5F-320925E3D05B} = {EE1F3324-4809-4E25-AB21-D727DA9CC8D0}
+		{EE0F80BE-945C-45E8-A699-FC1230169D3C} = {94B19B99-48C7-4FAA-AFE9-750A93F7DDEE}
+		{80AA43E2-F1C0-4A47-B09F-1656A1C96FAE} = {94B19B99-48C7-4FAA-AFE9-750A93F7DDEE}
+		{99091EB1-272B-4168-B042-AAE57C8C5E20} = {94B19B99-48C7-4FAA-AFE9-750A93F7DDEE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {248C21A9-3E4F-47A4-979D-AE5B4B759314}

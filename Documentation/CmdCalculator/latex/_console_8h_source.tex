@@ -1,0 +1,38 @@
+\doxysection{Console.\+h}
+\hypertarget{_console_8h_source}{}\label{_console_8h_source}\mbox{\hyperlink{_console_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{strings_8h}{strings.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_cmd_calculator}{CmdCalculator}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1}{EWriteMode}}}
+\DoxyCodeLine{00010\ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1a4059b0251f66a18cb56f544728796875}{Info}},}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1a902b0d55fddef6f8d651fe1035b7d4bd}{Error}},}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1aa603905470e2a5b8c13e96b579ef0dba}{Debug}}}
+\DoxyCodeLine{00017\ \ \ \ \ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cmd_calculator_1_1_foo}{Foo}}\ \{\};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_console}{Console}}\ =}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{concept_cmd_calculator_1_1_string}{String<typename\ T::StringType>}}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string_view}{StringView<typename\ T::StringViewType>}}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \&\&\ \textcolor{keyword}{requires}(T\ \&\&\ instance)}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.getInput()\ \}\ -\/>\ std::same\_as<typename\ T::StringType>;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \&\&\ \textcolor{keyword}{requires}(T\&\&\ instance,\ \textcolor{keyword}{typename}\ T::StringViewType\ text,\ \mbox{\hyperlink{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1}{EWriteMode}}\ writeMode)}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ instance.write(text,\ writeMode);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ instance.writeLine(text,\ writeMode);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ ;}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}

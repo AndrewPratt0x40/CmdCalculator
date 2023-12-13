@@ -52,7 +52,7 @@
   </option>
   <option  id='MARKDOWN_SUPPORT' default='yes' type='bool'><value>YES</value></option>
   <option  id='TOC_INCLUDE_HEADINGS' default='yes' type='int'><value>5</value></option>
-  <option  id='MARKDOWN_ID_STYLE' default='yes' type='string'><value>DOXYGEN</value></option>
+  <option  id='MARKDOWN_ID_STYLE' default='no' type='string'><value>GITHUB</value></option>
   <option  id='AUTOLINK_SUPPORT' default='yes' type='bool'><value>YES</value></option>
   <option  id='BUILTIN_STL_SUPPORT' default='yes' type='bool'><value>NO</value></option>
   <option  id='CPP_CLI_SUPPORT' default='yes' type='bool'><value>NO</value></option>

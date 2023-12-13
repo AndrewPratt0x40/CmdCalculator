@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_cmd_calculator_1_1_process_configuration" kind="struct" language="C++" prot="public">
+    <compoundname>CmdCalculator::ProcessConfiguration</compoundname>
+    <includes refid="_process_configuration_8h" local="no">ProcessConfiguration.h</includes>
+    <templateparamlist>
+      <param>
+        <type>String</type>
+        <declname>StringT</declname>
+        <defname>StringT</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cmd_calculator_1_1_process_configuration_1a618b4e295a90e377fc627e16a7e20b18" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; StringT &gt;</type>
+        <definition>std::optional&lt;StringT&gt; CmdCalculator::ProcessConfiguration&lt; StringT &gt;::givenExpression</definition>
+        <argsstring></argsstring>
+        <name>givenExpression</name>
+        <qualifiedname>CmdCalculator::ProcessConfiguration::givenExpression</qualifiedname>
+        <briefdescription>
+<para>The expression given to <ref refid="namespace_cmd_calculator" kindref="compound">CmdCalculator</ref> to calculate, if any. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ProcessConfiguration.h" line="16" column="15" bodyfile="ProcessConfiguration.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cmd_calculator_1_1_process_configuration_1af2e5405b1b429b4f1307a7d6e8a6aa24" prot="public" static="no" mutable="no">
+        <type><ref refid="class_cmd_calculator_1_1_calculation_configuration" kindref="compound">CalculationConfiguration</ref></type>
+        <definition>CalculationConfiguration CmdCalculator::ProcessConfiguration&lt; StringT &gt;::CalculationConfiguration</definition>
+        <argsstring></argsstring>
+        <name>CalculationConfiguration</name>
+        <qualifiedname>CmdCalculator::ProcessConfiguration::CalculationConfiguration</qualifiedname>
+        <briefdescription>
+<para>The calculation configuration to use. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ProcessConfiguration.h" line="19" column="26" bodyfile="ProcessConfiguration.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A configuration for a <ref refid="namespace_cmd_calculator" kindref="compound">CmdCalculator</ref> process. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>String</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data type to store strings with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>CmdCalculator::CalculationConfiguration</label>
+        <link refid="class_cmd_calculator_1_1_calculation_configuration"/>
+      </node>
+      <node id="1">
+        <label>CmdCalculator::ProcessConfiguration&lt; StringT &gt;</label>
+        <link refid="struct_cmd_calculator_1_1_process_configuration"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>CalculationConfiguration</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="ProcessConfiguration.h" line="13" column="1" bodyfile="ProcessConfiguration.h" bodystart="14" bodyend="20"/>
+    <listofallmembers>
+      <member refid="struct_cmd_calculator_1_1_process_configuration_1af2e5405b1b429b4f1307a7d6e8a6aa24" prot="public" virt="non-virtual"><scope>CmdCalculator::ProcessConfiguration</scope><name>CalculationConfiguration</name></member>
+      <member refid="struct_cmd_calculator_1_1_process_configuration_1a618b4e295a90e377fc627e16a7e20b18" prot="public" virt="non-virtual"><scope>CmdCalculator::ProcessConfiguration</scope><name>givenExpression</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

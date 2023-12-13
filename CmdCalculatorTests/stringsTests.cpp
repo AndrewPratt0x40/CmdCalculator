@@ -20,12 +20,11 @@ namespace CmdCalculatorTests
 
 
 	template<class T>
-	class StringOfCharFixture :
+	class StringOfCharTests :
 		public testing::Test
 	{};
-	TYPED_TEST_CASE_P(StringOfCharFixture);
 
-	using StringOfChar_TypeParamValues = testing::Types
+	using StringOfCharTests_Types = testing::Types
 	<
 		StringOfChar_TypeParams<int, EmptyStruct, false>,
 		StringOfChar_TypeParams<int, char, false>,
@@ -38,8 +37,10 @@ namespace CmdCalculatorTests
 		StringOfChar_TypeParams<std::basic_string<wchar_t>, wchar_t, true>
 	>;
 
+	TYPED_TEST_CASE(StringOfCharTests, StringOfCharTests_Types);
 
-	TYPED_TEST_P(StringOfCharFixture, Only$expected$types$satisfy)
+
+	TYPED_TEST(StringOfCharTests, Only$expected$types$satisfy)
 	{
 		// Arrange
 		const bool expectSatisfaction{ TypeParam::shouldSatisfy };
@@ -48,10 +49,6 @@ namespace CmdCalculatorTests
 		// Assert
 		EXPECT_EQ(expectSatisfaction, isSatisfactory);
 	}
-
-
-	REGISTER_TYPED_TEST_CASE_P(StringOfCharFixture, Only$expected$types$satisfy);
-	INSTANTIATE_TYPED_TEST_CASE_P(SimpleTypes, StringOfCharFixture, StringOfChar_TypeParamValues);
 
 #pragma endregion
 
@@ -67,12 +64,11 @@ namespace CmdCalculatorTests
 
 
 	template<class T>
-	class StringFixture :
+	class StringTests :
 		public testing::Test
 	{};
-	TYPED_TEST_CASE_P(StringFixture);
 
-	using String_TypeParamValues = testing::Types
+	using StringTests_Types = testing::Types
 	<
 		String_TypeParams<int, false>,
 		String_TypeParams<EmptyStruct, false>,
@@ -84,8 +80,10 @@ namespace CmdCalculatorTests
 		String_TypeParams<std::basic_string<wchar_t>, true>
 	>;
 
+	TYPED_TEST_CASE(StringTests, StringTests_Types);
 
-	TYPED_TEST_P(StringFixture, Only$expected$types$satisfy)
+
+	TYPED_TEST(StringTests, Only$expected$types$satisfy)
 	{
 		// Arrange
 		const bool expectSatisfaction{ TypeParam::shouldSatisfy };
@@ -95,9 +93,93 @@ namespace CmdCalculatorTests
 		EXPECT_EQ(expectSatisfaction, isSatisfactory);
 	}
 
+#pragma endregion
 
-	REGISTER_TYPED_TEST_CASE_P(StringFixture, Only$expected$types$satisfy);
-	INSTANTIATE_TYPED_TEST_CASE_P(SimpleTypes, StringFixture, String_TypeParamValues);
+
+#pragma region StringViewOfChar
+
+	template<class StringViewT, class CharT, bool shouldSatisfyT>
+	struct StringViewOfChar_TypeParams
+	{
+		using StringViewType = StringViewT;
+		using CharType = CharT;
+		static constexpr bool shouldSatisfy = shouldSatisfyT;
+	};
+
+
+	template<class T>
+	class StringViewOfCharTests :
+		public testing::Test
+	{};
+
+	using StringViewOfCharTests_Types = testing::Types
+	<
+		StringViewOfChar_TypeParams<int, EmptyStruct, false>,
+		StringViewOfChar_TypeParams<int, char, false>,
+		StringViewOfChar_TypeParams<int, wchar_t, false>,
+		StringViewOfChar_TypeParams<std::basic_string_view<char>, EmptyStruct, false>,
+		StringViewOfChar_TypeParams<std::basic_string_view<char>, char, true>,
+		StringViewOfChar_TypeParams<std::basic_string_view<char>, wchar_t, false>,
+		StringViewOfChar_TypeParams<std::basic_string_view<wchar_t>, EmptyStruct, false>,
+		StringViewOfChar_TypeParams<std::basic_string_view<wchar_t>, char, false>,
+		StringViewOfChar_TypeParams<std::basic_string_view<wchar_t>, wchar_t, true>
+	>;
+
+	TYPED_TEST_CASE(StringViewOfCharTests, StringViewOfCharTests_Types);
+
+
+	TYPED_TEST(StringViewOfCharTests, Only$expected$types$satisfy)
+	{
+		// Arrange
+		const bool expectSatisfaction{ TypeParam::shouldSatisfy };
+		const bool isSatisfactory{ CmdCalculator::StringOfChar<typename TypeParam::StringViewType, typename TypeParam::CharType> };
+
+		// Assert
+		EXPECT_EQ(expectSatisfaction, isSatisfactory);
+	}
+
+#pragma endregion
+
+
+#pragma region StringView
+
+	template<class StringViewT, bool shouldSatisfyT>
+	struct StringView_TypeParams
+	{
+		using StringViewType = StringViewT;
+		static constexpr bool shouldSatisfy = shouldSatisfyT;
+	};
+
+
+	template<class T>
+	class StringViewTests :
+		public testing::Test
+	{};
+
+	using StringViewTests_Types = testing::Types
+	<
+		StringView_TypeParams<int, false>,
+		StringView_TypeParams<EmptyStruct, false>,
+		StringView_TypeParams<char, false>,
+		StringView_TypeParams<wchar_t, false>,
+		StringView_TypeParams<std::basic_string_view<int>, true>,
+		StringView_TypeParams<std::basic_string_view<EmptyStruct>, true>,
+		StringView_TypeParams<std::basic_string_view<char>, true>,
+		StringView_TypeParams<std::basic_string_view<wchar_t>, true>
+	>;
+
+	TYPED_TEST_CASE(StringViewTests, StringViewTests_Types);
+
+
+	TYPED_TEST(StringViewTests, Only$expected$types$satisfy)
+	{
+		// Arrange
+		const bool expectSatisfaction{ TypeParam::shouldSatisfy };
+		const bool isSatisfactory{ CmdCalculator::StringView<typename TypeParam::StringViewType> };
+
+		// Assert
+		EXPECT_EQ(expectSatisfaction, isSatisfactory);
+	}
 
 #pragma endregion
 }

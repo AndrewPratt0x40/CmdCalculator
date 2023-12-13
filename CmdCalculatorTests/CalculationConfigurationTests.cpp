@@ -28,12 +28,12 @@ namespace CmdCalculatorTests
 
 #pragma region Constructor with valid parameters
 
-	class CtorWithValidParamsFixture :
+	class CtorWithValidParamsTests :
 		public testing::TestWithParam<CalculationConfiguration_CtorParams>
 	{};
 
 
-	TEST_P(CtorWithValidParamsFixture, Constructor$with$valid$params$sets$expected$values)
+	TEST_P(CtorWithValidParamsTests, Constructor$with$valid$params$sets$expected$values)
 	{
 		// Arrange / Act
 		CmdCalculator::CalculationConfiguration instance
@@ -57,7 +57,7 @@ namespace CmdCalculatorTests
 	INSTANTIATE_TEST_CASE_P
 	(
 		SimpleValues,
-		CtorWithValidParamsFixture,
+		CtorWithValidParamsTests,
 		testing::ValuesIn(validValuesFor_CalculationConfiguration_CtorParams)
 	);
 
@@ -66,12 +66,12 @@ namespace CmdCalculatorTests
 
 #pragma region Constructor with invalid parameters
 
-	class CtorWithNegativePrecisionFixture :
+	class CtorWithNegativePrecisionTests :
 		public testing::TestWithParam<CalculationConfiguration_CtorParams>
 	{};
 
 
-	TEST_P(CtorWithNegativePrecisionFixture, Constructor$with$negative$precision$throws$invalid$argument)
+	TEST_P(CtorWithNegativePrecisionTests, Constructor$with$negative$precision$throws$invalid$argument)
 	{
 		// Arrange
 		auto action
@@ -97,7 +97,7 @@ namespace CmdCalculatorTests
 	INSTANTIATE_TEST_CASE_P
 	(
 		SimpleValues,
-		CtorWithNegativePrecisionFixture,
+		CtorWithNegativePrecisionTests,
 		testing::ValuesIn(negativePrecisionsFor_CalculationConfiguration_CtorParams)
 	);
 

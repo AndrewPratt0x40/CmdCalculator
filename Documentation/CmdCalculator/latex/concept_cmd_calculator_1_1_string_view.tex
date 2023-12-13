@@ -1,0 +1,36 @@
+\doxysection{Cmd\+Calculator\+::String\+View Concept Reference}
+\hypertarget{concept_cmd_calculator_1_1_string_view}{}\label{concept_cmd_calculator_1_1_string_view}\index{CmdCalculator::StringView@{CmdCalculator::StringView}}
+
+
+A string view type.  
+
+
+
+
+{\ttfamily \#include $<$strings.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_string_view}{CmdCalculator::StringView}}\ =\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{requires}()}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ T::value\_type;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ T::traits\_type;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string_view_of_char}{StringViewOfChar<T,\ typename\ T::value\_type>}}}
+\DoxyCodeLine{\ \ \ \ }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+A string view type. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The string view type.\\
+\hline
+\end{DoxyTemplParams}
+To satisfy this concept, {\ttfamily T} must be able to be represented by std\+::basic\+\_\+string\+\_\+view. 

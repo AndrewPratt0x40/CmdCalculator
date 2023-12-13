@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_cmd_calculator_1_1_foo" kind="class" language="C++" prot="public">
+    <compoundname>CmdCalculator::Foo</compoundname>
+    <includes refid="_console_8h" local="no">Console.h</includes>
+    <briefdescription>
+<para>Hey. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Console.h" line="20" column="1" bodyfile="Console.h" bodystart="20" bodyend="20"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

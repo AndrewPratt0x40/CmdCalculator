@@ -25,4 +25,25 @@ namespace CmdCalculator
 		}
 		&& StringOfChar<T, typename T::value_type>
 	;
+
+
+	/// \brief A string view type.
+	/// \tparam T The string view type.
+	/// \tparam CharT The type of the characters of \p T.
+	/// \details To satisfy this concept, \p T must be able to be represented by std::basic_string_view<\p CharT>>.
+	template<class T, class CharT>
+	concept StringViewOfChar = std::common_with<T, std::basic_string_view<CharT>>;
+
+	/// \brief A string view type.
+	/// \tparam T The string view type.
+	/// \details To satisfy this concept, \p T must be able to be represented by std::basic_string_view.
+	template<class T>
+	concept StringView =
+		requires()
+		{
+			typename T::value_type;
+			typename T::traits_type;
+		}
+		&& StringViewOfChar<T, typename T::value_type>
+	;
 }
