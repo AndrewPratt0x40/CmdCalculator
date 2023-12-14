@@ -124,7 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FakeConsoleTests.cpp" />
-    <ClCompile Include="FakeExpressionTests.cpp" />
+    <ClCompile Include="StubExpressionTests.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -139,6 +139,9 @@
   <ItemGroup>
     <ProjectReference Include="..\CmdCalculatorTestDoubles\CmdCalculatorTestDoubles.vcxproj">
       <Project>{80aa43e2-f1c0-4a47-b09f-1656a1c96fae}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CmdCalculator\CmdCalculator.vcxproj">
+      <Project>{04baed67-6b9a-4d4d-a1a1-cbb2eb87ecd5}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

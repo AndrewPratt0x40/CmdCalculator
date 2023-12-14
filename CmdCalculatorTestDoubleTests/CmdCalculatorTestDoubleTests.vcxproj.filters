@@ -10,7 +10,7 @@
     <ClCompile Include="StubExpressionToStringConverterTests.cpp">
       <Filter>Source Code\Tests\Conversions</Filter>
     </ClCompile>
-    <ClCompile Include="FakeExpressionTests.cpp">
+    <ClCompile Include="StubExpressionTests.cpp">
       <Filter>Source Code\Tests\Expressions</Filter>
     </ClCompile>
   </ItemGroup>

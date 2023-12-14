@@ -27,7 +27,7 @@
     <ClInclude Include="StubStringToMathAstConverter.h">
       <Filter>Source Code\Conversions</Filter>
     </ClInclude>
-    <ClInclude Include="FakeExpression.h">
+    <ClInclude Include="StubExpression.h">
       <Filter>Source Code\Expressions</Filter>
     </ClInclude>
   </ItemGroup>

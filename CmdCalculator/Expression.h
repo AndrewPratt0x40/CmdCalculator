@@ -17,7 +17,9 @@ namespace CmdCalculator::Expressions
 		&& requires(T&& instance)
 		{
 			{ instance.isSimplifiable() } -> std::same_as<bool>;
-			{ instance.getFullSimplification() } -> Expression;
+			// TODO: The following line causes a C7598 error in Visual Studio, and an infinite loop when compiling. Possibly a bug in MSVC.
+			//{ instance.getFullSimplification() } -> Expression;
+			{ instance.getFullSimplification() } -> std::derived_from<Expression_IntendedSatisfaction>;
 		}
 	;
 }

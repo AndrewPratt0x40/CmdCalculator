@@ -10,6 +10,7 @@
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculator/strings.h"
 #include "../CmdCalculatorTestDoubles/StubExpressionToStringConverter.h"
+#include "../CmdCalculatorTestDoubles/StubExpression.h"
 
 using namespace std::literals::string_literals;
 using namespace std::literals::string_view_literals;
@@ -25,14 +26,14 @@ namespace CmdCalculatorTestDoubleTests
 		using StringType = StringT;
 	};
 	
-	template<StubExpressionToStringConverter_TParams T>
+	template<class T>
 	class StubExpressionToStringConverterWithTParamsTests :
 		public testing::Test
 	{};
 
 	using StubExpressionToStringConverterWithTParamsTests_Types = testing::Types
 	<
-		StubExpressionToStringConverter_TParams<TODO, TODO>
+		StubExpressionToStringConverter_TParams<CmdCalculatorTestDoubles::Expressions::StubExpression<int>, std::string>
 	>;
 
 	TYPED_TEST_CASE(StubExpressionToStringConverterWithTParamsTests, StubExpressionToStringConverterWithTParamsTests_Types);
@@ -40,17 +41,22 @@ namespace CmdCalculatorTestDoubleTests
 
 	TYPED_TEST(StubExpressionToStringConverterWithTParamsTests, StubExpressionToStringConverterWithTParamsTests$ExpressionToStringConverter$concept)
 	{
-		EXPECT_TRUE
-		(
+		// Arrange
+		const bool isConceptSatisfied
+		{
 			CmdCalculator::ExpressionToStringConverter
 			<
 				CmdCalculatorTestDoubles::StubExpressionToStringConverter
 				<
 					typename TypeParam::ExpressionType,
 					typename TypeParam::StringType
-				>
+				>,
+				typename TypeParam::ExpressionType
 			>
-		);
+		};
+		
+		// Assert
+		EXPECT_TRUE(isConceptSatisfied);
 	}
 
 #pragma endregion
