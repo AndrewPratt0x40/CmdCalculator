@@ -10,6 +10,15 @@
     <Filter Include="Source Code\Console">
       <UniqueIdentifier>{03fd4d71-8fcb-4692-8d31-8b286168e75b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Math AST">
+      <UniqueIdentifier>{8668adda-befc-4fab-8630-231000c77fa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions">
+      <UniqueIdentifier>{bf3f20b8-da31-4638-8f4a-f770dd8c5095}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions">
+      <UniqueIdentifier>{ddb9ad41-d3b7-44c1-bd38-8e61fe661325}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -18,14 +27,35 @@
     <ClInclude Include="NotImplementedException.h">
       <Filter>Source Code</Filter>
     </ClInclude>
-    <ClInclude Include="ProcessConfiguration.h">
-      <Filter>Source Code</Filter>
-    </ClInclude>
     <ClInclude Include="strings.h">
       <Filter>Source Code</Filter>
     </ClInclude>
     <ClInclude Include="Console.h">
       <Filter>Source Code\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="RawCmdLineArgParser.h">
+      <Filter>Source Code</Filter>
+    </ClInclude>
+    <ClInclude Include="MathAstNode.h">
+      <Filter>Source Code\Math AST</Filter>
+    </ClInclude>
+    <ClInclude Include="StringToMathAstConverter.h">
+      <Filter>Source Code\Conversions</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressionNode.h">
+      <Filter>Source Code\Math AST</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressionPartNode.h">
+      <Filter>Source Code\Math AST</Filter>
+    </ClInclude>
+    <ClInclude Include="Expression.h">
+      <Filter>Source Code\Expressions</Filter>
+    </ClInclude>
+    <ClInclude Include="MathAstToExpressionConverter.h">
+      <Filter>Source Code\Conversions</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressionToStringConverter.h">
+      <Filter>Source Code\Conversions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

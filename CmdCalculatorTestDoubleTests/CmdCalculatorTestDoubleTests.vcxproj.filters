@@ -5,7 +5,13 @@
       <Filter>Source Code\pch</Filter>
     </ClCompile>
     <ClCompile Include="FakeConsoleTests.cpp">
-      <Filter>Source Code\Tests</Filter>
+      <Filter>Source Code\Tests\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="StubExpressionToStringConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions</Filter>
+    </ClCompile>
+    <ClCompile Include="FakeExpressionTests.cpp">
+      <Filter>Source Code\Tests\Expressions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -18,10 +24,22 @@
     <Filter Include="Source Code\Tests">
       <UniqueIdentifier>{a0f3f260-0f09-46d9-beb6-51a624fa7257}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Tests\Console">
+      <UniqueIdentifier>{9b2cec71-fb98-48d8-8b04-cee73e042049}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions">
+      <UniqueIdentifier>{9e29f757-e175-4c65-ae9b-94585de87f0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Expressions">
+      <UniqueIdentifier>{cb1ed799-06a2-433b-afe1-82718eab37ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Source Code\pch</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

@@ -7,10 +7,28 @@
     <Filter Include="Source Code\Console">
       <UniqueIdentifier>{f3e65078-8c44-4c69-8a24-d51fb1ad5837}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions">
+      <UniqueIdentifier>{26cf7da9-b859-4441-af9a-a35c733fea91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions">
+      <UniqueIdentifier>{54254547-9ab8-40d4-9fcf-1a19bd6a0588}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FakeConsole.h">
       <Filter>Source Code\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="StubExpressionToStringConverter.h">
+      <Filter>Source Code\Conversions</Filter>
+    </ClInclude>
+    <ClInclude Include="StubMathAstToExpressionConverter.h">
+      <Filter>Source Code\Conversions</Filter>
+    </ClInclude>
+    <ClInclude Include="StubStringToMathAstConverter.h">
+      <Filter>Source Code\Conversions</Filter>
+    </ClInclude>
+    <ClInclude Include="FakeExpression.h">
+      <Filter>Source Code\Expressions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
