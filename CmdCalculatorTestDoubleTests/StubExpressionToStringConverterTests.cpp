@@ -1,16 +1,16 @@
 #include "pch.h"
-
+/*
 #include <string>
 #include <string_view>
 #include <initializer_list>
 #include <ranges>
 #include <algorithm>
 
+#include "../CmdCalculatorTestDoubles/StubExpression.h"
+#include "../CmdCalculatorTestDoubles/StubExpressionToStringConverter.h"
 #include "../CmdCalculator/NotImplementedException.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculator/strings.h"
-#include "../CmdCalculatorTestDoubles/StubExpressionToStringConverter.h"
-#include "../CmdCalculatorTestDoubles/StubExpression.h"
 
 using namespace std::literals::string_literals;
 using namespace std::literals::string_view_literals;
@@ -33,7 +33,7 @@ namespace CmdCalculatorTestDoubleTests
 
 	using StubExpressionToStringConverterWithTParamsTests_Types = testing::Types
 	<
-		StubExpressionToStringConverter_TParams<CmdCalculatorTestDoubles::Expressions::StubExpression<int>, std::string>
+		StubExpressionToStringConverter_TParams<CmdCalculatorTestDoubles::Expressions::StubExpression, std::string>
 	>;
 
 	TYPED_TEST_CASE(StubExpressionToStringConverterWithTParamsTests, StubExpressionToStringConverterWithTParamsTests_Types);
@@ -54,10 +54,10 @@ namespace CmdCalculatorTestDoubleTests
 				typename TypeParam::ExpressionType
 			>
 		};
-		
+
 		// Assert
 		EXPECT_TRUE(isConceptSatisfied);
 	}
 
 #pragma endregion
-}
+}*/

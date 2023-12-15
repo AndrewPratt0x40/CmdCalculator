@@ -11,28 +11,12 @@ namespace CmdCalculatorTestDoubleTests
 {
 #pragma region Concept satisfaction
 
-	template<std::regular T>
-	class StubExpressionWithTParamTests :
-		public testing::Test
-	{};
-
-	using StubExpressionWithTParamTests_Types = testing::Types
-	<
-		int,
-		char,
-		bool,
-		std::string
-	>;
-
-	TYPED_TEST_CASE(StubExpressionWithTParamTests, StubExpressionWithTParamTests_Types);
-	
-
-	TYPED_TEST(StubExpressionWithTParamTests, StubExpression$satisfies$Expression$concept)
+	TEST(StubExpressionTests, StubExpression$satisfies$Expression$concept)
 	{
 		// Arrange
 		const bool isConceptSatisfied
 		{
-			CmdCalculator::Expressions::Expression<CmdCalculatorTestDoubles::Expressions::StubExpression<typename TypeParam>>
+			CmdCalculator::Expressions::Expression<CmdCalculatorTestDoubles::Expressions::StubExpression>
 		};
 		
 		// Assert

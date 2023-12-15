@@ -1,35 +1,29 @@
 #pragma once
 
 #include <concepts>
-#include <optional>
+#include <memory>
 
 #include "../CmdCalculator/NotImplementedException.h"
 #include "../CmdCalculator/Expression.h"
 
 namespace CmdCalculatorTestDoubles::Expressions
 {
-	using StubExpressionDefaultIdentifierType = int;
-	static_assert(std::regular<StubExpressionDefaultIdentifierType>);
-
-
-	template<std::regular IdentifierT = StubExpressionDefaultIdentifierType>
 	struct StubExpression :
 		public CmdCalculator::Expressions::Expression_IntendedSatisfaction
 	{
-		using IdentifierType = IdentifierT;
+		bool isSimplifiableValue;
+		std::shared_ptr<StubExpression> fullSimplification;
 
-		IdentifierT identifier;
-		std::optional<StubExpression<IdentifierT>> fullSimplification;
 
 		bool isSimplifiable() const
 		{
-			return identifier;
+			return isSimplifiableValue;
 		}
 
 
-		StubExpression<IdentifierT> getFullSimplification() const
+		StubExpression getFullSimplification() const
 		{
-			return fullSimplification.value_or(*this);
+			return fullSimplification ? *fullSimplification : StubExpression{};
 		}
 	};
 }
