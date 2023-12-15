@@ -13,14 +13,10 @@ namespace CmdCalculatorTestDoubleTests
 
 	TEST(StubExpressionTests, StubExpression$satisfies$Expression$concept)
 	{
-		// Arrange
-		const bool isConceptSatisfied
-		{
+		static_assert
+		(
 			CmdCalculator::Expressions::Expression<CmdCalculatorTestDoubles::Expressions::StubExpression>
-		};
-		
-		// Assert
-		EXPECT_TRUE(isConceptSatisfied);
+		);
 	}
 
 #pragma endregion

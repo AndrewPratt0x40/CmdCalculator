@@ -19,7 +19,7 @@ namespace CmdCalculator
 	concept ExpressionToStringConverter =
 		std::derived_from<T, ExpressionToStringConverter_IntendedSatisfaction>
 		&& Expressions::Expression<ExpressionT>
-		&& requires(T&& instance, ExpressionT source)
+		&& requires(T&& instance, const ExpressionT& source)
 		{
 			{ instance.stringifyExpression(source) } -> String;
 		}

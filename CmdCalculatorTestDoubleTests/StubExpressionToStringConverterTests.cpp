@@ -1,5 +1,5 @@
 #include "pch.h"
-/*
+
 #include <string>
 #include <string_view>
 #include <initializer_list>
@@ -41,9 +41,8 @@ namespace CmdCalculatorTestDoubleTests
 
 	TYPED_TEST(StubExpressionToStringConverterWithTParamsTests, StubExpressionToStringConverterWithTParamsTests$ExpressionToStringConverter$concept)
 	{
-		// Arrange
-		const bool isConceptSatisfied
-		{
+		static_assert
+		(
 			CmdCalculator::ExpressionToStringConverter
 			<
 				CmdCalculatorTestDoubles::StubExpressionToStringConverter
@@ -53,11 +52,8 @@ namespace CmdCalculatorTestDoubleTests
 				>,
 				typename TypeParam::ExpressionType
 			>
-		};
-
-		// Assert
-		EXPECT_TRUE(isConceptSatisfied);
+		);
 	}
 
 #pragma endregion
-}*/
+}

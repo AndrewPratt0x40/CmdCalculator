@@ -12,7 +12,7 @@ namespace CmdCalculatorTestDoubles
 	{
 		StringT stringifiedExpression;
 
-		StringT stringifyExpression() const
+		StringT stringifyExpression(const ExpressionT& source) const
 		{
 			return stringifiedExpression;
 		}
