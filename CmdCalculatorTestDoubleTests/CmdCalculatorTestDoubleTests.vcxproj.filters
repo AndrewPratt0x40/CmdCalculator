@@ -28,6 +28,12 @@
     <ClCompile Include="StubThrowingRawCmdLineArgParserTests.cpp">
       <Filter>Source Code\Tests\RawCmdLineArgParser</Filter>
     </ClCompile>
+    <ClCompile Include="StubCalculationTests.cpp">
+      <Filter>Source Code\Tests\Calculation</Filter>
+    </ClCompile>
+    <ClCompile Include="StubThrowingCalculationTests.cpp">
+      <Filter>Source Code\Tests\Calculation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -53,6 +59,9 @@
     </Filter>
     <Filter Include="Source Code\Tests\RawCmdLineArgParser">
       <UniqueIdentifier>{93f9a107-e4b4-45c3-b9fb-48695198ae80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Calculation">
+      <UniqueIdentifier>{d47e4ed8-9aba-4be3-bd4b-480a056485c9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

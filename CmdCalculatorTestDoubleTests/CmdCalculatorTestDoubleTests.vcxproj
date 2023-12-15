@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FakeConsoleTests.cpp" />
+    <ClCompile Include="StubCalculationTests.cpp" />
     <ClCompile Include="StubExpressionTests.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -136,6 +137,7 @@
     <ClCompile Include="StubMathAstToExpressionConverterTests.cpp" />
     <ClCompile Include="StubRawCmdLineArgParserTests.cpp" />
     <ClCompile Include="StubStringToMathAstConverterTests.cpp" />
+    <ClCompile Include="StubThrowingCalculationTests.cpp" />
     <ClCompile Include="StubThrowingRawCmdLineArgParserTests.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -19,6 +19,9 @@
     <Filter Include="Source Code\RawCmdLineArgParser">
       <UniqueIdentifier>{371b337e-1605-487d-932b-0ef9da0af543}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Calculation">
+      <UniqueIdentifier>{113656e8-2abc-4eee-8870-a4bfe3e12a92}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FakeConsole.h">
@@ -41,6 +44,12 @@
     </ClInclude>
     <ClInclude Include="StubThrowingRawCmdLineArgParser.h">
       <Filter>Source Code\RawCmdLineArgParser</Filter>
+    </ClInclude>
+    <ClInclude Include="StubCalculation.h">
+      <Filter>Source Code\Calculation</Filter>
+    </ClInclude>
+    <ClInclude Include="StubThrowingCalculation.h">
+      <Filter>Source Code\Calculation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

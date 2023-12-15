@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Calculation.h" />
     <ClInclude Include="CalculationConfiguration.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="Expression.h" />

@@ -136,11 +136,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="FakeConsole.h" />
+    <ClInclude Include="StubCalculation.h" />
     <ClInclude Include="StubExpression.h" />
     <ClInclude Include="StubExpressionToStringConverter.h" />
     <ClInclude Include="StubMathAstNode.h" />
     <ClInclude Include="StubMathAstToExpressionConverter.h" />
     <ClInclude Include="StubStringToMathAstConverter.h" />
+    <ClInclude Include="StubThrowingCalculation.h" />
     <ClInclude Include="StubThrowingRawCmdLineArgParser.h" />
   </ItemGroup>
   <ItemGroup>
