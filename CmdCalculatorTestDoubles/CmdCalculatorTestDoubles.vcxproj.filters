@@ -13,6 +13,9 @@
     <Filter Include="Source Code\Expressions">
       <UniqueIdentifier>{54254547-9ab8-40d4-9fcf-1a19bd6a0588}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\MathAst">
+      <UniqueIdentifier>{862287a5-ed56-4d45-951a-ce9c84987339}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FakeConsole.h">
@@ -29,6 +32,9 @@
     </ClInclude>
     <ClInclude Include="StubExpression.h">
       <Filter>Source Code\Expressions</Filter>
+    </ClInclude>
+    <ClInclude Include="StubMathAstNode.h">
+      <Filter>Source Code\MathAst</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -12,7 +12,7 @@ namespace CmdCalculatorTestDoubles
 	{
 		ExpressionT convertedExpression;
 
-		ExpressionT getMathAstAsExpression() const
+		ExpressionT getMathAstAsExpression(const RootMathAstNodeT& sourceRootNode) const
 		{
 			return convertedExpression;
 		}

@@ -13,6 +13,15 @@
     <ClCompile Include="StubExpressionTests.cpp">
       <Filter>Source Code\Tests\Expressions</Filter>
     </ClCompile>
+    <ClCompile Include="StubMathAstToExpressionConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions</Filter>
+    </ClCompile>
+    <ClCompile Include="StubMathAstNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst</Filter>
+    </ClCompile>
+    <ClCompile Include="StubStringToMathAstConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -32,6 +41,9 @@
     </Filter>
     <Filter Include="Source Code\Tests\Expressions">
       <UniqueIdentifier>{cb1ed799-06a2-433b-afe1-82718eab37ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\MathAst">
+      <UniqueIdentifier>{9d50dce3-e664-4d24-9a7a-d6691e271e62}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

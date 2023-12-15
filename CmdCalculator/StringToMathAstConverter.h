@@ -8,7 +8,7 @@
 namespace CmdCalculator
 {
 	/// \brief The base type for types that are intended to satisfy the \ref StringToMathConverter concept.
-	struct StringToMathConverter_IntendedSatisfaction
+	struct StringToMathAstConverter_IntendedSatisfaction
 	{};
 
 
@@ -16,8 +16,8 @@ namespace CmdCalculator
 	/// \tparam T The converter type.
 	/// \tparam StringViewT The string type to be converted into an AST.
 	template<class T, class StringViewT>
-	concept StringToMathConverter =
-		std::derived_from<T, StringToMathConverter_IntendedSatisfaction>
+	concept StringToMathAstConverter =
+		std::derived_from<T, StringToMathAstConverter_IntendedSatisfaction>
 		&& StringView<StringViewT>
 		&& requires(T&& instance, StringViewT source)
 		{

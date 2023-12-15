@@ -132,6 +132,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="StubExpressionToStringConverterTests.cpp" />
+    <ClCompile Include="StubMathAstNodeTests.cpp" />
+    <ClCompile Include="StubMathAstToExpressionConverterTests.cpp" />
+    <ClCompile Include="StubStringToMathAstConverterTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

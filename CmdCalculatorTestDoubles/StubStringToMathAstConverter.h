@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../CmdCalculator/MathAstToExpressionConverter.h"
+#include "../CmdCalculator/StringToMathAstConverter.h"
 #include "../CmdCalculator/strings.h"
 #include "../CmdCalculator/MathAstNode.h"
 
@@ -8,11 +8,11 @@ namespace CmdCalculatorTestDoubles
 {
 	template<CmdCalculator::StringView StringViewT, CmdCalculator::MathAst::MathAstNode MathAstNodeT>
 	struct StubStringToMathAstConverter :
-		public CmdCalculator::MathAstToExpressionConverter_IntendedSatisfaction
+		public CmdCalculator::StringToMathAstConverter_IntendedSatisfaction
 	{
 		MathAstNodeT convertedString;
 
-		MathAstNodeT getStringAsMathAst() const
+		MathAstNodeT getStringAsMathAst(StringViewT source) const
 		{
 			return convertedString;
 		}

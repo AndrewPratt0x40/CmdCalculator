@@ -19,7 +19,7 @@ namespace CmdCalculator
 	concept MathAstToExpressionConverter =
 		std::derived_from<T, MathAstToExpressionConverter_IntendedSatisfaction>
 		&& MathAst::MathAstNode<RootMathAstNodeT>
-		&& requires(T&& instance, RootMathAstNodeT sourceRootNode)
+		&& requires(T&& instance, const RootMathAstNodeT& sourceRootNode)
 	{
 		{ instance.getMathAstAsExpression(sourceRootNode) } -> Expressions::Expression;
 	}

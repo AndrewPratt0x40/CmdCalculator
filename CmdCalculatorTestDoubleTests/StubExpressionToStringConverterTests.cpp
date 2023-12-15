@@ -1,19 +1,12 @@
 #include "pch.h"
 
 #include <string>
-#include <string_view>
-#include <initializer_list>
-#include <ranges>
-#include <algorithm>
 
 #include "../CmdCalculatorTestDoubles/StubExpression.h"
 #include "../CmdCalculatorTestDoubles/StubExpressionToStringConverter.h"
-#include "../CmdCalculator/NotImplementedException.h"
+#include "../CmdCalculator/ExpressionToStringConverter.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculator/strings.h"
-
-using namespace std::literals::string_literals;
-using namespace std::literals::string_view_literals;
 
 namespace CmdCalculatorTestDoubleTests
 {
@@ -39,7 +32,7 @@ namespace CmdCalculatorTestDoubleTests
 	TYPED_TEST_CASE(StubExpressionToStringConverterWithTParamsTests, StubExpressionToStringConverterWithTParamsTests_Types);
 
 
-	TYPED_TEST(StubExpressionToStringConverterWithTParamsTests, StubExpressionToStringConverterWithTParamsTests$ExpressionToStringConverter$concept)
+	TYPED_TEST(StubExpressionToStringConverterWithTParamsTests, StubExpressionToStringConverter$satisfies$ExpressionToStringConverter$concept)
 	{
 		static_assert
 		(

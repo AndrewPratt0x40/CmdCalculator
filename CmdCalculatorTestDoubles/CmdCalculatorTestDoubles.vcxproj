@@ -138,6 +138,7 @@
     <ClInclude Include="FakeConsole.h" />
     <ClInclude Include="StubExpression.h" />
     <ClInclude Include="StubExpressionToStringConverter.h" />
+    <ClInclude Include="StubMathAstNode.h" />
     <ClInclude Include="StubMathAstToExpressionConverter.h" />
     <ClInclude Include="StubStringToMathAstConverter.h" />
   </ItemGroup>

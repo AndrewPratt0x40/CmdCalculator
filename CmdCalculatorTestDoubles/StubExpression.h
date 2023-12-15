@@ -3,7 +3,6 @@
 #include <concepts>
 #include <memory>
 
-#include "../CmdCalculator/NotImplementedException.h"
 #include "../CmdCalculator/Expression.h"
 
 namespace CmdCalculatorTestDoubles::Expressions
