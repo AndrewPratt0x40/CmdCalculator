@@ -1,9 +1,6 @@
 #include "pch.h"
 
 #include <string>
-#include <initializer_list>
-#include <ranges>
-#include <algorithm>
 
 #include "../CmdCalculatorTestDoubles/StubMathAstNode.h"
 

@@ -134,7 +134,9 @@
     <ClCompile Include="StubExpressionToStringConverterTests.cpp" />
     <ClCompile Include="StubMathAstNodeTests.cpp" />
     <ClCompile Include="StubMathAstToExpressionConverterTests.cpp" />
+    <ClCompile Include="StubRawCmdLineArgParserTests.cpp" />
     <ClCompile Include="StubStringToMathAstConverterTests.cpp" />
+    <ClCompile Include="StubThrowingRawCmdLineArgParserTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -57,6 +57,9 @@
     <ClInclude Include="ExpressionToStringConverter.h">
       <Filter>Source Code\Conversions</Filter>
     </ClInclude>
+    <ClInclude Include="ProcessConfiguration.h">
+      <Filter>Source Code</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">

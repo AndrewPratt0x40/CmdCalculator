@@ -152,6 +152,7 @@
     <ClInclude Include="MathAstNode.h" />
     <ClInclude Include="MathAstToExpressionConverter.h" />
     <ClInclude Include="NotImplementedException.h" />
+    <ClInclude Include="ProcessConfiguration.h" />
     <ClInclude Include="RawCmdLineArgParser.h" />
     <ClInclude Include="strings.h" />
     <ClInclude Include="StringToMathAstConverter.h" />

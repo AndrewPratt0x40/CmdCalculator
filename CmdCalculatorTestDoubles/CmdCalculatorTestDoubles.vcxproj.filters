@@ -16,6 +16,9 @@
     <Filter Include="Source Code\MathAst">
       <UniqueIdentifier>{862287a5-ed56-4d45-951a-ce9c84987339}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\RawCmdLineArgParser">
+      <UniqueIdentifier>{371b337e-1605-487d-932b-0ef9da0af543}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FakeConsole.h">
@@ -36,5 +39,13 @@
     <ClInclude Include="StubMathAstNode.h">
       <Filter>Source Code\MathAst</Filter>
     </ClInclude>
+    <ClInclude Include="StubThrowingRawCmdLineArgParser.h">
+      <Filter>Source Code\RawCmdLineArgParser</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="StubRawCmdLineArgParser.h">
+      <Filter>Source Code\RawCmdLineArgParser</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

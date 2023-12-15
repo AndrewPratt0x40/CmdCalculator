@@ -3,7 +3,7 @@
 
 namespace CmdCalculator
 {
-	/// \brief A collection of preferences for how calculations should be done.
+	/// \brief A collection of settings for how calculations should be done.
 	class CalculationConfiguration
 	{
 	private:
