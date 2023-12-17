@@ -14,12 +14,11 @@ namespace CmdCalculator
 
 	/// \brief A type that converts mathematical abstract syntax trees into mathematical expressions.
 	/// \tparam T The converter type.
-	/// \tparam RootMathAstNodeT The type of the root node of a mathematical AST to be converted into an expression.
-	template<class T, class RootMathAstNodeT>
+	template<class T>
 	concept MathAstToExpressionConverter =
 		std::derived_from<T, MathAstToExpressionConverter_IntendedSatisfaction>
-		&& MathAst::MathAstNode<RootMathAstNodeT>
-		&& requires(T&& instance, const RootMathAstNodeT& sourceRootNode)
+		&& MathAst::MathAstNode<typename T::RootMathAstNodeType>
+		&& requires(T&& instance, const typename T::RootMathAstNodeType& sourceRootNode)
 	{
 		{ instance.getMathAstAsExpression(sourceRootNode) } -> Expressions::Expression;
 	}

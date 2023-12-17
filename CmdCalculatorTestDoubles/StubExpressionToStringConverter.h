@@ -10,6 +10,8 @@ namespace CmdCalculatorTestDoubles
 	struct StubExpressionToStringConverter :
 		public CmdCalculator::ExpressionToStringConverter_IntendedSatisfaction
 	{
+		using StringType = StringT;
+
 		StringT stringifiedExpression;
 
 		StringT stringifyExpression(const ExpressionT& source) const

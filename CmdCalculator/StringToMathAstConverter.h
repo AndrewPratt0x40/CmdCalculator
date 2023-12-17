@@ -14,12 +14,11 @@ namespace CmdCalculator
 
 	/// \brief A type that parses strings into mathematical abstract syntax trees.
 	/// \tparam T The converter type.
-	/// \tparam StringViewT The string type to be converted into an AST.
-	template<class T, class StringViewT>
+	template<class T>
 	concept StringToMathAstConverter =
 		std::derived_from<T, StringToMathAstConverter_IntendedSatisfaction>
-		&& StringView<StringViewT>
-		&& requires(T&& instance, StringViewT source)
+		&& StringView<typename T::StringViewType>
+		&& requires(T&& instance, typename T::StringViewType source)
 		{
 			{ instance.getStringAsMathAst(source) } -> MathAst::MathAstNode;
 		}

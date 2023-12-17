@@ -10,6 +10,9 @@ namespace CmdCalculatorTestDoubles
 	struct StubStringToMathAstConverter :
 		public CmdCalculator::StringToMathAstConverter_IntendedSatisfaction
 	{
+		using StringViewType = StringViewT;
+		using MathAstNodeType = MathAstNodeT;
+
 		MathAstNodeT convertedString;
 
 		MathAstNodeT getStringAsMathAst(StringViewT source) const

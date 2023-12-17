@@ -66,6 +66,9 @@
     <ClInclude Include="Calculation.h">
       <Filter>Source Code\Calculation</Filter>
     </ClInclude>
+    <ClInclude Include="Process.h">
+      <Filter>Source Code</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">

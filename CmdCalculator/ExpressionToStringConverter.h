@@ -14,12 +14,11 @@ namespace CmdCalculator
 
 	/// \brief A type that converts mathematical expressions into strings.
 	/// \tparam T The converter type.
-	/// \tparam ExpressionT The type of the expression to be converted into a string.
-	template<class T, class ExpressionT>
+	template<class T>
 	concept ExpressionToStringConverter =
 		std::derived_from<T, ExpressionToStringConverter_IntendedSatisfaction>
-		&& Expressions::Expression<ExpressionT>
-		&& requires(T&& instance, const ExpressionT& source)
+		&& Expressions::Expression<typename T::ExpressionType>
+		&& requires(T&& instance, const typename T::ExpressionType& source)
 		{
 			{ instance.stringifyExpression(source) } -> String;
 		}
