@@ -43,8 +43,7 @@ namespace CmdCalculatorTestDoubleTests
 				<
 					typename TypeParam::StringViewType,
 					typename TypeParam::MathAstNodeType
-				>,
-				typename TypeParam::StringViewType
+				>
 			>
 		);
 	}

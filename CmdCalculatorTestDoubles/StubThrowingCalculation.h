@@ -19,9 +19,6 @@ namespace CmdCalculatorTestDoubles
 			<
 				typename T::InputExpressionType,
 				typename T::OutputExpressionType,
-				typename T::StringViewType,
-				typename T::RootMathAstNodeType,
-				typename T::ExpressionType,
 				typename T::StringToMathAstConverterType,
 				typename T::MathAstToExpressionConverterType,
 				typename T::ExpressionToStringConverterType
@@ -30,11 +27,6 @@ namespace CmdCalculatorTestDoubles
 	struct StubThrowingCalculation :
 		public CmdCalculator::Calculation_IntendedSatisfaction
 	{
-		using StringViewType = typename T::StringViewType;
-		using RootMathAstNodeType = typename T::RootMathAstNodeType;
-		using ExpressionType = typename T::ExpressionType;
-
-
 		ExceptionT exceptionToThrow;
 
 		typename T::InputExpressionType inputExpression;

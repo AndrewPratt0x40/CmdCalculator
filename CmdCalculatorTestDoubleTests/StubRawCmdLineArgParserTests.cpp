@@ -43,8 +43,7 @@ namespace CmdCalculatorTestDoubleTests
 			CmdCalculator::RawCmdLineArgParser
 			<
 				CmdCalculatorTestDoubles::StubRawCmdLineArgParser<typename TypeParam::ExpressionStringType>,
-				typename TypeParam::ArgsType,
-				typename TypeParam::ExpressionStringType
+				typename TypeParam::ArgsType
 			>
 		);
 	}

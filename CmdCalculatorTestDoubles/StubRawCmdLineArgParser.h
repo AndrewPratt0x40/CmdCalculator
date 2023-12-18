@@ -13,6 +13,8 @@ namespace CmdCalculatorTestDoubles
 	struct StubRawCmdLineArgParser :
 		public CmdCalculator::RawCmdLineArgParser_IntendedSatisfaction
 	{
+		using ExpressionStringType = ExpressionStringT;
+
 		CmdCalculator::ProcessConfiguration<ExpressionStringT> parsedRawCmdLineArgs;
 
 		

@@ -15,16 +15,17 @@ namespace CmdCalculator
 
 	/// \brief An object that can parse raw command-line arguments passed to CmdCalculator.
 	/// \tparam T The type of the parser.
-	template<class T>
+	/// \tparam ArgsT The type of ranges of command-line arguments to parse.
+	template<class T, class ArgsT>
 	concept RawCmdLineArgParser =
-		std::ranges::input_range<typename T::ArgsType>
-		&& String<std::ranges::range_value_t<typename T::ArgsType>>
-		&& Expressions::Expression<typename T::ExpressionStringType>
+		std::ranges::input_range<ArgsT>
+		&& String<std::ranges::range_value_t<ArgsT>>
+		&& String<typename T::ExpressionStringType>
 		&& requires()
 		{
 			typename ProcessConfiguration<typename T::ExpressionStringType>;
 		}
-		&& requires(T && instance, typename T::ArgsType rawCmdLineArgs, const ProcessConfiguration<typename T::ExpressionStringT>& defaultConfiguration)
+		&& requires(T && instance, ArgsT rawCmdLineArgs, const ProcessConfiguration<typename T::ExpressionStringType>& defaultConfiguration)
 		{
 			{ instance.parseRawCmdLineArgs(rawCmdLineArgs, defaultConfiguration) } -> std::same_as <ProcessConfiguration<typename T::ExpressionStringType>>;
 		}

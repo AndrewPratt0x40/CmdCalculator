@@ -13,6 +13,9 @@ namespace CmdCalculatorTestDoubles
 	struct StubThrowingRawCmdLineArgParser :
 		public CmdCalculator::RawCmdLineArgParser_IntendedSatisfaction
 	{
+		using ExceptionType = ExceptionT;
+		using ExpressionStringType = ExpressionStringT;
+
 		ExceptionT exceptionToThrow;
 
 

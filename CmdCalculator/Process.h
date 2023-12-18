@@ -3,6 +3,8 @@
 #include <concepts>
 #include <ranges>
 
+#include "NotImplementedException.h"
+#include "Calculation.h"
 #include "strings.h"
 #include "ProcessConfiguration.h"
 #include "Console.h"
@@ -16,40 +18,24 @@ namespace CmdCalculator
 	/// \brief A CmdCalculator process.
 	template
 	<
-		RawCmdLineArgParser RawCmdLineArgParserT,
+		Calculation CalculationT,
+		class RawCmdLineArgParserT,
+		class RawCmdLineArgsT,
 		StringToMathAstConverter StringToMathAstConverterT,
 		MathAstToExpressionConverter MathAstToExpressionConverterT,
 		ExpressionToStringConverter ExpressionToStringConverterT
 	>
+		requires RawCmdLineArgParser<RawCmdLineArgParserT, RawCmdLineArgsT>
 	class Process
 	{
 	public:
+
+		using CalculationType = CalculationT;
+		using RawCmdLineArgParserType = RawCmdLineArgParserT;
+		using StringToMathAstConverterType = StringToMathAstConverterT;
+		using MathAstToExpressionConverterType = MathAstToExpressionConverterT;
+		using ExpressionToStringConverterType = ExpressionToStringConverterT;
 		
-		/// \brief Accessor to the process' raw command-line argument parser.
-		/// \returns The raw command-line argument parser instance.
-		const RawCmdLineArgParserT& getRawCmdLineArgParser() const;
-
-
-		/// \brief Accessor to the process' string to mathematical abstract syntax tree converter.
-		/// \returns The string to mathematical abstract syntax tree converter instance.
-		const StringToMathAstConverterT& getStringToMathAstConverter() const;
-
-
-		/// \brief Accessor to the process' expression to string converter.
-		/// \returns The expression to string converter instance.
-		const ExpressionToStringConverterT& getExpressionToStringConverter() const;
-		
-		
-		/// \brief Executes the process.
-		/// \tparam ConsoleT The type of the console object to be used by the process.
-		/// \tparam ExpressionStringT The string type that represents a given expression.
-		/// \param config The process configuration.
-		/// \param console The text console to use for input and output.
-		/// \returns True if the process ran successfully, false if the process exited due to an error.
-		template<Console ConsoleT, String ExpressionStringT>
-		bool run(const ProcessConfiguration<ExpressionStringT> config, ConsoleT& console);
-
-
 		/// \brief Executes the process.
 		/// \tparam ConsoleT The type of the console object to be used by the process.
 		/// \tparam ExpressionStringT The string type that represents a given expression.
@@ -60,7 +46,10 @@ namespace CmdCalculator
 		/// \returns True if the process ran successfully, false if the process exited due to an error.
 		template<Console ConsoleT, String ExpressionStringT, std::ranges::input_range ArgsT>
 			requires String<std::ranges::range_value_t<ArgsT>>
-		bool run(ArgsT&& rawCmdLineArgs, const ProcessConfiguration<ExpressionStringT> defaultConfig, ConsoleT& console);
+		bool run(ArgsT&& rawCmdLineArgs, const ProcessConfiguration<ExpressionStringT> defaultConfig, ConsoleT& console)
+		{
+			throw NotImplementedException{};
+		}
 
 
 		/// Creates a new instance of the \ref Process class.
@@ -71,10 +60,13 @@ namespace CmdCalculator
 		Process
 		(
 			RawCmdLineArgParserT&& rawCmdLineArgParser,
-			ExpressionToStringConverterT&& expressionToStringConverter,
+			StringToMathAstConverterT&& stringToMathAstConverter,
 			MathAstToExpressionConverterT&& mathAstToExpressionConverter,
-			StringToMathAstConverterT&& stringToMathAstConverter
-		);
+			ExpressionToStringConverterT&& expressionToStringConverter
+		)
+		{
+			throw NotImplementedException{};
+		}
 
 
 		// This overload is deleted to ensure only rvalue references are passed for the above constructor.

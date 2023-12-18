@@ -21,18 +21,14 @@ namespace CmdCalculator
 	concept Calculation =
 		requires(T&& instance)
 		{
-			StringView<typename T::StringViewType>;
-			MathAst::MathAstNode<typename T::RootMathAstNodeType>;
-			Expressions::Expression<typename T::ExpressionType>;
 
-			//{ instance.getInputExpression() } -> String;
-			instance.getInputExpression();
+			{ instance.getInputExpression() } -> String;
 			{ instance.getOutputExpression() } -> String;
 			{ instance.getConfiguration() } -> std::same_as<CalculationConfiguration>;
 
-			{ instance.getStringToMathAstConverter() } -> StringToMathAstConverter<typename T::StringViewType>;
-			{ instance.getMathAstToExpressionConverter() } -> MathAstToExpressionConverter<typename T::RootMathAstNodeType>;
-			{ instance.getExpressionToStringConverter() } -> ExpressionToStringConverter<typename T::ExpressionType>;
+			{ instance.getStringToMathAstConverter() } -> StringToMathAstConverter;
+			{ instance.getMathAstToExpressionConverter() } -> MathAstToExpressionConverter;
+			{ instance.getExpressionToStringConverter() } -> ExpressionToStringConverter;
 		}
 	;
 }

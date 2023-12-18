@@ -42,8 +42,7 @@ namespace CmdCalculatorTestDoubleTests
 				<
 					typename TypeParam::ExpressionType,
 					typename TypeParam::StringType
-				>,
-				typename TypeParam::ExpressionType
+				>
 			>
 		);
 	}

@@ -31,9 +31,6 @@ namespace CmdCalculatorTestDoubleTests
 			<
 				std::string,
 				std::string,
-				std::string_view,
-				CmdCalculatorTestDoubles::MathAst::StubMathAstNode<std::string>,
-				CmdCalculatorTestDoubles::Expressions::StubExpression,
 				CmdCalculatorTestDoubles::StubStringToMathAstConverter
 				<
 					std::string_view,

@@ -14,23 +14,17 @@ namespace CmdCalculatorTestDoubles
 	<
 		CmdCalculator::String InputExpressionT,
 		CmdCalculator::String OutputExpressionT,
-		CmdCalculator::StringView StringViewT,
-		CmdCalculator::MathAst::MathAstNode RootMathAstNodeT,
-		CmdCalculator::Expressions::Expression ExpressionT,
 		class StringToMathAstConverterT,
 		class MathAstToExpressionConverterT,
 		class ExpressionToStringConverterT
 	> requires
-		CmdCalculator::StringToMathAstConverter<StringToMathAstConverterT, StringViewT>
-		&& CmdCalculator::MathAstToExpressionConverter<MathAstToExpressionConverterT, RootMathAstNodeT>
-		&& CmdCalculator::ExpressionToStringConverter<ExpressionToStringConverterT, ExpressionT>
+		CmdCalculator::StringToMathAstConverter<StringToMathAstConverterT>
+		&& CmdCalculator::MathAstToExpressionConverter<MathAstToExpressionConverterT>
+		&& CmdCalculator::ExpressionToStringConverter<ExpressionToStringConverterT>
 	struct StubCalculation_TParams
 	{
 		using InputExpressionType = InputExpressionT;
 		using OutputExpressionType = OutputExpressionT;
-		using StringViewType = StringViewT;
-		using RootMathAstNodeType = RootMathAstNodeT;
-		using ExpressionType = ExpressionT;
 		using StringToMathAstConverterType = StringToMathAstConverterT;
 		using MathAstToExpressionConverterType = MathAstToExpressionConverterT;
 		using ExpressionToStringConverterType = ExpressionToStringConverterT;
@@ -44,9 +38,6 @@ namespace CmdCalculatorTestDoubles
 			<
 				typename T::InputExpressionType,
 				typename T::OutputExpressionType,
-				typename T::StringViewType,
-				typename T::RootMathAstNodeType,
-				typename T::ExpressionType,
 				typename T::StringToMathAstConverterType,
 				typename T::MathAstToExpressionConverterType,
 				typename T::ExpressionToStringConverterType
@@ -55,11 +46,6 @@ namespace CmdCalculatorTestDoubles
 	struct StubCalculation :
 		public CmdCalculator::Calculation_IntendedSatisfaction
 	{
-		using StringViewType = typename T::StringViewType;
-		using RootMathAstNodeType = typename T::RootMathAstNodeType;
-		using ExpressionType = typename T::ExpressionType;
-
-
 		typename T::InputExpressionType inputExpression;
 		typename T::OutputExpressionType outputExpression;
 		CmdCalculator::CalculationConfiguration configuration;

@@ -19,6 +19,9 @@
     <Filter Include="Source Code\Expressions">
       <UniqueIdentifier>{ddb9ad41-d3b7-44c1-bd38-8e61fe661325}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Process">
+      <UniqueIdentifier>{7b39565f-8813-4a14-b834-c3eb35cd9f79}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Code\Calculation">
       <UniqueIdentifier>{ede9fcfe-95b9-45c8-b886-b11d6f49f670}</UniqueIdentifier>
     </Filter>
@@ -63,16 +66,19 @@
     <ClInclude Include="ProcessConfiguration.h">
       <Filter>Source Code</Filter>
     </ClInclude>
+    <ClInclude Include="Process.h">
+      <Filter>Source Code\Process</Filter>
+    </ClInclude>
     <ClInclude Include="Calculation.h">
       <Filter>Source Code\Calculation</Filter>
-    </ClInclude>
-    <ClInclude Include="Process.h">
-      <Filter>Source Code</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
       <Filter>Source Code\CalculationConfiguration</Filter>
+    </ClCompile>
+    <ClCompile Include="Process.cpp">
+      <Filter>Source Code\Process</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
