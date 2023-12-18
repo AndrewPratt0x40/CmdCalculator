@@ -17,9 +17,9 @@ namespace CmdCalculator
 	template
 	<
 		RawCmdLineArgParser RawCmdLineArgParserT,
-		class StringToMathAstConverterT,
-		class MathAstToExpressionConverterT,
-		class ExpressionToStringConverterT
+		StringToMathAstConverter StringToMathAstConverterT,
+		MathAstToExpressionConverter MathAstToExpressionConverterT,
+		ExpressionToStringConverter ExpressionToStringConverterT
 	>
 	class Process
 	{
