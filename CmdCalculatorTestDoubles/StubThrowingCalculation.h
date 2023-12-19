@@ -1,6 +1,6 @@
 #pragma once
 
-#include "StubThrowingCalculation.h"
+#include "StubCalculation.h"
 #include "../CmdCalculator/Calculation.h"
 #include "../CmdCalculator/strings.h"
 #include "../CmdCalculator/MathAstNode.h"
@@ -27,6 +27,11 @@ namespace CmdCalculatorTestDoubles
 	struct StubThrowingCalculation :
 		public CmdCalculator::Calculation_IntendedSatisfaction
 	{
+		using InputExpressionType = T::InputExpressionType;
+		using StringToMathAstConverterType = T::StringToMathAstConverterType;
+		using MathAstToExpressionConverterType = T::MathAstToExpressionConverterType;
+		using ExpressionToStringConverterType = T::ExpressionToStringConverterType;
+			
 		ExceptionT exceptionToThrow;
 
 		typename T::InputExpressionType inputExpression;
@@ -72,5 +77,22 @@ namespace CmdCalculatorTestDoubles
 		{
 			return expressionToStringConverter;
 		}
+
+
+		StubThrowingCalculation
+		(
+			typename T::InputExpressionType inputExpression,
+			CmdCalculator::CalculationConfiguration configuration,
+			typename T::StringToMathAstConverterType stringToMathAstConverter,
+			typename T::MathAstToExpressionConverterType mathAstToExpressionConverter,
+			typename T::ExpressionToStringConverterType expressionToStringConverter
+		) :
+			inputExpression{ inputExpression },
+			outputExpression{},
+			configuration{ configuration },
+			stringToMathAstConverter{ stringToMathAstConverter },
+			mathAstToExpressionConverter{ mathAstToExpressionConverter },
+			expressionToStringConverter{ expressionToStringConverter }
+		{}
 	};
 }

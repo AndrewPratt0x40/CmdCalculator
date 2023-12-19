@@ -19,9 +19,21 @@ namespace CmdCalculator
 	/// \tparam T The type of the calculation object.
 	template<class T>
 	concept Calculation =
-		requires(T&& instance)
+		String<typename T::InputExpressionType>
+		&& StringToMathAstConverter<typename T::StringToMathAstConverterType>
+		&& MathAstToExpressionConverter<typename T::MathAstToExpressionConverterType>
+		&& ExpressionToStringConverter<typename T::ExpressionToStringConverterType>
+		&& std::constructible_from
+		<
+			T,
+			typename T::InputExpressionType,
+			CalculationConfiguration,
+			typename T::StringToMathAstConverterType,
+			typename T::MathAstToExpressionConverterType,
+			typename T::ExpressionToStringConverterType
+		>
+		&& requires(T&& instance)
 		{
-
 			{ instance.getInputExpression() } -> String;
 			{ instance.getOutputExpression() } -> String;
 			{ instance.getConfiguration() } -> std::same_as<CalculationConfiguration>;

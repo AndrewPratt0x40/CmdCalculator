@@ -16,6 +16,17 @@ namespace CmdCalculatorTestDoubleTests
 {
 #pragma region Concept satisfaction
 
+	struct OutputExpressionProviderForStubCalculation
+	{
+		using OutputExpressionType = std::string;
+
+		static std::string getOutputExpression()
+		{
+			return {};
+		}
+	};
+
+	
 	template<class T>
 	class StubCalculationWithTParamsTests :
 		public testing::Test
@@ -51,7 +62,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			CmdCalculator::Calculation<CmdCalculatorTestDoubles::StubCalculation<TypeParam>>
+			CmdCalculator::Calculation<CmdCalculatorTestDoubles::StubCalculation<TypeParam, OutputExpressionProviderForStubCalculation>>
 		);
 	}
 

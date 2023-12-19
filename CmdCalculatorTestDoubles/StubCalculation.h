@@ -10,6 +10,16 @@
 
 namespace CmdCalculatorTestDoubles
 {
+	template<class T>
+	concept StubCalculationOutputExpressionProvider =
+		CmdCalculator::String<typename T::OutputExpressionType>
+		&& requires
+		{
+			{ T::getOutputExpression() } -> std::same_as<typename T::OutputExpressionType>;
+		}
+	;
+
+
 	template
 	<
 		CmdCalculator::String InputExpressionT,
@@ -30,8 +40,9 @@ namespace CmdCalculatorTestDoubles
 		using ExpressionToStringConverterType = ExpressionToStringConverterT;
 	};
 
-	template<class T>
-		requires std::derived_from
+	template<class T, StubCalculationOutputExpressionProvider OutputExpressionProviderT>
+		requires std::convertible_to<typename T::OutputExpressionType, typename OutputExpressionProviderT::OutputExpressionType>
+		&& std::derived_from
 		<
 			T,
 			StubCalculation_TParams
@@ -46,6 +57,11 @@ namespace CmdCalculatorTestDoubles
 	struct StubCalculation :
 		public CmdCalculator::Calculation_IntendedSatisfaction
 	{
+		using InputExpressionType = T::InputExpressionType;
+		using StringToMathAstConverterType = T::StringToMathAstConverterType;
+		using MathAstToExpressionConverterType = T::MathAstToExpressionConverterType;
+		using ExpressionToStringConverterType = T::ExpressionToStringConverterType;
+		
 		typename T::InputExpressionType inputExpression;
 		typename T::OutputExpressionType outputExpression;
 		CmdCalculator::CalculationConfiguration configuration;
@@ -89,5 +105,22 @@ namespace CmdCalculatorTestDoubles
 		{
 			return expressionToStringConverter;
 		}
+
+
+		StubCalculation
+		(
+			typename T::InputExpressionType inputExpression,
+			CmdCalculator::CalculationConfiguration configuration,
+			typename T::StringToMathAstConverterType stringToMathAstConverter,
+			typename T::MathAstToExpressionConverterType mathAstToExpressionConverter,
+			typename T::ExpressionToStringConverterType expressionToStringConverter
+		) :
+			inputExpression{ inputExpression },
+			outputExpression{ OutputExpressionProviderT::getOutputExpression() },
+			configuration{ configuration },
+			stringToMathAstConverter{ stringToMathAstConverter },
+			mathAstToExpressionConverter{ mathAstToExpressionConverter },
+			expressionToStringConverter{ expressionToStringConverter }
+		{}
 	};
 }
