@@ -235,17 +235,64 @@ namespace CmdCalculatorTests
 		throw CmdCalculator::NotImplementedException{};
 	}
 
+
+	TYPED_TEST(ProcessRunWithThrowingComponentsTests, Calling$run$with$throwing$component$doesnt$prompt$user)
+	{
+		throw CmdCalculator::NotImplementedException{};
+	}
+
 #pragma endregion
 
-	// Calling$run$with$throwing$component$doesnt$prompt$user
 
-	// Calling$run$with$given$expression$doesnt$prompt$user
-	
-	// Calling$run$without$given$expression$prompts$user
+#pragma region Calling run with/without given expression
 
-	// Invalid$expression$input$from$user$causes$reprompt
+	TEST(ProcessTests, Calling$run$with$given$expression$doesnt$prompt$user)
+	{
+		throw CmdCalculator::NotImplementedException{};
+	}
 
-	// Invalid$given$expression$prints$error
 
-	// Invalid$given$expression$doesnt$prompt$user
+	TEST(ProcessTests, Calling$run$without$given$expression$prompts$user)
+	{
+		throw CmdCalculator::NotImplementedException{};
+	}
+
+#pragma endregion
+
+
+#pragma region Calling run with invalid expression input(s)
+
+	class ProcessRunWithInvalidExpressionInputsTests :
+		public testing::TestWithParam<int>
+	{};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		ProcessTests,
+		ProcessRunWithInvalidExpressionInputsTests,
+		testing::Values(1, 2, 3)
+	);
+
+	TEST_P(ProcessRunWithInvalidExpressionInputsTests, Invalid$expression$input$from$user$causes$reprompt)
+	{
+		throw CmdCalculator::NotImplementedException{};
+	}
+
+#pragma endregion
+
+
+#pragma region Calling run with invalid given expression
+
+	TEST(ProcessRunWithInvalidGivenExpressionTests, Invalid$given$expression$prints$error)
+	{
+		throw CmdCalculator::NotImplementedException{};
+	}
+
+
+	TEST(ProcessRunWithInvalidGivenExpressionTests, Invalid$given$expression$doesnt$prompt$user)
+	{
+		throw CmdCalculator::NotImplementedException{};
+	}
+
+#pragma endregion
 }
