@@ -22,19 +22,19 @@
     <Filter Include="Source Code\Calculation">
       <UniqueIdentifier>{113656e8-2abc-4eee-8870-a4bfe3e12a92}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\ExpressionToStringConverter">
+      <UniqueIdentifier>{e3874a65-0c11-4bb6-9f28-3998e2575a6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\MathAstToExpressionConverter">
+      <UniqueIdentifier>{a03cf543-6e5f-4b37-91e9-ba6d1955a285}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\StringToMathAstConverter">
+      <UniqueIdentifier>{7067254a-f655-4f52-a1d8-f87f2c9d820b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FakeConsole.h">
       <Filter>Source Code\Console</Filter>
-    </ClInclude>
-    <ClInclude Include="StubExpressionToStringConverter.h">
-      <Filter>Source Code\Conversions</Filter>
-    </ClInclude>
-    <ClInclude Include="StubMathAstToExpressionConverter.h">
-      <Filter>Source Code\Conversions</Filter>
-    </ClInclude>
-    <ClInclude Include="StubStringToMathAstConverter.h">
-      <Filter>Source Code\Conversions</Filter>
     </ClInclude>
     <ClInclude Include="StubExpression.h">
       <Filter>Source Code\Expressions</Filter>
@@ -50,6 +50,18 @@
     </ClInclude>
     <ClInclude Include="StubThrowingCalculation.h">
       <Filter>Source Code\Calculation</Filter>
+    </ClInclude>
+    <ClInclude Include="StubExpressionToStringConverter.h">
+      <Filter>Source Code\Conversions\ExpressionToStringConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="StubMathAstToExpressionConverter.h">
+      <Filter>Source Code\Conversions\MathAstToExpressionConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="StubStringToMathAstConverter.h">
+      <Filter>Source Code\Conversions\StringToMathAstConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="StubValidatingStringToMathAstConverter.h">
+      <Filter>Source Code\Conversions\StringToMathAstConverter</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -73,9 +73,9 @@ namespace CmdCalculator
 		Process
 		(
 			RawCmdLineArgParserT& rawCmdLineArgParser,
-			ExpressionToStringConverterT& expressionToStringConverter,
+			StringToMathAstConverterT& stringToMathAstConverter,
 			MathAstToExpressionConverterT& mathAstToExpressionConverter,
-			StringToMathAstConverterT& stringToMathAstConverter
+			ExpressionToStringConverterT& expressionToStringConverter
 		) = delete;
 	};
 }

@@ -7,20 +7,11 @@
     <ClCompile Include="FakeConsoleTests.cpp">
       <Filter>Source Code\Tests\Console</Filter>
     </ClCompile>
-    <ClCompile Include="StubExpressionToStringConverterTests.cpp">
-      <Filter>Source Code\Tests\Conversions</Filter>
-    </ClCompile>
     <ClCompile Include="StubExpressionTests.cpp">
       <Filter>Source Code\Tests\Expressions</Filter>
     </ClCompile>
-    <ClCompile Include="StubMathAstToExpressionConverterTests.cpp">
-      <Filter>Source Code\Tests\Conversions</Filter>
-    </ClCompile>
     <ClCompile Include="StubMathAstNodeTests.cpp">
       <Filter>Source Code\Tests\MathAst</Filter>
-    </ClCompile>
-    <ClCompile Include="StubStringToMathAstConverterTests.cpp">
-      <Filter>Source Code\Tests\Conversions</Filter>
     </ClCompile>
     <ClCompile Include="StubRawCmdLineArgParserTests.cpp">
       <Filter>Source Code\Tests\RawCmdLineArgParser</Filter>
@@ -33,6 +24,18 @@
     </ClCompile>
     <ClCompile Include="StubThrowingCalculationTests.cpp">
       <Filter>Source Code\Tests\Calculation</Filter>
+    </ClCompile>
+    <ClCompile Include="StubExpressionToStringConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\ExpressionToStringConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubMathAstToExpressionConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\MathAstToExpressionConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubStringToMathAstConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubValidatingStringToMathAstConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +65,15 @@
     </Filter>
     <Filter Include="Source Code\Tests\Calculation">
       <UniqueIdentifier>{d47e4ed8-9aba-4be3-bd4b-480a056485c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\ExpressionToStringConverter">
+      <UniqueIdentifier>{edd3a2a7-fc25-4118-9913-a66568a98a20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\MathAstToExpressionConverter">
+      <UniqueIdentifier>{ccc57f9f-4acd-4fbd-9af3-f4f84c111f3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter">
+      <UniqueIdentifier>{c024f50c-e35a-4ecf-b401-089611c81516}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

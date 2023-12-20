@@ -35,24 +35,47 @@ namespace CmdCalculatorTestDoubles
 
 
 	private:
-		StringType m_nextInput;
+		StringType m_defaultInput;
+		std::vector<StringType> m_nextInputs;
+		size_t m_inputCalls{ 0 };
 		std::vector<TextSpan> m_textSpans;
 
 
 	public:
-		void FAKE_setNextInput(StringType nextInput)
+		void FAKE_setDefaultInput(StringType defaultInput)
 		{
-			m_nextInput = nextInput;
+			m_defaultInput = defaultInput;
 		}
 
 
-		const StringType FAKE_getNextInput()
+		const StringType FAKE_getDefaultInput() const
 		{
-			return m_nextInput;
+			return m_defaultInput;
 		}
 
 
-		const auto FAKE_getTextSpans()
+		template<std::ranges::input_range NextInputsT>
+			requires std::same_as<StringType, std::ranges::range_value_t<NextInputsT>>
+		void FAKE_setNextInputs(NextInputsT nextInputs)
+		{
+			m_nextInputs.clear();
+			std::ranges::copy(nextInputs, std::back_inserter(m_nextInputs));
+		}
+
+
+		const auto FAKE_getNextInputs() const
+		{
+			return std::views::all(m_nextInputs);
+		}
+
+
+		const size_t FAKE_getNumberOfCallsTo_getInput() const
+		{
+			return m_inputCalls;
+		}
+
+
+		const auto FAKE_getTextSpans() const
 		{
 			return std::views::all(m_textSpans);
 		}
@@ -60,7 +83,7 @@ namespace CmdCalculatorTestDoubles
 
 		StringType getInput()
 		{
-			return m_nextInput;
+			throw CmdCalculator::NotImplementedException{};
 		}
 		
 
@@ -77,14 +100,25 @@ namespace CmdCalculatorTestDoubles
 
 
 		FakeConsole() :
-			m_nextInput{},
+			m_defaultInput{},
+			m_nextInputs{},
 			m_textSpans{}
 		{}
 
 
-		FakeConsole(StringType nextInput, std::initializer_list<TextSpan> textSpans) :
-			m_nextInput{nextInput},
-			m_textSpans{textSpans}
+		FakeConsole(StringType defaultInput, std::initializer_list<TextSpan> textSpans) :
+			m_defaultInput{ defaultInput },
+			m_nextInputs{},
+			m_textSpans{ textSpans }
 		{}
+
+
+		template<std::ranges::input_range NextInputsT>
+			requires std::same_as<StringType, std::ranges::range_value_t<NextInputsT>>
+		FakeConsole(StringType defaultInput, NextInputsT nextInputs, std::initializer_list<TextSpan> textSpans) :
+			FakeConsole(defaultInput, textSpans)
+		{
+			std::ranges::copy(nextInputs, std::back_inserter(m_nextInputs));
+		}
 	};
 }

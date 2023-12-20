@@ -144,6 +144,7 @@
     <ClInclude Include="StubStringToMathAstConverter.h" />
     <ClInclude Include="StubThrowingCalculation.h" />
     <ClInclude Include="StubThrowingRawCmdLineArgParser.h" />
+    <ClInclude Include="StubValidatingStringToMathAstConverter.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CmdCalculator\CmdCalculator.vcxproj">
