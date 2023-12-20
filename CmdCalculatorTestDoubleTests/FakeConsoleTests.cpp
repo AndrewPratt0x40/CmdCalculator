@@ -343,18 +343,20 @@ namespace CmdCalculatorTestDoubleTests
 				.defaultInput{ "Default input" },
 				.nextInputs
 				{
+					"Third input",
 					"Second input",
-					"first input"
+					"First input"
 				},
-				.timesToCall{ 4 },
+				.timesToCall{ 5 },
 				.expectedReturnValues
 				{
-					"first input",
+					"First input",
 					"Second input",
+					"Third input",
 					"Default input",
 					"Default input"
 				},
-				.expectedNextInputsSizes{2, 1, 0, 0}
+				.expectedNextInputsSizes{3, 2, 1, 0, 0}
 			}
 		)
 	);
@@ -388,6 +390,7 @@ namespace CmdCalculatorTestDoubleTests
 		// Arrange
 		CmdCalculatorTestDoubles::FakeConsole<char> instance{ GetParam().defaultInput, GetParam().nextInputs, {} };
 		std::vector<size_t> actualNextInputsSizes{};
+		actualNextInputsSizes.push_back(instance.FAKE_getNextInputs().size());
 
 		// Act
 		for (size_t i{ 0 }; i < GetParam().timesToCall; i++)

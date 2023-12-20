@@ -83,7 +83,13 @@ namespace CmdCalculatorTestDoubles
 
 		StringType getInput()
 		{
-			throw CmdCalculator::NotImplementedException{};
+			m_inputCalls++;
+			if (m_nextInputs.empty())
+				return m_defaultInput;
+
+			StringType input{ m_nextInputs.back() };
+			m_nextInputs.pop_back();
+			return input;
 		}
 		
 
