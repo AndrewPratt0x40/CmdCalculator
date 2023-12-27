@@ -25,13 +25,22 @@
     <Filter Include="Source Code\Calculation">
       <UniqueIdentifier>{ede9fcfe-95b9-45c8-b886-b11d6f49f670}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Exceptions">
+      <UniqueIdentifier>{a8c73f27-97cb-4a2a-954f-054261803597}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\Raw Cmd Line Args">
+      <UniqueIdentifier>{53b396ec-e194-4442-bc4c-1499e4613189}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\Raw Cmd Line Args\UnknownCmdLineArgException">
+      <UniqueIdentifier>{49d30086-081e-4b54-942c-cbaac956a248}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\Raw Cmd Line Args\MissingCmdLineArgValueException">
+      <UniqueIdentifier>{35892eca-46a2-44c0-880b-f48668ea598f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
       <Filter>Source Code\CalculationConfiguration</Filter>
-    </ClInclude>
-    <ClInclude Include="NotImplementedException.h">
-      <Filter>Source Code</Filter>
     </ClInclude>
     <ClInclude Include="strings.h">
       <Filter>Source Code</Filter>
@@ -72,6 +81,18 @@
     <ClInclude Include="Calculation.h">
       <Filter>Source Code\Calculation</Filter>
     </ClInclude>
+    <ClInclude Include="BadRawCmdLineArgsException.h">
+      <Filter>Source Code\Exceptions\Raw Cmd Line Args</Filter>
+    </ClInclude>
+    <ClInclude Include="NotImplementedException.h">
+      <Filter>Source Code\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="UnknownCmdLineArgException.h">
+      <Filter>Source Code\Exceptions\Raw Cmd Line Args\UnknownCmdLineArgException</Filter>
+    </ClInclude>
+    <ClInclude Include="MissingCmdLineArgValueException.h">
+      <Filter>Source Code\Exceptions\Raw Cmd Line Args\MissingCmdLineArgValueException</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -79,6 +100,12 @@
     </ClCompile>
     <ClCompile Include="Process.cpp">
       <Filter>Source Code\Process</Filter>
+    </ClCompile>
+    <ClCompile Include="UnknownCmdLineArgException.cpp">
+      <Filter>Source Code\Exceptions\Raw Cmd Line Args\UnknownCmdLineArgException</Filter>
+    </ClCompile>
+    <ClCompile Include="MissingCmdLineArgValueException.cpp">
+      <Filter>Source Code\Exceptions\Raw Cmd Line Args\MissingCmdLineArgValueException</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -392,7 +392,7 @@ namespace CmdCalculatorTests
 		bool returnValue;
 
 		// Act
-		returnValue = instance.run(std::move(rawCmdLineArgs), defaultConfig, console);
+		returnValue = instance.run(rawCmdLineArgs, defaultConfig, console);
 
 		// Assert
 		EXPECT_FALSE(returnValue);

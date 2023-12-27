@@ -1,4 +1,5 @@
 #pragma once
+
 #include <exception>
 
 namespace CmdCalculator
@@ -9,7 +10,7 @@ namespace CmdCalculator
 	public:
 		const char* what() const noexcept override
 		{
-			return "This code is not implemented.";
+			return "Code that has not been implemented has been invoked";
 		}
 	};
 }

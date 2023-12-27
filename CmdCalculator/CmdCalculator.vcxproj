@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BadRawCmdLineArgsException.h" />
     <ClInclude Include="Calculation.h" />
     <ClInclude Include="CalculationConfiguration.h" />
     <ClInclude Include="Console.h" />
@@ -152,16 +153,20 @@
     <ClInclude Include="ExpressionToStringConverter.h" />
     <ClInclude Include="MathAstNode.h" />
     <ClInclude Include="MathAstToExpressionConverter.h" />
+    <ClInclude Include="MissingCmdLineArgValueException.h" />
     <ClInclude Include="NotImplementedException.h" />
     <ClInclude Include="Process.h" />
     <ClInclude Include="ProcessConfiguration.h" />
     <ClInclude Include="RawCmdLineArgParser.h" />
     <ClInclude Include="strings.h" />
     <ClInclude Include="StringToMathAstConverter.h" />
+    <ClInclude Include="UnknownCmdLineArgException.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp" />
+    <ClCompile Include="MissingCmdLineArgValueException.cpp" />
     <ClCompile Include="Process.cpp" />
+    <ClCompile Include="UnknownCmdLineArgException.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
