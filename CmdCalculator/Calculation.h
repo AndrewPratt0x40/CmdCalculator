@@ -23,26 +23,15 @@ namespace CmdCalculator
 		&& StringToMathAstConverter<typename T::StringToMathAstConverterType>
 		&& MathAstToExpressionConverter<typename T::MathAstToExpressionConverterType>
 		&& ExpressionToStringConverter<typename T::ExpressionToStringConverterType>
-		&& requires
-		(
-			typename T::InputExpressionType inputExpression,
-			CalculationConfiguration calculationConfiguration,
-			typename T::StringToMathAstConverterType stringToMathAstConverter,
-			typename T::MathAstToExpressionConverterType mathAstToExpressionConverter,
-			typename T::ExpressionToStringConverterType expressionToStringConverter
-		)
-		{
-			{
-				T::create
-				(
-					inputExpression,
-					calculationConfiguration,
-					stringToMathAstConverter,
-					mathAstToExpressionConverter,
-					expressionToStringConverter
-				)
-			} -> std::same_as<T&&>;
-		}
+		&& std::constructible_from
+		<
+			T,
+			typename T::InputExpressionType,
+			CalculationConfiguration,
+			typename T::StringToMathAstConverterType,
+			typename T::MathAstToExpressionConverterType,
+			typename T::ExpressionToStringConverterType
+		>
 		&& requires(T&& instance)
 		{
 			{ instance.getInputExpression() } -> String;

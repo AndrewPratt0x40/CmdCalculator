@@ -103,7 +103,7 @@ namespace CmdCalculatorTests
 		{
 			return CmdCalculator::ProcessConfiguration<std::string>
 			{
-				.givenExpression{ std::make_optional<std::string>("0") },
+				.givenExpression{ std::make_optional<std::string>("0"s) },
 				.calculationConfiguration{4, false, false, false, false}
 			};
 		}
@@ -401,7 +401,32 @@ namespace CmdCalculatorTests
 
 	TEST(ProcessRunTests, Calling$run$with$throwing$RawCmdLineArgParser$doesnt$prompt$user)
 	{
-		throw CmdCalculator::NotImplementedException{};
+		// Arrange
+		using TestDataType = ProcessRunWithThrowingComponentsTestData::ProcessRunWithThrowingRawCmdLineArgParserTestData;
+		TestDataType testData{};
+
+		typename TestDataType::ProcessType::RawCmdLineArgParserType rawCmdLineArgParser{ testData.createRawCmdLineArgParser() };
+		typename TestDataType::ProcessType::StringToMathAstConverterType stringToMathAstConverter{};
+		typename TestDataType::ProcessType::MathAstToExpressionConverterType mathAstToExpressionConverter{};
+		typename TestDataType::ProcessType::ExpressionToStringConverterType expressionToStringConverter{};
+
+		typename TestDataType::ProcessType instance
+		{
+			std::move(rawCmdLineArgParser),
+			std::move(stringToMathAstConverter),
+			std::move(mathAstToExpressionConverter),
+			std::move(expressionToStringConverter)
+		};
+
+		std::vector<std::string> rawCmdLineArgs{};
+		const CmdCalculator::ProcessConfiguration<std::string> defaultConfig{ NonThrowingProcessTParams::makeProcessConfigurationInstance() };
+		CmdCalculatorTestDoubles::FakeConsole<char> console{};
+
+		// Act
+		instance.run(rawCmdLineArgs, defaultConfig, console);
+
+		// Assert
+		EXPECT_EQ(0, console.FAKE_getNumberOfCallsTo_getInput());
 	}
 
 #pragma endregion
@@ -418,7 +443,7 @@ namespace CmdCalculatorTests
 		{
 			.parsedRawCmdLineArgs
 			{
-				.givenExpression{ std::make_optional<std::string>("Given expression") },
+				.givenExpression{ std::make_optional<std::string>("Given expression"s) },
 				.calculationConfiguration{0, false, false, false, false}
 			}
 		};
@@ -546,7 +571,18 @@ namespace CmdCalculatorTests
 
 		CmdCalculator::Process
 		<
-			NonThrowingProcessTParams::CalculationType,
+			CmdCalculatorTestDoubles::StubCalculation
+			<
+				CmdCalculatorTestDoubles::StubCalculation_TParams
+				<
+					std::string,
+					std::string,
+					decltype(stringToMathAstConverter),
+					decltype(mathAstToExpressionConverter),
+					decltype(expressionToStringConverter)
+				>,
+				OutputExpressionProvidersForProcess::OutputExpressionProvider
+			>,
 			decltype(rawCmdLineArgParser),
 			decltype(rawCmdLineArgs),
 			decltype(stringToMathAstConverter),
@@ -602,7 +638,18 @@ namespace CmdCalculatorTests
 
 		CmdCalculator::Process
 		<
-			NonThrowingProcessTParams::CalculationType,
+			CmdCalculatorTestDoubles::StubCalculation
+			<
+				CmdCalculatorTestDoubles::StubCalculation_TParams
+				<
+					std::string,
+					std::string,
+					decltype(stringToMathAstConverter),
+					decltype(mathAstToExpressionConverter),
+					decltype(expressionToStringConverter)
+				>,
+				OutputExpressionProvidersForProcess::OutputExpressionProvider
+			>,
 			decltype(rawCmdLineArgParser),
 			decltype(rawCmdLineArgs),
 			decltype(stringToMathAstConverter),
@@ -662,7 +709,18 @@ namespace CmdCalculatorTests
 
 		CmdCalculator::Process
 		<
-			NonThrowingProcessTParams::CalculationType,
+			CmdCalculatorTestDoubles::StubCalculation
+			<
+				CmdCalculatorTestDoubles::StubCalculation_TParams
+				<
+					std::string,
+					std::string,
+					decltype(stringToMathAstConverter),
+					decltype(mathAstToExpressionConverter),
+					decltype(expressionToStringConverter)
+				>,
+				OutputExpressionProvidersForProcess::OutputExpressionProvider
+			>,
 			decltype(rawCmdLineArgParser),
 			decltype(rawCmdLineArgs),
 			decltype(stringToMathAstConverter),

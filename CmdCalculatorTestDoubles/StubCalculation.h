@@ -122,30 +122,5 @@ namespace CmdCalculatorTestDoubles
 			mathAstToExpressionConverter{ mathAstToExpressionConverter },
 			expressionToStringConverter{ expressionToStringConverter }
 		{}
-
-
-		static StubCalculation<T, OutputExpressionProviderT>&& create
-		(
-			typename T::InputExpressionType inputExpression,
-			CmdCalculator::CalculationConfiguration configuration,
-			typename T::StringToMathAstConverterType stringToMathAstConverter,
-			typename T::MathAstToExpressionConverterType mathAstToExpressionConverter,
-			typename T::ExpressionToStringConverterType expressionToStringConverter
-		)
-		{
-			return
-				std::move
-				(
-					StubCalculation<T, OutputExpressionProviderT>
-					{
-						inputExpression,
-						configuration,
-						stringToMathAstConverter,
-						mathAstToExpressionConverter,
-						expressionToStringConverter
-					}
-				)
-			;
-		}
 	};
 }

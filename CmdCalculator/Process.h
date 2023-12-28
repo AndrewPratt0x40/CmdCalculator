@@ -35,7 +35,11 @@ namespace CmdCalculator
 		MathAstToExpressionConverter MathAstToExpressionConverterT,
 		ExpressionToStringConverter ExpressionToStringConverterT
 	>
-		requires RawCmdLineArgParser<RawCmdLineArgParserT, RawCmdLineArgsT>
+		requires
+			RawCmdLineArgParser<RawCmdLineArgParserT, RawCmdLineArgsT>
+			&& std::same_as<StringToMathAstConverterT, typename CalculationT::StringToMathAstConverterType>
+			&& std::same_as<MathAstToExpressionConverterT, typename CalculationT::MathAstToExpressionConverterType>
+			&& std::same_as<ExpressionToStringConverterT, typename CalculationT::ExpressionToStringConverterType>
 	class Process
 	{
 	public:
@@ -207,7 +211,10 @@ namespace CmdCalculator
 			ConsoleT& console
 		)
 		{
-			return config.givenExpression.value_or(promptForExpression(console));
+			return config.givenExpression.has_value()
+				? config.givenExpression.value()
+				: promptForExpression(console)
+			;
 		}
 
 
@@ -228,11 +235,14 @@ namespace CmdCalculator
 		{
 			CalculationType calculation
 			{
-				inputExpression,
-				config,
-				m_stringToMathAstConverter,
-				m_mathAstToExpressionConverter,
-				m_expressionToStringConverter
+				CalculationType
+				(
+					inputExpression,
+					config,
+					m_stringToMathAstConverter,
+					m_mathAstToExpressionConverter,
+					m_expressionToStringConverter
+				)
 			};
 
 			try
@@ -244,6 +254,7 @@ namespace CmdCalculator
 					.shouldReprompt{ false }
 				};
 			}
+			// TODO: Catch other errors
 			catch (...)
 			{
 				console.writeLine("An unknown error occurred while calculating.", EWriteMode::Error);
