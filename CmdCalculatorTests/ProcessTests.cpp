@@ -563,7 +563,7 @@ namespace CmdCalculatorTests
 		<
 			std::string_view,
 			NonThrowingProcessTParams::StringToMathAstConverterType::MathAstNodeType,
-			std::exception
+			CmdCalculatorTestDoubles::DummyInvalidInputExpressionException
 		> stringToMathAstConverter
 		{
 			.validSource{ validSourceExpression }
@@ -573,17 +573,12 @@ namespace CmdCalculatorTests
 
 		CmdCalculator::Process
 		<
-			CmdCalculatorTestDoubles::StubCalculation
+			CmdCalculatorTestDoubles::FakeCalculation
 			<
-				CmdCalculatorTestDoubles::StubCalculation_TParams
-				<
-					std::string,
-					std::string,
-					decltype(stringToMathAstConverter),
-					decltype(mathAstToExpressionConverter),
-					decltype(expressionToStringConverter)
-				>,
-				OutputExpressionProvidersForProcess::OutputExpressionProvider
+				std::string,
+				decltype(stringToMathAstConverter),
+				decltype(mathAstToExpressionConverter),
+				decltype(expressionToStringConverter)
 			>,
 			decltype(rawCmdLineArgParser),
 			decltype(rawCmdLineArgs),

@@ -89,11 +89,6 @@ namespace CmdCalculator
 			if (!processConfiguration.has_value())
 				return false;
 
-			typename ConsoleT::StringType inputExpression
-			{
-				getinputExpression(processConfiguration.value(), console)
-			};
-
 			CalculationResult<ExpressionStringT> result;
 
 			do
@@ -105,12 +100,12 @@ namespace CmdCalculator
 						ExpressionStringT
 					>
 					(
-						inputExpression, 
+						getinputExpression(processConfiguration.value(), console),
 						processConfiguration.value().calculationConfiguration,
 						console
 					)
 				;
-			} while (result.shouldReprompt);
+			} while (result.shouldReprompt && !processConfiguration.value().givenExpression.has_value());
 
 			if (result.outputExpression.has_value())
 			{
@@ -246,6 +241,8 @@ namespace CmdCalculator
 				)
 			};
 
+			bool shouldRepromptOnFailure{};
+
 			try
 			{
 				OutputExpressionT outputExpression{ calculation.getOutputExpression() };
@@ -259,16 +256,18 @@ namespace CmdCalculator
 			catch (const InvalidInputExpressionException&)
 			{
 				console.writeLine("Expression is invalid for unknown reasons.", EWriteMode::Error);
+				shouldRepromptOnFailure = true;
 			}
 			catch (...)
 			{
 				console.writeLine("An unknown error occurred while calculating.", EWriteMode::Error);
+				shouldRepromptOnFailure = false;
 			}
 
 			return CalculationResult<OutputExpressionT>
 			{
 				.outputExpression{},
-				.shouldReprompt{ false }
+				.shouldReprompt{ shouldRepromptOnFailure }
 			};
 		}
 
