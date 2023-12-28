@@ -37,6 +37,9 @@
     <Filter Include="Source Code\Exceptions\Raw Cmd Line Args\MissingCmdLineArgValueException">
       <UniqueIdentifier>{35892eca-46a2-44c0-880b-f48668ea598f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Exceptions\Invalid Input Expression">
+      <UniqueIdentifier>{7a408c41-e6f1-497a-97fd-816488463bd8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -92,6 +95,9 @@
     </ClInclude>
     <ClInclude Include="MissingCmdLineArgValueException.h">
       <Filter>Source Code\Exceptions\Raw Cmd Line Args\MissingCmdLineArgValueException</Filter>
+    </ClInclude>
+    <ClInclude Include="InvalidInputExpressionException.h">
+      <Filter>Source Code\Exceptions\Invalid Input Expression</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -17,6 +17,8 @@
 #include "..\CmdCalculatorTestDoubles/StubValidatingStringToMathAstConverter.h"
 #include "..\CmdCalculatorTestDoubles/StubMathAstToExpressionConverter.h"
 #include "..\CmdCalculatorTestDoubles/StubExpressionToStringConverter.h"
+#include "..\CmdCalculatorTestDoubles/DummyInvalidInputExpressionException.h"
+#include "..\CmdCalculatorTestDoubles\FakeCalculation.h"
 
 using namespace std::string_literals;
 using namespace std::string_view_literals;
@@ -628,7 +630,7 @@ namespace CmdCalculatorTests
 		<
 			std::string_view,
 			NonThrowingProcessTParams::StringToMathAstConverterType::MathAstNodeType,
-			std::exception
+			CmdCalculatorTestDoubles::DummyInvalidInputExpressionException
 		> stringToMathAstConverter
 		{
 			.validSource{ "Valid source"sv }
@@ -638,17 +640,12 @@ namespace CmdCalculatorTests
 
 		CmdCalculator::Process
 		<
-			CmdCalculatorTestDoubles::StubCalculation
+			CmdCalculatorTestDoubles::FakeCalculation
 			<
-				CmdCalculatorTestDoubles::StubCalculation_TParams
-				<
-					std::string,
-					std::string,
-					decltype(stringToMathAstConverter),
-					decltype(mathAstToExpressionConverter),
-					decltype(expressionToStringConverter)
-				>,
-				OutputExpressionProvidersForProcess::OutputExpressionProvider
+				std::string,
+				decltype(stringToMathAstConverter),
+				decltype(mathAstToExpressionConverter),
+				decltype(expressionToStringConverter)
 			>,
 			decltype(rawCmdLineArgParser),
 			decltype(rawCmdLineArgs),

@@ -151,6 +151,7 @@
     <ClInclude Include="ExpressionNode.h" />
     <ClInclude Include="ExpressionPartNode.h" />
     <ClInclude Include="ExpressionToStringConverter.h" />
+    <ClInclude Include="InvalidInputExpressionException.h" />
     <ClInclude Include="MathAstNode.h" />
     <ClInclude Include="MathAstToExpressionConverter.h" />
     <ClInclude Include="MissingCmdLineArgValueException.h" />

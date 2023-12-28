@@ -19,6 +19,7 @@
 #include "ExpressionToStringConverter.h"
 #include "UnknownCmdLineArgException.h"
 #include "MissingCmdLineArgValueException.h"
+#include "InvalidInputExpressionException.h"
 
 using namespace std::string_literals;
 using namespace std::string_view_literals;
@@ -255,6 +256,10 @@ namespace CmdCalculator
 				};
 			}
 			// TODO: Catch other errors
+			catch (const InvalidInputExpressionException&)
+			{
+				console.writeLine("Expression is invalid for unknown reasons.", EWriteMode::Error);
+			}
 			catch (...)
 			{
 				console.writeLine("An unknown error occurred while calculating.", EWriteMode::Error);

@@ -31,6 +31,15 @@
     <Filter Include="Source Code\Conversions\StringToMathAstConverter">
       <UniqueIdentifier>{7067254a-f655-4f52-a1d8-f87f2c9d820b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Exceptions">
+      <UniqueIdentifier>{8dc3c785-56f5-471a-8eb6-1ed3ba4d3f13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\Invalid Input Expression">
+      <UniqueIdentifier>{37afeeae-0997-4d3e-9b7d-73cdaa338ea1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\Invalid Input Expression\InvalidInputExpressionException">
+      <UniqueIdentifier>{c24dcff8-fb5b-4901-a44f-e9088a7e817e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FakeConsole.h">
@@ -62,6 +71,12 @@
     </ClInclude>
     <ClInclude Include="StubValidatingStringToMathAstConverter.h">
       <Filter>Source Code\Conversions\StringToMathAstConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="DummyInvalidInputExpressionException.h">
+      <Filter>Source Code\Exceptions\Invalid Input Expression\InvalidInputExpressionException</Filter>
+    </ClInclude>
+    <ClInclude Include="FakeCalculation.h">
+      <Filter>Source Code\Calculation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
