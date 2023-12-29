@@ -37,6 +37,24 @@
     <ClCompile Include="StubValidatingStringToMathAstConverterTests.cpp">
       <Filter>Source Code\Tests\Conversions\StringToMathAstConverter</Filter>
     </ClCompile>
+    <ClCompile Include="StubTrackingStringToMathAstConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingMathAstNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingExpressionTests.cpp">
+      <Filter>Source Code\Tests\Expressions</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingMathAstToExpressionConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\MathAstToExpressionConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingConvertedStringTests.cpp">
+      <Filter>Source Code\Tests\String</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingExpressionToStringConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\ExpressionToStringConverter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -74,6 +92,9 @@
     </Filter>
     <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter">
       <UniqueIdentifier>{c024f50c-e35a-4ecf-b401-089611c81516}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\String">
+      <UniqueIdentifier>{48a46ac3-c962-4bd7-ad7c-5f366a72f160}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

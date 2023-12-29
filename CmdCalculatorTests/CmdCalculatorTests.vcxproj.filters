@@ -13,6 +13,9 @@
     <ClCompile Include="ProcessTests.cpp">
       <Filter>Source Code\Tests</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleCalculationTests.cpp">
+      <Filter>Source Code\Tests\Calculation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -23,6 +26,9 @@
     </Filter>
     <Filter Include="Source Code\pch">
       <UniqueIdentifier>{0f28992d-a69a-48ba-a9c4-cb95db350a38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Calculation">
+      <UniqueIdentifier>{212f562c-783c-4b1d-a996-656c9c1ecb28}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

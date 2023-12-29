@@ -50,3 +50,15 @@ bool CmdCalculator::CalculationConfiguration::shouldPreferTrailingZeroOverEmptyD
 {
 	return m_shouldPreferTrailingZeroOverEmptyDecimalPlace;
 }
+
+
+bool CmdCalculator::CalculationConfiguration::operator==(const CalculationConfiguration& other) const
+{
+	return
+		m_precision == other.m_precision
+		&& m_shouldPreferDecimalsOverIntegers == other.m_shouldPreferDecimalsOverIntegers
+		&& m_shouldPreferSignExpressionForPositiveValues == other.m_shouldPreferSignExpressionForPositiveValues
+		&& m_shouldPreferLeadingZeroOverWholelessNumbers == other.m_shouldPreferLeadingZeroOverWholelessNumbers
+		&& m_shouldPreferTrailingZeroOverEmptyDecimalPlace == other.m_shouldPreferTrailingZeroOverEmptyDecimalPlace
+	;
+}

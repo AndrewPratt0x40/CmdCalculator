@@ -58,7 +58,7 @@ namespace CmdCalculatorTestDoubleTests
 
 	TYPED_TEST_CASE(StubCalculationWithTParamsTests, StubCalculationWithTParamsTests_Types);
 
-	TYPED_TEST(StubCalculationWithTParamsTests, StubCalculation$satisfies$RawCmdLineArgParser$concept)
+	TYPED_TEST(StubCalculationWithTParamsTests, StubCalculation$satisfies$Calculation$concept)
 	{
 		static_assert
 		(

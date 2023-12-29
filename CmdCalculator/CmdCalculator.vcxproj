@@ -159,6 +159,7 @@
     <ClInclude Include="Process.h" />
     <ClInclude Include="ProcessConfiguration.h" />
     <ClInclude Include="RawCmdLineArgParser.h" />
+    <ClInclude Include="SimpleCalculation.h" />
     <ClInclude Include="strings.h" />
     <ClInclude Include="StringToMathAstConverter.h" />
     <ClInclude Include="UnknownCmdLineArgException.h" />
@@ -167,6 +168,7 @@
     <ClCompile Include="CalculationConfiguration.cpp" />
     <ClCompile Include="MissingCmdLineArgValueException.cpp" />
     <ClCompile Include="Process.cpp" />
+    <ClCompile Include="SimpleCalculation.cpp" />
     <ClCompile Include="UnknownCmdLineArgException.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

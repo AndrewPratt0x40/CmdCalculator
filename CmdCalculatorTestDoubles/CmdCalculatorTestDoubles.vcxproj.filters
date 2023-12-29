@@ -4,32 +4,14 @@
     <Filter Include="Source Code">
       <UniqueIdentifier>{cd7ada92-0f40-47b1-9b9c-584838234ff4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Calculation">
+      <UniqueIdentifier>{113656e8-2abc-4eee-8870-a4bfe3e12a92}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Code\Console">
       <UniqueIdentifier>{f3e65078-8c44-4c69-8a24-d51fb1ad5837}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Code\Conversions">
       <UniqueIdentifier>{26cf7da9-b859-4441-af9a-a35c733fea91}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Expressions">
-      <UniqueIdentifier>{54254547-9ab8-40d4-9fcf-1a19bd6a0588}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\MathAst">
-      <UniqueIdentifier>{862287a5-ed56-4d45-951a-ce9c84987339}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\RawCmdLineArgParser">
-      <UniqueIdentifier>{371b337e-1605-487d-932b-0ef9da0af543}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Calculation">
-      <UniqueIdentifier>{113656e8-2abc-4eee-8870-a4bfe3e12a92}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Conversions\ExpressionToStringConverter">
-      <UniqueIdentifier>{e3874a65-0c11-4bb6-9f28-3998e2575a6a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Conversions\MathAstToExpressionConverter">
-      <UniqueIdentifier>{a03cf543-6e5f-4b37-91e9-ba6d1955a285}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Conversions\StringToMathAstConverter">
-      <UniqueIdentifier>{7067254a-f655-4f52-a1d8-f87f2c9d820b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Code\Exceptions">
       <UniqueIdentifier>{8dc3c785-56f5-471a-8eb6-1ed3ba4d3f13}</UniqueIdentifier>
@@ -40,6 +22,30 @@
     <Filter Include="Source Code\Exceptions\Invalid Input Expression\InvalidInputExpressionException">
       <UniqueIdentifier>{c24dcff8-fb5b-4901-a44f-e9088a7e817e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Expressions">
+      <UniqueIdentifier>{54254547-9ab8-40d4-9fcf-1a19bd6a0588}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\MathAst">
+      <UniqueIdentifier>{862287a5-ed56-4d45-951a-ce9c84987339}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\MathAst\MathAstNode">
+      <UniqueIdentifier>{742f7eb1-ca5f-4d78-b00b-95d56182af68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\RawCmdLineArgParser">
+      <UniqueIdentifier>{371b337e-1605-487d-932b-0ef9da0af543}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\String">
+      <UniqueIdentifier>{cd658a14-b12e-47e5-a24a-30350a77883a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\StringToMathAstConverter">
+      <UniqueIdentifier>{7067254a-f655-4f52-a1d8-f87f2c9d820b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\MathAstToExpressionConverter">
+      <UniqueIdentifier>{a03cf543-6e5f-4b37-91e9-ba6d1955a285}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\ExpressionToStringConverter">
+      <UniqueIdentifier>{e3874a65-0c11-4bb6-9f28-3998e2575a6a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FakeConsole.h">
@@ -47,9 +53,6 @@
     </ClInclude>
     <ClInclude Include="StubExpression.h">
       <Filter>Source Code\Expressions</Filter>
-    </ClInclude>
-    <ClInclude Include="StubMathAstNode.h">
-      <Filter>Source Code\MathAst</Filter>
     </ClInclude>
     <ClInclude Include="StubThrowingRawCmdLineArgParser.h">
       <Filter>Source Code\RawCmdLineArgParser</Filter>
@@ -59,12 +62,6 @@
     </ClInclude>
     <ClInclude Include="StubThrowingCalculation.h">
       <Filter>Source Code\Calculation</Filter>
-    </ClInclude>
-    <ClInclude Include="StubExpressionToStringConverter.h">
-      <Filter>Source Code\Conversions\ExpressionToStringConverter</Filter>
-    </ClInclude>
-    <ClInclude Include="StubMathAstToExpressionConverter.h">
-      <Filter>Source Code\Conversions\MathAstToExpressionConverter</Filter>
     </ClInclude>
     <ClInclude Include="StubStringToMathAstConverter.h">
       <Filter>Source Code\Conversions\StringToMathAstConverter</Filter>
@@ -77,6 +74,33 @@
     </ClInclude>
     <ClInclude Include="FakeCalculation.h">
       <Filter>Source Code\Calculation</Filter>
+    </ClInclude>
+    <ClInclude Include="StubTrackingStringToMathAstConverter.h">
+      <Filter>Source Code\Conversions\StringToMathAstConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="StubMathAstNode.h">
+      <Filter>Source Code\MathAst\MathAstNode</Filter>
+    </ClInclude>
+    <ClInclude Include="StubTrackingMathAstNode.h">
+      <Filter>Source Code\MathAst\MathAstNode</Filter>
+    </ClInclude>
+    <ClInclude Include="StubTrackingExpression.h">
+      <Filter>Source Code\Expressions</Filter>
+    </ClInclude>
+    <ClInclude Include="StubTrackingConvertedString.h">
+      <Filter>Source Code\String</Filter>
+    </ClInclude>
+    <ClInclude Include="StubExpressionToStringConverter.h">
+      <Filter>Source Code\Conversions\ExpressionToStringConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="StubMathAstToExpressionConverter.h">
+      <Filter>Source Code\Conversions\MathAstToExpressionConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="StubTrackingExpressionToStringConverter.h">
+      <Filter>Source Code\Conversions\ExpressionToStringConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="StubTrackingMathAstToExpressionConverter.h">
+      <Filter>Source Code\Conversions\MathAstToExpressionConverter</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

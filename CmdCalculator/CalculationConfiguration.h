@@ -63,5 +63,8 @@ namespace CmdCalculator
 			bool shouldPreferLeadingZeroOverWholelessNumbers,
 			bool shouldPreferTrailingZeroOverEmptyDecimalPlace
 		);
+
+
+		bool operator==(const CalculationConfiguration& other) const;
 	};
 }

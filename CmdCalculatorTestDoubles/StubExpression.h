@@ -22,7 +22,7 @@ namespace CmdCalculatorTestDoubles::Expressions
 
 		StubExpression getFullSimplification() const
 		{
-			return fullSimplification ? *fullSimplification : StubExpression{};
+			return fullSimplification ? *fullSimplification : *this;
 		}
 	};
 }

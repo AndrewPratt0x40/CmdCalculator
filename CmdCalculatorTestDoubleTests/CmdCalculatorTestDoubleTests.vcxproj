@@ -139,6 +139,12 @@
     <ClCompile Include="StubStringToMathAstConverterTests.cpp" />
     <ClCompile Include="StubThrowingCalculationTests.cpp" />
     <ClCompile Include="StubThrowingRawCmdLineArgParserTests.cpp" />
+    <ClCompile Include="StubTrackingConvertedStringTests.cpp" />
+    <ClCompile Include="StubTrackingExpressionTests.cpp" />
+    <ClCompile Include="StubTrackingExpressionToStringConverterTests.cpp" />
+    <ClCompile Include="StubTrackingMathAstNodeTests.cpp" />
+    <ClCompile Include="StubTrackingMathAstToExpressionConverterTests.cpp" />
+    <ClCompile Include="StubTrackingStringToMathAstConverterTests.cpp" />
     <ClCompile Include="StubValidatingStringToMathAstConverterTests.cpp" />
   </ItemGroup>
   <ItemGroup>

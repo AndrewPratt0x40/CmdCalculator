@@ -40,6 +40,9 @@
     <Filter Include="Source Code\Exceptions\Invalid Input Expression">
       <UniqueIdentifier>{7a408c41-e6f1-497a-97fd-816488463bd8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Calculation\SimpleCalculation">
+      <UniqueIdentifier>{48546601-64b7-462e-b56a-d7fc3cafdaf4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -99,6 +102,9 @@
     <ClInclude Include="InvalidInputExpressionException.h">
       <Filter>Source Code\Exceptions\Invalid Input Expression</Filter>
     </ClInclude>
+    <ClInclude Include="SimpleCalculation.h">
+      <Filter>Source Code\Calculation\SimpleCalculation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -112,6 +118,9 @@
     </ClCompile>
     <ClCompile Include="MissingCmdLineArgValueException.cpp">
       <Filter>Source Code\Exceptions\Raw Cmd Line Args\MissingCmdLineArgValueException</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleCalculation.cpp">
+      <Filter>Source Code\Calculation\SimpleCalculation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
