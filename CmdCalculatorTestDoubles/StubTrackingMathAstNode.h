@@ -29,13 +29,13 @@ namespace CmdCalculatorTestDoubles::MathAst
 
 		StringT getTrailingTrivia() const
 		{
-			return leadingTrivia;
+			return trailingTrivia;
 		}
 
 
 		StringT getStringRepresentation() const
 		{
-			return leadingTrivia;
+			return stringRepresentation;
 		}
 	};
 }

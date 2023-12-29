@@ -3,6 +3,7 @@
 #include "../CmdCalculator/strings.h"
 #include "../CmdCalculator/MathAstNode.h"
 #include "../CmdCalculator/Expression.h"
+#include "../CmdCalculator/CalculationConfiguration.h"
 
 namespace CmdCalculatorTestDoubles
 {
@@ -20,6 +21,7 @@ namespace CmdCalculatorTestDoubles
 
 		StringT value;
 		SourceExpressionT expressionSource;
+		CmdCalculator::CalculationConfiguration configurationUsed;
 
 		
 		operator StringT() const

@@ -41,14 +41,19 @@ namespace CmdCalculator
 				std::declval<ExpressionToStringConverterType>()
 				.stringifyExpression
 				(
-					std::declval<typename ExpressionToStringConverterType::ExpressionType>()
+					std::declval<typename ExpressionToStringConverterType::ExpressionType>(),
+					std::declval<CalculationConfiguration>()
 				)
 			)
 		;
 
 
 	private:
-		// TODO
+		const InputExpressionType m_inputExpression;
+		const CalculationConfiguration m_configuration;
+		StringToMathAstConverterType m_stringToMathAstConverter;
+		MathAstToExpressionConverterType m_mathAstToExpressionConverter;
+		ExpressionToStringConverterType m_expressionToStringConverter;
 
 
 	public:
@@ -57,7 +62,7 @@ namespace CmdCalculator
 		/// \returns The expression to be calculated represented as a string.
 		InputExpressionType getInputExpression() const
 		{
-			throw NotImplementedException{};
+			return m_inputExpression;
 		}
 
 
@@ -65,7 +70,14 @@ namespace CmdCalculator
 		/// \returns The calculated expression as a string.
 		OutputExpressionType getOutputExpression() const
 		{
-			throw NotImplementedException{};
+			return m_expressionToStringConverter.stringifyExpression
+			(
+				m_mathAstToExpressionConverter.getMathAstAsExpression
+				(
+					m_stringToMathAstConverter.getStringAsMathAst(m_inputExpression)
+				).getFullSimplification(),
+				m_configuration
+			);
 		}
 
 
@@ -73,7 +85,7 @@ namespace CmdCalculator
 		/// \returns The calculation configuration object to use.
 		CalculationConfiguration getConfiguration() const
 		{
-			throw NotImplementedException{};
+			return m_configuration;
 		}
 
 
@@ -81,7 +93,7 @@ namespace CmdCalculator
 		/// \returns The converter object to use.
 		StringToMathAstConverterType getStringToMathAstConverter() const
 		{
-			throw NotImplementedException{};
+			return m_stringToMathAstConverter;
 		}
 
 
@@ -89,7 +101,7 @@ namespace CmdCalculator
 		/// \returns The converter object to use.
 		MathAstToExpressionConverterType getMathAstToExpressionConverter() const
 		{
-			throw NotImplementedException{};
+			return m_mathAstToExpressionConverter;
 		}
 
 
@@ -97,7 +109,7 @@ namespace CmdCalculator
 		/// \returns The converter object to use.
 		ExpressionToStringConverterType getExpressionToStringConverter() const
 		{
-			throw NotImplementedException{};
+			return m_expressionToStringConverter;
 		}
 
 
@@ -114,9 +126,12 @@ namespace CmdCalculator
 			StringToMathAstConverterType stringToMathAstConverter,
 			MathAstToExpressionConverterType mathAstToExpressionConverter,
 			ExpressionToStringConverterType expressionToStringConverter
-		)
-		{
-			throw NotImplementedException{};
-		}
+		) :
+			m_inputExpression{ inputExpression },
+			m_configuration{ calculationConfiguration },
+			m_stringToMathAstConverter{ stringToMathAstConverter },
+			m_mathAstToExpressionConverter{ mathAstToExpressionConverter },
+			m_expressionToStringConverter{ expressionToStringConverter }
+		{}
 	};
 }

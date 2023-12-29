@@ -22,7 +22,7 @@ namespace CmdCalculatorTests
 {
 #pragma region Concept satisfaction
 
-	TEST(SimpleCalculationTests, SimpleCalculation$satisfies$RawCmdLineArgParser$concept)
+	TEST(SimpleCalculationTests, SimpleCalculation$satisfies$Calculation$concept)
 	{
 		static_assert
 		(
@@ -177,12 +177,9 @@ namespace CmdCalculatorTests
 			mathAstToExpressionConverter,
 			expressionToStringConverter
 		};
-		
-
-		ConvertedStringType returnValue;
 
 		// Act
-		returnValue = instance.getOutputExpression();
+		ConvertedStringType returnValue{ instance.getOutputExpression() };
 
 		// Assert
 		EXPECT_EQ(returnValue.value, expressionToStringConverter.stringifiedExpression);

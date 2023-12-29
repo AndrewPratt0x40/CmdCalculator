@@ -25,12 +25,13 @@ namespace CmdCalculatorTestDoubles
 
 		InnerStringT stringifiedExpression;
 
-		StringType stringifyExpression(const ExpressionT& source) const
+		StringType stringifyExpression(const ExpressionT& source, const CmdCalculator::CalculationConfiguration configuration) const
 		{
 			return StringType
 			{
 				.value{ stringifiedExpression },
-				.expressionSource{ source }
+				.expressionSource{ source },
+				.configurationUsed{ configuration }
 			};
 		}
 	};

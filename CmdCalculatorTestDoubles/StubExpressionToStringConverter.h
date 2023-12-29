@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../CmdCalculator/ExpressionToStringConverter.h"
+#include "../CmdCalculator/CalculationConfiguration.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculator/strings.h"
 
@@ -15,7 +16,7 @@ namespace CmdCalculatorTestDoubles
 
 		StringT stringifiedExpression;
 
-		StringT stringifyExpression(const ExpressionT& source) const
+		StringT stringifyExpression(const ExpressionT& source, const CmdCalculator::CalculationConfiguration configuration) const
 		{
 			return stringifiedExpression;
 		}

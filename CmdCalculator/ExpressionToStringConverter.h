@@ -3,6 +3,7 @@
 #include<concepts>
 
 #include "strings.h"
+#include "CalculationConfiguration.h"
 #include "Expression.h"
 
 namespace CmdCalculator
@@ -18,9 +19,9 @@ namespace CmdCalculator
 	concept ExpressionToStringConverter =
 		std::derived_from<T, ExpressionToStringConverter_IntendedSatisfaction>
 		&& Expressions::Expression<typename T::ExpressionType>
-		&& requires(T&& instance, const typename T::ExpressionType& source)
+		&& requires(T&& instance, const typename T::ExpressionType& source, const CalculationConfiguration configuration)
 		{
-			{ instance.stringifyExpression(source) } -> String;
+			{ instance.stringifyExpression(source, configuration) } -> String;
 		}
 	;
 }
