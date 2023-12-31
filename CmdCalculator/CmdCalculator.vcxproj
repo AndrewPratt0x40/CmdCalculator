@@ -147,6 +147,20 @@
     <ClInclude Include="Calculation.h" />
     <ClInclude Include="CalculationConfiguration.h" />
     <ClInclude Include="Console.h" />
+    <ClInclude Include="DynamicAbsoluteValueNode.h" />
+    <ClInclude Include="DynamicBinaryOperatorNode.h" />
+    <ClInclude Include="DynamicExpressionContainingNode.h" />
+    <ClInclude Include="DynamicExpressionNode.h" />
+    <ClInclude Include="DynamicExpressionPartNode.h" />
+    <ClInclude Include="DynamicGroupingMultiplicationNode.h" />
+    <ClInclude Include="DynamicGroupingNode.h" />
+    <ClInclude Include="DynamicMathAstNode.h" />
+    <ClInclude Include="DynamicNumberLiteralNode.h" />
+    <ClInclude Include="DynamicOperandNode.h" />
+    <ClInclude Include="DynamicSignOperationNode.h" />
+    <ClInclude Include="DynamicSqrtOperationNode.h" />
+    <ClInclude Include="DynamicUnaryOperationNode.h" />
+    <ClInclude Include="EBinaryOperator.h" />
     <ClInclude Include="Expression.h" />
     <ClInclude Include="ExpressionNode.h" />
     <ClInclude Include="ExpressionPartNode.h" />
@@ -166,6 +180,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp" />
+    <ClCompile Include="DynamicAbsoluteValueNode.cpp" />
+    <ClCompile Include="DynamicBinaryOperatorNode.cpp" />
+    <ClCompile Include="DynamicGroupingMultiplicationNode.cpp" />
+    <ClCompile Include="DynamicGroupingNode.cpp" />
+    <ClCompile Include="DynamicNumberLiteralNode.cpp" />
+    <ClCompile Include="DynamicSignOperationNode.cpp" />
+    <ClCompile Include="DynamicSqrtOperationNode.cpp" />
+    <ClCompile Include="DynamicUnaryOperationNode.cpp" />
     <ClCompile Include="MissingCmdLineArgValueException.cpp" />
     <ClCompile Include="Process.cpp" />
     <ClCompile Include="SimpleCalculation.cpp" />

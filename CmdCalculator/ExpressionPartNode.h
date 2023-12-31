@@ -21,5 +21,6 @@ namespace CmdCalculator::MathAst
 	template<class T>
 	concept ExpressionPartNode =
 		std::derived_from<T, ExpressionPartNode_IntendedSatisfaction>
+		&& MathAstNode<T>
 	;
 }

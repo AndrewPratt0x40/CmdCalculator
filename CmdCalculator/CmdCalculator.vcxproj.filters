@@ -43,6 +43,33 @@
     <Filter Include="Source Code\Calculation\SimpleCalculation">
       <UniqueIdentifier>{48546601-64b7-462e-b56a-d7fc3cafdaf4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Math AST\Dynamic">
+      <UniqueIdentifier>{016fde12-93c5-487f-be83-6fceaf21108e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Math AST\Dynamic\DynamicBinaryOperatorNode">
+      <UniqueIdentifier>{2c2cfad5-c59a-44d7-ae3a-afc748ab32d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Math AST\Dynamic\DynamicGroupingMultiplicationNode">
+      <UniqueIdentifier>{ecc5791e-8598-428a-b506-f6090624daa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Math AST\Dynamic\DynamicGroupingNode">
+      <UniqueIdentifier>{9acec865-82ef-431a-bcc1-c95c810c0a75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Math AST\Dynamic\DynamicAbsoluteValueNode">
+      <UniqueIdentifier>{ba1e3e96-bd75-4b59-b0e7-2a1fd09d773d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Math AST\Dynamic\DynamicNumberLiteralNode">
+      <UniqueIdentifier>{428d90ea-27c1-4206-b791-ce8f8200943a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Math AST\Dynamic\DynamicUnaryOperationNode">
+      <UniqueIdentifier>{64f92aae-995e-47d6-9958-917c5e5ecffc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Math AST\Dynamic\DynamicSignOperationNode">
+      <UniqueIdentifier>{0c5c7033-4cd6-4286-988f-6707082c2483}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Math AST\Dynamic\DynamicSqrtOperationNode">
+      <UniqueIdentifier>{a1c2d165-264a-4836-a253-4fb057fe7194}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -105,6 +132,48 @@
     <ClInclude Include="SimpleCalculation.h">
       <Filter>Source Code\Calculation\SimpleCalculation</Filter>
     </ClInclude>
+    <ClInclude Include="DynamicMathAstNode.h">
+      <Filter>Source Code\Math AST\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicExpressionPartNode.h">
+      <Filter>Source Code\Math AST\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicExpressionNode.h">
+      <Filter>Source Code\Math AST\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="EBinaryOperator.h">
+      <Filter>Source Code\Math AST</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicOperandNode.h">
+      <Filter>Source Code\Math AST\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicExpressionContainingNode.h">
+      <Filter>Source Code\Math AST\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicBinaryOperatorNode.h">
+      <Filter>Source Code\Math AST\Dynamic\DynamicBinaryOperatorNode</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicGroupingMultiplicationNode.h">
+      <Filter>Source Code\Math AST\Dynamic\DynamicGroupingMultiplicationNode</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicGroupingNode.h">
+      <Filter>Source Code\Math AST\Dynamic\DynamicGroupingNode</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicAbsoluteValueNode.h">
+      <Filter>Source Code\Math AST\Dynamic\DynamicAbsoluteValueNode</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicNumberLiteralNode.h">
+      <Filter>Source Code\Math AST\Dynamic\DynamicNumberLiteralNode</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicUnaryOperationNode.h">
+      <Filter>Source Code\Math AST\Dynamic\DynamicUnaryOperationNode</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicSignOperationNode.h">
+      <Filter>Source Code\Math AST\Dynamic\DynamicSignOperationNode</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicSqrtOperationNode.h">
+      <Filter>Source Code\Math AST\Dynamic\DynamicSqrtOperationNode</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -121,6 +190,30 @@
     </ClCompile>
     <ClCompile Include="SimpleCalculation.cpp">
       <Filter>Source Code\Calculation\SimpleCalculation</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicBinaryOperatorNode.cpp">
+      <Filter>Source Code\Math AST\Dynamic\DynamicBinaryOperatorNode</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicGroupingMultiplicationNode.cpp">
+      <Filter>Source Code\Math AST\Dynamic\DynamicGroupingMultiplicationNode</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicGroupingNode.cpp">
+      <Filter>Source Code\Math AST\Dynamic\DynamicGroupingNode</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicAbsoluteValueNode.cpp">
+      <Filter>Source Code\Math AST\Dynamic\DynamicAbsoluteValueNode</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicNumberLiteralNode.cpp">
+      <Filter>Source Code\Math AST\Dynamic\DynamicNumberLiteralNode</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicUnaryOperationNode.cpp">
+      <Filter>Source Code\Math AST\Dynamic\DynamicUnaryOperationNode</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicSignOperationNode.cpp">
+      <Filter>Source Code\Math AST\Dynamic\DynamicSignOperationNode</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicSqrtOperationNode.cpp">
+      <Filter>Source Code\Math AST\Dynamic\DynamicSqrtOperationNode</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

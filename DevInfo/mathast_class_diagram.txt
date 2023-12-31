@@ -87,7 +87,7 @@ package MathAst {
 	}
 	
 	OperandNode <|-- ExpressionContainingNode
-	ExpressionContainingNode "0.." *-- ExpressionNode
+	ExpressionContainingNode "1" *-- ExpressionNode
 	
 	
 	class GroupingNode {

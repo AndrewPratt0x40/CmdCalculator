@@ -22,6 +22,7 @@ namespace CmdCalculator::MathAst
 	template<class T>
 	concept ExpressionNode =
 		std::derived_from<T, ExpressionNode_IntendedSatisfaction>
+		&& MathAstNode<T>
 		&& requires(T&& instance)
 		{
 			{ instance.getParts() } -> std::ranges::input_range;
