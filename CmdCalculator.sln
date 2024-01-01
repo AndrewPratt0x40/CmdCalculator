@@ -38,8 +38,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CmdCalculatorTestDoubles", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CmdCalculatorTestDoubleTests", "CmdCalculatorTestDoubleTests\CmdCalculatorTestDoubleTests.vcxproj", "{99091EB1-272B-4168-B042-AAE57C8C5E20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntlrGenerator", "AntlrGenerator\AntlrGenerator.csproj", "{40D20494-D906-44DD-AC26-B22A24C3CD16}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -110,18 +108,6 @@ Global
 		{99091EB1-272B-4168-B042-AAE57C8C5E20}.Release|x64.Build.0 = Release|x64
 		{99091EB1-272B-4168-B042-AAE57C8C5E20}.Release|x86.ActiveCfg = Release|Win32
 		{99091EB1-272B-4168-B042-AAE57C8C5E20}.Release|x86.Build.0 = Release|Win32
-		{40D20494-D906-44DD-AC26-B22A24C3CD16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{40D20494-D906-44DD-AC26-B22A24C3CD16}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{40D20494-D906-44DD-AC26-B22A24C3CD16}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{40D20494-D906-44DD-AC26-B22A24C3CD16}.Debug|x64.Build.0 = Debug|Any CPU
-		{40D20494-D906-44DD-AC26-B22A24C3CD16}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{40D20494-D906-44DD-AC26-B22A24C3CD16}.Debug|x86.Build.0 = Debug|Any CPU
-		{40D20494-D906-44DD-AC26-B22A24C3CD16}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{40D20494-D906-44DD-AC26-B22A24C3CD16}.Release|Any CPU.Build.0 = Release|Any CPU
-		{40D20494-D906-44DD-AC26-B22A24C3CD16}.Release|x64.ActiveCfg = Release|Any CPU
-		{40D20494-D906-44DD-AC26-B22A24C3CD16}.Release|x64.Build.0 = Release|Any CPU
-		{40D20494-D906-44DD-AC26-B22A24C3CD16}.Release|x86.ActiveCfg = Release|Any CPU
-		{40D20494-D906-44DD-AC26-B22A24C3CD16}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -132,7 +118,6 @@ Global
 		{EE0F80BE-945C-45E8-A699-FC1230169D3C} = {94B19B99-48C7-4FAA-AFE9-750A93F7DDEE}
 		{80AA43E2-F1C0-4A47-B09F-1656A1C96FAE} = {94B19B99-48C7-4FAA-AFE9-750A93F7DDEE}
 		{99091EB1-272B-4168-B042-AAE57C8C5E20} = {94B19B99-48C7-4FAA-AFE9-750A93F7DDEE}
-		{40D20494-D906-44DD-AC26-B22A24C3CD16} = {EE1F3324-4809-4E25-AB21-D727DA9CC8D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {248C21A9-3E4F-47A4-979D-AE5B4B759314}
