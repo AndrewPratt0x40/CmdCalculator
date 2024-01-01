@@ -173,6 +173,7 @@
     <ClInclude Include="Process.h" />
     <ClInclude Include="ProcessConfiguration.h" />
     <ClInclude Include="RawCmdLineArgParser.h" />
+    <ClInclude Include="SequentialMathAstParser.h" />
     <ClInclude Include="SimpleCalculation.h" />
     <ClInclude Include="strings.h" />
     <ClInclude Include="StringToMathAstConverter.h" />
@@ -190,6 +191,7 @@
     <ClCompile Include="DynamicUnaryOperationNode.cpp" />
     <ClCompile Include="MissingCmdLineArgValueException.cpp" />
     <ClCompile Include="Process.cpp" />
+    <ClCompile Include="SequentialMathAstParser.cpp" />
     <ClCompile Include="SimpleCalculation.cpp" />
     <ClCompile Include="UnknownCmdLineArgException.cpp" />
   </ItemGroup>

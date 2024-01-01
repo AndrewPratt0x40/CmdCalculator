@@ -70,6 +70,18 @@
     <Filter Include="Source Code\Math AST\Dynamic\DynamicSqrtOperationNode">
       <UniqueIdentifier>{a1c2d165-264a-4836-a253-4fb057fe7194}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST">
+      <UniqueIdentifier>{9ba44115-1c87-43da-84c7-9c73f54edf21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\Sequential Parsing">
+      <UniqueIdentifier>{9503466b-234e-456e-8a7e-3c0bec4ebefb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\Sequential Parsing\SequentialMathAstParser">
+      <UniqueIdentifier>{51a6fc16-88da-4be1-aedf-49e133c5fe65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\Sequential Parsing\Tokens">
+      <UniqueIdentifier>{8931a246-1f85-488d-8393-78c64703601f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -86,9 +98,6 @@
     </ClInclude>
     <ClInclude Include="MathAstNode.h">
       <Filter>Source Code\Math AST</Filter>
-    </ClInclude>
-    <ClInclude Include="StringToMathAstConverter.h">
-      <Filter>Source Code\Conversions</Filter>
     </ClInclude>
     <ClInclude Include="ExpressionNode.h">
       <Filter>Source Code\Math AST</Filter>
@@ -174,6 +183,12 @@
     <ClInclude Include="DynamicSqrtOperationNode.h">
       <Filter>Source Code\Math AST\Dynamic\DynamicSqrtOperationNode</Filter>
     </ClInclude>
+    <ClInclude Include="StringToMathAstConverter.h">
+      <Filter>Source Code\Conversions\String to Math AST</Filter>
+    </ClInclude>
+    <ClInclude Include="SequentialMathAstParser.h">
+      <Filter>Source Code\Conversions\String to Math AST\Sequential Parsing\SequentialMathAstParser</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -214,6 +229,9 @@
     </ClCompile>
     <ClCompile Include="DynamicSqrtOperationNode.cpp">
       <Filter>Source Code\Math AST\Dynamic\DynamicSqrtOperationNode</Filter>
+    </ClCompile>
+    <ClCompile Include="SequentialMathAstParser.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\Sequential Parsing\SequentialMathAstParser</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

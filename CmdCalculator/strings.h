@@ -10,7 +10,7 @@ namespace CmdCalculator
 	/// \tparam CharT The type of the characters of \p T.
 	/// \details To satisfy this concept, \p T must be able to be represented by std::basic_string<\p CharT>>.
 	template<class T, class CharT>
-	concept StringOfChar = std::common_with<T, std::basic_string<CharT>>;
+	concept StringOfChar = std::convertible_to<T, std::basic_string<CharT>>;
 
 	/// \brief A string type.
 	/// \tparam T The string type.
@@ -32,7 +32,7 @@ namespace CmdCalculator
 	/// \tparam CharT The type of the characters of \p T.
 	/// \details To satisfy this concept, \p T must be able to be represented by std::basic_string_view<\p CharT>>.
 	template<class T, class CharT>
-	concept StringViewOfChar = std::common_with<T, std::basic_string_view<CharT>>;
+	concept StringViewOfChar = std::convertible_to<T, std::basic_string_view<CharT>>;
 
 	/// \brief A string view type.
 	/// \tparam T The string view type.
