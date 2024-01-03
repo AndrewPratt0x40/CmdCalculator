@@ -14,7 +14,7 @@ namespace CmdCalculator::MathAst
 	{
 	public:
 
-		using DynamicOperandNode<StringT>::StringType;
+		using StringType = DynamicOperandNode<StringT>::StringType;
 
 
 		/// \brief Tests if the sign expression is positive or negative.

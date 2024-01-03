@@ -20,9 +20,9 @@ namespace CmdCalculator::MathAst
 	{
 	public:
 
-		using DynamicExpressionContainingNodeWithUnderlyingCollection<StringT, UnderlyingPartsT>::StringType;
-		using DynamicExpressionContainingNodeWithUnderlyingCollection<StringT, UnderlyingPartsT>::PartsType;
-		using DynamicExpressionContainingNodeWithUnderlyingCollection<StringT, UnderlyingPartsT>::UnderlyingPartsType;
+		using StringType = DynamicExpressionContainingNodeWithUnderlyingCollection<StringT, UnderlyingPartsT>::StringType;
+		using PartsType = DynamicExpressionContainingNodeWithUnderlyingCollection<StringT, UnderlyingPartsT>::PartsType;
+		using UnderlyingPartsType = DynamicExpressionContainingNodeWithUnderlyingCollection<StringT, UnderlyingPartsT>::UnderlyingPartsType;
 
 
 		DynamicExpressionNode<StringT, PartsType> getContainedExpression() const override

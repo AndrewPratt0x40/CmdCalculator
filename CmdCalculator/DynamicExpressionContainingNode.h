@@ -20,7 +20,7 @@ namespace CmdCalculator::MathAst
 	{
 	public:
 		
-		using DynamicOperandNode<StringT>::StringType;
+		using StringType = DynamicOperandNode<StringT>::StringType;
 
 		using PartsType = PartsT;
 
@@ -42,8 +42,8 @@ namespace CmdCalculator::MathAst
 		using ParentDynamicExpressionContainingNode = DynamicExpressionContainingNode<StringT, decltype(std::declval<UnderlyingPartsT> | std::views::all)>;
 
 	public:
-		using ParentDynamicExpressionContainingNode::StringType;
-		using ParentDynamicExpressionContainingNode::PartsType;
+		using StringType = ParentDynamicExpressionContainingNode::StringType;
+		using PartsType = ParentDynamicExpressionContainingNode::PartsType;
 
 		using UnderlyingPartsType = UnderlyingPartsT;
 	};

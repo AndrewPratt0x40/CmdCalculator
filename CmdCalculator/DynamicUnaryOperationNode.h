@@ -14,7 +14,7 @@ namespace CmdCalculator::MathAst
 	{
 	public:
 
-		using DynamicOperandNode<StringT>::StringType;
+		using StringType = DynamicOperandNode<StringT>::StringType;
 
 
 		/// \brief Accessor to the operand of the operation.

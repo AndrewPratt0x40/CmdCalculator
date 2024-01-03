@@ -19,7 +19,7 @@ namespace CmdCalculator::MathAst
 	{
 	public:
 
-		using DynamicOperandNode<StringT>::StringType;
+		using StringType = DynamicOperandNode<StringT>::StringType;
 
 		using IntType = IntT;
 

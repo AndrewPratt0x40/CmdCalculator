@@ -28,7 +28,7 @@ namespace CmdCalculator::MathAst
 		/// \brief Accessor to the head multiplicand of the operation.
 		/// \returns The operand to be multiplied by the grouping operations that follow it.
 		/// \example The head multiplicand of the grouping multiplication expression <tt>1(2)(3)</tt> would be <tt>1</tt>.
-		const DynamicOperandNode& getHeadMultiplicand() const
+		const DynamicOperandNode<StringT>& getHeadMultiplicand() const
 		{
 			throw NotImplementedException{};
 		}

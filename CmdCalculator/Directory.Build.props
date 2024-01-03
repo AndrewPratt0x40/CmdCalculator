@@ -1,0 +1,8 @@
+<Project>
+
+	<Import Project="$(MsBuildProjectDirectory)/CmdCalculator.user.props"/>
+	
+	<ItemGroup>
+		<AntlrGrammar Include="CmdCalculatorExpression.g4" />
+	</ItemGroup>
+</Project>

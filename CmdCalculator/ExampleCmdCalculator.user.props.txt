@@ -1,0 +1,12 @@
+<!--This file may be used as reference for a local CmdCalculator.user.props file.-->
+<!--The file should be placed in the root folder of the CmdCalculator project.-->
+<Project>
+	<PropertyGroup>
+		<!--The filepath to java.exe-->
+		<!--If your JAVA_HOME environment variable path is set, the following may be used: $([System.IO.Path]::Combine($(JAVA_HOME), 'bin', 'java.exe'))-->
+		<JavaExePath>C:/MyStuff/java/bin/java.exe</JavaExePath>
+
+		<!--The filepath to the ANTLR4 tool, available at: https://www.antlr.org/download.html-->
+		<Antlr4JarPath>C:/MyStuff/antlr-4.13.1-complete.jar</Antlr4JarPath>
+	</PropertyGroup>
+</Project>
