@@ -3,10 +3,12 @@
 	<Import Project="$(MsBuildProjectDirectory)/CmdCalculatorAntlr.user.props"/>
 
 	<PropertyGroup>
-		<CmdCalculatorAntlrOutputDir>$(MsBuildProjectDirectory)/../CmdCalculatorAntlr/generated_code</CmdCalculatorAntlrOutputDir>
+		<OutputProjectDir>$(MsBuildProjectDirectory)/../CmdCalculatorAntlr</OutputProjectDir>
+		<CmdCalculatorAntlrOutputDir>$(OutputProjectDir)/generated_code</CmdCalculatorAntlrOutputDir>
 	</PropertyGroup>
 	
 	<ItemGroup>
 		<AntlrGrammar Include="CmdCalculatorExpression.g4" />
+		<LastAntlrGenerationTime Include="$(OutputProjectDir)/LastAntlrGenerationTime" />
 	</ItemGroup>
 </Project>

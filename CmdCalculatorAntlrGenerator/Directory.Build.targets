@@ -1,14 +1,11 @@
 <Project>
-	<Target
-		Name="DeleteAntlrOutput"
-		BeforeTargets="RunAntlr; Clean;"
-	>
+	<Target Name="DeleteAntlrOutput">
+		<Delete Files="@(LastAntlrGenerationTime)" />
 		<RemoveDir Directories="$(CmdCalculatorAntlrOutputDir)" />
 	</Target>
 	
 	<Target
 		Name="RunAntlr"
-		BeforeTargets="Build; ClCompile;"
 	>
 		<Exec
 			Command="&quot;$(JavaExePath)&quot; -jar &quot;$(Antlr4JarPath)&quot; -o &quot;$(CmdCalculatorAntlrOutputDir)&quot; @(AntlrGrammar) -Dlanguage=Cpp -package &quot;CmdCalculator::Antlr&quot;"
@@ -49,15 +46,59 @@ foreach (Microsoft.Build.Framework.ITaskItem filepathTaskItem in OutputFiles)
 
 	<Target
 		Name="FixAllAntlrOutputIncludes"
-		BeforeTargets="Build; ClCompile;"
+		AfterTargets="RunAntlr"
 		DependsOnTargets="RunAntlr"
 	>
 		<ItemGroup>
 			<AntlrOutput Include="$(CmdCalculatorAntlrOutputDir)/*.h; $(CmdCalculatorAntlrOutputDir)/*.cpp" />
 		</ItemGroup>
-		
+
 		<FixAntlrOutputIncludesTask
 			OutputFiles="@(AntlrOutput)"
 		/>
+	</Target>
+
+	<Target
+		Name="UpdateLastAntlrGenerationTimeFile"
+		AfterTargets="FixAllAntlrOutputIncludes"
+		DependsOnTargets="RunAntlr"
+	>
+		<Touch
+			Files="@(LastAntlrGenerationTime)"
+			AlwaysCreate="true"
+		/>
+	</Target>
+
+	<Target
+		Name="Build"
+		Inputs="@(AntlrGrammar)"
+		Outputs="@(LastAntlrGenerationTime)"
+	>
+		<CallTarget Targets="RunAntlr"/>
+	</Target>
+
+	<Target
+		Name="PreBuild"
+		BeforeTargets="Build"
+	>
+		<Message Text="Starting PreBuild"/>
+	</Target>
+
+	<Target
+		Name="PostBuild"
+		AfterTargets="Build"
+	>
+		<Message Text="Starting PostBuild"/>
+	</Target>
+
+	<Target
+		Name="Clean"
+	>
+		<CallTarget Targets="DeleteAntlrOutput" />
+	</Target>
+
+	<Target Name="Rebuild">
+		<CallTarget Targets="Clean" />
+		<CallTarget Targets="Build" />
 	</Target>
 </Project>

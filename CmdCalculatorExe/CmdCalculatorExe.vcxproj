@@ -63,7 +63,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <FloatingPointExceptions>true</FloatingPointExceptions>
       <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
-      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <AdditionalIncludeDirectories>$(SolutionDir)submodules/Antlr4CppRuntime/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -83,7 +83,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <FloatingPointExceptions>true</FloatingPointExceptions>
       <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
-      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <AdditionalIncludeDirectories>$(SolutionDir)submodules/Antlr4CppRuntime/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>

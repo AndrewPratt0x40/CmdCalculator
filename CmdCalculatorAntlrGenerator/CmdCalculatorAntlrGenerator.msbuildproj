@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build">
+<Project DefaultTargets="Rebuild">
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
@@ -9,6 +9,7 @@
     <Content Include="ExampleCmdCalculatorAntlr.user.props.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="CmdCalculatorExpression.g4" />
     <None Include="Directory.Build.props" />
     <None Include="Directory.Build.targets" />
   </ItemGroup>
