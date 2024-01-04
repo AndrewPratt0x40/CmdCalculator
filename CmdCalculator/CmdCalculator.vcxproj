@@ -203,20 +203,6 @@
     <ClCompile Include="SimpleCalculation.cpp" />
     <ClCompile Include="UnknownCmdLineArgException.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="CmdCalculatorExpression.g4" />
-    <None Include="Directory.Build.props" />
-    <None Include="Directory.Build.targets" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="ExampleCmdCalculator.user.props.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Antlr4CppRuntime\antlr4cpp-vs2022.vcxproj">
-      <Project>{52618d4b-6ec4-49ad-8b83-52686244e8f3}</Project>
-      <LinkLibraryDependencies>true</LinkLibraryDependencies>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

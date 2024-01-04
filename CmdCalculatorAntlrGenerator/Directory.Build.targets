@@ -1,0 +1,63 @@
+<Project>
+	<Target
+		Name="DeleteAntlrOutput"
+		BeforeTargets="RunAntlr; Clean;"
+	>
+		<RemoveDir Directories="$(CmdCalculatorAntlrOutputDir)" />
+	</Target>
+	
+	<Target
+		Name="RunAntlr"
+		BeforeTargets="Build; ClCompile;"
+	>
+		<Exec
+			Command="&quot;$(JavaExePath)&quot; -jar &quot;$(Antlr4JarPath)&quot; -o &quot;$(CmdCalculatorAntlrOutputDir)&quot; @(AntlrGrammar) -Dlanguage=Cpp -package &quot;CmdCalculator::Antlr&quot;"
+			ContinueOnError="false"
+			LogStandardErrorAsError="true"
+		/>
+	</Target>
+
+
+	<UsingTask
+		TaskName="FixAntlrOutputIncludesTask"
+		TaskFactory="CodeTaskFactory"
+		AssemblyFile="$(MSBuildToolsPath)/Microsoft.Build.Tasks.Core.dll"
+	>
+		<ParameterGroup>
+			<OutputFiles
+				ParameterType="Microsoft.Build.Framework.ITaskItem[]"
+				Required="true"
+			/>
+		</ParameterGroup>
+		<Task>
+			<Code Type="Fragment" Language="cs">
+<![CDATA[
+foreach (Microsoft.Build.Framework.ITaskItem filepathTaskItem in OutputFiles)
+{
+	string filepath = filepathTaskItem.ItemSpec;
+
+	File.WriteAllText
+	(
+		filepath,
+		File.ReadAllText(filepath).Replace("antlr4-runtime.h", "../../submodules/Antlr4CppRuntime/src/antlr4-runtime.h")
+	);
+}
+]]>
+			</Code>
+		</Task>
+	</UsingTask>
+
+	<Target
+		Name="FixAllAntlrOutputIncludes"
+		BeforeTargets="Build; ClCompile;"
+		DependsOnTargets="RunAntlr"
+	>
+		<ItemGroup>
+			<AntlrOutput Include="$(CmdCalculatorAntlrOutputDir)/*.h; $(CmdCalculatorAntlrOutputDir)/*.cpp" />
+		</ItemGroup>
+		
+		<FixAntlrOutputIncludesTask
+			OutputFiles="@(AntlrOutput)"
+		/>
+	</Target>
+</Project>

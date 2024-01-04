@@ -1,0 +1,7 @@
+<Project>
+	<PropertyGroup>
+		<JavaExePath>$([System.IO.Path]::Combine($(JAVA_HOME), 'bin', 'java.exe'))</JavaExePath>
+
+		<Antlr4JarPath>D:/ANTLR/tool/antlr-4.13.1-complete.jar</Antlr4JarPath>
+	</PropertyGroup>
+</Project>

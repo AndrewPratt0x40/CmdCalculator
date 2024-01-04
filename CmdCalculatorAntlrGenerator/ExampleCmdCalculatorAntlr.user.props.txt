@@ -1,5 +1,5 @@
-<!--This file may be used as reference for a local CmdCalculator.user.props file.-->
-<!--The file should be placed in the root folder of the CmdCalculator project.-->
+<!--This file may be used as reference for a local CmdCalculatorAntlr.user.props file.-->
+<!--The file should be placed in the root folder of the CmdCalculatorAntlrGenerator project.-->
 <Project>
 	<PropertyGroup>
 		<!--The filepath to java.exe-->

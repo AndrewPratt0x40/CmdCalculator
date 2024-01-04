@@ -1,0 +1,12 @@
+<Project>
+
+	<Import Project="$(MsBuildProjectDirectory)/CmdCalculatorAntlr.user.props"/>
+
+	<PropertyGroup>
+		<CmdCalculatorAntlrOutputDir>$(MsBuildProjectDirectory)/../CmdCalculatorAntlr/generated_code</CmdCalculatorAntlrOutputDir>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<AntlrGrammar Include="CmdCalculatorExpression.g4" />
+	</ItemGroup>
+</Project>

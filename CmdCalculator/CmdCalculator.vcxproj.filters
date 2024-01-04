@@ -79,9 +79,6 @@
     <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrBasedStringToMathAstConverter">
       <UniqueIdentifier>{51a6fc16-88da-4be1-aedf-49e133c5fe65}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MSBuild">
-      <UniqueIdentifier>{b7f7eb65-bdf4-4575-a664-7fda7d165790}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -233,21 +230,5 @@
     <ClCompile Include="AntlrBasedStringToMathAstConverter.cpp">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrBasedStringToMathAstConverter</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="CmdCalculatorExpression.g4">
-      <Filter>Source Code\Conversions\String to Math AST\ANTLR</Filter>
-    </None>
-    <None Include="Directory.Build.props">
-      <Filter>MSBuild</Filter>
-    </None>
-    <None Include="Directory.Build.targets">
-      <Filter>MSBuild</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="ExampleCmdCalculator.user.props.txt">
-      <Filter>MSBuild</Filter>
-    </Text>
   </ItemGroup>
 </Project>

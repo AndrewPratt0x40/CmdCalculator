@@ -10,8 +10,8 @@
 #include "DynamicExpressionNode.h"
 #include "DynamicExpressionPartNode.h"
 #include "NotImplementedException.h"
-#include "../Antlr4CppRuntime/src/antlr4-runtime.h"
-#include "antlr_output/CmdCalculatorExpressionLexer.h"
+//#include "../Antlr4CppRuntime/src/antlr4-runtime.h"
+//#include "antlr_output/CmdCalculatorExpressionLexer.h"
 
 namespace CmdCalculator
 {
