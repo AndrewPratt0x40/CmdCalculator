@@ -1,15 +1,15 @@
 grammar CmdCalculatorExpression;
 
-fragment WHITESPACE_CHAR: [ \t\n\r];
-SEP: WHITESPACE_CHAR+;
+fragment WhitespaceChar: [ \t\n\r];
+Trivia: WhitespaceChar+;
 
-fragment DIGIT: [0-9];
-INT: DIGIT+;
+fragment Digit: [0-9];
+Integer: Digit+;
 
-OPERATOR: '+' | '-' | '*' | '/';
+BinaryOperator: '+' | '-' | '*' | '/';
 
-operand: INT;
+operand: Integer;
 
-expression: SEP? operand (SEP? OPERATOR SEP? operand)+ SEP?;
+mid_operation_part: operator_leading_trivia=Trivia? BinaryOperator operator_trailing_trivia=Trivia? operand;
 
-full_expression: expression;
+expression: leading_trivia=Trivia? head_operand=operand operation_parts+=mid_operation_part* trailing_trivia=Trivia?;

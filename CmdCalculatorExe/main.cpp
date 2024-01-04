@@ -11,9 +11,11 @@ int main()
 	CmdCalculator::Antlr::CmdCalculatorExpressionLexer lexer{&inputStream};
 	antlr4::CommonTokenStream tokenStream{ &lexer };
 	CmdCalculator::Antlr::CmdCalculatorExpressionParser parser{ &tokenStream };
-	auto* fullExpression{ parser.full_expression() };
-	CmdCalculator::Antlr::CmdCalculatorExpressionBaseListener listener{};
-	antlr4::tree::ParseTreeWalker::DEFAULT.walk(&listener, fullExpression);
+	auto* expression{ parser.expression() };
+	//CmdCalculator::Antlr::CmdCalculatorExpressionBaseListener listener{};
+	//antlr4::tree::ParseTreeWalker::DEFAULT.walk(&listener, fullExpression);
 
-	std::cout << "Hello World!\n";
+	const std::string foo{ expression->operation_parts[0]->};
+
+	//std::cout << "The first operand is: " << foo;
 }
