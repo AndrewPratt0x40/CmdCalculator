@@ -2,7 +2,7 @@
 
 	<Import Project="$(MsBuildProjectDirectory)/CmdCalculatorAntlr.user.props"/>
 
-	<PropertyGroup>
+	<PropertyGroup> 
 		<OutputProjectDir>$(MsBuildProjectDirectory)/../CmdCalculatorAntlr</OutputProjectDir>
 		<CmdCalculatorAntlrOutputDir>$(OutputProjectDir)/generated_code</CmdCalculatorAntlrOutputDir>
 	</PropertyGroup>

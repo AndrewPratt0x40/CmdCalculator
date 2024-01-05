@@ -1,4 +1,4 @@
-lexer grammar CmdCalculatorExpressionParser;
+lexer grammar CmdCalculatorExpressionLexer;
 
 fragment WHITESPACE_CHAR: [ \t\n\r];
 TRIVIA: WHITESPACE_CHAR+;

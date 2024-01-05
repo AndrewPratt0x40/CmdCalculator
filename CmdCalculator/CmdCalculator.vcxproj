@@ -106,6 +106,7 @@
     <ClInclude Include="ExpressionNode.h" />
     <ClInclude Include="ExpressionPartNode.h" />
     <ClInclude Include="ExpressionToStringConverter.h" />
+    <ClInclude Include="Full_expressionContextToMathAstConverter.h" />
     <ClInclude Include="InvalidInputExpressionException.h" />
     <ClInclude Include="MathAstNode.h" />
     <ClInclude Include="MathAstToExpressionConverter.h" />
@@ -135,6 +136,12 @@
     <ClCompile Include="AntlrBasedStringToMathAstConverter.cpp" />
     <ClCompile Include="SimpleCalculation.cpp" />
     <ClCompile Include="UnknownCmdLineArgException.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CmdCalculatorAntlr\CmdCalculatorAntlr.vcxproj">
+      <Project>{eb525848-c145-4190-8c59-856a35ea2f49}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

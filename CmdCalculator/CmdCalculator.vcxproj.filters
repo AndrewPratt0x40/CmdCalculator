@@ -79,6 +79,9 @@
     <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrBasedStringToMathAstConverter">
       <UniqueIdentifier>{51a6fc16-88da-4be1-aedf-49e133c5fe65}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\Full_expressionContextToMathAstConverter">
+      <UniqueIdentifier>{4b982796-2712-41b2-8062-45aa7a280ea8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -185,6 +188,9 @@
     </ClInclude>
     <ClInclude Include="AntlrBasedStringToMathAstConverter.h">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrBasedStringToMathAstConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="Full_expressionContextToMathAstConverter.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\Full_expressionContextToMathAstConverter</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
