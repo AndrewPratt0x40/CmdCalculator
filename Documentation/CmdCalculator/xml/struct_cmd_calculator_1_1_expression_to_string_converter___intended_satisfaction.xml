@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_cmd_calculator_1_1_expression_to_string_converter___intended_satisfaction" kind="struct" language="C++" prot="public">
+    <compoundname>CmdCalculator::ExpressionToStringConverter_IntendedSatisfaction</compoundname>
+    <includes refid="_expression_to_string_converter_8h" local="no">ExpressionToStringConverter.h</includes>
+    <briefdescription>
+<para>The base type for types that are intended to satisfy the ExpressionToStringConverter concept. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="ExpressionToStringConverter.h" line="12" column="1" bodyfile="ExpressionToStringConverter.h" bodystart="13" bodyend="13"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

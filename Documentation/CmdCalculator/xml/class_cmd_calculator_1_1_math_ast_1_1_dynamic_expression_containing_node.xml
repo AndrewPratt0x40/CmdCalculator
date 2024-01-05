@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>CmdCalculator::MathAst::DynamicExpressionContainingNode</compoundname>
+    <basecompoundref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node" prot="public" virt="non-virtual">CmdCalculator::MathAst::DynamicOperandNode&lt; StringT &gt;</basecompoundref>
+    <includes refid="_dynamic_expression_containing_node_8h" local="no">DynamicExpressionContainingNode.h</includes>
+    <templateparamlist>
+      <param>
+        <type>String</type>
+        <declname>StringT</declname>
+        <defname>StringT</defname>
+      </param>
+      <param>
+        <type>std::ranges::input_range</type>
+        <declname>PartsT</declname>
+        <defname>PartsT</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_1a1724ed1d42bfac75a1a2a14c0cdb1b3c" prot="public" static="no">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node" kindref="compound">DynamicOperandNode</ref>&lt; <ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref> &gt;::StringType</type>
+        <definition>using CmdCalculator::MathAst::DynamicExpressionContainingNode&lt; StringT, PartsT &gt;::StringType =  DynamicOperandNode&lt;StringT&gt;::StringType</definition>
+        <argsstring></argsstring>
+        <name>StringType</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicExpressionContainingNode::StringType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicExpressionContainingNode.h" line="23" column="1" bodyfile="DynamicExpressionContainingNode.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_1af9767cac7b2e4b6d046105cf5fec7726" prot="public" static="no">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">PartsT</ref></type>
+        <definition>using CmdCalculator::MathAst::DynamicExpressionContainingNode&lt; StringT, PartsT &gt;::PartsType =  PartsT</definition>
+        <argsstring></argsstring>
+        <name>PartsType</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicExpressionContainingNode::PartsType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicExpressionContainingNode.h" line="25" column="1" bodyfile="DynamicExpressionContainingNode.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_1af8c1b3e69ecd19df667e3531ae9c4f24" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_node" kindref="compound">DynamicExpressionNode</ref>&lt; <ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref>, <ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">PartsT</ref> &gt;</type>
+        <definition>virtual DynamicExpressionNode&lt; StringT, PartsT &gt; CmdCalculator::MathAst::DynamicExpressionContainingNode&lt; StringT, PartsT &gt;::getContainedExpression</definition>
+        <argsstring>() const =0</argsstring>
+        <name>getContainedExpression</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicExpressionContainingNode::getContainedExpression</qualifiedname>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node_1af96c9ab6b46d5135d60350c7dcf8b414">getContainedExpression</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1a4e45cadf7d497866085825780b4c5e8b">getContainedExpression</reimplementedby>
+        <briefdescription>
+<para>Accessor to the contained expression. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The expression contained within the node. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicExpressionContainingNode.h" line="29" column="31"/>
+      </memberdef>
+    </sectiondef>
+    <requiresclause>std::same_as&lt;<ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node" kindref="compound">DynamicExpressionPartNode</ref>&lt;<ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref>&gt;, std::ranges::range_value_t&lt;<ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">PartsT</ref>&gt;&gt;    </requiresclause>
+    <briefdescription>
+<para>A node that holds an expression inside of it. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>StringT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string type to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PartsT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type to use for accessing the collection of all parts of the contained expression. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CmdCalculator::MathAst::DynamicExpressionContainingNode&lt; StringT, PartsT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>CmdCalculator::MathAst::DynamicExpressionPartNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>CmdCalculator::MathAst::DynamicMathAstNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CmdCalculator::MathAst::DynamicOperandNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>CmdCalculator::MathAst::ExpressionPartNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_part_node___intended_satisfaction"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CmdCalculator::MathAst::DynamicExpressionContainingNode&lt; StringT, PartsT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>CmdCalculator::MathAst::DynamicExpressionPartNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>CmdCalculator::MathAst::DynamicMathAstNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CmdCalculator::MathAst::DynamicOperandNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>CmdCalculator::MathAst::ExpressionPartNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_part_node___intended_satisfaction"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction"/>
+      </node>
+    </collaborationgraph>
+    <location file="DynamicExpressionContainingNode.h" line="18" column="1" bodyfile="DynamicExpressionContainingNode.h" bodystart="20" bodyend="30"/>
+    <listofallmembers>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_1af8c1b3e69ecd19df667e3531ae9c4f24" prot="public" virt="pure-virtual"><scope>CmdCalculator::MathAst::DynamicExpressionContainingNode</scope><name>getContainedExpression</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1ab119030478dfccaaae343daec89c93c2" prot="public" virt="pure-virtual"><scope>CmdCalculator::MathAst::DynamicExpressionContainingNode</scope><name>getLeadingTrivia</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1a06c7437a7e811c1db2821bbd73a3e97a" prot="public" virt="pure-virtual"><scope>CmdCalculator::MathAst::DynamicExpressionContainingNode</scope><name>getStringRepresentation</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1a5e3b93b8fe74dccdfb351d216607d01d" prot="public" virt="pure-virtual"><scope>CmdCalculator::MathAst::DynamicExpressionContainingNode</scope><name>getTrailingTrivia</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_1af9767cac7b2e4b6d046105cf5fec7726" prot="public" virt="non-virtual"><scope>CmdCalculator::MathAst::DynamicExpressionContainingNode</scope><name>PartsType</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_1a1724ed1d42bfac75a1a2a14c0cdb1b3c" prot="public" virt="non-virtual"><scope>CmdCalculator::MathAst::DynamicExpressionContainingNode</scope><name>StringType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_cmd_calculator_1_1_raw_cmd_line_arg_parser___intended_satisfaction" kind="struct" language="C++" prot="public">
+    <compoundname>CmdCalculator::RawCmdLineArgParser_IntendedSatisfaction</compoundname>
+    <includes refid="_raw_cmd_line_arg_parser_8h" local="no">RawCmdLineArgParser.h</includes>
+    <briefdescription>
+<para>The base type for types that are intended to satisfy the RawCmdLineArgParser concept. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RawCmdLineArgParser.h" line="12" column="1" bodyfile="RawCmdLineArgParser.h" bodystart="13" bodyend="13"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

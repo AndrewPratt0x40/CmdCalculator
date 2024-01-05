@@ -6,52 +6,53 @@
     <templateparamlist>
       <param>
         <type>String</type>
-        <declname>StringT</declname>
-        <defname>StringT</defname>
+        <declname>ExpressionStringT</declname>
+        <defname>ExpressionStringT</defname>
       </param>
     </templateparamlist>
     <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="struct_cmd_calculator_1_1_process_configuration_1a618b4e295a90e377fc627e16a7e20b18" prot="public" static="no" mutable="no">
-        <type>std::optional&lt; StringT &gt;</type>
-        <definition>std::optional&lt;StringT&gt; CmdCalculator::ProcessConfiguration&lt; StringT &gt;::givenExpression</definition>
+      <memberdef kind="variable" id="struct_cmd_calculator_1_1_process_configuration_1a2f09596a830390d3bbb8a1ff6a523d09" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; ExpressionStringT &gt;</type>
+        <definition>std::optional&lt;ExpressionStringT&gt; CmdCalculator::ProcessConfiguration&lt; ExpressionStringT &gt;::givenExpression</definition>
         <argsstring></argsstring>
         <name>givenExpression</name>
         <qualifiedname>CmdCalculator::ProcessConfiguration::givenExpression</qualifiedname>
         <briefdescription>
-<para>The expression given to <ref refid="namespace_cmd_calculator" kindref="compound">CmdCalculator</ref> to calculate, if any. </para>
+<para>The given expression to calculate, if any. </para>
         </briefdescription>
         <detaileddescription>
+<para>If this value is empty, the user will be prompted to enter an expression instead. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ProcessConfiguration.h" line="16" column="15" bodyfile="ProcessConfiguration.h" bodystart="16" bodyend="-1"/>
+        <location file="ProcessConfiguration.h" line="17" column="15" bodyfile="ProcessConfiguration.h" bodystart="17" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="struct_cmd_calculator_1_1_process_configuration_1af2e5405b1b429b4f1307a7d6e8a6aa24" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="struct_cmd_calculator_1_1_process_configuration_1a4019c25414a60a434df07e66a5dfed9b" prot="public" static="no" mutable="no">
         <type><ref refid="class_cmd_calculator_1_1_calculation_configuration" kindref="compound">CalculationConfiguration</ref></type>
-        <definition>CalculationConfiguration CmdCalculator::ProcessConfiguration&lt; StringT &gt;::CalculationConfiguration</definition>
+        <definition>CalculationConfiguration CmdCalculator::ProcessConfiguration&lt; ExpressionStringT &gt;::calculationConfiguration</definition>
         <argsstring></argsstring>
-        <name>CalculationConfiguration</name>
-        <qualifiedname>CmdCalculator::ProcessConfiguration::CalculationConfiguration</qualifiedname>
+        <name>calculationConfiguration</name>
+        <qualifiedname>CmdCalculator::ProcessConfiguration::calculationConfiguration</qualifiedname>
         <briefdescription>
-<para>The calculation configuration to use. </para>
+<para>The configuration to use for calculation. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ProcessConfiguration.h" line="19" column="26" bodyfile="ProcessConfiguration.h" bodystart="19" bodyend="-1"/>
+        <location file="ProcessConfiguration.h" line="20" column="26" bodyfile="ProcessConfiguration.h" bodystart="20" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
-<para>A configuration for a <ref refid="namespace_cmd_calculator" kindref="compound">CmdCalculator</ref> process. </para>
+<para>A collection of settings for a <ref refid="namespace_cmd_calculator" kindref="compound">CmdCalculator</ref> process. </para>
     </briefdescription>
     <detaileddescription>
 <para><parameterlist kind="templateparam"><parameteritem>
 <parameternamelist>
-<parametername>String</parametername>
+<parametername>ExpressionStringT</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The data type to store strings with. </para>
+<para>The string type that represents a given expression. </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -63,17 +64,17 @@
         <link refid="class_cmd_calculator_1_1_calculation_configuration"/>
       </node>
       <node id="1">
-        <label>CmdCalculator::ProcessConfiguration&lt; StringT &gt;</label>
+        <label>CmdCalculator::ProcessConfiguration&lt; ExpressionStringT &gt;</label>
         <link refid="struct_cmd_calculator_1_1_process_configuration"/>
         <childnode refid="2" relation="usage">
-          <edgelabel>CalculationConfiguration</edgelabel>
+          <edgelabel>calculationConfiguration</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="ProcessConfiguration.h" line="13" column="1" bodyfile="ProcessConfiguration.h" bodystart="14" bodyend="20"/>
+    <location file="ProcessConfiguration.h" line="13" column="1" bodyfile="ProcessConfiguration.h" bodystart="14" bodyend="21"/>
     <listofallmembers>
-      <member refid="struct_cmd_calculator_1_1_process_configuration_1af2e5405b1b429b4f1307a7d6e8a6aa24" prot="public" virt="non-virtual"><scope>CmdCalculator::ProcessConfiguration</scope><name>CalculationConfiguration</name></member>
-      <member refid="struct_cmd_calculator_1_1_process_configuration_1a618b4e295a90e377fc627e16a7e20b18" prot="public" virt="non-virtual"><scope>CmdCalculator::ProcessConfiguration</scope><name>givenExpression</name></member>
+      <member refid="struct_cmd_calculator_1_1_process_configuration_1a4019c25414a60a434df07e66a5dfed9b" prot="public" virt="non-virtual"><scope>CmdCalculator::ProcessConfiguration</scope><name>calculationConfiguration</name></member>
+      <member refid="struct_cmd_calculator_1_1_process_configuration_1a2f09596a830390d3bbb8a1ff6a523d09" prot="public" virt="non-virtual"><scope>CmdCalculator::ProcessConfiguration</scope><name>givenExpression</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

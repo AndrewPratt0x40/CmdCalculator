@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>CmdCalculator::MathAst::DynamicMathAstNode</compoundname>
+    <basecompoundref refid="struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction" prot="public" virt="non-virtual">CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction</basecompoundref>
+    <derivedcompoundref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_node" prot="public" virt="non-virtual">CmdCalculator::MathAst::DynamicExpressionNode&lt; StringT, PartsT &gt;</derivedcompoundref>
+    <derivedcompoundref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node" prot="public" virt="non-virtual">CmdCalculator::MathAst::DynamicExpressionPartNode&lt; StringT &gt;</derivedcompoundref>
+    <includes refid="_dynamic_math_ast_node_8h" local="no">DynamicMathAstNode.h</includes>
+    <templateparamlist>
+      <param>
+        <type>String</type>
+        <declname>StringT</declname>
+        <defname>StringT</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1acc2fe21193b097d0e31982af261c9244" prot="public" static="no">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref></type>
+        <definition>using CmdCalculator::MathAst::DynamicMathAstNode&lt; StringT &gt;::StringType =  StringT</definition>
+        <argsstring></argsstring>
+        <name>StringType</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicMathAstNode::StringType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicMathAstNode.h" line="16" column="1" bodyfile="DynamicMathAstNode.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1ab119030478dfccaaae343daec89c93c2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1acc2fe21193b097d0e31982af261c9244" kindref="member">StringType</ref></type>
+        <definition>virtual StringType CmdCalculator::MathAst::DynamicMathAstNode&lt; StringT &gt;::getLeadingTrivia</definition>
+        <argsstring>() const =0</argsstring>
+        <name>getLeadingTrivia</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicMathAstNode::getLeadingTrivia</qualifiedname>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node_1a56e203d4b741bfea917e2d5f6c93ea7e">getLeadingTrivia</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node_1a3ebfd4c8e069d7de703ae44c48b73fc8">getLeadingTrivia</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_1ad56c7220f8153a3bd9a6872053281723">getLeadingTrivia</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1a314a51741f50a0aa154c7ca11a061a87">getLeadingTrivia</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1aef0992ab70befe3a81a0766e31d4867b">getLeadingTrivia</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sign_operation_node_1a99765bef5c082b5ae02289e748417815">getLeadingTrivia</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_1a7091e70f8a8ddb59899073aa470c6060">getLeadingTrivia</reimplementedby>
+        <briefdescription>
+<para>Accessor to the AST node&apos;s leading trivia. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Trivial content at the beginning of the string contents of the node. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicMathAstNode.h" line="21" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1a5e3b93b8fe74dccdfb351d216607d01d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1acc2fe21193b097d0e31982af261c9244" kindref="member">StringType</ref></type>
+        <definition>virtual StringType CmdCalculator::MathAst::DynamicMathAstNode&lt; StringT &gt;::getTrailingTrivia</definition>
+        <argsstring>() const =0</argsstring>
+        <name>getTrailingTrivia</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicMathAstNode::getTrailingTrivia</qualifiedname>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node_1af96b62d28bae0d47775a7545250d59bd">getTrailingTrivia</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node_1a4badcf6f21c0ca53e19facf1643a82c9">getTrailingTrivia</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_1ae1c230a23ac84556f20376af9e833768">getTrailingTrivia</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1aba1851eba715799c3615d9d1b5c8372c">getTrailingTrivia</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a280f100429dd33181aa61663ce5e6aa6">getTrailingTrivia</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sign_operation_node_1a9260c6574b056a0a739cb4c46a720614">getTrailingTrivia</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_1a0fcf38334749048651f4fe0a1cb3c30b">getTrailingTrivia</reimplementedby>
+        <briefdescription>
+<para>Accessor to the AST node&apos;s trailing trivia. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Trivial content at the end of the string contents of the node. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicMathAstNode.h" line="26" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1a06c7437a7e811c1db2821bbd73a3e97a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1acc2fe21193b097d0e31982af261c9244" kindref="member">StringType</ref></type>
+        <definition>virtual StringType CmdCalculator::MathAst::DynamicMathAstNode&lt; StringT &gt;::getStringRepresentation</definition>
+        <argsstring>() const =0</argsstring>
+        <name>getStringRepresentation</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicMathAstNode::getStringRepresentation</qualifiedname>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node_1a122b815ef8b23f3167bb56406c82e0ac">getStringRepresentation</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node_1a9ca7f1ffea0f6b2d803412e352ac8d2b">getStringRepresentation</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_1ace4359a1023b690c00686140e804725a">getStringRepresentation</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1ad9176a1677ef3b54a6e9434fd4b60a22">getStringRepresentation</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a718e5a0419075860fd31df7f82d003f3">getStringRepresentation</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sign_operation_node_1a83556f553d6e02f9ca191cc76f52d638">getStringRepresentation</reimplementedby>
+        <reimplementedby refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_1ae26d15aff333c3c679ebfb1abebd84f2">getStringRepresentation</reimplementedby>
+        <briefdescription>
+<para>Accessor to the AST node&apos;s string representation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>All non-trivial string contents of the node. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicMathAstNode.h" line="31" column="20"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A type that satisfies MathAstNode that is implemented via dynamic polymorphism. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>StringT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string type to use. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="9">
+        <label>CmdCalculator::MathAst::DynamicAbsoluteValueNode&lt; StringT, UnderlyingPartsT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>CmdCalculator::MathAst::DynamicBinaryOperatorNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>CmdCalculator::MathAst::DynamicExpressionContainingNode&lt; StringT, PartsT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>CmdCalculator::MathAst::DynamicExpressionContainingNodeWithUnderlyingCollection&lt; StringT, UnderlyingPartsT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>CmdCalculator::MathAst::DynamicExpressionNode&lt; StringT, PartsT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_node"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>CmdCalculator::MathAst::DynamicExpressionPartNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>CmdCalculator::MathAst::DynamicGroupingMultiplicationNode&lt; StringT, TailMultiplicandsT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>CmdCalculator::MathAst::DynamicGroupingNode&lt; StringT, UnderlyingPartsT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CmdCalculator::MathAst::DynamicMathAstNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>CmdCalculator::MathAst::DynamicNumberLiteralNode&lt; StringT, IntT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>CmdCalculator::MathAst::DynamicOperandNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>CmdCalculator::MathAst::DynamicSignOperationNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sign_operation_node"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>CmdCalculator::MathAst::DynamicSqrtOperationNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>CmdCalculator::MathAst::DynamicUnaryOperationNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_unary_operation_node"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction"/>
+      </node>
+      <node id="7">
+        <label>CmdCalculator::MathAst::DynamicExpressionContainingNode&lt; StringT, decltype(std::declval&lt; UnderlyingPartsT &gt;|std::views::all)&gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CmdCalculator::MathAst::DynamicMathAstNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction"/>
+      </node>
+    </collaborationgraph>
+    <location file="DynamicMathAstNode.h" line="11" column="1" bodyfile="DynamicMathAstNode.h" bodystart="13" bodyend="32"/>
+    <listofallmembers>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1ab119030478dfccaaae343daec89c93c2" prot="public" virt="pure-virtual"><scope>CmdCalculator::MathAst::DynamicMathAstNode</scope><name>getLeadingTrivia</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1a06c7437a7e811c1db2821bbd73a3e97a" prot="public" virt="pure-virtual"><scope>CmdCalculator::MathAst::DynamicMathAstNode</scope><name>getStringRepresentation</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1a5e3b93b8fe74dccdfb351d216607d01d" prot="public" virt="pure-virtual"><scope>CmdCalculator::MathAst::DynamicMathAstNode</scope><name>getTrailingTrivia</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1acc2fe21193b097d0e31982af261c9244" prot="public" virt="non-virtual"><scope>CmdCalculator::MathAst::DynamicMathAstNode</scope><name>StringType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

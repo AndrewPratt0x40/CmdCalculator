@@ -1,0 +1,47 @@
+\doxysection{Dynamic\+Expression\+Containing\+Node.\+h}
+\hypertarget{_dynamic_expression_containing_node_8h_source}{}\label{_dynamic_expression_containing_node_8h_source}\mbox{\hyperlink{_dynamic_expression_containing_node_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dynamic_operand_node_8h}{DynamicOperandNode.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dynamic_expression_node_8h}{DynamicExpressionNode.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{strings_8h}{strings.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <concepts>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <ranges>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_cmd_calculator_1_1_math_ast}{CmdCalculator::MathAst}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{template}<String\ StringT,\ std::ranges::input\_range\ PartsT>}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::same\_as<DynamicExpressionPartNode<StringT>,\ std::ranges::range\_value\_t<PartsT>>}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node}{DynamicExpressionContainingNode}}\ :}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node}{DynamicOperandNode}}<StringT>}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_a1724ed1d42bfac75a1a2a14c0cdb1b3c}{StringType}}\ =\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node_a3bc54139067a9e01d7d88b239188edf9}{DynamicOperandNode<StringT>::StringType}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_af9767cac7b2e4b6d046105cf5fec7726}{PartsType}}\ =\ PartsT;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_node}{DynamicExpressionNode<StringT,\ PartsT>}}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_af8c1b3e69ecd19df667e3531ae9c4f24}{getContainedExpression}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00030\ \ \ \ \ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{template}<String\ StringT,\ std::ranges::range\ UnderlyingPartsT>}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ \textcolor{keyword}{requires}\ \{\ \textcolor{keyword}{typename}\ std::ranges::owning\_view<UnderlyingPartsT>;\ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{DynamicExpressionContainingNodeWithUnderlyingCollection}}\ :}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node}{DynamicExpressionContainingNode}}<StringT,\ decltype(std::declval<UnderlyingPartsT>\ |\ std::views::all)>}
+\DoxyCodeLine{00040\ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node}{ParentDynamicExpressionContainingNode}}\ =\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node}{DynamicExpressionContainingNode}}<StringT,\ \textcolor{keyword}{decltype}(std::declval<UnderlyingPartsT>\ |\ std::views::all)>;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection_a1eacda91face708831fdff7f0fe06fd6}{StringType}}\ =\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_a1724ed1d42bfac75a1a2a14c0cdb1b3c}{ParentDynamicExpressionContainingNode::StringType}};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection_a90b04dea01178c12675e3b8d6f57badf}{PartsType}}\ =\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_af9767cac7b2e4b6d046105cf5fec7726}{ParentDynamicExpressionContainingNode::PartsType}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection_ad17704b7224b94e11c6559d4f64a2329}{UnderlyingPartsType}}\ =\ UnderlyingPartsT;}
+\DoxyCodeLine{00049\ \ \ \ \ \};}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}

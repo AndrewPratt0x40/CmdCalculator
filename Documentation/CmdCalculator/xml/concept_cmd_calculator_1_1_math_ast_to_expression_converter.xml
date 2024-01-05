@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="concept_cmd_calculator_1_1_math_ast_to_expression_converter" kind="concept">
+    <compoundname>CmdCalculator::MathAstToExpressionConverter</compoundname>
+    <includes refid="_math_ast_to_expression_converter_8h" local="no">MathAstToExpressionConverter.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+    <initializer>template&lt;class T&gt;
+concept <ref refid="concept_cmd_calculator_1_1_math_ast_to_expression_converter" kindref="compound">CmdCalculator::MathAstToExpressionConverter</ref> = 
+		std::derived_from&lt;T, MathAstToExpressionConverter_IntendedSatisfaction&gt;
+		&amp;&amp; MathAst::MathAstNode&lt;typename T::RootMathAstNodeType&gt;
+		&amp;&amp; requires(T&amp;&amp; instance, const typename T::RootMathAstNodeType&amp; sourceRootNode)
+	{
+		{ instance.getMathAstAsExpression(sourceRootNode) } -&gt; Expressions::Expression;
+	}
+	    </initializer>
+    <briefdescription>
+<para>A type that converts mathematical abstract syntax trees into mathematical expressions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The converter type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="MathAstToExpressionConverter.h" line="18" column="1"/>
+  </compounddef>
+</doxygen>

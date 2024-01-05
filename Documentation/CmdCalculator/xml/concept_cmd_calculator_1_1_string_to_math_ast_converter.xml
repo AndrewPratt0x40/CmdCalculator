@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="concept_cmd_calculator_1_1_string_to_math_ast_converter" kind="concept">
+    <compoundname>CmdCalculator::StringToMathAstConverter</compoundname>
+    <includes refid="_string_to_math_ast_converter_8h" local="no">StringToMathAstConverter.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+    <initializer>template&lt;class T&gt;
+concept <ref refid="concept_cmd_calculator_1_1_string_to_math_ast_converter" kindref="compound">CmdCalculator::StringToMathAstConverter</ref> = 
+		std::derived_from&lt;T, StringToMathAstConverter_IntendedSatisfaction&gt;
+		&amp;&amp; StringView&lt;typename T::StringViewType&gt;
+		&amp;&amp; requires(T&amp;&amp; instance, typename T::StringViewType source)
+		{
+			{ instance.getStringAsMathAst(source) } -&gt; MathAst::MathAstNode;
+		}
+	    </initializer>
+    <briefdescription>
+<para>A type that parses strings into mathematical abstract syntax trees. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The converter type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="StringToMathAstConverter.h" line="18" column="1"/>
+  </compounddef>
+</doxygen>

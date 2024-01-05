@@ -1,0 +1,31 @@
+\doxysection{Cmd\+Calculator\+::Math\+Ast\+::Expression\+Part\+Node Concept Reference}
+\hypertarget{concept_cmd_calculator_1_1_math_ast_1_1_expression_part_node}{}\label{concept_cmd_calculator_1_1_math_ast_1_1_expression_part_node}\index{CmdCalculator::MathAst::ExpressionPartNode@{CmdCalculator::MathAst::ExpressionPartNode}}
+
+
+A single node in an abstract syntax tree (AST) representing a mathematical expression.  
+
+
+
+
+{\ttfamily \#include $<$Expression\+Part\+Node.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_math_ast_1_1_expression_part_node}{CmdCalculator::MathAst::ExpressionPartNode}}\ =\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::derived\_from<T,\ ExpressionPartNode\_IntendedSatisfaction>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_math_ast_1_1_math_ast_node}{MathAstNode<T>}}}
+\DoxyCodeLine{\ \ \ \ }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+A single node in an abstract syntax tree (AST) representing a mathematical expression. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the AST node. \\
+\hline
+\end{DoxyTemplParams}

@@ -3,7 +3,9 @@
   <compounddef id="_calculation_configuration_8h" kind="file" language="C++">
     <compoundname>CalculationConfiguration.h</compoundname>
     <includes local="no">stdexcept</includes>
+    <includedby refid="_calculation_8h" local="yes">Calculation.h</includedby>
     <includedby refid="_calculation_configuration_8cpp" local="yes">CalculationConfiguration.cpp</includedby>
+    <includedby refid="_expression_to_string_converter_8h" local="yes">ExpressionToStringConverter.h</includedby>
     <includedby refid="_process_configuration_8h" local="yes">ProcessConfiguration.h</includedby>
     <incdepgraph>
       <node id="1">
@@ -18,6 +20,14 @@
     </incdepgraph>
     <invincdepgraph>
       <node id="2">
+        <label>Calculation.h</label>
+        <link refid="_calculation_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
         <label>CalculationConfiguration.cpp</label>
         <link refid="_calculation_configuration_8cpp"/>
       </node>
@@ -26,12 +36,56 @@
         <link refid="_calculation_configuration_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>ExpressionToStringConverter.h</label>
+        <link refid="_expression_to_string_converter_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Process.cpp</label>
+        <link refid="_process_8cpp"/>
+      </node>
+      <node id="3">
+        <label>Process.h</label>
+        <link refid="_process_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>ProcessConfiguration.h</label>
+        <link refid="_process_configuration_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>RawCmdLineArgParser.h</label>
+        <link refid="_raw_cmd_line_arg_parser_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="3">
-        <label>ProcessConfiguration.h</label>
-        <link refid="_process_configuration_8h"/>
+      <node id="6">
+        <label>SimpleCalculation.cpp</label>
+        <link refid="_simple_calculation_8cpp"/>
+      </node>
+      <node id="5">
+        <label>SimpleCalculation.h</label>
+        <link refid="_simple_calculation_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="class_cmd_calculator_1_1_calculation_configuration" prot="public">CmdCalculator::CalculationConfiguration</innerclass>
@@ -44,7 +98,7 @@
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdexcept&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight></codeline>
-<codeline lineno="4" refid="namespace_cmd_calculator" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_cmd_calculator" kindref="compound">CmdCalculator</ref></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_cmd_calculator" kindref="compound">CmdCalculator</ref></highlight></codeline>
 <codeline lineno="5"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="7" refid="class_cmd_calculator_1_1_calculation_configuration" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_cmd_calculator_1_1_calculation_configuration" kindref="compound">CalculationConfiguration</ref></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -83,8 +137,11 @@
 <codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_cmd_calculator_1_1_calculation_configuration_1ac3e3d539a6e80b00a15495a0490aa106" kindref="member">shouldPreferLeadingZeroOverWholelessNumbers</ref>,</highlight></codeline>
 <codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_cmd_calculator_1_1_calculation_configuration_1a49c9954eb90bfb41da179e7c5fd1b871" kindref="member">shouldPreferTrailingZeroOverEmptyDecimalPlace</ref></highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_cmd_calculator_1_1_calculation_configuration_1adb71ca68ae5e4ece3b726e8f629aa184" kindref="member">operator==</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_cmd_calculator_1_1_calculation_configuration" kindref="compound">CalculationConfiguration</ref>&amp;<sp/>other)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="CalculationConfiguration.h"/>
   </compounddef>

@@ -40,18 +40,21 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ]
+        [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ]
-    ] ]
+    ] ],
+    [ "Examples", "examples.html", "examples" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_calculation_configuration_8cpp.html"
+"_antlr_based_string_to_math_ast_converter_8cpp.html",
+"class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node.html#a0fcf38334749048651f4fe0a1cb3c30b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

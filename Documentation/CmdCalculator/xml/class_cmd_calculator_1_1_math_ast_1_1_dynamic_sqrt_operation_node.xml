@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node" kind="class" language="C++" prot="public">
+    <compoundname>CmdCalculator::MathAst::DynamicSqrtOperationNode</compoundname>
+    <basecompoundref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_unary_operation_node" prot="public" virt="non-virtual">CmdCalculator::MathAst::DynamicUnaryOperationNode&lt; StringT &gt;</basecompoundref>
+    <includes refid="_dynamic_sqrt_operation_node_8h" local="no">DynamicSqrtOperationNode.h</includes>
+    <templateparamlist>
+      <param>
+        <type>String</type>
+        <declname>StringT</declname>
+        <defname>StringT</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_1ad0055a393da8ad6955699e111fefa23c" prot="public" static="no">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node" kindref="compound">DynamicOperandNode</ref>&lt; <ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref> &gt;::StringType</type>
+        <definition>using CmdCalculator::MathAst::DynamicSqrtOperationNode&lt; StringT &gt;::StringType =  DynamicOperandNode&lt;StringT&gt;::StringType</definition>
+        <argsstring></argsstring>
+        <name>StringType</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicSqrtOperationNode::StringType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicSqrtOperationNode.h" line="17" column="1" bodyfile="DynamicSqrtOperationNode.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_1a1ba9a52403b7eeee631d26edc490170f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref></type>
+        <definition>StringT CmdCalculator::MathAst::DynamicSqrtOperationNode&lt; StringT &gt;::getInnerTrivia</definition>
+        <argsstring>() const override</argsstring>
+        <name>getInnerTrivia</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicSqrtOperationNode::getInnerTrivia</qualifiedname>
+        <reimplements refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_unary_operation_node_1a56a6c97edbd0404a4122422f03278b69">getInnerTrivia</reimplements>
+        <briefdescription>
+<para>Accessor to the inner trivia of the operation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The trivia content between the operator and it&apos;s operand. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicSqrtOperationNode.h" line="20" column="9" bodyfile="DynamicSqrtOperationNode.h" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_1a7091e70f8a8ddb59899073aa470c6060" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref></type>
+        <definition>StringT CmdCalculator::MathAst::DynamicSqrtOperationNode&lt; StringT &gt;::getLeadingTrivia</definition>
+        <argsstring>() const override</argsstring>
+        <name>getLeadingTrivia</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicSqrtOperationNode::getLeadingTrivia</qualifiedname>
+        <reimplements refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1ab119030478dfccaaae343daec89c93c2">getLeadingTrivia</reimplements>
+        <briefdescription>
+<para>Accessor to the AST node&apos;s leading trivia. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Trivial content at the beginning of the string contents of the node. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicSqrtOperationNode.h" line="26" column="9" bodyfile="DynamicSqrtOperationNode.h" bodystart="26" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_1a0fcf38334749048651f4fe0a1cb3c30b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref></type>
+        <definition>StringT CmdCalculator::MathAst::DynamicSqrtOperationNode&lt; StringT &gt;::getTrailingTrivia</definition>
+        <argsstring>() const override</argsstring>
+        <name>getTrailingTrivia</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicSqrtOperationNode::getTrailingTrivia</qualifiedname>
+        <reimplements refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1a5e3b93b8fe74dccdfb351d216607d01d">getTrailingTrivia</reimplements>
+        <briefdescription>
+<para>Accessor to the AST node&apos;s trailing trivia. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Trivial content at the end of the string contents of the node. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicSqrtOperationNode.h" line="32" column="9" bodyfile="DynamicSqrtOperationNode.h" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_1ae26d15aff333c3c679ebfb1abebd84f2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref></type>
+        <definition>StringT CmdCalculator::MathAst::DynamicSqrtOperationNode&lt; StringT &gt;::getStringRepresentation</definition>
+        <argsstring>() const override</argsstring>
+        <name>getStringRepresentation</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicSqrtOperationNode::getStringRepresentation</qualifiedname>
+        <reimplements refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1a06c7437a7e811c1db2821bbd73a3e97a">getStringRepresentation</reimplements>
+        <briefdescription>
+<para>Accessor to the AST node&apos;s string representation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>All non-trivial string contents of the node. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicSqrtOperationNode.h" line="38" column="9" bodyfile="DynamicSqrtOperationNode.h" bodystart="38" bodyend="41"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A square root operation. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>StringT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string type to use. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>CmdCalculator::MathAst::DynamicExpressionPartNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>CmdCalculator::MathAst::DynamicMathAstNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>CmdCalculator::MathAst::DynamicOperandNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CmdCalculator::MathAst::DynamicSqrtOperationNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CmdCalculator::MathAst::DynamicUnaryOperationNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_unary_operation_node"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>CmdCalculator::MathAst::ExpressionPartNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_part_node___intended_satisfaction"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>CmdCalculator::MathAst::DynamicExpressionPartNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>CmdCalculator::MathAst::DynamicMathAstNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>CmdCalculator::MathAst::DynamicOperandNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CmdCalculator::MathAst::DynamicSqrtOperationNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CmdCalculator::MathAst::DynamicUnaryOperationNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_unary_operation_node"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>CmdCalculator::MathAst::ExpressionPartNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_part_node___intended_satisfaction"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction"/>
+      </node>
+    </collaborationgraph>
+    <location file="DynamicSqrtOperationNode.h" line="12" column="1" bodyfile="DynamicSqrtOperationNode.h" bodystart="14" bodyend="42"/>
+    <listofallmembers>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_1a1ba9a52403b7eeee631d26edc490170f" prot="public" virt="virtual"><scope>CmdCalculator::MathAst::DynamicSqrtOperationNode</scope><name>getInnerTrivia</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_1a7091e70f8a8ddb59899073aa470c6060" prot="public" virt="virtual"><scope>CmdCalculator::MathAst::DynamicSqrtOperationNode</scope><name>getLeadingTrivia</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_unary_operation_node_1a1fa11ddeaf3082fe935e7a07bb0aa99f" prot="public" virt="pure-virtual"><scope>CmdCalculator::MathAst::DynamicSqrtOperationNode</scope><name>getOperand</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_1ae26d15aff333c3c679ebfb1abebd84f2" prot="public" virt="virtual"><scope>CmdCalculator::MathAst::DynamicSqrtOperationNode</scope><name>getStringRepresentation</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_1a0fcf38334749048651f4fe0a1cb3c30b" prot="public" virt="virtual"><scope>CmdCalculator::MathAst::DynamicSqrtOperationNode</scope><name>getTrailingTrivia</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_1ad0055a393da8ad6955699e111fefa23c" prot="public" virt="non-virtual"><scope>CmdCalculator::MathAst::DynamicSqrtOperationNode</scope><name>StringType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

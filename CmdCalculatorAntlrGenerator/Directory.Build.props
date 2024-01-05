@@ -8,7 +8,8 @@
 	</PropertyGroup>
 	
 	<ItemGroup>
-		<AntlrGrammar Include="CmdCalculatorExpression.g4" />
+		<AntlrLexerGrammar Include="CmdCalculatorExpressionLexer.g4" />
+		<AntlrParserGrammar Include="CmdCalculatorExpressionParser.g4" />
 		<LastAntlrGenerationTime Include="$(OutputProjectDir)/LastAntlrGenerationTime" />
 	</ItemGroup>
 </Project>

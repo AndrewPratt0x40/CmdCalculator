@@ -1,0 +1,34 @@
+\doxysection{Raw\+Cmd\+Line\+Arg\+Parser.\+h}
+\hypertarget{_raw_cmd_line_arg_parser_8h_source}{}\label{_raw_cmd_line_arg_parser_8h_source}\mbox{\hyperlink{_raw_cmd_line_arg_parser_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <concepts>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <ranges>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{strings_8h}{strings.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_process_configuration_8h}{ProcessConfiguration.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_cmd_calculator}{CmdCalculator}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_cmd_calculator_1_1_raw_cmd_line_arg_parser___intended_satisfaction}{RawCmdLineArgParser\_IntendedSatisfaction}}}
+\DoxyCodeLine{00013\ \ \ \ \ \{\};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T,\ \textcolor{keyword}{class}\ ArgsT>}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_raw_cmd_line_arg_parser}{RawCmdLineArgParser}}\ =}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ std::ranges::input\_range<ArgsT>}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string}{String<std::ranges::range\_value\_t<ArgsT>}}>}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string}{String<typename\ T::ExpressionStringType>}}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \&\&\ \textcolor{keyword}{requires}()}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ ProcessConfiguration<typename\ T::ExpressionStringType>;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \&\&\ \textcolor{keyword}{requires}(T\ \&\&\ instance,\ ArgsT\ rawCmdLineArgs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cmd_calculator_1_1_process_configuration}{ProcessConfiguration<typename\ T::ExpressionStringType>}}\&\ defaultConfiguration)}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.parseRawCmdLineArgs(rawCmdLineArgs,\ defaultConfiguration)\ \}\ -\/>\ std::same\_as\ <ProcessConfiguration<typename\ T::ExpressionStringType>>;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ ;}
+\DoxyCodeLine{00033\ \}}
+
+\end{DoxyCode}

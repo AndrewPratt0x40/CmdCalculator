@@ -1,0 +1,40 @@
+\doxysection{Antlr\+Based\+String\+To\+Math\+Ast\+Converter.\+h}
+\hypertarget{_antlr_based_string_to_math_ast_converter_8h_source}{}\label{_antlr_based_string_to_math_ast_converter_8h_source}\mbox{\hyperlink{_antlr_based_string_to_math_ast_converter_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include<concepts>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include<ranges>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include<vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include<memory>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_string_to_math_ast_converter_8h}{StringToMathAstConverter.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{strings_8h}{strings.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dynamic_expression_node_8h}{DynamicExpressionNode.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dynamic_expression_part_node_8h}{DynamicExpressionPartNode.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_not_implemented_exception_8h}{NotImplementedException.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\#include\ "{}../Antlr4CppRuntime/src/antlr4-\/runtime.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\#include\ "{}antlr\_output/CmdCalculatorExpressionLexer.h"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_cmd_calculator}{CmdCalculator}}}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{template}<StringView\ StringViewT>}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cmd_calculator_1_1_antlr_based_string_to_math_ast_converter}{AntlrBasedStringToMathAstConverter}}\ :}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_cmd_calculator_1_1_string_to_math_ast_converter___intended_satisfaction}{StringToMathAstConverter\_IntendedSatisfaction}}}
+\DoxyCodeLine{00023\ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_antlr_based_string_to_math_ast_converter_aa3b92143931584cd7e14cb0632882f59}{StringType}}\ =\ std::basic\_string<typename\ StringViewT::value\_type>;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_antlr_based_string_to_math_ast_converter_a7ef9eff7a35e35632bfe9b4794982015}{StringViewType}}\ =\ StringViewT;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }UnderlyingPartsType\ =\ std::vector<std::unique\_ptr<MathAst::DynamicExpressionPartNode<StringType>>>;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_node}{MathAst::DynamicExpressionNode<StringType,\ UnderlyingPartsType>}}\ getStringAsMathAst(StringViewT\ source)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00035\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{NotImplementedException}}\{\};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \};}
+\DoxyCodeLine{00040\ \}}
+
+\end{DoxyCode}

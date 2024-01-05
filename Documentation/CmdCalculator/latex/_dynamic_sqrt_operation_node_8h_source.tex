@@ -1,0 +1,46 @@
+\doxysection{Dynamic\+Sqrt\+Operation\+Node.\+h}
+\hypertarget{_dynamic_sqrt_operation_node_8h_source}{}\label{_dynamic_sqrt_operation_node_8h_source}\mbox{\hyperlink{_dynamic_sqrt_operation_node_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dynamic_unary_operation_node_8h}{DynamicUnaryOperationNode.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{strings_8h}{strings.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_not_implemented_exception_8h}{NotImplementedException.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_cmd_calculator_1_1_math_ast}{CmdCalculator::MathAst}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{template}<String\ StringT>}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node}{DynamicSqrtOperationNode}}\ :}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_unary_operation_node}{DynamicUnaryOperationNode}}<StringT>}
+\DoxyCodeLine{00014\ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{StringType}}\ =\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{DynamicOperandNode<StringT>::StringType}};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{StringT}}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_a1ba9a52403b7eeee631d26edc490170f}{getInnerTrivia}}()\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00021\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{NotImplementedException}}\{\};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{StringT}}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_a7091e70f8a8ddb59899073aa470c6060}{getLeadingTrivia}}()\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00027\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{NotImplementedException}}\{\};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{StringT}}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_a0fcf38334749048651f4fe0a1cb3c30b}{getTrailingTrivia}}()\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00033\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{NotImplementedException}}\{\};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{StringT}}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_ae26d15aff333c3c679ebfb1abebd84f2}{getStringRepresentation}}()\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00039\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{NotImplementedException}}\{\};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \};}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}

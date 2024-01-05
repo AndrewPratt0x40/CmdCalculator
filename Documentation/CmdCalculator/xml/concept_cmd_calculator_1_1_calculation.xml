@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="concept_cmd_calculator_1_1_calculation" kind="concept">
+    <compoundname>CmdCalculator::Calculation</compoundname>
+    <includes refid="_calculation_8h" local="no">Calculation.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+    <initializer>template&lt;class T&gt;
+concept <ref refid="concept_cmd_calculator_1_1_calculation" kindref="compound">CmdCalculator::Calculation</ref> = 
+		String&lt;typename T::InputExpressionType&gt;
+		&amp;&amp; StringToMathAstConverter&lt;typename T::StringToMathAstConverterType&gt;
+		&amp;&amp; MathAstToExpressionConverter&lt;typename T::MathAstToExpressionConverterType&gt;
+		&amp;&amp; ExpressionToStringConverter&lt;typename T::ExpressionToStringConverterType&gt;
+		&amp;&amp; std::constructible_from
+		&lt;
+			T,
+			typename T::InputExpressionType,
+			CalculationConfiguration,
+			typename T::StringToMathAstConverterType,
+			typename T::MathAstToExpressionConverterType,
+			typename T::ExpressionToStringConverterType
+		&gt;
+		&amp;&amp; requires(T&amp;&amp; instance)
+		{
+			{ instance.getInputExpression() } -&gt; String;
+			{ instance.getOutputExpression() } -&gt; String;
+			{ instance.getConfiguration() } -&gt; std::same_as&lt;CalculationConfiguration&gt;;
+
+			{ instance.getStringToMathAstConverter() } -&gt; StringToMathAstConverter;
+			{ instance.getMathAstToExpressionConverter() } -&gt; MathAstToExpressionConverter;
+			{ instance.getExpressionToStringConverter() } -&gt; ExpressionToStringConverter;
+		}
+	    </initializer>
+    <briefdescription>
+<para>A singular calculation. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the calculation object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="Calculation.h" line="21" column="1"/>
+  </compounddef>
+</doxygen>

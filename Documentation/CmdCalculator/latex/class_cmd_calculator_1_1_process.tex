@@ -1,9 +1,146 @@
-\doxysection{Cmd\+Calculator\+::Process Class Reference}
-\hypertarget{class_cmd_calculator_1_1_process}{}\label{class_cmd_calculator_1_1_process}\index{CmdCalculator::Process@{CmdCalculator::Process}}
+\doxysection{Cmd\+Calculator\+::Process\texorpdfstring{$<$}{<} CalculationT, Raw\+Cmd\+Line\+Arg\+ParserT, Raw\+Cmd\+Line\+ArgsT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_cmd_calculator_1_1_process}{}\label{class_cmd_calculator_1_1_process}\index{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+
+
+A \doxylink{namespace_cmd_calculator}{Cmd\+Calculator} process.  
+
+
 
 
 {\ttfamily \#include $<$Process.\+h$>$}
 
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_cmd_calculator_1_1_process_abd8f50535c900e8c2cb7b84326a8cc41}{Calculation\+Type}} = CalculationT
+\item 
+using \mbox{\hyperlink{class_cmd_calculator_1_1_process_adc575bdd1973f404a07395128757f6d7}{Raw\+Cmd\+Line\+Arg\+Parser\+Type}} = Raw\+Cmd\+Line\+Arg\+ParserT
+\item 
+using \mbox{\hyperlink{class_cmd_calculator_1_1_process_a99a9c784b7a8253002a7acc8eeaca32a}{String\+To\+Math\+Ast\+Converter\+Type}} = String\+To\+Math\+Ast\+ConverterT
+\item 
+using \mbox{\hyperlink{class_cmd_calculator_1_1_process_a6633a6a0750d27bedbc1214f34a30d2c}{Math\+Ast\+To\+Expression\+Converter\+Type}} = Math\+Ast\+To\+Expression\+ConverterT
+\item 
+using \mbox{\hyperlink{class_cmd_calculator_1_1_process_ae140c4bb26636f14e77183e3a2b7749f}{Expression\+To\+String\+Converter\+Type}} = Expression\+To\+String\+ConverterT
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$Console ConsoleT, String Expression\+StringT, std\+::ranges\+::input\+\_\+range ArgsT$>$ \newline
+requires String$<$std\+::ranges\+::range\+\_\+value\+\_\+t$<$ArgsT$>$$>$}\\bool \mbox{\hyperlink{class_cmd_calculator_1_1_process_a3c791aae5b621424cdc28e7b11c89610}{run}} (ArgsT \&\&raw\+Cmd\+Line\+Args, const \mbox{\hyperlink{struct_cmd_calculator_1_1_process_configuration}{Process\+Configuration}}$<$ Expression\+StringT $>$ default\+Config, ConsoleT \&console)
+\begin{DoxyCompactList}\small\item\em Executes the process. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cmd_calculator_1_1_process_aa3d4fb07acd701fb43ce9ea4c013c349}{Process}} (Raw\+Cmd\+Line\+Arg\+ParserT \&\&raw\+Cmd\+Line\+Arg\+Parser, String\+To\+Math\+Ast\+ConverterT \&\&string\+To\+Math\+Ast\+Converter, Math\+Ast\+To\+Expression\+ConverterT \&\&math\+Ast\+To\+Expression\+Converter, Expression\+To\+String\+ConverterT \&\&expression\+To\+String\+Converter)
+\item 
+\mbox{\hyperlink{class_cmd_calculator_1_1_process_a63d5b20c73d20c85169fecc11040aa2e}{Process}} (Raw\+Cmd\+Line\+Arg\+ParserT \&raw\+Cmd\+Line\+Arg\+Parser, String\+To\+Math\+Ast\+ConverterT \&string\+To\+Math\+Ast\+Converter, Math\+Ast\+To\+Expression\+ConverterT \&math\+Ast\+To\+Expression\+Converter, Expression\+To\+String\+ConverterT \&expression\+To\+String\+Converter)=delete
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$Calculation CalculationT, class Raw\+Cmd\+Line\+Arg\+ParserT, class Raw\+Cmd\+Line\+ArgsT, String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$\newline
+requires Raw\+Cmd\+Line\+Arg\+Parser$<$Raw\+Cmd\+Line\+Arg\+ParserT, Raw\+Cmd\+Line\+ArgsT$>$ \&\& std\+::same\+\_\+as$<$String\+To\+Math\+Ast\+ConverterT, typename Calculation\+T\+::\+String\+To\+Math\+Ast\+Converter\+Type$>$ \&\& std\+::same\+\_\+as$<$Math\+Ast\+To\+Expression\+ConverterT, typename Calculation\+T\+::\+Math\+Ast\+To\+Expression\+Converter\+Type$>$ \&\& std\+::same\+\_\+as$<$Expression\+To\+String\+ConverterT, typename Calculation\+T\+::\+Expression\+To\+String\+Converter\+Type$>$\newline
+class Cmd\+Calculator\+::\+Process$<$ Calculation\+T, Raw\+Cmd\+Line\+Arg\+Parser\+T, Raw\+Cmd\+Line\+Args\+T, String\+To\+Math\+Ast\+Converter\+T, Math\+Ast\+To\+Expression\+Converter\+T, Expression\+To\+String\+Converter\+T $>$}
+A \doxylink{namespace_cmd_calculator}{Cmd\+Calculator} process. 
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{class_cmd_calculator_1_1_process_abd8f50535c900e8c2cb7b84326a8cc41}\label{class_cmd_calculator_1_1_process_abd8f50535c900e8c2cb7b84326a8cc41} 
+\index{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!CalculationType@{CalculationType}}
+\index{CalculationType@{CalculationType}!CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{CalculationType}{CalculationType}}
+{\footnotesize\ttfamily template$<$Calculation CalculationT, class Raw\+Cmd\+Line\+Arg\+ParserT , class Raw\+Cmd\+Line\+ArgsT , String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+using \mbox{\hyperlink{class_cmd_calculator_1_1_process}{Cmd\+Calculator\+::\+Process}}$<$ CalculationT, Raw\+Cmd\+Line\+Arg\+ParserT, Raw\+Cmd\+Line\+ArgsT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::\+Calculation\+Type =  CalculationT}
+
+\Hypertarget{class_cmd_calculator_1_1_process_ae140c4bb26636f14e77183e3a2b7749f}\label{class_cmd_calculator_1_1_process_ae140c4bb26636f14e77183e3a2b7749f} 
+\index{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!ExpressionToStringConverterType@{ExpressionToStringConverterType}}
+\index{ExpressionToStringConverterType@{ExpressionToStringConverterType}!CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{ExpressionToStringConverterType}{ExpressionToStringConverterType}}
+{\footnotesize\ttfamily template$<$Calculation CalculationT, class Raw\+Cmd\+Line\+Arg\+ParserT , class Raw\+Cmd\+Line\+ArgsT , String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+using \mbox{\hyperlink{class_cmd_calculator_1_1_process}{Cmd\+Calculator\+::\+Process}}$<$ CalculationT, Raw\+Cmd\+Line\+Arg\+ParserT, Raw\+Cmd\+Line\+ArgsT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::\+Expression\+To\+String\+Converter\+Type =  Expression\+To\+String\+ConverterT}
+
+\Hypertarget{class_cmd_calculator_1_1_process_a6633a6a0750d27bedbc1214f34a30d2c}\label{class_cmd_calculator_1_1_process_a6633a6a0750d27bedbc1214f34a30d2c} 
+\index{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!MathAstToExpressionConverterType@{MathAstToExpressionConverterType}}
+\index{MathAstToExpressionConverterType@{MathAstToExpressionConverterType}!CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{MathAstToExpressionConverterType}{MathAstToExpressionConverterType}}
+{\footnotesize\ttfamily template$<$Calculation CalculationT, class Raw\+Cmd\+Line\+Arg\+ParserT , class Raw\+Cmd\+Line\+ArgsT , String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+using \mbox{\hyperlink{class_cmd_calculator_1_1_process}{Cmd\+Calculator\+::\+Process}}$<$ CalculationT, Raw\+Cmd\+Line\+Arg\+ParserT, Raw\+Cmd\+Line\+ArgsT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::\+Math\+Ast\+To\+Expression\+Converter\+Type =  Math\+Ast\+To\+Expression\+ConverterT}
+
+\Hypertarget{class_cmd_calculator_1_1_process_adc575bdd1973f404a07395128757f6d7}\label{class_cmd_calculator_1_1_process_adc575bdd1973f404a07395128757f6d7} 
+\index{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!RawCmdLineArgParserType@{RawCmdLineArgParserType}}
+\index{RawCmdLineArgParserType@{RawCmdLineArgParserType}!CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{RawCmdLineArgParserType}{RawCmdLineArgParserType}}
+{\footnotesize\ttfamily template$<$Calculation CalculationT, class Raw\+Cmd\+Line\+Arg\+ParserT , class Raw\+Cmd\+Line\+ArgsT , String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+using \mbox{\hyperlink{class_cmd_calculator_1_1_process}{Cmd\+Calculator\+::\+Process}}$<$ CalculationT, Raw\+Cmd\+Line\+Arg\+ParserT, Raw\+Cmd\+Line\+ArgsT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::\+Raw\+Cmd\+Line\+Arg\+Parser\+Type =  Raw\+Cmd\+Line\+Arg\+ParserT}
+
+\Hypertarget{class_cmd_calculator_1_1_process_a99a9c784b7a8253002a7acc8eeaca32a}\label{class_cmd_calculator_1_1_process_a99a9c784b7a8253002a7acc8eeaca32a} 
+\index{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!StringToMathAstConverterType@{StringToMathAstConverterType}}
+\index{StringToMathAstConverterType@{StringToMathAstConverterType}!CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{StringToMathAstConverterType}{StringToMathAstConverterType}}
+{\footnotesize\ttfamily template$<$Calculation CalculationT, class Raw\+Cmd\+Line\+Arg\+ParserT , class Raw\+Cmd\+Line\+ArgsT , String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+using \mbox{\hyperlink{class_cmd_calculator_1_1_process}{Cmd\+Calculator\+::\+Process}}$<$ CalculationT, Raw\+Cmd\+Line\+Arg\+ParserT, Raw\+Cmd\+Line\+ArgsT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::\+String\+To\+Math\+Ast\+Converter\+Type =  String\+To\+Math\+Ast\+ConverterT}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_cmd_calculator_1_1_process_aa3d4fb07acd701fb43ce9ea4c013c349}\label{class_cmd_calculator_1_1_process_aa3d4fb07acd701fb43ce9ea4c013c349} 
+\index{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!Process@{Process}}
+\index{Process@{Process}!CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{Process()}{Process()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$Calculation CalculationT, class Raw\+Cmd\+Line\+Arg\+ParserT , class Raw\+Cmd\+Line\+ArgsT , String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+\mbox{\hyperlink{class_cmd_calculator_1_1_process}{Cmd\+Calculator\+::\+Process}}$<$ CalculationT, Raw\+Cmd\+Line\+Arg\+ParserT, Raw\+Cmd\+Line\+ArgsT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::\+Process (\begin{DoxyParamCaption}\item[{Raw\+Cmd\+Line\+Arg\+ParserT \&\&}]{raw\+Cmd\+Line\+Arg\+Parser,  }\item[{String\+To\+Math\+Ast\+ConverterT \&\&}]{string\+To\+Math\+Ast\+Converter,  }\item[{Math\+Ast\+To\+Expression\+ConverterT \&\&}]{math\+Ast\+To\+Expression\+Converter,  }\item[{Expression\+To\+String\+ConverterT \&\&}]{expression\+To\+String\+Converter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a new instance of the \doxylink{class_cmd_calculator_1_1_process}{Process} class. 
+\begin{DoxyParams}{Parameters}
+{\em raw\+Cmd\+Line\+Arg\+Parser} & The raw command-\/line argument parser to use. \\
+\hline
+{\em expression\+To\+String\+Converter} & The object to convert the calculated expression into a human-\/readable string for output. \\
+\hline
+{\em math\+Ast\+To\+Expression\+Converter} & The object to convert a mathematical abstract syntax tree into an expression object. \\
+\hline
+{\em string\+To\+Math\+Ast\+Converter} & The object to parse the input expression into an abstract syntax tree. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_cmd_calculator_1_1_process_a63d5b20c73d20c85169fecc11040aa2e}\label{class_cmd_calculator_1_1_process_a63d5b20c73d20c85169fecc11040aa2e} 
+\index{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!Process@{Process}}
+\index{Process@{Process}!CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{Process()}{Process()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$Calculation CalculationT, class Raw\+Cmd\+Line\+Arg\+ParserT , class Raw\+Cmd\+Line\+ArgsT , String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+\mbox{\hyperlink{class_cmd_calculator_1_1_process}{Cmd\+Calculator\+::\+Process}}$<$ CalculationT, Raw\+Cmd\+Line\+Arg\+ParserT, Raw\+Cmd\+Line\+ArgsT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::\+Process (\begin{DoxyParamCaption}\item[{Raw\+Cmd\+Line\+Arg\+ParserT \&}]{raw\+Cmd\+Line\+Arg\+Parser,  }\item[{String\+To\+Math\+Ast\+ConverterT \&}]{string\+To\+Math\+Ast\+Converter,  }\item[{Math\+Ast\+To\+Expression\+ConverterT \&}]{math\+Ast\+To\+Expression\+Converter,  }\item[{Expression\+To\+String\+ConverterT \&}]{expression\+To\+String\+Converter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_cmd_calculator_1_1_process_a3c791aae5b621424cdc28e7b11c89610}\label{class_cmd_calculator_1_1_process_a3c791aae5b621424cdc28e7b11c89610} 
+\index{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!run@{run}}
+\index{run@{run}!CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::Process$<$ CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily template$<$Calculation CalculationT, class Raw\+Cmd\+Line\+Arg\+ParserT , class Raw\+Cmd\+Line\+ArgsT , String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+template$<$Console ConsoleT, String Expression\+StringT, std\+::ranges\+::input\+\_\+range ArgsT$>$ \newline
+requires String$<$std\+::ranges\+::range\+\_\+value\+\_\+t$<$ArgsT$>$$>$\\
+bool \mbox{\hyperlink{class_cmd_calculator_1_1_process}{Cmd\+Calculator\+::\+Process}}$<$ CalculationT, Raw\+Cmd\+Line\+Arg\+ParserT, Raw\+Cmd\+Line\+ArgsT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::run (\begin{DoxyParamCaption}\item[{ArgsT \&\&}]{raw\+Cmd\+Line\+Args,  }\item[{const \mbox{\hyperlink{struct_cmd_calculator_1_1_process_configuration}{Process\+Configuration}}$<$ Expression\+StringT $>$}]{default\+Config,  }\item[{ConsoleT \&}]{console }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Executes the process. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em ConsoleT} & The type of the console object to be used by the process. \\
+\hline
+{\em Expression\+StringT} & The string type that represents a given expression. \\
+\hline
+{\em ArgsT} & The type to use for the range of command-\/line arguments passed to the process. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em raw\+Cmd\+Line\+Args} & A range of the command-\/line parameters passed to the process. \\
+\hline
+{\em config} & The process configuration. \\
+\hline
+{\em console} & The text console to use for input and output. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the process ran successfully, false if the process exited due to an error. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

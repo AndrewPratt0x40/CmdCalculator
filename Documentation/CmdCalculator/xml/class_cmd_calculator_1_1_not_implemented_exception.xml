@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="NotImplementedException.h" line="10" column="12" bodyfile="NotImplementedException.h" bodystart="10" bodyend="13"/>
+        <location file="NotImplementedException.h" line="11" column="12" bodyfile="NotImplementedException.h" bodystart="11" bodyend="14"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -47,7 +47,7 @@
         <label>std::exception</label>
       </node>
     </collaborationgraph>
-    <location file="NotImplementedException.h" line="7" column="1" bodyfile="NotImplementedException.h" bodystart="8" bodyend="14"/>
+    <location file="NotImplementedException.h" line="8" column="1" bodyfile="NotImplementedException.h" bodystart="9" bodyend="15"/>
     <listofallmembers>
       <member refid="class_cmd_calculator_1_1_not_implemented_exception_1adf953109a6c4dd067db41dc5af237e96" prot="public" virt="non-virtual"><scope>CmdCalculator::NotImplementedException</scope><name>what</name></member>
     </listofallmembers>

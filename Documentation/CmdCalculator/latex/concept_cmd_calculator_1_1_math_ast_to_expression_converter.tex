@@ -1,0 +1,35 @@
+\doxysection{Cmd\+Calculator\+::Math\+Ast\+To\+Expression\+Converter Concept Reference}
+\hypertarget{concept_cmd_calculator_1_1_math_ast_to_expression_converter}{}\label{concept_cmd_calculator_1_1_math_ast_to_expression_converter}\index{CmdCalculator::MathAstToExpressionConverter@{CmdCalculator::MathAstToExpressionConverter}}
+
+
+A type that converts mathematical abstract syntax trees into mathematical expressions.  
+
+
+
+
+{\ttfamily \#include $<$Math\+Ast\+To\+Expression\+Converter.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_math_ast_to_expression_converter}{CmdCalculator::MathAstToExpressionConverter}}\ =\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::derived\_from<T,\ MathAstToExpressionConverter\_IntendedSatisfaction>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_math_ast_1_1_math_ast_node}{MathAst::MathAstNode<typename\ T::RootMathAstNodeType>}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \textcolor{keyword}{requires}(T\&\&\ instance,\ \textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ T::RootMathAstNodeType\&\ sourceRootNode)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ instance.getMathAstAsExpression(sourceRootNode)\ \}\ -\/>\ \mbox{\hyperlink{concept_cmd_calculator_1_1_expressions_1_1_expression}{Expressions::Expression}};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+A type that converts mathematical abstract syntax trees into mathematical expressions. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The converter type. \\
+\hline
+\end{DoxyTemplParams}

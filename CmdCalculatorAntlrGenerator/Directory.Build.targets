@@ -8,7 +8,7 @@
 		Name="RunAntlr"
 	>
 		<Exec
-			Command="&quot;$(JavaExePath)&quot; -jar &quot;$(Antlr4JarPath)&quot; -o &quot;$(CmdCalculatorAntlrOutputDir)&quot; @(AntlrGrammar) -Dlanguage=Cpp -package &quot;CmdCalculator::Antlr&quot;"
+			Command="&quot;$(JavaExePath)&quot; -jar &quot;$(Antlr4JarPath)&quot; -lib &quot;$(MsBuildProjectDirectory) -o &quot;$(CmdCalculatorAntlrOutputDir)&quot; -Dlanguage=Cpp -package &quot;CmdCalculator::Antlr&quot; @(AntlrParserGrammar)"
 			ContinueOnError="false"
 			LogStandardErrorAsError="true"
 		/>
@@ -71,7 +71,7 @@ foreach (Microsoft.Build.Framework.ITaskItem filepathTaskItem in OutputFiles)
 
 	<Target
 		Name="Build"
-		Inputs="@(AntlrGrammar)"
+		Inputs="@(AntlrLexerGrammar); @(AntlrParserGrammar);"
 		Outputs="@(LastAntlrGenerationTime)"
 	>
 		<CallTarget Targets="RunAntlr"/>

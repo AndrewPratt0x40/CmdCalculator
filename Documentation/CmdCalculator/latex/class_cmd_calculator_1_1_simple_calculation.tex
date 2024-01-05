@@ -1,0 +1,222 @@
+\doxysection{Cmd\+Calculator\+::Simple\+Calculation\texorpdfstring{$<$}{<} Input\+ExpressionT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_cmd_calculator_1_1_simple_calculation}{}\label{class_cmd_calculator_1_1_simple_calculation}\index{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+
+
+A simple implementation that satisfies the Calculation concept.  
+
+
+
+
+{\ttfamily \#include $<$Simple\+Calculation.\+h$>$}
+
+Inheritance diagram for Cmd\+Calculator\+::Simple\+Calculation\texorpdfstring{$<$}{<} Input\+ExpressionT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.284404cm]{class_cmd_calculator_1_1_simple_calculation}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a148e178be837b1cd87189367869e717e}{Input\+Expression\+Type}} = Input\+ExpressionT
+\item 
+using \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a33e8f8c83cd14af4379b61afce4f35f9}{String\+To\+Math\+Ast\+Converter\+Type}} = String\+To\+Math\+Ast\+ConverterT
+\item 
+using \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_af22e405837f605b73c67dac038e1b8fa}{Math\+Ast\+To\+Expression\+Converter\+Type}} = Math\+Ast\+To\+Expression\+ConverterT
+\item 
+using \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ac46409178d56abd2d331fbbd96320d96}{Expression\+To\+String\+Converter\+Type}} = Expression\+To\+String\+ConverterT
+\item 
+using \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a75933a780497527784ee001b0a375515}{Output\+Expression\+Type}} = decltype(std\+::declval$<$ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ac46409178d56abd2d331fbbd96320d96}{Expression\+To\+String\+Converter\+Type}} $>$() .stringify\+Expression(std\+::declval$<$ typename Expression\+To\+String\+Converter\+Type\+::\+Expression\+Type $>$(), std\+::declval$<$ \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration}} $>$()))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a148e178be837b1cd87189367869e717e}{Input\+Expression\+Type}} \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_aca8613d2cddff442f77f79badd099540}{get\+Input\+Expression}} () const
+\begin{DoxyCompactList}\small\item\em Accessor to the expression to be calculated. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a75933a780497527784ee001b0a375515}{Output\+Expression\+Type}} \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ad2f44edcf633ed3cdb5734effcec09c0}{get\+Output\+Expression}} () const
+\begin{DoxyCompactList}\small\item\em Accessor to the calculated expression. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration}} \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ac6b0e6de40df011ba40c9b3764bfc35e}{get\+Configuration}} () const
+\begin{DoxyCompactList}\small\item\em Accessor to the calculation configuration object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a33e8f8c83cd14af4379b61afce4f35f9}{String\+To\+Math\+Ast\+Converter\+Type}} \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ae453bf4550e1328454ccec15845f57a1}{get\+String\+To\+Math\+Ast\+Converter}} () const
+\begin{DoxyCompactList}\small\item\em Accessor to the object responsible for converting strings to mathematical abstract syntax trees. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_af22e405837f605b73c67dac038e1b8fa}{Math\+Ast\+To\+Expression\+Converter\+Type}} \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ae47ca88c9894dc1ada62c82e0dee9442}{get\+Math\+Ast\+To\+Expression\+Converter}} () const
+\begin{DoxyCompactList}\small\item\em Accessor to the object responsible for converting mathematical abstract syntax trees to expression objects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ac46409178d56abd2d331fbbd96320d96}{Expression\+To\+String\+Converter\+Type}} \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a0bbaf3db1699f597eac61bf6cf9c428d}{get\+Expression\+To\+String\+Converter}} () const
+\begin{DoxyCompactList}\small\item\em Accessor to the object responsible for converting expression objects to strings. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a17f2a7de86aa27d4428249864bb3cba0}{Simple\+Calculation}} (\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a148e178be837b1cd87189367869e717e}{Input\+Expression\+Type}} input\+Expression, \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration}} calculation\+Configuration, \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a33e8f8c83cd14af4379b61afce4f35f9}{String\+To\+Math\+Ast\+Converter\+Type}} string\+To\+Math\+Ast\+Converter, \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_af22e405837f605b73c67dac038e1b8fa}{Math\+Ast\+To\+Expression\+Converter\+Type}} math\+Ast\+To\+Expression\+Converter, \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ac46409178d56abd2d331fbbd96320d96}{Expression\+To\+String\+Converter\+Type}} expression\+To\+String\+Converter)
+\begin{DoxyCompactList}\small\item\em Creates a new instance of the \doxylink{class_cmd_calculator_1_1_simple_calculation}{Simple\+Calculation} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$String Input\+ExpressionT, String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$\newline
+class Cmd\+Calculator\+::\+Simple\+Calculation$<$ Input\+Expression\+T, String\+To\+Math\+Ast\+Converter\+T, Math\+Ast\+To\+Expression\+Converter\+T, Expression\+To\+String\+Converter\+T $>$}
+A simple implementation that satisfies the Calculation concept. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Input\+ExpressionT} & The type of the expression to be calculated. \\
+\hline
+{\em String\+To\+Math\+Ast\+Converter} & The type of the object to convert the string representation of the expression to be calculated into a mathematical abstract syntax tree. \\
+\hline
+{\em Math\+Ast\+To\+Expression\+Converter} & The type of the object to convert the mathematical abstract syntax tree representation of the expression to be calculated into an expression object. \\
+\hline
+{\em Expression\+To\+String\+Converter} & The type of the object to convert the expression object to be calculated into a string. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{class_cmd_calculator_1_1_simple_calculation_ac46409178d56abd2d331fbbd96320d96}\label{class_cmd_calculator_1_1_simple_calculation_ac46409178d56abd2d331fbbd96320d96} 
+\index{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!ExpressionToStringConverterType@{ExpressionToStringConverterType}}
+\index{ExpressionToStringConverterType@{ExpressionToStringConverterType}!CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{ExpressionToStringConverterType}{ExpressionToStringConverterType}}
+{\footnotesize\ttfamily template$<$String Input\+ExpressionT, String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+using \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation}{Cmd\+Calculator\+::\+Simple\+Calculation}}$<$ Input\+ExpressionT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::\+Expression\+To\+String\+Converter\+Type =  Expression\+To\+String\+ConverterT}
+
+\Hypertarget{class_cmd_calculator_1_1_simple_calculation_a148e178be837b1cd87189367869e717e}\label{class_cmd_calculator_1_1_simple_calculation_a148e178be837b1cd87189367869e717e} 
+\index{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!InputExpressionType@{InputExpressionType}}
+\index{InputExpressionType@{InputExpressionType}!CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{InputExpressionType}{InputExpressionType}}
+{\footnotesize\ttfamily template$<$String Input\+ExpressionT, String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+using \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation}{Cmd\+Calculator\+::\+Simple\+Calculation}}$<$ Input\+ExpressionT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::\+Input\+Expression\+Type =  Input\+ExpressionT}
+
+\Hypertarget{class_cmd_calculator_1_1_simple_calculation_af22e405837f605b73c67dac038e1b8fa}\label{class_cmd_calculator_1_1_simple_calculation_af22e405837f605b73c67dac038e1b8fa} 
+\index{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!MathAstToExpressionConverterType@{MathAstToExpressionConverterType}}
+\index{MathAstToExpressionConverterType@{MathAstToExpressionConverterType}!CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{MathAstToExpressionConverterType}{MathAstToExpressionConverterType}}
+{\footnotesize\ttfamily template$<$String Input\+ExpressionT, String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+using \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation}{Cmd\+Calculator\+::\+Simple\+Calculation}}$<$ Input\+ExpressionT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::\+Math\+Ast\+To\+Expression\+Converter\+Type =  Math\+Ast\+To\+Expression\+ConverterT}
+
+\Hypertarget{class_cmd_calculator_1_1_simple_calculation_a75933a780497527784ee001b0a375515}\label{class_cmd_calculator_1_1_simple_calculation_a75933a780497527784ee001b0a375515} 
+\index{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!OutputExpressionType@{OutputExpressionType}}
+\index{OutputExpressionType@{OutputExpressionType}!CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{OutputExpressionType}{OutputExpressionType}}
+{\footnotesize\ttfamily template$<$String Input\+ExpressionT, String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+using \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation}{Cmd\+Calculator\+::\+Simple\+Calculation}}$<$ Input\+ExpressionT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::\+Output\+Expression\+Type =  decltype ( std\+::declval$<$\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ac46409178d56abd2d331fbbd96320d96}{Expression\+To\+String\+Converter\+Type}}$>$() .stringify\+Expression ( std\+::declval$<$typename Expression\+To\+String\+Converter\+Type\+::\+Expression\+Type$>$(), std\+::declval$<$\mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration}}$>$() ) )}
+
+\Hypertarget{class_cmd_calculator_1_1_simple_calculation_a33e8f8c83cd14af4379b61afce4f35f9}\label{class_cmd_calculator_1_1_simple_calculation_a33e8f8c83cd14af4379b61afce4f35f9} 
+\index{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!StringToMathAstConverterType@{StringToMathAstConverterType}}
+\index{StringToMathAstConverterType@{StringToMathAstConverterType}!CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{StringToMathAstConverterType}{StringToMathAstConverterType}}
+{\footnotesize\ttfamily template$<$String Input\+ExpressionT, String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+using \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation}{Cmd\+Calculator\+::\+Simple\+Calculation}}$<$ Input\+ExpressionT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::\+String\+To\+Math\+Ast\+Converter\+Type =  String\+To\+Math\+Ast\+ConverterT}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_cmd_calculator_1_1_simple_calculation_a17f2a7de86aa27d4428249864bb3cba0}\label{class_cmd_calculator_1_1_simple_calculation_a17f2a7de86aa27d4428249864bb3cba0} 
+\index{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!SimpleCalculation@{SimpleCalculation}}
+\index{SimpleCalculation@{SimpleCalculation}!CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{SimpleCalculation()}{SimpleCalculation()}}
+{\footnotesize\ttfamily template$<$String Input\+ExpressionT, String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation}{Cmd\+Calculator\+::\+Simple\+Calculation}}$<$ Input\+ExpressionT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::\+Simple\+Calculation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a148e178be837b1cd87189367869e717e}{Input\+Expression\+Type}}}]{input\+Expression,  }\item[{\mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration}}}]{calculation\+Configuration,  }\item[{\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a33e8f8c83cd14af4379b61afce4f35f9}{String\+To\+Math\+Ast\+Converter\+Type}}}]{string\+To\+Math\+Ast\+Converter,  }\item[{\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_af22e405837f605b73c67dac038e1b8fa}{Math\+Ast\+To\+Expression\+Converter\+Type}}}]{math\+Ast\+To\+Expression\+Converter,  }\item[{\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ac46409178d56abd2d331fbbd96320d96}{Expression\+To\+String\+Converter\+Type}}}]{expression\+To\+String\+Converter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new instance of the \doxylink{class_cmd_calculator_1_1_simple_calculation}{Simple\+Calculation} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+Expression} & The expression to be calculated. \\
+\hline
+{\em calculation\+Configuration} & The calculation configuration object to use. \\
+\hline
+{\em string\+To\+Math\+Ast\+Converter} & The object to use for converting strings to mathematical abstract syntax trees. \\
+\hline
+{\em math\+Ast\+To\+Expression\+Converter} & The object to use for converting mathematical abstract syntax trees to expression objects. \\
+\hline
+{\em expression\+To\+String\+Converter} & The object to use for converting expression objects to strings. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_cmd_calculator_1_1_simple_calculation_ac6b0e6de40df011ba40c9b3764bfc35e}\label{class_cmd_calculator_1_1_simple_calculation_ac6b0e6de40df011ba40c9b3764bfc35e} 
+\index{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!getConfiguration@{getConfiguration}}
+\index{getConfiguration@{getConfiguration}!CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{getConfiguration()}{getConfiguration()}}
+{\footnotesize\ttfamily template$<$String Input\+ExpressionT, String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+\mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration}} \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation}{Cmd\+Calculator\+::\+Simple\+Calculation}}$<$ Input\+ExpressionT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::get\+Configuration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Accessor to the calculation configuration object. 
+
+\begin{DoxyReturn}{Returns}
+The calculation configuration object to use. 
+\end{DoxyReturn}
+\Hypertarget{class_cmd_calculator_1_1_simple_calculation_a0bbaf3db1699f597eac61bf6cf9c428d}\label{class_cmd_calculator_1_1_simple_calculation_a0bbaf3db1699f597eac61bf6cf9c428d} 
+\index{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!getExpressionToStringConverter@{getExpressionToStringConverter}}
+\index{getExpressionToStringConverter@{getExpressionToStringConverter}!CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{getExpressionToStringConverter()}{getExpressionToStringConverter()}}
+{\footnotesize\ttfamily template$<$String Input\+ExpressionT, String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ac46409178d56abd2d331fbbd96320d96}{Expression\+To\+String\+Converter\+Type}} \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation}{Cmd\+Calculator\+::\+Simple\+Calculation}}$<$ Input\+ExpressionT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::get\+Expression\+To\+String\+Converter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Accessor to the object responsible for converting expression objects to strings. 
+
+\begin{DoxyReturn}{Returns}
+The converter object to use. 
+\end{DoxyReturn}
+\Hypertarget{class_cmd_calculator_1_1_simple_calculation_aca8613d2cddff442f77f79badd099540}\label{class_cmd_calculator_1_1_simple_calculation_aca8613d2cddff442f77f79badd099540} 
+\index{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!getInputExpression@{getInputExpression}}
+\index{getInputExpression@{getInputExpression}!CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{getInputExpression()}{getInputExpression()}}
+{\footnotesize\ttfamily template$<$String Input\+ExpressionT, String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a148e178be837b1cd87189367869e717e}{Input\+Expression\+Type}} \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation}{Cmd\+Calculator\+::\+Simple\+Calculation}}$<$ Input\+ExpressionT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::get\+Input\+Expression (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Accessor to the expression to be calculated. 
+
+\begin{DoxyReturn}{Returns}
+The expression to be calculated represented as a string. 
+\end{DoxyReturn}
+\Hypertarget{class_cmd_calculator_1_1_simple_calculation_ae47ca88c9894dc1ada62c82e0dee9442}\label{class_cmd_calculator_1_1_simple_calculation_ae47ca88c9894dc1ada62c82e0dee9442} 
+\index{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!getMathAstToExpressionConverter@{getMathAstToExpressionConverter}}
+\index{getMathAstToExpressionConverter@{getMathAstToExpressionConverter}!CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{getMathAstToExpressionConverter()}{getMathAstToExpressionConverter()}}
+{\footnotesize\ttfamily template$<$String Input\+ExpressionT, String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_af22e405837f605b73c67dac038e1b8fa}{Math\+Ast\+To\+Expression\+Converter\+Type}} \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation}{Cmd\+Calculator\+::\+Simple\+Calculation}}$<$ Input\+ExpressionT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::get\+Math\+Ast\+To\+Expression\+Converter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Accessor to the object responsible for converting mathematical abstract syntax trees to expression objects. 
+
+\begin{DoxyReturn}{Returns}
+The converter object to use. 
+\end{DoxyReturn}
+\Hypertarget{class_cmd_calculator_1_1_simple_calculation_ad2f44edcf633ed3cdb5734effcec09c0}\label{class_cmd_calculator_1_1_simple_calculation_ad2f44edcf633ed3cdb5734effcec09c0} 
+\index{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!getOutputExpression@{getOutputExpression}}
+\index{getOutputExpression@{getOutputExpression}!CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{getOutputExpression()}{getOutputExpression()}}
+{\footnotesize\ttfamily template$<$String Input\+ExpressionT, String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a75933a780497527784ee001b0a375515}{Output\+Expression\+Type}} \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation}{Cmd\+Calculator\+::\+Simple\+Calculation}}$<$ Input\+ExpressionT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::get\+Output\+Expression (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Accessor to the calculated expression. 
+
+\begin{DoxyReturn}{Returns}
+The calculated expression as a string. 
+\end{DoxyReturn}
+\Hypertarget{class_cmd_calculator_1_1_simple_calculation_ae453bf4550e1328454ccec15845f57a1}\label{class_cmd_calculator_1_1_simple_calculation_ae453bf4550e1328454ccec15845f57a1} 
+\index{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}!getStringToMathAstConverter@{getStringToMathAstConverter}}
+\index{getStringToMathAstConverter@{getStringToMathAstConverter}!CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$@{CmdCalculator::SimpleCalculation$<$ InputExpressionT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT $>$}}
+\doxysubsubsection{\texorpdfstring{getStringToMathAstConverter()}{getStringToMathAstConverter()}}
+{\footnotesize\ttfamily template$<$String Input\+ExpressionT, String\+To\+Math\+Ast\+Converter String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+Converter Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+Converter Expression\+To\+String\+ConverterT$>$ \\
+\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a33e8f8c83cd14af4379b61afce4f35f9}{String\+To\+Math\+Ast\+Converter\+Type}} \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation}{Cmd\+Calculator\+::\+Simple\+Calculation}}$<$ Input\+ExpressionT, String\+To\+Math\+Ast\+ConverterT, Math\+Ast\+To\+Expression\+ConverterT, Expression\+To\+String\+ConverterT $>$\+::get\+String\+To\+Math\+Ast\+Converter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Accessor to the object responsible for converting strings to mathematical abstract syntax trees. 
+
+\begin{DoxyReturn}{Returns}
+The converter object to use. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_simple_calculation_8h}{Simple\+Calculation.\+h}}\end{DoxyCompactItemize}

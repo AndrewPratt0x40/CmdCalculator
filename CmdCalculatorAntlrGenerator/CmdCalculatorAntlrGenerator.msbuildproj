@@ -6,10 +6,17 @@
   <Import Project="Sdk.props" Sdk="Microsoft.Build.NoTargets" Version="3.3.0" />
   <Import Project="Sdk.targets" Sdk="Microsoft.Build.NoTargets" Version="3.3.0" />
   <ItemGroup>
+    <AntlrLexerGrammar Remove="CmdCalculatorExpressionLexer.g4" />
+  </ItemGroup>
+  <ItemGroup>
+    <AntlrParserGrammar Remove="CmdCalculatorExpressionParser.g4" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="ExampleCmdCalculatorAntlr.user.props.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="CmdCalculatorExpression.g4" />
+    <None Include="CmdCalculatorExpressionLexer.g4" />
+    <None Include="CmdCalculatorExpressionParser.g4" />
     <None Include="Directory.Build.props" />
     <None Include="Directory.Build.targets" />
   </ItemGroup>

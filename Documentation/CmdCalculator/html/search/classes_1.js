@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['foo_0',['Foo',['../class_cmd_calculator_1_1_foo.html',1,'CmdCalculator']]]
+  ['badrawcmdlineargsexception_0',['BadRawCmdLineArgsException',['../class_cmd_calculator_1_1_bad_raw_cmd_line_args_exception.html',1,'CmdCalculator']]]
 ];

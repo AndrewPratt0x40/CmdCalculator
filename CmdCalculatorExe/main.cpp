@@ -15,7 +15,7 @@ int main()
 	//CmdCalculator::Antlr::CmdCalculatorExpressionBaseListener listener{};
 	//antlr4::tree::ParseTreeWalker::DEFAULT.walk(&listener, fullExpression);
 
-	const std::string foo{ expression->operation_parts[0]->};
+	//const std::string foo{ expression->operation_parts[0]->};
 
 	//std::cout << "The first operand is: " << foo;
 }

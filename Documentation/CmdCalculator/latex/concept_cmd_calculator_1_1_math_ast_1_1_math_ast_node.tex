@@ -1,0 +1,37 @@
+\doxysection{Cmd\+Calculator\+::Math\+Ast\+::Math\+Ast\+Node Concept Reference}
+\hypertarget{concept_cmd_calculator_1_1_math_ast_1_1_math_ast_node}{}\label{concept_cmd_calculator_1_1_math_ast_1_1_math_ast_node}\index{CmdCalculator::MathAst::MathAstNode@{CmdCalculator::MathAst::MathAstNode}}
+
+
+A single node in an abstract syntax tree (AST) representing a mathematical expression.  
+
+
+
+
+{\ttfamily \#include $<$Math\+Ast\+Node.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_math_ast_1_1_math_ast_node}{CmdCalculator::MathAst::MathAstNode}}\ =\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::derived\_from<T,\ MathAstNode\_IntendedSatisfaction>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string}{String<typename\ T::StringType>}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \textcolor{keyword}{requires}(T\&\&\ instance)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.getLeadingTrivia()\ \}\ -\/>\ std::same\_as<typename\ T::StringType>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{instance}}.\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_a5e3b93b8fe74dccdfb351d216607d01d}{getTrailingTrivia}}()\ \}\ -\/>\ std::same\_as<typename\ T::StringType>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_a06c7437a7e811c1db2821bbd73a3e97a}{getStringRepresentation}}()\ \}\ -\/>\ std::same\_as<typename\ T::StringType>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+A single node in an abstract syntax tree (AST) representing a mathematical expression. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the AST node. \\
+\hline
+\end{DoxyTemplParams}

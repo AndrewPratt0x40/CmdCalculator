@@ -1,0 +1,25 @@
+\doxysection{Dynamic\+Expression\+Node.\+h}
+\hypertarget{_dynamic_expression_node_8h_source}{}\label{_dynamic_expression_node_8h_source}\mbox{\hyperlink{_dynamic_expression_node_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_expression_node_8h}{ExpressionNode.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dynamic_math_ast_node_8h}{DynamicMathAstNode.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dynamic_expression_part_node_8h}{DynamicExpressionPartNode.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{strings_8h}{strings.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <ranges>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_cmd_calculator_1_1_math_ast}{CmdCalculator::MathAst}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{template}<String\ StringT,\ std::ranges::input\_range\ PartsT>}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::same\_as<DynamicExpressionPartNode<StringT>,\ std::ranges::range\_value\_t<PartsT>>}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_node}{DynamicExpressionNode}}\ :}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_cmd_calculator_1_1_math_ast_1_1_expression_node___intended_satisfaction}{ExpressionNode\_IntendedSatisfaction}},}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node}{DynamicMathAstNode}}<StringT>}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ PartsT\ getParts()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00024\ \ \ \ \ \};}
+\DoxyCodeLine{00025\ \}}
+
+\end{DoxyCode}

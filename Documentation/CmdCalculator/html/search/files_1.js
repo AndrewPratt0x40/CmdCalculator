@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['notimplementedexception_2eh_0',['NotImplementedException.h',['../_not_implemented_exception_8h.html',1,'']]]
+  ['badrawcmdlineargsexception_2eh_0',['BadRawCmdLineArgsException.h',['../_bad_raw_cmd_line_args_exception_8h.html',1,'']]]
 ];

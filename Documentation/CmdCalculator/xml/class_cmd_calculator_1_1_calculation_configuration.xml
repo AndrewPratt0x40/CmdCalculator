@@ -257,13 +257,31 @@
         </inbodydescription>
         <location file="CalculationConfiguration.h" line="58" column="1" bodyfile="CalculationConfiguration.cpp" bodystart="7" bodyend="22"/>
       </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_calculation_configuration_1adb71ca68ae5e4ece3b726e8f629aa184" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CmdCalculator::CalculationConfiguration::operator==</definition>
+        <argsstring>(const CalculationConfiguration &amp;other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>CmdCalculator::CalculationConfiguration::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="class_cmd_calculator_1_1_calculation_configuration" kindref="compound">CalculationConfiguration</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CalculationConfiguration.h" line="68" column="6" bodyfile="CalculationConfiguration.cpp" bodystart="55" bodyend="64"/>
+      </memberdef>
     </sectiondef>
     <briefdescription>
-<para>A collection of preferences for how calculations should be done. </para>
+<para>A collection of settings for how calculations should be done. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="CalculationConfiguration.h" line="7" column="1" bodyfile="CalculationConfiguration.h" bodystart="8" bodyend="66"/>
+    <location file="CalculationConfiguration.h" line="7" column="1" bodyfile="CalculationConfiguration.h" bodystart="8" bodyend="69"/>
     <listofallmembers>
       <member refid="class_cmd_calculator_1_1_calculation_configuration_1a728f7de916eb80d91db47fc49d6d4258" prot="public" virt="non-virtual"><scope>CmdCalculator::CalculationConfiguration</scope><name>CalculationConfiguration</name></member>
       <member refid="class_cmd_calculator_1_1_calculation_configuration_1a145e305db4994417b9df79c5f8109352" prot="public" virt="non-virtual"><scope>CmdCalculator::CalculationConfiguration</scope><name>getPrecision</name></member>
@@ -272,6 +290,7 @@
       <member refid="class_cmd_calculator_1_1_calculation_configuration_1a8489170745681b397cb5de6b18f9c6dd" prot="private" virt="non-virtual"><scope>CmdCalculator::CalculationConfiguration</scope><name>m_shouldPreferLeadingZeroOverWholelessNumbers</name></member>
       <member refid="class_cmd_calculator_1_1_calculation_configuration_1a3d6fa3508ef55e34eacb09046a0d566e" prot="private" virt="non-virtual"><scope>CmdCalculator::CalculationConfiguration</scope><name>m_shouldPreferSignExpressionForPositiveValues</name></member>
       <member refid="class_cmd_calculator_1_1_calculation_configuration_1a6789121d2e790a46298aa8dc9a6cab71" prot="private" virt="non-virtual"><scope>CmdCalculator::CalculationConfiguration</scope><name>m_shouldPreferTrailingZeroOverEmptyDecimalPlace</name></member>
+      <member refid="class_cmd_calculator_1_1_calculation_configuration_1adb71ca68ae5e4ece3b726e8f629aa184" prot="public" virt="non-virtual"><scope>CmdCalculator::CalculationConfiguration</scope><name>operator==</name></member>
       <member refid="class_cmd_calculator_1_1_calculation_configuration_1a97b1721dbc47612ad98d4d4e61c400e7" prot="public" virt="non-virtual"><scope>CmdCalculator::CalculationConfiguration</scope><name>shouldPreferDecimalsOverIntegers</name></member>
       <member refid="class_cmd_calculator_1_1_calculation_configuration_1ac3e3d539a6e80b00a15495a0490aa106" prot="public" virt="non-virtual"><scope>CmdCalculator::CalculationConfiguration</scope><name>shouldPreferLeadingZeroOverWholelessNumbers</name></member>
       <member refid="class_cmd_calculator_1_1_calculation_configuration_1ac4ce56163602dca95bfb6be6c680d330" prot="public" virt="non-virtual"><scope>CmdCalculator::CalculationConfiguration</scope><name>shouldPreferSignExpressionForPositiveValues</name></member>

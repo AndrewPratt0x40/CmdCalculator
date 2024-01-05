@@ -1,0 +1,28 @@
+\doxysection{String\+To\+Math\+Ast\+Converter.\+h}
+\hypertarget{_string_to_math_ast_converter_8h_source}{}\label{_string_to_math_ast_converter_8h_source}\mbox{\hyperlink{_string_to_math_ast_converter_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include<concepts>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{strings_8h}{strings.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_math_ast_node_8h}{MathAstNode.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_cmd_calculator}{CmdCalculator}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_cmd_calculator_1_1_string_to_math_ast_converter___intended_satisfaction}{StringToMathAstConverter\_IntendedSatisfaction}}}
+\DoxyCodeLine{00012\ \ \ \ \ \{\};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_string_to_math_ast_converter}{StringToMathAstConverter}}\ =}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ std::derived\_from<T,\ StringToMathAstConverter\_IntendedSatisfaction>}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string_view}{StringView<typename\ T::StringViewType>}}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \&\&\ \textcolor{keyword}{requires}(T\&\&\ instance,\ \textcolor{keyword}{typename}\ T::StringViewType\ source)}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.getStringAsMathAst(source)\ \}\ -\/>\ \mbox{\hyperlink{concept_cmd_calculator_1_1_math_ast_1_1_math_ast_node}{MathAst::MathAstNode}};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00025\ \ \ \ \ ;}
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}

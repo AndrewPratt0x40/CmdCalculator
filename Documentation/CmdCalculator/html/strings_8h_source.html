@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('strings_8h_source.html',''); initResiz
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_cmd_calculator.html">CmdCalculator</a></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, <span class="keyword">class</span> CharT&gt;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="concept_cmd_calculator_1_1_string_of_char.html">   13</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="concept_cmd_calculator_1_1_string_of_char.html">StringOfChar</a> = std::common_with&lt;T, std::basic_string&lt;CharT&gt;&gt;;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="concept_cmd_calculator_1_1_string_of_char.html">   13</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="concept_cmd_calculator_1_1_string_of_char.html">StringOfChar</a> = std::convertible_to&lt;T, std::basic_string&lt;CharT&gt;&gt;;</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
 <div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('strings_8h_source.html',''); initResiz
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, <span class="keyword">class</span> CharT&gt;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="concept_cmd_calculator_1_1_string_view_of_char.html">   35</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="concept_cmd_calculator_1_1_string_view_of_char.html">StringViewOfChar</a> = std::common_with&lt;T, std::basic_string_view&lt;CharT&gt;&gt;;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="concept_cmd_calculator_1_1_string_view_of_char.html">   35</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="concept_cmd_calculator_1_1_string_view_of_char.html">StringViewOfChar</a> = std::convertible_to&lt;T, std::basic_string_view&lt;CharT&gt;&gt;;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
 <div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
@@ -141,7 +141,7 @@ $(document).ready(function(){initNavTree('strings_8h_source.html',''); initResiz
 <div class="ttc" id="aconcept_cmd_calculator_1_1_string_of_char_html"><div class="ttname"><a href="concept_cmd_calculator_1_1_string_of_char.html">CmdCalculator::StringOfChar</a></div><div class="ttdoc">A string type.</div><div class="ttdef"><b>Definition</b> strings.h:13</div></div>
 <div class="ttc" id="aconcept_cmd_calculator_1_1_string_view_html"><div class="ttname"><a href="concept_cmd_calculator_1_1_string_view.html">CmdCalculator::StringView</a></div><div class="ttdoc">A string view type.</div><div class="ttdef"><b>Definition</b> strings.h:41</div></div>
 <div class="ttc" id="aconcept_cmd_calculator_1_1_string_view_of_char_html"><div class="ttname"><a href="concept_cmd_calculator_1_1_string_view_of_char.html">CmdCalculator::StringViewOfChar</a></div><div class="ttdoc">A string view type.</div><div class="ttdef"><b>Definition</b> strings.h:35</div></div>
-<div class="ttc" id="anamespace_cmd_calculator_html"><div class="ttname"><a href="namespace_cmd_calculator.html">CmdCalculator</a></div><div class="ttdef"><b>Definition</b> CalculationConfiguration.h:5</div></div>
+<div class="ttc" id="anamespace_cmd_calculator_html"><div class="ttname"><a href="namespace_cmd_calculator.html">CmdCalculator</a></div><div class="ttdef"><b>Definition</b> AntlrBasedStringToMathAstConverter.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

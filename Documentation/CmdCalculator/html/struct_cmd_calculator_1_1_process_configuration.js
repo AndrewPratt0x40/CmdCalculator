@@ -1,5 +1,5 @@
 var struct_cmd_calculator_1_1_process_configuration =
 [
-    [ "CalculationConfiguration", "struct_cmd_calculator_1_1_process_configuration.html#af2e5405b1b429b4f1307a7d6e8a6aa24", null ],
-    [ "givenExpression", "struct_cmd_calculator_1_1_process_configuration.html#a618b4e295a90e377fc627e16a7e20b18", null ]
+    [ "calculationConfiguration", "struct_cmd_calculator_1_1_process_configuration.html#a4019c25414a60a434df07e66a5dfed9b", null ],
+    [ "givenExpression", "struct_cmd_calculator_1_1_process_configuration.html#a2f09596a830390d3bbb8a1ff6a523d09", null ]
 ];

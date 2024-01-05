@@ -2,7 +2,7 @@
 \hypertarget{class_cmd_calculator_1_1_calculation_configuration}{}\label{class_cmd_calculator_1_1_calculation_configuration}\index{CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}}
 
 
-A collection of preferences for how calculations should be done.  
+A collection of settings for how calculations should be done.  
 
 
 
@@ -23,11 +23,13 @@ bool \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_ac3e3d5
 bool \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_a49c9954eb90bfb41da179e7c5fd1b871}{should\+Prefer\+Trailing\+Zero\+Over\+Empty\+Decimal\+Place}} ()
 \begin{DoxyCompactList}\small\item\em Accessor for the preferred representation of trailing zeros. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_a728f7de916eb80d91db47fc49d6d4258}{Calculation\+Configuration}} (int precision, bool \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_a97b1721dbc47612ad98d4d4e61c400e7}{should\+Prefer\+Decimals\+Over\+Integers}}, bool \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_ac4ce56163602dca95bfb6be6c680d330}{should\+Prefer\+Sign\+Expression\+For\+Positive\+Values}}, bool \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_ac3e3d539a6e80b00a15495a0490aa106}{should\+Prefer\+Leading\+Zero\+Over\+Wholeless\+Numbers}}, bool \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_a49c9954eb90bfb41da179e7c5fd1b871}{should\+Prefer\+Trailing\+Zero\+Over\+Empty\+Decimal\+Place}})
-\begin{DoxyCompactList}\small\item\em Creates a new instance of the \doxylink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Creates a new instance of the \doxylink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration} class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_adb71ca68ae5e4ece3b726e8f629aa184}{operator==}} (const \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration}} \&other) const
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-A collection of preferences for how calculations should be done. 
+A collection of settings for how calculations should be done. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{class_cmd_calculator_1_1_calculation_configuration_a728f7de916eb80d91db47fc49d6d4258}\label{class_cmd_calculator_1_1_calculation_configuration_a728f7de916eb80d91db47fc49d6d4258} 
@@ -74,6 +76,12 @@ Accessor for the preferred precision.
 \begin{DoxyReturn}{Returns}
 How many decimal places are to be included in the answer of a calculation. 
 \end{DoxyReturn}
+\Hypertarget{class_cmd_calculator_1_1_calculation_configuration_adb71ca68ae5e4ece3b726e8f629aa184}\label{class_cmd_calculator_1_1_calculation_configuration_adb71ca68ae5e4ece3b726e8f629aa184} 
+\index{CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}!operator==@{operator==}}
+\index{operator==@{operator==}!CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Cmd\+Calculator\+::\+Calculation\+Configuration\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration}} \&}]{other }\end{DoxyParamCaption}) const}
+
 \Hypertarget{class_cmd_calculator_1_1_calculation_configuration_a97b1721dbc47612ad98d4d4e61c400e7}\label{class_cmd_calculator_1_1_calculation_configuration_a97b1721dbc47612ad98d4d4e61c400e7} 
 \index{CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}!shouldPreferDecimalsOverIntegers@{shouldPreferDecimalsOverIntegers}}
 \index{shouldPreferDecimalsOverIntegers@{shouldPreferDecimalsOverIntegers}!CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}}

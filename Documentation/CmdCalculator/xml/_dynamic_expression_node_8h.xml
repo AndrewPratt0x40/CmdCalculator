@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_dynamic_expression_node_8h" kind="file" language="C++">
+    <compoundname>DynamicExpressionNode.h</compoundname>
+    <includes refid="_expression_node_8h" local="yes">ExpressionNode.h</includes>
+    <includes refid="_dynamic_math_ast_node_8h" local="yes">DynamicMathAstNode.h</includes>
+    <includes refid="_dynamic_expression_part_node_8h" local="yes">DynamicExpressionPartNode.h</includes>
+    <includes refid="strings_8h" local="yes">strings.h</includes>
+    <includes local="no">ranges</includes>
+    <includedby refid="_antlr_based_string_to_math_ast_converter_8h" local="yes">AntlrBasedStringToMathAstConverter.h</includedby>
+    <includedby refid="_dynamic_expression_containing_node_8h" local="yes">DynamicExpressionContainingNode.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>DynamicExpressionNode.h</label>
+        <link refid="_dynamic_expression_node_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>DynamicExpressionPartNode.h</label>
+        <link refid="_dynamic_expression_part_node_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>DynamicMathAstNode.h</label>
+        <link refid="_dynamic_math_ast_node_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ExpressionNode.h</label>
+        <link refid="_expression_node_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>ExpressionPartNode.h</label>
+        <link refid="_expression_part_node_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>MathAstNode.h</label>
+        <link refid="_math_ast_node_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>strings.h</label>
+        <link refid="strings_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>concepts</label>
+      </node>
+      <node id="5">
+        <label>ranges</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>AntlrBasedStringToMathAstConverter.cpp</label>
+        <link refid="_antlr_based_string_to_math_ast_converter_8cpp"/>
+      </node>
+      <node id="2">
+        <label>AntlrBasedStringToMathAstConverter.h</label>
+        <link refid="_antlr_based_string_to_math_ast_converter_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>DynamicAbsoluteValueNode.cpp</label>
+        <link refid="_dynamic_absolute_value_node_8cpp"/>
+      </node>
+      <node id="5">
+        <label>DynamicAbsoluteValueNode.h</label>
+        <link refid="_dynamic_absolute_value_node_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>DynamicExpressionContainingNode.h</label>
+        <link refid="_dynamic_expression_containing_node_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>DynamicExpressionNode.h</label>
+        <link refid="_dynamic_expression_node_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>DynamicGroupingMultiplicationNode.cpp</label>
+        <link refid="_dynamic_grouping_multiplication_node_8cpp"/>
+      </node>
+      <node id="8">
+        <label>DynamicGroupingMultiplicationNode.h</label>
+        <link refid="_dynamic_grouping_multiplication_node_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>DynamicGroupingNode.cpp</label>
+        <link refid="_dynamic_grouping_node_8cpp"/>
+      </node>
+      <node id="7">
+        <label>DynamicGroupingNode.h</label>
+        <link refid="_dynamic_grouping_node_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_node" prot="public">CmdCalculator::MathAst::DynamicExpressionNode</innerclass>
+    <innernamespace refid="namespace_cmd_calculator">CmdCalculator</innernamespace>
+    <innernamespace refid="namespace_cmd_calculator_1_1_math_ast">CmdCalculator::MathAst</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_expression_node_8h" kindref="compound">ExpressionNode.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_dynamic_math_ast_node_8h" kindref="compound">DynamicMathAstNode.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_dynamic_expression_part_node_8h" kindref="compound">DynamicExpressionPartNode.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="strings_8h" kindref="compound">strings.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ranges&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_cmd_calculator_1_1_math_ast" kindref="compound">CmdCalculator::MathAst</ref></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;String<sp/>StringT,<sp/>std::ranges::input_range<sp/>PartsT&gt;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">requires</highlight><highlight class="normal"><sp/>std::same_as&lt;DynamicExpressionPartNode&lt;StringT&gt;,<sp/>std::ranges::range_value_t&lt;PartsT&gt;&gt;</highlight></codeline>
+<codeline lineno="17" refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_node" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_node" kindref="compound">DynamicExpressionNode</ref><sp/>:</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_node___intended_satisfaction" kindref="compound">ExpressionNode_IntendedSatisfaction</ref>,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node" kindref="compound">DynamicMathAstNode</ref>&lt;StringT&gt;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">PartsT</ref><sp/>getParts()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="DynamicExpressionNode.h"/>
+  </compounddef>
+</doxygen>

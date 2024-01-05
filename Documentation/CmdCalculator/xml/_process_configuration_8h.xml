@@ -5,6 +5,8 @@
     <includes local="no">optional</includes>
     <includes refid="strings_8h" local="yes">strings.h</includes>
     <includes refid="_calculation_configuration_8h" local="yes">CalculationConfiguration.h</includes>
+    <includedby refid="_process_8h" local="yes">Process.h</includedby>
+    <includedby refid="_raw_cmd_line_arg_parser_8h" local="yes">RawCmdLineArgParser.h</includedby>
     <incdepgraph>
       <node id="5">
         <label>CalculationConfiguration.h</label>
@@ -38,6 +40,32 @@
         <label>string</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>Process.cpp</label>
+        <link refid="_process_8cpp"/>
+      </node>
+      <node id="2">
+        <label>Process.h</label>
+        <link refid="_process_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ProcessConfiguration.h</label>
+        <link refid="_process_configuration_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>RawCmdLineArgParser.h</label>
+        <link refid="_raw_cmd_line_arg_parser_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innerclass refid="struct_cmd_calculator_1_1_process_configuration" prot="public">CmdCalculator::ProcessConfiguration</innerclass>
     <innernamespace refid="namespace_cmd_calculator">CmdCalculator</innernamespace>
     <briefdescription>
@@ -54,14 +82,14 @@
 <codeline lineno="7"><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_cmd_calculator" kindref="compound">CmdCalculator</ref></highlight></codeline>
 <codeline lineno="9"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;String<sp/>StringT&gt;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;String<sp/>ExpressionStringT&gt;</highlight></codeline>
 <codeline lineno="13" refid="struct_cmd_calculator_1_1_process_configuration" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cmd_calculator_1_1_process_configuration" kindref="compound">ProcessConfiguration</ref></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="16" refid="struct_cmd_calculator_1_1_process_configuration_1a618b4e295a90e377fc627e16a7e20b18" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::optional&lt;StringT&gt;<sp/><ref refid="struct_cmd_calculator_1_1_process_configuration_1a618b4e295a90e377fc627e16a7e20b18" kindref="member">givenExpression</ref>;</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19" refid="struct_cmd_calculator_1_1_process_configuration_1af2e5405b1b429b4f1307a7d6e8a6aa24" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_cmd_calculator_1_1_calculation_configuration" kindref="compound">CalculationConfiguration</ref><sp/><ref refid="struct_cmd_calculator_1_1_process_configuration_1af2e5405b1b429b4f1307a7d6e8a6aa24" kindref="member">CalculationConfiguration</ref>;</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17" refid="struct_cmd_calculator_1_1_process_configuration_1a2f09596a830390d3bbb8a1ff6a523d09" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::optional&lt;ExpressionStringT&gt;<sp/><ref refid="struct_cmd_calculator_1_1_process_configuration_1a2f09596a830390d3bbb8a1ff6a523d09" kindref="member">givenExpression</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="struct_cmd_calculator_1_1_process_configuration_1a4019c25414a60a434df07e66a5dfed9b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_cmd_calculator_1_1_calculation_configuration" kindref="compound">CalculationConfiguration</ref><sp/><ref refid="struct_cmd_calculator_1_1_process_configuration_1a4019c25414a60a434df07e66a5dfed9b" kindref="member">calculationConfiguration</ref>;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="ProcessConfiguration.h"/>
   </compounddef>

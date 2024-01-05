@@ -3,7 +3,19 @@
   <compounddef id="_not_implemented_exception_8h" kind="file" language="C++">
     <compoundname>NotImplementedException.h</compoundname>
     <includes local="no">exception</includes>
+    <includedby refid="_antlr_based_string_to_math_ast_converter_8h" local="yes">AntlrBasedStringToMathAstConverter.h</includedby>
     <includedby refid="_calculation_configuration_8cpp" local="yes">CalculationConfiguration.cpp</includedby>
+    <includedby refid="_dynamic_absolute_value_node_8h" local="yes">DynamicAbsoluteValueNode.h</includedby>
+    <includedby refid="_dynamic_binary_operator_node_8h" local="yes">DynamicBinaryOperatorNode.h</includedby>
+    <includedby refid="_dynamic_grouping_multiplication_node_8h" local="yes">DynamicGroupingMultiplicationNode.h</includedby>
+    <includedby refid="_dynamic_grouping_node_8h" local="yes">DynamicGroupingNode.h</includedby>
+    <includedby refid="_dynamic_number_literal_node_8h" local="yes">DynamicNumberLiteralNode.h</includedby>
+    <includedby refid="_dynamic_sign_operation_node_8h" local="yes">DynamicSignOperationNode.h</includedby>
+    <includedby refid="_dynamic_sqrt_operation_node_8h" local="yes">DynamicSqrtOperationNode.h</includedby>
+    <includedby refid="_dynamic_unary_operation_node_8h" local="yes">DynamicUnaryOperationNode.h</includedby>
+    <includedby refid="_process_8h" local="yes">Process.h</includedby>
+    <includedby refid="_simple_calculation_8cpp" local="yes">SimpleCalculation.cpp</includedby>
+    <includedby refid="_simple_calculation_8h" local="yes">SimpleCalculation.h</includedby>
     <incdepgraph>
       <node id="1">
         <label>NotImplementedException.h</label>
@@ -16,14 +28,154 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
+      <node id="3">
+        <label>AntlrBasedStringToMathAstConverter.cpp</label>
+        <link refid="_antlr_based_string_to_math_ast_converter_8cpp"/>
+      </node>
       <node id="2">
+        <label>AntlrBasedStringToMathAstConverter.h</label>
+        <link refid="_antlr_based_string_to_math_ast_converter_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
         <label>CalculationConfiguration.cpp</label>
         <link refid="_calculation_configuration_8cpp"/>
+      </node>
+      <node id="6">
+        <label>DynamicAbsoluteValueNode.cpp</label>
+        <link refid="_dynamic_absolute_value_node_8cpp"/>
+      </node>
+      <node id="5">
+        <label>DynamicAbsoluteValueNode.h</label>
+        <link refid="_dynamic_absolute_value_node_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>DynamicBinaryOperatorNode.cpp</label>
+        <link refid="_dynamic_binary_operator_node_8cpp"/>
+      </node>
+      <node id="7">
+        <label>DynamicBinaryOperatorNode.h</label>
+        <link refid="_dynamic_binary_operator_node_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>DynamicGroupingMultiplicationNode.cpp</label>
+        <link refid="_dynamic_grouping_multiplication_node_8cpp"/>
+      </node>
+      <node id="9">
+        <label>DynamicGroupingMultiplicationNode.h</label>
+        <link refid="_dynamic_grouping_multiplication_node_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>DynamicGroupingNode.cpp</label>
+        <link refid="_dynamic_grouping_node_8cpp"/>
+      </node>
+      <node id="11">
+        <label>DynamicGroupingNode.h</label>
+        <link refid="_dynamic_grouping_node_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>DynamicNumberLiteralNode.cpp</label>
+        <link refid="_dynamic_number_literal_node_8cpp"/>
+      </node>
+      <node id="13">
+        <label>DynamicNumberLiteralNode.h</label>
+        <link refid="_dynamic_number_literal_node_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>DynamicSignOperationNode.cpp</label>
+        <link refid="_dynamic_sign_operation_node_8cpp"/>
+      </node>
+      <node id="15">
+        <label>DynamicSignOperationNode.h</label>
+        <link refid="_dynamic_sign_operation_node_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>DynamicSqrtOperationNode.cpp</label>
+        <link refid="_dynamic_sqrt_operation_node_8cpp"/>
+      </node>
+      <node id="17">
+        <label>DynamicSqrtOperationNode.h</label>
+        <link refid="_dynamic_sqrt_operation_node_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>DynamicUnaryOperationNode.cpp</label>
+        <link refid="_dynamic_unary_operation_node_8cpp"/>
+      </node>
+      <node id="19">
+        <label>DynamicUnaryOperationNode.h</label>
+        <link refid="_dynamic_unary_operation_node_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>NotImplementedException.h</label>
         <link refid="_not_implemented_exception_8h"/>
         <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>Process.cpp</label>
+        <link refid="_process_8cpp"/>
+      </node>
+      <node id="21">
+        <label>Process.h</label>
+        <link refid="_process_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>SimpleCalculation.cpp</label>
+        <link refid="_simple_calculation_8cpp"/>
+      </node>
+      <node id="24">
+        <label>SimpleCalculation.h</label>
+        <link refid="_simple_calculation_8h"/>
+        <childnode refid="23" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -35,19 +187,20 @@
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;exception&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_cmd_calculator" kindref="compound">CmdCalculator</ref></highlight></codeline>
-<codeline lineno="5"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="7" refid="class_cmd_calculator_1_1_not_implemented_exception" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_cmd_calculator_1_1_not_implemented_exception" kindref="compound">NotImplementedException</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>std::exception</highlight></codeline>
-<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="10" refid="class_cmd_calculator_1_1_not_implemented_exception_1adf953109a6c4dd067db41dc5af237e96" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="class_cmd_calculator_1_1_not_implemented_exception_1adf953109a6c4dd067db41dc5af237e96" kindref="member">what</ref>()<sp/>const<sp/>noexcept</highlight><highlight class="keyword"><sp/>override</highlight></codeline>
-<codeline lineno="11"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;This<sp/>code<sp/>is<sp/>not<sp/>implemented.&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;exception&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_cmd_calculator" kindref="compound">CmdCalculator</ref></highlight></codeline>
+<codeline lineno="6"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8" refid="class_cmd_calculator_1_1_not_implemented_exception" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_cmd_calculator_1_1_not_implemented_exception" kindref="compound">NotImplementedException</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>std::exception</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="11" refid="class_cmd_calculator_1_1_not_implemented_exception_1adf953109a6c4dd067db41dc5af237e96" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="class_cmd_calculator_1_1_not_implemented_exception_1adf953109a6c4dd067db41dc5af237e96" kindref="member">what</ref>()<sp/>const<sp/>noexcept</highlight><highlight class="keyword"><sp/>override</highlight></codeline>
+<codeline lineno="12"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;Code<sp/>that<sp/>has<sp/>not<sp/>been<sp/>implemented<sp/>has<sp/>been<sp/>invoked&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="NotImplementedException.h"/>
   </compounddef>

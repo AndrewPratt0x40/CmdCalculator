@@ -1,8 +1,8 @@
-\doxysection{Cmd\+Calculator\+::Process\+Configuration\texorpdfstring{$<$}{<} StringT \texorpdfstring{$>$}{>} Struct Template Reference}
-\hypertarget{struct_cmd_calculator_1_1_process_configuration}{}\label{struct_cmd_calculator_1_1_process_configuration}\index{CmdCalculator::ProcessConfiguration$<$ StringT $>$@{CmdCalculator::ProcessConfiguration$<$ StringT $>$}}
+\doxysection{Cmd\+Calculator\+::Process\+Configuration\texorpdfstring{$<$}{<} Expression\+StringT \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{struct_cmd_calculator_1_1_process_configuration}{}\label{struct_cmd_calculator_1_1_process_configuration}\index{CmdCalculator::ProcessConfiguration$<$ ExpressionStringT $>$@{CmdCalculator::ProcessConfiguration$<$ ExpressionStringT $>$}}
 
 
-A configuration for a \doxylink{namespace_cmd_calculator}{Cmd\+Calculator} process.  
+A collection of settings for a \doxylink{namespace_cmd_calculator}{Cmd\+Calculator} process.  
 
 
 
@@ -12,48 +12,48 @@ A configuration for a \doxylink{namespace_cmd_calculator}{Cmd\+Calculator} proce
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::optional$<$ StringT $>$ \mbox{\hyperlink{struct_cmd_calculator_1_1_process_configuration_a618b4e295a90e377fc627e16a7e20b18}{given\+Expression}}
-\begin{DoxyCompactList}\small\item\em The expression given to \doxylink{namespace_cmd_calculator}{Cmd\+Calculator} to calculate, if any. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration}} \mbox{\hyperlink{struct_cmd_calculator_1_1_process_configuration_af2e5405b1b429b4f1307a7d6e8a6aa24}{Calculation\+Configuration}}
-\begin{DoxyCompactList}\small\item\em The calculation configuration to use. \end{DoxyCompactList}\end{DoxyCompactItemize}
+std\+::optional$<$ Expression\+StringT $>$ \mbox{\hyperlink{struct_cmd_calculator_1_1_process_configuration_a2f09596a830390d3bbb8a1ff6a523d09}{given\+Expression}}
+\begin{DoxyCompactList}\small\item\em The given expression to calculate, if any. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration}} \mbox{\hyperlink{struct_cmd_calculator_1_1_process_configuration_a4019c25414a60a434df07e66a5dfed9b}{calculation\+Configuration}}
+\begin{DoxyCompactList}\small\item\em The configuration to use for calculation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-\subsubsection*{template$<$String StringT$>$\newline
-struct Cmd\+Calculator\+::\+Process\+Configuration$<$ String\+T $>$}
-A configuration for a \doxylink{namespace_cmd_calculator}{Cmd\+Calculator} process. 
+\subsubsection*{template$<$String Expression\+StringT$>$\newline
+struct Cmd\+Calculator\+::\+Process\+Configuration$<$ Expression\+String\+T $>$}
+A collection of settings for a \doxylink{namespace_cmd_calculator}{Cmd\+Calculator} process. 
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em String} & The data type to store strings with. \\
+{\em Expression\+StringT} & The string type that represents a given expression. \\
 \hline
 \end{DoxyTemplParams}
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{struct_cmd_calculator_1_1_process_configuration_af2e5405b1b429b4f1307a7d6e8a6aa24}\label{struct_cmd_calculator_1_1_process_configuration_af2e5405b1b429b4f1307a7d6e8a6aa24} 
-\index{CmdCalculator::ProcessConfiguration$<$ StringT $>$@{CmdCalculator::ProcessConfiguration$<$ StringT $>$}!CalculationConfiguration@{CalculationConfiguration}}
-\index{CalculationConfiguration@{CalculationConfiguration}!CmdCalculator::ProcessConfiguration$<$ StringT $>$@{CmdCalculator::ProcessConfiguration$<$ StringT $>$}}
-\doxysubsubsection{\texorpdfstring{CalculationConfiguration}{CalculationConfiguration}}
-{\footnotesize\ttfamily template$<$String StringT$>$ \\
-\mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration}} \mbox{\hyperlink{struct_cmd_calculator_1_1_process_configuration}{Cmd\+Calculator\+::\+Process\+Configuration}}$<$ StringT $>$\+::\+Calculation\+Configuration}
+\Hypertarget{struct_cmd_calculator_1_1_process_configuration_a4019c25414a60a434df07e66a5dfed9b}\label{struct_cmd_calculator_1_1_process_configuration_a4019c25414a60a434df07e66a5dfed9b} 
+\index{CmdCalculator::ProcessConfiguration$<$ ExpressionStringT $>$@{CmdCalculator::ProcessConfiguration$<$ ExpressionStringT $>$}!calculationConfiguration@{calculationConfiguration}}
+\index{calculationConfiguration@{calculationConfiguration}!CmdCalculator::ProcessConfiguration$<$ ExpressionStringT $>$@{CmdCalculator::ProcessConfiguration$<$ ExpressionStringT $>$}}
+\doxysubsubsection{\texorpdfstring{calculationConfiguration}{calculationConfiguration}}
+{\footnotesize\ttfamily template$<$String Expression\+StringT$>$ \\
+\mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration}} \mbox{\hyperlink{struct_cmd_calculator_1_1_process_configuration}{Cmd\+Calculator\+::\+Process\+Configuration}}$<$ Expression\+StringT $>$\+::calculation\+Configuration}
 
 
 
-The calculation configuration to use. 
+The configuration to use for calculation. 
 
-\Hypertarget{struct_cmd_calculator_1_1_process_configuration_a618b4e295a90e377fc627e16a7e20b18}\label{struct_cmd_calculator_1_1_process_configuration_a618b4e295a90e377fc627e16a7e20b18} 
-\index{CmdCalculator::ProcessConfiguration$<$ StringT $>$@{CmdCalculator::ProcessConfiguration$<$ StringT $>$}!givenExpression@{givenExpression}}
-\index{givenExpression@{givenExpression}!CmdCalculator::ProcessConfiguration$<$ StringT $>$@{CmdCalculator::ProcessConfiguration$<$ StringT $>$}}
+\Hypertarget{struct_cmd_calculator_1_1_process_configuration_a2f09596a830390d3bbb8a1ff6a523d09}\label{struct_cmd_calculator_1_1_process_configuration_a2f09596a830390d3bbb8a1ff6a523d09} 
+\index{CmdCalculator::ProcessConfiguration$<$ ExpressionStringT $>$@{CmdCalculator::ProcessConfiguration$<$ ExpressionStringT $>$}!givenExpression@{givenExpression}}
+\index{givenExpression@{givenExpression}!CmdCalculator::ProcessConfiguration$<$ ExpressionStringT $>$@{CmdCalculator::ProcessConfiguration$<$ ExpressionStringT $>$}}
 \doxysubsubsection{\texorpdfstring{givenExpression}{givenExpression}}
-{\footnotesize\ttfamily template$<$String StringT$>$ \\
-std\+::optional$<$StringT$>$ \mbox{\hyperlink{struct_cmd_calculator_1_1_process_configuration}{Cmd\+Calculator\+::\+Process\+Configuration}}$<$ StringT $>$\+::given\+Expression}
+{\footnotesize\ttfamily template$<$String Expression\+StringT$>$ \\
+std\+::optional$<$Expression\+StringT$>$ \mbox{\hyperlink{struct_cmd_calculator_1_1_process_configuration}{Cmd\+Calculator\+::\+Process\+Configuration}}$<$ Expression\+StringT $>$\+::given\+Expression}
 
 
 
-The expression given to \doxylink{namespace_cmd_calculator}{Cmd\+Calculator} to calculate, if any. 
+The given expression to calculate, if any. 
 
-
+If this value is empty, the user will be prompted to enter an expression instead. 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

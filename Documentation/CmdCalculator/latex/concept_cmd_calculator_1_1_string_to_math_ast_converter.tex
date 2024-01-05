@@ -1,0 +1,35 @@
+\doxysection{Cmd\+Calculator\+::String\+To\+Math\+Ast\+Converter Concept Reference}
+\hypertarget{concept_cmd_calculator_1_1_string_to_math_ast_converter}{}\label{concept_cmd_calculator_1_1_string_to_math_ast_converter}\index{CmdCalculator::StringToMathAstConverter@{CmdCalculator::StringToMathAstConverter}}
+
+
+A type that parses strings into mathematical abstract syntax trees.  
+
+
+
+
+{\ttfamily \#include $<$String\+To\+Math\+Ast\+Converter.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_string_to_math_ast_converter}{CmdCalculator::StringToMathAstConverter}}\ =\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::derived\_from<T,\ StringToMathAstConverter\_IntendedSatisfaction>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string_view}{StringView<typename\ T::StringViewType>}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \textcolor{keyword}{requires}(T\&\&\ instance,\ \textcolor{keyword}{typename}\ T::StringViewType\ source)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.getStringAsMathAst(source)\ \}\ -\/>\ \mbox{\hyperlink{concept_cmd_calculator_1_1_math_ast_1_1_math_ast_node}{MathAst::MathAstNode}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+A type that parses strings into mathematical abstract syntax trees. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The converter type. \\
+\hline
+\end{DoxyTemplParams}

@@ -1,0 +1,119 @@
+\doxysection{Simple\+Calculation.\+h}
+\hypertarget{_simple_calculation_8h_source}{}\label{_simple_calculation_8h_source}\mbox{\hyperlink{_simple_calculation_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string\_view>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_calculation_8h}{Calculation.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{strings_8h}{strings.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_string_to_math_ast_converter_8h}{StringToMathAstConverter.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_math_ast_to_expression_converter_8h}{MathAstToExpressionConverter.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_expression_to_string_converter_8h}{ExpressionToStringConverter.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_not_implemented_exception_8h}{NotImplementedException.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_cmd_calculator}{CmdCalculator}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{template}}
+\DoxyCodeLine{00022\ \ \ \ \ <}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ String\ InputExpressionT,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ StringToMathAstConverter\ StringToMathAstConverterT,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ MathAstToExpressionConverter\ MathAstToExpressionConverterT,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ ExpressionToStringConverter\ ExpressionToStringConverterT}
+\DoxyCodeLine{00027\ \ \ \ \ >}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation}{SimpleCalculation}}\ :}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_cmd_calculator_1_1_calculation___intended_satisfaction}{Calculation\_IntendedSatisfaction}}}
+\DoxyCodeLine{00030\ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a148e178be837b1cd87189367869e717e}{InputExpressionType}}\ =\ InputExpressionT;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a33e8f8c83cd14af4379b61afce4f35f9}{StringToMathAstConverterType}}\ =\ StringToMathAstConverterT;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_af22e405837f605b73c67dac038e1b8fa}{MathAstToExpressionConverterType}}\ =\ MathAstToExpressionConverterT;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ac46409178d56abd2d331fbbd96320d96}{ExpressionToStringConverterType}}\ =\ ExpressionToStringConverterT;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a75933a780497527784ee001b0a375515}{OutputExpressionType}}\ =}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{decltype}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::declval<ExpressionToStringConverterType>()}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .stringifyExpression}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::declval<typename\ ExpressionToStringConverterType::ExpressionType>(),}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::declval<CalculationConfiguration>()}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a148e178be837b1cd87189367869e717e}{InputExpressionType}}\ m\_inputExpression;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration}{CalculationConfiguration}}\ m\_configuration;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a33e8f8c83cd14af4379b61afce4f35f9}{StringToMathAstConverterType}}\ m\_stringToMathAstConverter;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_af22e405837f605b73c67dac038e1b8fa}{MathAstToExpressionConverterType}}\ m\_mathAstToExpressionConverter;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ac46409178d56abd2d331fbbd96320d96}{ExpressionToStringConverterType}}\ m\_expressionToStringConverter;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a148e178be837b1cd87189367869e717e}{InputExpressionType}}\ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_aca8613d2cddff442f77f79badd099540}{getInputExpression}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00064\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_inputExpression;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a75933a780497527784ee001b0a375515}{OutputExpressionType}}\ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ad2f44edcf633ed3cdb5734effcec09c0}{getOutputExpression}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00072\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_expressionToStringConverter.stringifyExpression}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_mathAstToExpressionConverter.getMathAstAsExpression}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_stringToMathAstConverter.getStringAsMathAst(m\_inputExpression)}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ).getFullSimplification(),}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_configuration}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration}{CalculationConfiguration}}\ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ac6b0e6de40df011ba40c9b3764bfc35e}{getConfiguration}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00087\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_configuration;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a33e8f8c83cd14af4379b61afce4f35f9}{StringToMathAstConverterType}}\ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ae453bf4550e1328454ccec15845f57a1}{getStringToMathAstConverter}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00095\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_stringToMathAstConverter;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_af22e405837f605b73c67dac038e1b8fa}{MathAstToExpressionConverterType}}\ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ae47ca88c9894dc1ada62c82e0dee9442}{getMathAstToExpressionConverter}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00103\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_mathAstToExpressionConverter;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ac46409178d56abd2d331fbbd96320d96}{ExpressionToStringConverterType}}\ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a0bbaf3db1699f597eac61bf6cf9c428d}{getExpressionToStringConverter}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00111\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_expressionToStringConverter;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a17f2a7de86aa27d4428249864bb3cba0}{SimpleCalculation}}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a148e178be837b1cd87189367869e717e}{InputExpressionType}}\ inputExpression,}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration}{CalculationConfiguration}}\ calculationConfiguration,}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_a33e8f8c83cd14af4379b61afce4f35f9}{StringToMathAstConverterType}}\ stringToMathAstConverter,}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_af22e405837f605b73c67dac038e1b8fa}{MathAstToExpressionConverterType}}\ mathAstToExpressionConverter,}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation_ac46409178d56abd2d331fbbd96320d96}{ExpressionToStringConverterType}}\ expressionToStringConverter}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ )\ :}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ m\_inputExpression\{\ inputExpression\ \},}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ m\_configuration\{\ calculationConfiguration\ \},}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ m\_stringToMathAstConverter\{\ stringToMathAstConverter\ \},}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ m\_mathAstToExpressionConverter\{\ mathAstToExpressionConverter\ \},}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ m\_expressionToStringConverter\{\ expressionToStringConverter\ \}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00136\ \ \ \ \ \};}
+\DoxyCodeLine{00137\ \}}
+
+\end{DoxyCode}

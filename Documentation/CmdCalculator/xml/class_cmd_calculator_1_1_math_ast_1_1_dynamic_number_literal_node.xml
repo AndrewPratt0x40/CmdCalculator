@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node" kind="class" language="C++" prot="public">
+    <compoundname>CmdCalculator::MathAst::DynamicNumberLiteralNode</compoundname>
+    <basecompoundref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node" prot="public" virt="non-virtual">CmdCalculator::MathAst::DynamicOperandNode&lt; StringT &gt;</basecompoundref>
+    <includes refid="_dynamic_number_literal_node_8h" local="no">DynamicNumberLiteralNode.h</includes>
+    <templateparamlist>
+      <param>
+        <type>String</type>
+        <declname>StringT</declname>
+        <defname>StringT</defname>
+      </param>
+      <param>
+        <type>std::integral</type>
+        <declname>IntT</declname>
+        <defname>IntT</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a036463a906907fd257b7f7a5bcffe208" prot="public" static="no">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node" kindref="compound">DynamicOperandNode</ref>&lt; <ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref> &gt;::StringType</type>
+        <definition>using CmdCalculator::MathAst::DynamicNumberLiteralNode&lt; StringT, IntT &gt;::StringType =  DynamicOperandNode&lt;StringT&gt;::StringType</definition>
+        <argsstring></argsstring>
+        <name>StringType</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicNumberLiteralNode::StringType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicNumberLiteralNode.h" line="22" column="1" bodyfile="DynamicNumberLiteralNode.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a8c81ce58dc128ad905816701c89652c0" prot="public" static="no">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">IntT</ref></type>
+        <definition>using CmdCalculator::MathAst::DynamicNumberLiteralNode&lt; StringT, IntT &gt;::IntType =  IntT</definition>
+        <argsstring></argsstring>
+        <name>IntType</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicNumberLiteralNode::IntType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicNumberLiteralNode.h" line="24" column="1" bodyfile="DynamicNumberLiteralNode.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a71f65ab162f226831ea1c1a409d27b6e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">IntT</ref></type>
+        <definition>IntT CmdCalculator::MathAst::DynamicNumberLiteralNode&lt; StringT, IntT &gt;::getWholePart</definition>
+        <argsstring>() const</argsstring>
+        <name>getWholePart</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicNumberLiteralNode::getWholePart</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicNumberLiteralNode.h" line="33" column="6" bodyfile="DynamicNumberLiteralNode.h" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1adce0f6957e6cb75961b239871424f1f9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">IntT</ref></type>
+        <definition>IntT CmdCalculator::MathAst::DynamicNumberLiteralNode&lt; StringT, IntT &gt;::getFractionalPart</definition>
+        <argsstring>() const</argsstring>
+        <name>getFractionalPart</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicNumberLiteralNode::getFractionalPart</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicNumberLiteralNode.h" line="45" column="6" bodyfile="DynamicNumberLiteralNode.h" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a0aac55f255c4473403033e1dffa76472" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">bool</ref></type>
+        <definition>bool CmdCalculator::MathAst::DynamicNumberLiteralNode&lt; StringT, IntT &gt;::isDecimalPointVisible</definition>
+        <argsstring>() const</argsstring>
+        <name>isDecimalPointVisible</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicNumberLiteralNode::isDecimalPointVisible</qualifiedname>
+        <briefdescription>
+<para>Tests if the number includes a decimal point. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the number includes a decimal point, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicNumberLiteralNode.h" line="53" column="6" bodyfile="DynamicNumberLiteralNode.h" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1aa2d5bc6f71ed5b9e44b8b1a3cd69333f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">bool</ref></type>
+        <definition>bool CmdCalculator::MathAst::DynamicNumberLiteralNode&lt; StringT, IntT &gt;::isWholePartVisible</definition>
+        <argsstring>() const</argsstring>
+        <name>isWholePartVisible</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicNumberLiteralNode::isWholePartVisible</qualifiedname>
+        <briefdescription>
+<para>Tests if the number includes a whole part. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the number includes a whole part, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicNumberLiteralNode.h" line="61" column="6" bodyfile="DynamicNumberLiteralNode.h" bodystart="61" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a8671cf3a3c448430eb44119ca862484d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">bool</ref></type>
+        <definition>bool CmdCalculator::MathAst::DynamicNumberLiteralNode&lt; StringT, IntT &gt;::isFractionalPartVisible</definition>
+        <argsstring>() const</argsstring>
+        <name>isFractionalPartVisible</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicNumberLiteralNode::isFractionalPartVisible</qualifiedname>
+        <briefdescription>
+<para>Tests if the number includes a fractional part. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the number includes a fractional part, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicNumberLiteralNode.h" line="69" column="6" bodyfile="DynamicNumberLiteralNode.h" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1aef0992ab70befe3a81a0766e31d4867b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref></type>
+        <definition>StringT CmdCalculator::MathAst::DynamicNumberLiteralNode&lt; StringT, IntT &gt;::getLeadingTrivia</definition>
+        <argsstring>() const override</argsstring>
+        <name>getLeadingTrivia</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicNumberLiteralNode::getLeadingTrivia</qualifiedname>
+        <reimplements refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1ab119030478dfccaaae343daec89c93c2">getLeadingTrivia</reimplements>
+        <briefdescription>
+<para>Accessor to the AST node&apos;s leading trivia. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Trivial content at the beginning of the string contents of the node. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicNumberLiteralNode.h" line="75" column="9" bodyfile="DynamicNumberLiteralNode.h" bodystart="75" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a280f100429dd33181aa61663ce5e6aa6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref></type>
+        <definition>StringT CmdCalculator::MathAst::DynamicNumberLiteralNode&lt; StringT, IntT &gt;::getTrailingTrivia</definition>
+        <argsstring>() const override</argsstring>
+        <name>getTrailingTrivia</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicNumberLiteralNode::getTrailingTrivia</qualifiedname>
+        <reimplements refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1a5e3b93b8fe74dccdfb351d216607d01d">getTrailingTrivia</reimplements>
+        <briefdescription>
+<para>Accessor to the AST node&apos;s trailing trivia. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Trivial content at the end of the string contents of the node. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicNumberLiteralNode.h" line="81" column="9" bodyfile="DynamicNumberLiteralNode.h" bodystart="81" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a718e5a0419075860fd31df7f82d003f3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref></type>
+        <definition>StringT CmdCalculator::MathAst::DynamicNumberLiteralNode&lt; StringT, IntT &gt;::getStringRepresentation</definition>
+        <argsstring>() const override</argsstring>
+        <name>getStringRepresentation</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicNumberLiteralNode::getStringRepresentation</qualifiedname>
+        <reimplements refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1a06c7437a7e811c1db2821bbd73a3e97a">getStringRepresentation</reimplements>
+        <briefdescription>
+<para>Accessor to the AST node&apos;s string representation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>All non-trivial string contents of the node. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicNumberLiteralNode.h" line="87" column="9" bodyfile="DynamicNumberLiteralNode.h" bodystart="87" bodyend="90"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A node that holds an expression inside of it. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>StringT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string type to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IntT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type to use to store integers. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>CmdCalculator::MathAst::DynamicExpressionPartNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>CmdCalculator::MathAst::DynamicMathAstNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CmdCalculator::MathAst::DynamicNumberLiteralNode&lt; StringT, IntT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CmdCalculator::MathAst::DynamicOperandNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>CmdCalculator::MathAst::ExpressionPartNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_part_node___intended_satisfaction"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>CmdCalculator::MathAst::DynamicExpressionPartNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>CmdCalculator::MathAst::DynamicMathAstNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CmdCalculator::MathAst::DynamicNumberLiteralNode&lt; StringT, IntT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CmdCalculator::MathAst::DynamicOperandNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>CmdCalculator::MathAst::ExpressionPartNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_part_node___intended_satisfaction"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction"/>
+      </node>
+    </collaborationgraph>
+    <location file="DynamicNumberLiteralNode.h" line="17" column="1" bodyfile="DynamicNumberLiteralNode.h" bodystart="19" bodyend="91"/>
+    <listofallmembers>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1adce0f6957e6cb75961b239871424f1f9" prot="public" virt="non-virtual"><scope>CmdCalculator::MathAst::DynamicNumberLiteralNode</scope><name>getFractionalPart</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1aef0992ab70befe3a81a0766e31d4867b" prot="public" virt="virtual"><scope>CmdCalculator::MathAst::DynamicNumberLiteralNode</scope><name>getLeadingTrivia</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a718e5a0419075860fd31df7f82d003f3" prot="public" virt="virtual"><scope>CmdCalculator::MathAst::DynamicNumberLiteralNode</scope><name>getStringRepresentation</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a280f100429dd33181aa61663ce5e6aa6" prot="public" virt="virtual"><scope>CmdCalculator::MathAst::DynamicNumberLiteralNode</scope><name>getTrailingTrivia</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a71f65ab162f226831ea1c1a409d27b6e" prot="public" virt="non-virtual"><scope>CmdCalculator::MathAst::DynamicNumberLiteralNode</scope><name>getWholePart</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a8c81ce58dc128ad905816701c89652c0" prot="public" virt="non-virtual"><scope>CmdCalculator::MathAst::DynamicNumberLiteralNode</scope><name>IntType</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a0aac55f255c4473403033e1dffa76472" prot="public" virt="non-virtual"><scope>CmdCalculator::MathAst::DynamicNumberLiteralNode</scope><name>isDecimalPointVisible</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a8671cf3a3c448430eb44119ca862484d" prot="public" virt="non-virtual"><scope>CmdCalculator::MathAst::DynamicNumberLiteralNode</scope><name>isFractionalPartVisible</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1aa2d5bc6f71ed5b9e44b8b1a3cd69333f" prot="public" virt="non-virtual"><scope>CmdCalculator::MathAst::DynamicNumberLiteralNode</scope><name>isWholePartVisible</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a036463a906907fd257b7f7a5bcffe208" prot="public" virt="non-virtual"><scope>CmdCalculator::MathAst::DynamicNumberLiteralNode</scope><name>StringType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

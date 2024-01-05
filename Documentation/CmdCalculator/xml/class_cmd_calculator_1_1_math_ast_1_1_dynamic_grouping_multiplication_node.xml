@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node" kind="class" language="C++" prot="public">
+    <compoundname>CmdCalculator::MathAst::DynamicGroupingMultiplicationNode</compoundname>
+    <basecompoundref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node" prot="public" virt="non-virtual">CmdCalculator::MathAst::DynamicOperandNode&lt; StringT &gt;</basecompoundref>
+    <includes refid="_dynamic_grouping_multiplication_node_8h" local="no">DynamicGroupingMultiplicationNode.h</includes>
+    <templateparamlist>
+      <param>
+        <type>String</type>
+        <declname>StringT</declname>
+        <defname>StringT</defname>
+      </param>
+      <param>
+        <type>std::ranges::range</type>
+        <declname>TailMultiplicandsT</declname>
+        <defname>TailMultiplicandsT</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_1a9e54b3d2de45e05fe945ba027af83c95" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">const</ref> <ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node" kindref="compound">DynamicOperandNode</ref>&lt; <ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref> &gt; &amp;</type>
+        <definition>const DynamicOperandNode&lt; StringT &gt; &amp; CmdCalculator::MathAst::DynamicGroupingMultiplicationNode&lt; StringT, TailMultiplicandsT &gt;::getHeadMultiplicand</definition>
+        <argsstring>() const</argsstring>
+        <name>getHeadMultiplicand</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicGroupingMultiplicationNode::getHeadMultiplicand</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicGroupingMultiplicationNode.h" line="30" column="26" bodyfile="DynamicGroupingMultiplicationNode.h" bodystart="30" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_1af15702f71bef6b78041b0141fbb4facb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">TailMultiplicandsT</ref></type>
+        <definition>TailMultiplicandsT CmdCalculator::MathAst::DynamicGroupingMultiplicationNode&lt; StringT, TailMultiplicandsT &gt;::getTailMultiplicands</definition>
+        <argsstring>() const</argsstring>
+        <name>getTailMultiplicands</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicGroupingMultiplicationNode::getTailMultiplicands</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicGroupingMultiplicationNode.h" line="39" column="20" bodyfile="DynamicGroupingMultiplicationNode.h" bodystart="39" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_1ad56c7220f8153a3bd9a6872053281723" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref></type>
+        <definition>StringT CmdCalculator::MathAst::DynamicGroupingMultiplicationNode&lt; StringT, TailMultiplicandsT &gt;::getLeadingTrivia</definition>
+        <argsstring>() const override</argsstring>
+        <name>getLeadingTrivia</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicGroupingMultiplicationNode::getLeadingTrivia</qualifiedname>
+        <reimplements refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1ab119030478dfccaaae343daec89c93c2">getLeadingTrivia</reimplements>
+        <briefdescription>
+<para>Accessor to the AST node&apos;s leading trivia. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Trivial content at the beginning of the string contents of the node. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicGroupingMultiplicationNode.h" line="45" column="9" bodyfile="DynamicGroupingMultiplicationNode.h" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_1ae1c230a23ac84556f20376af9e833768" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref></type>
+        <definition>StringT CmdCalculator::MathAst::DynamicGroupingMultiplicationNode&lt; StringT, TailMultiplicandsT &gt;::getTrailingTrivia</definition>
+        <argsstring>() const override</argsstring>
+        <name>getTrailingTrivia</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicGroupingMultiplicationNode::getTrailingTrivia</qualifiedname>
+        <reimplements refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1a5e3b93b8fe74dccdfb351d216607d01d">getTrailingTrivia</reimplements>
+        <briefdescription>
+<para>Accessor to the AST node&apos;s trailing trivia. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Trivial content at the end of the string contents of the node. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicGroupingMultiplicationNode.h" line="51" column="9" bodyfile="DynamicGroupingMultiplicationNode.h" bodystart="51" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_1ace4359a1023b690c00686140e804725a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref></type>
+        <definition>StringT CmdCalculator::MathAst::DynamicGroupingMultiplicationNode&lt; StringT, TailMultiplicandsT &gt;::getStringRepresentation</definition>
+        <argsstring>() const override</argsstring>
+        <name>getStringRepresentation</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicGroupingMultiplicationNode::getStringRepresentation</qualifiedname>
+        <reimplements refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1a06c7437a7e811c1db2821bbd73a3e97a">getStringRepresentation</reimplements>
+        <briefdescription>
+<para>Accessor to the AST node&apos;s string representation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>All non-trivial string contents of the node. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicGroupingMultiplicationNode.h" line="57" column="9" bodyfile="DynamicGroupingMultiplicationNode.h" bodystart="57" bodyend="60"/>
+      </memberdef>
+    </sectiondef>
+    <requiresclause>std::same_as &lt; <ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node" kindref="compound">DynamicGroupingNode</ref> &lt; <ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">typename</ref> TailMultiplicandsT::StringType, <ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">typename</ref> TailMultiplicandsT::UnderlyingPartsType &gt;, std::ranges::range_value_t&lt;<ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">TailMultiplicandsT</ref>&gt; &gt;    </requiresclause>
+    <briefdescription>
+<para>A multiplication operation using represented by an operand followed by one or more adjacent grouping operations. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>StringT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string type to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>TailMultiplicandsT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type to use to store the underlying collection of tail multiplicands. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>CmdCalculator::MathAst::DynamicExpressionPartNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CmdCalculator::MathAst::DynamicGroupingMultiplicationNode&lt; StringT, TailMultiplicandsT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>CmdCalculator::MathAst::DynamicMathAstNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CmdCalculator::MathAst::DynamicOperandNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>CmdCalculator::MathAst::ExpressionPartNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_part_node___intended_satisfaction"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>CmdCalculator::MathAst::DynamicExpressionPartNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CmdCalculator::MathAst::DynamicGroupingMultiplicationNode&lt; StringT, TailMultiplicandsT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>CmdCalculator::MathAst::DynamicMathAstNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CmdCalculator::MathAst::DynamicOperandNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>CmdCalculator::MathAst::ExpressionPartNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_part_node___intended_satisfaction"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction"/>
+      </node>
+    </collaborationgraph>
+    <location file="DynamicGroupingMultiplicationNode.h" line="22" column="1" bodyfile="DynamicGroupingMultiplicationNode.h" bodystart="24" bodyend="61"/>
+    <listofallmembers>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_1a9e54b3d2de45e05fe945ba027af83c95" prot="public" virt="non-virtual"><scope>CmdCalculator::MathAst::DynamicGroupingMultiplicationNode</scope><name>getHeadMultiplicand</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_1ad56c7220f8153a3bd9a6872053281723" prot="public" virt="virtual"><scope>CmdCalculator::MathAst::DynamicGroupingMultiplicationNode</scope><name>getLeadingTrivia</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_1ace4359a1023b690c00686140e804725a" prot="public" virt="virtual"><scope>CmdCalculator::MathAst::DynamicGroupingMultiplicationNode</scope><name>getStringRepresentation</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_1af15702f71bef6b78041b0141fbb4facb" prot="public" virt="non-virtual"><scope>CmdCalculator::MathAst::DynamicGroupingMultiplicationNode</scope><name>getTailMultiplicands</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_1ae1c230a23ac84556f20376af9e833768" prot="public" virt="virtual"><scope>CmdCalculator::MathAst::DynamicGroupingMultiplicationNode</scope><name>getTrailingTrivia</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node_1a3bc54139067a9e01d7d88b239188edf9" prot="public" virt="non-virtual"><scope>CmdCalculator::MathAst::DynamicGroupingMultiplicationNode</scope><name>StringType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

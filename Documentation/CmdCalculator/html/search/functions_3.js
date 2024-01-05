@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['what_0',['what',['../class_cmd_calculator_1_1_not_implemented_exception.html#adf953109a6c4dd067db41dc5af237e96',1,'CmdCalculator::NotImplementedException']]]
+  ['missingcmdlineargvalueexception_0',['MissingCmdLineArgValueException',['../class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception.html#a19533eeecd17c078aeccf20472abed27',1,'CmdCalculator::MissingCmdLineArgValueException']]]
 ];

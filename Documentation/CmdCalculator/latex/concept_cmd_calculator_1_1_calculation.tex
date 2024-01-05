@@ -1,0 +1,52 @@
+\doxysection{Cmd\+Calculator\+::Calculation Concept Reference}
+\hypertarget{concept_cmd_calculator_1_1_calculation}{}\label{concept_cmd_calculator_1_1_calculation}\index{CmdCalculator::Calculation@{CmdCalculator::Calculation}}
+
+
+A singular calculation.  
+
+
+
+
+{\ttfamily \#include $<$Calculation.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_calculation}{CmdCalculator::Calculation}}\ =\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{concept_cmd_calculator_1_1_string}{String<typename\ T::InputExpressionType>}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string_to_math_ast_converter}{StringToMathAstConverter<typename\ T::StringToMathAstConverterType>}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_math_ast_to_expression_converter}{MathAstToExpressionConverter<typename\ T::MathAstToExpressionConverterType>}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_expression_to_string_converter}{ExpressionToStringConverter<typename\ T::ExpressionToStringConverterType>}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ std::constructible\_from}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ T,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ T::InputExpressionType,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ CalculationConfiguration,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ T::StringToMathAstConverterType,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ T::MathAstToExpressionConverterType,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ T::ExpressionToStringConverterType}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ >}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \textcolor{keyword}{requires}(T\&\&\ instance)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.getInputExpression()\ \}\ -\/>\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string}{String}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.getOutputExpression()\ \}\ -\/>\ String;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.getConfiguration()\ \}\ -\/>\ std::same\_as<CalculationConfiguration>;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.getStringToMathAstConverter()\ \}\ -\/>\ StringToMathAstConverter;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.getMathAstToExpressionConverter()\ \}\ -\/>\ MathAstToExpressionConverter;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.getExpressionToStringConverter()\ \}\ -\/>\ ExpressionToStringConverter;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+A singular calculation. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the calculation object. \\
+\hline
+\end{DoxyTemplParams}

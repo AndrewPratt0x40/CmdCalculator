@@ -1,0 +1,36 @@
+\doxysection{Cmd\+Calculator\+::Math\+Ast\+::Expression\+Node Concept Reference}
+\hypertarget{concept_cmd_calculator_1_1_math_ast_1_1_expression_node}{}\label{concept_cmd_calculator_1_1_math_ast_1_1_expression_node}\index{CmdCalculator::MathAst::ExpressionNode@{CmdCalculator::MathAst::ExpressionNode}}
+
+
+A single node in an abstract syntax tree (AST) representing a mathematical expression.  
+
+
+
+
+{\ttfamily \#include $<$Expression\+Node.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_math_ast_1_1_expression_node}{CmdCalculator::MathAst::ExpressionNode}}\ =\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::derived\_from<T,\ ExpressionNode\_IntendedSatisfaction>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_math_ast_1_1_math_ast_node}{MathAstNode<T>}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \textcolor{keyword}{requires}(T\&\&\ instance)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.getParts()\ \}\ -\/>\ std::ranges::input\_range;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{concept_cmd_calculator_1_1_math_ast_1_1_expression_part_node}{ExpressionPartNode}}<std::ranges::range\_value\_t<\textcolor{keyword}{decltype}(\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{instance}}.getParts())>>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+A single node in an abstract syntax tree (AST) representing a mathematical expression. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the AST node. \\
+\hline
+\end{DoxyTemplParams}

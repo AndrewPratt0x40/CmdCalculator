@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_cmd_calculator_1_1_process_1_1_calculation_result" kind="struct" language="C++" prot="private">
+    <compoundname>CmdCalculator::Process::CalculationResult</compoundname>
+    <templateparamlist>
+      <param>
+        <type>String</type>
+        <declname>ExpressionT</declname>
+        <defname>ExpressionT</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cmd_calculator_1_1_process_1_1_calculation_result_1a5181a83ef6f80f8abcef3bfa71da55f8" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; ExpressionT &gt;</type>
+        <definition>std::optional&lt;ExpressionT&gt; CmdCalculator::Process&lt; CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT &gt;::CalculationResult&lt; ExpressionT &gt;::outputExpression</definition>
+        <argsstring></argsstring>
+        <name>outputExpression</name>
+        <qualifiedname>CmdCalculator::Process::CalculationResult::outputExpression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Process.h" line="65" column="15" bodyfile="Process.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cmd_calculator_1_1_process_1_1_calculation_result_1aeccdbbba6ac331eb505b6c42c5ea28c9" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CmdCalculator::Process&lt; CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT &gt;::CalculationResult&lt; ExpressionT &gt;::shouldReprompt</definition>
+        <argsstring></argsstring>
+        <name>shouldReprompt</name>
+        <qualifiedname>CmdCalculator::Process::CalculationResult::shouldReprompt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Process.h" line="66" column="6" bodyfile="Process.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Process.h" line="63" column="1" bodyfile="Process.h" bodystart="64" bodyend="67"/>
+    <listofallmembers>
+      <member refid="struct_cmd_calculator_1_1_process_1_1_calculation_result_1a5181a83ef6f80f8abcef3bfa71da55f8" prot="public" virt="non-virtual"><scope>CmdCalculator::Process::CalculationResult</scope><name>outputExpression</name></member>
+      <member refid="struct_cmd_calculator_1_1_process_1_1_calculation_result_1aeccdbbba6ac331eb505b6c42c5ea28c9" prot="public" virt="non-virtual"><scope>CmdCalculator::Process::CalculationResult</scope><name>shouldReprompt</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

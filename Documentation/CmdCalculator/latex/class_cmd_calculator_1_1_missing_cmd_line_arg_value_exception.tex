@@ -1,0 +1,101 @@
+\doxysection{Cmd\+Calculator\+::Missing\+Cmd\+Line\+Arg\+Value\+Exception\texorpdfstring{$<$}{<} ArgT \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception}{}\label{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception}\index{CmdCalculator::MissingCmdLineArgValueException$<$ ArgT $>$@{CmdCalculator::MissingCmdLineArgValueException$<$ ArgT $>$}}
+
+
+An exception that is thrown when a command-\/line argument is missing a value.  
+
+
+
+
+{\ttfamily \#include $<$Missing\+Cmd\+Line\+Arg\+Value\+Exception.\+h$>$}
+
+Inheritance diagram for Cmd\+Calculator\+::Missing\+Cmd\+Line\+Arg\+Value\+Exception\texorpdfstring{$<$}{<} ArgT \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_a2c9a547827ef88634718ab35363d4775}{Arg\+Type}} = ArgT
+\item 
+using \mbox{\hyperlink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_a4c8980254a79bd771d758c8c6d2a739d}{Arg\+View\+Type}} = std\+::basic\+\_\+string\+\_\+view$<$ typename Arg\+Type\+::value\+\_\+type $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_a19533eeecd17c078aeccf20472abed27}{Missing\+Cmd\+Line\+Arg\+Value\+Exception}} (ArgT arg)
+\begin{DoxyCompactList}\small\item\em Creates a new instance of the \doxylink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception}{Missing\+Cmd\+Line\+Arg\+Value\+Exception} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_a4c8980254a79bd771d758c8c6d2a739d}{Arg\+View\+Type}} \mbox{\hyperlink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_ad3dd4ebc3b79e5f168de2977f2ca6aa5}{get\+Arg}} () const
+\begin{DoxyCompactList}\small\item\em Accessor to the missing command-\/line argument. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$String ArgT$>$\newline
+class Cmd\+Calculator\+::\+Missing\+Cmd\+Line\+Arg\+Value\+Exception$<$ Arg\+T $>$}
+An exception that is thrown when a command-\/line argument is missing a value. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em ArgT} & The type of the object representing the argument missing it\textquotesingle{}s value. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_a2c9a547827ef88634718ab35363d4775}\label{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_a2c9a547827ef88634718ab35363d4775} 
+\index{CmdCalculator::MissingCmdLineArgValueException$<$ ArgT $>$@{CmdCalculator::MissingCmdLineArgValueException$<$ ArgT $>$}!ArgType@{ArgType}}
+\index{ArgType@{ArgType}!CmdCalculator::MissingCmdLineArgValueException$<$ ArgT $>$@{CmdCalculator::MissingCmdLineArgValueException$<$ ArgT $>$}}
+\doxysubsubsection{\texorpdfstring{ArgType}{ArgType}}
+{\footnotesize\ttfamily template$<$String ArgT$>$ \\
+using \mbox{\hyperlink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception}{Cmd\+Calculator\+::\+Missing\+Cmd\+Line\+Arg\+Value\+Exception}}$<$ ArgT $>$\+::\+Arg\+Type =  ArgT}
+
+\Hypertarget{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_a4c8980254a79bd771d758c8c6d2a739d}\label{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_a4c8980254a79bd771d758c8c6d2a739d} 
+\index{CmdCalculator::MissingCmdLineArgValueException$<$ ArgT $>$@{CmdCalculator::MissingCmdLineArgValueException$<$ ArgT $>$}!ArgViewType@{ArgViewType}}
+\index{ArgViewType@{ArgViewType}!CmdCalculator::MissingCmdLineArgValueException$<$ ArgT $>$@{CmdCalculator::MissingCmdLineArgValueException$<$ ArgT $>$}}
+\doxysubsubsection{\texorpdfstring{ArgViewType}{ArgViewType}}
+{\footnotesize\ttfamily template$<$String ArgT$>$ \\
+using \mbox{\hyperlink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception}{Cmd\+Calculator\+::\+Missing\+Cmd\+Line\+Arg\+Value\+Exception}}$<$ ArgT $>$\+::\+Arg\+View\+Type =  std\+::basic\+\_\+string\+\_\+view$<$typename Arg\+Type\+::value\+\_\+type$>$}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_a19533eeecd17c078aeccf20472abed27}\label{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_a19533eeecd17c078aeccf20472abed27} 
+\index{CmdCalculator::MissingCmdLineArgValueException$<$ ArgT $>$@{CmdCalculator::MissingCmdLineArgValueException$<$ ArgT $>$}!MissingCmdLineArgValueException@{MissingCmdLineArgValueException}}
+\index{MissingCmdLineArgValueException@{MissingCmdLineArgValueException}!CmdCalculator::MissingCmdLineArgValueException$<$ ArgT $>$@{CmdCalculator::MissingCmdLineArgValueException$<$ ArgT $>$}}
+\doxysubsubsection{\texorpdfstring{MissingCmdLineArgValueException()}{MissingCmdLineArgValueException()}}
+{\footnotesize\ttfamily template$<$String ArgT$>$ \\
+\mbox{\hyperlink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception}{Cmd\+Calculator\+::\+Missing\+Cmd\+Line\+Arg\+Value\+Exception}}$<$ ArgT $>$\+::\+Missing\+Cmd\+Line\+Arg\+Value\+Exception (\begin{DoxyParamCaption}\item[{ArgT}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new instance of the \doxylink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception}{Missing\+Cmd\+Line\+Arg\+Value\+Exception} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & The missing argument. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_ad3dd4ebc3b79e5f168de2977f2ca6aa5}\label{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_ad3dd4ebc3b79e5f168de2977f2ca6aa5} 
+\index{CmdCalculator::MissingCmdLineArgValueException$<$ ArgT $>$@{CmdCalculator::MissingCmdLineArgValueException$<$ ArgT $>$}!getArg@{getArg}}
+\index{getArg@{getArg}!CmdCalculator::MissingCmdLineArgValueException$<$ ArgT $>$@{CmdCalculator::MissingCmdLineArgValueException$<$ ArgT $>$}}
+\doxysubsubsection{\texorpdfstring{getArg()}{getArg()}}
+{\footnotesize\ttfamily template$<$String ArgT$>$ \\
+\mbox{\hyperlink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_a4c8980254a79bd771d758c8c6d2a739d}{Arg\+View\+Type}} \mbox{\hyperlink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception}{Cmd\+Calculator\+::\+Missing\+Cmd\+Line\+Arg\+Value\+Exception}}$<$ ArgT $>$\+::get\+Arg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Accessor to the missing command-\/line argument. 
+
+\begin{DoxyReturn}{Returns}
+A non-\/owning view of the missing argument. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_missing_cmd_line_arg_value_exception_8h}{Missing\+Cmd\+Line\+Arg\+Value\+Exception.\+h}}\end{DoxyCompactItemize}

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CmdCalculator: CmdCalculator::ProcessConfiguration&lt; StringT &gt; Struct Template Reference</title>
+<title>CmdCalculator: CmdCalculator::ProcessConfiguration&lt; ExpressionStringT &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -93,67 +93,68 @@ $(document).ready(function(){initNavTree('struct_cmd_calculator_1_1_process_conf
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="struct_cmd_calculator_1_1_process_configuration-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CmdCalculator::ProcessConfiguration&lt; StringT &gt; Struct Template Reference</div></div>
+  <div class="headertitle"><div class="title">CmdCalculator::ProcessConfiguration&lt; ExpressionStringT &gt; Struct Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>A configuration for a <a class="el" href="namespace_cmd_calculator.html">CmdCalculator</a> process.  
+<p>A collection of settings for a <a class="el" href="namespace_cmd_calculator.html">CmdCalculator</a> process.  
  <a href="struct_cmd_calculator_1_1_process_configuration.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_process_configuration_8h_source.html">ProcessConfiguration.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a618b4e295a90e377fc627e16a7e20b18" id="r_a618b4e295a90e377fc627e16a7e20b18"><td class="memItemLeft" align="right" valign="top">std::optional&lt; StringT &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_cmd_calculator_1_1_process_configuration.html#a618b4e295a90e377fc627e16a7e20b18">givenExpression</a></td></tr>
-<tr class="memdesc:a618b4e295a90e377fc627e16a7e20b18"><td class="mdescLeft">&#160;</td><td class="mdescRight">The expression given to <a class="el" href="namespace_cmd_calculator.html">CmdCalculator</a> to calculate, if any.  <br /></td></tr>
-<tr class="separator:a618b4e295a90e377fc627e16a7e20b18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2e5405b1b429b4f1307a7d6e8a6aa24" id="r_af2e5405b1b429b4f1307a7d6e8a6aa24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cmd_calculator_1_1_calculation_configuration.html">CalculationConfiguration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_cmd_calculator_1_1_process_configuration.html#af2e5405b1b429b4f1307a7d6e8a6aa24">CalculationConfiguration</a></td></tr>
-<tr class="memdesc:af2e5405b1b429b4f1307a7d6e8a6aa24"><td class="mdescLeft">&#160;</td><td class="mdescRight">The calculation configuration to use.  <br /></td></tr>
-<tr class="separator:af2e5405b1b429b4f1307a7d6e8a6aa24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f09596a830390d3bbb8a1ff6a523d09" id="r_a2f09596a830390d3bbb8a1ff6a523d09"><td class="memItemLeft" align="right" valign="top">std::optional&lt; ExpressionStringT &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_cmd_calculator_1_1_process_configuration.html#a2f09596a830390d3bbb8a1ff6a523d09">givenExpression</a></td></tr>
+<tr class="memdesc:a2f09596a830390d3bbb8a1ff6a523d09"><td class="mdescLeft">&#160;</td><td class="mdescRight">The given expression to calculate, if any.  <br /></td></tr>
+<tr class="separator:a2f09596a830390d3bbb8a1ff6a523d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4019c25414a60a434df07e66a5dfed9b" id="r_a4019c25414a60a434df07e66a5dfed9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cmd_calculator_1_1_calculation_configuration.html">CalculationConfiguration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_cmd_calculator_1_1_process_configuration.html#a4019c25414a60a434df07e66a5dfed9b">calculationConfiguration</a></td></tr>
+<tr class="memdesc:a4019c25414a60a434df07e66a5dfed9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The configuration to use for calculation.  <br /></td></tr>
+<tr class="separator:a4019c25414a60a434df07e66a5dfed9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;String StringT&gt;<br />
-struct CmdCalculator::ProcessConfiguration&lt; StringT &gt;</div><p>A configuration for a <a class="el" href="namespace_cmd_calculator.html">CmdCalculator</a> process. </p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;String ExpressionStringT&gt;<br />
+struct CmdCalculator::ProcessConfiguration&lt; ExpressionStringT &gt;</div><p>A collection of settings for a <a class="el" href="namespace_cmd_calculator.html">CmdCalculator</a> process. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">String</td><td>The data type to store strings with. </td></tr>
+    <tr><td class="paramname">ExpressionStringT</td><td>The string type that represents a given expression. </td></tr>
   </table>
   </dd>
 </dl>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="af2e5405b1b429b4f1307a7d6e8a6aa24" name="af2e5405b1b429b4f1307a7d6e8a6aa24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2e5405b1b429b4f1307a7d6e8a6aa24">&#9670;&#160;</a></span>CalculationConfiguration</h2>
+<a id="a4019c25414a60a434df07e66a5dfed9b" name="a4019c25414a60a434df07e66a5dfed9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4019c25414a60a434df07e66a5dfed9b">&#9670;&#160;</a></span>calculationConfiguration</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;String StringT&gt; </div>
+template&lt;String ExpressionStringT&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_cmd_calculator_1_1_calculation_configuration.html">CalculationConfiguration</a> <a class="el" href="struct_cmd_calculator_1_1_process_configuration.html">CmdCalculator::ProcessConfiguration</a>&lt; StringT &gt;::CalculationConfiguration</td>
+          <td class="memname"><a class="el" href="class_cmd_calculator_1_1_calculation_configuration.html">CalculationConfiguration</a> <a class="el" href="struct_cmd_calculator_1_1_process_configuration.html">CmdCalculator::ProcessConfiguration</a>&lt; ExpressionStringT &gt;::calculationConfiguration</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>The calculation configuration to use. </p>
+<p>The configuration to use for calculation. </p>
 
 </div>
 </div>
-<a id="a618b4e295a90e377fc627e16a7e20b18" name="a618b4e295a90e377fc627e16a7e20b18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a618b4e295a90e377fc627e16a7e20b18">&#9670;&#160;</a></span>givenExpression</h2>
+<a id="a2f09596a830390d3bbb8a1ff6a523d09" name="a2f09596a830390d3bbb8a1ff6a523d09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f09596a830390d3bbb8a1ff6a523d09">&#9670;&#160;</a></span>givenExpression</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;String StringT&gt; </div>
+template&lt;String ExpressionStringT&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt;StringT&gt; <a class="el" href="struct_cmd_calculator_1_1_process_configuration.html">CmdCalculator::ProcessConfiguration</a>&lt; StringT &gt;::givenExpression</td>
+          <td class="memname">std::optional&lt;ExpressionStringT&gt; <a class="el" href="struct_cmd_calculator_1_1_process_configuration.html">CmdCalculator::ProcessConfiguration</a>&lt; ExpressionStringT &gt;::givenExpression</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>The expression given to <a class="el" href="namespace_cmd_calculator.html">CmdCalculator</a> to calculate, if any. </p>
+<p>The given expression to calculate, if any. </p>
+<p>If this value is empty, the user will be prompted to enter an expression instead. </p>
 
 </div>
 </div>
