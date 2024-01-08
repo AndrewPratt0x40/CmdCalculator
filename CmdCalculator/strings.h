@@ -46,4 +46,7 @@ namespace CmdCalculator
 		}
 		&& StringViewOfChar<T, typename T::value_type>
 	;
+
+	static_assert(StringViewOfChar<std::basic_string_view<char>, char>);
+	static_assert(StringView<std::basic_string_view<char>>);
 }

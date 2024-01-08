@@ -40,9 +40,6 @@
     <Filter Include="Source Code\Exceptions\Invalid Input Expression">
       <UniqueIdentifier>{7a408c41-e6f1-497a-97fd-816488463bd8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Code\Calculation\SimpleCalculation">
-      <UniqueIdentifier>{48546601-64b7-462e-b56a-d7fc3cafdaf4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Code\Math AST\Dynamic">
       <UniqueIdentifier>{016fde12-93c5-487f-be83-6fceaf21108e}</UniqueIdentifier>
     </Filter>
@@ -79,8 +76,20 @@
     <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrBasedStringToMathAstConverter">
       <UniqueIdentifier>{51a6fc16-88da-4be1-aedf-49e133c5fe65}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\Full_expressionContextToMathAstConverter">
+    <Filter Include="Source Code\Calculation\BasicCalculation">
+      <UniqueIdentifier>{48546601-64b7-462e-b56a-d7fc3cafdaf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter">
       <UniqueIdentifier>{4b982796-2712-41b2-8062-45aa7a280ea8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\StringToAntlrContextConverter">
+      <UniqueIdentifier>{7342e866-5ab3-49bc-982b-148acd641fa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter\BasicAntlrContextToMathAstConverter">
+      <UniqueIdentifier>{ea0f5851-67db-48af-93f5-2b3ab9fb2d25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrFullExpressionContextOwner">
+      <UniqueIdentifier>{32193c75-6204-4016-bb50-79236a7dc3ed}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -138,8 +147,8 @@
     <ClInclude Include="InvalidInputExpressionException.h">
       <Filter>Source Code\Exceptions\Invalid Input Expression</Filter>
     </ClInclude>
-    <ClInclude Include="SimpleCalculation.h">
-      <Filter>Source Code\Calculation\SimpleCalculation</Filter>
+    <ClInclude Include="BasicCalculation.h">
+      <Filter>Source Code\Calculation\BasicCalculation</Filter>
     </ClInclude>
     <ClInclude Include="DynamicMathAstNode.h">
       <Filter>Source Code\Math AST\Dynamic</Filter>
@@ -189,8 +198,20 @@
     <ClInclude Include="AntlrBasedStringToMathAstConverter.h">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrBasedStringToMathAstConverter</Filter>
     </ClInclude>
-    <ClInclude Include="Full_expressionContextToMathAstConverter.h">
-      <Filter>Source Code\Conversions\String to Math AST\ANTLR\Full_expressionContextToMathAstConverter</Filter>
+    <ClInclude Include="dynamic_mathast.h">
+      <Filter>Source Code\Math AST\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="StringToAntlrContextConverter.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\StringToAntlrContextConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="AntlrContextToMathAstConverter.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicAntlrContextToMathAstConverter.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter\BasicAntlrContextToMathAstConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="AntlrFullExpressionContextOwner.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrFullExpressionContextOwner</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -206,8 +227,8 @@
     <ClCompile Include="MissingCmdLineArgValueException.cpp">
       <Filter>Source Code\Exceptions\Raw Cmd Line Args\MissingCmdLineArgValueException</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleCalculation.cpp">
-      <Filter>Source Code\Calculation\SimpleCalculation</Filter>
+    <ClCompile Include="BasicCalculation.cpp">
+      <Filter>Source Code\Calculation\BasicCalculation</Filter>
     </ClCompile>
     <ClCompile Include="DynamicBinaryOperatorNode.cpp">
       <Filter>Source Code\Math AST\Dynamic\DynamicBinaryOperatorNode</Filter>
@@ -235,6 +256,9 @@
     </ClCompile>
     <ClCompile Include="AntlrBasedStringToMathAstConverter.cpp">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrBasedStringToMathAstConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicAntlrContextToMathAstConverter.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter\BasicAntlrContextToMathAstConverter</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -132,7 +132,7 @@ namespace CmdCalculatorTests
 	{
 		// Arrange
 		const bool expectSatisfaction{ TypeParam::shouldSatisfy };
-		const bool isSatisfactory{ CmdCalculator::StringOfChar<typename TypeParam::StringViewType, typename TypeParam::CharType> };
+		const bool isSatisfactory{ CmdCalculator::StringViewOfChar<typename TypeParam::StringViewType, typename TypeParam::CharType> };
 
 		// Assert
 		EXPECT_EQ(expectSatisfaction, isSatisfactory);

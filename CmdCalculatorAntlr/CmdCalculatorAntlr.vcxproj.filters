@@ -1,14 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="generated_code\CmdCalculatorExpressionBaseListener.h">
-      <Filter>Generated\Source Code\CmdCalculatorExpressionBaseListener</Filter>
-    </ClInclude>
     <ClInclude Include="generated_code\CmdCalculatorExpressionLexer.h">
       <Filter>Generated\Source Code\CmdCalculatorExpressionLexer</Filter>
-    </ClInclude>
-    <ClInclude Include="generated_code\CmdCalculatorExpressionListener.h">
-      <Filter>Generated\Source Code\CmdCalculatorExpressionListener</Filter>
     </ClInclude>
     <ClInclude Include="generated_code\CmdCalculatorExpressionParser.h">
       <Filter>Generated\Source Code\CmdCalculatorExpressionParser</Filter>
@@ -528,14 +522,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="generated_code\CmdCalculatorExpressionBaseListener.cpp">
-      <Filter>Generated\Source Code\CmdCalculatorExpressionBaseListener</Filter>
-    </ClCompile>
     <ClCompile Include="generated_code\CmdCalculatorExpressionLexer.cpp">
       <Filter>Generated\Source Code\CmdCalculatorExpressionLexer</Filter>
-    </ClCompile>
-    <ClCompile Include="generated_code\CmdCalculatorExpressionListener.cpp">
-      <Filter>Generated\Source Code\CmdCalculatorExpressionListener</Filter>
     </ClCompile>
     <ClCompile Include="generated_code\CmdCalculatorExpressionParser.cpp">
       <Filter>Generated\Source Code\CmdCalculatorExpressionParser</Filter>
@@ -976,14 +964,8 @@
     <Filter Include="Generated\Source Code">
       <UniqueIdentifier>{add35a55-31af-44c4-8d28-95cf10cd12c8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Generated\Source Code\CmdCalculatorExpressionBaseListener">
-      <UniqueIdentifier>{8d3ef85e-fbb6-474e-91df-b2bc27f24b69}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Generated\Source Code\CmdCalculatorExpressionLexer">
       <UniqueIdentifier>{7b1d4271-c72a-4d71-b7c1-756da90f2486}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Generated\Source Code\CmdCalculatorExpressionListener">
-      <UniqueIdentifier>{1ac256bc-8f14-4ade-b201-5aa184d02fb6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Generated\Source Code\CmdCalculatorExpressionParser">
       <UniqueIdentifier>{7ecdac7d-d5f3-4270-bb32-e709954d3c5a}</UniqueIdentifier>

@@ -8,13 +8,13 @@
 		Name="RunAntlr"
 	>
 		<Exec
-			Command="&quot;$(JavaExePath)&quot; -jar &quot;$(Antlr4JarPath)&quot; -o &quot;$(CmdCalculatorAntlrOutputDir)&quot; -Dlanguage=Cpp -package &quot;CmdCalculator::Antlr&quot; @(AntlrLexerGrammar)"
+			Command="&quot;$(JavaExePath)&quot; -jar &quot;$(Antlr4JarPath)&quot; -o &quot;$(CmdCalculatorAntlrOutputDir)&quot; -Dlanguage=Cpp -package &quot;CmdCalculator::Antlr&quot; -no-listener @(AntlrLexerGrammar)"
 			ContinueOnError="false"
 			LogStandardErrorAsError="true"
 		/>
 
 		<Exec
-			Command="&quot;$(JavaExePath)&quot; -jar &quot;$(Antlr4JarPath)&quot; -lib &quot;$(CmdCalculatorAntlrOutputDir)&quot; -o &quot;$(CmdCalculatorAntlrOutputDir)&quot; -Dlanguage=Cpp -package &quot;CmdCalculator::Antlr&quot; @(AntlrParserGrammar)"
+			Command="&quot;$(JavaExePath)&quot; -jar &quot;$(Antlr4JarPath)&quot; -lib &quot;$(CmdCalculatorAntlrOutputDir)&quot; -o &quot;$(CmdCalculatorAntlrOutputDir)&quot; -Dlanguage=Cpp -package &quot;CmdCalculator::Antlr&quot; -no-listener  @(AntlrParserGrammar)"
 			ContinueOnError="false"
 			LogStandardErrorAsError="true"
 		/>

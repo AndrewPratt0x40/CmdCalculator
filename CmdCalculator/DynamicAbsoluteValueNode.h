@@ -12,20 +12,16 @@ namespace CmdCalculator::MathAst
 {
 	/// \brief An absolute value operation expression.
 	/// \tparam StringT The string type to use.
-	/// \tparam UnderlyingPartsT The type to use to store the underlying collection of parts of the contained expression.
-	template<String StringT, std::ranges::range UnderlyingPartsT>
-		requires requires { typename DynamicExpressionContainingNodeWithUnderlyingCollection<StringT, UnderlyingPartsT>; }
+	template<String StringT>
 	class DynamicAbsoluteValueNode :
-		public DynamicExpressionContainingNodeWithUnderlyingCollection<StringT, UnderlyingPartsT>
+		public DynamicExpressionContainingNode<StringT>
 	{
 	public:
 
-		using StringType = DynamicExpressionContainingNodeWithUnderlyingCollection<StringT, UnderlyingPartsT>::StringType;
-		using PartsType = DynamicExpressionContainingNodeWithUnderlyingCollection<StringT, UnderlyingPartsT>::PartsType;
-		using UnderlyingPartsType = DynamicExpressionContainingNodeWithUnderlyingCollection<StringT, UnderlyingPartsT>::UnderlyingPartsType;
+		using StringType = DynamicExpressionContainingNode<StringT>::StringType;
 
 
-		DynamicExpressionNode<StringT, PartsType> getContainedExpression() const override
+		DynamicExpressionNode<StringT> getContainedExpression() const override
 		{
 			throw NotImplementedException{};
 		}

@@ -4,108 +4,144 @@
     <Filter Include="Source Code">
       <UniqueIdentifier>{cd7ada92-0f40-47b1-9b9c-584838234ff4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Code\Calculation">
-      <UniqueIdentifier>{113656e8-2abc-4eee-8870-a4bfe3e12a92}</UniqueIdentifier>
+    <Filter Include="Source Code\CmdCalculator">
+      <UniqueIdentifier>{861c10d7-442f-4812-9553-90f1c71a43a7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Code\Console">
-      <UniqueIdentifier>{f3e65078-8c44-4c69-8a24-d51fb1ad5837}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Conversions">
-      <UniqueIdentifier>{26cf7da9-b859-4441-af9a-a35c733fea91}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Exceptions">
-      <UniqueIdentifier>{8dc3c785-56f5-471a-8eb6-1ed3ba4d3f13}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Exceptions\Invalid Input Expression">
-      <UniqueIdentifier>{37afeeae-0997-4d3e-9b7d-73cdaa338ea1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Exceptions\Invalid Input Expression\InvalidInputExpressionException">
-      <UniqueIdentifier>{c24dcff8-fb5b-4901-a44f-e9088a7e817e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Expressions">
-      <UniqueIdentifier>{54254547-9ab8-40d4-9fcf-1a19bd6a0588}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\MathAst">
+    <Filter Include="Source Code\CmdCalculator\MathAst">
       <UniqueIdentifier>{862287a5-ed56-4d45-951a-ce9c84987339}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Code\MathAst\MathAstNode">
+    <Filter Include="Source Code\CmdCalculator\MathAst\MathAstNode">
       <UniqueIdentifier>{742f7eb1-ca5f-4d78-b00b-95d56182af68}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Code\RawCmdLineArgParser">
+    <Filter Include="Source Code\CmdCalculator\Calculation">
+      <UniqueIdentifier>{113656e8-2abc-4eee-8870-a4bfe3e12a92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Console">
+      <UniqueIdentifier>{f3e65078-8c44-4c69-8a24-d51fb1ad5837}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions">
+      <UniqueIdentifier>{26cf7da9-b859-4441-af9a-a35c733fea91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Exceptions">
+      <UniqueIdentifier>{8dc3c785-56f5-471a-8eb6-1ed3ba4d3f13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Exceptions\Invalid Input Expression">
+      <UniqueIdentifier>{37afeeae-0997-4d3e-9b7d-73cdaa338ea1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Exceptions\Invalid Input Expression\InvalidInputExpressionException">
+      <UniqueIdentifier>{c24dcff8-fb5b-4901-a44f-e9088a7e817e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Expressions">
+      <UniqueIdentifier>{54254547-9ab8-40d4-9fcf-1a19bd6a0588}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\RawCmdLineArgParser">
       <UniqueIdentifier>{371b337e-1605-487d-932b-0ef9da0af543}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Code\String">
+    <Filter Include="Source Code\CmdCalculator\String">
       <UniqueIdentifier>{cd658a14-b12e-47e5-a24a-30350a77883a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Code\Conversions\StringToMathAstConverter">
-      <UniqueIdentifier>{7067254a-f655-4f52-a1d8-f87f2c9d820b}</UniqueIdentifier>
+    <Filter Include="Source Code\CmdCalculator\Conversions\ExpressionToStringConverter">
+      <UniqueIdentifier>{e3874a65-0c11-4bb6-9f28-3998e2575a6a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Code\Conversions\MathAstToExpressionConverter">
+    <Filter Include="Source Code\CmdCalculator\Conversions\MathAstToExpressionConverter">
       <UniqueIdentifier>{a03cf543-6e5f-4b37-91e9-ba6d1955a285}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Code\Conversions\ExpressionToStringConverter">
-      <UniqueIdentifier>{e3874a65-0c11-4bb6-9f28-3998e2575a6a}</UniqueIdentifier>
+    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter">
+      <UniqueIdentifier>{7067254a-f655-4f52-a1d8-f87f2c9d820b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\ANTLR">
+      <UniqueIdentifier>{f5740463-aec5-44ba-b416-a9af3cbc3b2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\ANTLR\StringToAntlrContextConverter">
+      <UniqueIdentifier>{a581a1f2-00bd-4ec7-9a16-d945ef8a4be0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\ANTLR\AntlrFullExpressionContextOwner">
+      <UniqueIdentifier>{6aec7192-9eba-4ded-9467-b0d599b7163d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\ANTLR\AntlrContextToMathAstConverter">
+      <UniqueIdentifier>{e5a27535-d5cf-43a3-b421-33130fead60e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\MathAst\Dynamic">
+      <UniqueIdentifier>{0136b5fc-80d5-40d8-8fe9-4f32512789f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\MathAst\Dynamic\DynamicExpressionNode">
+      <UniqueIdentifier>{89ef9f5a-bc43-452f-bb3a-e7d93a96dcff}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FakeConsole.h">
-      <Filter>Source Code\Console</Filter>
+      <Filter>Source Code\CmdCalculator\Console</Filter>
     </ClInclude>
     <ClInclude Include="StubExpression.h">
-      <Filter>Source Code\Expressions</Filter>
+      <Filter>Source Code\CmdCalculator\Expressions</Filter>
     </ClInclude>
     <ClInclude Include="StubThrowingRawCmdLineArgParser.h">
-      <Filter>Source Code\RawCmdLineArgParser</Filter>
+      <Filter>Source Code\CmdCalculator\RawCmdLineArgParser</Filter>
     </ClInclude>
     <ClInclude Include="StubCalculation.h">
-      <Filter>Source Code\Calculation</Filter>
+      <Filter>Source Code\CmdCalculator\Calculation</Filter>
     </ClInclude>
     <ClInclude Include="StubThrowingCalculation.h">
-      <Filter>Source Code\Calculation</Filter>
-    </ClInclude>
-    <ClInclude Include="StubStringToMathAstConverter.h">
-      <Filter>Source Code\Conversions\StringToMathAstConverter</Filter>
-    </ClInclude>
-    <ClInclude Include="StubValidatingStringToMathAstConverter.h">
-      <Filter>Source Code\Conversions\StringToMathAstConverter</Filter>
+      <Filter>Source Code\CmdCalculator\Calculation</Filter>
     </ClInclude>
     <ClInclude Include="DummyInvalidInputExpressionException.h">
-      <Filter>Source Code\Exceptions\Invalid Input Expression\InvalidInputExpressionException</Filter>
+      <Filter>Source Code\CmdCalculator\Exceptions\Invalid Input Expression\InvalidInputExpressionException</Filter>
     </ClInclude>
     <ClInclude Include="FakeCalculation.h">
-      <Filter>Source Code\Calculation</Filter>
-    </ClInclude>
-    <ClInclude Include="StubTrackingStringToMathAstConverter.h">
-      <Filter>Source Code\Conversions\StringToMathAstConverter</Filter>
+      <Filter>Source Code\CmdCalculator\Calculation</Filter>
     </ClInclude>
     <ClInclude Include="StubMathAstNode.h">
-      <Filter>Source Code\MathAst\MathAstNode</Filter>
+      <Filter>Source Code\CmdCalculator\MathAst\MathAstNode</Filter>
     </ClInclude>
     <ClInclude Include="StubTrackingMathAstNode.h">
-      <Filter>Source Code\MathAst\MathAstNode</Filter>
+      <Filter>Source Code\CmdCalculator\MathAst\MathAstNode</Filter>
     </ClInclude>
     <ClInclude Include="StubTrackingExpression.h">
-      <Filter>Source Code\Expressions</Filter>
+      <Filter>Source Code\CmdCalculator\Expressions</Filter>
     </ClInclude>
     <ClInclude Include="StubTrackingConvertedString.h">
-      <Filter>Source Code\String</Filter>
+      <Filter>Source Code\CmdCalculator\String</Filter>
     </ClInclude>
     <ClInclude Include="StubExpressionToStringConverter.h">
-      <Filter>Source Code\Conversions\ExpressionToStringConverter</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\ExpressionToStringConverter</Filter>
     </ClInclude>
     <ClInclude Include="StubMathAstToExpressionConverter.h">
-      <Filter>Source Code\Conversions\MathAstToExpressionConverter</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\MathAstToExpressionConverter</Filter>
     </ClInclude>
     <ClInclude Include="StubTrackingExpressionToStringConverter.h">
-      <Filter>Source Code\Conversions\ExpressionToStringConverter</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\ExpressionToStringConverter</Filter>
     </ClInclude>
     <ClInclude Include="StubTrackingMathAstToExpressionConverter.h">
-      <Filter>Source Code\Conversions\MathAstToExpressionConverter</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\MathAstToExpressionConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="StubStringToMathAstConverter.h">
+      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="StubTrackingStringToMathAstConverter.h">
+      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="StubValidatingStringToMathAstConverter.h">
+      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="StubTrackingStringToAntlrContextConverter.h">
+      <Filter>Source Code\CmdCalculator\Conversions\ANTLR\StringToAntlrContextConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="StubTrackingAntlrFullExpressionContextOwner.h">
+      <Filter>Source Code\CmdCalculator\Conversions\ANTLR\AntlrFullExpressionContextOwner</Filter>
+    </ClInclude>
+    <ClInclude Include="StubThrowingStringToAntlrContextConverter.h">
+      <Filter>Source Code\CmdCalculator\Conversions\ANTLR\StringToAntlrContextConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="StubTrackingAntlrContextToMathAstConverter.h">
+      <Filter>Source Code\CmdCalculator\Conversions\ANTLR\AntlrContextToMathAstConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="StubTrackingDynamicExpressionNode.h">
+      <Filter>Source Code\CmdCalculator\MathAst\Dynamic\DynamicExpressionNode</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StubRawCmdLineArgParser.h">
-      <Filter>Source Code\RawCmdLineArgParser</Filter>
+      <Filter>Source Code\CmdCalculator\RawCmdLineArgParser</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

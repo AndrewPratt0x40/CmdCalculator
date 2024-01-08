@@ -4,22 +4,54 @@
 #include "DynamicMathAstNode.h"
 #include "DynamicExpressionPartNode.h"
 #include "strings.h"
+#include "NotImplementedException.h"
 
 #include <ranges>
+#include <span>
 
 namespace CmdCalculator::MathAst
 {
 	/// \brief A type that satisfies \ref ExpressionNode that is implemented via dynamic polymorphism.
 	/// \tparam StringT The string type to use.
-	/// \tparam PartsT The type to use for accessing the collection of all parts of the expression.
-	template<String StringT, std::ranges::input_range PartsT>
-		requires std::same_as<DynamicExpressionPartNode<StringT>, std::ranges::range_value_t<PartsT>>
+	template<String StringT>
 	class DynamicExpressionNode :
 		public ExpressionNode_IntendedSatisfaction,
 		public DynamicMathAstNode<StringT>
 	{
+	public:
 		/// \brief Accessor to the parts of the expression.
 		/// \returns A range of every part of the expression, in order.
-		virtual PartsT getParts() const = 0;
+		std::ranges::ref_view<std::span<MathAst::DynamicExpressionPartNode<StringT>>> getParts() const
+		{
+			throw NotImplementedException{};
+		}
+
+
+		StringT getLeadingTrivia() const override
+		{
+			throw NotImplementedException{};
+		}
+
+
+		StringT getTrailingTrivia() const override
+		{
+			throw NotImplementedException{};
+		}
+
+
+		StringT getStringRepresentation() const override
+		{
+			throw NotImplementedException{};
+		}
+
+
+		/// \brief Creates a new instance of the \ref DynamicExpressionNode class.
+		/// \param leadingTrivia Trivial content at the beginning of the string contents of the node.
+		/// \param trailingTrivia Trivial content at the end of the string contents of the node.
+		/// \param parts A range of every part of the expression, in order.
+		DynamicExpressionNode(const StringT leadingTrivia, const StringT trailingTrivia, const std::span<MathAst::DynamicExpressionPartNode<StringT>>&& parts)
+		{
+			throw NotImplementedException{};
+		}
 	};
 }

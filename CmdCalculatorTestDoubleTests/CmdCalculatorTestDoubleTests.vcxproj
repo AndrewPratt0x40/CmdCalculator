@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FakeConsoleTests.cpp" />
+    <ClCompile Include="StubTrackingAntlrContextToMathAstConverterTests.cpp" />
     <ClCompile Include="StubCalculationTests.cpp" />
     <ClCompile Include="StubExpressionTests.cpp" />
     <ClCompile Include="pch.cpp">
@@ -86,11 +87,14 @@
     <ClCompile Include="StubStringToMathAstConverterTests.cpp" />
     <ClCompile Include="StubThrowingCalculationTests.cpp" />
     <ClCompile Include="StubThrowingRawCmdLineArgParserTests.cpp" />
+    <ClCompile Include="StubThrowingStringToAntlrContextConverterTests.cpp" />
+    <ClCompile Include="StubTrackingAntlrFullExpressionContextOwnerTests.cpp" />
     <ClCompile Include="StubTrackingConvertedStringTests.cpp" />
     <ClCompile Include="StubTrackingExpressionTests.cpp" />
     <ClCompile Include="StubTrackingExpressionToStringConverterTests.cpp" />
     <ClCompile Include="StubTrackingMathAstNodeTests.cpp" />
     <ClCompile Include="StubTrackingMathAstToExpressionConverterTests.cpp" />
+    <ClCompile Include="StubTrackingStringToAntlrContextConverterTests.cpp" />
     <ClCompile Include="StubTrackingStringToMathAstConverterTests.cpp" />
     <ClCompile Include="StubValidatingStringToMathAstConverterTests.cpp" />
   </ItemGroup>

@@ -3,7 +3,7 @@
 #include <string>
 #include <string_view>
 
-#include "../CmdCalculator/SimpleCalculation.h"
+#include "../CmdCalculator/BasicCalculation.h"
 #include "../CmdCalculatorTestDoubles/StubMathAstNode.h"
 #include "../CmdCalculatorTestDoubles/StubTrackingMathAstNode.h"
 #include "../CmdCalculatorTestDoubles/StubExpression.h"
@@ -22,13 +22,13 @@ namespace CmdCalculatorTests
 {
 #pragma region Concept satisfaction
 
-	TEST(SimpleCalculationTests, SimpleCalculation$satisfies$Calculation$concept)
+	TEST(BasicCalculationTests, BasicCalculation$satisfies$Calculation$concept)
 	{
 		static_assert
 		(
 			CmdCalculator::Calculation
 			<
-				CmdCalculator::SimpleCalculation
+				CmdCalculator::BasicCalculation
 				<
 					std::string,
 					CmdCalculatorTestDoubles::StubStringToMathAstConverter
@@ -56,7 +56,7 @@ namespace CmdCalculatorTests
 
 #pragma region Constructor
 
-	TEST(SimpleCalculationTests, Constructor$sets$members$correctly)
+	TEST(BasicCalculationTests, Constructor$sets$members$correctly)
 	{
 		// Arrange
 		std::string inputExpression{ "2 + 3" };
@@ -77,7 +77,7 @@ namespace CmdCalculatorTests
 			std::string
 		> expressionToStringConverter{};
 
-		CmdCalculator::SimpleCalculation
+		CmdCalculator::BasicCalculation
 		<
 			decltype(inputExpression),
 			decltype(stringToMathAstConverter),
@@ -117,7 +117,7 @@ namespace CmdCalculatorTests
 
 #pragma region Output expression
 
-	TEST(SimpleCalculationTests, getOutputExpression$returns$the$result$of$using$converters$and$evaluating$expression)
+	TEST(BasicCalculationTests, getOutputExpression$returns$the$result$of$using$converters$and$evaluating$expression)
 	{
 		// Arrange
 		std::string inputExpression{ "Input expression" };
@@ -163,7 +163,7 @@ namespace CmdCalculatorTests
 			.stringifiedExpression{ "Output expression" }
 		};
 
-		CmdCalculator::SimpleCalculation
+		CmdCalculator::BasicCalculation
 		<
 			decltype(inputExpression),
 			decltype(stringToMathAstConverter),

@@ -13,7 +13,7 @@
 
 namespace CmdCalculator
 {
-	/// \brief A simple implementation that satisfies the \ref Calculation concept.
+	/// \brief A basic implementation that satisfies the \ref Calculation concept.
 	/// \tparam InputExpressionT The type of the expression to be calculated.
 	/// \tparam StringToMathAstConverter The type of the object to convert the string representation of the expression to be calculated into a mathematical abstract syntax tree.
 	/// \tparam MathAstToExpressionConverter The type of the object to convert the mathematical abstract syntax tree representation of the expression to be calculated into an expression object.
@@ -25,7 +25,7 @@ namespace CmdCalculator
 		MathAstToExpressionConverter MathAstToExpressionConverterT,
 		ExpressionToStringConverter ExpressionToStringConverterT
 	>
-	class SimpleCalculation :
+	class BasicCalculation :
 		public Calculation_IntendedSatisfaction
 	{
 	public:
@@ -113,13 +113,13 @@ namespace CmdCalculator
 		}
 
 
-		/// \brief Creates a new instance of the \ref SimpleCalculation class.
+		/// \brief Creates a new instance of the \ref BasicCalculation class.
 		/// \param inputExpression The expression to be calculated.
 		/// \param calculationConfiguration The calculation configuration object to use.
 		/// \param stringToMathAstConverter The object to use for converting strings to mathematical abstract syntax trees.
 		/// \param mathAstToExpressionConverter The object to use for converting mathematical abstract syntax trees to expression objects.
 		/// \param expressionToStringConverter The object to use for converting expression objects to strings.
-		SimpleCalculation
+		BasicCalculation
 		(
 			InputExpressionType inputExpression,
 			CalculationConfiguration calculationConfiguration,

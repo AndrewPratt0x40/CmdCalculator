@@ -9,17 +9,7 @@ namespace CmdCalculator::MathAst
 {
 	/// \brief A multiplication operation using represented by an operand followed by one or more adjacent grouping operations.
 	/// \tparam StringT The string type to use.
-	/// \tparam TailMultiplicandsT The type to use to store the underlying collection of tail multiplicands.
-	template<String StringT, std::ranges::range TailMultiplicandsT>
-		requires std::same_as
-		<
-			DynamicGroupingNode
-			<
-				typename TailMultiplicandsT::StringType,
-				typename TailMultiplicandsT::UnderlyingPartsType
-			>,
-			std::ranges::range_value_t<TailMultiplicandsT>
-		>
+	template<String StringT>
 	class DynamicGroupingMultiplicationNode :
 		public DynamicOperandNode<StringT>
 	{
@@ -37,7 +27,7 @@ namespace CmdCalculator::MathAst
 		/// \brief Accessor to the tail multiplicands of the operation.
 		/// \returns The grouping operations to multiply the head multiplicand by.
 		/// \example The tail multiplicands of the grouping multiplication expression <tt>1(2)(3)</tt> would be <tt>2</tt> and <tt>3</tt>.
-		TailMultiplicandsT getTailMultiplicands() const
+		std::ranges::ref_view<std::span<DynamicGroupingNode<StringT>>> getTailMultiplicands() const
 		{
 			throw NotImplementedException{};
 		}

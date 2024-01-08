@@ -55,6 +55,18 @@
     <ClCompile Include="StubTrackingExpressionToStringConverterTests.cpp">
       <Filter>Source Code\Tests\Conversions\ExpressionToStringConverter</Filter>
     </ClCompile>
+    <ClCompile Include="StubTrackingAntlrFullExpressionContextOwnerTests.cpp">
+      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\AntlrFullExpressionContextOwner</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingStringToAntlrContextConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\StringToAntlrContextConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubThrowingStringToAntlrContextConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\StringToAntlrContextConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingAntlrContextToMathAstConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\AntlrContextToMathAstConverter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -95,6 +107,18 @@
     </Filter>
     <Filter Include="Source Code\Tests\String">
       <UniqueIdentifier>{48a46ac3-c962-4bd7-ad7c-5f366a72f160}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR">
+      <UniqueIdentifier>{43787c9f-164c-4eb8-a5c8-10bf97ede755}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\AntlrFullExpressionContextOwner">
+      <UniqueIdentifier>{20a70b7d-5cd8-49d1-8990-63f5cf1fd334}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\StringToAntlrContextConverter">
+      <UniqueIdentifier>{58c88fb6-386e-4947-abe9-f35751c310b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\AntlrContextToMathAstConverter">
+      <UniqueIdentifier>{a0049ffd-f85f-4d0a-8136-e21f9bfe776c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

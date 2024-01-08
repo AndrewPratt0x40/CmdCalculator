@@ -84,6 +84,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AntlrContextToMathAstConverter.h" />
+    <ClInclude Include="AntlrFullExpressionContextOwner.h" />
     <ClInclude Include="BadRawCmdLineArgsException.h" />
     <ClInclude Include="Calculation.h" />
     <ClInclude Include="CalculationConfiguration.h" />
@@ -101,12 +103,13 @@
     <ClInclude Include="DynamicSignOperationNode.h" />
     <ClInclude Include="DynamicSqrtOperationNode.h" />
     <ClInclude Include="DynamicUnaryOperationNode.h" />
+    <ClInclude Include="dynamic_mathast.h" />
     <ClInclude Include="EBinaryOperator.h" />
     <ClInclude Include="Expression.h" />
     <ClInclude Include="ExpressionNode.h" />
     <ClInclude Include="ExpressionPartNode.h" />
     <ClInclude Include="ExpressionToStringConverter.h" />
-    <ClInclude Include="Full_expressionContextToMathAstConverter.h" />
+    <ClInclude Include="BasicAntlrContextToMathAstConverter.h" />
     <ClInclude Include="InvalidInputExpressionException.h" />
     <ClInclude Include="MathAstNode.h" />
     <ClInclude Include="MathAstToExpressionConverter.h" />
@@ -116,8 +119,9 @@
     <ClInclude Include="ProcessConfiguration.h" />
     <ClInclude Include="RawCmdLineArgParser.h" />
     <ClInclude Include="AntlrBasedStringToMathAstConverter.h" />
-    <ClInclude Include="SimpleCalculation.h" />
+    <ClInclude Include="BasicCalculation.h" />
     <ClInclude Include="strings.h" />
+    <ClInclude Include="StringToAntlrContextConverter.h" />
     <ClInclude Include="StringToMathAstConverter.h" />
     <ClInclude Include="UnknownCmdLineArgException.h" />
   </ItemGroup>
@@ -131,10 +135,11 @@
     <ClCompile Include="DynamicSignOperationNode.cpp" />
     <ClCompile Include="DynamicSqrtOperationNode.cpp" />
     <ClCompile Include="DynamicUnaryOperationNode.cpp" />
+    <ClCompile Include="BasicAntlrContextToMathAstConverter.cpp" />
     <ClCompile Include="MissingCmdLineArgValueException.cpp" />
     <ClCompile Include="Process.cpp" />
     <ClCompile Include="AntlrBasedStringToMathAstConverter.cpp" />
-    <ClCompile Include="SimpleCalculation.cpp" />
+    <ClCompile Include="BasicCalculation.cpp" />
     <ClCompile Include="UnknownCmdLineArgException.cpp" />
   </ItemGroup>
   <ItemGroup>

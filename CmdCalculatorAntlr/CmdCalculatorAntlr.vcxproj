@@ -189,9 +189,7 @@
     <ClInclude Include="..\submodules\Antlr4CppRuntime\src\Version.h" />
     <ClInclude Include="..\submodules\Antlr4CppRuntime\src\Vocabulary.h" />
     <ClInclude Include="..\submodules\Antlr4CppRuntime\src\WritableToken.h" />
-    <ClInclude Include="generated_code\CmdCalculatorExpressionBaseListener.h" />
     <ClInclude Include="generated_code\CmdCalculatorExpressionLexer.h" />
-    <ClInclude Include="generated_code\CmdCalculatorExpressionListener.h" />
     <ClInclude Include="generated_code\CmdCalculatorExpressionParser.h" />
   </ItemGroup>
   <ItemGroup>
@@ -331,9 +329,7 @@
     <ClCompile Include="..\submodules\Antlr4CppRuntime\src\UnbufferedTokenStream.cpp" />
     <ClCompile Include="..\submodules\Antlr4CppRuntime\src\Vocabulary.cpp" />
     <ClCompile Include="..\submodules\Antlr4CppRuntime\src\WritableToken.cpp" />
-    <ClCompile Include="generated_code\CmdCalculatorExpressionBaseListener.cpp" />
     <ClCompile Include="generated_code\CmdCalculatorExpressionLexer.cpp" />
-    <ClCompile Include="generated_code\CmdCalculatorExpressionListener.cpp" />
     <ClCompile Include="generated_code\CmdCalculatorExpressionParser.cpp" />
   </ItemGroup>
   <ItemGroup>

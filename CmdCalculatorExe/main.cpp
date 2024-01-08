@@ -2,7 +2,6 @@
 
 #include "../submodules/Antlr4CppRuntime/src/antlr4-runtime.h"
 #include "../CmdCalculatorAntlr/generated_code/CmdCalculatorExpressionLexer.h"
-#include "../CmdCalculatorAntlr/generated_code/CmdCalculatorExpressionBaseListener.h"
 #include "../CmdCalculatorAntlr/generated_code/CmdCalculatorExpressionParser.h"
 
 int main()
@@ -11,10 +10,8 @@ int main()
 	CmdCalculator::Antlr::CmdCalculatorExpressionLexer lexer{&inputStream};
 	antlr4::CommonTokenStream tokenStream{ &lexer };
 	CmdCalculator::Antlr::CmdCalculatorExpressionParser parser{ &tokenStream };
-	auto* expression{ parser.expression() };
-	//CmdCalculator::Antlr::CmdCalculatorExpressionBaseListener listener{};
-	//antlr4::tree::ParseTreeWalker::DEFAULT.walk(&listener, fullExpression);
-
+	auto* fullExpression{ parser.full_expression() };
+	
 	//const std::string foo{ expression->operation_parts[0]->};
 
 	//std::cout << "The first operand is: " << foo;
