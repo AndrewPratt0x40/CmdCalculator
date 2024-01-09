@@ -5,7 +5,7 @@
 
 #include "AntlrToken.h"
 #include "OperandAntlrContext.h"
-#include "ExpressionPartPairAntlrContext.h"
+#include "OperationPartPairAntlrContext.h"
 #include "utilities.h"
 #include "strings.h"
 
@@ -16,7 +16,7 @@ namespace CmdCalculator
 	{};
 
 
-	/// \brief A type that wraps a ANTLR context object for a full_expression parser rule.
+	/// \brief A type that wraps a ANTLR context object for an expression parser rule.
 	/// \tparam T The ANTLR context type.
 	template<class T>
 	concept ExpressionAntlrContext =

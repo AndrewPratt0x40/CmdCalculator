@@ -84,10 +84,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AbsoluteValueOperationAntlrContext.h" />
     <ClInclude Include="AntlrContextToMathAstConverter.h" />
     <ClInclude Include="AntlrFullExpressionContextOwner.h" />
     <ClInclude Include="AntlrToken.h" />
     <ClInclude Include="BadRawCmdLineArgsException.h" />
+    <ClInclude Include="BinaryOperatorAntlrContext.h" />
     <ClInclude Include="Calculation.h" />
     <ClInclude Include="CalculationConfiguration.h" />
     <ClInclude Include="Console.h" />
@@ -110,25 +112,36 @@
     <ClInclude Include="ExpressionAntlrContext.h" />
     <ClInclude Include="ExpressionNode.h" />
     <ClInclude Include="ExpressionPartNode.h" />
+    <ClInclude Include="OperationPartPairAntlrContext.h" />
     <ClInclude Include="ExpressionToStringConverter.h" />
     <ClInclude Include="BasicAntlrContextToMathAstConverter.h" />
     <ClInclude Include="FullExpressionAntlrContext.h" />
+    <ClInclude Include="GroupingAntlrContext.h" />
+    <ClInclude Include="GroupingMultiplicationAntlrContext.h" />
+    <ClInclude Include="GroupingTailMultiplicandAntlrContext.h" />
     <ClInclude Include="InvalidInputExpressionException.h" />
     <ClInclude Include="MathAstNode.h" />
     <ClInclude Include="MathAstToExpressionConverter.h" />
     <ClInclude Include="MissingCmdLineArgValueException.h" />
+    <ClInclude Include="NonGroupingMultiplicationAntlrContext.h" />
     <ClInclude Include="NotImplementedException.h" />
+    <ClInclude Include="NumberLiteralAntlrContext.h" />
     <ClInclude Include="OperandAntlrContext.h" />
     <ClInclude Include="Process.h" />
     <ClInclude Include="ProcessConfiguration.h" />
     <ClInclude Include="RawCmdLineArgParser.h" />
     <ClInclude Include="AntlrBasedStringToMathAstConverter.h" />
     <ClInclude Include="BasicCalculation.h" />
+    <ClInclude Include="SignOperationAntlrContext.h" />
+    <ClInclude Include="SignOperatorAntlrContext.h" />
+    <ClInclude Include="SqrtOperationAntlrContext.h" />
     <ClInclude Include="strings.h" />
     <ClInclude Include="StringToAntlrContextConverter.h" />
     <ClInclude Include="StringToMathAstConverter.h" />
     <ClInclude Include="UnknownCmdLineArgException.h" />
     <ClInclude Include="utilities.h" />
+    <ClInclude Include="WholefulNumberLiteralAntlrContext.h" />
+    <ClInclude Include="WholelessNumberLiteralAntlrContext.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp" />

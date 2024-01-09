@@ -4,7 +4,7 @@ fragment WHITESPACE_CHAR: [ \t\n\r];
 TRIVIA: WHITESPACE_CHAR+;
 
 fragment DIGIT: [0-9];
-Integer: DIGIT+;
+INTEGER: DIGIT+;
 DECIMAL_POINT: '.';
 
 SQRT_OPERATOR: 'sqrt';

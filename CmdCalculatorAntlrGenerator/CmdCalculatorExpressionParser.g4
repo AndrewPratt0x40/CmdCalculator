@@ -5,15 +5,15 @@ options
 }
 
 wholeful_number_literal:
-	whole_part=Integer
+	whole_part=INTEGER
 	decimal_point=DECIMAL_POINT?
-	fractional_part=Integer?
+	fractional_part=INTEGER?
 ;
 
 wholeless_number_literal:
-	whole_part=Integer?
+	whole_part=INTEGER?
 	decimal_point=DECIMAL_POINT
-	fractional_part=Integer
+	fractional_part=INTEGER
 ;
 
 number_literal:
@@ -82,7 +82,7 @@ binary_operator:
 	| SUBTRACTION_OR_NEGATIVE_OPERATOR #SubtractionOperator
 	| MULTIPLICATION_OPERATOR #MultiplicationOperator
 	| DIVISION_OPERATOR #DivisionOperator
-	| EPONENTIATION_OPERATOR #ExponentiationOperator
+	| EXPONENTIATION_OPERATOR #ExponentiationOperator
 	| NTH_ROOT_OPERATOR #NthRootOperator
 	| MODULO_OPERATOR #ModuloOperator
 ;

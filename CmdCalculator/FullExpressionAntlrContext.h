@@ -15,7 +15,7 @@ namespace CmdCalculator
 	{};
 
 
-	/// \brief A type that wraps a ANTLR context object for a full_expression parser rule.
+	/// \brief A type that wraps a ANTLR context object for a full expression parser rule.
 	/// \tparam T The ANTLR context type.
 	template<class T>
 	concept FullExpressionAntlrContext =
