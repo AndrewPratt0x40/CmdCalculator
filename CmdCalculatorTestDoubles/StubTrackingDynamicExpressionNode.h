@@ -2,6 +2,7 @@
 
 #include <concepts>
 #include <span>
+#include <memory>
 
 #include "../CmdCalculator/DynamicExpressionNode.h"
 #include "../CmdCalculator/DynamicExpressionPartNode.h"
@@ -16,19 +17,19 @@ namespace CmdCalculatorTestDoubles::MathAst
 		public CmdCalculator::MathAst::DynamicExpressionNode<StringT>
 	{
 	public:
-		using SourceStringTreeType = decltype(std::declval<CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext>().toStringTree());
+		using Full_expressionContextType = CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext;
 
-		SourceStringTreeType sourceStringTree;
+		Full_expressionContextType* sourceFull_expressionContext;
 
 
 		StubTrackingDynamicExpressionNode
 		(
-			const SourceStringTreeType source,
+			const Full_expressionContextType* source,
 			const StringT leadingTrivia,
 			const StringT trailingTrivia,
-			const std::span<MathAst::StubTrackingDynamicExpressionNode<StringT>>&& parts
+			const std::span<std::unique_ptr<MathAst::StubTrackingDynamicExpressionNode<StringT>>>&& parts
 		) : CmdCalculator::MathAst::DynamicExpressionNode<StringT>(leadingTrivia, trailingTrivia, std::move(parts)),
-			sourceStringTree{ source }
+			sourceFull_expressionContext{ source }
 		{}
 	};
 }

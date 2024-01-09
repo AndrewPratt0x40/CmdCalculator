@@ -67,6 +67,7 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AntlrBasedStringToMathAstConverterTests.cpp" />
     <ClCompile Include="CalculationConfigurationTests.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -75,6 +76,7 @@
     <ClCompile Include="ProcessTests.cpp" />
     <ClCompile Include="BasicCalculationTests.cpp" />
     <ClCompile Include="stringsTests.cpp" />
+    <ClCompile Include="utilitiesTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CmdCalculatorTestDoubles\CmdCalculatorTestDoubles.vcxproj">

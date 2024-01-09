@@ -15,7 +15,7 @@ namespace CmdCalculatorTests
 	{
 		using StringType = StringT;
 		using CharType = CharT;
-		static constexpr bool shouldSatisfy = shouldSatisfyT;
+		static constexpr bool shouldSatisfy{ shouldSatisfyT };
 	};
 
 

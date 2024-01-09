@@ -86,6 +86,7 @@
   <ItemGroup>
     <ClInclude Include="AntlrContextToMathAstConverter.h" />
     <ClInclude Include="AntlrFullExpressionContextOwner.h" />
+    <ClInclude Include="AntlrToken.h" />
     <ClInclude Include="BadRawCmdLineArgsException.h" />
     <ClInclude Include="Calculation.h" />
     <ClInclude Include="CalculationConfiguration.h" />
@@ -106,15 +107,18 @@
     <ClInclude Include="dynamic_mathast.h" />
     <ClInclude Include="EBinaryOperator.h" />
     <ClInclude Include="Expression.h" />
+    <ClInclude Include="ExpressionAntlrContext.h" />
     <ClInclude Include="ExpressionNode.h" />
     <ClInclude Include="ExpressionPartNode.h" />
     <ClInclude Include="ExpressionToStringConverter.h" />
     <ClInclude Include="BasicAntlrContextToMathAstConverter.h" />
+    <ClInclude Include="FullExpressionAntlrContext.h" />
     <ClInclude Include="InvalidInputExpressionException.h" />
     <ClInclude Include="MathAstNode.h" />
     <ClInclude Include="MathAstToExpressionConverter.h" />
     <ClInclude Include="MissingCmdLineArgValueException.h" />
     <ClInclude Include="NotImplementedException.h" />
+    <ClInclude Include="OperandAntlrContext.h" />
     <ClInclude Include="Process.h" />
     <ClInclude Include="ProcessConfiguration.h" />
     <ClInclude Include="RawCmdLineArgParser.h" />
@@ -124,6 +128,7 @@
     <ClInclude Include="StringToAntlrContextConverter.h" />
     <ClInclude Include="StringToMathAstConverter.h" />
     <ClInclude Include="UnknownCmdLineArgException.h" />
+    <ClInclude Include="utilities.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp" />

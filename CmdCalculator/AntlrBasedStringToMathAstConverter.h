@@ -39,7 +39,7 @@ namespace CmdCalculator
 		/// \brief Converts a string into a mathematical abstract syntax tree.
 		/// \param source The string to convert.
 		/// \returns The root node of the resulting mathematical abstract syntax tree.
-		MathAst::DynamicExpressionNode<StringType> getStringAsMathAst(StringViewT source) const
+		std::unique_ptr<MathAst::DynamicExpressionNode<StringType>> getStringAsMathAst(StringViewT source) const
 		{
 			throw NotImplementedException{};
 		}
@@ -48,7 +48,11 @@ namespace CmdCalculator
 		/// \brief Creates a new instance of the \ref AntlrBasedStringToMathAstConverter class.
 		/// \param stringToAntlrContextConverter The object to convert strings into ANTLR context objects.
 		/// \param antlrContextToMathAstConverter The object to convert ANTLR context objects into mathematical abstract syntax trees.
-		AntlrBasedStringToMathAstConverter(StringToAntlrContextConverterType&& stringToAntlrContextConverter, AntlrContextToMathAstConverterType&& antlrContextToMathAstConverter)
+		AntlrBasedStringToMathAstConverter
+		(
+			StringToAntlrContextConverterType&& stringToAntlrContextConverter,
+			AntlrContextToMathAstConverterType&& antlrContextToMathAstConverter
+		)
 		{
 			throw NotImplementedException{};
 		}

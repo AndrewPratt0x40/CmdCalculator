@@ -67,6 +67,9 @@
     <Filter Include="Source Code\CmdCalculator\MathAst\Dynamic\DynamicExpressionNode">
       <UniqueIdentifier>{89ef9f5a-bc43-452f-bb3a-e7d93a96dcff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\CmdCalculator\MathAst\Dynamic\DynamicExpressionPartNode">
+      <UniqueIdentifier>{7347fa07-54eb-4277-a350-318746c1604d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FakeConsole.h">
@@ -137,6 +140,9 @@
     </ClInclude>
     <ClInclude Include="StubTrackingDynamicExpressionNode.h">
       <Filter>Source Code\CmdCalculator\MathAst\Dynamic\DynamicExpressionNode</Filter>
+    </ClInclude>
+    <ClInclude Include="StubDynamicExpressionPartNode.h">
+      <Filter>Source Code\CmdCalculator\MathAst\Dynamic\DynamicExpressionPartNode</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

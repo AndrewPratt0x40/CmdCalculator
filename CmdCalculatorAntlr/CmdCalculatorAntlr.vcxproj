@@ -335,10 +335,10 @@
   <ItemGroup>
     <None Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathLexer.g4" />
     <None Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathLexer.tokens" />
-    <None Include="generated_code\CmdCalculatorExpression.interp" />
-    <None Include="generated_code\CmdCalculatorExpression.tokens" />
     <None Include="generated_code\CmdCalculatorExpressionLexer.interp" />
     <None Include="generated_code\CmdCalculatorExpressionLexer.tokens" />
+    <None Include="generated_code\CmdCalculatorExpressionParser.interp" />
+    <None Include="generated_code\CmdCalculatorExpressionParser.tokens" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

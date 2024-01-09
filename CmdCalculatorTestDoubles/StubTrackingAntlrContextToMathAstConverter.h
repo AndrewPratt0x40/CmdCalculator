@@ -3,9 +3,11 @@
 #include <concepts>
 #include <memory>
 #include <utility>
+#include <ranges>
 #include <span>
 
 #include "StubTrackingDynamicExpressionNode.h"
+#include "StubDynamicExpressionPartNode.h"
 #include "../CmdCalculator/AntlrContextToMathAstConverter.h"
 #include "../CmdCalculator/DynamicExpressionPartNode.h"
 #include "../CmdCalculator/dynamic_mathast.h"
@@ -27,7 +29,7 @@ namespace CmdCalculatorTestDoubles
 
 		StringT convertedContextLeadingTrivia;
 		StringT convertedContextTrailingTrivia;
-		std::span<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>> convertedContextParts;
+		std::span<CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<StringType>> convertedContextParts;
 
 
 		std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionNode<StringType>> getConvertedFull_expressionContext(CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext& context)
@@ -35,10 +37,22 @@ namespace CmdCalculatorTestDoubles
 			return
 				std::make_unique<MathAst::StubTrackingDynamicExpressionNode<StringType>>
 				(
-					context.toStringTree(),
+					context,
 					convertedContextLeadingTrivia,
 					convertedContextTrailingTrivia,
-					std::move(std::span<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>>{ convertedContextParts })
+					std::move
+					(
+						std::span<std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>>>
+						{
+							convertedContextParts | std::views::transform
+							(
+								[](auto convertedContextPart)
+								{
+									return std::make_unique<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>>(convertedContextPart);
+								}
+							)
+						}
+					)
 				)
 			;
 		}

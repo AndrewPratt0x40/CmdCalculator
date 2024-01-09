@@ -8,6 +8,7 @@
 
 #include <ranges>
 #include <span>
+#include <memory>
 
 namespace CmdCalculator::MathAst
 {
@@ -21,7 +22,7 @@ namespace CmdCalculator::MathAst
 	public:
 		/// \brief Accessor to the parts of the expression.
 		/// \returns A range of every part of the expression, in order.
-		std::ranges::ref_view<std::span<MathAst::DynamicExpressionPartNode<StringT>>> getParts() const
+		std::ranges::ref_view<std::span<std::unique_ptr<MathAst::DynamicExpressionPartNode<StringT>>>> getParts() const
 		{
 			throw NotImplementedException{};
 		}

@@ -10,14 +10,14 @@
 namespace CmdCalculatorTestDoubles
 {
 	template<CmdCalculator::StringView StringViewT>
-	class StubTrackingStringToAntlrContextConverter :
+	struct StubTrackingStringToAntlrContextConverter :
 		public CmdCalculator::StringToAntlrContextConverter_IntendedSatisfaction
 	{
 	public:
 		using StringViewType = StringViewT;
 		using AntlrFullExpressionContextOwnerType = CmdCalculatorTestDoubles::StubTrackingAntlrFullExpressionContextOwner<StringViewType>;
 
-		AntlrFullExpressionContextOwnerType convertedString;
+		CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext convertedString;
 
 
 		AntlrFullExpressionContextOwnerType getStringAsAntlrContext(StringViewT source) const

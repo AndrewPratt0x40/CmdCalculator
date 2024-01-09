@@ -91,6 +91,21 @@
     <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrFullExpressionContextOwner">
       <UniqueIdentifier>{32193c75-6204-4016-bb50-79236a7dc3ed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects">
+      <UniqueIdentifier>{3f087724-7fde-4105-90fe-1a1248d8937f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrToken">
+      <UniqueIdentifier>{6ae61add-c146-4aea-9638-95541374e112}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext">
+      <UniqueIdentifier>{cdf9bd18-4b79-4f8d-8904-63aa377b86d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\OperandAntlrContext">
+      <UniqueIdentifier>{a3cdb57f-62df-476c-8f05-d57fd0639036}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\ExpressionAntlrContext">
+      <UniqueIdentifier>{59d1c69a-94db-4548-96c3-877f2da2857f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -212,6 +227,21 @@
     </ClInclude>
     <ClInclude Include="AntlrFullExpressionContextOwner.h">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrFullExpressionContextOwner</Filter>
+    </ClInclude>
+    <ClInclude Include="AntlrToken.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrToken</Filter>
+    </ClInclude>
+    <ClInclude Include="FullExpressionAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities.h">
+      <Filter>Source Code</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressionAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\ExpressionAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="OperandAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\OperandAntlrContext</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

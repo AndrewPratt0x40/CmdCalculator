@@ -938,12 +938,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="generated_code\CmdCalculatorExpression.tokens">
-      <Filter>Generated\Misc Antlr Files\CmdCalculatorExpression</Filter>
-    </None>
-    <None Include="generated_code\CmdCalculatorExpression.interp">
-      <Filter>Generated\Misc Antlr Files\CmdCalculatorExpression</Filter>
-    </None>
     <None Include="generated_code\CmdCalculatorExpressionLexer.interp">
       <Filter>Generated\Misc Antlr Files\CmdCalculatorExpressionLexer</Filter>
     </None>
@@ -955,6 +949,12 @@
     </None>
     <None Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathLexer.tokens">
       <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </None>
+    <None Include="generated_code\CmdCalculatorExpressionParser.interp">
+      <Filter>Generated\Misc Antlr Files\CmdCalculatorExpressionParser</Filter>
+    </None>
+    <None Include="generated_code\CmdCalculatorExpressionParser.tokens">
+      <Filter>Generated\Misc Antlr Files\CmdCalculatorExpressionParser</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -972,9 +972,6 @@
     </Filter>
     <Filter Include="Generated\Misc Antlr Files">
       <UniqueIdentifier>{199d5d72-6acc-4f9c-a643-5cefcd434f9e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Generated\Misc Antlr Files\CmdCalculatorExpression">
-      <UniqueIdentifier>{de8bcc11-dead-4e8a-9eb9-dade87859c5d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Generated\Misc Antlr Files\CmdCalculatorExpressionLexer">
       <UniqueIdentifier>{5a479b6c-48bf-47ec-9be0-157d4653cb24}</UniqueIdentifier>
@@ -1005,6 +1002,9 @@
     </Filter>
     <Filter Include="ANTLR Runtime\tree\xpath">
       <UniqueIdentifier>{8e081ef9-a173-4954-be3e-928d9430aefa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated\Misc Antlr Files\CmdCalculatorExpressionParser">
+      <UniqueIdentifier>{030b762a-4076-4ce4-a250-646ac4b06039}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -11,7 +11,7 @@ namespace CmdCalculator
 	{};
 
 
-	/// \brief A type that owns an instance of \ref .CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext.
+	/// \brief A type that owns an instance of \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext.
 	/// \tparam T The converter type.
 	template<class T>
 	concept AntlrFullExpressionContextOwner =

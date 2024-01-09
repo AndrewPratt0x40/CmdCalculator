@@ -78,6 +78,7 @@
   <ItemGroup>
     <ClInclude Include="FakeCalculation.h" />
     <ClInclude Include="FakeConsole.h" />
+    <ClInclude Include="StubDynamicExpressionPartNode.h" />
     <ClInclude Include="StubTrackingAntlrContextToMathAstConverter.h" />
     <ClInclude Include="StubCalculation.h" />
     <ClInclude Include="StubThrowingStringToAntlrContextConverter.h" />
