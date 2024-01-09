@@ -88,9 +88,6 @@
     <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter\BasicAntlrContextToMathAstConverter">
       <UniqueIdentifier>{ea0f5851-67db-48af-93f5-2b3ab9fb2d25}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrFullExpressionContextOwner">
-      <UniqueIdentifier>{32193c75-6204-4016-bb50-79236a7dc3ed}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects">
       <UniqueIdentifier>{3f087724-7fde-4105-90fe-1a1248d8937f}</UniqueIdentifier>
     </Filter>
@@ -263,9 +260,6 @@
     </ClInclude>
     <ClInclude Include="BasicAntlrContextToMathAstConverter.h">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter\BasicAntlrContextToMathAstConverter</Filter>
-    </ClInclude>
-    <ClInclude Include="AntlrFullExpressionContextOwner.h">
-      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrFullExpressionContextOwner</Filter>
     </ClInclude>
     <ClInclude Include="AntlrToken.h">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrToken</Filter>

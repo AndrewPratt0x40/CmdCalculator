@@ -86,7 +86,6 @@
   <ItemGroup>
     <ClInclude Include="AbsoluteValueOperationAntlrContext.h" />
     <ClInclude Include="AntlrContextToMathAstConverter.h" />
-    <ClInclude Include="AntlrFullExpressionContextOwner.h" />
     <ClInclude Include="AntlrToken.h" />
     <ClInclude Include="BadRawCmdLineArgsException.h" />
     <ClInclude Include="BinaryOperatorAntlrContext.h" />

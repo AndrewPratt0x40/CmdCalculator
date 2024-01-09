@@ -2,9 +2,8 @@
 
 #include<concepts>
 
-#include "AntlrFullExpressionContextOwner.h"
+#include "FullExpressionAntlrContext.h"
 #include "strings.h"
-#include "../CmdCalculatorAntlr/generated_code/CmdCalculatorExpressionParser.h"
 
 namespace CmdCalculator
 {
@@ -21,7 +20,7 @@ namespace CmdCalculator
 		&& StringView<typename T::StringViewType>
 		&& requires(T&& instance, typename T::StringViewType source)
 		{
-			{ instance.getStringAsAntlrContext(source) } -> AntlrFullExpressionContextOwner;
+			{ *instance.getStringAsAntlrContext(source) } -> FullExpressionAntlrContext;
 		}
 	;
 }
