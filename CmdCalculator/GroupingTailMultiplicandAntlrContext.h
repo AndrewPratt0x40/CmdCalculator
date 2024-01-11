@@ -26,9 +26,9 @@ namespace CmdCalculator
 		&& requires(T&& instance)
 		{
 			{ instance.getInnerTrivia() } -> Optional;
-			{ **instance.getInnerTrivia() } -> AntlrToken;
+			{ *instance.getInnerTrivia() } -> AntlrToken;
 
-			{ *instance.getGroupingValue() } -> GroupingAntlrContext;
+			{ instance.getGroupingValue() } -> GroupingAntlrContext;
 		}
 	;
 }

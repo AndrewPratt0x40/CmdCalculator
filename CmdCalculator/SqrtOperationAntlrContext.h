@@ -25,9 +25,9 @@ namespace CmdCalculator
 		&& requires(T&& instance)
 		{
 			{ instance.getInnerTrivia() } -> Optional;
-			{ **instance.getInnerTrivia() } -> AntlrToken;
+			{ *instance.getInnerTrivia() } -> AntlrToken;
 
-			{ *instance.getOperandValue() } -> std::derived_from<OperandAntlrContext_IntendedSatisfaction>;
+			{ instance.getOperandValue() } -> std::derived_from<OperandAntlrContext_IntendedSatisfaction>;
 		}
 	;
 }

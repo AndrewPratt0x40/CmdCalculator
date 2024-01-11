@@ -22,7 +22,7 @@ namespace CmdCalculator
 		&& requires(T&& instance)
 	{
 		{ instance.getWholelePart() } -> Optional;
-		{ **instance.getWholelePart() } -> AntlrToken;
+		{ *instance.getWholelePart() } -> AntlrToken;
 
 		{ instance.getDecimalPoint() } -> Optional;
 

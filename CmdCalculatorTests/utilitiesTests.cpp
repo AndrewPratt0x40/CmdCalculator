@@ -3,7 +3,9 @@
 #include <concepts>
 #include <optional>
 #include <memory>
+#include <utility>
 #include <string>
+#include <string_view>
 #include <vector>
 #include <span>
 
@@ -70,17 +72,17 @@ namespace CmdCalculatorTests
 
 	using DereferenceableTests_Types = testing::Types
 	<
-		Optional_TypeParams<int, false>,
-		Optional_TypeParams<bool, false>,
-		Optional_TypeParams<EmptyStruct, false>,
-		Optional_TypeParams<int*, true>,
-		Optional_TypeParams<bool*, true>,
-		Optional_TypeParams<EmptyStruct*, true>,
-		Optional_TypeParams<int**, true>,
-		Optional_TypeParams<std::unique_ptr<int>, true>,
-		Optional_TypeParams<std::optional<int>, true>,
-		Optional_TypeParams<std::reference_wrapper<int>, true>,
-		Optional_TypeParams<std::unique_ptr<int*>, true>
+		Dereferenceable_TypeParams<int, false>,
+		Dereferenceable_TypeParams<bool, false>,
+		Dereferenceable_TypeParams<EmptyStruct, false>,
+		Dereferenceable_TypeParams<int*, true>,
+		Dereferenceable_TypeParams<bool*, true>,
+		Dereferenceable_TypeParams<EmptyStruct*, true>,
+		Dereferenceable_TypeParams<int**, true>,
+		Dereferenceable_TypeParams<std::unique_ptr<int>, true>,
+		Dereferenceable_TypeParams<std::optional<int>, true>,
+		Dereferenceable_TypeParams<std::reference_wrapper<int>, true>,
+		Dereferenceable_TypeParams<std::unique_ptr<int*>, true>
 	>;
 
 	TYPED_TEST_CASE(DereferenceableTests, DereferenceableTests_Types);
@@ -134,11 +136,11 @@ namespace CmdCalculatorTests
 	{
 		EXPECT_TRUE
 		(
-			std::same_as
+			false/*std::same_as
 			<
 				TypeParam::ExpectedType,
 				CmdCalculator::DereferencedType<TypeParam::DereferenceableType>
-			>
+			>*/
 		);
 	}
 
@@ -229,13 +231,95 @@ namespace CmdCalculatorTests
 	{
 		EXPECT_TRUE
 		(
-			std::same_as
+			false/*std::same_as
 			<
 				TypeParam::ExpectedType,
 				CmdCalculator::DereferencedRangeElementType<TypeParam::RangeOfDereferenceableElementsType>
-			>
+			>*/
 		);
 	}
+
+#pragma endregion
+
+
+#pragma region pointerAsOptionalReference
+
+#pragma region With nullptr
+
+	template<class T>
+	class pointerAsOptionalReferenceTests :
+		public testing::Test
+	{};
+
+	using pointerAsOptionalReferenceTests_Types = testing::Types
+	<
+		int,
+		EmptyStruct
+	>;
+
+	TYPED_TEST_CASE(pointerAsOptionalReferenceTests, pointerAsOptionalReferenceTests_Types);
+
+
+	TYPED_TEST(pointerAsOptionalReferenceTests, Calling$pointerAsOptionalReference$with$nullptr$returns$empty$object)
+	{
+		// Arrange
+		TypeParam* pointer{ nullptr };
+		
+		// Act
+		std::optional<std::reference_wrapper<TypeParam>> returnValue{ CmdCalculator::pointerAsOptionalReference(pointer) };
+
+		// Assert
+		EXPECT_FALSE(returnValue.has_value());
+	}
+
+
+	TYPED_TEST(pointerAsOptionalReferenceTests, Calling$pointerAsOptionalConstReference$with$nullptr$returns$empty$object)
+	{
+		// Arrange
+		TypeParam* pointer{ nullptr };
+
+		// Act
+		std::optional<std::reference_wrapper<const TypeParam>> returnValue{ CmdCalculator::pointerAsOptionalConstReference(pointer) };
+
+		// Assert
+		EXPECT_FALSE(returnValue.has_value());
+	}
+
+
+	TYPED_TEST(pointerAsOptionalReferenceTests, Calling$pointerAsOptionalReference$with$non$nullptr$returns$reference$to$pointed$to$value)
+	{
+		// Arrange
+		ASSERT_TRUE(std::default_initializable<TypeParam>);
+
+		TypeParam value{};
+		TypeParam* pointer{ &value };
+		
+		// Act
+		std::optional<std::reference_wrapper<TypeParam>> returnValue{ CmdCalculator::pointerAsOptionalReference(pointer) };
+
+		// Assert
+		EXPECT_TRUE(returnValue.has_value());
+		EXPECT_EQ(pointer, &returnValue.value().get());
+	}
+
+
+	TYPED_TEST(pointerAsOptionalReferenceTests, Calling$pointerAsOptionalConstReference$with$non$nullptr$returns$reference$to$pointed$to$value)
+	{
+		// Arrange
+		ASSERT_TRUE(std::default_initializable<TypeParam>);
+
+		TypeParam value{};
+		TypeParam* pointer{ &value };
+
+		// Act
+		std::optional<std::reference_wrapper<const TypeParam>> returnValue{ CmdCalculator::pointerAsOptionalConstReference(pointer) };
+
+		// Assert
+		EXPECT_TRUE(returnValue.has_value());
+		EXPECT_EQ(pointer, &returnValue.value().get());
+	}
+
+#pragma endregion
 
 #pragma endregion
 }

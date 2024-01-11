@@ -11,6 +11,14 @@
 
 namespace CmdCalculator
 {
+	/// \brief Enumerates the different possible kinds of an ANTLR number literal parser rule.
+	enum class ENumberLiteralAntlrContextKind
+	{
+		Wholeful,
+		Wholeless,
+	};
+
+
 	/// \brief The base type for types that are intended to satisfy the \ref NumberLiteralAntlrContext concept.
 	struct NumberLiteralAntlrContext_IntendedSatisfaction
 	{};
@@ -23,13 +31,13 @@ namespace CmdCalculator
 		std::derived_from<T, NumberLiteralAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 	{
-		{ instance.isWholeful() } -> std::same_as<bool>;
+		{ instance.getNumberLiteralAntlrContextKind() } -> std::same_as<ENumberLiteralAntlrContextKind>;
 
 		{ instance.getWholefulNumberLiteral() } -> Optional;
-		{ **instance.getWholefulNumberLiteral() } -> WholefulNumberLiteralAntlrContext;
+		{ *instance.getWholefulNumberLiteral() } -> WholefulNumberLiteralAntlrContext;
 
 		{ instance.getWholelessNumberLiteral() } -> Optional;
-		{ **instance.getWholelessNumberLiteral() } -> WholelessNumberLiteralAntlrContext;
+		{ *instance.getWholelessNumberLiteral() } -> WholelessNumberLiteralAntlrContext;
 	}
 	;
 }

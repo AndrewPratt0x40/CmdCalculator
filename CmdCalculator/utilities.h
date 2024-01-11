@@ -3,6 +3,8 @@
 #include <type_traits>
 #include <optional>
 
+#include "NotImplementedException.h"
+
 namespace CmdCalculator
 {
 	/// \brief Describes any type that is \ref std::optional.
@@ -45,5 +47,33 @@ namespace CmdCalculator
 	/// \example <tt>DereferencedRangeElementType<std::vector<int*>></tt> would yield <tt>int</tt>.
 	/// \example <tt>DereferencedRangeElementType<std::vector<std::shared_ptr<int>>></tt> would yield <tt>int</tt>.
 	template<RangeOfDereferenceableElements RangeOfDereferenceableElementsT>
-	using DereferencedRangeElementType = decltype(*declval<DereferenceableT>());
+	using DereferencedRangeElementType = decltype(*std::declval<std::ranges::range_value_t<RangeOfDereferenceableElementsT>>());
+
+
+	/// \brief Converts a pointer to an optional reference object.
+	/// \tparam ValueT The type pointed to.
+	/// \param pointer The pointer to convert.
+	/// \returns An optional object holding a reference to the value pointed to by \p pointer, or an empty value if \p pointer is null.
+	template<class ValueT>
+	std::optional<std::reference_wrapper<ValueT>> pointerAsOptionalReference(ValueT* pointer)
+	{
+		return pointer
+			? std::make_optional(std::ref(*pointer))
+			: std::optional<std::reference_wrapper<ValueT>>{}
+		;
+	}
+
+
+	/// \brief Converts a pointer to an optional read-only reference object.
+	/// \tparam ValueT The type pointed to.
+	/// \param pointer The pointer to convert.
+	/// \returns An optional object holding a reference to the value pointed to by \p pointer, or an empty value if \p pointer is null.
+	template<class ValueT>
+	std::optional<std::reference_wrapper<const ValueT>> pointerAsOptionalConstReference(const ValueT* pointer)
+	{
+		return pointer
+			? std::make_optional(std::cref(*pointer))
+			: std::optional<std::reference_wrapper<const ValueT>>{}
+		;
+	}
 }

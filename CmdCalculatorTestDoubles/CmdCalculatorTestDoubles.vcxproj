@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -78,13 +78,25 @@
   <ItemGroup>
     <ClInclude Include="FakeCalculation.h" />
     <ClInclude Include="FakeConsole.h" />
-    <ClInclude Include="StubDynamicExpressionPartNode.h" />
+    <ClInclude Include="StubAbsoluteValueOperationAntlrContext.h" />
+    <ClInclude Include="StubAntlrToken.h" />
+    <ClInclude Include="StubBinaryOperatorAntlrContext.h" />
+    <ClInclude Include="StubExpressionAntlrContext.h" />
+    <ClInclude Include="StubGroupingAntlrContext.h" />
+    <ClInclude Include="StubGroupingMultiplicationAntlrContext.h" />
+    <ClInclude Include="StubGroupingTailMultiplicandAntlrContext.h" />
+    <ClInclude Include="StubNonGroupingMultiplicationAntlrContext.h" />
+    <ClInclude Include="StubNumberLiteralAntlrContext.h" />
+    <ClInclude Include="StubOperandAntlrContext.h" />
+    <ClInclude Include="StubOperationPartPairAntlrContext.h" />
+    <ClInclude Include="StubSignOperationAntlrContext.h" />
+    <ClInclude Include="StubSignOperatorAntlrContext.h" />
+    <ClInclude Include="StubSqrtOperationAntlrContext.h" />
     <ClInclude Include="StubTrackingAntlrContextToMathAstConverter.h" />
     <ClInclude Include="StubCalculation.h" />
     <ClInclude Include="StubThrowingStringToAntlrContextConverter.h" />
-    <ClInclude Include="StubTrackingDynamicExpressionNode.h" />
+    <ClInclude Include="StubTrackingFullExpressionAntlrContext.h" />
     <ClInclude Include="StubTrackingStringToAntlrContextConverter.h" />
-    <ClInclude Include="StubTrackingAntlrFullExpressionContextOwner.h" />
     <ClInclude Include="StubTrackingConvertedString.h" />
     <ClInclude Include="StubExpression.h" />
     <ClInclude Include="StubExpressionToStringConverter.h" />
@@ -100,6 +112,8 @@
     <ClInclude Include="StubTrackingMathAstToExpressionConverter.h" />
     <ClInclude Include="StubTrackingStringToMathAstConverter.h" />
     <ClInclude Include="StubValidatingStringToMathAstConverter.h" />
+    <ClInclude Include="StubWholefulNumberLiteralAntlrContext.h" />
+    <ClInclude Include="StubWholelessNumberLiteralAntlrContext.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CmdCalculator\CmdCalculator.vcxproj">

@@ -23,14 +23,14 @@ namespace CmdCalculator
 		std::derived_from<T, ExpressionAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
-			{ *instance.getHeadOperand() } -> OperandAntlrContext;
+			{ instance.getHeadOperand() } -> OperandAntlrContext;
 
 			{ instance.getOperationPartPairs() } -> std::ranges::input_range;
 			OperationPartPairAntlrContext<DereferencedRangeElementType<decltype(instance.getOperationPartPairs())>>;
 
 			std::same_as
 			<
-				decltype(*instance.getHeadOperand()),
+				decltype(instance.getHeadOperand()),
 				DereferencedRangeElementType<decltype(instance.getOperationPartPairs())>
 			>;
 		}

@@ -32,8 +32,8 @@ namespace CmdCalculator
 		std::derived_from<T, SignOperatorAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
-			{ *instance.getSignOperatorAntlrContextKind() } -> std::same_as<ESignOperatorAntlrContextKind>;
-			{ *instance.getToken() } -> AntlrToken;
+			{ instance.getSignOperatorAntlrContextKind() } -> std::same_as<ESignOperatorAntlrContextKind>;
+			{ instance.getToken() } -> AntlrToken;
 		}
 	;
 }

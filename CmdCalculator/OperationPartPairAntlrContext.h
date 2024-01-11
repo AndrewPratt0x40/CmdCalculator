@@ -24,14 +24,14 @@ namespace CmdCalculator
 		&& requires(T&& instance)
 		{
 			{ instance.getOperatorLeadingTrivia() } -> Optional;
-			{ **instance.getOperatorLeadingTrivia() } -> AntlrToken;
+			{ *instance.getOperatorLeadingTrivia() } -> AntlrToken;
 
-			{ *instance.getOperatorValue() } -> BinaryOperatorAntlrContext;
+			{ instance.getOperatorValue() } -> BinaryOperatorAntlrContext;
 
 			{ instance.getOperatorTrailingTrivia() } -> Optional;
-			{ **instance.getOperatorTrailingTrivia() } -> AntlrToken;
+			{ *instance.getOperatorTrailingTrivia() } -> AntlrToken;
 
-			{ *instance.getOperandValue() } -> OperandAntlrContext;
+			{ instance.getOperandValue() } -> OperandAntlrContext;
 		}
 	;
 }

@@ -2,7 +2,6 @@
 
 #include <exception>#include "../CmdCalculator/StringToAntlrContextConverter.h"
 #include "../CmdCalculator/strings.h"
-#include "../CmdCalculatorTestDoubles/StubTrackingAntlrFullExpressionContextOwner.h"
 
 namespace CmdCalculatorTestDoubles
 {
@@ -13,14 +12,14 @@ namespace CmdCalculatorTestDoubles
 	public:
 		using StringViewType = StringViewT;
 		using ExceptionType = ExceptionT;
-		using AntlrFullExpressionContextOwnerType = CmdCalculatorTestDoubles::StubTrackingAntlrFullExpressionContextOwner<StringViewType>;
+		//using AntlrFullExpressionContextOwnerType = CmdCalculatorTestDoubles::StubTrackingAntlrFullExpressionContextOwner<StringViewType>;
 
 		ExceptionType exceptionToThrow;
 
 
-		AntlrFullExpressionContextOwnerType getStringAsAntlrContext(StringViewT source) const
+		/*AntlrFullExpressionContextOwnerType getStringAsAntlrContext(StringViewT source) const
 		{
 			throw exceptionToThrow;
-		}
+		}*/
 	};
 }

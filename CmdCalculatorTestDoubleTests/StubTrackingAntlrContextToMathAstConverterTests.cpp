@@ -9,11 +9,12 @@ namespace CmdCalculatorTestDoubleTests
 {
 #pragma region Concept satisfaction
 
-	TEST(StubAntlrContextToMathAstConverterTests, StubAntlrContextToMathAstConverter$satisfies$ContextToMathAstConverter$concept)
+	TEST(StubTrackingAntlrContextToMathAstConverterTests, StubAntlrContextToMathAstConverter$satisfies$ContextToMathAstConverter$concept)
 	{
+		EXPECT_TRUE(false); // TODO
 		static_assert
 		(
-			CmdCalculator::AntlrContextToMathAstConverter<CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, int>>
+			true//CmdCalculator::AntlrContextToMathAstConverter<CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, int>>
 		);
 	}
 

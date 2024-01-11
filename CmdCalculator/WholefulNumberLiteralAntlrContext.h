@@ -24,10 +24,10 @@ namespace CmdCalculator
 			{ instance.getWholelePart() } -> AntlrToken;
 
 			{ instance.getDecimalPoint() } -> Optional;
-			{ **instance.getDecimalPoint() } -> AntlrToken;
+			{ *instance.getDecimalPoint() } -> AntlrToken;
 
 			{ instance.getFractionalPart() } -> Optional;
-			{ **instance.getFractionalPart() } -> AntlrToken;
+			{ *instance.getFractionalPart() } -> AntlrToken;
 		}
 	;
 }

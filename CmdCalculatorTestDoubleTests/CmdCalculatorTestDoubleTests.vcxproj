@@ -73,6 +73,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FakeConsoleTests.cpp" />
+    <ClCompile Include="StubAbsoluteValueOperationAntlrContextTests.cpp" />
+    <ClCompile Include="StubAntlrTokenTests.cpp" />
+    <ClCompile Include="StubBinaryOperatorAntlrContextTests.cpp" />
+    <ClCompile Include="StubExpressionAntlrContextTests.cpp" />
+    <ClCompile Include="StubGroupingAntlrContextTests.cpp" />
+    <ClCompile Include="StubGroupingMultiplicationAntlrContextTests.cpp" />
+    <ClCompile Include="StubGroupingTailMultiplicandAntlrContextTests.cpp" />
+    <ClCompile Include="StubNonGroupingMultiplicationAntlrContextTests.cpp" />
+    <ClCompile Include="StubNumberLiteralAntlrContextTests.cpp" />
+    <ClCompile Include="StubOperandAntlrContextTests.cpp" />
+    <ClCompile Include="StubOperationPartPairAntlrContextTests.cpp" />
+    <ClCompile Include="StubSignOperationAntlrContextTests.cpp" />
+    <ClCompile Include="StubSignOperatorAntlrContextTests.cpp" />
+    <ClCompile Include="StubSqrtOperationAntlrContextTests.cpp" />
     <ClCompile Include="StubTrackingAntlrContextToMathAstConverterTests.cpp" />
     <ClCompile Include="StubCalculationTests.cpp" />
     <ClCompile Include="StubExpressionTests.cpp" />
@@ -88,15 +102,17 @@
     <ClCompile Include="StubThrowingCalculationTests.cpp" />
     <ClCompile Include="StubThrowingRawCmdLineArgParserTests.cpp" />
     <ClCompile Include="StubThrowingStringToAntlrContextConverterTests.cpp" />
-    <ClCompile Include="StubTrackingAntlrFullExpressionContextOwnerTests.cpp" />
     <ClCompile Include="StubTrackingConvertedStringTests.cpp" />
     <ClCompile Include="StubTrackingExpressionTests.cpp" />
     <ClCompile Include="StubTrackingExpressionToStringConverterTests.cpp" />
+    <ClCompile Include="StubTrackingFullExpressionAntlrContextTests.cpp" />
     <ClCompile Include="StubTrackingMathAstNodeTests.cpp" />
     <ClCompile Include="StubTrackingMathAstToExpressionConverterTests.cpp" />
     <ClCompile Include="StubTrackingStringToAntlrContextConverterTests.cpp" />
     <ClCompile Include="StubTrackingStringToMathAstConverterTests.cpp" />
     <ClCompile Include="StubValidatingStringToMathAstConverterTests.cpp" />
+    <ClCompile Include="StubWholefulNumberLiteralAntlrContextTests.cpp" />
+    <ClCompile Include="StubWholelessNumberLiteralAntlrContextTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

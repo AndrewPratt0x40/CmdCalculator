@@ -5,7 +5,6 @@
 
 #include "../CmdCalculator/StringToAntlrContextConverter.h"
 #include "../CmdCalculator/strings.h"
-#include "../CmdCalculatorTestDoubles/StubTrackingAntlrFullExpressionContextOwner.h"
 
 namespace CmdCalculatorTestDoubles
 {
@@ -15,12 +14,12 @@ namespace CmdCalculatorTestDoubles
 	{
 	public:
 		using StringViewType = StringViewT;
-		using AntlrFullExpressionContextOwnerType = CmdCalculatorTestDoubles::StubTrackingAntlrFullExpressionContextOwner<StringViewType>;
+		//using AntlrFullExpressionContextOwnerType = CmdCalculatorTestDoubles::StubTrackingAntlrFullExpressionContextOwner<StringViewType>;
 
-		CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext convertedString;
+		//CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext convertedString;
 
 
-		AntlrFullExpressionContextOwnerType getStringAsAntlrContext(StringViewT source) const
+		/*AntlrFullExpressionContextOwnerType getStringAsAntlrContext(StringViewT source) const
 		{
 			static_assert(std::copyable<decltype(convertedString)>);
 			return AntlrFullExpressionContextOwnerType
@@ -28,6 +27,6 @@ namespace CmdCalculatorTestDoubles
 				.stringSource{ source },
 				.value{ convertedString }
 			};
-		}
+		}*/
 	};
 }

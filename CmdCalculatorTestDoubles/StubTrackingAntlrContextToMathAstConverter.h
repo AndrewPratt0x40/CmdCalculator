@@ -6,8 +6,6 @@
 #include <ranges>
 #include <span>
 
-#include "StubTrackingDynamicExpressionNode.h"
-#include "StubDynamicExpressionPartNode.h"
 #include "../CmdCalculator/AntlrContextToMathAstConverter.h"
 #include "../CmdCalculator/DynamicExpressionPartNode.h"
 #include "../CmdCalculator/dynamic_mathast.h"
@@ -29,10 +27,10 @@ namespace CmdCalculatorTestDoubles
 
 		StringT convertedContextLeadingTrivia;
 		StringT convertedContextTrailingTrivia;
-		std::span<CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<StringType>> convertedContextParts;
+		//std::span<CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<StringType>> convertedContextParts;
 
 
-		std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionNode<StringType>> getConvertedFull_expressionContext(CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext& context)
+		/*std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionNode<StringType>> getConvertedFull_expressionContext(CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext& context)
 		{
 			return
 				std::make_unique<MathAst::StubTrackingDynamicExpressionNode<StringType>>
@@ -118,6 +116,6 @@ namespace CmdCalculatorTestDoubles
 		std::unique_ptr<CmdCalculator::MathAst::DynamicAbsoluteValueNode<StringT>> getConvertedAbsolute_value_operationContext(CmdCalculator::Antlr::CmdCalculatorExpressionParser::Absolute_value_operationContext& context)
 		{
 			throw CmdCalculator::NotImplementedException{};
-		}
+		}*/
 	};
 }

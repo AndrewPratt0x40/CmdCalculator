@@ -40,19 +40,19 @@ namespace CmdCalculator
 		{ instance.getNonGroupingMultiplicationKind() } -> std::same_as<ENonGroupingMultiplicationAntlrContextKind>;
 
 		{ instance.getNumberLiteral() } -> Optional;
-		{ **instance.getNumberLiteral() } -> NumberLiteralAntlrContext;
+		{ *instance.getNumberLiteral() } -> NumberLiteralAntlrContext;
 
 		{ instance.getSignOperation() } -> Optional;
-		{ **instance.getSignOperation() } -> SignOperationAntlrContext;
+		{ *instance.getSignOperation() } -> SignOperationAntlrContext;
 
 		{ instance.getSqrtOperation() } -> Optional;
-		{ **instance.getSqrtOperation() } -> SqrtOperationAntlrContext;
+		{ *instance.getSqrtOperation() } -> SqrtOperationAntlrContext;
 
 		{ instance.getGrouping() } -> Optional;
-		{ **instance.getGrouping() } -> GroupingAntlrContext;
+		{ *instance.getGrouping() } -> GroupingAntlrContext;
 
 		{ instance.getAbsoluteValueOperation() } -> Optional;
-		{ **instance.getAbsoluteValueOperation() } -> AbsoluteValueOperationAntlrContext;
+		{ *instance.getAbsoluteValueOperation() } -> AbsoluteValueOperationAntlrContext;
 	}
 	;
 }

@@ -25,12 +25,12 @@ namespace CmdCalculator
 		std::derived_from<T, SignOperationAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
-			{ *instance.getSignOperator() } -> SignOperatorAntlrContext;
+			{ instance.getSignOperator() } -> SignOperatorAntlrContext;
 
 			{ instance.getInnerTrivia() } -> Optional;
-			{ **instance.getInnerTrivia() } -> AntlrToken;
+			{ *instance.getInnerTrivia() } -> AntlrToken;
 
-			{ *instance.getOperandValue() } -> std::derived_from<OperandAntlrContext_IntendedSatisfaction>;
+			{ instance.getOperandValue() } -> std::derived_from<OperandAntlrContext_IntendedSatisfaction>;
 		}
 	;
 }

@@ -12,9 +12,10 @@ namespace CmdCalculatorTestDoubleTests
 
 	TEST(StubThrowingStringToAntlrContextConverterTests, StubThrowingStringToAntlrContextConverter$satisfies$StringToAntlrContextConverter$concept)
 	{
+		EXPECT_TRUE(false); // TODO
 		static_assert
 		(
-			CmdCalculator::StringToAntlrContextConverter<CmdCalculatorTestDoubles::StubThrowingStringToAntlrContextConverter<std::string_view, std::exception>>
+			true//CmdCalculator::StringToAntlrContextConverter<CmdCalculatorTestDoubles::StubThrowingStringToAntlrContextConverter<std::string_view, std::exception>>
 		);
 	}
 

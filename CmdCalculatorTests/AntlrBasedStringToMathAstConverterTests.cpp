@@ -4,8 +4,6 @@
 #include "../CmdCalculator/StringToMathAstConverter.h"
 #include "../CmdCalculatorTestDoubles/StubTrackingStringToAntlrContextConverter.h"
 #include "../CmdCalculatorTestDoubles/StubTrackingAntlrContextToMathAstConverter.h"
-#include "../CmdCalculatorTestDoubles/StubTrackingDynamicExpressionNode.h"
-#include "../CmdCalculatorTestDoubles/StubDynamicExpressionPartNode.h"
 
 
 namespace CmdCalculatorTests
@@ -14,9 +12,10 @@ namespace CmdCalculatorTests
 	
 	TEST(AntlrBasedStringToMathAstConverterTests, AntlrBasedStringToMathAstConverter$satisfies$StringToMathAstConverter$concept)
 	{
+		FAIL();
 		static_assert
 		(
-			CmdCalculator::StringToMathAstConverter
+			true/*CmdCalculator::StringToMathAstConverter
 			<
 				CmdCalculator::AntlrBasedStringToMathAstConverter
 				<
@@ -24,7 +23,7 @@ namespace CmdCalculatorTests
 					CmdCalculatorTestDoubles::StubTrackingStringToAntlrContextConverter<std::string_view>,
 					CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, int>
 				>
-			>
+			>*/
 		);
 	}
 
@@ -35,8 +34,9 @@ namespace CmdCalculatorTests
 
 	TEST(AntlrBasedStringToMathAstConverterTests, Calling$getStringAsMathAst$returns$the$result$of$using$converters)
 	{
+		FAIL();
 		// Arrange
-		std::string inputExpression{ "Input expression" };
+		/*std::string inputExpression{"Input expression"};
 		
 		using StringToAntlrContextConverterType = CmdCalculatorTestDoubles::StubTrackingStringToAntlrContextConverter<std::string_view>;
 
@@ -69,7 +69,7 @@ namespace CmdCalculatorTests
 
 		// Act
 		std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionNode<std::string>> returnValue{ instance.getStringAsMathAst(inputExpression) };
-		auto expression{ dynamic_cast<CmdCalculatorTestDoubles::MathAst::StubTrackingDynamicExpressionNode<std::string>>(returnValue) };
+		auto expression{ dynamic_cast<CmdCalculatorTestDoubles::MathAst::StubTrackingDynamicExpressionNode<std::string>>(returnValue) };*/
 
 	}
 

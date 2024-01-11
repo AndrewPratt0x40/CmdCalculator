@@ -21,14 +21,14 @@ namespace CmdCalculator
 	concept FullExpressionAntlrContext =
 		std::derived_from<T, FullExpressionAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
-	{
-		{ instance.getLeadingTrivia() } -> Optional;
-		{ **instance.getLeadingTrivia() } -> AntlrToken;
+		{
+			{ instance.getLeadingTrivia() } -> Optional;
+			{ *instance.getLeadingTrivia() } -> AntlrToken;
 
-		{ *instance.getExpressionValue() } -> ExpressionAntlrContext;
+			{ instance.getExpressionValue() } -> ExpressionAntlrContext;
 		
-		{ instance.getTrailingTrivia() } -> Optional;
-		{ **instance.getTrailingTrivia() } -> AntlrToken;
-	}
+			{ instance.getTrailingTrivia() } -> Optional;
+			{ *instance.getTrailingTrivia() } -> AntlrToken;
+		}
 	;
 }

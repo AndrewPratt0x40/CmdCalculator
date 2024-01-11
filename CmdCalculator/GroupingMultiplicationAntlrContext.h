@@ -4,6 +4,7 @@
 #include <ranges>
 
 #include "AntlrToken.h"
+#include "NonGroupingMultiplicationAntlrContext.h"
 #include "GroupingTailMultiplicandAntlrContext.h"
 #include "utilities.h"
 #include "strings.h"
@@ -25,7 +26,7 @@ namespace CmdCalculator
 		std::derived_from<T, GroupingMultiplicationAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
-			{ *instance.getHeadMultiplicand() } -> NonGroupingMultiplicationAntlrContext;
+			{ instance.getHeadMultiplicand() } -> NonGroupingMultiplicationAntlrContext;
 
 			{ instance.getTailMultiplicands() } -> std::ranges::input_range;
 			GroupingTailMultiplicandAntlrContext<DereferencedRangeElementType<decltype(instance.getTailMultiplicands())>>;
