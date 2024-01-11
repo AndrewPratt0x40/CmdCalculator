@@ -25,12 +25,12 @@ namespace CmdCalculator
 		&& requires(T&& instance)
 		{
 			{ instance.getInnerLeadingTrivia() } -> Optional;
-			{ *instance.getInnerLeadingTrivia() } -> AntlrToken;
+			AntlrToken<typename decltype(instance.getInnerLeadingTrivia())::value_type>;
 
-			{ instance.getInnerExpression() } -> std::derived_from<ExpressionAntlrContext_IntendedSatisfaction>;
+			std::derived_from<std::remove_reference_t<decltype(instance.getInnerExpression())>, ExpressionAntlrContext_IntendedSatisfaction>;
 
 			{ instance.getInnerTrailingTrivia() } -> Optional;
-			{ *instance.getInnerTrailingTrivia() } -> AntlrToken;
+			AntlrToken<typename decltype(instance.getInnerTrailingTrivia())::value_type>;
 		}
 	;
 }

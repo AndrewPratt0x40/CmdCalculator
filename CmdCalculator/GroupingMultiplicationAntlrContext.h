@@ -29,7 +29,7 @@ namespace CmdCalculator
 			{ instance.getHeadMultiplicand() } -> NonGroupingMultiplicationAntlrContext;
 
 			{ instance.getTailMultiplicands() } -> std::ranges::input_range;
-			GroupingTailMultiplicandAntlrContext<DereferencedRangeElementType<decltype(instance.getTailMultiplicands())>>;
+			GroupingTailMultiplicandAntlrContext<std::ranges::range_value_t<decltype(instance.getTailMultiplicands())>>;
 		}
 	;
 }

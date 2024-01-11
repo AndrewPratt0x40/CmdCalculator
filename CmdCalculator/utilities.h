@@ -30,7 +30,7 @@ namespace CmdCalculator
 	/// \example <tt>DereferencedType<int**></tt> would yield <tt>int*</tt>.
 	/// \example <tt>DereferencedType<std::shared_ptr<int>></tt> would yield <tt>int</tt>.
 	template<Dereferenceable DereferenceableT>
-	using DereferencedType = decltype(*declval<DereferenceableT>());
+	using DereferencedType = decltype(*std::declval<DereferenceableT>());
 
 
 	/// \brief Describes any type that is a range of elements that may be dereferenced via the * operator.

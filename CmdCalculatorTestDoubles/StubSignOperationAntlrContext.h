@@ -1,6 +1,8 @@
 #pragma once
 
 #include <optional>
+#include <memory>
+#include <assert.h>
 
 #include "../CmdCalculator/SignOperationAntlrContext.h"
 #include "StubSignOperatorAntlrContext.h"
@@ -20,7 +22,7 @@ namespace CmdCalculatorTestDoubles
 
 		SignOperatorAntlrContextType signOperator;
 		std::optional<AntlrTokenType> innerTrivia;
-		OperandAntlrContextType operandValue;
+		std::shared_ptr<OperandAntlrContextType> operandValue;
 
 
 		SignOperatorAntlrContextType getSignOperator() const
@@ -35,9 +37,10 @@ namespace CmdCalculatorTestDoubles
 		}
 
 
-		OperandAntlrContextType getOperandValue() const
+		OperandAntlrContextType& getOperandValue() const
 		{
-			return operandValue;
+			assert(operandValue);
+			return *operandValue;
 		}
 	};
 }

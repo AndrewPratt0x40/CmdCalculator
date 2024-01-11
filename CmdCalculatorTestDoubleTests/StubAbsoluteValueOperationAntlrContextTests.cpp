@@ -4,6 +4,7 @@
 
 #include "../CmdCalculatorTestDoubles/StubAbsoluteValueOperationAntlrContext.h"
 #include "../CmdCalculator/AbsoluteValueOperationAntlrContext.h"
+#include "../CmdCalculator/utilities.h"
 
 namespace CmdCalculatorTestDoubleTests
 {

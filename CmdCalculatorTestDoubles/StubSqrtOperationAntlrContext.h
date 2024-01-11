@@ -1,6 +1,8 @@
 #pragma once
 
 #include <optional>
+#include <memory>
+#include <assert.h>
 
 #include "../CmdCalculator/SqrtOperationAntlrContext.h"
 #include "StubAntlrToken.h"
@@ -17,7 +19,7 @@ namespace CmdCalculatorTestDoubles
 		using OperandAntlrContextType = StubOperandAntlrContext;
 
 		std::optional<AntlrTokenType> innerTrivia;
-		OperandAntlrContextType operandValue;
+		std::shared_ptr<OperandAntlrContextType> operandValue;
 
 
 		std::optional<AntlrTokenType> getInnerTrivia() const
@@ -26,9 +28,10 @@ namespace CmdCalculatorTestDoubles
 		}
 
 
-		OperandAntlrContextType getOperandValue() const
+		OperandAntlrContextType& getOperandValue() const
 		{
-			return operandValue;
+			assert(operandValue);
+			return *operandValue;
 		}
 	};
 }

@@ -26,10 +26,10 @@ namespace CmdCalculator
 			{ instance.isGroupingMultiplication() } -> std::same_as<bool>;
 
 			{ instance.getNonGroupingMultiplicationOperand() } -> Optional;
-			{ *instance.getNonGroupingMultiplicationOperand() } -> NonGroupingMultiplicationAntlrContext;
+			NonGroupingMultiplicationAntlrContext<typename decltype(instance.getNonGroupingMultiplicationOperand())::value_type>;
 
 			{ instance.getGroupingMultiplicationOperand() } -> Optional;
-			{ *instance.getGroupingMultiplicationOperand() } -> GroupingMultiplicationAntlrContext;
+			GroupingMultiplicationAntlrContext<typename decltype(instance.getGroupingMultiplicationOperand())::value_type>;
 		}
 	;
 }

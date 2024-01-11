@@ -14,9 +14,15 @@ namespace CmdCalculatorTestDoubles
 		using NonGroupingMultiplicationAntlrContextType = StubNonGroupingMultiplicationAntlrContext;
 		using GroupingMultiplicationAntlrContextType = StubGroupingMultiplicationAntlrContext;
 
-		bool isGroupingMultiplication;
+		bool isGroupingMultiplicationValue;
 		std::optional<NonGroupingMultiplicationAntlrContextType> nonGroupingMultiplicationOperand;
 		std::optional<GroupingMultiplicationAntlrContextType> groupingMultiplicationOperand;
+
+
+		bool isGroupingMultiplication() const
+		{
+			return isGroupingMultiplicationValue;
+		}
 
 
 		std::optional<NonGroupingMultiplicationAntlrContextType> getNonGroupingMultiplicationOperand() const

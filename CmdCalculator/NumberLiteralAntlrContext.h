@@ -34,10 +34,10 @@ namespace CmdCalculator
 		{ instance.getNumberLiteralAntlrContextKind() } -> std::same_as<ENumberLiteralAntlrContextKind>;
 
 		{ instance.getWholefulNumberLiteral() } -> Optional;
-		{ *instance.getWholefulNumberLiteral() } -> WholefulNumberLiteralAntlrContext;
+		WholefulNumberLiteralAntlrContext<typename decltype(instance.getWholefulNumberLiteral())::value_type>;
 
 		{ instance.getWholelessNumberLiteral() } -> Optional;
-		{ *instance.getWholelessNumberLiteral() } -> WholelessNumberLiteralAntlrContext;
+		WholelessNumberLiteralAntlrContext<typename decltype(instance.getWholelessNumberLiteral())::value_type>;
 	}
 	;
 }

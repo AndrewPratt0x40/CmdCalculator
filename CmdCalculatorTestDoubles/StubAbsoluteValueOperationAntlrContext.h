@@ -1,6 +1,8 @@
 #pragma once
 
 #include <optional>
+#include <memory>
+#include <assert.h>
 
 #include "../CmdCalculator/AbsoluteValueOperationAntlrContext.h"
 #include "StubAntlrToken.h"
@@ -17,7 +19,7 @@ namespace CmdCalculatorTestDoubles
 		using ExpressionAntlrContextType = StubExpressionAntlrContext;
 
 		std::optional<AntlrTokenType> innerLeadingTrivia;
-		ExpressionAntlrContextType innerExpression;
+		std::shared_ptr<ExpressionAntlrContextType> innerExpression;
 		std::optional<AntlrTokenType> innerTrailingTrivia;
 
 
@@ -27,9 +29,10 @@ namespace CmdCalculatorTestDoubles
 		}
 
 
-		ExpressionAntlrContextType getInnerExpression() const
+		ExpressionAntlrContextType& getInnerExpression() const
 		{
-			return innerExpression;
+			assert(innerExpression);
+			return *innerExpression;
 		}
 
 

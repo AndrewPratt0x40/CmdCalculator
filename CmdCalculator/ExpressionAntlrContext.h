@@ -26,12 +26,12 @@ namespace CmdCalculator
 			{ instance.getHeadOperand() } -> OperandAntlrContext;
 
 			{ instance.getOperationPartPairs() } -> std::ranges::input_range;
-			OperationPartPairAntlrContext<DereferencedRangeElementType<decltype(instance.getOperationPartPairs())>>;
+			OperationPartPairAntlrContext<std::ranges::range_value_t<decltype(instance.getOperationPartPairs())>>;
 
 			std::same_as
 			<
 				decltype(instance.getHeadOperand()),
-				DereferencedRangeElementType<decltype(instance.getOperationPartPairs())>
+				std::ranges::range_value_t<decltype(instance.getOperationPartPairs())>
 			>;
 		}
 	;

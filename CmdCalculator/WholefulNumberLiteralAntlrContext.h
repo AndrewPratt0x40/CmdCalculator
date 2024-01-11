@@ -21,13 +21,13 @@ namespace CmdCalculator
 		std::derived_from<T, WholefulNumberLiteralAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
-			{ instance.getWholelePart() } -> AntlrToken;
+			{ instance.getWholePart() } -> AntlrToken;
 
 			{ instance.getDecimalPoint() } -> Optional;
-			{ *instance.getDecimalPoint() } -> AntlrToken;
+			AntlrToken<typename decltype(instance.getDecimalPoint())::value_type>;
 
 			{ instance.getFractionalPart() } -> Optional;
-			{ *instance.getFractionalPart() } -> AntlrToken;
+			AntlrToken<typename decltype(instance.getFractionalPart())::value_type>;
 		}
 	;
 }

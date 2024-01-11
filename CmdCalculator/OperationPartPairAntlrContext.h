@@ -24,12 +24,12 @@ namespace CmdCalculator
 		&& requires(T&& instance)
 		{
 			{ instance.getOperatorLeadingTrivia() } -> Optional;
-			{ *instance.getOperatorLeadingTrivia() } -> AntlrToken;
+			AntlrToken<typename decltype(instance.getOperatorLeadingTrivia())::value_type>;
 
 			{ instance.getOperatorValue() } -> BinaryOperatorAntlrContext;
 
 			{ instance.getOperatorTrailingTrivia() } -> Optional;
-			{ *instance.getOperatorTrailingTrivia() } -> AntlrToken;
+			AntlrToken<typename decltype(instance.getOperatorTrailingTrivia())::value_type>;
 
 			{ instance.getOperandValue() } -> OperandAntlrContext;
 		}

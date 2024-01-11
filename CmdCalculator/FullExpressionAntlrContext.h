@@ -23,12 +23,12 @@ namespace CmdCalculator
 		&& requires(T&& instance)
 		{
 			{ instance.getLeadingTrivia() } -> Optional;
-			{ *instance.getLeadingTrivia() } -> AntlrToken;
+			AntlrToken<typename decltype(instance.getLeadingTrivia())::value_type>;
 
 			{ instance.getExpressionValue() } -> ExpressionAntlrContext;
 		
 			{ instance.getTrailingTrivia() } -> Optional;
-			{ *instance.getTrailingTrivia() } -> AntlrToken;
+			AntlrToken<typename decltype(instance.getTrailingTrivia())::value_type>;
 		}
 	;
 }

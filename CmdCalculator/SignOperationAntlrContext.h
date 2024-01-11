@@ -28,9 +28,9 @@ namespace CmdCalculator
 			{ instance.getSignOperator() } -> SignOperatorAntlrContext;
 
 			{ instance.getInnerTrivia() } -> Optional;
-			{ *instance.getInnerTrivia() } -> AntlrToken;
+			AntlrToken<typename decltype(instance.getInnerTrivia())::value_type>;
 
-			{ instance.getOperandValue() } -> std::derived_from<OperandAntlrContext_IntendedSatisfaction>;
+			std::derived_from<std::remove_reference_t<decltype(instance.getOperandValue())>, OperandAntlrContext_IntendedSatisfaction>;
 		}
 	;
 }

@@ -4,6 +4,7 @@
 #include <ranges>
 
 #include "AntlrToken.h"
+#include "AntlrToken.h"
 #include "utilities.h"
 #include "strings.h"
 
@@ -34,7 +35,7 @@ namespace CmdCalculator
 	/// \tparam T The ANTLR context type.
 	template<class T>
 	concept BinaryOperatorAntlrContext =
-		std::derived_from<T, SignOperatorAntlrContext_IntendedSatisfaction>
+		std::derived_from<T, BinaryOperatorAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
 			{ instance.getBinaryOperatorAntlrContextKind() } -> std::same_as<EBinaryOperatorAntlrContextKind>;

@@ -31,7 +31,7 @@ namespace CmdCalculatorTestDoubles
 		}
 
 
-		ExpressionAntlrContextType getexpressionValue() const
+		ExpressionAntlrContextType getExpressionValue() const
 		{
 			return expressionValue;
 		}
