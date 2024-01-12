@@ -1,5 +1,6 @@
 #pragma once
 
+#include "utilities.h"
 #include "strings.h"
 #include "CalculationConfiguration.h"
 #include "StringToMathAstConverter.h"
@@ -19,7 +20,8 @@ namespace CmdCalculator
 	/// \tparam T The type of the calculation object.
 	template<class T>
 	concept Calculation =
-		String<typename T::InputExpressionType>
+		IntendsToSatisfy<T, Calculation_IntendedSatisfaction>
+		&& String<typename T::InputExpressionType>
 		&& StringToMathAstConverter<typename T::StringToMathAstConverterType>
 		&& MathAstToExpressionConverter<typename T::MathAstToExpressionConverterType>
 		&& ExpressionToStringConverter<typename T::ExpressionToStringConverterType>

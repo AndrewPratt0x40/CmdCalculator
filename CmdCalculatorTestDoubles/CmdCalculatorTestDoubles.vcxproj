@@ -95,6 +95,7 @@
     <ClInclude Include="StubTrackingAntlrContextToMathAstConverter.h" />
     <ClInclude Include="StubCalculation.h" />
     <ClInclude Include="StubThrowingStringToAntlrContextConverter.h" />
+    <ClInclude Include="StubTrackingDynamicExpressionNode.h" />
     <ClInclude Include="StubTrackingFullExpressionAntlrContext.h" />
     <ClInclude Include="StubTrackingStringToAntlrContextConverter.h" />
     <ClInclude Include="StubTrackingConvertedString.h" />

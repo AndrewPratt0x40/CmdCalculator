@@ -20,7 +20,7 @@ namespace CmdCalculator
 	/// \tparam T The ANTLR context type.
 	template<class T>
 	concept OperationPartPairAntlrContext =
-		std::derived_from<T, OperationPartPairAntlrContext_IntendedSatisfaction>
+		IntendsToSatisfy<T, OperationPartPairAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
 			{ instance.getOperatorLeadingTrivia() } -> Optional;

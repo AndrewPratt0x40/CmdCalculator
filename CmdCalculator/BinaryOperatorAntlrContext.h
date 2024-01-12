@@ -35,7 +35,7 @@ namespace CmdCalculator
 	/// \tparam T The ANTLR context type.
 	template<class T>
 	concept BinaryOperatorAntlrContext =
-		std::derived_from<T, BinaryOperatorAntlrContext_IntendedSatisfaction>
+		IntendsToSatisfy<T, BinaryOperatorAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
 			{ instance.getBinaryOperatorAntlrContextKind() } -> std::same_as<EBinaryOperatorAntlrContextKind>;

@@ -18,7 +18,7 @@ namespace CmdCalculator
 	/// \tparam T The ANTLR context type.
 	template<class T>
 	concept WholefulNumberLiteralAntlrContext =
-		std::derived_from<T, WholefulNumberLiteralAntlrContext_IntendedSatisfaction>
+		IntendsToSatisfy<T, WholefulNumberLiteralAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
 			{ instance.getWholePart() } -> AntlrToken;

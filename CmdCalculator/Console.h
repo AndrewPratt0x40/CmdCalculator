@@ -1,6 +1,7 @@
 #pragma once
 
 #include "strings.h"
+#include "utilities.h"
 
 
 namespace CmdCalculator
@@ -26,7 +27,7 @@ namespace CmdCalculator
 	/// \tparam T The console type.
 	template<class T>
 	concept Console =
-		std::derived_from<T, Console_IntendedSatisfaction>
+		IntendsToSatisfy<T, Console_IntendedSatisfaction>
 		&& String<typename T::StringType>
 		&& StringView<typename T::StringViewType>
 		&& requires(T && instance)

@@ -29,7 +29,7 @@ namespace CmdCalculator
 	/// \tparam T The ANTLR context type.
 	template<class T>
 	concept SignOperatorAntlrContext =
-		std::derived_from<T, SignOperatorAntlrContext_IntendedSatisfaction>
+		IntendsToSatisfy<T, SignOperatorAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
 			{ instance.getSignOperatorAntlrContextKind() } -> std::same_as<ESignOperatorAntlrContextKind>;

@@ -21,13 +21,13 @@ namespace CmdCalculator
 	/// \tparam T The ANTLR context type.
 	template<class T>
 	concept SqrtOperationAntlrContext =
-		std::derived_from<T, SqrtOperationAntlrContext_IntendedSatisfaction>
+		IntendsToSatisfy<T, SqrtOperationAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
 			{ instance.getInnerTrivia() } -> Optional;
 			AntlrToken<typename decltype(instance.getInnerTrivia())::value_type>;
 
-			std::derived_from<std::remove_reference_t<decltype(instance.getOperandValue())>, OperandAntlrContext_IntendedSatisfaction>;
+			IntendsToSatisfy<std::remove_reference_t<decltype(instance.getOperandValue())>, OperandAntlrContext_IntendedSatisfaction>;
 		}
 	;
 }

@@ -22,7 +22,7 @@ namespace CmdCalculator
 	/// \tparam T The ANTLR context type.
 	template<class T>
 	concept SignOperationAntlrContext =
-		std::derived_from<T, SignOperationAntlrContext_IntendedSatisfaction>
+		IntendsToSatisfy<T, SignOperationAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
 			{ instance.getSignOperator() } -> SignOperatorAntlrContext;
@@ -30,7 +30,7 @@ namespace CmdCalculator
 			{ instance.getInnerTrivia() } -> Optional;
 			AntlrToken<typename decltype(instance.getInnerTrivia())::value_type>;
 
-			std::derived_from<std::remove_reference_t<decltype(instance.getOperandValue())>, OperandAntlrContext_IntendedSatisfaction>;
+			IntendsToSatisfy<std::remove_reference_t<decltype(instance.getOperandValue())>, OperandAntlrContext_IntendedSatisfaction>;
 		}
 	;
 }

@@ -5,48 +5,12 @@
 
 #include "FullExpressionAntlrContext.h"
 #include "dynamic_mathast.h"
+#include "AntlrContextTypeDeductions.h"
 #include "utilities.h"
 #include "strings.h"
 
 namespace CmdCalculator
 {
-	namespace AntlrContextTypeDeductions
-	{
-		template<FullExpressionAntlrContext FullExpressionAntlrContextT>
-		using ExpressionType = decltype(*std::declval<FullExpressionAntlrContextT>.getExpressionValue());
-
-		template<FullExpressionAntlrContext FullExpressionAntlrContextT>
-		using OperandType = decltype(*std::declval<ExpressionType<FullExpressionAntlrContextT>>().getHeadOperand());
-
-		template<FullExpressionAntlrContext FullExpressionAntlrContextT>
-		using OperationPartPairType = DereferencedRangeElementType<decltype(std::declval<ExpressionType<FullExpressionAntlrContextT>>().getOperationPartPairs())>;
-
-		template<FullExpressionAntlrContext FullExpressionAntlrContextT>
-		using NonGroupingMultiplicationType = decltype(**std::declval<OperandType<FullExpressionAntlrContextT>>().getNonGroupingMultiplicationOperand());
-
-		template<FullExpressionAntlrContext FullExpressionAntlrContextT>
-		using GroupingMultiplicationType = decltype(**std::declval<OperandType<FullExpressionAntlrContextT>>().getGroupingMultiplicationOperand());
-
-		template<FullExpressionAntlrContext FullExpressionAntlrContextT>
-		using BinaryOperatorType = decltype(*std::declval<OperationPartPairType<FullExpressionAntlrContextT>>().getOperatorValue());
-
-		template<FullExpressionAntlrContext FullExpressionAntlrContextT>
-		using NumberLiteralType = decltype(**std::declval<NonGroupingMultiplicationType<FullExpressionAntlrContextT>>().getNumberLiteral());
-
-		template<FullExpressionAntlrContext FullExpressionAntlrContextT>
-		using SignOperationType = decltype(**std::declval<NonGroupingMultiplicationType<FullExpressionAntlrContextT>>().getSignOperation());
-
-		template<FullExpressionAntlrContext FullExpressionAntlrContextT>
-		using SqrtOperationType = decltype(**std::declval<NonGroupingMultiplicationType<FullExpressionAntlrContextT>>().getSqrtOperation());
-
-		template<FullExpressionAntlrContext FullExpressionAntlrContextT>
-		using GroupingType = decltype(**std::declval<NonGroupingMultiplicationType<FullExpressionAntlrContextT>>().getGrouping());
-
-		template<FullExpressionAntlrContext FullExpressionAntlrContextT>
-		using AbsoluteValueOperationType = decltype(**std::declval<NonGroupingMultiplicationType<FullExpressionAntlrContextT>>().getAbsoluteValueOperation());
-	}
-	
-	
 	template<String StringT>
 	struct ConvertedOperation_part_pairContext
 	{
@@ -64,7 +28,7 @@ namespace CmdCalculator
 	/// \tparam T The converter type.
 	template<class T>
 	concept AntlrContextToMathAstConverter =
-		std::derived_from<T, BasicAntlrContextToMathAstConverter_IntendedSatisfaction>
+		IntendsToSatisfy<T, BasicAntlrContextToMathAstConverter_IntendedSatisfaction>
 		&& String<typename T::StringType>
 		&& std::integral<typename T::IntType>
 		&& FullExpressionAntlrContext<typename T::FullExpressionAntlrContextType>

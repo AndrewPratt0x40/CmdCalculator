@@ -17,6 +17,7 @@ namespace CmdCalculator::MathAst
 	template<String StringT>
 	class DynamicExpressionNode :
 		public ExpressionNode_IntendedSatisfaction,
+		public MathAstNode_IntendedSatisfaction,
 		public DynamicMathAstNode<StringT>
 	{
 	public:
@@ -50,7 +51,12 @@ namespace CmdCalculator::MathAst
 		/// \param leadingTrivia Trivial content at the beginning of the string contents of the node.
 		/// \param trailingTrivia Trivial content at the end of the string contents of the node.
 		/// \param parts A range of every part of the expression, in order.
-		DynamicExpressionNode(const StringT leadingTrivia, const StringT trailingTrivia, const std::span<MathAst::DynamicExpressionPartNode<StringT>>&& parts)
+		DynamicExpressionNode
+		(
+			const StringT leadingTrivia,
+			const StringT trailingTrivia,
+			const std::span<MathAst::DynamicExpressionPartNode<StringT>>&& parts
+		)
 		{
 			throw NotImplementedException{};
 		}

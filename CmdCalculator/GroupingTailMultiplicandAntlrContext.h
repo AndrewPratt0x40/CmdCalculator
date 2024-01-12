@@ -22,7 +22,7 @@ namespace CmdCalculator
 	/// \tparam T The ANTLR context type.
 	template<class T>
 	concept GroupingTailMultiplicandAntlrContext =
-		std::derived_from<T, GroupingTailMultiplicandAntlrContext_IntendedSatisfaction>
+		IntendsToSatisfy<T, GroupingTailMultiplicandAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
 			{ instance.getInnerTrivia() } -> Optional;

@@ -315,6 +315,9 @@
     <ClInclude Include="BinaryOperatorAntlrContext.h">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext</Filter>
     </ClInclude>
+    <ClInclude Include="AntlrContextTypeDeductions.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">

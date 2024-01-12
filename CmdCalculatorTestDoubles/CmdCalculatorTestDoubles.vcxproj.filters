@@ -228,6 +228,9 @@
     <ClInclude Include="StubBinaryOperatorAntlrContext.h">
       <Filter>Source Code\CmdCalculator\Conversions\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext</Filter>
     </ClInclude>
+    <ClInclude Include="StubTrackingDynamicExpressionNode.h">
+      <Filter>Source Code\CmdCalculator\MathAst\MathAstNode</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StubRawCmdLineArgParser.h">

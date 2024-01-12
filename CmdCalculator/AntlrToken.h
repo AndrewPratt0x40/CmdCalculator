@@ -16,7 +16,7 @@ namespace CmdCalculator
 	/// \tparam T The ANTLR token type.
 	template<class T>
 	concept AntlrToken =
-		std::derived_from<T, AntlrToken_IntendedSatisfaction>
+		IntendsToSatisfy<T, AntlrToken_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
 			{ instance.getText() } -> String;

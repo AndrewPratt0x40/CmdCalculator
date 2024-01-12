@@ -115,6 +115,9 @@
     <ClCompile Include="StubBinaryOperatorAntlrContextTests.cpp">
       <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext</Filter>
     </ClCompile>
+    <ClCompile Include="StubTrackingDynamicExpressionNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">

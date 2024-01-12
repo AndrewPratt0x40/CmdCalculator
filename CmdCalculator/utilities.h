@@ -7,6 +7,13 @@
 
 namespace CmdCalculator
 {
+	/// \brief Describes a type that is intended to satisfy a given concept.
+	/// \tparam SatisfierT The type that is intended to satisfy the concept.
+	/// \tparam ConceptMarkerT A marker class that represents the concept to be satisfied.
+	template<class SatisfierT, class ConceptMarkerT>
+	concept IntendsToSatisfy = std::convertible_to<SatisfierT*, ConceptMarkerT*>;
+
+
 	/// \brief Describes any type that is \ref std::optional.
 	/// \tparam T The optional type.
 	template<class T>

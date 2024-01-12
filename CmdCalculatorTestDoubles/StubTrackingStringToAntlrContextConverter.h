@@ -4,6 +4,8 @@
 #include <memory>
 
 #include "../CmdCalculator/StringToAntlrContextConverter.h"
+#include "../CmdCalculator/FullExpressionAntlrContext.h"
+#include "StubTrackingFullExpressionAntlrContext.h"
 #include "../CmdCalculator/strings.h"
 
 namespace CmdCalculatorTestDoubles
@@ -14,19 +16,25 @@ namespace CmdCalculatorTestDoubles
 	{
 	public:
 		using StringViewType = StringViewT;
-		//using AntlrFullExpressionContextOwnerType = CmdCalculatorTestDoubles::StubTrackingAntlrFullExpressionContextOwner<StringViewType>;
+		using FullExpressionAntlrContexType = StubTrackingFullExpressionAntlrContext<StringViewType>;
+		using ConvertedLeadingTriviaType = decltype(std::declval<FullExpressionAntlrContexType>().leadingTrivia);
+		using ConvertedExpressionValueType = decltype(std::declval<FullExpressionAntlrContexType>().expressionValue);
+		using ConvertedTrailingTriviaType = decltype(std::declval<FullExpressionAntlrContexType>().trailingTrivia);
 
-		//CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext convertedString;
+		ConvertedLeadingTriviaType convertedLeadingTrivia;
+		ConvertedExpressionValueType convertedExpressionValue;
+		ConvertedTrailingTriviaType convertedTrailingTrivia;
 
 
-		/*AntlrFullExpressionContextOwnerType getStringAsAntlrContext(StringViewT source) const
+		FullExpressionAntlrContexType getStringAsAntlrContext(StringViewT source) const
 		{
-			static_assert(std::copyable<decltype(convertedString)>);
-			return AntlrFullExpressionContextOwnerType
+			return FullExpressionAntlrContexType
 			{
 				.stringSource{ source },
-				.value{ convertedString }
+				.leadingTrivia{ convertedLeadingTrivia },
+				.expressionValue{ convertedExpressionValue },
+				.trailingTrivia{ convertedTrailingTrivia }
 			};
-		}*/
+		}
 	};
 }

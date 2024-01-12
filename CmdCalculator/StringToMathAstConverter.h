@@ -3,6 +3,7 @@
 #include<concepts>
 
 #include "strings.h"
+#include "utilities.h"
 #include "MathAstNode.h"
 
 namespace CmdCalculator
@@ -16,7 +17,7 @@ namespace CmdCalculator
 	/// \tparam T The converter type.
 	template<class T>
 	concept StringToMathAstConverter =
-		std::derived_from<T, StringToMathAstConverter_IntendedSatisfaction>
+		IntendsToSatisfy<T, StringToMathAstConverter_IntendedSatisfaction>
 		&& StringView<typename T::StringViewType>
 		&& requires(T&& instance, typename T::StringViewType source)
 		{ // TODO: This doesn't go well for dynamic polymorphic ast node types.

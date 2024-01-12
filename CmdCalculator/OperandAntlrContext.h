@@ -20,7 +20,7 @@ namespace CmdCalculator
 	/// \tparam T The ANTLR context type.
 	template<class T>
 	concept OperandAntlrContext =
-		std::derived_from<T, OperandAntlrContext_IntendedSatisfaction>
+		IntendsToSatisfy<T, OperandAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
 			{ instance.isGroupingMultiplication() } -> std::same_as<bool>;

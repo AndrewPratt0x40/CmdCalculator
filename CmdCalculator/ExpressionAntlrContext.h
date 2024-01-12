@@ -20,7 +20,7 @@ namespace CmdCalculator
 	/// \tparam T The ANTLR context type.
 	template<class T>
 	concept ExpressionAntlrContext =
-		std::derived_from<T, ExpressionAntlrContext_IntendedSatisfaction>
+		IntendsToSatisfy<T, ExpressionAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
 			{ instance.getHeadOperand() } -> OperandAntlrContext;

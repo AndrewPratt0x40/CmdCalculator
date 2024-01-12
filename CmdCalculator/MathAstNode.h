@@ -4,6 +4,7 @@
 #include <concepts>
 
 #include "strings.h"
+#include "utilities.h"
 
 
 namespace CmdCalculator::MathAst
@@ -17,7 +18,7 @@ namespace CmdCalculator::MathAst
 	/// \tparam T The type of the AST node.
 	template<class T>
 	concept MathAstNode =
-		std::derived_from<T, MathAstNode_IntendedSatisfaction>
+		IntendsToSatisfy<T, MathAstNode_IntendedSatisfaction>
 		&& String<typename T::StringType>
 		&& requires(T&& instance)
 		{

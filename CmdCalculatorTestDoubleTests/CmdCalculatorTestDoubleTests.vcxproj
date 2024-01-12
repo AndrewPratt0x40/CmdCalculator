@@ -103,6 +103,7 @@
     <ClCompile Include="StubThrowingRawCmdLineArgParserTests.cpp" />
     <ClCompile Include="StubThrowingStringToAntlrContextConverterTests.cpp" />
     <ClCompile Include="StubTrackingConvertedStringTests.cpp" />
+    <ClCompile Include="StubTrackingDynamicExpressionNodeTests.cpp" />
     <ClCompile Include="StubTrackingExpressionTests.cpp" />
     <ClCompile Include="StubTrackingExpressionToStringConverterTests.cpp" />
     <ClCompile Include="StubTrackingFullExpressionAntlrContextTests.cpp" />

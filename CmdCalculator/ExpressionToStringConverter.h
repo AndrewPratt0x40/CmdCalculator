@@ -3,6 +3,7 @@
 #include<concepts>
 
 #include "strings.h"
+#include "utilities.h"
 #include "CalculationConfiguration.h"
 #include "Expression.h"
 
@@ -17,7 +18,7 @@ namespace CmdCalculator
 	/// \tparam T The converter type.
 	template<class T>
 	concept ExpressionToStringConverter =
-		std::derived_from<T, ExpressionToStringConverter_IntendedSatisfaction>
+		IntendsToSatisfy<T, ExpressionToStringConverter_IntendedSatisfaction>
 		&& Expressions::Expression<typename T::ExpressionType>
 		&& requires(T&& instance, const typename T::ExpressionType& source, const CalculationConfiguration configuration)
 		{

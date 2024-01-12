@@ -28,7 +28,7 @@ namespace CmdCalculator
 	/// \tparam T The ANTLR context type.
 	template<class T>
 	concept NumberLiteralAntlrContext =
-		std::derived_from<T, NumberLiteralAntlrContext_IntendedSatisfaction>
+		IntendsToSatisfy<T, NumberLiteralAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 	{
 		{ instance.getNumberLiteralAntlrContextKind() } -> std::same_as<ENumberLiteralAntlrContextKind>;

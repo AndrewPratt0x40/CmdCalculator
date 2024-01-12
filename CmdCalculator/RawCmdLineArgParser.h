@@ -4,6 +4,7 @@
 #include <ranges>
 
 #include "strings.h"
+#include "utilities.h"
 #include "ProcessConfiguration.h"
 
 namespace CmdCalculator
@@ -18,7 +19,8 @@ namespace CmdCalculator
 	/// \tparam ArgsT The type of ranges of command-line arguments to parse.
 	template<class T, class ArgsT>
 	concept RawCmdLineArgParser =
-		std::ranges::input_range<ArgsT>
+		IntendsToSatisfy<T, RawCmdLineArgParser_IntendedSatisfaction>
+		&& std::ranges::input_range<ArgsT>
 		&& String<std::ranges::range_value_t<ArgsT>>
 		&& String<typename T::ExpressionStringType>
 		&& requires()

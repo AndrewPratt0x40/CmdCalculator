@@ -2,6 +2,7 @@
 
 #include<concepts>
 
+#include "utilities.h"
 #include "MathAstNode.h"
 #include "Expression.h"
 
@@ -16,7 +17,7 @@ namespace CmdCalculator
 	/// \tparam T The converter type.
 	template<class T>
 	concept MathAstToExpressionConverter =
-		std::derived_from<T, MathAstToExpressionConverter_IntendedSatisfaction>
+		IntendsToSatisfy<T, MathAstToExpressionConverter_IntendedSatisfaction>
 		&& MathAst::MathAstNode<typename T::RootMathAstNodeType>
 		&& requires(T&& instance, const typename T::RootMathAstNodeType& sourceRootNode)
 	{

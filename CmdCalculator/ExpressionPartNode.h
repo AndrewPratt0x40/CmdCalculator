@@ -5,6 +5,7 @@
 #include <ranges>
 
 #include "strings.h"
+#include "utilities.h"
 #include "MathAstNode.h"
 
 
@@ -20,7 +21,7 @@ namespace CmdCalculator::MathAst
 	/// \tparam T The type of the AST node.
 	template<class T>
 	concept ExpressionPartNode =
-		std::derived_from<T, ExpressionPartNode_IntendedSatisfaction>
+		IntendsToSatisfy<T, ExpressionPartNode_IntendedSatisfaction>
 		&& MathAstNode<T>
 	;
 }

@@ -34,7 +34,7 @@ namespace CmdCalculator
 	/// \tparam T The ANTLR context type.
 	template<class T>
 	concept NonGroupingMultiplicationAntlrContext =
-		std::derived_from<T, NonGroupingMultiplicationAntlrContext_IntendedSatisfaction>
+		IntendsToSatisfy<T, NonGroupingMultiplicationAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 	{
 		{ instance.getNonGroupingMultiplicationKind() } -> std::same_as<ENonGroupingMultiplicationAntlrContextKind>;

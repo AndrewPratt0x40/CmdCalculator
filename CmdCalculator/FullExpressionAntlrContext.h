@@ -19,7 +19,7 @@ namespace CmdCalculator
 	/// \tparam T The ANTLR context type.
 	template<class T>
 	concept FullExpressionAntlrContext =
-		std::derived_from<T, FullExpressionAntlrContext_IntendedSatisfaction>
+		IntendsToSatisfy<T, FullExpressionAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
 			{ instance.getLeadingTrivia() } -> Optional;

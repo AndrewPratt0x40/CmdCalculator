@@ -4,6 +4,7 @@
 
 #include "FullExpressionAntlrContext.h"
 #include "strings.h"
+#include "utilities.h"
 
 namespace CmdCalculator
 {
@@ -16,11 +17,11 @@ namespace CmdCalculator
 	/// \tparam T The converter type.
 	template<class T>
 	concept StringToAntlrContextConverter =
-		std::derived_from<T, StringToAntlrContextConverter_IntendedSatisfaction>
+		IntendsToSatisfy<T, StringToAntlrContextConverter_IntendedSatisfaction>
 		&& StringView<typename T::StringViewType>
 		&& requires(T&& instance, typename T::StringViewType source)
 		{
-			{ *instance.getStringAsAntlrContext(source) } -> FullExpressionAntlrContext;
+			{ instance.getStringAsAntlrContext(source) } -> FullExpressionAntlrContext;
 		}
 	;
 }
