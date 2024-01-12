@@ -84,7 +84,7 @@ namespace CmdCalculator
 		}
 		&& requires(T&& instance, const AntlrContextTypeDeductions::AbsoluteValueOperationType<typename T::FullExpressionAntlrContextType>& context)
 		{
-			{ instance.getConvertedAbsolute_value_operationContext(context) } ->
+			{ instance.getConvertedAbsoluteValueOperationContext(context) } ->
 				std::same_as<std::unique_ptr<MathAst::DynamicAbsoluteValueNode<typename T::StringType>>>;
 		}
 	;
