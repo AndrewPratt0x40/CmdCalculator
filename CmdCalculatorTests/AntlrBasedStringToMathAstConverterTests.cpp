@@ -50,8 +50,7 @@ namespace CmdCalculatorTests
 		AntlrContextToMathAstConverterType antlrContextToMathAstConverter
 		{
 			.convertedContextLeadingTrivia{ "" },
-			.convertedContextTrailingTrivia{ "" },
-			.convertedContextParts{}
+			.convertedContextTrailingTrivia{ "" }
 		};
 
 		CmdCalculator::AntlrBasedStringToMathAstConverter<std::string_view, StringToAntlrContextConverterType, AntlrContextToMathAstConverterType> instance

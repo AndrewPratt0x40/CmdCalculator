@@ -36,12 +36,21 @@ namespace CmdCalculator
 		using AntlrContextToMathAstConverterType = AntlrContextToMathAstConverterT;
 
 
+	private:
+		StringToAntlrContextConverterType m_stringToAntlrContextConverter;
+		AntlrContextToMathAstConverterType m_antlrContextToMathAstConverter;
+
+
+	public:
+
 		/// \brief Converts a string into a mathematical abstract syntax tree.
 		/// \param source The string to convert.
 		/// \returns The root node of the resulting mathematical abstract syntax tree.
-		std::unique_ptr<MathAst::DynamicExpressionNode<StringType>> getStringAsMathAst(StringViewType source) const
+		std::unique_ptr<MathAst::DynamicExpressionNode<StringType>> getStringAsMathAst(StringViewType source)
 		{
-			throw NotImplementedException{};
+			auto fullExpressionContextPtr{ m_stringToAntlrContextConverter.getStringAsAntlrContext(source) };
+			assert(fullExpressionContextPtr);
+			return m_antlrContextToMathAstConverter.getConvertedFullExpressionContext(*fullExpressionContextPtr);
 		}
 		
 
@@ -52,9 +61,9 @@ namespace CmdCalculator
 		(
 			StringToAntlrContextConverterType&& stringToAntlrContextConverter,
 			AntlrContextToMathAstConverterType&& antlrContextToMathAstConverter
-		)
-		{
-			throw NotImplementedException{};
-		}
+		) :
+			m_stringToAntlrContextConverter{ stringToAntlrContextConverter },
+			m_antlrContextToMathAstConverter{ antlrContextToMathAstConverter }
+		{}
 	};
 }

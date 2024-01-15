@@ -29,10 +29,13 @@ namespace CmdCalculatorTestDoubles
 		{
 			return std::make_unique<FullExpressionAntlrContexType>
 			(
-				source,
-				convertedLeadingTrivia,
-				convertedExpressionValue,
-				convertedTrailingTrivia
+				FullExpressionAntlrContexType
+				{
+					.stringSource{ source },
+					.leadingTrivia{ convertedLeadingTrivia },
+					.expressionValue{ convertedExpressionValue },
+					.trailingTrivia{ convertedTrailingTrivia }
+				}
 			);
 		}
 	};

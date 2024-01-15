@@ -25,7 +25,7 @@ namespace CmdCalculatorTestDoubles::MathAst
 			SourceStringViewType stringSource,
 			const StringType leadingTrivia,
 			const StringType trailingTrivia,
-			const std::span<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>>&& parts
+			std::span<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>*>&& parts
 		) :
 			CmdCalculator::MathAst::DynamicExpressionNode<StringType>(leadingTrivia, trailingTrivia, std::move(parts)),
 			stringSource{ stringSource }

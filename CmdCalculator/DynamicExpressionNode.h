@@ -20,10 +20,25 @@ namespace CmdCalculator::MathAst
 		public MathAstNode_IntendedSatisfaction,
 		public DynamicMathAstNode<StringT>
 	{
+	protected:
+		/// \brief Creates a new instance of the \ref DynamicExpressionNode class.
+		/// \param leadingTrivia Trivial content at the beginning of the string contents of the node.
+		/// \param trailingTrivia Trivial content at the end of the string contents of the node.
+		/// \param parts A range of every part of the expression, in order.
+		DynamicExpressionNode
+		(
+			const StringT leadingTrivia,
+			const StringT trailingTrivia,
+			const std::span<MathAst::DynamicExpressionPartNode<StringT>*>&& parts
+		)
+		{
+			throw NotImplementedException{};
+		}
+
 	public:
 		/// \brief Accessor to the parts of the expression.
 		/// \returns A range of every part of the expression, in order.
-		std::ranges::ref_view<std::span<std::unique_ptr<MathAst::DynamicExpressionPartNode<StringT>>>> getParts() const
+		std::ranges::ref_view<std::span<MathAst::DynamicExpressionPartNode<StringT>*>> getParts() const
 		{
 			throw NotImplementedException{};
 		}
@@ -42,21 +57,6 @@ namespace CmdCalculator::MathAst
 
 
 		StringT getStringRepresentation() const override
-		{
-			throw NotImplementedException{};
-		}
-
-
-		/// \brief Creates a new instance of the \ref DynamicExpressionNode class.
-		/// \param leadingTrivia Trivial content at the beginning of the string contents of the node.
-		/// \param trailingTrivia Trivial content at the end of the string contents of the node.
-		/// \param parts A range of every part of the expression, in order.
-		DynamicExpressionNode
-		(
-			const StringT leadingTrivia,
-			const StringT trailingTrivia,
-			const std::span<MathAst::DynamicExpressionPartNode<StringT>>&& parts
-		)
 		{
 			throw NotImplementedException{};
 		}

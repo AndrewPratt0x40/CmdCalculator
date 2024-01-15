@@ -1,6 +1,7 @@
 #pragma once
 
 #include <concepts>
+#include <type_traits>
 #include <memory>
 #include <utility>
 #include <ranges>
@@ -35,7 +36,7 @@ namespace CmdCalculatorTestDoubles
 
 		StringT convertedContextLeadingTrivia;
 		StringT convertedContextTrailingTrivia;
-		std::span<std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>>> convertedContextParts;
+		//std::span<std::shared_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>>> convertedContextParts;
 
 
 		std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionNode<StringType>> getConvertedFullExpressionContext
@@ -47,19 +48,7 @@ namespace CmdCalculatorTestDoubles
 					context.stringSource,
 					convertedContextLeadingTrivia,
 					convertedContextTrailingTrivia,
-					std::move
-					(
-						std::span<std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>>>
-						{
-							convertedContextParts | std::views::transform
-							(
-								[](auto convertedContextPart)
-								{
-									return std::make_unique<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>>(*convertedContextPart);
-								}
-							)
-						}
-					)
+					std::move(std::span<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>*>{})
 				)
 			;
 		}
