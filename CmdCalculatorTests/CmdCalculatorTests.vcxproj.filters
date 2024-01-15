@@ -13,12 +13,14 @@
     <ClCompile Include="ProcessTests.cpp">
       <Filter>Source Code\Tests</Filter>
     </ClCompile>
-    <ClCompile Include="BasicCalculationTests.cpp" />
     <ClCompile Include="AntlrBasedStringToMathAstConverterTests.cpp">
       <Filter>Source Code\Tests\Conversions\String to Math AST\ANTLR</Filter>
     </ClCompile>
     <ClCompile Include="utilitiesTests.cpp">
       <Filter>Source Code\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicCalculationTests.cpp">
+      <Filter>Source Code\Tests\Calculation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

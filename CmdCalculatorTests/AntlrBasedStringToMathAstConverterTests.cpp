@@ -63,7 +63,8 @@ namespace CmdCalculatorTests
 		// Act
 		auto returnValue{ instance.getStringAsMathAst(inputExpression) };
 		auto expression{ dynamic_cast<CmdCalculatorTestDoubles::MathAst::StubTrackingDynamicExpressionNode<std::string, std::string_view>*>(returnValue.get()) };
-		FAIL();
+		
+		EXPECT_EQ(expression->stringSource, inputExpression);
 	}
 
 #pragma endregion
