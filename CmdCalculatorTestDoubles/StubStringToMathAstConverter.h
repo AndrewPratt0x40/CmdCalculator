@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include "../CmdCalculator/StringToMathAstConverter.h"
 #include "../CmdCalculator/strings.h"
 #include "../CmdCalculator/MathAstNode.h"
@@ -15,9 +17,9 @@ namespace CmdCalculatorTestDoubles
 
 		MathAstNodeT convertedString;
 
-		MathAstNodeT getStringAsMathAst(StringViewT source) const
+		std::unique_ptr<MathAstNodeT> getStringAsMathAst(StringViewT source) const
 		{
-			return convertedString;
+			return std::make_unique<MathAstNodeT>(convertedString);
 		}
 	};
 }

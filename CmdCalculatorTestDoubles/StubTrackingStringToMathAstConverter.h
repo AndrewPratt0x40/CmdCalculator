@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include "../CmdCalculator/StringToMathAstConverter.h"
 #include "../CmdCalculator/strings.h"
 #include "../CmdCalculatorTestDoubles/StubTrackingMathAstNode.h"
@@ -18,16 +20,27 @@ namespace CmdCalculatorTestDoubles
 		MathAstNodeStringT convertedValueTrailingTrivia;
 		MathAstNodeStringT convertedValueStringRepresentation;
 
-
-		MathAstNodeType getStringAsMathAst(StringViewT source) const
+		struct Foo
 		{
-			return MathAstNodeType
-			{
-				.stringSource{ source },
-				.leadingTrivia{ convertedValueLeadingTrivia },
-				.trailingTrivia{ convertedValueTrailingTrivia },
-				.stringRepresentation{ convertedValueStringRepresentation }
-			};
+			int a;
+			char b;
+			std::string c;
+
+			void hi() {}
+		};
+
+		std::unique_ptr<MathAstNodeType> getStringAsMathAst(StringViewT source) const
+		{
+			return std::make_unique<MathAstNodeType>
+			(
+				MathAstNodeType
+				{
+					.stringSource{ source },
+					.leadingTrivia{ convertedValueLeadingTrivia },
+					.trailingTrivia{ convertedValueTrailingTrivia },
+					.stringRepresentation{ convertedValueStringRepresentation }
+				}
+			);
 		}
 	};
 }

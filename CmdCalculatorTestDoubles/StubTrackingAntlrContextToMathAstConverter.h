@@ -23,7 +23,7 @@ namespace CmdCalculatorTestDoubles
 		CmdCalculator::StringView SourceStringViewT
 	>
 	class StubTrackingAntlrContextToMathAstConverter :
-		public CmdCalculator::BasicAntlrContextToMathAstConverter_IntendedSatisfaction
+		public CmdCalculator::AntlrContextToMathAstConverter_IntendedSatisfaction
 	{
 	public:
 
@@ -35,7 +35,7 @@ namespace CmdCalculatorTestDoubles
 
 		StringT convertedContextLeadingTrivia;
 		StringT convertedContextTrailingTrivia;
-		std::span<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>> convertedContextParts;
+		std::span<std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>>> convertedContextParts;
 
 
 		std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionNode<StringType>> getConvertedFullExpressionContext
@@ -55,7 +55,7 @@ namespace CmdCalculatorTestDoubles
 							(
 								[](auto convertedContextPart)
 								{
-									return std::make_unique<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>>(convertedContextPart);
+									return std::make_unique<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>>(*convertedContextPart);
 								}
 							)
 						}

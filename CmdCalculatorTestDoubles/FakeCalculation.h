@@ -52,9 +52,11 @@ namespace CmdCalculatorTestDoubles
 				)
 			};
 
+			assert(mathAst);
+
 			const auto expression
 			{
-				m_mathAstToExpressionConverter.getMathAstAsExpression(mathAst)
+				m_mathAstToExpressionConverter.getMathAstAsExpression(*mathAst)
 			};
 
 			return m_expressionToStringConverter.stringifyExpression(expression.getFullSimplification(), m_configuration);

@@ -19,8 +19,8 @@ namespace CmdCalculator
 	};
 	
 	
-	/// \brief The base type for types that are intended to satisfy the \ref BasicAntlrContextToMathAstConverter concept.
-	struct BasicAntlrContextToMathAstConverter_IntendedSatisfaction
+	/// \brief The base type for types that are intended to satisfy the \ref AntlrContextToMathAstConverter concept.
+	struct AntlrContextToMathAstConverter_IntendedSatisfaction
 	{};
 
 
@@ -28,7 +28,7 @@ namespace CmdCalculator
 	/// \tparam T The converter type.
 	template<class T>
 	concept AntlrContextToMathAstConverter =
-		IntendsToSatisfy<T, BasicAntlrContextToMathAstConverter_IntendedSatisfaction>
+		IntendsToSatisfy<T, AntlrContextToMathAstConverter_IntendedSatisfaction>
 		&& String<typename T::StringType>
 		&& std::integral<typename T::IntType>
 		&& FullExpressionAntlrContext<typename T::FullExpressionAntlrContextType>

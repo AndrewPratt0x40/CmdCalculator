@@ -1,7 +1,9 @@
 #pragma once
 
+#include <concepts>
 #include <type_traits>
 #include <optional>
+#include <memory>
 
 #include "NotImplementedException.h"
 
@@ -19,68 +21,35 @@ namespace CmdCalculator
 	template<class T>
 	concept Optional = std::same_as<T, std::optional<typename T::value_type>>;
 
+	
+	template<Optional OptionalT>
+	using OptionalValueType = OptionalT::value_type;
 
-	/// \brief Describes any type that may be dereferenced via the * operator.
-	/// \tparam The dereferenceable type.
+
+	/// \brief Describes any type that is \ref std::unqiue_ptr.
+	/// \tparam T The unique pointer type.
 	template<class T>
-	concept Dereferenceable =
-		requires(T && instance)
-		{
-			*instance;
-		}
-	;
+	concept UniquePtr = std::same_as<T, std::unique_ptr<typename T::element_type>>;
 
 
-	/// \brief Determines the type that results from dereferencing a given type.
-	/// \tparam DereferenceableT The type to dereference.
-	/// \example <tt>DereferencedType<int*></tt> would yield <tt>int</tt>.
-	/// \example <tt>DereferencedType<int**></tt> would yield <tt>int*</tt>.
-	/// \example <tt>DereferencedType<std::shared_ptr<int>></tt> would yield <tt>int</tt>.
-	template<Dereferenceable DereferenceableT>
-	using DereferencedType = decltype(*std::declval<DereferenceableT>());
-
-
-	/// \brief Describes any type that is a range of elements that may be dereferenced via the * operator.
-	/// \tparam The range of dereferenceable elements type.
+	/// \brief Describes any type that is \ref std::shared_ptr.
+	/// \tparam T The shared pointer type.
 	template<class T>
-	concept RangeOfDereferenceableElements =
-		std::ranges::range<T>
-		&& Dereferenceable<std::ranges::range_value_t<T>>
-	;
+	concept SharedPtr = std::same_as<T, std::shared_ptr<typename T::element_type>>;
 
 
-	/// \brief Determines the type that results from dereferencing an element of a given range type.
-	/// \tparam RangeOfDereferenceableElementsT The type who's element type to dereference.
-	/// \example <tt>DereferencedRangeElementType<std::vector<int*>></tt> would yield <tt>int</tt>.
-	/// \example <tt>DereferencedRangeElementType<std::vector<std::shared_ptr<int>>></tt> would yield <tt>int</tt>.
-	template<RangeOfDereferenceableElements RangeOfDereferenceableElementsT>
-	using DereferencedRangeElementType = decltype(*std::declval<std::ranges::range_value_t<RangeOfDereferenceableElementsT>>());
+	/// \brief Describes any type that is \ref std::weak_ptr.
+	/// \tparam T The weak pointer type.
+	template<class T>
+	concept WeakPtr = std::same_as<T, std::weak_ptr<typename T::element_type>>;
 
 
-	/// \brief Converts a pointer to an optional reference object.
-	/// \tparam ValueT The type pointed to.
-	/// \param pointer The pointer to convert.
-	/// \returns An optional object holding a reference to the value pointed to by \p pointer, or an empty value if \p pointer is null.
-	template<class ValueT>
-	std::optional<std::reference_wrapper<ValueT>> pointerAsOptionalReference(ValueT* pointer)
-	{
-		return pointer
-			? std::make_optional(std::ref(*pointer))
-			: std::optional<std::reference_wrapper<ValueT>>{}
-		;
-	}
+	/// \brief Describes any type that is a smart pointer from the standard library.
+	/// \tparam T The smart pointer type.
+	template<class T>
+	concept SmartPtr = UniquePtr<T> || SharedPtr<T> || WeakPtr<T>;
 
 
-	/// \brief Converts a pointer to an optional read-only reference object.
-	/// \tparam ValueT The type pointed to.
-	/// \param pointer The pointer to convert.
-	/// \returns An optional object holding a reference to the value pointed to by \p pointer, or an empty value if \p pointer is null.
-	template<class ValueT>
-	std::optional<std::reference_wrapper<const ValueT>> pointerAsOptionalConstReference(const ValueT* pointer)
-	{
-		return pointer
-			? std::make_optional(std::cref(*pointer))
-			: std::optional<std::reference_wrapper<const ValueT>>{}
-		;
-	}
+	template<SmartPtr SmartPtrT>
+	using SmartPointedToType = SmartPtrT::element_type;
 }

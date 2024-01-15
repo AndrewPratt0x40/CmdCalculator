@@ -19,9 +19,11 @@ namespace CmdCalculator
 	concept StringToMathAstConverter =
 		IntendsToSatisfy<T, StringToMathAstConverter_IntendedSatisfaction>
 		&& StringView<typename T::StringViewType>
+		// axiom(T&& instance, typename T::StringViewType source) { instance.getStringAsMathAst(source); }
 		&& requires(T&& instance, typename T::StringViewType source)
-		{ // TODO: This doesn't go well for dynamic polymorphic ast node types.
-			{ instance.getStringAsMathAst(source) } -> MathAst::MathAstNode;
+		{
+			{ instance.getStringAsMathAst(source) } -> UniquePtr;
+			MathAst::MathAstNode<SmartPointedToType<decltype(instance.getStringAsMathAst(source))>>;
 		}
 	;
 }

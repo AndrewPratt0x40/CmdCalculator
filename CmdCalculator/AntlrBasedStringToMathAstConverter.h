@@ -39,7 +39,7 @@ namespace CmdCalculator
 		/// \brief Converts a string into a mathematical abstract syntax tree.
 		/// \param source The string to convert.
 		/// \returns The root node of the resulting mathematical abstract syntax tree.
-		std::unique_ptr<MathAst::DynamicExpressionNode<StringType>> getStringAsMathAst(StringViewT source) const
+		std::unique_ptr<MathAst::DynamicExpressionNode<StringType>> getStringAsMathAst(StringViewType source) const
 		{
 			throw NotImplementedException{};
 		}

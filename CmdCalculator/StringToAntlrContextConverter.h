@@ -21,7 +21,8 @@ namespace CmdCalculator
 		&& StringView<typename T::StringViewType>
 		&& requires(T&& instance, typename T::StringViewType source)
 		{
-			{ instance.getStringAsAntlrContext(source) } -> FullExpressionAntlrContext;
+			{ instance.getStringAsAntlrContext(source) } -> UniquePtr;
+			FullExpressionAntlrContext<SmartPointedToType<decltype(instance.getStringAsAntlrContext(source))>>;
 		}
 	;
 }

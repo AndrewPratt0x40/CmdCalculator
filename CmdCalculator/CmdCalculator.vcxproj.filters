@@ -207,9 +207,6 @@
     <ClInclude Include="DynamicExpressionPartNode.h">
       <Filter>Source Code\Math AST\Dynamic</Filter>
     </ClInclude>
-    <ClInclude Include="DynamicExpressionNode.h">
-      <Filter>Source Code\Math AST\Dynamic</Filter>
-    </ClInclude>
     <ClInclude Include="EBinaryOperator.h">
       <Filter>Source Code\Math AST</Filter>
     </ClInclude>
@@ -317,6 +314,9 @@
     </ClInclude>
     <ClInclude Include="AntlrContextTypeDeductions.h">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicExpressionNode.h">
+      <Filter>Source Code\Math AST\Dynamic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

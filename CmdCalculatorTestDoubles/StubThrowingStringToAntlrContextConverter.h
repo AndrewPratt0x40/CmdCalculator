@@ -1,6 +1,5 @@
 #pragma once
 
-#include <functional>
 #include <memory>
 
 #include "../CmdCalculator/StringToAntlrContextConverter.h"
@@ -22,7 +21,7 @@ namespace CmdCalculatorTestDoubles
 		ExceptionType exceptionToThrow;
 
 
-		FullExpressionAntlrContexType getStringAsAntlrContext(StringViewT source) const
+		std::unique_ptr<FullExpressionAntlrContexType> getStringAsAntlrContext(StringViewT source) const
 		{
 			throw exceptionToThrow;
 		}

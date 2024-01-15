@@ -1,6 +1,5 @@
 #pragma once
 
-#include <functional>
 #include <memory>
 
 #include "../CmdCalculator/StringToAntlrContextConverter.h"
@@ -26,15 +25,15 @@ namespace CmdCalculatorTestDoubles
 		ConvertedTrailingTriviaType convertedTrailingTrivia;
 
 
-		FullExpressionAntlrContexType getStringAsAntlrContext(StringViewT source) const
+		std::unique_ptr<FullExpressionAntlrContexType> getStringAsAntlrContext(StringViewT source) const
 		{
-			return FullExpressionAntlrContexType
-			{
-				.stringSource{ source },
-				.leadingTrivia{ convertedLeadingTrivia },
-				.expressionValue{ convertedExpressionValue },
-				.trailingTrivia{ convertedTrailingTrivia }
-			};
+			return std::make_unique<FullExpressionAntlrContexType>
+			(
+				source,
+				convertedLeadingTrivia,
+				convertedExpressionValue,
+				convertedTrailingTrivia
+			);
 		}
 	};
 }

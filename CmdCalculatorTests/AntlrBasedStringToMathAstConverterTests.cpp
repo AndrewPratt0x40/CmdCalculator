@@ -12,18 +12,17 @@ namespace CmdCalculatorTests
 	
 	TEST(AntlrBasedStringToMathAstConverterTests, AntlrBasedStringToMathAstConverter$satisfies$StringToMathAstConverter$concept)
 	{
-		FAIL();
 		static_assert
 		(
-			true/*CmdCalculator::StringToMathAstConverter
+			CmdCalculator::StringToMathAstConverter
 			<
 				CmdCalculator::AntlrBasedStringToMathAstConverter
 				<
 					std::string_view,
 					CmdCalculatorTestDoubles::StubTrackingStringToAntlrContextConverter<std::string_view>,
-					CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, int>
+					CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, int, std::string_view>
 				>
-			>*/
+			>
 		);
 	}
 
@@ -34,31 +33,25 @@ namespace CmdCalculatorTests
 
 	TEST(AntlrBasedStringToMathAstConverterTests, Calling$getStringAsMathAst$returns$the$result$of$using$converters)
 	{
-		FAIL();
 		// Arrange
-		/*std::string inputExpression{"Input expression"};
+		std::string inputExpression{"Input expression"};
 		
 		using StringToAntlrContextConverterType = CmdCalculatorTestDoubles::StubTrackingStringToAntlrContextConverter<std::string_view>;
 
 		StringToAntlrContextConverterType stringToAntlrContextConverter
 		{
-			.convertedString{ nullptr, static_cast<size_t>(-1) }
+			.convertedLeadingTrivia{},
+			.convertedExpressionValue{ CmdCalculatorTestDoubles::StubExpressionAntlrContext{} },
+			.convertedTrailingTrivia{}
 		};
 
-		using AntlrContextToMathAstConverterType = CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, int>;
-
-		CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string> expressionParts[]
-		{
-			{ "", "", "First part" },
-			{ "", "", "Second part" },
-			{ "", "", "Third part" }
-		};
+		using AntlrContextToMathAstConverterType = CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, int, std::string_view>;
 
 		AntlrContextToMathAstConverterType antlrContextToMathAstConverter
 		{
 			.convertedContextLeadingTrivia{ "" },
 			.convertedContextTrailingTrivia{ "" },
-			.convertedContextParts{ expressionParts }
+			.convertedContextParts{}
 		};
 
 		CmdCalculator::AntlrBasedStringToMathAstConverter<std::string_view, StringToAntlrContextConverterType, AntlrContextToMathAstConverterType> instance
@@ -68,9 +61,9 @@ namespace CmdCalculatorTests
 		};
 
 		// Act
-		std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionNode<std::string>> returnValue{ instance.getStringAsMathAst(inputExpression) };
-		auto expression{ dynamic_cast<CmdCalculatorTestDoubles::MathAst::StubTrackingDynamicExpressionNode<std::string>>(returnValue) };*/
-
+		auto returnValue{ instance.getStringAsMathAst(inputExpression) };
+		auto expression{ dynamic_cast<CmdCalculatorTestDoubles::MathAst::StubTrackingDynamicExpressionNode<std::string, std::string_view>*>(returnValue.get()) };
+		FAIL();
 	}
 
 #pragma endregion

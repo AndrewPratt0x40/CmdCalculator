@@ -22,7 +22,7 @@ namespace CmdCalculator
 	template<String StringT, std::integral IntT>
 		requires std::convertible_to<StringT, AntlrStringType>
 	class BasicAntlrContextToMathAstConverter :
-		public BasicAntlrContextToMathAstConverter_IntendedSatisfaction
+		public AntlrContextToMathAstConverter_IntendedSatisfaction
 	{
 	public:
 
