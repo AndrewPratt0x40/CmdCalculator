@@ -17,13 +17,8 @@ namespace CmdCalculatorTestDoubleTests
 {
 	struct DynamicGroupingMultiplicationNode_TestParams
 	{
-		using HeadType = CmdCalculator::MathAst::DynamicOperandNode<std::string>;
-		using TailType = CmdCalculator::MathAst::DynamicGroupingNode<std::string>;
-		using TailRangeType = std::vector<std::unique_ptr<TailType>>;
-		using TailViewType = std::ranges::owning_view<TailRangeType>;
-
-		std::function<std::unique_ptr<HeadType>()> headMultiplicand;
-		std::function<TailViewType()> tailMultiplicands;
+		CmdCalculatorTestDoubles::MathAst::StubDynamicOperandNode<std::string> headMultiplicand;
+		std::vector<CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>> tailMultiplicands;
 		std::string leadingTrivia;
 		std::string trailingTrivia;
 		std::string stringRepresentation;
@@ -33,216 +28,26 @@ namespace CmdCalculatorTestDoubleTests
 		public testing::TestWithParam<DynamicGroupingMultiplicationNode_TestParams>
 	{};
 
-	DynamicGroupingMultiplicationNode_TestParams DynamicGroupingMultiplicationNode_TestParamsValues[]
-	{
-		DynamicGroupingMultiplicationNode_TestParams
-		{
-			.headMultiplicand
-			{
-				[]()
-				{
-					return std::move
-					(
-						std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicOperandNode<std::string>>
-							("", "", "Head")
-					);
-				}
-			},
-			.tailMultiplicands
-			{
-				[]
-				()
-				{
-					return DynamicGroupingMultiplicationNode_TestParams::TailViewType
-					{};
-				}
-			},
-			.leadingTrivia{ "" },
-			.trailingTrivia{ "" },
-			.stringRepresentation{ "Head" }
-		},
-		DynamicGroupingMultiplicationNode_TestParams
-		{
-			.headMultiplicand
-			{
-				[]()
-				{
-					return std::move
-					(
-						std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicOperandNode<std::string>>
-							("", "", "Head")
-					);
-				}
-			},
-			.tailMultiplicands
-			{
-				[]()
-				{
-					return DynamicGroupingMultiplicationNode_TestParams::TailViewType
-					{
-						std::move
-						(
-							DynamicGroupingMultiplicationNode_TestParams::TailRangeType
-							{
-								std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>>
-									(nullptr, "", "", "(Tail)")
-							}
-						)
-					};
-				}
-			},
-			.leadingTrivia{ "" },
-			.trailingTrivia{ "" },
-			.stringRepresentation{ "Head(Tail)" }
-		},
-		DynamicGroupingMultiplicationNode_TestParams
-		{
-			.headMultiplicand
-			{
-				[]()
-				{
-					return std::move
-					(
-						std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicOperandNode<std::string>>
-							("", "", "Head")
-					);
-				}
-			},
-			.tailMultiplicands
-			{
-				[]()
-				{
-					return DynamicGroupingMultiplicationNode_TestParams::TailViewType
-					{
-						std::move
-						(
-							DynamicGroupingMultiplicationNode_TestParams::TailRangeType
-							{
-								std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>>
-									(nullptr, "", "", "(Tail1)"),
-								std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>>
-									(nullptr, "", "", "(Tail2)"),
-								std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>>
-									(nullptr, "", "", "(Tail3)")
-							}
-						)
-					};
-				},
-			},
-			.leadingTrivia{ "" },
-			.trailingTrivia{ "" },
-			.stringRepresentation{ "Head(Tail1)(Tail2)(Tail3)" }
-		},
-		DynamicGroupingMultiplicationNode_TestParams
-		{
-			.headMultiplicand
-			{
-				[]()
-				{
-					return std::move
-					(
-						std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicOperandNode<std::string>>
-							("", "", "Head")
-					);
-				}
-			},
-			.tailMultiplicands
-			{
-				[]()
-				{
-					return DynamicGroupingMultiplicationNode_TestParams::TailViewType
-					{
-						std::move
-						(
-							DynamicGroupingMultiplicationNode_TestParams::TailRangeType
-							{
-								std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>>
-									(nullptr, "", "", "(Tail)")
-							}
-						)
-					};
-				}
-			},
-			.leadingTrivia{ "  " },
-			.trailingTrivia{ " " },
-			.stringRepresentation{ "  Head(Tail) " }
-		},
-		DynamicGroupingMultiplicationNode_TestParams
-		{
-			.headMultiplicand
-			{
-				[]()
-				{
-					return std::move
-					(
-						std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicOperandNode<std::string>>
-							("", "", "Head")
-					);
-				}
-			},
-			.tailMultiplicands
-			{
-				[]()
-				{
-					return DynamicGroupingMultiplicationNode_TestParams::TailViewType
-					{
-						std::move
-						(
-							DynamicGroupingMultiplicationNode_TestParams::TailRangeType
-							{
-								std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>>
-									(nullptr, "", "", "(Tail)")
-							}
-						)
-					};
-				}
-			},
-			.leadingTrivia{ "  " },
-			.trailingTrivia{ "  " },
-			.stringRepresentation{ "  Head(Tail)  " }
-		},
-		DynamicGroupingMultiplicationNode_TestParams
-		{
-			.headMultiplicand
-			{
-				[]()
-				{
-					return std::move
-					(
-						std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicOperandNode<std::string>>
-							("", "", "Head")
-					);
-				}
-			},
-			.tailMultiplicands
-			{
-				[]()
-				{
-					return DynamicGroupingMultiplicationNode_TestParams::TailViewType
-					{
-						std::move
-						(
-							DynamicGroupingMultiplicationNode_TestParams::TailRangeType
-							{
-								std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>>
-									(nullptr, "", "", "(Tail)")
-							}
-						)
-					};
-				}
-			},
-			.leadingTrivia{ " " },
-			.trailingTrivia{ "  " },
-			.stringRepresentation{ " Head(Tail)  " }
-		}
-	};
-
 #pragma region Instantiate DynamicGroupingMultiplicationNodeWithCtorParamsTests
 	INSTANTIATE_TEST_CASE_P
 	(
 		DynamicGroupingMultiplicationNodeTests,
 		DynamicGroupingMultiplicationNodeWithCtorParamsTests,
-		testing::ValuesIn(DynamicGroupingMultiplicationNode_TestParamsValues)
+		testing::Values
+		(
+			DynamicGroupingMultiplicationNode_TestParams
+			{
+				.headMultiplicand{ "", "", "Head" },
+				.tailMultiplicands
+				{
+					CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>
+						{ nullptr, "", "", "(Tail)" }
+				},
+				.leadingTrivia{ "" },
+				.trailingTrivia{ "" },
+				.stringRepresentation{ "Head(Tail)" }
+			}
+		)
 	);
 #pragma endregion
 
@@ -250,26 +55,49 @@ namespace CmdCalculatorTestDoubleTests
 	TEST_P(DynamicGroupingMultiplicationNodeWithCtorParamsTests, DynamicGroupingMultiplicationNode$has$expected$state)
 	{
 		// Arrange
-		auto headMultiplicandToPass{ GetParam().headMultiplicand() };
-		std::ranges::owning_view<decltype(GetParam().tailMultiplicands())> tailMultiplicandsToPass
+		auto headMultiplicandToPass
 		{
-			GetParam().tailMultiplicands()
+			std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicOperandNode<std::string>>
+				(GetParam().headMultiplicand)
+		};
+		auto tailMultiplicandsView
+		{
+			GetParam().tailMultiplicands
+			| std::views::transform
+			(
+				[](auto& tailMultiplicand)
+				{
+					return std::move
+					(
+						std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>>
+							(tailMultiplicand)
+					);
+				}
+			)
+		};
+		std::ranges::owning_view<std::vector<std::unique_ptr<CmdCalculator::MathAst::DynamicGroupingNode<std::string>>>> tailMultiplicandsToPass
+		{
+			std::vector<std::unique_ptr<CmdCalculator::MathAst::DynamicGroupingNode<std::string>>>
+			{
+				tailMultiplicandsView.begin(),
+				tailMultiplicandsView.end()
+			}
 		};
 		const std::string leadingTriviaToPass{ GetParam().leadingTrivia };
 		const std::string trailingTriviaToPass{ GetParam().trailingTrivia };
 
 		const std::string expectedHeadMultiplicandStringRepresentation
 		{
-			GetParam().headMultiplicand()->getStringRepresentation()
+			GetParam().headMultiplicand.getStringRepresentation()
 		};
 		const auto expectedTailMultiplicandStringRepresentations
 		{
-			GetParam().tailMultiplicands()
+			GetParam().tailMultiplicands
 			| std::views::transform
 			(
 				[](auto& tailMultiplicand)
 				{
-					return tailMultiplicand->getStringRepresentation();
+					return tailMultiplicand.getStringRepresentation();
 				}
 			)
 		};
