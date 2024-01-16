@@ -20,6 +20,17 @@ namespace CmdCalculator::MathAst
 
 		using StringType = DynamicExpressionContainingNode<StringT>::StringType;
 
+		
+		DynamicGroupingNode
+		(
+			std::unique_ptr<DynamicExpressionNode<StringT>> containedExpression,
+			StringT leadingTrivia,
+			StringT trailingTrivia
+		)
+		{
+			throw NotImplementedException{};
+		}
+
 
 		DynamicExpressionNode<StringT>* getContainedExpression() const override
 		{

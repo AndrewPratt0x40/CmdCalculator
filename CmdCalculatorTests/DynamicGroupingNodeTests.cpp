@@ -4,14 +4,14 @@
 #include <memory>
 #include <span>
 
-#include "../CmdCalculator/DynamicAbsoluteValueNode.h"
+#include "../CmdCalculator/DynamicGroupingNode.h"
 #include "../CmdCalculator/DynamicExpressionNode.h"
 #include "../CmdCalculator/DynamicExpressionPartNode.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpressionNode.h"
 
 namespace CmdCalculatorTestDoubleTests
 {
-	struct DynamicAbsoluteValueNode_TestParams
+	struct DynamicGroupingNode_TestParams
 	{
 		CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionNode<std::string> containedExpression;
 		std::string leadingTrivia;
@@ -19,37 +19,37 @@ namespace CmdCalculatorTestDoubleTests
 		std::string stringRepresentation;
 	};
 
-	class DynamicAbsoluteValueNodeWithCtorParamsTests :
-		public testing::TestWithParam<DynamicAbsoluteValueNode_TestParams>
+	class DynamicGroupingNodeWithCtorParamsTests :
+		public testing::TestWithParam<DynamicGroupingNode_TestParams>
 	{};
 
-#pragma region Instantiate DynamicAbsoluteValueNodeWithCtorParamsTests
+#pragma region Instantiate DynamicGroupingNodeWithCtorParamsTests
 	INSTANTIATE_TEST_CASE_P
 	(
-		DynamicAbsoluteValueNodeTests,
-		DynamicAbsoluteValueNodeWithCtorParamsTests,
+		DynamicGroupingNodeTests,
+		DynamicGroupingNodeWithCtorParamsTests,
 		testing::Values
 		(
-			DynamicAbsoluteValueNode_TestParams
+			DynamicGroupingNode_TestParams
 			{
 				.containedExpression{ "ContainedExpression", "", "" },
 				.leadingTrivia{ "" },
 				.trailingTrivia{ "" },
-				.stringRepresentation{ "|ContainedExpression|" }
+				.stringRepresentation{ "(ContainedExpression)" }
 			},
-			DynamicAbsoluteValueNode_TestParams
+			DynamicGroupingNode_TestParams
 			{
 				.containedExpression{ "ContainedExpression", "", "" },
 				.leadingTrivia{ " " },
 				.trailingTrivia{ "  " },
-				.stringRepresentation{ " |ContainedExpression|  " }
+				.stringRepresentation{ " (ContainedExpression)  " }
 			}
 		)
 	);
 #pragma endregion
 
 
-	TEST_P(DynamicAbsoluteValueNodeWithCtorParamsTests, DynamicAbsoluteValueNode$has$expected$state)
+	TEST_P(DynamicGroupingNodeWithCtorParamsTests, DynamicGroupingNode$has$expected$state)
 	{
 		// Arrange
 		auto containedExpressionToPass
@@ -66,7 +66,7 @@ namespace CmdCalculatorTestDoubleTests
 		const std::string expectedStringRepresentation{ GetParam().stringRepresentation };
 		
 		// Act
-		CmdCalculator::MathAst::DynamicAbsoluteValueNode<std::string> instance
+		CmdCalculator::MathAst::DynamicGroupingNode<std::string> instance
 		{
 			std::move(containedExpressionToPass),
 			leadingTriviaToPass,

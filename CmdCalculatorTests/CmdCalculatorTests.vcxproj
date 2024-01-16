@@ -74,7 +74,11 @@
     <ClCompile Include="DynamicExpressionNodeTests.cpp" />
     <ClCompile Include="DynamicExpressionPartNodeTests.cpp" />
     <ClCompile Include="DynamicGroupingMultiplicationNodeTests.cpp" />
+    <ClCompile Include="DynamicGroupingNodeTests.cpp" />
     <ClCompile Include="DynamicMathAstNodeTests.cpp" />
+    <ClCompile Include="DynamicNumberLiteralNodeTests.cpp" />
+    <ClCompile Include="DynamicSignOperationNodeTests.cpp" />
+    <ClCompile Include="DynamicSqrtOperationNodeTest.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>

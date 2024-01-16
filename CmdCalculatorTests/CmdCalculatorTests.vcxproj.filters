@@ -40,6 +40,18 @@
     <ClCompile Include="DynamicGroupingMultiplicationNodeTests.cpp">
       <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
     </ClCompile>
+    <ClCompile Include="DynamicGroupingNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicNumberLiteralNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicSignOperationNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicSqrtOperationNodeTest.cpp">
+      <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">

@@ -58,9 +58,6 @@
     <Filter Include="Source Code\Math AST\Dynamic\DynamicNumberLiteralNode">
       <UniqueIdentifier>{428d90ea-27c1-4206-b791-ce8f8200943a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Code\Math AST\Dynamic\DynamicUnaryOperationNode">
-      <UniqueIdentifier>{64f92aae-995e-47d6-9958-917c5e5ecffc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Code\Math AST\Dynamic\DynamicSignOperationNode">
       <UniqueIdentifier>{0c5c7033-4cd6-4286-988f-6707082c2483}</UniqueIdentifier>
     </Filter>
@@ -231,9 +228,6 @@
     <ClInclude Include="DynamicNumberLiteralNode.h">
       <Filter>Source Code\Math AST\Dynamic\DynamicNumberLiteralNode</Filter>
     </ClInclude>
-    <ClInclude Include="DynamicUnaryOperationNode.h">
-      <Filter>Source Code\Math AST\Dynamic\DynamicUnaryOperationNode</Filter>
-    </ClInclude>
     <ClInclude Include="DynamicSignOperationNode.h">
       <Filter>Source Code\Math AST\Dynamic\DynamicSignOperationNode</Filter>
     </ClInclude>
@@ -318,6 +312,9 @@
     <ClInclude Include="DynamicExpressionNode.h">
       <Filter>Source Code\Math AST\Dynamic</Filter>
     </ClInclude>
+    <ClInclude Include="DynamicUnaryOperationNode.h">
+      <Filter>Source Code\Math AST\Dynamic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -349,9 +346,6 @@
     </ClCompile>
     <ClCompile Include="DynamicNumberLiteralNode.cpp">
       <Filter>Source Code\Math AST\Dynamic\DynamicNumberLiteralNode</Filter>
-    </ClCompile>
-    <ClCompile Include="DynamicUnaryOperationNode.cpp">
-      <Filter>Source Code\Math AST\Dynamic\DynamicUnaryOperationNode</Filter>
     </ClCompile>
     <ClCompile Include="DynamicSignOperationNode.cpp">
       <Filter>Source Code\Math AST\Dynamic\DynamicSignOperationNode</Filter>

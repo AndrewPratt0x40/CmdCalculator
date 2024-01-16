@@ -16,6 +16,27 @@ namespace CmdCalculator::MathAst
 
 		using StringType = DynamicOperandNode<StringT>::StringType;
 
+	protected:
+
+		StringType getOperatorStringRepresentation() const override
+		{
+			throw NotImplementedException{};
+		}
+
+
+	public:
+
+		DynamicSqrtOperationNode
+		(
+			std::unique_ptr<DynamicOperandNode<StringType>> operand,
+			const StringType innerTrivia,
+			const StringType leadingTrivia,
+			const StringType trailingTrivia
+		)
+		{
+			throw NotImplementedException{};
+		}
+
 
 		StringT getInnerTrivia() const override
 		{

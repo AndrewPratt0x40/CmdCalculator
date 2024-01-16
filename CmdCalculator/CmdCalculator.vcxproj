@@ -152,7 +152,6 @@
     <ClCompile Include="DynamicNumberLiteralNode.cpp" />
     <ClCompile Include="DynamicSignOperationNode.cpp" />
     <ClCompile Include="DynamicSqrtOperationNode.cpp" />
-    <ClCompile Include="DynamicUnaryOperationNode.cpp" />
     <ClCompile Include="BasicAntlrContextToMathAstConverter.cpp" />
     <ClCompile Include="MissingCmdLineArgValueException.cpp" />
     <ClCompile Include="Process.cpp" />

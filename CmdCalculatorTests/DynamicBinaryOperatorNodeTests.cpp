@@ -77,20 +77,6 @@ namespace CmdCalculatorTestDoubleTests
 			DynamicBinaryOperatorNode_TestParams
 			{
 				.operatorKind{ CmdCalculator::MathAst::EBinaryOperator::Multiplication },
-				.leadingTrivia{ "  " },
-				.trailingTrivia{ " " },
-				.stringRepresentation{ "  * " }
-			},
-			DynamicBinaryOperatorNode_TestParams
-			{
-				.operatorKind{ CmdCalculator::MathAst::EBinaryOperator::Multiplication },
-				.leadingTrivia{ "  " },
-				.trailingTrivia{ "  " },
-				.stringRepresentation{ "  *  " }
-			},
-			DynamicBinaryOperatorNode_TestParams
-			{
-				.operatorKind{ CmdCalculator::MathAst::EBinaryOperator::Multiplication },
 				.leadingTrivia{ " " },
 				.trailingTrivia{ "  " },
 				.stringRepresentation{ " *  " }

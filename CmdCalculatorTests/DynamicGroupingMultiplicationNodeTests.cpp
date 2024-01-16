@@ -38,6 +38,14 @@ namespace CmdCalculatorTestDoubleTests
 			DynamicGroupingMultiplicationNode_TestParams
 			{
 				.headMultiplicand{ "", "", "Head" },
+				.tailMultiplicands{},
+				.leadingTrivia{ "" },
+				.trailingTrivia{ "" },
+				.stringRepresentation{ "Head(Tail)" }
+			},
+			DynamicGroupingMultiplicationNode_TestParams
+			{
+				.headMultiplicand{ "", "", "Head" },
 				.tailMultiplicands
 				{
 					CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>
@@ -46,6 +54,38 @@ namespace CmdCalculatorTestDoubleTests
 				.leadingTrivia{ "" },
 				.trailingTrivia{ "" },
 				.stringRepresentation{ "Head(Tail)" }
+			},
+			DynamicGroupingMultiplicationNode_TestParams
+			{
+				.headMultiplicand{ "", "", "Head" },
+				.tailMultiplicands
+				{
+					CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>
+						{ nullptr, "", "", "(Tail1)" },
+					CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>
+						{ nullptr, "", "", "(Tail2)" },
+					CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>
+						{ nullptr, "", "", "(Tail3)" }
+				},
+				.leadingTrivia{ "" },
+				.trailingTrivia{ "" },
+				.stringRepresentation{ "Head(Tail1)(Tail2)(Tail3)" }
+			},
+			DynamicGroupingMultiplicationNode_TestParams
+			{
+				.headMultiplicand{ "", "", "Head" },
+				.tailMultiplicands
+				{
+					CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>
+						{ nullptr, "", "", "(Tail1)" },
+					CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>
+						{ nullptr, "", "", "(Tail2)" },
+					CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>
+						{ nullptr, "", "", "(Tail3)" }
+				},
+				.leadingTrivia{ " " },
+				.trailingTrivia{ "  " },
+				.stringRepresentation{ " Head(Tail1)(Tail2)(Tail3)  " }
 			}
 		)
 	);

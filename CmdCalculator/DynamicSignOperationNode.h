@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include "DynamicUnaryOperationNode.h"
 #include "strings.h"
 #include "NotImplementedException.h"
@@ -16,34 +18,32 @@ namespace CmdCalculator::MathAst
 
 		using StringType = DynamicOperandNode<StringT>::StringType;
 
+	protected:
+
+		StringType getOperatorStringRepresentation() const override
+		{
+			throw NotImplementedException{};
+		}
+
+
+	public:
+
+		DynamicSignOperationNode
+		(
+			std::unique_ptr<DynamicOperandNode<StringType>> operand,
+			const bool isPositive,
+			const StringType innerTrivia,
+			const StringType leadingTrivia,
+			const StringType trailingTrivia
+		)
+		{
+			throw NotImplementedException{};
+		}
+
 
 		/// \brief Tests if the sign expression is positive or negative.
 		/// \returns True if the sign expression is positive, false if it's negative.
 		bool isPositive() const
-		{
-			throw NotImplementedException{};
-		}
-
-
-		StringT getInnerTrivia() const override
-		{
-			throw NotImplementedException{};
-		}
-
-
-		StringT getLeadingTrivia() const override
-		{
-			throw NotImplementedException{};
-		}
-
-
-		StringT getTrailingTrivia() const override
-		{
-			throw NotImplementedException{};
-		}
-
-
-		StringT getStringRepresentation() const override
 		{
 			throw NotImplementedException{};
 		}
