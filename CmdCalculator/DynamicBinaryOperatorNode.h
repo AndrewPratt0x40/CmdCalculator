@@ -15,6 +15,12 @@ namespace CmdCalculator::MathAst
 	{
 	public:
 
+		DynamicBinaryOperatorNode(const EBinaryOperator operatorKind, const StringT leadingTrivia, const StringT trailingTrivia)
+		{
+			throw NotImplementedException{};
+		}
+
+
 		/// \brief Accessor to the kind of operator the node holds.
 		/// \returns The operator kind.
 		EBinaryOperator getOperatorKind() const

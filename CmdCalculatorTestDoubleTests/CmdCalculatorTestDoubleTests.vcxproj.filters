@@ -116,7 +116,10 @@
       <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext</Filter>
     </ClCompile>
     <ClCompile Include="StubTrackingDynamicExpressionNodeTests.cpp">
-      <Filter>Source Code\Tests\MathAst</Filter>
+      <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="StubDynamicExpressionNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +224,9 @@
     </Filter>
     <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext">
       <UniqueIdentifier>{9951ba43-c608-4c96-8c68-ff342f7d3bef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\MathAst\Dynamic">
+      <UniqueIdentifier>{a34021a8-3ebd-466c-b878-55140f1a3c7d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

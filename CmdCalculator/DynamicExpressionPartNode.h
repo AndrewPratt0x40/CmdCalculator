@@ -11,6 +11,7 @@ namespace CmdCalculator::MathAst
 	template<String StringT>
 	class DynamicExpressionPartNode :
 		public ExpressionPartNode_IntendedSatisfaction,
+		public MathAstNode_IntendedSatisfaction,
 		public DynamicMathAstNode<StringT>
 	{
 	public:

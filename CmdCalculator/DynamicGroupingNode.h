@@ -21,7 +21,7 @@ namespace CmdCalculator::MathAst
 		using StringType = DynamicExpressionContainingNode<StringT>::StringType;
 
 
-		DynamicExpressionNode<StringT> getContainedExpression() const override
+		DynamicExpressionNode<StringT>* getContainedExpression() const override
 		{
 			throw NotImplementedException{};
 		}
@@ -39,7 +39,7 @@ namespace CmdCalculator::MathAst
 		}
 
 
-		StringT getStringRepresentation() const override
+		virtual StringT getStringRepresentation() const override
 		{
 			throw NotImplementedException{};
 		}

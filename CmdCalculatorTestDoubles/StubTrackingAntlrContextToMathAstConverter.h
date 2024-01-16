@@ -34,6 +34,7 @@ namespace CmdCalculatorTestDoubles
 		using FullExpressionAntlrContextType = StubTrackingFullExpressionAntlrContext<SourceStringViewType>;
 
 
+		StringT convertedContextStringRepresentation;
 		StringT convertedContextLeadingTrivia;
 		StringT convertedContextTrailingTrivia;
 		//std::span<std::shared_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>>> convertedContextParts;
@@ -46,9 +47,9 @@ namespace CmdCalculatorTestDoubles
 				std::make_unique<MathAst::StubTrackingDynamicExpressionNode<StringType, SourceStringViewType>>
 				(
 					context.stringSource,
+					convertedContextStringRepresentation,
 					convertedContextLeadingTrivia,
-					convertedContextTrailingTrivia,
-					std::move(std::span<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>*>{})
+					convertedContextTrailingTrivia
 				)
 			;
 		}

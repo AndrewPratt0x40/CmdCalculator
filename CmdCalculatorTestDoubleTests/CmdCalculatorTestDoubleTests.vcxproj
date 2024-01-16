@@ -76,6 +76,7 @@
     <ClCompile Include="StubAbsoluteValueOperationAntlrContextTests.cpp" />
     <ClCompile Include="StubAntlrTokenTests.cpp" />
     <ClCompile Include="StubBinaryOperatorAntlrContextTests.cpp" />
+    <ClCompile Include="StubDynamicExpressionNodeTests.cpp" />
     <ClCompile Include="StubExpressionAntlrContextTests.cpp" />
     <ClCompile Include="StubGroupingAntlrContextTests.cpp" />
     <ClCompile Include="StubGroupingMultiplicationAntlrContextTests.cpp" />

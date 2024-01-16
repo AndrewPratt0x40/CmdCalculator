@@ -112,6 +112,18 @@
     <Filter Include="Source Code\CmdCalculator\Conversions\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext">
       <UniqueIdentifier>{7844ef14-ba5a-4a42-9c0e-4326d9298ba3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\CmdCalculator\MathAst\Dynamic">
+      <UniqueIdentifier>{065f72ed-0763-47d2-a9e3-33ebcc56bc77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\MathAst\Dynamic\DynamicExpressionNode">
+      <UniqueIdentifier>{109b8b12-f601-448f-b04b-408929c587d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\MathAst\Dynamic\DynamicOperandNode">
+      <UniqueIdentifier>{3a1f9d6e-63c3-4cee-b176-81ce6607e456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\MathAst\Dynamic\DynamicGroupingNode">
+      <UniqueIdentifier>{1d5e8065-b0ab-4131-be55-87b430756738}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FakeConsole.h">
@@ -229,7 +241,16 @@
       <Filter>Source Code\CmdCalculator\Conversions\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext</Filter>
     </ClInclude>
     <ClInclude Include="StubTrackingDynamicExpressionNode.h">
-      <Filter>Source Code\CmdCalculator\MathAst\MathAstNode</Filter>
+      <Filter>Source Code\CmdCalculator\MathAst\Dynamic\DynamicExpressionNode</Filter>
+    </ClInclude>
+    <ClInclude Include="StubDynamicExpressionNode.h">
+      <Filter>Source Code\CmdCalculator\MathAst\Dynamic\DynamicExpressionNode</Filter>
+    </ClInclude>
+    <ClInclude Include="StubDynamicOperandNode.h">
+      <Filter>Source Code\CmdCalculator\MathAst\Dynamic\DynamicOperandNode</Filter>
+    </ClInclude>
+    <ClInclude Include="StubDynamicGroupingNode.h">
+      <Filter>Source Code\CmdCalculator\MathAst\Dynamic\DynamicGroupingNode</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

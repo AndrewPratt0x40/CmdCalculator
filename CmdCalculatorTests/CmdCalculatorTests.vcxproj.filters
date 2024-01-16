@@ -22,6 +22,24 @@
     <ClCompile Include="BasicCalculationTests.cpp">
       <Filter>Source Code\Tests\Calculation</Filter>
     </ClCompile>
+    <ClCompile Include="DynamicMathAstNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicExpressionNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicExpressionPartNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicBinaryOperatorNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicAbsoluteValueNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicGroupingMultiplicationNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -44,6 +62,12 @@
     </Filter>
     <Filter Include="Source Code\Tests\Conversions\String to Math AST\ANTLR">
       <UniqueIdentifier>{f7d90b95-d611-4714-8c08-3d3d69e32ecb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\MathAst">
+      <UniqueIdentifier>{d856e592-9ee5-4e4c-ad72-1771ee002293}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\MathAst\Dynamic">
+      <UniqueIdentifier>{2fbb622e-3205-4e44-807a-9233302e389c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

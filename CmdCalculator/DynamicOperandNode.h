@@ -9,6 +9,8 @@ namespace CmdCalculator::MathAst
 	/// \tparam StringT The string type to use.
 	template<String StringT>
 	class DynamicOperandNode :
+		public ExpressionPartNode_IntendedSatisfaction,
+		public MathAstNode_IntendedSatisfaction,
 		public DynamicExpressionPartNode<StringT>
 	{
 	public:

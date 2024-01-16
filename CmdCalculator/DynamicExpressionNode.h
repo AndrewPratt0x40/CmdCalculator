@@ -7,8 +7,9 @@
 #include "NotImplementedException.h"
 
 #include <ranges>
-#include <span>
 #include <memory>
+#include <utility>
+#include <vector>
 
 namespace CmdCalculator::MathAst
 {
@@ -22,14 +23,17 @@ namespace CmdCalculator::MathAst
 	{
 	protected:
 		/// \brief Creates a new instance of the \ref DynamicExpressionNode class.
+		/// \tparam PartsRangeT The type of the range holding every part of the expression.
 		/// \param leadingTrivia Trivial content at the beginning of the string contents of the node.
 		/// \param trailingTrivia Trivial content at the end of the string contents of the node.
 		/// \param parts A range of every part of the expression, in order.
+		template<std::ranges::input_range PartsRangeT>
+			requires std::same_as<std::unique_ptr<MathAst::DynamicExpressionPartNode<StringT>>, std::ranges::range_value_t<PartsRangeT>>
 		DynamicExpressionNode
 		(
 			const StringT leadingTrivia,
 			const StringT trailingTrivia,
-			const std::span<MathAst::DynamicExpressionPartNode<StringT>*>&& parts
+			const std::ranges::owning_view<PartsRangeT>&& parts
 		)
 		{
 			throw NotImplementedException{};
@@ -38,7 +42,7 @@ namespace CmdCalculator::MathAst
 	public:
 		/// \brief Accessor to the parts of the expression.
 		/// \returns A range of every part of the expression, in order.
-		std::ranges::ref_view<std::span<MathAst::DynamicExpressionPartNode<StringT>*>> getParts() const
+		std::ranges::owning_view<std::span<MathAst::DynamicExpressionPartNode<StringT>*>> getParts() const
 		{
 			throw NotImplementedException{};
 		}
@@ -56,7 +60,7 @@ namespace CmdCalculator::MathAst
 		}
 
 
-		StringT getStringRepresentation() const override
+		virtual StringT getStringRepresentation() const override
 		{
 			throw NotImplementedException{};
 		}
