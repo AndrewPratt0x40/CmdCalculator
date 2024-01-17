@@ -25,18 +25,13 @@ namespace CmdCalculatorTestDoubleTests
 		public testing::TestWithParam<DynamicNumberLiteralNode_TestParams>
 	{};
 
-#pragma region Instantiate DynamicNumberLiteralNodeWithCtorParamsTests
-	INSTANTIATE_TEST_CASE_P
-	(
-		DynamicNumberLiteralNodeTests,
-		DynamicNumberLiteralNodeWithCtorParamsTests,
-		testing::Values
-		(
-			DynamicNumberLiteralNode_TestParams
+	const DynamicNumberLiteralNode_TestParams DynamicNumberLiteralNode_TestParamsValues[]
+	{
+		DynamicNumberLiteralNode_TestParams
 			{
 				.wholePart{ 1 },
 				.fractionalPart{ 2 },
-				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::FullDecimal }
+				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::FullDecimal },
 				.leadingTrivia{ "" },
 				.trailingTrivia{ "" },
 				.expectWholePartVisible{ true },
@@ -48,7 +43,7 @@ namespace CmdCalculatorTestDoubleTests
 			{
 				.wholePart{ 1234 },
 				.fractionalPart{ 5678 },
-				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::FullDecimal }
+				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::FullDecimal },
 				.leadingTrivia{ "" },
 				.trailingTrivia{ "" },
 				.expectWholePartVisible{ true },
@@ -60,7 +55,7 @@ namespace CmdCalculatorTestDoubleTests
 			{
 				.wholePart{ 1 },
 				.fractionalPart{ 2 },
-				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::Integer }
+				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::Integer },
 				.leadingTrivia{ "" },
 				.trailingTrivia{ "" },
 				.expectWholePartVisible{ true },
@@ -72,7 +67,7 @@ namespace CmdCalculatorTestDoubleTests
 			{
 				.wholePart{ 1 },
 				.fractionalPart{ 2 },
-				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::WholelessDecimal }
+				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::WholelessDecimal },
 				.leadingTrivia{ "" },
 				.trailingTrivia{ "" },
 				.expectWholePartVisible{ false },
@@ -84,7 +79,7 @@ namespace CmdCalculatorTestDoubleTests
 			{
 				.wholePart{ 1 },
 				.fractionalPart{ 2 },
-				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::FractionlessDecimal }
+				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::FractionlessDecimal },
 				.leadingTrivia{ "" },
 				.trailingTrivia{ "" },
 				.expectWholePartVisible{ true },
@@ -96,7 +91,7 @@ namespace CmdCalculatorTestDoubleTests
 			{
 				.wholePart{ 1 },
 				.fractionalPart{ 2 },
-				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::FullDecimal }
+				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::FullDecimal },
 				.leadingTrivia{ " " },
 				.trailingTrivia{ "  " },
 				.expectWholePartVisible{ true },
@@ -104,7 +99,15 @@ namespace CmdCalculatorTestDoubleTests
 				.expectFractionalPartVisible{ true },
 				.stringRepresentation{ " 1.2  " }
 			}
-		)
+	};
+
+
+#pragma region Instantiate DynamicNumberLiteralNodeWithCtorParamsTests
+	INSTANTIATE_TEST_CASE_P
+	(
+		DynamicNumberLiteralNodeTests,
+		DynamicNumberLiteralNodeWithCtorParamsTests,
+		testing::ValuesIn(DynamicNumberLiteralNode_TestParamsValues)
 	);
 #pragma endregion
 

@@ -18,22 +18,17 @@ namespace CmdCalculatorTestDoubles::MathAst
 		using StringType = StringT;
 
 
-		CmdCalculator::MathAst::DynamicExpressionNode<StringType>* containedExpression;
-		StringType leadingTrivia;
-		StringType trailingTrivia;
 		StringType stringRepresentation;
 
 		
 		StubDynamicGroupingNode
 		(
-			CmdCalculator::MathAst::DynamicExpressionNode<StringType>* containedExpression,
+			std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionNode<StringType>> containedExpression,
 			const StringType leadingTrivia,
 			const StringType trailingTrivia,
 			const StringType stringRepresentation
 		) :
-			containedExpression{ containedExpression },
-			leadingTrivia{ leadingTrivia },
-			trailingTrivia{ trailingTrivia },
+			CmdCalculator::MathAst::DynamicGroupingNode<StringType>(std::move(containedExpression), leadingTrivia, trailingTrivia),
 			stringRepresentation{ stringRepresentation }
 		{}
 

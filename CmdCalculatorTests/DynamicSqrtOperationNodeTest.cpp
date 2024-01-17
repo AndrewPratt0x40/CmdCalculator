@@ -40,7 +40,6 @@ namespace CmdCalculatorTestDoubleTests
 			DynamicSqrtOperationNode_TestParams
 			{
 				.operand{ "", "", "Operand" },
-				.isPositive{ true },
 				.innerTrivia{ "  " },
 				.leadingTrivia{ "   " },
 				.trailingTrivia{ "    " },

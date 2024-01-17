@@ -35,7 +35,15 @@ namespace CmdCalculator::MathAst
 			const StringType innerTrivia,
 			const StringType leadingTrivia,
 			const StringType trailingTrivia
-		)
+		) :
+			DynamicUnaryOperationNode<StringType>
+			(
+				true,
+				std::move(operand),
+				innerTrivia,
+				leadingTrivia,
+				trailingTrivia
+			)
 		{
 			throw NotImplementedException{};
 		}
