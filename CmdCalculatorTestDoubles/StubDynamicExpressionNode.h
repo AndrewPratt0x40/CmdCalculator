@@ -1,6 +1,7 @@
 #pragma once
 
 #include <ranges>
+#include <utility>
 #include <span>
 #include <vector>
 #include <memory>
@@ -21,7 +22,9 @@ namespace CmdCalculatorTestDoubles::MathAst
 
 
 		StringType stringRepresentation;
-		using PartsType = std::ranges::owning_view<std::vector<std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>>>>;
+		using PartsValueType = CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>;
+		using PartsRangeType = std::vector<std::unique_ptr<PartsValueType>>;
+		using PartsType = std::ranges::owning_view<PartsRangeType>;
 
 		
 		StubDynamicExpressionNode

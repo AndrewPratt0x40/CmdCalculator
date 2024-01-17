@@ -13,7 +13,7 @@ namespace CmdCalculatorTestDoubleTests
 {
 	struct DynamicGroupingNode_TestParams
 	{
-		CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionNode<std::string> containedExpression;
+		std::string containedExpressionStringRepresentation;
 		std::string leadingTrivia;
 		std::string trailingTrivia;
 		std::string stringRepresentation;
@@ -23,28 +23,30 @@ namespace CmdCalculatorTestDoubleTests
 		public testing::TestWithParam<DynamicGroupingNode_TestParams>
 	{};
 
+	const DynamicGroupingNode_TestParams DynamicGroupingNode_TestParamsValues[]
+	{
+		DynamicGroupingNode_TestParams
+		{
+			.containedExpressionStringRepresentation{ "ContainedExpression" },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.stringRepresentation{ "(ContainedExpression)" }
+		},
+		DynamicGroupingNode_TestParams
+		{
+			.containedExpressionStringRepresentation{ "ContainedExpression" },
+			.leadingTrivia{ " " },
+			.trailingTrivia{ "  " },
+			.stringRepresentation{ " (ContainedExpression)  " }
+		}
+	};
+
 #pragma region Instantiate DynamicGroupingNodeWithCtorParamsTests
 	INSTANTIATE_TEST_CASE_P
 	(
 		DynamicGroupingNodeTests,
 		DynamicGroupingNodeWithCtorParamsTests,
-		testing::Values
-		(
-			DynamicGroupingNode_TestParams
-			{
-				.containedExpression{ "ContainedExpression", "", "" },
-				.leadingTrivia{ "" },
-				.trailingTrivia{ "" },
-				.stringRepresentation{ "(ContainedExpression)" }
-			},
-			DynamicGroupingNode_TestParams
-			{
-				.containedExpression{ "ContainedExpression", "", "" },
-				.leadingTrivia{ " " },
-				.trailingTrivia{ "  " },
-				.stringRepresentation{ " (ContainedExpression)  " }
-			}
-		)
+		testing::ValuesIn(DynamicGroupingNode_TestParamsValues)
 	);
 #pragma endregion
 
@@ -55,12 +57,12 @@ namespace CmdCalculatorTestDoubleTests
 		auto containedExpressionToPass
 		{
 			std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionNode<std::string>>
-				(GetParam().containedExpression)
+				(GetParam().containedExpressionStringRepresentation, "", "")
 		};
 		const std::string leadingTriviaToPass{ GetParam().leadingTrivia };
 		const std::string trailingTriviaToPass{ GetParam().trailingTrivia };
 
-		const std::string expectedContainedExpressionStringRepresentation{ GetParam().containedExpression.getStringRepresentation() };
+		const std::string expectedContainedExpressionStringRepresentation{ GetParam().containedExpressionStringRepresentation };
 		const std::string expectedLeadingTrivia{ GetParam().leadingTrivia };
 		const std::string expectedTrailingTrivia{ GetParam().trailingTrivia };
 		const std::string expectedStringRepresentation{ GetParam().stringRepresentation };
