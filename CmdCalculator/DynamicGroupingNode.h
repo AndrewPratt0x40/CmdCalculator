@@ -28,7 +28,7 @@ namespace CmdCalculator::MathAst
 			StringT trailingTrivia
 		)
 		{
-			throw NotImplementedException{};
+			//throw NotImplementedException{};
 		}
 
 

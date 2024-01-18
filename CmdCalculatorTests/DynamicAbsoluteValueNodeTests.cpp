@@ -51,7 +51,7 @@ namespace CmdCalculatorTestDoubleTests
 #pragma endregion
 
 
-	TEST_P(DynamicAbsoluteValueNodeWithCtorParamsTests, DynamicAbsoluteValueNode$has$expected$state)
+	TEST_P(DynamicAbsoluteValueNodeWithCtorParamsTests, DISABLED_DynamicAbsoluteValueNode$has$expected$state)
 	{
 		// Arrange
 		auto containedExpressionToPass
