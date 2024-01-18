@@ -1,10 +1,14 @@
 #include "pch.h"
 
 #include <concepts>
+#include <string>
 
 #include "common.h"
 #include "..\CmdCalculator\NotImplementedException.h"
 #include "..\CmdCalculator\strings.h"
+
+using namespace std::string_literals;
+using namespace std::string_view_literals;
 
 namespace CmdCalculatorTests
 {
@@ -179,6 +183,190 @@ namespace CmdCalculatorTests
 
 		// Assert
 		EXPECT_EQ(expectSatisfaction, isSatisfactory);
+	}
+
+#pragma endregion
+
+
+#pragma region convertString
+
+	namespace convertString_TypeParams_StringInfo
+	{
+		template<class T>
+		concept StringInfo = requires()
+		{
+			typename T::CharType;
+			{ T::getValue() } -> std::same_as<std::basic_string<typename T::CharType>>;
+		};
+
+
+		struct CharStringInfo
+		{
+			using CharType = char;
+			static std::basic_string<char> getValue()
+			{
+				return "Hello, world!"s;
+			}
+		};
+
+		struct WCharStringInfo
+		{
+			using CharType = wchar_t;
+			static std::basic_string<wchar_t> getValue()
+			{
+				return L"Hello, world!"s;
+			}
+		};
+
+		struct Char8StringInfo
+		{
+			using CharType = char8_t;
+			static std::basic_string<char8_t> getValue()
+			{
+				return u8"Hello, world!"s;
+			}
+		};
+
+		struct Char16StringInfo
+		{
+			using CharType = char16_t;
+			static std::basic_string<char16_t> getValue()
+			{
+				return u"Hello, world!"s;
+			}
+		};
+
+		struct Char32StringInfo
+		{
+			using CharType = char32_t;
+			static std::basic_string<char32_t> getValue()
+			{
+				return U"Hello, world!"s;
+			}
+		};
+	}
+
+
+	template
+	<
+		convertString_TypeParams_StringInfo::StringInfo FromT,
+		convertString_TypeParams_StringInfo::StringInfo ToT
+	>
+	struct convertString_TypeParams
+	{
+		using FromStringType = std::basic_string<typename FromT::CharType>;
+		using ToCharType = ToT::CharType;
+
+		static FromStringType getFrom()
+		{
+			return FromT::getValue();
+		}
+
+		static std::basic_string<ToCharType> getExpected()
+		{
+			return ToT::getValue();
+		}
+	};
+	
+	
+	template<class T>
+	class convertStringTests :
+		public testing::Test
+	{};
+
+	using convertString_Types = testing::Types
+	<
+		// See: https://en.cppreference.com/w/cpp/locale/codecvt#Specializations
+		// TODO: Remove deprecated conversions?
+		convertString_TypeParams
+		<
+			convertString_TypeParams_StringInfo::CharStringInfo,
+			convertString_TypeParams_StringInfo::CharStringInfo
+		>,
+		convertString_TypeParams
+		<
+			convertString_TypeParams_StringInfo::Char16StringInfo,
+			convertString_TypeParams_StringInfo::CharStringInfo
+		>,
+		convertString_TypeParams
+		<
+			convertString_TypeParams_StringInfo::CharStringInfo,
+			convertString_TypeParams_StringInfo::Char16StringInfo
+		>,
+		convertString_TypeParams
+		<
+			convertString_TypeParams_StringInfo::Char16StringInfo,
+			convertString_TypeParams_StringInfo::Char8StringInfo
+		>,
+		convertString_TypeParams
+		<
+			convertString_TypeParams_StringInfo::Char8StringInfo,
+			convertString_TypeParams_StringInfo::Char16StringInfo
+		>,
+		convertString_TypeParams
+		<
+			convertString_TypeParams_StringInfo::Char32StringInfo,
+			convertString_TypeParams_StringInfo::CharStringInfo
+		>,
+		convertString_TypeParams
+		<
+			convertString_TypeParams_StringInfo::CharStringInfo,
+			convertString_TypeParams_StringInfo::Char32StringInfo
+		>,
+		convertString_TypeParams
+		<
+			convertString_TypeParams_StringInfo::Char32StringInfo,
+			convertString_TypeParams_StringInfo::Char8StringInfo
+		>,
+		convertString_TypeParams
+		<
+			convertString_TypeParams_StringInfo::Char8StringInfo,
+			convertString_TypeParams_StringInfo::Char32StringInfo
+		>,
+		convertString_TypeParams
+		<
+			convertString_TypeParams_StringInfo::WCharStringInfo,
+			convertString_TypeParams_StringInfo::CharStringInfo
+		>,
+		convertString_TypeParams
+		<
+			convertString_TypeParams_StringInfo::CharStringInfo,
+			convertString_TypeParams_StringInfo::WCharStringInfo
+		>
+	>;
+
+	TYPED_TEST_CASE(convertStringTests, convertString_Types);
+
+
+	TYPED_TEST(convertStringTests, convertString$returns$expected$value)
+	{
+		// Arrange
+		using FromStringType = typename TypeParam::FromStringType;
+		using ToCharType = typename TypeParam::ToCharType;
+		FromStringType from{ TypeParam::getFrom()};
+		std::basic_string<ToCharType> expected{ TypeParam::getExpected()};
+
+		// Act
+		std::basic_string<ToCharType> actual{ CmdCalculator::convertString<ToCharType>(from) };
+
+		// Assert
+		//EXPECT_EQ(expected, actual); // <- Causes issues with gtest
+		EXPECT_TRUE(expected == actual);
+	}
+
+
+	TYPED_TEST(convertStringTests, convertString$with$empty$string$returns$empty$converted$string)
+	{
+		// Arrange
+		using FromStringType = typename TypeParam::FromStringType;
+		using ToCharType = typename TypeParam::ToCharType;
+		FromStringType from{};
+
+		// Act
+		std::basic_string<ToCharType> actual{ CmdCalculator::convertString<ToCharType>(from) };
+
+		// Assert
+		EXPECT_TRUE(actual.empty());
 	}
 
 #pragma endregion

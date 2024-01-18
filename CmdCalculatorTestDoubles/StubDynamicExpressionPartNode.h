@@ -9,24 +9,23 @@
 namespace CmdCalculatorTestDoubles::MathAst
 {
 	template<CmdCalculator::String StringT>
-	class StubDynamicOperandNode :
-		public CmdCalculator::MathAst::DynamicOperandNode<StringT>,
+	class StubDynamicExpressionPartNode :
+		public CmdCalculator::MathAst::DynamicExpressionPartNode<StringT>,
 		public CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction
 	{
 	public:
 		using StringType = StringT;
 
+		StringT leadingTrivia;
+		StringT trailingTrivia;
+		StringT stringRepresentation;
 
-		StringType leadingTrivia;
-		StringType trailingTrivia;
-		StringType stringRepresentation;
 
-		
-		StubDynamicOperandNode
+		StubDynamicExpressionPartNode
 		(
-			const StringType leadingTrivia,
-			const StringType trailingTrivia,
-			const StringType stringRepresentation
+			const StringT leadingTrivia,
+			const StringT trailingTrivia,
+			const StringT stringRepresentation
 		) :
 			leadingTrivia{ leadingTrivia },
 			trailingTrivia{ trailingTrivia },
@@ -34,19 +33,19 @@ namespace CmdCalculatorTestDoubles::MathAst
 		{}
 
 
-		StringType getLeadingTrivia() const override
+		StringT getLeadingTrivia() const
 		{
 			return leadingTrivia;
 		}
 
 
-		StringType getTrailingTrivia() const override
+		StringT getTrailingTrivia() const
 		{
 			return trailingTrivia;
 		}
 
 
-		StringT getStringRepresentation() const override
+		StringT getStringRepresentation() const
 		{
 			return stringRepresentation;
 		}

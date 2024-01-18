@@ -315,6 +315,7 @@
     <ClInclude Include="DynamicUnaryOperationNode.h">
       <Filter>Source Code\Math AST\Dynamic</Filter>
     </ClInclude>
+    <ClInclude Include="std_polyfills.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">

@@ -124,6 +124,9 @@
     <Filter Include="Source Code\CmdCalculator\MathAst\Dynamic\DynamicGroupingNode">
       <UniqueIdentifier>{1d5e8065-b0ab-4131-be55-87b430756738}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\CmdCalculator\MathAst\Dynamic\DynamicExpressionPartNode">
+      <UniqueIdentifier>{58046699-5297-456e-aa3c-9aaed09f19dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FakeConsole.h">
@@ -251,6 +254,9 @@
     </ClInclude>
     <ClInclude Include="StubDynamicGroupingNode.h">
       <Filter>Source Code\CmdCalculator\MathAst\Dynamic\DynamicGroupingNode</Filter>
+    </ClInclude>
+    <ClInclude Include="StubDynamicExpressionPartNode.h">
+      <Filter>Source Code\CmdCalculator\MathAst\Dynamic\DynamicExpressionPartNode</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

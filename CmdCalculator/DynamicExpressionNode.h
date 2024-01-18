@@ -4,6 +4,7 @@
 #include "DynamicMathAstNode.h"
 #include "DynamicExpressionPartNode.h"
 #include "strings.h"
+#include "std_polyfills.h"
 #include "NotImplementedException.h"
 
 #include <algorithm>
@@ -11,7 +12,10 @@
 #include <memory>
 #include <utility>
 #include <iterator>
+#include <format>
 #include <vector>
+#include<locale>
+#include<assert.h>
 
 namespace CmdCalculator::MathAst
 {
@@ -32,7 +36,8 @@ namespace CmdCalculator::MathAst
 		const StringType m_trailingTrivia;
 		std::vector<std::unique_ptr<DynamicExpressionPartNode<StringType>>> m_parts;
 
-	protected:
+	public:
+
 		/// \brief Creates a new instance of the \ref DynamicExpressionNode class.
 		/// \tparam PartsRangeT The type of the range holding every part of the expression.
 		/// \param leadingTrivia Trivial content at the beginning of the string contents of the node.
@@ -53,7 +58,7 @@ namespace CmdCalculator::MathAst
 			std::ranges::move(parts, std::back_inserter(m_parts));
 		}
 
-	public:
+
 		DynamicExpressionNode() = delete;
 		DynamicExpressionNode(const DynamicExpressionNode<StringType>&) = delete;
 		DynamicExpressionNode(DynamicExpressionNode<StringType>&&) = delete;
@@ -61,31 +66,47 @@ namespace CmdCalculator::MathAst
 
 		/// \brief Accessor to the parts of the expression.
 		/// \returns A range of every part of the expression, in order.
-		auto getParts()
+		auto getParts() const
 		{
 			return
 				m_parts
 				| std::views::transform
-				([](std::unique_ptr<DynamicExpressionPartNode<StringType>>& part) { return part.get(); })
+				([](const std::unique_ptr<DynamicExpressionPartNode<StringType>>& part) { return part.get(); })
 			;
 		}
 
 
 		StringType getLeadingTrivia() const override
 		{
-			throw NotImplementedException{};
+			return m_leadingTrivia;
 		}
 
 
 		StringType getTrailingTrivia() const override
 		{
-			throw NotImplementedException{};
+			return m_trailingTrivia;
 		}
 
 
 		virtual StringType getStringRepresentation() const override
 		{
-			throw NotImplementedException{};
+			using StdStringType = std::basic_string<typename StringType::value_type>;
+			
+			return static_cast<StringType>
+			(
+				Polyfills::ranges::fold_left
+				(
+					getParts()
+					| std::views::transform
+					(
+						[](const auto* part)
+						{ return static_cast<StdStringType>(part->getStringRepresentation()); }
+					),
+					static_cast<StdStringType>(getLeadingTrivia()),
+					std::plus()
+				)
+				+ static_cast<StdStringType>(getTrailingTrivia())
+			);
 		}
 	};
 }

@@ -11,7 +11,6 @@ namespace CmdCalculatorTestDoubles::MathAst
 	template<CmdCalculator::String StringT>
 	class StubDynamicGroupingNode :
 		public CmdCalculator::MathAst::DynamicGroupingNode<StringT>,
-		public CmdCalculator::MathAst::ExpressionNode_IntendedSatisfaction,
 		public CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction
 	{
 	public:

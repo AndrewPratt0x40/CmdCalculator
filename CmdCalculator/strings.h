@@ -1,6 +1,8 @@
 #pragma once
 
 #include<string>
+#include<assert.h>
+#include<locale>
 
 
 namespace CmdCalculator
@@ -47,6 +49,68 @@ namespace CmdCalculator
 		&& StringViewOfChar<T, typename T::value_type>
 	;
 
-	static_assert(StringViewOfChar<std::basic_string_view<char>, char>);
-	static_assert(StringView<std::basic_string_view<char>>);
+
+	/// \brief Converts the character type of a string.
+	/// \tparam ToCharT The type of characters to convert to.
+	/// \tparam FromT The type of string to convert from.
+	/// \param from The string to convert.
+	/// /param locale The locale to use.
+	/// \returns \p from as a string of \p ToCharT characters.
+	template<class ToCharT, String FromT>
+	std::basic_string<ToCharT> convertString(const FromT& from, const std::locale& locale)
+	{
+		using CharConvertFacetType = std::codecvt<
+			typename FromT::value_type,
+			ToCharT,
+			std::mbstate_t
+		>;
+
+		assert(std::has_facet<CharConvertFacetType>(locale));
+
+		if (from.empty())
+			return std::basic_string<ToCharT>{};
+
+		std::basic_string<typename FromT::value_type> fromAsStdString{ from };
+
+		const CharConvertFacetType& charConvertFacet{ std::use_facet<CharConvertFacetType>(locale) };
+		std::mbstate_t state{};
+		const typename FromT::value_type* fromAsStdStringNext;
+		ToCharT* toNext;
+
+		std::basic_string<ToCharT> to{};
+		to.resize
+		(
+			fromAsStdString.size() * static_cast<decltype(fromAsStdString.size())>(charConvertFacet.max_length()),
+			static_cast<ToCharT>(0)
+		);
+
+		charConvertFacet.out
+		(
+			state,
+			&fromAsStdString.front(),
+			&fromAsStdString[fromAsStdString.size()],
+			fromAsStdStringNext,
+			&to.front(),
+			&to[to.size()],
+			toNext
+		);
+
+		to.resize(std::distance(&to.front(), toNext));
+
+		return to;
+	}
+
+
+	/// \brief Converts the character type of a string.
+	/// \tparam ToCharT The type of characters to convert to.
+	/// \tparam FromT The type of string to convert from.
+	/// \param from The string to convert.
+	/// \returns \p from as a string of \p ToCharT characters.
+	/// \remark The current global \ref std::locale instance will be used.
+	template<class ToCharT, String FromT>
+	std::basic_string<ToCharT> convertString(const FromT& from)
+	{
+		std::locale locale{};
+		return convertString<ToCharT, FromT>(from, locale);
+	}
 }

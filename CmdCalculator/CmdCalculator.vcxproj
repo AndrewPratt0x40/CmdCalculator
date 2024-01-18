@@ -135,6 +135,7 @@
     <ClInclude Include="SignOperationAntlrContext.h" />
     <ClInclude Include="SignOperatorAntlrContext.h" />
     <ClInclude Include="SqrtOperationAntlrContext.h" />
+    <ClInclude Include="std_polyfills.h" />
     <ClInclude Include="strings.h" />
     <ClInclude Include="StringToAntlrContextConverter.h" />
     <ClInclude Include="StringToMathAstConverter.h" />

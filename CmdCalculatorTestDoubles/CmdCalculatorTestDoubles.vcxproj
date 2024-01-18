@@ -82,6 +82,7 @@
     <ClInclude Include="StubAntlrToken.h" />
     <ClInclude Include="StubBinaryOperatorAntlrContext.h" />
     <ClInclude Include="StubDynamicExpressionNode.h" />
+    <ClInclude Include="StubDynamicExpressionPartNode.h" />
     <ClInclude Include="StubDynamicGroupingNode.h" />
     <ClInclude Include="StubDynamicOperandNode.h" />
     <ClInclude Include="StubExpressionAntlrContext.h" />
