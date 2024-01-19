@@ -17,6 +17,10 @@ namespace CmdCalculator::MathAst
 	{
 	public:
 
+
+		virtual ~DynamicGroupingMultiplicationNode() = default;
+
+
 		/// \brief Creates a new instance of the \ref DynamicGroupingMultiplicationNode class.
 		/// \tparam TailMultiplicandsRangeT The type of the range holding the tail multiplicands of the operation.
 		/// \param headMultiplicand The operand to be multiplied by the grouping operations that follow it.

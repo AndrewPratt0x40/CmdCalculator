@@ -188,7 +188,7 @@ namespace CmdCalculatorTests
 #pragma endregion
 
 
-#pragma region convertString
+#pragma region convertString/Char
 
 	namespace convertString_TypeParams_StringInfo
 	{
@@ -196,14 +196,16 @@ namespace CmdCalculatorTests
 		concept StringInfo = requires()
 		{
 			typename T::CharType;
-			{ T::getValue() } -> std::same_as<std::basic_string<typename T::CharType>>;
+			std::same_as<typename T::CharType, std::remove_cv_t<decltype(T::charValue)>>;
+			{ T::getStringValue() } -> std::same_as<std::basic_string<typename T::CharType>>;
 		};
 
 
 		struct CharStringInfo
 		{
 			using CharType = char;
-			static std::basic_string<char> getValue()
+			static constexpr char charValue{ 'x' };
+			static std::basic_string<char> getStringValue()
 			{
 				return "Hello, world!"s;
 			}
@@ -212,7 +214,8 @@ namespace CmdCalculatorTests
 		struct WCharStringInfo
 		{
 			using CharType = wchar_t;
-			static std::basic_string<wchar_t> getValue()
+			static constexpr wchar_t charValue{ L'x' };
+			static std::basic_string<wchar_t> getStringValue()
 			{
 				return L"Hello, world!"s;
 			}
@@ -221,7 +224,8 @@ namespace CmdCalculatorTests
 		struct Char8StringInfo
 		{
 			using CharType = char8_t;
-			static std::basic_string<char8_t> getValue()
+			static constexpr char8_t charValue{ u8'x' };
+			static std::basic_string<char8_t> getStringValue()
 			{
 				return u8"Hello, world!"s;
 			}
@@ -230,7 +234,8 @@ namespace CmdCalculatorTests
 		struct Char16StringInfo
 		{
 			using CharType = char16_t;
-			static std::basic_string<char16_t> getValue()
+			static constexpr char16_t charValue{ u'x' };
+			static std::basic_string<char16_t> getStringValue()
 			{
 				return u"Hello, world!"s;
 			}
@@ -239,7 +244,8 @@ namespace CmdCalculatorTests
 		struct Char32StringInfo
 		{
 			using CharType = char32_t;
-			static std::basic_string<char32_t> getValue()
+			static constexpr char32_t charValue{ U'x' };
+			static std::basic_string<char32_t> getStringValue()
 			{
 				return U"Hello, world!"s;
 			}
@@ -254,17 +260,28 @@ namespace CmdCalculatorTests
 	>
 	struct convertString_TypeParams
 	{
-		using FromStringType = std::basic_string<typename FromT::CharType>;
+		using FromCharType = typename FromT::CharType;
+		using FromStringType = std::basic_string<FromCharType>;
 		using ToCharType = ToT::CharType;
 
-		static FromStringType getFrom()
+		static FromCharType getFromChar()
 		{
-			return FromT::getValue();
+			return FromT::charValue;
+		}
+		
+		static FromStringType getFromString()
+		{
+			return FromT::getStringValue();
 		}
 
-		static std::basic_string<ToCharType> getExpected()
+		static ToCharType getToChar()
 		{
-			return ToT::getValue();
+			return ToT::charValue;
+		}
+
+		static std::basic_string<ToCharType> getToString()
+		{
+			return ToT::getStringValue();
 		}
 	};
 	
@@ -338,20 +355,39 @@ namespace CmdCalculatorTests
 	TYPED_TEST_CASE(convertStringTests, convertString_Types);
 
 
+	TYPED_TEST(convertStringTests, convertChar$returns$expected$value)
+	{
+		// Arrange
+		using FromCharType = typename TypeParam::FromCharType;
+		using ToCharType = typename TypeParam::ToCharType;
+		FromCharType from{ TypeParam::getFromChar() };
+		ToCharType expected{ TypeParam::getToChar() };
+
+		// Act
+		ToCharType actual{ CmdCalculator::convertChar<ToCharType>(from) };
+
+		// Assert
+		// Boolean variable used instead of EXPECT_EQ since std::basic_string<ToCharType> cause issues with streaming to ostream
+		const bool expectedEqActual{ expected == actual };
+		EXPECT_TRUE(expectedEqActual);
+	}
+	
+	
 	TYPED_TEST(convertStringTests, convertString$returns$expected$value)
 	{
 		// Arrange
 		using FromStringType = typename TypeParam::FromStringType;
 		using ToCharType = typename TypeParam::ToCharType;
-		FromStringType from{ TypeParam::getFrom()};
-		std::basic_string<ToCharType> expected{ TypeParam::getExpected()};
+		FromStringType from{ TypeParam::getFromString()};
+		std::basic_string<ToCharType> expected{ TypeParam::getToString()};
 
 		// Act
 		std::basic_string<ToCharType> actual{ CmdCalculator::convertString<ToCharType>(from) };
 
 		// Assert
-		//EXPECT_EQ(expected, actual); // <- Causes issues with gtest
-		EXPECT_TRUE(expected == actual);
+		// Boolean variable used instead of EXPECT_EQ since std::basic_string<ToCharType> cause issues with streaming to ostream
+		const bool expectedEqActual{ expected == actual };
+		EXPECT_TRUE(expectedEqActual);
 	}
 
 

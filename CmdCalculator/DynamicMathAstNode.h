@@ -16,6 +16,10 @@ namespace CmdCalculator::MathAst
 		using StringType = StringT;
 
 
+		virtual ~DynamicMathAstNode()
+		{}
+
+
 		/// \brief Accessor to the AST node's leading trivia.
 		/// \returns Trivial content at the beginning of the string contents of the node.
 		virtual StringType getLeadingTrivia() const = 0;

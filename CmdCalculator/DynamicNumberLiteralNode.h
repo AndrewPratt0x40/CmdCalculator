@@ -58,6 +58,9 @@ namespace CmdCalculator::MathAst
 		using IntType = IntT;
 
 
+		virtual ~DynamicNumberLiteralNode() = default;
+
+
 		DynamicNumberLiteralNode
 		(
 			const IntType wholePart,

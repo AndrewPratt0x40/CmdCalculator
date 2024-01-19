@@ -21,38 +21,68 @@ namespace CmdCalculator::MathAst
 		using StringType = DynamicExpressionContainingNode<StringT>::StringType;
 
 
+	private:
+
+		using CharType = typename StringType::value_type;
+
+		const std::unique_ptr<DynamicExpressionNode<StringT>> m_containedExpression;
+		const StringType m_leadingTrivia;
+		const StringType m_trailingTrivia;
+
+
+		CharType getBracketChar() const
+		{
+			return convertChar<CharType>('|');
+		}
+
+	public:
+
+
+		virtual ~DynamicAbsoluteValueNode() = default;
+		
+		
 		DynamicAbsoluteValueNode
 		(
 			std::unique_ptr<DynamicExpressionNode<StringT>> containedExpression,
-			StringT leadingTrivia,
-			StringT trailingTrivia
-		)
-		{
-			throw NotImplementedException{};
-		}
+			StringType leadingTrivia,
+			StringType trailingTrivia
+		) :
+			m_containedExpression{ std::move(containedExpression) },
+			m_leadingTrivia{ leadingTrivia },
+			m_trailingTrivia{ trailingTrivia }
+		{}
 		
 		
 		DynamicExpressionNode<StringT>* getContainedExpression() const override
 		{
-			throw NotImplementedException{};
+			return m_containedExpression.get();
 		}
 
 
-		StringT getLeadingTrivia() const override
+		StringType getLeadingTrivia() const override
 		{
-			throw NotImplementedException{};
+			return m_leadingTrivia;
 		}
 
 
-		StringT getTrailingTrivia() const override
+		StringType getTrailingTrivia() const override
 		{
-			throw NotImplementedException{};
+			return m_trailingTrivia;
 		}
 
 
-		StringT getStringRepresentation() const override
+		StringType getStringRepresentation() const override
 		{
-			throw NotImplementedException{};
+			using StdStringType = std::basic_string<CharType>;
+
+			return static_cast<StringType>
+			(
+				static_cast<StdStringType>(getLeadingTrivia())
+				+ getBracketChar()
+				+ static_cast<StdStringType>(getContainedExpression()->getStringRepresentation())
+				+ getBracketChar()
+				+ static_cast<StdStringType>(getTrailingTrivia())
+			);
 		}
 	};
 }

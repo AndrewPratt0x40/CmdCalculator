@@ -64,6 +64,9 @@ namespace CmdCalculator::MathAst
 		DynamicExpressionNode(DynamicExpressionNode<StringType>&&) = delete;
 
 
+		virtual ~DynamicExpressionNode() override = default;
+
+
 		/// \brief Accessor to the parts of the expression.
 		/// \returns A range of every part of the expression, in order.
 		auto getParts() const

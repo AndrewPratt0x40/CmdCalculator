@@ -20,6 +20,10 @@ namespace CmdCalculator::MathAst
 		
 		using StringType = DynamicOperandNode<StringT>::StringType;
 
+
+		virtual ~DynamicExpressionContainingNode()
+		{}
+
 		/// \brief Accessor to the contained expression.
 		/// \returns The expression contained within the node.
 		virtual DynamicExpressionNode<StringT>* getContainedExpression() const = 0;

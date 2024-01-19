@@ -26,6 +26,9 @@ namespace CmdCalculator::MathAst
 
 	public:
 
+		virtual ~DynamicSqrtOperationNode() = default;
+
+
 		DynamicSqrtOperationNode
 		(
 			std::unique_ptr<DynamicOperandNode<StringType>> operand,

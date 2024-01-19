@@ -28,6 +28,9 @@ namespace CmdCalculator::MathAst
 
 	public:
 
+		virtual ~DynamicSignOperationNode() = default;
+
+
 		DynamicSignOperationNode
 		(
 			std::unique_ptr<DynamicOperandNode<StringType>> operand,

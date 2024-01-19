@@ -20,6 +20,9 @@ namespace CmdCalculator::MathAst
 
 		using StringType = DynamicExpressionContainingNode<StringT>::StringType;
 
+
+		virtual ~DynamicGroupingNode() = default;
+
 		
 		DynamicGroupingNode
 		(

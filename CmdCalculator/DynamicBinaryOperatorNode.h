@@ -15,6 +15,9 @@ namespace CmdCalculator::MathAst
 	{
 	public:
 
+		virtual ~DynamicBinaryOperatorNode() = default;
+
+
 		DynamicBinaryOperatorNode(const EBinaryOperator operatorKind, const StringT leadingTrivia, const StringT trailingTrivia)
 		{
 			throw NotImplementedException{};

@@ -15,5 +15,9 @@ namespace CmdCalculator::MathAst
 	{
 	public:
 		using StringType = DynamicExpressionPartNode<StringT>::StringType;
+
+
+		virtual ~DynamicOperandNode()
+		{}
 	};
 }

@@ -40,6 +40,10 @@ namespace CmdCalculator::MathAst
 	public:
 
 
+		virtual ~DynamicUnaryOperationNode()
+		{}
+
+
 		/// \brief Accessor to the operand of the operation.
 		/// \returns The single operand of the operation.
 		virtual DynamicOperandNode<StringT>* getOperand() const
