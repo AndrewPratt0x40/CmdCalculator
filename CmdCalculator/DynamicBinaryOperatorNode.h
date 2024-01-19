@@ -3,6 +3,7 @@
 #include "DynamicExpressionPartNode.h"
 #include "EBinaryOperator.h"
 #include "strings.h"
+#include "std_polyfills.h"
 #include "NotImplementedException.h"
 
 namespace CmdCalculator::MathAst
@@ -14,39 +15,83 @@ namespace CmdCalculator::MathAst
 		public DynamicExpressionPartNode<StringT>
 	{
 	public:
+		using StringType = DynamicExpressionPartNode<StringT>::StringType;
+
+	private:
+		using CharType = typename StringType::value_type;
+
+		const EBinaryOperator m_operatorKind;
+		const StringType m_leadingTrivia;
+		const StringType m_trailingTrivia;
+
+
+		CharType getOperatorChar() const
+		{
+			switch (m_operatorKind)
+			{
+			case EBinaryOperator::Addition:
+				return convertChar<CharType>('+');
+			case EBinaryOperator::Subtraction:
+				return convertChar<CharType>('-');
+			case EBinaryOperator::Multiplication:
+				return convertChar<CharType>('*');
+			case EBinaryOperator::Division:
+				return convertChar<CharType>('/');
+			case EBinaryOperator::Exponentiation:
+				return convertChar<CharType>('^');
+			case EBinaryOperator::NthRoot:
+				return convertChar<CharType>('_');
+			case EBinaryOperator::Modulo:
+				return convertChar<CharType>('%');
+			default:
+				Polyfills::unreachable();
+				break;
+			}
+		}
+
+
+	public:
 
 		virtual ~DynamicBinaryOperatorNode() = default;
 
 
-		DynamicBinaryOperatorNode(const EBinaryOperator operatorKind, const StringT leadingTrivia, const StringT trailingTrivia)
-		{
-			throw NotImplementedException{};
-		}
+		DynamicBinaryOperatorNode(const EBinaryOperator operatorKind, const StringType leadingTrivia, const StringType trailingTrivia) :
+			m_operatorKind{ operatorKind },
+			m_leadingTrivia{ leadingTrivia },
+			m_trailingTrivia{ trailingTrivia }
+		{}
 
 
 		/// \brief Accessor to the kind of operator the node holds.
 		/// \returns The operator kind.
 		EBinaryOperator getOperatorKind() const
 		{
-			throw NotImplementedException{};
+			return m_operatorKind;
 		}
 
 
-		StringT getLeadingTrivia() const override
+		StringType getLeadingTrivia() const override
 		{
-			throw NotImplementedException{};
+			return m_leadingTrivia;
 		}
 
 
-		StringT getTrailingTrivia() const override
+		StringType getTrailingTrivia() const override
 		{
-			throw NotImplementedException{};
+			return m_trailingTrivia;
 		}
 
 
-		StringT getStringRepresentation() const override
+		StringType getStringRepresentation() const override
 		{
-			throw NotImplementedException{};
+			using StdStringType = std::basic_string<CharType>;
+
+			return static_cast<StringType>
+			(
+				static_cast<StdStringType>(getLeadingTrivia())
+				+ getOperatorChar()
+				+ static_cast<StdStringType>(getTrailingTrivia())
+			);
 		}
 	};
 }

@@ -12,13 +12,14 @@
 #include "../CmdCalculator/DynamicOperandNode.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicOperandNode.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicGroupingNode.h"
+#include "../CmdCalculatorTestDoubles/StubDynamicExpressionNode.h"
 
 namespace CmdCalculatorTestDoubleTests
 {
 	struct DynamicGroupingMultiplicationNode_TestParams
 	{
 		CmdCalculatorTestDoubles::MathAst::StubDynamicOperandNode<std::string> headMultiplicand;
-		std::vector<CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>> tailMultiplicands;
+		std::vector<std::string> tailMultiplicands;
 		std::string leadingTrivia;
 		std::string trailingTrivia;
 		std::string stringRepresentation;
@@ -36,16 +37,12 @@ namespace CmdCalculatorTestDoubleTests
 			.tailMultiplicands{},
 			.leadingTrivia{ "" },
 			.trailingTrivia{ "" },
-			.stringRepresentation{ "Head(Tail)" }
+			.stringRepresentation{ "Head" }
 		},
 		DynamicGroupingMultiplicationNode_TestParams
 		{
 			.headMultiplicand{ "", "", "Head" },
-			.tailMultiplicands
-			{
-				CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>
-					{ nullptr, "", "", "(Tail)" }
-			},
+			.tailMultiplicands{ "(Tail)" },
 			.leadingTrivia{ "" },
 			.trailingTrivia{ "" },
 			.stringRepresentation{ "Head(Tail)" }
@@ -53,15 +50,7 @@ namespace CmdCalculatorTestDoubleTests
 		DynamicGroupingMultiplicationNode_TestParams
 		{
 			.headMultiplicand{ "", "", "Head" },
-			.tailMultiplicands
-			{
-				CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>
-					{ nullptr, "", "", "(Tail1)" },
-				CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>
-					{ nullptr, "", "", "(Tail2)" },
-				CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>
-					{ nullptr, "", "", "(Tail3)" }
-			},
+			.tailMultiplicands{ "(Tail1)", "(Tail2)", "(Tail3)" },
 			.leadingTrivia{ "" },
 			.trailingTrivia{ "" },
 			.stringRepresentation{ "Head(Tail1)(Tail2)(Tail3)" }
@@ -69,15 +58,7 @@ namespace CmdCalculatorTestDoubleTests
 		DynamicGroupingMultiplicationNode_TestParams
 		{
 			.headMultiplicand{ "", "", "Head" },
-			.tailMultiplicands
-			{
-				CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>
-					{ nullptr, "", "", "(Tail1)" },
-				CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>
-					{ nullptr, "", "", "(Tail2)" },
-				CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>
-					{ nullptr, "", "", "(Tail3)" }
-			},
+			.tailMultiplicands{ "(Tail1)", "(Tail2)", "(Tail3)" },
 			.leadingTrivia{ " " },
 			.trailingTrivia{ "  " },
 			.stringRepresentation{ " Head(Tail1)(Tail2)(Tail3)  " }
@@ -94,7 +75,7 @@ namespace CmdCalculatorTestDoubleTests
 #pragma endregion
 
 
-	TEST_P(DynamicGroupingMultiplicationNodeWithCtorParamsTests, DISABLED_DynamicGroupingMultiplicationNode$has$expected$state)
+	TEST_P(DynamicGroupingMultiplicationNodeWithCtorParamsTests, DynamicGroupingMultiplicationNode$has$expected$state)
 	{
 		// Arrange
 		auto headMultiplicandToPass
@@ -107,12 +88,18 @@ namespace CmdCalculatorTestDoubleTests
 			GetParam().tailMultiplicands
 			| std::views::transform
 			(
-				[](auto& tailMultiplicand)
+				[](auto& tailMultiplicandStringRepresentation)
 				{
 					return std::move
 					(
 						std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicGroupingNode<std::string>>
-							(tailMultiplicand)
+						(
+							std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionNode<std::string>>
+								("", "", ""),
+							"",
+							"",
+							tailMultiplicandStringRepresentation
+						)
 					);
 				}
 			)
@@ -135,13 +122,7 @@ namespace CmdCalculatorTestDoubleTests
 		const auto expectedTailMultiplicandStringRepresentations
 		{
 			GetParam().tailMultiplicands
-			| std::views::transform
-			(
-				[](auto& tailMultiplicand)
-				{
-					return tailMultiplicand.getStringRepresentation();
-				}
-			)
+			| std::views::all
 		};
 		const std::string expectedLeadingTrivia{ GetParam().leadingTrivia };
 		const std::string expectedTrailingTrivia{ GetParam().trailingTrivia };

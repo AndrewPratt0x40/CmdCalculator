@@ -7,6 +7,7 @@
 #include <concepts>
 #include <ranges>
 #include <utility>
+#include <assert.h>
 
 namespace CmdCalculator::MathAst
 {
@@ -50,7 +51,9 @@ namespace CmdCalculator::MathAst
 			m_containedExpression{ std::move(containedExpression) },
 			m_leadingTrivia{ leadingTrivia },
 			m_trailingTrivia{ trailingTrivia }
-		{}
+		{
+			assert(m_containedExpression);
+		}
 		
 		
 		DynamicExpressionNode<StringT>* getContainedExpression() const override

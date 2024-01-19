@@ -2,11 +2,13 @@
 
 #include "DynamicExpressionContainingNode.h"
 #include "strings.h"
+#include "std_polyfills.h"
 #include "NotImplementedException.h"
 
 #include <concepts>
 #include <ranges>
 #include <utility>
+#include <assert.h>
 
 namespace CmdCalculator::MathAst
 {
@@ -17,45 +19,79 @@ namespace CmdCalculator::MathAst
 		public DynamicExpressionContainingNode<StringT>
 	{
 	public:
-
 		using StringType = DynamicExpressionContainingNode<StringT>::StringType;
 
+
+	private:
+		using CharType = typename StringType::value_type;
+
+
+		const std::unique_ptr<DynamicExpressionNode<StringType>> m_containedExpression;
+		const StringType m_leadingTrivia;
+		const StringType m_trailingTrivia;
+
+
+		CharType getOpeningBracketChar() const
+		{
+			return convertChar<CharType>('(');
+		}
+
+
+		CharType getClosingBracketChar() const
+		{
+			return convertChar<CharType>(')');
+		}
+
+
+	public:
 
 		virtual ~DynamicGroupingNode() = default;
 
 		
 		DynamicGroupingNode
 		(
-			std::unique_ptr<DynamicExpressionNode<StringT>> containedExpression,
-			StringT leadingTrivia,
-			StringT trailingTrivia
-		)
+			std::unique_ptr<DynamicExpressionNode<StringType>> containedExpression,
+			StringType leadingTrivia,
+			StringType trailingTrivia
+		) :
+			m_containedExpression{ std::move(containedExpression) },
+			m_leadingTrivia{ leadingTrivia },
+			m_trailingTrivia{ trailingTrivia }
 		{
-			//throw NotImplementedException{};
+			assert(m_containedExpression);
 		}
 
 
-		DynamicExpressionNode<StringT>* getContainedExpression() const override
+		DynamicExpressionNode<StringType>* getContainedExpression() const override
 		{
-			throw NotImplementedException{};
+			return m_containedExpression.get();
 		}
 
 
-		StringT getLeadingTrivia() const override
+		StringType getLeadingTrivia() const override
 		{
-			throw NotImplementedException{};
+			return m_leadingTrivia;
 		}
 
 
-		StringT getTrailingTrivia() const override
+		StringType getTrailingTrivia() const override
 		{
-			throw NotImplementedException{};
+			return m_trailingTrivia;
 		}
 
 
-		virtual StringT getStringRepresentation() const override
+		virtual StringType getStringRepresentation() const override
 		{
-			throw NotImplementedException{};
+			using StdStringType = std::basic_string<CharType>;
+
+			return static_cast<StringType>
+			(
+				static_cast<StdStringType>(getLeadingTrivia())
+				+ getOpeningBracketChar()
+				+ static_cast<StdStringType>(getContainedExpression()->getStringRepresentation())
+				+ getClosingBracketChar()
+				+ static_cast<StdStringType>(getTrailingTrivia())
+			);
 		}
 	};
 }

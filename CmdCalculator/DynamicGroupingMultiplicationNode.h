@@ -1,10 +1,16 @@
 #pragma once
 
 #include <memory>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+#include <assert.h>
+#include <iterator>
 
 #include "DynamicOperandNode.h"
 #include "DynamicGroupingNode.h"
 #include "strings.h"
+#include "std_polyfills.h"
 #include "NotImplementedException.h"
 
 namespace CmdCalculator::MathAst
@@ -16,7 +22,15 @@ namespace CmdCalculator::MathAst
 		public DynamicOperandNode<StringT>
 	{
 	public:
+		using StringType = DynamicOperandNode<StringT>::StringType;
 
+	private:
+		const std::unique_ptr<DynamicOperandNode<StringType>> m_headMultiplicand;
+		std::vector<std::unique_ptr<DynamicGroupingNode<StringType>>> m_tailMultiplicands;
+		const StringType m_leadingTrivia;
+		const StringType m_trailingTrivia;
+
+	public:
 
 		virtual ~DynamicGroupingMultiplicationNode() = default;
 
@@ -28,52 +42,78 @@ namespace CmdCalculator::MathAst
 		/// \param leadingTrivia Trivial content at the beginning of the string contents of the node.
 		/// \param trailingTrivia Trivial content at the end of the string contents of the node.
 		template<std::ranges::input_range TailMultiplicandsRangeT>
-			requires std::same_as<std::unique_ptr<MathAst::DynamicGroupingNode<StringT>>, std::ranges::range_value_t<TailMultiplicandsRangeT>>
+			requires std::same_as<std::unique_ptr<MathAst::DynamicGroupingNode<StringType>>, std::ranges::range_value_t<TailMultiplicandsRangeT>>
 		DynamicGroupingMultiplicationNode
 		(
-			std::unique_ptr<DynamicOperandNode<StringT>> headMultiplicand,
+			std::unique_ptr<DynamicOperandNode<StringType>> headMultiplicand,
 			std::ranges::owning_view<TailMultiplicandsRangeT>&& tailMultiplicands,
-			const StringT leadingTrivia,
-			const StringT trailingTrivia
-		)
+			const StringType leadingTrivia,
+			const StringType trailingTrivia
+		) :
+			m_headMultiplicand{ std::move(headMultiplicand) },
+			m_tailMultiplicands{},
+			m_leadingTrivia{ leadingTrivia },
+			m_trailingTrivia{ trailingTrivia }
 		{
-			throw NotImplementedException{};
+			assert(m_headMultiplicand);
+			std::ranges::move(tailMultiplicands, std::back_inserter(m_tailMultiplicands));
 		}
 		
 		
 		/// \brief Accessor to the head multiplicand of the operation.
 		/// \returns The operand to be multiplied by the grouping operations that follow it.
 		/// \example The head multiplicand of the grouping multiplication expression <tt>1(2)(3)</tt> would be <tt>1</tt>.
-		const DynamicOperandNode<StringT>* getHeadMultiplicand() const
+		const DynamicOperandNode<StringType>* getHeadMultiplicand() const
 		{
-			throw NotImplementedException{};
+			return m_headMultiplicand.get();
 		}
 
 
 		/// \brief Accessor to the tail multiplicands of the operation.
 		/// \returns The grouping operations to multiply the head multiplicand by.
 		/// \example The tail multiplicands of the grouping multiplication expression <tt>1(2)(3)</tt> would be <tt>2</tt> and <tt>3</tt>.
-		std::ranges::owning_view<std::span<DynamicGroupingNode<StringT>*>> getTailMultiplicands() const
+		auto getTailMultiplicands() const
 		{
-			throw NotImplementedException{};
+			return
+				m_tailMultiplicands
+				| std::views::transform
+				([](const std::unique_ptr<DynamicGroupingNode<StringType>>& tailMultiplicand) { return tailMultiplicand.get(); })
+			;
 		}
 
 
-		StringT getLeadingTrivia() const override
+		StringType getLeadingTrivia() const override
 		{
-			throw NotImplementedException{};
+			return m_leadingTrivia;
 		}
 
 
-		StringT getTrailingTrivia() const override
+		StringType getTrailingTrivia() const override
 		{
-			throw NotImplementedException{};
+			return m_trailingTrivia;
 		}
 
 
-		StringT getStringRepresentation() const override
+		StringType getStringRepresentation() const override
 		{
-			throw NotImplementedException{};
+			using StdStringType = std::basic_string<typename StringType::value_type>;
+			
+			return static_cast<StringType>
+			(
+				static_cast<StdStringType>(getLeadingTrivia())
+				+ Polyfills::ranges::fold_left
+				(
+					getTailMultiplicands()
+					| std::views::transform
+					(
+						[](const auto* tailMultiplicand)
+						{ return static_cast<StdStringType>(tailMultiplicand->getStringRepresentation()); }
+					),
+					static_cast<StdStringType>(getHeadMultiplicand()->getStringRepresentation()),
+					std::plus()
+				)
+				+ static_cast<StdStringType>(getTrailingTrivia())
+			);
 		}
 	};
 }
