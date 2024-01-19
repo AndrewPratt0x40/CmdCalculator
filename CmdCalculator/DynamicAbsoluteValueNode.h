@@ -31,7 +31,7 @@ namespace CmdCalculator::MathAst
 		const StringType m_trailingTrivia;
 
 
-		CharType getBracketChar() const
+		inline CharType getBracketChar() const
 		{
 			return convertChar<CharType>('|');
 		}

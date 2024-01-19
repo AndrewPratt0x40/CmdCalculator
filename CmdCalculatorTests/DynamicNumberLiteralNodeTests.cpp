@@ -112,7 +112,7 @@ namespace CmdCalculatorTestDoubleTests
 #pragma endregion
 
 
-	TEST_P(DynamicNumberLiteralNodeWithCtorParamsTests, DISABLED_DynamicNumberLiteralNode$has$expected$state)
+	TEST_P(DynamicNumberLiteralNodeWithCtorParamsTests, DynamicNumberLiteralNode$has$expected$state)
 	{
 		// Arrange
 		const int wholePartToPass{ GetParam().wholePart };

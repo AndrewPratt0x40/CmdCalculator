@@ -31,13 +31,13 @@ namespace CmdCalculator::MathAst
 		const StringType m_trailingTrivia;
 
 
-		CharType getOpeningBracketChar() const
+		inline CharType getOpeningBracketChar() const
 		{
 			return convertChar<CharType>('(');
 		}
 
 
-		CharType getClosingBracketChar() const
+		inline CharType getClosingBracketChar() const
 		{
 			return convertChar<CharType>(')');
 		}

@@ -5,6 +5,7 @@
 #include "NotImplementedException.h"
 
 #include <concepts>
+#include <string>
 #include <ranges>
 #include <utility>
 
@@ -58,6 +59,32 @@ namespace CmdCalculator::MathAst
 		using IntType = IntT;
 
 
+	private:
+
+		using CharType = typename StringType::value_type;
+
+		
+		const IntType m_wholePart;
+		const IntType m_fractionalPart;
+		const EDynamicNumberLiteralNodePartsFlags m_partsFlags;
+		const StringType m_leadingTrivia;
+		const StringType m_trailingTrivia;
+
+
+		inline CharType getDecimalPointChar() const
+		{
+			return convertChar<CharType>('.');
+		}
+
+
+		auto getIntAsString(const IntType intValue) const
+		{
+			return convertString<CharType>(std::to_string(intValue));
+		}
+
+
+	public:
+
 		virtual ~DynamicNumberLiteralNode() = default;
 
 
@@ -68,9 +95,15 @@ namespace CmdCalculator::MathAst
 			const EDynamicNumberLiteralNodePartsConfig partsConfig,
 			const StringType leadingTrivia,
 			const StringType trailingTrivia
-		)
+		) :
+			m_wholePart{ wholePart },
+			m_fractionalPart{ fractionalPart },
+			m_partsFlags{ static_cast<EDynamicNumberLiteralNodePartsFlags>(partsConfig) },
+			m_leadingTrivia{ leadingTrivia },
+			m_trailingTrivia{ trailingTrivia }
 		{
-			throw NotImplementedException{};
+			assert(m_wholePart >= 0);
+			assert(m_fractionalPart >= 0);
 		}
 		
 		
@@ -82,7 +115,7 @@ namespace CmdCalculator::MathAst
 		/// \example The whole part of the number <tt>123.456</tt> is <tt>123</tt>.
 		IntT getWholePart() const
 		{
-			throw NotImplementedException{};
+			return m_wholePart;
 		}
 
 
@@ -94,7 +127,7 @@ namespace CmdCalculator::MathAst
 		/// \example The fractional part of the number <tt>123.456</tt> is <tt>123</tt>.
 		IntT getFractionalPart() const
 		{
-			throw NotImplementedException{};
+			return m_fractionalPart;
 		}
 
 
@@ -102,7 +135,7 @@ namespace CmdCalculator::MathAst
 		/// \returns True if the number includes a whole part, false otherwise.
 		bool isWholePartVisible() const
 		{
-			throw NotImplementedException{};
+			return m_partsFlags & EDynamicNumberLiteralNodePartsFlags::WholePart;
 		}
 
 
@@ -110,7 +143,7 @@ namespace CmdCalculator::MathAst
 		/// \returns True if the number includes a decimal point, false otherwise.
 		bool isDecimalPointVisible() const
 		{
-			throw NotImplementedException{};
+			return m_partsFlags & EDynamicNumberLiteralNodePartsFlags::DecimalPoint;
 		}
 
 
@@ -118,25 +151,40 @@ namespace CmdCalculator::MathAst
 		/// \returns True if the number includes a fractional part, false otherwise.
 		bool isFractionalPartVisible() const
 		{
-			throw NotImplementedException{};
+			return m_partsFlags & EDynamicNumberLiteralNodePartsFlags::FractionalPart;
 		}
 
 
-		StringT getLeadingTrivia() const override
+		StringType getLeadingTrivia() const override
 		{
-			throw NotImplementedException{};
+			return m_leadingTrivia;
 		}
 
 
-		StringT getTrailingTrivia() const override
+		StringType getTrailingTrivia() const override
 		{
-			throw NotImplementedException{};
+			return m_trailingTrivia;
 		}
 
 
-		StringT getStringRepresentation() const override
+		StringType getStringRepresentation() const override
 		{
-			throw NotImplementedException{};
+			using StdStringType = std::basic_string<CharType>;
+			
+			StdStringType str{ getLeadingTrivia() };
+
+			if (isWholePartVisible())
+				str += static_cast<StdStringType>(getIntAsString(getWholePart()));
+			if (isDecimalPointVisible())
+				str += getDecimalPointChar();
+			if (isFractionalPartVisible())
+				str += static_cast<StdStringType>(getIntAsString(getFractionalPart()));
+
+			return static_cast<StringType>
+			(
+				str
+				+ static_cast<StdStringType>(getTrailingTrivia())
+			);
 		}
 	};
 }
