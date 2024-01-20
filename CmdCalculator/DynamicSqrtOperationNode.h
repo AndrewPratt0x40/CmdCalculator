@@ -1,8 +1,13 @@
 #pragma once
 
+#include <string>
+#include <assert.h>
+
 #include "DynamicUnaryOperationNode.h"
 #include "strings.h"
 #include "NotImplementedException.h"
+
+using namespace std::string_literals;
 
 namespace CmdCalculator::MathAst
 {
@@ -16,11 +21,16 @@ namespace CmdCalculator::MathAst
 
 		using StringType = DynamicOperandNode<StringT>::StringType;
 
+
+	private:
+		using CharType = typename StringType::value_type;
+
+
 	protected:
 
 		StringType getOperatorStringRepresentation() const override
 		{
-			throw NotImplementedException{};
+			return static_cast<StringType>(convertString<CharType>("sqrt"s));
 		}
 
 
@@ -45,31 +55,7 @@ namespace CmdCalculator::MathAst
 				trailingTrivia
 			)
 		{
-			throw NotImplementedException{};
-		}
-
-
-		StringT getInnerTrivia() const override
-		{
-			throw NotImplementedException{};
-		}
-
-
-		StringT getLeadingTrivia() const override
-		{
-			throw NotImplementedException{};
-		}
-
-
-		StringT getTrailingTrivia() const override
-		{
-			throw NotImplementedException{};
-		}
-
-
-		StringT getStringRepresentation() const override
-		{
-			throw NotImplementedException{};
+			assert(DynamicUnaryOperationNode<StringType>::getOperand());
 		}
 	};
 }

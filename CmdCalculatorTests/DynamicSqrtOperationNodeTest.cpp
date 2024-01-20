@@ -50,7 +50,7 @@ namespace CmdCalculatorTestDoubleTests
 #pragma endregion
 
 
-	TEST_P(DynamicSqrtOperationNodeWithCtorParamsTests, DISABLED_DynamicSqrtOperationNode$has$expected$state)
+	TEST_P(DynamicSqrtOperationNodeWithCtorParamsTests, DynamicSqrtOperationNode$has$expected$state)
 	{
 		// Arrange
 		auto operandToPass

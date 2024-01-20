@@ -1,10 +1,13 @@
 #pragma once
 
 #include <memory>
+#include <string>
 
 #include "DynamicUnaryOperationNode.h"
 #include "strings.h"
 #include "NotImplementedException.h"
+
+using namespace std::string_literals;
 
 namespace CmdCalculator::MathAst
 {
@@ -18,11 +21,18 @@ namespace CmdCalculator::MathAst
 
 		using StringType = DynamicOperandNode<StringT>::StringType;
 
+
+	private:
+		using CharType = typename StringType::value_type;
+
+		const bool m_isPositive;
+
+
 	protected:
 
 		StringType getOperatorStringRepresentation() const override
 		{
-			throw NotImplementedException{};
+			return static_cast<StringType>(convertString<CharType>(isPositive() ? "+"s : "-"s));
 		}
 
 
@@ -46,17 +56,16 @@ namespace CmdCalculator::MathAst
 				innerTrivia,
 				leadingTrivia,
 				trailingTrivia
-			)
-		{
-			throw NotImplementedException{};
-		}
+			),
+			m_isPositive{ isPositive }
+		{}
 
 
 		/// \brief Tests if the sign expression is positive or negative.
 		/// \returns True if the sign expression is positive, false if it's negative.
 		bool isPositive() const
 		{
-			throw NotImplementedException{};
+			return m_isPositive;
 		}
 	};
 }
