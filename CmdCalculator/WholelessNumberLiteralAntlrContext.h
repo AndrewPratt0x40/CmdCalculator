@@ -21,10 +21,7 @@ namespace CmdCalculator
 		IntendsToSatisfy<T, WholelessNumberLiteralAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 	{
-		{ instance.getWholePart() } -> Optional;
-		AntlrToken<typename decltype(instance.getWholePart())::value_type>;
-
-		{ instance.getDecimalPoint() } -> Optional;
+		{ instance.getDecimalPoint() } -> AntlrToken;
 
 		{ instance.getFractionalPart() } -> AntlrToken;
 	}

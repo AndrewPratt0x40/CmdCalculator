@@ -29,6 +29,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{26B785D1-A361-40D0-8C09-91B85EB6F1B3}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		TODO.txt = TODO.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{94B19B99-48C7-4FAA-AFE9-750A93F7DDEE}"

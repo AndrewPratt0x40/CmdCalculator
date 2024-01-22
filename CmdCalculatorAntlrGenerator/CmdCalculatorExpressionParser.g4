@@ -11,7 +11,6 @@ wholeful_number_literal:
 ;
 
 wholeless_number_literal:
-	whole_part=INTEGER?
 	decimal_point=DECIMAL_POINT
 	fractional_part=INTEGER
 ;

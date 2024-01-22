@@ -12,18 +12,11 @@ namespace CmdCalculatorTestDoubles
 	{
 		using AntlrTokenType = StubAntlrToken<std::string>;
 
-		std::optional<AntlrTokenType> wholePart;
-		std::optional<AntlrTokenType> decimalPoint;
+		AntlrTokenType decimalPoint;
 		AntlrTokenType fractionalPart;
 
 
-		std::optional<AntlrTokenType> getWholePart() const
-		{
-			return wholePart;
-		}
-
-
-		std::optional<AntlrTokenType> getDecimalPoint() const
+		AntlrTokenType getDecimalPoint() const
 		{
 			return decimalPoint;
 		}

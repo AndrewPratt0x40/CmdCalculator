@@ -139,6 +139,30 @@
     <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext">
       <UniqueIdentifier>{382c6546-987e-426e-a993-ac3ff7800438}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext\OwningTrueFullExpressionAntlrContext">
+      <UniqueIdentifier>{66aa539c-b62a-40ba-a645-c2147e0e77d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrToken\TrueAntlrTokenView">
+      <UniqueIdentifier>{97a6e0b1-45d8-49c3-b4ec-fcdad592f5ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\ExpressionAntlrContext\TrueExpressionAntlrContextView">
+      <UniqueIdentifier>{2687a26e-863e-4141-83cc-46e508c91931}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\OperandAntlrContext\TrueOperandAntlrContextView">
+      <UniqueIdentifier>{4d9d55bd-c864-4eb0-8fd2-790a00aaf757}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\NonGroupingMultiplicationAntlrContext\TrueNonGroupingMultiplicationAntlrContextView">
+      <UniqueIdentifier>{7988846a-6ad8-4c33-ae8d-3466577676e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\NumberLiteralAntlrContext\TrueNumberLiteralAntlrContextView">
+      <UniqueIdentifier>{540ea2af-7829-473b-9d95-d7ff3e86337c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholefulNumberLiteralAntlrContext\TrueWholefulNumberLiteralAntlrContextView">
+      <UniqueIdentifier>{dfabb191-3696-4324-8cd2-c7006cb5fdd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext\TrueWholelessNumberLiteralAntlrContextView">
+      <UniqueIdentifier>{1d17ec63-6a16-4d26-b961-39bb95f7b2f4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -318,6 +342,30 @@
     <ClInclude Include="std_polyfills.h">
       <Filter>Source Code</Filter>
     </ClInclude>
+    <ClInclude Include="OwningTrueFullExpressionAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext\OwningTrueFullExpressionAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueAntlrTokenView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrToken\TrueAntlrTokenView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueExpressionAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\ExpressionAntlrContext\TrueExpressionAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueOperandAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\OperandAntlrContext\TrueOperandAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueNonGroupingMultiplicationAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\NonGroupingMultiplicationAntlrContext\TrueNonGroupingMultiplicationAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueNumberLiteralAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\NumberLiteralAntlrContext\TrueNumberLiteralAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueWholefulNumberLiteralAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholefulNumberLiteralAntlrContext\TrueWholefulNumberLiteralAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueWholelessNumberLiteralAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext\TrueWholelessNumberLiteralAntlrContextView</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -361,6 +409,30 @@
     </ClCompile>
     <ClCompile Include="BasicAntlrContextToMathAstConverter.cpp">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter\BasicAntlrContextToMathAstConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="OwningTrueFullExpressionAntlrContext.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext\OwningTrueFullExpressionAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueAntlrTokenView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrToken\TrueAntlrTokenView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueExpressionAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\ExpressionAntlrContext\TrueExpressionAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueOperandAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\OperandAntlrContext\TrueOperandAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueNonGroupingMultiplicationAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\NonGroupingMultiplicationAntlrContext\TrueNonGroupingMultiplicationAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueNumberLiteralAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\NumberLiteralAntlrContext\TrueNumberLiteralAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueWholefulNumberLiteralAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholefulNumberLiteralAntlrContext\TrueWholefulNumberLiteralAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueWholelessNumberLiteralAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext\TrueWholelessNumberLiteralAntlrContextView</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

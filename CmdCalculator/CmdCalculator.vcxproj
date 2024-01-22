@@ -90,6 +90,7 @@
     <ClInclude Include="AntlrContextTypeDeductions.h" />
     <ClInclude Include="AntlrToken.h" />
     <ClInclude Include="BadRawCmdLineArgsException.h" />
+    <ClInclude Include="TrueAntlrTokenView.h" />
     <ClInclude Include="BinaryOperatorAntlrContext.h" />
     <ClInclude Include="Calculation.h" />
     <ClInclude Include="CalculationConfiguration.h" />
@@ -128,6 +129,7 @@
     <ClInclude Include="NotImplementedException.h" />
     <ClInclude Include="NumberLiteralAntlrContext.h" />
     <ClInclude Include="OperandAntlrContext.h" />
+    <ClInclude Include="OwningTrueFullExpressionAntlrContext.h" />
     <ClInclude Include="Process.h" />
     <ClInclude Include="ProcessConfiguration.h" />
     <ClInclude Include="RawCmdLineArgParser.h" />
@@ -140,12 +142,19 @@
     <ClInclude Include="strings.h" />
     <ClInclude Include="StringToAntlrContextConverter.h" />
     <ClInclude Include="StringToMathAstConverter.h" />
+    <ClInclude Include="TrueExpressionAntlrContextView.h" />
+    <ClInclude Include="TrueNonGroupingMultiplicationAntlrContextView.h" />
+    <ClInclude Include="TrueNumberLiteralAntlrContextView.h" />
+    <ClInclude Include="TrueOperandAntlrContextView.h" />
+    <ClInclude Include="TrueWholefulNumberLiteralAntlrContextView.h" />
+    <ClInclude Include="TrueWholelessNumberLiteralAntlrContextView.h" />
     <ClInclude Include="UnknownCmdLineArgException.h" />
     <ClInclude Include="utilities.h" />
     <ClInclude Include="WholefulNumberLiteralAntlrContext.h" />
     <ClInclude Include="WholelessNumberLiteralAntlrContext.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="TrueAntlrTokenView.cpp" />
     <ClCompile Include="CalculationConfiguration.cpp" />
     <ClCompile Include="DynamicAbsoluteValueNode.cpp" />
     <ClCompile Include="DynamicBinaryOperatorNode.cpp" />
@@ -156,9 +165,16 @@
     <ClCompile Include="DynamicSqrtOperationNode.cpp" />
     <ClCompile Include="BasicAntlrContextToMathAstConverter.cpp" />
     <ClCompile Include="MissingCmdLineArgValueException.cpp" />
+    <ClCompile Include="OwningTrueFullExpressionAntlrContext.cpp" />
     <ClCompile Include="Process.cpp" />
     <ClCompile Include="AntlrBasedStringToMathAstConverter.cpp" />
     <ClCompile Include="BasicCalculation.cpp" />
+    <ClCompile Include="TrueExpressionAntlrContextView.cpp" />
+    <ClCompile Include="TrueNonGroupingMultiplicationAntlrContextView.cpp" />
+    <ClCompile Include="TrueNumberLiteralAntlrContextView.cpp" />
+    <ClCompile Include="TrueOperandAntlrContextView.cpp" />
+    <ClCompile Include="TrueWholefulNumberLiteralAntlrContextView.cpp" />
+    <ClCompile Include="TrueWholelessNumberLiteralAntlrContextView.cpp" />
     <ClCompile Include="UnknownCmdLineArgException.cpp" />
   </ItemGroup>
   <ItemGroup>
