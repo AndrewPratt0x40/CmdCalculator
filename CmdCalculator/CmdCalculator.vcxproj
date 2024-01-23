@@ -146,6 +146,8 @@
     <ClInclude Include="TrueNonGroupingMultiplicationAntlrContextView.h" />
     <ClInclude Include="TrueNumberLiteralAntlrContextView.h" />
     <ClInclude Include="TrueOperandAntlrContextView.h" />
+    <ClInclude Include="TrueSignOperationAntlrContextView.h" />
+    <ClInclude Include="TrueSignOperatorAntlrContextView.h" />
     <ClInclude Include="TrueWholefulNumberLiteralAntlrContextView.h" />
     <ClInclude Include="TrueWholelessNumberLiteralAntlrContextView.h" />
     <ClInclude Include="UnknownCmdLineArgException.h" />
@@ -173,6 +175,8 @@
     <ClCompile Include="TrueNonGroupingMultiplicationAntlrContextView.cpp" />
     <ClCompile Include="TrueNumberLiteralAntlrContextView.cpp" />
     <ClCompile Include="TrueOperandAntlrContextView.cpp" />
+    <ClCompile Include="TrueSignOperationAntlrContextView.cpp" />
+    <ClCompile Include="TrueSignOperatorAntlrContextView.cpp" />
     <ClCompile Include="TrueWholefulNumberLiteralAntlrContextView.cpp" />
     <ClCompile Include="TrueWholelessNumberLiteralAntlrContextView.cpp" />
     <ClCompile Include="UnknownCmdLineArgException.cpp" />

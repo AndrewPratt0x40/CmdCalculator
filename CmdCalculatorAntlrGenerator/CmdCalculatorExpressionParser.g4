@@ -16,13 +16,13 @@ wholeless_number_literal:
 ;
 
 number_literal:
-	wholeful_number_literal
-	| wholeless_number_literal
+	wholeful_number_literal_value=wholeful_number_literal
+	| wholeless_number_literal_value=wholeless_number_literal
 ;
 
 sign_operator:
-	ADDITION_OR_POSITIVE_OPERATOR #PositiveSignOperator
-	| SUBTRACTION_OR_NEGATIVE_OPERATOR #NegativeSignOperator
+	positive_sign_operator=ADDITION_OR_POSITIVE_OPERATOR
+	| negative_sign_operator=SUBTRACTION_OR_NEGATIVE_OPERATOR
 ;
 
 sign_operation:
@@ -64,26 +64,26 @@ absolute_value_operation:
 ;
 
 non_grouping_multiplication_operand:
-	number_literal
-	| sign_operation
-	| sqrt_operation
-	| grouping
-	| absolute_value_operation
+	number_literal_value=number_literal
+	| sign_operation_value=sign_operation
+	| sqrt_operation_value=sqrt_operation
+	| grouping_value=grouping
+	| absolute_value_operation_value=absolute_value_operation
 ;
 
 operand:
-	non_grouping_multiplication_operand
-	| grouping_multiplication
+	non_grouping_multiplication_operand_value=non_grouping_multiplication_operand
+	| grouping_multiplication_value=grouping_multiplication
 ;
 
 binary_operator:
-	ADDITION_OR_POSITIVE_OPERATOR #AdditionOperator
-	| SUBTRACTION_OR_NEGATIVE_OPERATOR #SubtractionOperator
-	| MULTIPLICATION_OPERATOR #MultiplicationOperator
-	| DIVISION_OPERATOR #DivisionOperator
-	| EXPONENTIATION_OPERATOR #ExponentiationOperator
-	| NTH_ROOT_OPERATOR #NthRootOperator
-	| MODULO_OPERATOR #ModuloOperator
+	additionOperator=ADDITION_OR_POSITIVE_OPERATOR
+	| subtractionOperator=SUBTRACTION_OR_NEGATIVE_OPERATOR
+	| multiplicationOperator=MULTIPLICATION_OPERATOR
+	| divisionOperator=DIVISION_OPERATOR
+	| exponentiationOperator=EXPONENTIATION_OPERATOR
+	| nthRootOperator=NTH_ROOT_OPERATOR
+	| moduloOperator=MODULO_OPERATOR
 ;
 
 operation_part_pair:

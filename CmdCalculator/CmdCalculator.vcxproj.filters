@@ -163,6 +163,12 @@
     <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext\TrueWholelessNumberLiteralAntlrContextView">
       <UniqueIdentifier>{1d17ec63-6a16-4d26-b961-39bb95f7b2f4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperationAntlrContext\TrueSignOperationAntlrContextView">
+      <UniqueIdentifier>{d2982b75-451d-44ab-a593-ebdbc7cfd3c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext\TrueSignOperatorAntlrContextView">
+      <UniqueIdentifier>{8dcf3b11-e1ef-45d3-bc36-4bb4f72ab9a2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -366,6 +372,12 @@
     <ClInclude Include="TrueWholelessNumberLiteralAntlrContextView.h">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext\TrueWholelessNumberLiteralAntlrContextView</Filter>
     </ClInclude>
+    <ClInclude Include="TrueSignOperationAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperationAntlrContext\TrueSignOperationAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueSignOperatorAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext\TrueSignOperatorAntlrContextView</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -433,6 +445,12 @@
     </ClCompile>
     <ClCompile Include="TrueWholelessNumberLiteralAntlrContextView.cpp">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext\TrueWholelessNumberLiteralAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueSignOperationAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperationAntlrContext\TrueSignOperationAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueSignOperatorAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext\TrueSignOperatorAntlrContextView</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
