@@ -90,6 +90,7 @@
     <ClInclude Include="AntlrContextTypeDeductions.h" />
     <ClInclude Include="AntlrToken.h" />
     <ClInclude Include="BadRawCmdLineArgsException.h" />
+    <ClInclude Include="TrueAbsoluteValueOperationAntlrContextView.h" />
     <ClInclude Include="TrueAntlrTokenView.h" />
     <ClInclude Include="BinaryOperatorAntlrContext.h" />
     <ClInclude Include="Calculation.h" />
@@ -143,6 +144,7 @@
     <ClInclude Include="StringToAntlrContextConverter.h" />
     <ClInclude Include="StringToMathAstConverter.h" />
     <ClInclude Include="TrueExpressionAntlrContextView.h" />
+    <ClInclude Include="TrueGroupingAntlrContextView.h" />
     <ClInclude Include="TrueNonGroupingMultiplicationAntlrContextView.h" />
     <ClInclude Include="TrueNumberLiteralAntlrContextView.h" />
     <ClInclude Include="TrueOperandAntlrContextView.h" />
@@ -157,6 +159,7 @@
     <ClInclude Include="WholelessNumberLiteralAntlrContext.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="TrueAbsoluteValueOperationAntlrContextView.cpp" />
     <ClCompile Include="TrueAntlrTokenView.cpp" />
     <ClCompile Include="CalculationConfiguration.cpp" />
     <ClCompile Include="DynamicAbsoluteValueNode.cpp" />
@@ -173,6 +176,7 @@
     <ClCompile Include="AntlrBasedStringToMathAstConverter.cpp" />
     <ClCompile Include="BasicCalculation.cpp" />
     <ClCompile Include="TrueExpressionAntlrContextView.cpp" />
+    <ClCompile Include="TrueGroupingAntlrContextView.cpp" />
     <ClCompile Include="TrueNonGroupingMultiplicationAntlrContextView.cpp" />
     <ClCompile Include="TrueNumberLiteralAntlrContextView.cpp" />
     <ClCompile Include="TrueOperandAntlrContextView.cpp" />

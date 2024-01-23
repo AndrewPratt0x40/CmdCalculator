@@ -172,6 +172,12 @@
     <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext\TrueSqrtOperationAntlrContextView">
       <UniqueIdentifier>{ffa4b074-ae1e-4779-a02e-e5f7e7798f68}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext\TrueAbsoluteValueOperationAntlrContextView">
+      <UniqueIdentifier>{0215584e-8595-4b45-9189-6c3a00452845}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingAntlrContext\TrueGroupingAntlrContextView">
+      <UniqueIdentifier>{7df5fe1f-b31a-4f63-a5be-b086f8824198}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -384,6 +390,12 @@
     <ClInclude Include="TrueSqrtOperationAntlrContextView.h">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext\TrueSqrtOperationAntlrContextView</Filter>
     </ClInclude>
+    <ClInclude Include="TrueGroupingAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingAntlrContext\TrueGroupingAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueAbsoluteValueOperationAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext\TrueAbsoluteValueOperationAntlrContextView</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -460,6 +472,12 @@
     </ClCompile>
     <ClCompile Include="TrueSqrtOperationAntlrContextView.cpp">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext\TrueSqrtOperationAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueGroupingAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingAntlrContext\TrueGroupingAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueAbsoluteValueOperationAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext\TrueAbsoluteValueOperationAntlrContextView</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
