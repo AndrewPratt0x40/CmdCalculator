@@ -169,6 +169,9 @@
     <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext\TrueSignOperatorAntlrContextView">
       <UniqueIdentifier>{8dcf3b11-e1ef-45d3-bc36-4bb4f72ab9a2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext\TrueSqrtOperationAntlrContextView">
+      <UniqueIdentifier>{ffa4b074-ae1e-4779-a02e-e5f7e7798f68}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -378,6 +381,9 @@
     <ClInclude Include="TrueSignOperatorAntlrContextView.h">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext\TrueSignOperatorAntlrContextView</Filter>
     </ClInclude>
+    <ClInclude Include="TrueSqrtOperationAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext\TrueSqrtOperationAntlrContextView</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -451,6 +457,9 @@
     </ClCompile>
     <ClCompile Include="TrueSignOperatorAntlrContextView.cpp">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext\TrueSignOperatorAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueSqrtOperationAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext\TrueSqrtOperationAntlrContextView</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

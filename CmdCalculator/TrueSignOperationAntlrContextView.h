@@ -38,9 +38,9 @@ namespace CmdCalculator
 		std::optional<TrueAntlrTokenView> getInnerTrivia() const;
 
 
-		/// \brief Accessor to the operand node as a grouping multiplication, if it is one.
-		/// \returns A view of the operand node as a grouping multiplication, or an empty object if the operand is a non-grouping multiplication.
-		std::optional<TrueOperandAntlrContextView> getOperandValue() const;
+		/// \brief Accessor to the operand of the operation.
+		/// \returns A view of the operand.
+		TrueOperandAntlrContextView getOperandValue() const;
 	};
 
 

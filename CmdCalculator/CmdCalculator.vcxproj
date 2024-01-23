@@ -148,6 +148,7 @@
     <ClInclude Include="TrueOperandAntlrContextView.h" />
     <ClInclude Include="TrueSignOperationAntlrContextView.h" />
     <ClInclude Include="TrueSignOperatorAntlrContextView.h" />
+    <ClInclude Include="TrueSqrtOperationAntlrContextView.h" />
     <ClInclude Include="TrueWholefulNumberLiteralAntlrContextView.h" />
     <ClInclude Include="TrueWholelessNumberLiteralAntlrContextView.h" />
     <ClInclude Include="UnknownCmdLineArgException.h" />
@@ -177,6 +178,7 @@
     <ClCompile Include="TrueOperandAntlrContextView.cpp" />
     <ClCompile Include="TrueSignOperationAntlrContextView.cpp" />
     <ClCompile Include="TrueSignOperatorAntlrContextView.cpp" />
+    <ClCompile Include="TrueSqrtOperationAntlrContextView.cpp" />
     <ClCompile Include="TrueWholefulNumberLiteralAntlrContextView.cpp" />
     <ClCompile Include="TrueWholelessNumberLiteralAntlrContextView.cpp" />
     <ClCompile Include="UnknownCmdLineArgException.cpp" />
