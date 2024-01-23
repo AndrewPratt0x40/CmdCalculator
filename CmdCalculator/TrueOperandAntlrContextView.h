@@ -12,7 +12,7 @@
 
 namespace CmdCalculator
 {
-	/// \brief An owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::OperandContext instance.
+	/// \brief A non-owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::OperandContext instance.
 	class TrueOperandAntlrContextView :
 		public OperandAntlrContext_IntendedSatisfaction
 	{

@@ -1,6 +1,5 @@
 #pragma once
 
-#include <vector>
 #include <ranges>
 
 #include "ExpressionAntlrContext.h"
@@ -13,7 +12,7 @@
 
 namespace CmdCalculator
 {
-	/// \brief An owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::ExpressionContext instance.
+	/// \brief A non-owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::ExpressionContext instance.
 	class TrueExpressionAntlrContextView :
 		public ExpressionAntlrContext_IntendedSatisfaction
 	{
@@ -34,7 +33,7 @@ namespace CmdCalculator
 
 		/// \brief Accessor to the operation part pair objects of the expression.
 		/// \returns A range of views of every operation part pair object.
-		std::ranges::owning_view<std::vector<OperationPartPairAntlrContext>> getOperationPartPairs() const;
+		std::ranges::input_range auto getOperationPartPairs() const;
 	};
 
 

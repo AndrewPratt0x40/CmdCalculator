@@ -178,6 +178,18 @@
     <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingAntlrContext\TrueGroupingAntlrContextView">
       <UniqueIdentifier>{7df5fe1f-b31a-4f63-a5be-b086f8824198}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingMultiplicationAntlrContext\TrueGroupingMultiplicationAntlrContextView">
+      <UniqueIdentifier>{2695e607-290a-4011-bb4e-a8c458cbe941}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingTailMultiplicandAntlrContext\TrueGroupingTailMultiplicandAntlrContextView">
+      <UniqueIdentifier>{79f20925-7082-4b84-8551-2a2b908c46ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\OperationPartPairAntlrContext\TrueOperationPartPairAntlrContextView">
+      <UniqueIdentifier>{63014b22-f751-4ea9-a9e5-595421a859b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext\TrueBinaryOperatorAntlrContextView">
+      <UniqueIdentifier>{e9fa4844-c51a-400d-8418-225e14bb684f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -396,6 +408,18 @@
     <ClInclude Include="TrueAbsoluteValueOperationAntlrContextView.h">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext\TrueAbsoluteValueOperationAntlrContextView</Filter>
     </ClInclude>
+    <ClInclude Include="TrueGroupingMultiplicationAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingMultiplicationAntlrContext\TrueGroupingMultiplicationAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueGroupingTailMultiplicandAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingTailMultiplicandAntlrContext\TrueGroupingTailMultiplicandAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueOperationPartPairAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\OperationPartPairAntlrContext\TrueOperationPartPairAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueBinaryOperatorAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext\TrueBinaryOperatorAntlrContextView</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -478,6 +502,18 @@
     </ClCompile>
     <ClCompile Include="TrueAbsoluteValueOperationAntlrContextView.cpp">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext\TrueAbsoluteValueOperationAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueGroupingMultiplicationAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingMultiplicationAntlrContext\TrueGroupingMultiplicationAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueGroupingTailMultiplicandAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingTailMultiplicandAntlrContext\TrueGroupingTailMultiplicandAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueOperationPartPairAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\OperationPartPairAntlrContext\TrueOperationPartPairAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueBinaryOperatorAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext\TrueBinaryOperatorAntlrContextView</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

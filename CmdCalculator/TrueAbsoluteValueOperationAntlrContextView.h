@@ -13,7 +13,7 @@ namespace CmdCalculator
 	class TrueExpressionAntlrContextView;
 
 
-	/// \brief An owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Absolute_value_operationContext instance.
+	/// \brief A non-owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Absolute_value_operationContext instance.
 	class TrueAbsoluteValueOperationAntlrContextView :
 		public AbsoluteValueOperationAntlrContext_IntendedSatisfaction
 	{

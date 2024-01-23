@@ -12,7 +12,7 @@
 
 namespace CmdCalculator
 {
-	/// \brief An owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Number_literalContext instance.
+	/// \brief A non-owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Number_literalContext instance.
 	class TrueNumberLiteralAntlrContextView :
 		public NumberLiteralAntlrContext_IntendedSatisfaction
 	{

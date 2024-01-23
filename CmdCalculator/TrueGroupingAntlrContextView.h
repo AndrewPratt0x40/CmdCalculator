@@ -13,7 +13,7 @@ namespace CmdCalculator
 	class TrueExpressionAntlrContextView;
 	
 	
-	/// \brief An owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::GroupingContext instance.
+	/// \brief A non-owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::GroupingContext instance.
 	class TrueGroupingAntlrContextView :
 		public GroupingAntlrContext_IntendedSatisfaction
 	{

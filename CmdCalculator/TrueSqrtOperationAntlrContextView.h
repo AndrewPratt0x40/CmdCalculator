@@ -14,7 +14,7 @@ namespace CmdCalculator
 	class TrueOperandAntlrContextView;
 
 
-	/// \brief An owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Sqrt_operationContext instance.
+	/// \brief A non-owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Sqrt_operationContext instance.
 	class TrueSqrtOperationAntlrContextView :
 		public SqrtOperationAntlrContext_IntendedSatisfaction
 	{

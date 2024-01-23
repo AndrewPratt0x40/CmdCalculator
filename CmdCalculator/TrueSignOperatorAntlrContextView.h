@@ -8,7 +8,7 @@
 
 namespace CmdCalculator
 {
-	/// \brief An owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Sign_operatorContext instance.
+	/// \brief A non-owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Sign_operatorContext instance.
 	class TrueSignOperatorAntlrContextView :
 		public SignOperatorAntlrContext_IntendedSatisfaction
 	{

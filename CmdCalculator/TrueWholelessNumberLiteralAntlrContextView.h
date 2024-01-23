@@ -9,7 +9,7 @@
 
 namespace CmdCalculator
 {
-	/// \brief An owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Wholeless_number_literalContext instance.
+	/// \brief A non-owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Wholeless_number_literalContext instance.
 	class TrueWholelessNumberLiteralAntlrContextView :
 		public WholelessNumberLiteralAntlrContext_IntendedSatisfaction
 	{

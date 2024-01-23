@@ -13,7 +13,7 @@
 
 namespace CmdCalculator
 {
-	/// \brief An owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext instance.
+	/// \brief A non-owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext instance.
 	class OwningTrueFullExpressionAntlrContext :
 		public FullExpressionAntlrContext_IntendedSatisfaction
 	{

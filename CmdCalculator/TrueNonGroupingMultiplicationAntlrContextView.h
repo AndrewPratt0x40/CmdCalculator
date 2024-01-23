@@ -15,7 +15,7 @@
 
 namespace CmdCalculator
 {
-	/// \brief An owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Non_grouping_multiplication_operandContext instance.
+	/// \brief A non-owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Non_grouping_multiplication_operandContext instance.
 	class TrueNonGroupingMultiplicationAntlrContextView :
 		public NonGroupingMultiplicationAntlrContext_IntendedSatisfaction
 	{
@@ -27,7 +27,7 @@ namespace CmdCalculator
 		/// \brief Creates a new instance of the \ref TrueNonGroupingMultiplicationAntlrContextView class.
 		/// \param nonGroupingMultiplicationContext The context object to view.
 		TrueNonGroupingMultiplicationAntlrContextView
-			(const CmdCalculator::Antlr::CmdCalculatorExpressionParser::Non_grouping_multiplication_operandContext* operandContext);
+			(const CmdCalculator::Antlr::CmdCalculatorExpressionParser::Non_grouping_multiplication_operandContext* nonGroupingMultiplicationContext);
 
 
 		/// \brief Accessor to the kind of non-grouping multiplication node.

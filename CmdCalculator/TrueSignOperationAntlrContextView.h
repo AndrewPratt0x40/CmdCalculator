@@ -14,7 +14,7 @@ namespace CmdCalculator
 	class TrueOperandAntlrContextView;
 
 
-	/// \brief An owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Sign_operationContext instance.
+	/// \brief A non-owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Sign_operationContext instance.
 	class TrueSignOperationAntlrContextView :
 		public SignOperationAntlrContext_IntendedSatisfaction
 	{

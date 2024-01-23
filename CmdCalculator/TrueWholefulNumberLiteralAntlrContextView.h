@@ -10,7 +10,7 @@
 
 namespace CmdCalculator
 {
-	/// \brief An owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Wholeful_number_literalContext instance.
+	/// \brief A non-owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Wholeful_number_literalContext instance.
 	class TrueWholefulNumberLiteralAntlrContextView :
 		public WholelessNumberLiteralAntlrContext_IntendedSatisfaction
 	{

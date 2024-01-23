@@ -77,13 +77,13 @@ operand:
 ;
 
 binary_operator:
-	additionOperator=ADDITION_OR_POSITIVE_OPERATOR
-	| subtractionOperator=SUBTRACTION_OR_NEGATIVE_OPERATOR
-	| multiplicationOperator=MULTIPLICATION_OPERATOR
-	| divisionOperator=DIVISION_OPERATOR
-	| exponentiationOperator=EXPONENTIATION_OPERATOR
-	| nthRootOperator=NTH_ROOT_OPERATOR
-	| moduloOperator=MODULO_OPERATOR
+	addition_operator=ADDITION_OR_POSITIVE_OPERATOR
+	| subtraction_operator=SUBTRACTION_OR_NEGATIVE_OPERATOR
+	| multiplication_operator=MULTIPLICATION_OPERATOR
+	| division_operator=DIVISION_OPERATOR
+	| exponentiation_operator=EXPONENTIATION_OPERATOR
+	| nth_root_operator=NTH_ROOT_OPERATOR
+	| modulo_operator=MODULO_OPERATOR
 ;
 
 operation_part_pair:
