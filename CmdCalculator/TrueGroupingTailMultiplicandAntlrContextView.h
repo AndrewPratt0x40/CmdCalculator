@@ -4,7 +4,7 @@
 
 #include "GroupingTailMultiplicandAntlrContext.h"
 #include "TrueAntlrTokenView.h"
-#include "TrueGroupingMultiplicationAntlrContextView.h"
+#include "TrueGroupingAntlrContextView.h"
 #include "strings.h"
 #include "../CmdCalculatorAntlr/generated_code/CmdCalculatorExpressionParser.h"
 
@@ -34,7 +34,4 @@ namespace CmdCalculator
 		/// \returns The grouping the object represents.
 		TrueGroupingAntlrContextView getGroupingValue() const;
 	};
-
-
-	static_assert(GroupingTailMultiplicandAntlrContext<TrueGroupingTailMultiplicandAntlrContextView>);
 }

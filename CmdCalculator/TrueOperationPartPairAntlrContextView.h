@@ -45,7 +45,4 @@ namespace CmdCalculator
 		/// \returns A view of the right operand of the pair's binary operator.
 		TrueOperandAntlrContextView getOperandValue() const;
 	};
-
-
-	static_assert(OperationPartPairAntlrContext<TrueOperationPartPairAntlrContextView>);
 }

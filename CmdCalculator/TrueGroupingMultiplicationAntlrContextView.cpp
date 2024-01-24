@@ -15,18 +15,3 @@ CmdCalculator::TrueNonGroupingMultiplicationAntlrContextView CmdCalculator::True
 {
 	return TrueNonGroupingMultiplicationAntlrContextView{ m_groupingMultiplicationContext->head_multiplicand };
 }
-
-
-std::ranges::input_range auto CmdCalculator::TrueGroupingMultiplicationAntlrContextView::getTailMultiplicands() const
-{
-	return
-		m_groupingMultiplicationContext->tail_multiplicands
-		| std::views::transform
-		(
-			[](auto* tailMultiplicand)
-			{
-				return TrueGroupingTailMultiplicandAntlrContextView{ tailMultiplicand };
-			}
-		)
-	;
-}

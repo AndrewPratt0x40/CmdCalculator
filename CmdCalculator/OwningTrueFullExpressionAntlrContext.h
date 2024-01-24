@@ -13,13 +13,16 @@
 
 namespace CmdCalculator
 {
-	/// \brief A non-owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext instance.
+	/// \brief An owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext instance.
 	class OwningTrueFullExpressionAntlrContext :
 		public FullExpressionAntlrContext_IntendedSatisfaction
 	{
 	private:
-		const antlr4::ANTLRInputStream m_inputStream;
-		static_assert(std::movable<std::remove_cv_t<decltype(m_inputStream)>>);
+		using AntlrStringType = TrueAntlrTokenView::StringType;
+		using AntlrCharType = AntlrStringType::value_type;
+
+
+		const std::unique_ptr<antlr4::ANTLRInputStream> m_inputStream;
 		const std::unique_ptr<CmdCalculator::Antlr::CmdCalculatorExpressionLexer> m_lexer;
 		const std::unique_ptr<CmdCalculator::Antlr::CmdCalculatorExpressionParser> m_parser;
 		const CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext* m_fullExpressionContext;
@@ -27,7 +30,7 @@ namespace CmdCalculator
 
 		OwningTrueFullExpressionAntlrContext
 		(
-			antlr4::ANTLRInputStream&& inputStream,
+			std::unique_ptr<antlr4::ANTLRInputStream> inputStream,
 			std::unique_ptr<CmdCalculator::Antlr::CmdCalculatorExpressionLexer> lexer,
 			std::unique_ptr<CmdCalculator::Antlr::CmdCalculatorExpressionParser> parser,
 			const CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext* fullExpressionContext
@@ -55,7 +58,4 @@ namespace CmdCalculator
 		/// \returns The trailing trivia, or an empty object if no trailing trivia exists.
 		std::optional<TrueAntlrTokenView> getTrailingTrivia() const;
 	};
-
-
-	static_assert(FullExpressionAntlrContext<OwningTrueFullExpressionAntlrContext>);
 }

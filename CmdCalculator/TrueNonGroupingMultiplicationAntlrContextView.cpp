@@ -11,7 +11,7 @@ CmdCalculator::TrueNonGroupingMultiplicationAntlrContextView::TrueNonGroupingMul
 }
 
 
-CmdCalculator::ENonGroupingMultiplicationAntlrContextKind CmdCalculator::TrueNonGroupingMultiplicationAntlrContextView::ENonGroupingMultiplicationAntlrContextKind() const
+CmdCalculator::ENonGroupingMultiplicationAntlrContextKind CmdCalculator::TrueNonGroupingMultiplicationAntlrContextView::getNonGroupingMultiplicationKind() const
 {
 	if (m_nonGroupingMultiplicationContext->number_literal_value)
 		return ENonGroupingMultiplicationAntlrContextKind::NumberLiteral;

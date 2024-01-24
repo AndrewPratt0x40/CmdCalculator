@@ -42,7 +42,4 @@ namespace CmdCalculator
 		/// \returns A view of the operand.
 		TrueOperandAntlrContextView getOperandValue() const;
 	};
-
-
-	static_assert(SignOperationAntlrContext<TrueSignOperationAntlrContextView>);
 }

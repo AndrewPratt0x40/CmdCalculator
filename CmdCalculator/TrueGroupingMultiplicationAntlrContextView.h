@@ -32,9 +32,18 @@ namespace CmdCalculator
 
 		/// \brief Accessor to the tail multiplicands of the grouping multiplication.
 		/// \returns A range of views of every grouping to be multiplied by the head multiplicand.
-		std::ranges::input_range auto getTailMultiplicands() const;
+		std::ranges::input_range auto getTailMultiplicands() const
+		{
+			return
+				m_groupingMultiplicationContext->tail_multiplicands
+				| std::views::transform
+				(
+					[](auto* tailMultiplicand)
+					{
+						return TrueGroupingTailMultiplicandAntlrContextView{ tailMultiplicand };
+					}
+				)
+			;
+		}
 	};
-
-
-	static_assert(GroupingMultiplicationAntlrContext<TrueGroupingMultiplicationAntlrContextView>);
 }

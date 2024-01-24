@@ -12,7 +12,7 @@ namespace CmdCalculator
 {
 	/// \brief A non-owning reference to a \ref CmdCalculator::Antlr::CmdCalculatorExpressionParser::Wholeful_number_literalContext instance.
 	class TrueWholefulNumberLiteralAntlrContextView :
-		public WholelessNumberLiteralAntlrContext_IntendedSatisfaction
+		public WholefulNumberLiteralAntlrContext_IntendedSatisfaction
 	{
 	private:
 		const CmdCalculator::Antlr::CmdCalculatorExpressionParser::Wholeful_number_literalContext* m_wholefulNumberLiteralContext;
@@ -38,7 +38,4 @@ namespace CmdCalculator
 		/// \returns The token holding the text content of the number's fractional part, or an empty object if no fractional part exists.
 		std::optional<TrueAntlrTokenView> getFractionalPart() const;
 	};
-
-
-	static_assert(WholefulNumberLiteralAntlrContext<TrueWholefulNumberLiteralAntlrContextView>);
 }

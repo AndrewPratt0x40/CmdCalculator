@@ -15,18 +15,3 @@ CmdCalculator::TrueOperandAntlrContextView CmdCalculator::TrueExpressionAntlrCon
 {
 	return TrueOperandAntlrContextView{ m_expressionContext->head_operand };
 }
-
-
-std::ranges::input_range auto CmdCalculator::TrueExpressionAntlrContextView::getOperationPartPairs() const
-{
-	return
-		m_expressionContext->operation_part_pairs()
-		| std::views::transform
-		(
-			[](auto* operationPartPair)
-			{
-				return TrueGroupingTailMultiplicandAntlrContextView{ tailMultiplicand };
-			}
-		)
-	;
-}

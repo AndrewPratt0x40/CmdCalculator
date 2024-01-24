@@ -1,3 +1,4 @@
+- Move static_asserts from source code to unit tests
 - Create ANTLR context object wrappers
 - Create exceptions for invalid parsing of input expression
 - Create AntlrInvokingStringToAntlrContextConverter

@@ -32,7 +32,7 @@ namespace CmdCalculator
 
 		/// \brief Accessor to the kind of non-grouping multiplication node.
 		/// \returns The specific kind of non-grouping multiplication the node is.
-		ENonGroupingMultiplicationAntlrContextKind ENonGroupingMultiplicationAntlrContextKind() const;
+		ENonGroupingMultiplicationAntlrContextKind getNonGroupingMultiplicationKind() const;
 
 
 		/// \brief Accessor to the non-grouping multiplication node as a number literal, if it is one.
@@ -59,7 +59,4 @@ namespace CmdCalculator
 		/// \returns A view of the non-grouping multiplication node as a absolute value operation, or an empty object otherwise.
 		std::optional<TrueAbsoluteValueOperationAntlrContextView> getAbsoluteValueOperation() const;
 	};
-
-
-	static_assert(NonGroupingMultiplicationAntlrContext<TrueNonGroupingMultiplicationAntlrContextView>);
 }

@@ -40,7 +40,4 @@ namespace CmdCalculator
 		/// \returns A view of the number literal node as a wholeless number literal, or an empty object if the number literal is wholelful.
 		std::optional<TrueWholelessNumberLiteralAntlrContextView> getWholelessNumberLiteral() const;
 	};
-
-
-	static_assert(NumberLiteralAntlrContext<TrueNumberLiteralAntlrContextView>);
 }

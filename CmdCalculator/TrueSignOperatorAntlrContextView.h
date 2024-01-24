@@ -31,7 +31,4 @@ namespace CmdCalculator
 		/// \returns A view of the token representing the sign operator.
 		TrueAntlrTokenView getToken() const;
 	};
-
-
-	static_assert(SignOperatorAntlrContext<TrueSignOperatorAntlrContextView>);
 }

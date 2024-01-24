@@ -41,7 +41,4 @@ namespace CmdCalculator
 		/// \returns A view of the trivial content between the grouping's inner expression and it's closing bracket, or an empty object if there is no inner trailing trivia.
 		std::optional<TrueAntlrTokenView> getInnerTrailingTrivia() const;
 	};
-
-
-	static_assert(GroupingAntlrContext<TrueGroupingAntlrContextView>);
 }

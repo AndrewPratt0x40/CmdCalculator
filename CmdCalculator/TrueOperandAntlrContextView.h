@@ -40,7 +40,4 @@ namespace CmdCalculator
 		/// \returns A view of the operand node as a grouping multiplication, or an empty object if the operand is a non-grouping multiplication.
 		std::optional<TrueGroupingMultiplicationAntlrContextView> getGroupingMultiplicationOperand() const;
 	};
-
-
-	static_assert(OperandAntlrContext<TrueOperandAntlrContextView>);
 }

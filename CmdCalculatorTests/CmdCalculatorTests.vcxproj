@@ -73,6 +73,7 @@
   <ItemGroup>
     <ClInclude Include="common.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="TrueBinaryOperatorAntlrContextViewTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AntlrBasedStringToMathAstConverterTests.cpp" />
@@ -87,6 +88,7 @@
     <ClCompile Include="DynamicNumberLiteralNodeTests.cpp" />
     <ClCompile Include="DynamicSignOperationNodeTests.cpp" />
     <ClCompile Include="DynamicSqrtOperationNodeTest.cpp" />
+    <ClCompile Include="OwningTrueFullExpressionAntlrContextTests.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
@@ -94,6 +96,20 @@
     <ClCompile Include="ProcessTests.cpp" />
     <ClCompile Include="BasicCalculationTests.cpp" />
     <ClCompile Include="stringsTests.cpp" />
+    <ClCompile Include="TrueAbsoluteValueOperationAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueExpressionAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueGroupingAntlrContextViewTest.cpp" />
+    <ClCompile Include="TrueGroupingMultiplicationAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueGroupingTailMultiplicandAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueNonGroupingMultiplicationAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueNumberLiteralAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueOperandAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueOperationPartPairAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueSignOperationAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueSignOperatorAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueSqrtOperationAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueWholefulNumberLiteralAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueWholelessNumberLiteralAntlrContextViewTests.cpp" />
     <ClCompile Include="utilitiesTests.cpp" />
   </ItemGroup>
   <ItemGroup>

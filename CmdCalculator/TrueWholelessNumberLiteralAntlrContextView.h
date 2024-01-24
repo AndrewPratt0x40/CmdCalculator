@@ -32,7 +32,4 @@ namespace CmdCalculator
 		/// \returns The token holding the text content of the number's fractional part.
 		TrueAntlrTokenView getFractionalPart() const;
 	};
-
-
-	static_assert(WholelessNumberLiteralAntlrContext<TrueWholelessNumberLiteralAntlrContextView>);
 }

@@ -33,7 +33,4 @@ namespace CmdCalculator
 		/// \returns A view of the token representing the binary operator.
 		TrueAntlrTokenView getToken() const;
 	};
-
-
-	static_assert(BinaryOperatorAntlrContext<TrueBinaryOperatorAntlrContextView>);
 }
