@@ -90,6 +90,7 @@
     <ClInclude Include="AntlrContextTypeDeductions.h" />
     <ClInclude Include="AntlrToken.h" />
     <ClInclude Include="BadRawCmdLineArgsException.h" />
+    <ClInclude Include="EmptyInputExpressionException.h" />
     <ClInclude Include="TrueAbsoluteValueOperationAntlrContextView.h" />
     <ClInclude Include="TrueAntlrTokenView.h" />
     <ClInclude Include="BinaryOperatorAntlrContext.h" />
@@ -157,12 +158,15 @@
     <ClInclude Include="TrueSqrtOperationAntlrContextView.h" />
     <ClInclude Include="TrueWholefulNumberLiteralAntlrContextView.h" />
     <ClInclude Include="TrueWholelessNumberLiteralAntlrContextView.h" />
+    <ClInclude Include="UnexpectedInputExpressionCharException.h" />
     <ClInclude Include="UnknownCmdLineArgException.h" />
     <ClInclude Include="utilities.h" />
     <ClInclude Include="WholefulNumberLiteralAntlrContext.h" />
     <ClInclude Include="WholelessNumberLiteralAntlrContext.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EmptyInputExpressionException.cpp" />
+    <ClCompile Include="NotImplementedException.cpp" />
     <ClCompile Include="TrueAbsoluteValueOperationAntlrContextView.cpp" />
     <ClCompile Include="TrueAntlrTokenView.cpp" />
     <ClCompile Include="CalculationConfiguration.cpp" />
@@ -193,6 +197,7 @@
     <ClCompile Include="TrueSqrtOperationAntlrContextView.cpp" />
     <ClCompile Include="TrueWholefulNumberLiteralAntlrContextView.cpp" />
     <ClCompile Include="TrueWholelessNumberLiteralAntlrContextView.cpp" />
+    <ClCompile Include="UnexpectedInputExpressionCharException.cpp" />
     <ClCompile Include="UnknownCmdLineArgException.cpp" />
   </ItemGroup>
   <ItemGroup>

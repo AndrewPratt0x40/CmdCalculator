@@ -4,6 +4,7 @@
 #include <type_traits>
 #include <optional>
 #include <memory>
+#include <vector>
 
 #include "NotImplementedException.h"
 

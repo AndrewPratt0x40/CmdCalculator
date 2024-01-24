@@ -4,10 +4,12 @@
 #include <ranges>
 #include <iterator>
 #include <utility>
+#include <iterator>
 
 /// \internal
 namespace CmdCalculator::Polyfills
 {
+#pragma region __cpp_lib_unreachable
 #ifdef __cpp_lib_unreachable
 	using std::unreachable;
 #else
@@ -28,10 +30,12 @@ namespace CmdCalculator::Polyfills
 #endif
 	}
 #endif
+#pragma endregion
 
 
 	namespace ranges
 	{
+#pragma region __cpp_lib_ranges_fold
 #ifdef __cpp_lib_ranges_fold
 		using std::ranges::fold_left;
 #else
@@ -85,6 +89,7 @@ namespace CmdCalculator::Polyfills
  
 		inline constexpr fold_left_fn fold_left;
 #endif // !__cpp_lib_ranges_fold
+#pragma endregion
 	}
 }
 /// \endinternal

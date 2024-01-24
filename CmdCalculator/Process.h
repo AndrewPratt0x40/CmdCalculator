@@ -4,6 +4,7 @@
 #include <string_view>
 #include <format>
 #include <concepts>
+#include <algorithm>
 #include <utility>
 #include <ranges>
 #include <assert.h>
@@ -20,6 +21,8 @@
 #include "UnknownCmdLineArgException.h"
 #include "MissingCmdLineArgValueException.h"
 #include "InvalidInputExpressionException.h"
+#include "EmptyInputExpressionException.h"
+#include "UnexpectedInputExpressionCharException.h"
 
 using namespace std::string_literals;
 using namespace std::string_view_literals;
@@ -62,6 +65,8 @@ namespace CmdCalculator
 		template<String ExpressionT>
 		struct CalculationResult
 		{
+			using ExpressionType = ExpressionT;
+
 			std::optional<ExpressionT> outputExpression;
 			bool shouldReprompt;
 		};
@@ -148,6 +153,29 @@ namespace CmdCalculator
 
 	private:
 
+
+		void writeToConsole(Console auto& console, const String auto text, const EWriteMode writeMode)
+		{
+			const auto convertedString
+			{
+				convertString<typename std::remove_reference_t<decltype(console)>::StringType::value_type>
+				(text)
+			};
+			console.write(convertedString, writeMode);
+		}
+
+
+		void writeLineToConsole(Console auto& console, const String auto text, const EWriteMode writeMode)
+		{
+			const auto convertedString
+			{
+				convertString<typename std::remove_reference_t<decltype(console)>::StringType::value_type>
+				(text)
+			};
+			console.writeLine(convertedString, writeMode);
+		}
+
+
 		/// \brief Attempts to parse the raw command-line arguments given to the process.
 		/// \tparam ConsoleT The type of the console object to be used by the process.
 		/// \tparam ExpressionStringT The string type that represents a given expression.
@@ -175,17 +203,40 @@ namespace CmdCalculator
 			}
 			catch (const UnknownCmdLineArgException<ArgType>& exception)
 			{
-				console.writeLine(std::format("Unknown argument, \"{}\"", exception.getArg()), EWriteMode::Error);
+				writeLineToConsole
+				(
+					console,
+					std::format
+					(
+						"Unknown argument, \"{}\"",
+						convertString<char>(exception.getArg())
+					),
+					EWriteMode::Error
+				);
 				return {};
 			}
 			catch (const MissingCmdLineArgValueException<ArgType>& exception)
 			{
-				console.writeLine(std::format("Missing value for argument, \"{}\"", exception.getArg()), EWriteMode::Error);
+				writeLineToConsole
+				(
+					console,
+					std::format
+					(
+						"Missing value for argument, \"{}\"",
+						convertString<char>(exception.getArg())
+					),
+					EWriteMode::Error
+				);
 				return {};
 			}
 			catch (...)
 			{
-				console.writeLine("An unknown error occurred while reading the command-line arguments.", EWriteMode::Error);
+				writeLineToConsole
+				(
+					console,
+					"An unknown error occurred while reading the command-line arguments."s,
+					EWriteMode::Error
+				);
 				return {};
 			}
 
@@ -243,6 +294,7 @@ namespace CmdCalculator
 
 			bool shouldRepromptOnFailure{};
 
+			// TODO: Error message generation should be handled by a seperate component.
 			try
 			{
 				OutputExpressionT outputExpression{ calculation.getOutputExpression() };
@@ -252,15 +304,162 @@ namespace CmdCalculator
 					.shouldReprompt{ false }
 				};
 			}
-			// TODO: Catch other errors
+			catch (const EmptyInputExpressionException& exception)
+			{
+				writeLineToConsole
+				(
+					console,
+					"Expression cannot be empty."s,
+					EWriteMode::Error
+				);
+				shouldRepromptOnFailure = true;
+			}
+			catch (const UnexpectedInputExpressionCharException& exception)
+			{
+				const size_t charIndex{ exception.getCharIndex() };
+				const std::basic_string<typename decltype(inputExpression)::value_type> convertedInputExpression{ inputExpression };
+
+				writeLineToConsole
+				(
+					console,
+					std::format
+					(
+						"Unexpected character, \"{}\" at column {}.",
+						convertChar<char>(convertedInputExpression.at(charIndex))
+						charIndex
+					),
+					EWriteMode::Error
+				);
+
+				if (!exception.getExpectedValues().empty())
+				{
+					writeLineToConsole
+					(
+						console,
+						"\tExpected any of:"s,
+						EWriteMode::Error
+					);
+					for (const auto& expectedValue : exception.getExpectedValues())
+					{
+						writeLineToConsole
+						(
+							console,
+							std::format
+							(
+								"\t  - {}",
+								expectedValue
+							),
+							EWriteMode::Error
+						);
+					}
+				}
+
+				constexpr inline size_t maxSpanLength{ 8 };
+
+				if (charIndex > maxSpanLength)
+				{
+					writeLineToConsole
+					(
+						console,
+						std::format
+						(
+							"\tAfter: ...{}",
+							convertString<char>
+							(
+								convertedInputExpression.substr
+								(
+									charIndex - maxSpanLength,
+									maxSpanLength
+								)
+							)
+						),
+						EWriteMode::Error
+					);
+				}
+				else if (charIndex > 0)
+				{
+					writeLineToConsole
+					(
+						console,
+						std::format
+						(
+							"\tAfter: {}",
+							convertString<char>
+							(
+								convertedInputExpression.substr
+								(
+									0,
+									charIndex
+								)
+							)
+						),
+						EWriteMode::Error
+					);
+				}
+
+				const size_t maxIndex{ convertedInputExpression.size() - 1 };
+
+				if (charIndex < maxIndex - maxSpanLength)
+				{
+					writeLineToConsole
+					(
+						console,
+						std::format
+						(
+							"\Before: {}...",
+							convertString<char>
+							(
+								convertedInputExpression.substr
+								(
+									charIndex + 1,
+									maxSpanLength
+								)
+							)
+						),
+						EWriteMode::Error
+					);
+				}
+				else if (charIndex < maxIndex - 1)
+				{
+					writeLineToConsole
+					(
+						console,
+						std::format
+						(
+							"\Before: {}",
+							convertString<char>
+							(
+								convertedInputExpression.substr
+								(
+									charIndex + 1,
+									maxIndex - charIndex
+								)
+							)
+						),
+						EWriteMode::Error
+					);
+				}
+
+				shouldRepromptOnFailure = true;
+			}
 			catch (const InvalidInputExpressionException&)
 			{
-				console.writeLine("Expression is invalid for unknown reasons.", EWriteMode::Error);
+				writeLineToConsole
+				(
+					console,
+					"Expression is invalid for unknown reasons."s,
+					EWriteMode::Error
+				);
 				shouldRepromptOnFailure = true;
 			}
 			catch (...)
 			{
-				console.writeLine("An unknown error occurred while calculating.", EWriteMode::Error);
+				writeLineToConsole
+				(
+					console,
+					"An unknown error occurred while calculating."s,
+					EWriteMode::Error
+				);
 				shouldRepromptOnFailure = false;
 			}
 
@@ -273,13 +472,16 @@ namespace CmdCalculator
 
 
 		/// \brief Prompts the user for an expression to calculate.
-		/// \tparam ConsoleT The type of the console object to be used by the process.
 		/// \param console The text console to use for input and output.
 		/// \returns The expression inputted by the user.
-		template<Console ConsoleT>
-		ConsoleT::StringType promptForExpression(ConsoleT& console)
+		String auto promptForExpression(Console auto& console)
 		{
-			console.write("Enter an expression: ", EWriteMode::Info);
+			writeToConsole
+			(
+				console,
+				"Enter an expression: "s,
+				EWriteMode::Info
+			);
 			return console.getInput();
 		}
 	};

@@ -191,8 +191,8 @@ Unexpected character "a" at column 3
 
 Enter an expression: 1 + 2 - 3 * 4 / a + 6 - 7 * 8 / 9
 Unexpected character "a" at column 17
-	After: "3 * 4 / ..."
-	Before: "... + 6 - 7"
+	After: "...3 * 4 / "
+	Before: " + 6 - 7..."
 
 Enter an expression: 
 ```

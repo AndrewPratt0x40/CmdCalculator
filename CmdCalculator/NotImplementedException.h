@@ -8,9 +8,6 @@ namespace CmdCalculator
 	class NotImplementedException : public std::exception
 	{
 	public:
-		const char* what() const noexcept override
-		{
-			return "Code that has not been implemented has been invoked";
-		}
+		const char* what() const noexcept override;
 	};
 }

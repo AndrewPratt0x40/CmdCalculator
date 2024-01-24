@@ -190,6 +190,15 @@
     <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext\TrueBinaryOperatorAntlrContextView">
       <UniqueIdentifier>{e9fa4844-c51a-400d-8418-225e14bb684f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Exceptions\NotImplementedException">
+      <UniqueIdentifier>{4ee76b1a-13bc-49d8-b78e-d5964c434918}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\Invalid Input Expression\EmptyInputExpressionException">
+      <UniqueIdentifier>{605c9926-ba04-430f-9cc5-d6c7c708b326}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\Invalid Input Expression\UnexpectedInputExpressionCharException">
+      <UniqueIdentifier>{64c494a9-e8de-4238-b74d-c0b2cd94b63d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -233,9 +242,6 @@
     </ClInclude>
     <ClInclude Include="BadRawCmdLineArgsException.h">
       <Filter>Source Code\Exceptions\Raw Cmd Line Args</Filter>
-    </ClInclude>
-    <ClInclude Include="NotImplementedException.h">
-      <Filter>Source Code\Exceptions</Filter>
     </ClInclude>
     <ClInclude Include="UnknownCmdLineArgException.h">
       <Filter>Source Code\Exceptions\Raw Cmd Line Args\UnknownCmdLineArgException</Filter>
@@ -420,6 +426,15 @@
     <ClInclude Include="TrueBinaryOperatorAntlrContextView.h">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext\TrueBinaryOperatorAntlrContextView</Filter>
     </ClInclude>
+    <ClInclude Include="NotImplementedException.h">
+      <Filter>Source Code\Exceptions\NotImplementedException</Filter>
+    </ClInclude>
+    <ClInclude Include="EmptyInputExpressionException.h">
+      <Filter>Source Code\Exceptions\Invalid Input Expression\EmptyInputExpressionException</Filter>
+    </ClInclude>
+    <ClInclude Include="UnexpectedInputExpressionCharException.h">
+      <Filter>Source Code\Exceptions\Invalid Input Expression\UnexpectedInputExpressionCharException</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -514,6 +529,15 @@
     </ClCompile>
     <ClCompile Include="TrueBinaryOperatorAntlrContextView.cpp">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext\TrueBinaryOperatorAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="NotImplementedException.cpp">
+      <Filter>Source Code\Exceptions\NotImplementedException</Filter>
+    </ClCompile>
+    <ClCompile Include="EmptyInputExpressionException.cpp">
+      <Filter>Source Code\Exceptions\Invalid Input Expression\EmptyInputExpressionException</Filter>
+    </ClCompile>
+    <ClCompile Include="UnexpectedInputExpressionCharException.cpp">
+      <Filter>Source Code\Exceptions\Invalid Input Expression\UnexpectedInputExpressionCharException</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
