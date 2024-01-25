@@ -11,7 +11,10 @@
 #include "strings.h"
 #include "DynamicExpressionNode.h"
 #include "DynamicExpressionPartNode.h"
+#include "EmptyInputExpressionException.h"
+#include "InvalidInputExpressionException.h"
 #include "NotImplementedException.h"
+#include "../submodules/Antlr4CppRuntime/src/InputMismatchException.h"
 
 namespace CmdCalculator
 {
@@ -46,6 +49,8 @@ namespace CmdCalculator
 		/// \brief Converts a string into a mathematical abstract syntax tree.
 		/// \param source The string to convert.
 		/// \returns The root node of the resulting mathematical abstract syntax tree.
+		/// \throws EmptyInputExpressionException Thrown if \p source is empty.
+		/// \throws UnexpectedInputExpressionCharException Thrown if an unexpected character is encountered in \p source.
 		std::unique_ptr<MathAst::DynamicExpressionNode<StringType>> getStringAsMathAst(StringViewType source)
 		{
 			auto fullExpressionContextPtr{ m_stringToAntlrContextConverter.getStringAsAntlrContext(source) };

@@ -30,13 +30,19 @@
   <ImportGroup Label="Shared" />
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(SolutionDir)submodules/Antlr4CppRuntime/src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)submodules/Antlr4CppRuntime/src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>X64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ANTLR4CPP_STATIC;X64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
@@ -44,6 +50,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <FloatingPointExceptions>true</FloatingPointExceptions>
       <DisableSpecificWarnings>4584</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>$(SolutionDir)submodules/Antlr4CppRuntime/src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -54,7 +61,7 @@
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <PreprocessorDefinitions>X64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ANTLR4CPP_STATIC;X64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -62,6 +69,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <FloatingPointExceptions>true</FloatingPointExceptions>
       <DisableSpecificWarnings>4584</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>$(SolutionDir)submodules/Antlr4CppRuntime/src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -114,6 +122,9 @@
     <ClCompile Include="utilitiesTests.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CmdCalculatorAntlr\CmdCalculatorAntlr.vcxproj">
+      <Project>{eb525848-c145-4190-8c59-856a35ea2f49}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\CmdCalculatorTestDoubles\CmdCalculatorTestDoubles.vcxproj">
       <Project>{80aa43e2-f1c0-4a47-b09f-1656a1c96fae}</Project>
     </ProjectReference>
