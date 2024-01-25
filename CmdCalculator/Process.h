@@ -304,7 +304,7 @@ namespace CmdCalculator
 					.shouldReprompt{ false }
 				};
 			}
-			catch (const EmptyInputExpressionException& exception)
+			catch (const EmptyInputExpressionException&)
 			{
 				writeLineToConsole
 				(
@@ -325,7 +325,7 @@ namespace CmdCalculator
 					std::format
 					(
 						"Unexpected character, \"{}\" at column {}.",
-						convertChar<char>(convertedInputExpression.at(charIndex))
+						convertChar<char>(convertedInputExpression.at(charIndex)),
 						charIndex
 					),
 					EWriteMode::Error
@@ -354,7 +354,7 @@ namespace CmdCalculator
 					}
 				}
 
-				constexpr inline size_t maxSpanLength{ 8 };
+				constexpr size_t maxSpanLength{ 8 };
 
 				if (charIndex > maxSpanLength)
 				{
@@ -406,7 +406,7 @@ namespace CmdCalculator
 						console,
 						std::format
 						(
-							"\Before: {}...",
+							"\tBefore: {}...",
 							convertString<char>
 							(
 								convertedInputExpression.substr
@@ -426,7 +426,7 @@ namespace CmdCalculator
 						console,
 						std::format
 						(
-							"\Before: {}",
+							"\tBefore: {}",
 							convertString<char>
 							(
 								convertedInputExpression.substr

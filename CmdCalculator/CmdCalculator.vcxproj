@@ -88,6 +88,7 @@
     <ClInclude Include="AbsoluteValueOperationAntlrContext.h" />
     <ClInclude Include="AntlrContextToMathAstConverter.h" />
     <ClInclude Include="AntlrContextTypeDeductions.h" />
+    <ClInclude Include="AntlrInvokingStringToAntlrContextConverter.h" />
     <ClInclude Include="AntlrToken.h" />
     <ClInclude Include="BadRawCmdLineArgsException.h" />
     <ClInclude Include="EmptyInputExpressionException.h" />
@@ -165,6 +166,7 @@
     <ClInclude Include="WholelessNumberLiteralAntlrContext.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AntlrInvokingStringToAntlrContextConverter.cpp" />
     <ClCompile Include="EmptyInputExpressionException.cpp" />
     <ClCompile Include="NotImplementedException.cpp" />
     <ClCompile Include="TrueAbsoluteValueOperationAntlrContextView.cpp" />

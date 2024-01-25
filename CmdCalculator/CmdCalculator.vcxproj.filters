@@ -199,6 +199,9 @@
     <Filter Include="Source Code\Exceptions\Invalid Input Expression\UnexpectedInputExpressionCharException">
       <UniqueIdentifier>{64c494a9-e8de-4238-b74d-c0b2cd94b63d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\StringToAntlrContextConverter\AntlrInvokingStringToAntlrContextConverter">
+      <UniqueIdentifier>{17e0cc17-5f89-43a1-9825-d4913e271de2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -435,6 +438,9 @@
     <ClInclude Include="UnexpectedInputExpressionCharException.h">
       <Filter>Source Code\Exceptions\Invalid Input Expression\UnexpectedInputExpressionCharException</Filter>
     </ClInclude>
+    <ClInclude Include="AntlrInvokingStringToAntlrContextConverter.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\StringToAntlrContextConverter\AntlrInvokingStringToAntlrContextConverter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -538,6 +544,9 @@
     </ClCompile>
     <ClCompile Include="UnexpectedInputExpressionCharException.cpp">
       <Filter>Source Code\Exceptions\Invalid Input Expression\UnexpectedInputExpressionCharException</Filter>
+    </ClCompile>
+    <ClCompile Include="AntlrInvokingStringToAntlrContextConverter.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\StringToAntlrContextConverter\AntlrInvokingStringToAntlrContextConverter</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -97,6 +97,9 @@
     <ClCompile Include="TrueWholelessNumberLiteralAntlrContextViewTests.cpp">
       <Filter>Source Code\Tests\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext</Filter>
     </ClCompile>
+    <ClCompile Include="AntlrInvokingStringToAntlrContextConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\ANTLR\StringToAntlrContextConverter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -176,6 +179,9 @@
     </Filter>
     <Filter Include="Source Code\Tests\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext">
       <UniqueIdentifier>{4570a2f3-17d7-4c3f-96ae-7cd55ad0ec1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\ANTLR\StringToAntlrContextConverter">
+      <UniqueIdentifier>{c4158311-83df-47c5-b179-8da21710f37d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

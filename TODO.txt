@@ -1,6 +1,6 @@
 	DONE - Move static_asserts from source code to unit tests
 	DONE - Create ANTLR context object wrappers
-- Create exceptions for invalid parsing of input expression
+	DONE - Create exceptions for invalid parsing of input expression
 - Create AntlrInvokingStringToAntlrContextConverter
 	- Have AntlrInvokingStringToAntlrContextConverter wrap ANTLR exceptions in CmdCalculator-specific exceptions
 - Create AntlrContextToDynamicMathAstConverter

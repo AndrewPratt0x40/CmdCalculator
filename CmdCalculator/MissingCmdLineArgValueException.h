@@ -17,7 +17,6 @@ namespace CmdCalculator
 
 	public:
 		using ArgType = ArgT;
-		using ArgViewType = std::basic_string_view<typename ArgType::value_type>;
 
 
 		/// \brief Creates a new instance of the \ref MissingCmdLineArgValueException class.
@@ -29,7 +28,7 @@ namespace CmdCalculator
 
 		/// \brief Accessor to the missing command-line argument.
 		/// \returns A non-owning view of the missing argument.
-		ArgViewType getArg() const
+		ArgType getArg() const
 		{
 			return m_arg;
 		}
