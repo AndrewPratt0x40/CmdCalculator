@@ -124,6 +124,9 @@
     <ClCompile Include="StubDynamicExpressionPartNodeTests.cpp">
       <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
     </ClCompile>
+    <ClCompile Include="StubFullExpressionAntlrContextTests.cpp">
+      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">

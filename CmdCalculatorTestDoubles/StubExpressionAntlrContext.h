@@ -1,7 +1,7 @@
 #pragma once
 
 #include <optional>
-#include <span>
+#include <vector>
 
 #include "../CmdCalculator/ExpressionAntlrContext.h"
 #include "StubOperandAntlrContext.h"
@@ -16,7 +16,7 @@ namespace CmdCalculatorTestDoubles
 		using OperationPartPairAntlrContexType = StubOperationPartPairAntlrContext;
 
 		OperandAntlrContextType headOperand;
-		std::span<OperationPartPairAntlrContexType> operationPartPairs;
+		std::vector<OperationPartPairAntlrContexType> operationPartPairs;
 
 
 		OperandAntlrContextType getHeadOperand() const

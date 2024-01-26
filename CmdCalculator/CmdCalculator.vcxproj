@@ -119,7 +119,7 @@
     <ClInclude Include="ExpressionPartNode.h" />
     <ClInclude Include="OperationPartPairAntlrContext.h" />
     <ClInclude Include="ExpressionToStringConverter.h" />
-    <ClInclude Include="BasicAntlrContextToMathAstConverter.h" />
+    <ClInclude Include="AntlrContextToDynamicMathAstConverter.h" />
     <ClInclude Include="FullExpressionAntlrContext.h" />
     <ClInclude Include="GroupingAntlrContext.h" />
     <ClInclude Include="GroupingMultiplicationAntlrContext.h" />
@@ -179,7 +179,7 @@
     <ClCompile Include="DynamicNumberLiteralNode.cpp" />
     <ClCompile Include="DynamicSignOperationNode.cpp" />
     <ClCompile Include="DynamicSqrtOperationNode.cpp" />
-    <ClCompile Include="BasicAntlrContextToMathAstConverter.cpp" />
+    <ClCompile Include="AntlrContextToDynamicMathAstConverter.cpp" />
     <ClCompile Include="MissingCmdLineArgValueException.cpp" />
     <ClCompile Include="OwningTrueFullExpressionAntlrContext.cpp" />
     <ClCompile Include="Process.cpp" />

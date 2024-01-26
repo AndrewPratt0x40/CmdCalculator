@@ -258,6 +258,9 @@
     <ClInclude Include="StubDynamicExpressionPartNode.h">
       <Filter>Source Code\CmdCalculator\MathAst\Dynamic\DynamicExpressionPartNode</Filter>
     </ClInclude>
+    <ClInclude Include="StubFullExpressionAntlrContext.h">
+      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StubRawCmdLineArgParser.h">

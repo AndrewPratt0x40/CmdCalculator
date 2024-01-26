@@ -100,6 +100,9 @@
     <ClCompile Include="AntlrInvokingStringToAntlrContextConverterTests.cpp">
       <Filter>Source Code\Tests\Conversions\String to Math AST\ANTLR\StringToAntlrContextConverter</Filter>
     </ClCompile>
+    <ClCompile Include="AntlrContextToDynamicMathAstConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -182,6 +185,9 @@
     </Filter>
     <Filter Include="Source Code\Tests\Conversions\String to Math AST\ANTLR\StringToAntlrContextConverter">
       <UniqueIdentifier>{c4158311-83df-47c5-b179-8da21710f37d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter">
+      <UniqueIdentifier>{d079c8c0-c65e-49ac-8f67-d465e3385fd6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -92,6 +92,7 @@
     <ClCompile Include="StubDynamicExpressionNodeTests.cpp" />
     <ClCompile Include="StubDynamicExpressionPartNodeTests.cpp" />
     <ClCompile Include="StubExpressionAntlrContextTests.cpp" />
+    <ClCompile Include="StubFullExpressionAntlrContextTests.cpp" />
     <ClCompile Include="StubGroupingAntlrContextTests.cpp" />
     <ClCompile Include="StubGroupingMultiplicationAntlrContextTests.cpp" />
     <ClCompile Include="StubGroupingTailMultiplicandAntlrContextTests.cpp" />

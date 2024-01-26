@@ -82,9 +82,6 @@
     <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\StringToAntlrContextConverter">
       <UniqueIdentifier>{7342e866-5ab3-49bc-982b-148acd641fa7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter\BasicAntlrContextToMathAstConverter">
-      <UniqueIdentifier>{ea0f5851-67db-48af-93f5-2b3ab9fb2d25}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects">
       <UniqueIdentifier>{3f087724-7fde-4105-90fe-1a1248d8937f}</UniqueIdentifier>
     </Filter>
@@ -202,6 +199,9 @@
     <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\StringToAntlrContextConverter\AntlrInvokingStringToAntlrContextConverter">
       <UniqueIdentifier>{17e0cc17-5f89-43a1-9825-d4913e271de2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter\AntlrContextToDynamicMathAstConverter">
+      <UniqueIdentifier>{ea0f5851-67db-48af-93f5-2b3ab9fb2d25}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -309,8 +309,8 @@
     <ClInclude Include="AntlrContextToMathAstConverter.h">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter</Filter>
     </ClInclude>
-    <ClInclude Include="BasicAntlrContextToMathAstConverter.h">
-      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter\BasicAntlrContextToMathAstConverter</Filter>
+    <ClInclude Include="AntlrContextToDynamicMathAstConverter.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter\AntlrContextToDynamicMathAstConverter</Filter>
     </ClInclude>
     <ClInclude Include="AntlrToken.h">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrToken</Filter>
@@ -482,8 +482,8 @@
     <ClCompile Include="AntlrBasedStringToMathAstConverter.cpp">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrBasedStringToMathAstConverter</Filter>
     </ClCompile>
-    <ClCompile Include="BasicAntlrContextToMathAstConverter.cpp">
-      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter\BasicAntlrContextToMathAstConverter</Filter>
+    <ClCompile Include="AntlrContextToDynamicMathAstConverter.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter\AntlrContextToDynamicMathAstConverter</Filter>
     </ClCompile>
     <ClCompile Include="OwningTrueFullExpressionAntlrContext.cpp">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext\OwningTrueFullExpressionAntlrContext</Filter>
