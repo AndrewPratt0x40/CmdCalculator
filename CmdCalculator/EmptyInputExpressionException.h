@@ -8,6 +8,10 @@ namespace CmdCalculator
 	class EmptyInputExpressionException : public InvalidInputExpressionException
 	{
 	public:
+		virtual ~EmptyInputExpressionException() = default;
+
+
+
 		const char* what() const noexcept override;
 	};
 }

@@ -26,6 +26,9 @@ namespace CmdCalculator
 		{}
 
 
+		virtual ~UnknownCmdLineArgException() = default;
+
+
 		/// \brief Accessor to the unknown command-line argument.
 		/// \returns A non-owning view of the unknown argument.
 		ArgType getArg() const

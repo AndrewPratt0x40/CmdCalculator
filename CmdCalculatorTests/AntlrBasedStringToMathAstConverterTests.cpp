@@ -3,18 +3,16 @@
 #include "../CmdCalculator/AntlrBasedStringToMathAstConverter.h"
 #include "../CmdCalculator/StringToMathAstConverter.h"
 #include "../CmdCalculator/EmptyInputExpressionException.h"
-#include "../CmdCalculator/InvalidInputExpressionException.h"
+#include "../CmdCalculator/UnexpectedInputExpressionCharException.h"
+#include "../CmdCalculatorAntlr/generated_code/CmdCalculatorExpressionLexer.h"
+#include "../CmdCalculatorAntlr/generated_code/CmdCalculatorExpressionParser.h"
 #include "../CmdCalculatorTestDoubles/StubTrackingStringToAntlrContextConverter.h"
 #include "../CmdCalculatorTestDoubles/StubThrowingStringToAntlrContextConverter.h"
 #include "../CmdCalculatorTestDoubles/StubTrackingAntlrContextToMathAstConverter.h"
-#include "../submodules/Antlr4CppRuntime/src/InputMismatchException.h"
-#include "../submodules/Antlr4CppRuntime/src/ParserInterpreter.h"
-#include "../submodules/Antlr4CppRuntime/src/CommonTokenStream.h"
-#include "../submodules/Antlr4CppRuntime/src/ListTokenSource.h"
-#include "../submodules/Antlr4CppRuntime/src/Token.h"
+#include "../submodules/Antlr4CppRuntime/src/RecognitionException.h"
 
 #include <string>
-#include <vector>
+#include <optional>
 #include <memory>
 
 
@@ -121,42 +119,55 @@ namespace CmdCalculatorTests
 	}
 
 
-	TEST(AntlrBasedStringToMathAstConverterTests, Calling$getStringAsMathAst$throws$InvalidInputExpressionException$when$StringToAntlrContextConverter$throws$InputMismatchException)
+	TEST(AntlrBasedStringToMathAstConverterTests, Calling$getStringAsMathAst$throws$UnexpectedInputExpressionCharException$when$StringToAntlrContextConverter$throws$RecognitionException)
 	{
 		// Arrange
-		std::string inputExpression{""};
+		ASSERT_TRUE(std::copyable<antlr4::RecognitionException>);
+		
+		std::string inputExpression{"Input expression"};
 		
 		using StringToAntlrContextConverterType =
-			CmdCalculatorTestDoubles::StubThrowingStringToAntlrContextConverter<std::string_view, antlr4::InputMismatchException>
+			CmdCalculatorTestDoubles::StubThrowingStringToAntlrContextConverter<std::string_view, antlr4::RecognitionException>
 		;
 
-#pragma region Create pseudo-stub InputMismatchException
+		antlr4::ANTLRInputStream inputStream{ "BAD INPUT" };
+		std::unique_ptr<CmdCalculator::Antlr::CmdCalculatorExpressionLexer> lexer{};
+		std::unique_ptr<antlr4::CommonTokenStream> tokenStream{};
+		std::unique_ptr<CmdCalculator::Antlr::CmdCalculatorExpressionParser> parser{};
+		const auto parserErrorHandler{ std::make_shared<antlr4::BailErrorStrategy>() };
 
-
-		const std::string exceptionParserGrammarFileName{};
-		const antlr4::dfa::Vocabulary exceptionParserVocabulary{};
-		const std::vector<std::string> exceptionParserRuleNames{};
-		const antlr4::atn::ATN exceptionParserAtn{};
-		antlr4::ListTokenSource exceptionParserInputTokenSource
+		
+		std::optional<antlr4::RecognitionException> exceptionToThrow{};
+		try
 		{
-			std::vector<std::unique_ptr<antlr4::Token>>{}
-		};
-		antlr4::CommonTokenStream exceptionParserInput{ &exceptionParserInputTokenSource };
-
-		antlr4::ParserInterpreter exceptionParser
+			lexer = std::make_unique<CmdCalculator::Antlr::CmdCalculatorExpressionLexer>(&inputStream);
+			lexer->removeErrorListeners();
+			tokenStream = std::make_unique<antlr4::CommonTokenStream>(lexer.get());
+			parser = std::make_unique<CmdCalculator::Antlr::CmdCalculatorExpressionParser>(tokenStream.get());
+			parser->setErrorHandler(parserErrorHandler);
+			parser->removeErrorListeners();
+			parser->full_expression();
+		}
+		catch (antlr4::ParseCancellationException& exception)
 		{
-			exceptionParserGrammarFileName,
-			exceptionParserVocabulary,
-			exceptionParserRuleNames,
-			exceptionParserAtn,
-			&exceptionParserInput
-		};
-#pragma endregion
-
-
+			try
+			{
+				std::rethrow_if_nested(exception);
+			}
+			catch (antlr4::RecognitionException& innerException)
+			{
+				exceptionToThrow = innerException;
+			}
+		}
+		ASSERT_TRUE(exceptionToThrow.has_value());
+		
+		
 		StringToAntlrContextConverterType stringToAntlrContextConverter
 		{
-			.exceptionToThrow{ &exceptionParser }
+#pragma warning(push)
+#pragma warning(disable: 26859) // Empty optional "exceptionToThrow" is unwrapped, will throw exception.
+			.exceptionToThrow{ exceptionToThrow.value() }
+#pragma warning(pop)
 		};
 
 		using AntlrContextToMathAstConverterType = CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, int, std::string_view>;
@@ -177,7 +188,7 @@ namespace CmdCalculatorTests
 		EXPECT_THROW
 		(
 			instance.getStringAsMathAst(inputExpression),
-			CmdCalculator::InvalidInputExpressionException
+			CmdCalculator::UnexpectedInputExpressionCharException
 		);
 	}
 

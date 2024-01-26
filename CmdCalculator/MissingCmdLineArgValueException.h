@@ -26,6 +26,9 @@ namespace CmdCalculator
 		{}
 
 
+		virtual ~MissingCmdLineArgValueException() = default;
+
+
 		/// \brief Accessor to the missing command-line argument.
 		/// \returns A non-owning view of the missing argument.
 		ArgType getArg() const

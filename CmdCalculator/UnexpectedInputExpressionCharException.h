@@ -30,7 +30,7 @@ namespace CmdCalculator
 		UnexpectedInputExpressionCharException
 		(
 			const size_t charIndex,
-			const ExpectedValuesT expectedValues
+			ExpectedValuesT&& expectedValues
 		) :
 			m_charIndex{ charIndex },
 			m_expectedValues{ std::ranges::begin(expectedValues), std::ranges::end(expectedValues) }
@@ -43,6 +43,9 @@ namespace CmdCalculator
 		(
 			const size_t charIndex
 		);
+
+
+		virtual ~UnexpectedInputExpressionCharException() = default;
 
 
 		/// \brief Accessor to the index of the unexpected character.

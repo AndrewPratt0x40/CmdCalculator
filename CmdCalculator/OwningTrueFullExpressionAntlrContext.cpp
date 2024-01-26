@@ -26,19 +26,33 @@ CmdCalculator::OwningTrueFullExpressionAntlrContext::OwningTrueFullExpressionAnt
 
 CmdCalculator::OwningTrueFullExpressionAntlrContext CmdCalculator::OwningTrueFullExpressionAntlrContext::parse(StringView auto input)
 {
-	const AntlrStringType inputString{ convertString<AntlrCharType>(input) };
-	auto inputStream{ std::make_unique<antlr4::ANTLRInputStream>(inputString) };
-	auto lexer{ std::make_unique<Antlr::CmdCalculatorExpressionLexer>(inputStream.get()) };
-	auto parser{ std::make_unique<Antlr::CmdCalculatorExpressionParser>(lexer.get()) };
-	const auto* fullExpressionContext{ parser->full_expression() };
-
-	return OwningTrueFullExpressionAntlrContext
+	try
 	{
-		std::move(inputStream),
-		std::move(lexer),
-		std::move(parser),
-		fullExpressionContext
-	};
+		const AntlrStringType inputString{ convertString<AntlrCharType>(input) };
+		auto inputStream{ std::make_unique<antlr4::ANTLRInputStream>(inputString) };
+
+		auto lexer{ std::make_unique<Antlr::CmdCalculatorExpressionLexer>(inputStream.get()) };
+		lexer->removeErrorListeners();
+
+		auto parser{ std::make_unique<Antlr::CmdCalculatorExpressionParser>(lexer.get()) };
+		const auto parserErrorHandler{ std::make_shared<antlr4::BailErrorStrategy>() };
+		parser->setErrorHandler(parserErrorHandler);
+		parser->removeErrorListeners();
+
+		const auto* fullExpressionContext{ parser->full_expression() };
+
+		return OwningTrueFullExpressionAntlrContext
+		{
+			std::move(inputStream),
+			std::move(lexer),
+			std::move(parser),
+			fullExpressionContext
+		};
+	}
+	catch (antlr4::ParseCancellationException& exception)
+	{
+		std::rethrow_if_nested(exception);
+	}
 }
 
 
