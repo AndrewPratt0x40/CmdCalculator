@@ -1,7 +1,7 @@
 #pragma once
 
 #include <ranges>
-#include <span>
+#include <vector>
 
 #include "../CmdCalculator/GroupingMultiplicationAntlrContext.h"
 #include "StubNonGroupingMultiplicationAntlrContext.h"
@@ -16,7 +16,7 @@ namespace CmdCalculatorTestDoubles
 		using GroupingTailMultiplicandAntlrContextType = StubGroupingTailMultiplicandAntlrContext;
 
 		NonGroupingMultiplicationAntlrContextType headMultiplicand;
-		std::span<GroupingTailMultiplicandAntlrContextType> tailMultiplicands;
+		std::vector<GroupingTailMultiplicandAntlrContextType> tailMultiplicands;
 
 
 		NonGroupingMultiplicationAntlrContextType getHeadMultiplicand() const

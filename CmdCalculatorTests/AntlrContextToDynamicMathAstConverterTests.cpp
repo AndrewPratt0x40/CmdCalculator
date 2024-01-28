@@ -40,6 +40,12 @@ namespace CmdCalculatorTests
 	}
 
 
+	static std::optional<CmdCalculatorTestDoubles::StubAntlrToken<std::string>> makeOptionalNumToken(const int num)
+	{
+		return std::make_optional<CmdCalculatorTestDoubles::StubAntlrToken<std::string>>(makeNumToken(num));
+	}
+
+
 	static CmdCalculatorTestDoubles::StubNumberLiteralAntlrContext makeNumLiteralCtx(const int num)
 	{
 		return CmdCalculatorTestDoubles::StubNumberLiteralAntlrContext
@@ -62,6 +68,24 @@ namespace CmdCalculatorTests
 	}
 
 
+	static CmdCalculatorTestDoubles::StubNonGroupingMultiplicationAntlrContext makeNonGroupMultNumLiteralCtx(const int num)
+	{
+		return CmdCalculatorTestDoubles::StubNonGroupingMultiplicationAntlrContext
+		{
+			.nonGroupingMultiplicationKind{ CmdCalculator::ENonGroupingMultiplicationAntlrContextKind::NumberLiteral },
+			.numberLiteral
+			{
+				std::make_optional<CmdCalculatorTestDoubles::StubNumberLiteralAntlrContext>
+					(makeNumLiteralCtx(num))
+			},
+			.signOperation{},
+			.sqrtOperation{},
+			.grouping{},
+			.absoluteValueOperation{}
+		};
+	}
+
+
 	static CmdCalculatorTestDoubles::StubOperandAntlrContext makeOperandNumLiteralCtx(const int num)
 	{
 		return CmdCalculatorTestDoubles::StubOperandAntlrContext
@@ -71,19 +95,7 @@ namespace CmdCalculatorTests
 			{
 				std::make_optional<CmdCalculatorTestDoubles::StubNonGroupingMultiplicationAntlrContext>
 				(
-					CmdCalculatorTestDoubles::StubNonGroupingMultiplicationAntlrContext
-					{
-						.nonGroupingMultiplicationKind{ CmdCalculator::ENonGroupingMultiplicationAntlrContextKind::NumberLiteral },
-						.numberLiteral
-						{
-							std::make_optional<CmdCalculatorTestDoubles::StubNumberLiteralAntlrContext>
-								(makeNumLiteralCtx(num))
-						},
-						.signOperation{},
-						.sqrtOperation{},
-						.grouping{},
-						.absoluteValueOperation{}
-					}
+					makeNonGroupMultNumLiteralCtx(num)
 				)
 			},
 			.groupingMultiplicationOperand{}
@@ -120,6 +132,50 @@ namespace CmdCalculatorTests
 		{
 			std::ranges::begin(partPairsView),
 			std::ranges::end(partPairsView)
+		};
+	}
+
+
+	static CmdCalculatorTestDoubles::StubExpressionAntlrContext makeNumExprCtx(const int num)
+	{
+		return CmdCalculatorTestDoubles::StubExpressionAntlrContext
+		{
+			.headOperand{ makeOperandNumLiteralCtx(num) },
+			.operationPartPairs{}
+		};
+	}
+
+
+	static CmdCalculatorTestDoubles::StubGroupingAntlrContext makeGroupNumLiteralCtx(const int num)
+	{
+		return CmdCalculatorTestDoubles::StubGroupingAntlrContext
+		{
+			.innerLeadingTrivia{},
+			.innerExpression
+			{
+				std::make_shared<CmdCalculatorTestDoubles::StubExpressionAntlrContext>(makeNumExprCtx)
+			},
+			.innerTrailingTrivia{}
+		};
+	}
+
+
+	static CmdCalculatorTestDoubles::StubGroupingTailMultiplicandAntlrContext makeGroupMultTailNumLiteralCtx(const std::string innerTrivia, const int num)
+	{
+		return CmdCalculatorTestDoubles::StubGroupingTailMultiplicandAntlrContext
+		{
+			.innerTrivia{ makeOptionalToken(innerTrivia) },
+			.groupingValue{ makeGroupNumLiteralCtx(num) }
+		};
+	}
+
+
+	static CmdCalculatorTestDoubles::StubGroupingTailMultiplicandAntlrContext makeGroupMultTailNumLiteralCtx(const int num)
+	{
+		return CmdCalculatorTestDoubles::StubGroupingTailMultiplicandAntlrContext
+		{
+			.innerTrivia{},
+			.groupingValue{ makeGroupNumLiteralCtx(num) }
 		};
 	}
 
@@ -821,6 +877,702 @@ namespace CmdCalculatorTests
 		// Assert
 		EXPECT_TRUE(returnValue);
 		EXPECT_EQ(GetParam().expectedOperatorKind, returnValue->getOperatorKind());
+		EXPECT_EQ(GetParam().expectedLeadingTrivia, returnValue->getLeadingTrivia());
+		EXPECT_EQ(GetParam().expectedTrailingTrivia, returnValue->getTrailingTrivia());
+		EXPECT_EQ(GetParam().expectedStringRepresentation, returnValue->getStringRepresentation());
+	}
+
+#pragma endregion
+
+
+#pragma region getConvertedNumberLiteralContext
+
+	struct getConvertedNumberLiteralContext_Params
+	{
+		CmdCalculatorTestDoubles::StubNumberLiteralAntlrContext context;
+		int expectedWholePart;
+		int expectedFractionalPart;
+		bool expectWholePartVisible;
+		bool expectDecimalPointVisible;
+		bool expectFractionalPartVisible;
+		std::string expectedLeadingTrivia;
+		std::string expectedTrailingTrivia;
+		std::string expectedStringRepresentation;
+	};
+
+	class getConvertedNumberLiteralContextTests :
+		public testing::TestWithParam<getConvertedNumberLiteralContext_Params>
+	{};
+
+	const getConvertedNumberLiteralContext_Params getConvertedNumberLiteralContext_ParamsValues[]
+	{
+		{
+			.context
+			{
+				.numberLiteralAntlrContextKind{ CmdCalculator::ENumberLiteralAntlrContextKind::Wholeful },
+				.wholefulNumberLiteral
+				{
+					std::make_optional<CmdCalculatorTestDoubles::StubWholefulNumberLiteralAntlrContext>
+					(
+						CmdCalculatorTestDoubles::StubWholefulNumberLiteralAntlrContext
+						{
+							.wholePart{ makeNumToken(0) },
+							.decimalPoint{},
+							.fractionalPart{}
+						}
+					)
+				},
+				.wholelessNumberLiteral{}
+			},
+			.expectedWholePart{ 0 },
+			.expectedFractionalPart{ 0 },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ false },
+			.expectFractionalPartVisible{ false },
+			.expectedLeadingTrivia{ "" },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "0" }
+		},
+		{
+			.context
+			{
+				.numberLiteralAntlrContextKind{ CmdCalculator::ENumberLiteralAntlrContextKind::Wholeful },
+				.wholefulNumberLiteral
+				{
+					std::make_optional<CmdCalculatorTestDoubles::StubWholefulNumberLiteralAntlrContext>
+					(
+						CmdCalculatorTestDoubles::StubWholefulNumberLiteralAntlrContext
+						{
+							.wholePart{ makeNumToken(123) },
+							.decimalPoint{},
+							.fractionalPart{}
+						}
+					)
+				},
+				.wholelessNumberLiteral{}
+			},
+			.expectedWholePart{ 123 },
+			.expectedFractionalPart{ 0 },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ false },
+			.expectFractionalPartVisible{ false },
+			.expectedLeadingTrivia{ "" },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "123" }
+		},
+		{
+			.context
+			{
+				.numberLiteralAntlrContextKind{ CmdCalculator::ENumberLiteralAntlrContextKind::Wholeful },
+				.wholefulNumberLiteral
+				{
+					std::make_optional<CmdCalculatorTestDoubles::StubWholefulNumberLiteralAntlrContext>
+					(
+						CmdCalculatorTestDoubles::StubWholefulNumberLiteralAntlrContext
+						{
+							.wholePart{ makeNumToken(123) },
+							.decimalPoint{ makeOptionalToken(".") },
+							.fractionalPart{}
+						}
+					)
+				},
+				.wholelessNumberLiteral{}
+			},
+			.expectedWholePart{ 123 },
+			.expectedFractionalPart{ 0 },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ false },
+			.expectedLeadingTrivia{ "" },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "123." }
+		},
+		{
+			.context
+			{
+				.numberLiteralAntlrContextKind{ CmdCalculator::ENumberLiteralAntlrContextKind::Wholeful },
+				.wholefulNumberLiteral
+				{
+					std::make_optional<CmdCalculatorTestDoubles::StubWholefulNumberLiteralAntlrContext>
+					(
+						CmdCalculatorTestDoubles::StubWholefulNumberLiteralAntlrContext
+						{
+							.wholePart{ makeNumToken(123) },
+							.decimalPoint{ makeOptionalToken(".") },
+							.fractionalPart{ makeOptionalNumToken(456) }
+						}
+					)
+				},
+				.wholelessNumberLiteral{}
+			},
+			.expectedWholePart{ 123 },
+			.expectedFractionalPart{ 456 },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.expectedLeadingTrivia{ "" },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "123.456" }
+		},
+		{
+			.context
+			{
+				.numberLiteralAntlrContextKind{ CmdCalculator::ENumberLiteralAntlrContextKind::Wholeless },
+				.wholefulNumberLiteral{},
+				.wholelessNumberLiteral
+				{
+					std::make_optional<CmdCalculatorTestDoubles::StubWholelessNumberLiteralAntlrContext>
+					(
+						CmdCalculatorTestDoubles::StubWholelessNumberLiteralAntlrContext
+						{
+							.decimalPoint{ makeToken(".") },
+							.fractionalPart{ makeNumToken(0) }
+						}
+					)
+				}
+			},
+			.expectedWholePart{ 0 },
+			.expectedFractionalPart{ 0 },
+			.expectWholePartVisible{ false },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.expectedLeadingTrivia{ "" },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ ".0" }
+		},
+		{
+			.context
+			{
+				.numberLiteralAntlrContextKind{ CmdCalculator::ENumberLiteralAntlrContextKind::Wholeless },
+				.wholefulNumberLiteral{},
+				.wholelessNumberLiteral
+				{
+					std::make_optional<CmdCalculatorTestDoubles::StubWholelessNumberLiteralAntlrContext>
+					(
+						CmdCalculatorTestDoubles::StubWholelessNumberLiteralAntlrContext
+						{
+							.decimalPoint{ makeToken(".") },
+							.fractionalPart{ makeNumToken(123) }
+						}
+					)
+				}
+			},
+			.expectedWholePart{ 0 },
+			.expectedFractionalPart{ 123 },
+			.expectWholePartVisible{ false },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.expectedLeadingTrivia{ "" },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ ".123" }
+		}
+	};
+
+	TEST_P(getConvertedNumberLiteralContextTests, getConvertedNumberLiteralContext$returns$expected$value)
+	{
+		// Arrange
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int>
+			instance{}
+		;
+		const CmdCalculator::NumberLiteralAntlrContext auto context{ GetParam().context };
+
+		// Act
+		const CmdCalculator::UniquePtr auto returnValue{ instance.getConvertedNumberLiteralContext(context) };
+		
+		// Assert
+		EXPECT_TRUE(returnValue);
+		EXPECT_EQ(GetParam().expectedWholePart, returnValue->getWholePart());
+		EXPECT_EQ(GetParam().expectedFractionalPart, returnValue->getFractionalPart());
+		EXPECT_EQ(GetParam().expectWholePartVisible, returnValue->isWholePartVisible());
+		EXPECT_EQ(GetParam().expectDecimalPointVisible, returnValue->isDecimalPointVisible());
+		EXPECT_EQ(GetParam().expectFractionalPartVisible, returnValue->isFractionalPartVisible());
+		EXPECT_EQ(GetParam().expectedLeadingTrivia, returnValue->getLeadingTrivia());
+		EXPECT_EQ(GetParam().expectedTrailingTrivia, returnValue->getTrailingTrivia());
+		EXPECT_EQ(GetParam().expectedStringRepresentation, returnValue->getStringRepresentation());
+	}
+
+#pragma endregion
+
+
+#pragma region getConvertedSignOperationContext
+
+	struct getConvertedSignOperationContext_Params
+	{
+		CmdCalculatorTestDoubles::StubSignOperationAntlrContext context;
+		bool expectIsPositive;
+		std::string expectedOperandStringRepresentation;
+		std::string expectedLeadingTrivia;
+		std::string expectedInnerTrivia;
+		std::string expectedTrailingTrivia;
+		std::string expectedStringRepresentation;
+	};
+
+	class getConvertedSignOperationContextTests :
+		public testing::TestWithParam<getConvertedSignOperationContext_Params>
+	{};
+
+	const getConvertedSignOperationContext_Params getConvertedSignOperationContext_ParamsValues[]
+	{
+		{
+			.context
+			{
+				.signOperator
+				{
+					CmdCalculatorTestDoubles::StubSignOperatorAntlrContext
+					{
+						.signOperatorAntlrContextKind{ CmdCalculator::ESignOperatorAntlrContextKind::Negative },
+						.token{ makeToken("-") }
+					}
+				},
+				.innerTrivia{},
+				.operandValue
+				{
+					std::make_shared<CmdCalculatorTestDoubles::StubOperandAntlrContext>(makeOperandNumLiteralCtx(5))
+				}
+			},
+			.expectIsPositive{ false },
+			.expectedOperandStringRepresentation{ "5" },
+			.expectedLeadingTrivia{ "" },
+			.expectedInnerTrivia{ "" },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "-5" }
+		},
+		{
+			.context
+			{
+				.signOperator
+				{
+					CmdCalculatorTestDoubles::StubSignOperatorAntlrContext
+					{
+						.signOperatorAntlrContextKind{ CmdCalculator::ESignOperatorAntlrContextKind::Negative },
+						.token{ makeToken("-") }
+					}
+				},
+				.innerTrivia{ makeOptionalToken("  ") },
+				.operandValue
+				{
+					std::make_shared<CmdCalculatorTestDoubles::StubOperandAntlrContext>(makeOperandNumLiteralCtx(5))
+				}
+			},
+			.expectIsPositive{ false },
+			.expectedOperandStringRepresentation{ "5" },
+			.expectedLeadingTrivia{ "" },
+			.expectedInnerTrivia{ "  " },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "-  5" }
+		},
+		{
+			.context
+			{
+				.signOperator
+				{
+					CmdCalculatorTestDoubles::StubSignOperatorAntlrContext
+					{
+						.signOperatorAntlrContextKind{ CmdCalculator::ESignOperatorAntlrContextKind::Positive },
+						.token{ makeToken("+") }
+					}
+				},
+				.innerTrivia{},
+				.operandValue
+				{
+					std::make_shared<CmdCalculatorTestDoubles::StubOperandAntlrContext>(makeOperandNumLiteralCtx(5))
+				}
+			},
+			.expectIsPositive{ true },
+			.expectedOperandStringRepresentation{ "5" },
+			.expectedLeadingTrivia{ "" },
+			.expectedInnerTrivia{ "" },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "+5" }
+		},
+		{
+			.context
+			{
+				.signOperator
+				{
+					CmdCalculatorTestDoubles::StubSignOperatorAntlrContext
+					{
+						.signOperatorAntlrContextKind{ CmdCalculator::ESignOperatorAntlrContextKind::Positive },
+						.token{ makeToken("+") }
+					}
+				},
+				.innerTrivia{ makeOptionalToken("  ") },
+				.operandValue
+				{
+					std::make_shared<CmdCalculatorTestDoubles::StubOperandAntlrContext>(makeOperandNumLiteralCtx(5))
+				}
+			},
+			.expectIsPositive{ true },
+			.expectedOperandStringRepresentation{ "5" },
+			.expectedLeadingTrivia{ "" },
+			.expectedInnerTrivia{ "  " },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "+  5" }
+		}
+	};
+
+	TEST_P(getConvertedSignOperationContextTests, getConvertedSignOperationContext$returns$expected$value)
+	{
+		// Arrange
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int>
+			instance{}
+		;
+		const CmdCalculator::SignOperationAntlrContext auto context{ GetParam().context };
+
+		// Act
+		const CmdCalculator::UniquePtr auto returnValue{ instance.getConvertedSignOperationContext(context) };
+		
+		// Assert
+		EXPECT_TRUE(returnValue);
+		EXPECT_EQ(GetParam().expectIsPositive, returnValue->isPositive());
+		EXPECT_EQ(GetParam().expectedOperandStringRepresentation, returnValue->getOperand()->getStringRepresentation());
+		EXPECT_EQ(GetParam().expectedLeadingTrivia, returnValue->getLeadingTrivia());
+		EXPECT_EQ(GetParam().expectedInnerTrivia, returnValue->getInnerTrivia());
+		EXPECT_EQ(GetParam().expectedTrailingTrivia, returnValue->getTrailingTrivia());
+		EXPECT_EQ(GetParam().expectedStringRepresentation, returnValue->getStringRepresentation());
+	}
+
+#pragma endregion
+
+
+#pragma region getConvertedSqrtOperationContext
+
+	struct getConvertedSqrtOperationContext_Params
+	{
+		CmdCalculatorTestDoubles::StubSqrtOperationAntlrContext context;
+		std::string expectedOperandStringRepresentation;
+		std::string expectedLeadingTrivia;
+		std::string expectedInnerTrivia;
+		std::string expectedTrailingTrivia;
+		std::string expectedStringRepresentation;
+	};
+
+	class getConvertedSqrtOperationContextTests :
+		public testing::TestWithParam<getConvertedSqrtOperationContext_Params>
+	{};
+
+	const getConvertedSqrtOperationContext_Params getConvertedSqrtOperationContext_ParamsValues[]
+	{
+		{
+			.context
+			{
+				.innerTrivia{},
+				.operandValue
+				{
+					std::make_shared<CmdCalculatorTestDoubles::StubOperandAntlrContext>(makeOperandNumLiteralCtx(5))
+				}
+			},
+			.expectedOperandStringRepresentation{ "5" },
+			.expectedLeadingTrivia{ "" },
+			.expectedInnerTrivia{ "" },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "sqrt5" }
+		},
+		{
+			.context
+			{
+				.innerTrivia{ makeOptionalToken("  ")},
+				.operandValue
+				{
+					std::make_shared<CmdCalculatorTestDoubles::StubOperandAntlrContext>(makeOperandNumLiteralCtx(5))
+				}
+			},
+			.expectedOperandStringRepresentation{ "5" },
+			.expectedLeadingTrivia{ "" },
+			.expectedInnerTrivia{ "  " },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "sqrt  5" }
+		}
+	};
+
+	TEST_P(getConvertedSqrtOperationContextTests, getConvertedSqrtOperationContext$returns$expected$value)
+	{
+		// Arrange
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int>
+			instance{}
+		;
+		const CmdCalculator::SqrtOperationAntlrContext auto context{ GetParam().context };
+
+		// Act
+		const CmdCalculator::UniquePtr auto returnValue{ instance.getConvertedSqrtOperationContext(context) };
+		
+		// Assert
+		EXPECT_TRUE(returnValue);
+		EXPECT_EQ(GetParam().expectedOperandStringRepresentation, returnValue->getOperand()->getStringRepresentation());
+		EXPECT_EQ(GetParam().expectedLeadingTrivia, returnValue->getLeadingTrivia());
+		EXPECT_EQ(GetParam().expectedInnerTrivia, returnValue->getInnerTrivia());
+		EXPECT_EQ(GetParam().expectedTrailingTrivia, returnValue->getTrailingTrivia());
+		EXPECT_EQ(GetParam().expectedStringRepresentation, returnValue->getStringRepresentation());
+	}
+
+#pragma endregion
+
+
+#pragma region getConvertedGroupingContext
+
+	struct getConvertedGroupingContext_Params
+	{
+		CmdCalculatorTestDoubles::StubGroupingAntlrContext context;
+		std::string expectedContainedExpressionStringRepresentation;
+		std::string expectedLeadingTrivia;
+		std::string expectedTrailingTrivia;
+		std::string expectedStringRepresentation;
+	};
+
+	class getConvertedGroupingContextTests :
+		public testing::TestWithParam<getConvertedGroupingContext_Params>
+	{};
+
+	const getConvertedGroupingContext_Params getConvertedGroupingContext_ParamsValues[]
+	{
+		{
+			.context
+			{
+				.innerLeadingTrivia{},
+				.innerExpression
+				{
+					std::make_shared<CmdCalculatorTestDoubles::StubExpressionAntlrContext>(makeNumExprCtx(5))
+				},
+				.innerTrailingTrivia{}
+			},
+			.expectedContainedExpressionStringRepresentation{ "5" },
+			.expectedLeadingTrivia{ "" },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "(5)" }
+		},
+		{
+			.context
+			{
+				.innerLeadingTrivia{ makeOptionalToken("  ")},
+				.innerExpression
+				{
+					std::make_shared<CmdCalculatorTestDoubles::StubExpressionAntlrContext>(makeNumExprCtx(5))
+				},
+				.innerTrailingTrivia{ makeOptionalToken("   ")}
+			},
+			.expectedContainedExpressionStringRepresentation{ "  5   " },
+			.expectedLeadingTrivia{ "" },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "(  5   )" }
+		}
+	};
+
+	TEST_P(getConvertedGroupingContextTests, getConvertedGroupingContext$returns$expected$value)
+	{
+		// Arrange
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int>
+			instance{}
+		;
+		const CmdCalculator::GroupingAntlrContext auto context{ GetParam().context };
+
+		// Act
+		const CmdCalculator::UniquePtr auto returnValue{ instance.getConvertedGroupingContext(context) };
+		
+		// Assert
+		EXPECT_TRUE(returnValue);
+		EXPECT_EQ(GetParam().expectedContainedExpressionStringRepresentation, returnValue->getContainedExpression()->getStringRepresentation());
+		EXPECT_EQ(GetParam().expectedLeadingTrivia, returnValue->getLeadingTrivia());
+		EXPECT_EQ(GetParam().expectedTrailingTrivia, returnValue->getTrailingTrivia());
+		EXPECT_EQ(GetParam().expectedStringRepresentation, returnValue->getStringRepresentation());
+	}
+
+#pragma endregion
+
+
+#pragma region getConvertedGroupingMultiplicationContext
+
+	struct getConvertedGroupingMultiplicationContext_Params
+	{
+		CmdCalculatorTestDoubles::StubGroupingMultiplicationAntlrContext context;
+		std::string expectedHeadMultiplicandStringRepresentation;
+		std::vector<std::string> expectedTailMultiplicandStringRepresentations;
+		std::string expectedLeadingTrivia;
+		std::string expectedTrailingTrivia;
+		std::string expectedStringRepresentation;
+	};
+
+	class getConvertedGroupingMultiplicationContextTests :
+		public testing::TestWithParam<getConvertedGroupingMultiplicationContext_Params>
+	{};
+
+	const getConvertedGroupingMultiplicationContext_Params getConvertedGroupingMultiplicationContext_ParamsValues[]
+	{
+		{
+			.context
+			{
+				.headMultiplicand{ makeNonGroupMultNumLiteralCtx(5) },
+				.tailMultiplicands{}
+			},
+			.expectedHeadMultiplicandStringRepresentation{ "5" },
+			.expectedTailMultiplicandStringRepresentations{},
+			.expectedLeadingTrivia{ "" },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "5" }
+		},
+		{
+			.context
+			{
+				.headMultiplicand{ makeNonGroupMultNumLiteralCtx(0) },
+				.tailMultiplicands
+				{
+					makeGroupMultTailNumLiteralCtx(1)
+				}
+			},
+			.expectedHeadMultiplicandStringRepresentation{ "0" },
+			.expectedTailMultiplicandStringRepresentations{ "(1)" },
+			.expectedLeadingTrivia{ "" },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "0(1)" }
+		},
+		{
+			.context
+			{
+				.headMultiplicand{ makeNonGroupMultNumLiteralCtx(0) },
+				.tailMultiplicands
+				{
+					makeGroupMultTailNumLiteralCtx("  ", 1)
+				}
+			},
+			.expectedHeadMultiplicandStringRepresentation{ "0" },
+			.expectedTailMultiplicandStringRepresentations{ "  (1)" },
+			.expectedLeadingTrivia{ "" },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "0  (1)" }
+		},
+		{
+			.context
+			{
+				.headMultiplicand{ makeNonGroupMultNumLiteralCtx(0) },
+				.tailMultiplicands
+				{
+					makeGroupMultTailNumLiteralCtx(1),
+					makeGroupMultTailNumLiteralCtx(2),
+					makeGroupMultTailNumLiteralCtx(3)
+				}
+			},
+			.expectedHeadMultiplicandStringRepresentation{ "0" },
+			.expectedTailMultiplicandStringRepresentations{ "(1)", "(2)", "(3)" },
+			.expectedLeadingTrivia{ "" },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "0(1)(2)(3)" }
+		},
+		{
+			.context
+			{
+				.headMultiplicand{ makeNonGroupMultNumLiteralCtx(0) },
+				.tailMultiplicands
+				{
+					makeGroupMultTailNumLiteralCtx("   ", 1),
+					makeGroupMultTailNumLiteralCtx(" ", 2),
+					makeGroupMultTailNumLiteralCtx("  ", 3)
+				}
+			},
+			.expectedHeadMultiplicandStringRepresentation{ "0" },
+			.expectedTailMultiplicandStringRepresentations{ "   (1)", " (2)", "  (3)" },
+			.expectedLeadingTrivia{ "" },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "0   (1) (2) (3)" }
+		}
+	};
+
+	TEST_P(getConvertedGroupingMultiplicationContextTests, getConvertedGroupingMultiplicationContext$returns$expected$value)
+	{
+		// Arrange
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int>
+			instance{}
+		;
+		const CmdCalculator::GroupingMultiplicationAntlrContext auto context{ GetParam().context };
+
+		// Act
+		const CmdCalculator::UniquePtr auto returnValue{ instance.getConvertedGroupingMultiplicationContext(context) };
+		
+		// Assert
+		EXPECT_TRUE(returnValue);
+		EXPECT_EQ(GetParam().expectedHeadMultiplicandStringRepresentation, returnValue->getHeadMultiplicand()->getStringRepresentation());
+		EXPECT_TRUE
+		(
+			std::ranges::equal
+			(
+				GetParam().expectedTailMultiplicandStringRepresentations,
+				returnValue->getTailMultiplicands()
+				| std::views::transform
+				(
+					[](const auto* tailMultiplicand)
+					{ return tailMultiplicand->getStringRepresentation(); }
+				)
+			)
+		);
+		EXPECT_EQ(GetParam().expectedLeadingTrivia, returnValue->getLeadingTrivia());
+		EXPECT_EQ(GetParam().expectedTrailingTrivia, returnValue->getTrailingTrivia());
+		EXPECT_EQ(GetParam().expectedStringRepresentation, returnValue->getStringRepresentation());
+	}
+
+#pragma endregion
+
+
+#pragma region getConvertedAbsoluteValueOperationContext
+
+	struct getConvertedAbsoluteValueOperationContext_Params
+	{
+		CmdCalculatorTestDoubles::StubAbsoluteValueOperationAntlrContext context;
+		std::string expectedContainedExpressionStringRepresentation;
+		std::string expectedLeadingTrivia;
+		std::string expectedTrailingTrivia;
+		std::string expectedStringRepresentation;
+	};
+
+	class getConvertedAbsoluteValueOperationContextTests :
+		public testing::TestWithParam<getConvertedAbsoluteValueOperationContext_Params>
+	{};
+
+	const getConvertedAbsoluteValueOperationContext_Params getConvertedAbsoluteValueOperationContext_ParamsValues[]
+	{
+		{
+			.context
+			{
+				.innerLeadingTrivia{},
+				.innerExpression
+				{
+					std::make_shared<CmdCalculatorTestDoubles::StubExpressionAntlrContext>(makeNumExprCtx(5))
+				},
+				.innerTrailingTrivia{}
+			},
+			.expectedContainedExpressionStringRepresentation{ "5" },
+			.expectedLeadingTrivia{ "" },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "|5|" }
+		},
+		{
+			.context
+			{
+				.innerLeadingTrivia{ makeOptionalToken("  ")},
+				.innerExpression
+				{
+					std::make_shared<CmdCalculatorTestDoubles::StubExpressionAntlrContext>(makeNumExprCtx(5))
+				},
+				.innerTrailingTrivia{ makeOptionalToken("   ")}
+			},
+			.expectedContainedExpressionStringRepresentation{ "  5   " },
+			.expectedLeadingTrivia{ "" },
+			.expectedTrailingTrivia{ "" },
+			.expectedStringRepresentation{ "|  5   |" }
+		}
+	};
+
+	TEST_P(getConvertedAbsoluteValueOperationContextTests, getConvertedAbsoluteValueOperationContext$returns$expected$value)
+	{
+		// Arrange
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int>
+			instance{}
+		;
+		const CmdCalculator::AbsoluteValueOperationAntlrContext auto context{ GetParam().context };
+
+		// Act
+		const CmdCalculator::UniquePtr auto returnValue{ instance.getConvertedAbsoluteValueOperationContext(context) };
+		
+		// Assert
+		EXPECT_TRUE(returnValue);
+		EXPECT_EQ(GetParam().expectedContainedExpressionStringRepresentation, returnValue->getContainedExpression()->getStringRepresentation());
 		EXPECT_EQ(GetParam().expectedLeadingTrivia, returnValue->getLeadingTrivia());
 		EXPECT_EQ(GetParam().expectedTrailingTrivia, returnValue->getTrailingTrivia());
 		EXPECT_EQ(GetParam().expectedStringRepresentation, returnValue->getStringRepresentation());
