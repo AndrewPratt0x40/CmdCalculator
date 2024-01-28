@@ -75,6 +75,35 @@ namespace CmdCalculator::AntlrContextTypeDeductions
 		>
 	;
 
+
+	template<FullExpressionAntlrContext FullExpressionAntlrContextT>
+	using BinaryOperatorLeadingTriviaType =
+		typename
+		std::remove_reference_t
+		<
+			decltype
+			(
+				std::declval<OperationPartPairType<FullExpressionAntlrContextT>>()
+				.getOperatorLeadingTrivia()
+			)
+		>
+		::value_type
+	;
+
+
+	template<FullExpressionAntlrContext FullExpressionAntlrContextT>
+	using BinaryOperatorTrailingTriviaType =
+		typename
+		std::remove_reference_t
+		<
+			decltype
+			(
+				std::declval<OperationPartPairType<FullExpressionAntlrContextT>>()
+				.getOperatorTrailingTrivia()
+			)
+		>::value_type
+	;
+
 	template<FullExpressionAntlrContext FullExpressionAntlrContextT>
 	using NumberLiteralType =
 		typename decltype

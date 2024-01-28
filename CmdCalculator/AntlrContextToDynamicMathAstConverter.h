@@ -63,7 +63,11 @@ namespace CmdCalculator
 
 
 		std::unique_ptr<MathAst::DynamicBinaryOperatorNode<StringType>> getConvertedBinaryOperatorContext
-			(const AntlrContextTypeDeductions::BinaryOperatorType<FullExpressionAntlrContextType>& context) const
+		(
+			const AntlrContextTypeDeductions::BinaryOperatorLeadingTriviaType<FullExpressionAntlrContextType>* leadingTrivia,
+			const AntlrContextTypeDeductions::BinaryOperatorType<FullExpressionAntlrContextType>& context,
+			const AntlrContextTypeDeductions::BinaryOperatorTrailingTriviaType<FullExpressionAntlrContextType>* trailingTrivia
+		) const
 		{
 			throw NotImplementedException{};
 		}

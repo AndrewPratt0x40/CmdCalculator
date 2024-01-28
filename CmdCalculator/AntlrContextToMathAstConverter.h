@@ -52,9 +52,15 @@ namespace CmdCalculator
 			{ instance.getConvertedOperationPartPairContext(context) } ->
 				std::same_as<std::unique_ptr<ConvertedOperation_part_pairContext<typename T::StringType>>>;
 		}
-		&& requires(T&& instance, const AntlrContextTypeDeductions::BinaryOperatorType<typename T::FullExpressionAntlrContextType>& context)
+		&& requires
+		(
+			T&& instance,
+			const AntlrContextTypeDeductions::BinaryOperatorLeadingTriviaType<typename T::FullExpressionAntlrContextType>* leadingTrivia,
+			const AntlrContextTypeDeductions::BinaryOperatorType<typename T::FullExpressionAntlrContextType>& context,
+			const AntlrContextTypeDeductions::BinaryOperatorTrailingTriviaType<typename T::FullExpressionAntlrContextType>* trailingTrivia
+		)
 		{
-			{ instance.getConvertedBinaryOperatorContext(context) } ->
+			{ instance.getConvertedBinaryOperatorContext(leadingTrivia, context, trailingTrivia) } ->
 				std::same_as<std::unique_ptr<MathAst::DynamicBinaryOperatorNode<typename T::StringType>>>;
 		}
 		&& requires(T&& instance, const AntlrContextTypeDeductions::NumberLiteralType<typename T::FullExpressionAntlrContextType>& context)

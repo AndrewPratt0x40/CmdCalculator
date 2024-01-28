@@ -1,5 +1,6 @@
 #pragma once
 
+#include "EBinaryOperator.h"
 #include "DynamicMathAstNode.h"
 #include "DynamicExpressionNode.h"
 #include "DynamicExpressionPartNode.h"

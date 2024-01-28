@@ -6,6 +6,7 @@ DONE - Create AntlrInvokingStringToAntlrContextConverter
 - Create AntlrContextToDynamicMathAstConverter
 - Declare DynamicExpression types
 - Create DynamicMathAstToDynamicExpressionConverter
+	- Make sure expression parts are sorted correctly!
 - Implement DynamicExpression types
 - Create DynamicExpressionToStringConverter
 - Create StreamBasedConsole
