@@ -20,7 +20,7 @@ namespace CmdCalculator
 	/// \brief Describes any type that is \ref std::optional.
 	/// \tparam T The optional type.
 	template<class T>
-	concept Optional = std::same_as<T, std::optional<typename T::value_type>>;
+	concept Optional = std::same_as<std::remove_cv_t<T>, std::optional<typename T::value_type>>;
 
 	
 	template<Optional OptionalT>

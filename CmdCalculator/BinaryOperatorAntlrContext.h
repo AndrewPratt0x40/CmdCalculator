@@ -4,26 +4,13 @@
 #include <ranges>
 
 #include "AntlrToken.h"
-#include "AntlrToken.h"
+#include "EBinaryOperator.h"
 #include "utilities.h"
 #include "strings.h"
 
 namespace CmdCalculator
 {
 	struct OperandAntlrContext_IntendedSatisfaction;
-
-
-	/// \brief Enumerates the different possible kinds of an ANTLR binary operator parser rule.
-	enum class EBinaryOperatorAntlrContextKind
-	{
-		Addition,
-		Subtraction,
-		Multiplication,
-		Division,
-		Exponentiation,
-		NthRoot,
-		Modulo
-	};
 
 
 	/// \brief The base type for types that are intended to satisfy the \ref BinaryOperatorAntlrContext concept.
@@ -38,7 +25,7 @@ namespace CmdCalculator
 		IntendsToSatisfy<T, BinaryOperatorAntlrContext_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
-			{ instance.getBinaryOperatorAntlrContextKind() } -> std::same_as<EBinaryOperatorAntlrContextKind>;
+			{ instance.getBinaryOperatorAntlrContextKind() } -> std::same_as<MathAst::EBinaryOperator>;
 			{ instance.getToken() } -> AntlrToken;
 		}
 	;

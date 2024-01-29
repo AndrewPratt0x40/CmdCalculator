@@ -11,28 +11,28 @@ CmdCalculator::TrueBinaryOperatorAntlrContextView::TrueBinaryOperatorAntlrContex
 }
 
 
-CmdCalculator::EBinaryOperatorAntlrContextKind CmdCalculator::TrueBinaryOperatorAntlrContextView::getBinaryOperatorAntlrContextKind() const
+CmdCalculator::MathAst::EBinaryOperator CmdCalculator::TrueBinaryOperatorAntlrContextView::getBinaryOperatorAntlrContextKind() const
 {
 	if (m_binaryOperatorContext->addition_operator)
-		return EBinaryOperatorAntlrContextKind::Addition;
+		return MathAst::EBinaryOperator::Addition;
 
 	if (m_binaryOperatorContext->subtraction_operator)
-		return EBinaryOperatorAntlrContextKind::Subtraction;
+		return MathAst::EBinaryOperator::Subtraction;
 
 	if (m_binaryOperatorContext->multiplication_operator)
-		return EBinaryOperatorAntlrContextKind::Multiplication;
+		return MathAst::EBinaryOperator::Multiplication;
 
 	if (m_binaryOperatorContext->division_operator)
-		return EBinaryOperatorAntlrContextKind::Division;
+		return MathAst::EBinaryOperator::Division;
 
 	if (m_binaryOperatorContext->exponentiation_operator)
-		return EBinaryOperatorAntlrContextKind::Exponentiation;
+		return MathAst::EBinaryOperator::Exponentiation;
 
 	if (m_binaryOperatorContext->nth_root_operator)
-		return EBinaryOperatorAntlrContextKind::NthRoot;
+		return MathAst::EBinaryOperator::NthRoot;
 
 	assert(m_binaryOperatorContext->modulo_operator);
-	return EBinaryOperatorAntlrContextKind::Modulo;
+	return MathAst::EBinaryOperator::Modulo;
 }
 
 

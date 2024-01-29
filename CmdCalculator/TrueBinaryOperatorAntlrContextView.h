@@ -26,7 +26,7 @@ namespace CmdCalculator
 
 		/// \brief Accessor to the kind of binary operator node.
 		/// \returns The specific kind of binary operator the node is.
-		EBinaryOperatorAntlrContextKind getBinaryOperatorAntlrContextKind() const;
+		MathAst::EBinaryOperator getBinaryOperatorAntlrContextKind() const;
 
 
 		/// \brief Accessor to the token representing the binary operator.

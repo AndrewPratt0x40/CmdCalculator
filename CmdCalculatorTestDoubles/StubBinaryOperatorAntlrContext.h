@@ -12,11 +12,11 @@ namespace CmdCalculatorTestDoubles
 	{
 		using AntlrTokenType = StubAntlrToken<std::string>;
 
-		CmdCalculator::EBinaryOperatorAntlrContextKind binaryOperatorAntlrContextKind;
+		CmdCalculator::MathAst::EBinaryOperator binaryOperatorAntlrContextKind;
 		AntlrTokenType token;
 
 
-		CmdCalculator::EBinaryOperatorAntlrContextKind getBinaryOperatorAntlrContextKind() const
+		CmdCalculator::MathAst::EBinaryOperator getBinaryOperatorAntlrContextKind() const
 		{
 			return binaryOperatorAntlrContextKind;
 		}

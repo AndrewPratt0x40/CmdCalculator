@@ -439,7 +439,7 @@
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\StringToAntlrContextConverter\AntlrInvokingStringToAntlrContextConverter</Filter>
     </ClInclude>
     <ClInclude Include="EBinaryOperator.h">
-      <Filter>Source Code\Math AST\Dynamic</Filter>
+      <Filter>Source Code\Math AST</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

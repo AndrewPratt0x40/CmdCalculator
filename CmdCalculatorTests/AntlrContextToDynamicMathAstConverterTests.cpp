@@ -118,7 +118,7 @@ namespace CmdCalculatorTests
 						.operatorLeadingTrivia{},
 						.operatorValue
 						{
-							.binaryOperatorAntlrContextKind{ CmdCalculator::EBinaryOperatorAntlrContextKind::Addition },
+							.binaryOperatorAntlrContextKind{ CmdCalculator::MathAst::EBinaryOperator::Addition },
 							.token{ makeToken("+") }
 						},
 						.operatorTrailingTrivia{},
@@ -153,7 +153,7 @@ namespace CmdCalculatorTests
 			.innerLeadingTrivia{},
 			.innerExpression
 			{
-				std::make_shared<CmdCalculatorTestDoubles::StubExpressionAntlrContext>(makeNumExprCtx)
+				std::make_shared<CmdCalculatorTestDoubles::StubExpressionAntlrContext>(makeNumExprCtx(num))
 			},
 			.innerTrailingTrivia{}
 		};
@@ -294,6 +294,13 @@ namespace CmdCalculatorTests
 		}
 	};
 
+	INSTANTIATE_TEST_CASE_P
+	(
+		AntlrContextToDynamicMathAstConverterTests,
+		getConvertedFullExpressionContextTests,
+		testing::ValuesIn(getConvertedFullExpressionContext_ParamsValues)
+	);
+
 	TEST_P(getConvertedFullExpressionContextTests, getConvertedFullExpressionContext$returns$expected$value)
 	{
 		// Arrange
@@ -368,6 +375,13 @@ namespace CmdCalculatorTests
 		}
 	};
 
+	INSTANTIATE_TEST_CASE_P
+	(
+		AntlrContextToDynamicMathAstConverterTests,
+		getConvertedExpressionContextTests,
+		testing::ValuesIn(getConvertedExpressionContext_ParamsValues)
+	);
+
 	TEST_P(getConvertedExpressionContextTests, getConvertedExpressionContext$returns$expected$value)
 	{
 		// Arrange
@@ -424,6 +438,13 @@ namespace CmdCalculatorTests
 		}
 	};
 
+	INSTANTIATE_TEST_CASE_P
+	(
+		AntlrContextToDynamicMathAstConverterTests,
+		getConvertedOperandContextTests,
+		testing::ValuesIn(getConvertedOperandContext_ParamsValues)
+	);
+
 	TEST_P(getConvertedOperandContextTests, getConvertedOperandContext$returns$expected$value)
 	{
 		// Arrange
@@ -469,7 +490,7 @@ namespace CmdCalculatorTests
 				{
 					CmdCalculatorTestDoubles::StubBinaryOperatorAntlrContext
 					{
-						.binaryOperatorAntlrContextKind{ CmdCalculator::EBinaryOperatorAntlrContextKind::Addition },
+						.binaryOperatorAntlrContextKind{ CmdCalculator::MathAst::EBinaryOperator::Addition },
 						.token
 						{
 							CmdCalculatorTestDoubles::StubAntlrToken<std::string>
@@ -494,7 +515,7 @@ namespace CmdCalculatorTests
 				{
 					CmdCalculatorTestDoubles::StubBinaryOperatorAntlrContext
 					{
-						.binaryOperatorAntlrContextKind{ CmdCalculator::EBinaryOperatorAntlrContextKind::Subtraction },
+						.binaryOperatorAntlrContextKind{ CmdCalculator::MathAst::EBinaryOperator::Subtraction },
 						.token
 						{
 							CmdCalculatorTestDoubles::StubAntlrToken<std::string>
@@ -519,7 +540,7 @@ namespace CmdCalculatorTests
 				{
 					CmdCalculatorTestDoubles::StubBinaryOperatorAntlrContext
 					{
-						.binaryOperatorAntlrContextKind{ CmdCalculator::EBinaryOperatorAntlrContextKind::Multiplication },
+						.binaryOperatorAntlrContextKind{ CmdCalculator::MathAst::EBinaryOperator::Multiplication },
 						.token
 						{
 							CmdCalculatorTestDoubles::StubAntlrToken<std::string>
@@ -544,7 +565,7 @@ namespace CmdCalculatorTests
 				{
 					CmdCalculatorTestDoubles::StubBinaryOperatorAntlrContext
 					{
-						.binaryOperatorAntlrContextKind{ CmdCalculator::EBinaryOperatorAntlrContextKind::Division },
+						.binaryOperatorAntlrContextKind{ CmdCalculator::MathAst::EBinaryOperator::Division },
 						.token
 						{
 							CmdCalculatorTestDoubles::StubAntlrToken<std::string>
@@ -569,7 +590,7 @@ namespace CmdCalculatorTests
 				{
 					CmdCalculatorTestDoubles::StubBinaryOperatorAntlrContext
 					{
-						.binaryOperatorAntlrContextKind{ CmdCalculator::EBinaryOperatorAntlrContextKind::Exponentiation },
+						.binaryOperatorAntlrContextKind{ CmdCalculator::MathAst::EBinaryOperator::Exponentiation },
 						.token
 						{
 							CmdCalculatorTestDoubles::StubAntlrToken<std::string>
@@ -594,7 +615,7 @@ namespace CmdCalculatorTests
 				{
 					CmdCalculatorTestDoubles::StubBinaryOperatorAntlrContext
 					{
-						.binaryOperatorAntlrContextKind{ CmdCalculator::EBinaryOperatorAntlrContextKind::NthRoot },
+						.binaryOperatorAntlrContextKind{ CmdCalculator::MathAst::EBinaryOperator::NthRoot },
 						.token
 						{
 							CmdCalculatorTestDoubles::StubAntlrToken<std::string>
@@ -619,7 +640,7 @@ namespace CmdCalculatorTests
 				{
 					CmdCalculatorTestDoubles::StubBinaryOperatorAntlrContext
 					{
-						.binaryOperatorAntlrContextKind{ CmdCalculator::EBinaryOperatorAntlrContextKind::Modulo },
+						.binaryOperatorAntlrContextKind{ CmdCalculator::MathAst::EBinaryOperator::Modulo },
 						.token
 						{
 							CmdCalculatorTestDoubles::StubAntlrToken<std::string>
@@ -644,7 +665,7 @@ namespace CmdCalculatorTests
 				{
 					CmdCalculatorTestDoubles::StubBinaryOperatorAntlrContext
 					{
-						.binaryOperatorAntlrContextKind{ CmdCalculator::EBinaryOperatorAntlrContextKind::Multiplication },
+						.binaryOperatorAntlrContextKind{ CmdCalculator::MathAst::EBinaryOperator::Multiplication },
 						.token
 						{
 							CmdCalculatorTestDoubles::StubAntlrToken<std::string>
@@ -662,6 +683,13 @@ namespace CmdCalculatorTests
 			.expectedStringRepresentation{ "  *   5" }
 		}
 	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		AntlrContextToDynamicMathAstConverterTests,
+		getConvertedOperationPartPairsContextTests,
+		testing::ValuesIn(getConvertedOperationPartPairsContext_ParamsValues)
+	);
 
 	TEST_P(getConvertedOperationPartPairsContextTests, getConvertedOperationPartPairsContext$returns$expected$value)
 	{
@@ -691,9 +719,9 @@ namespace CmdCalculatorTests
 
 	struct getConvertedBinaryOperatorContext_Params
 	{
-		std::unique_ptr<CmdCalculatorTestDoubles::StubAntlrToken<std::string>> leadingTrivia;
+		std::shared_ptr<CmdCalculatorTestDoubles::StubAntlrToken<std::string>> leadingTrivia;
 		CmdCalculatorTestDoubles::StubBinaryOperatorAntlrContext context;
-		std::unique_ptr<CmdCalculatorTestDoubles::StubAntlrToken<std::string>> trailingTrivia;
+		std::shared_ptr<CmdCalculatorTestDoubles::StubAntlrToken<std::string>> trailingTrivia;
 		CmdCalculator::MathAst::EBinaryOperator expectedOperatorKind;
 		std::string expectedLeadingTrivia;
 		std::string expectedTrailingTrivia;
@@ -710,7 +738,7 @@ namespace CmdCalculatorTests
 			.leadingTrivia{},
 			.context
 			{
-				.binaryOperatorAntlrContextKind{ CmdCalculator::EBinaryOperatorAntlrContextKind::Addition },
+				.binaryOperatorAntlrContextKind{ CmdCalculator::MathAst::EBinaryOperator::Addition },
 				.token
 				{
 					.text{ "+" },
@@ -728,7 +756,7 @@ namespace CmdCalculatorTests
 			.leadingTrivia{},
 			.context
 			{
-				.binaryOperatorAntlrContextKind{ CmdCalculator::EBinaryOperatorAntlrContextKind::Subtraction },
+				.binaryOperatorAntlrContextKind{ CmdCalculator::MathAst::EBinaryOperator::Subtraction },
 				.token
 				{
 					.text{ "-" },
@@ -746,7 +774,7 @@ namespace CmdCalculatorTests
 			.leadingTrivia{},
 			.context
 			{
-				.binaryOperatorAntlrContextKind{ CmdCalculator::EBinaryOperatorAntlrContextKind::Multiplication },
+				.binaryOperatorAntlrContextKind{ CmdCalculator::MathAst::EBinaryOperator::Multiplication },
 				.token
 				{
 					.text{ "*" },
@@ -764,7 +792,7 @@ namespace CmdCalculatorTests
 			.leadingTrivia{},
 			.context
 			{
-				.binaryOperatorAntlrContextKind{ CmdCalculator::EBinaryOperatorAntlrContextKind::Division },
+				.binaryOperatorAntlrContextKind{ CmdCalculator::MathAst::EBinaryOperator::Division },
 				.token
 				{
 					.text{ "/" },
@@ -782,7 +810,7 @@ namespace CmdCalculatorTests
 			.leadingTrivia{},
 			.context
 			{
-				.binaryOperatorAntlrContextKind{ CmdCalculator::EBinaryOperatorAntlrContextKind::Exponentiation },
+				.binaryOperatorAntlrContextKind{ CmdCalculator::MathAst::EBinaryOperator::Exponentiation },
 				.token
 				{
 					.text{ "^" },
@@ -800,7 +828,7 @@ namespace CmdCalculatorTests
 			.leadingTrivia{},
 			.context
 			{
-				.binaryOperatorAntlrContextKind{ CmdCalculator::EBinaryOperatorAntlrContextKind::NthRoot },
+				.binaryOperatorAntlrContextKind{ CmdCalculator::MathAst::EBinaryOperator::NthRoot },
 				.token
 				{
 					.text{ "_" },
@@ -818,7 +846,7 @@ namespace CmdCalculatorTests
 			.leadingTrivia{},
 			.context
 			{
-				.binaryOperatorAntlrContextKind{ CmdCalculator::EBinaryOperatorAntlrContextKind::Modulo },
+				.binaryOperatorAntlrContextKind{ CmdCalculator::MathAst::EBinaryOperator::Modulo },
 				.token
 				{
 					.text{ "%" },
@@ -835,11 +863,11 @@ namespace CmdCalculatorTests
 		{
 			.leadingTrivia
 			{
-				std::make_unique<CmdCalculatorTestDoubles::StubAntlrToken<std::string>>(makeOptionalToken("  "))
+				std::make_shared<CmdCalculatorTestDoubles::StubAntlrToken<std::string>>(makeToken("  "))
 			},
 			.context
 			{
-				.binaryOperatorAntlrContextKind{ CmdCalculator::EBinaryOperatorAntlrContextKind::Multiplication },
+				.binaryOperatorAntlrContextKind{ CmdCalculator::MathAst::EBinaryOperator::Multiplication },
 				.token
 				{
 					.text{ "*" },
@@ -849,7 +877,7 @@ namespace CmdCalculatorTests
 			},
 			.trailingTrivia
 			{
-				std::make_unique<CmdCalculatorTestDoubles::StubAntlrToken<std::string>>(makeOptionalToken("   "))
+				std::make_shared<CmdCalculatorTestDoubles::StubAntlrToken<std::string>>(makeToken("   "))
 			},
 			.expectedOperatorKind{ CmdCalculator::MathAst::EBinaryOperator::Modulo },
 			.expectedLeadingTrivia{ "  " },
@@ -857,6 +885,13 @@ namespace CmdCalculatorTests
 			.expectedStringRepresentation{ "  %   " }
 		}
 	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		AntlrContextToDynamicMathAstConverterTests,
+		getConvertedBinaryOperatorContextTests,
+		testing::ValuesIn(getConvertedBinaryOperatorContext_ParamsValues)
+	);
 
 	TEST_P(getConvertedBinaryOperatorContextTests, getConvertedBinaryOperatorContext$returns$expected$value)
 	{
@@ -1068,6 +1103,13 @@ namespace CmdCalculatorTests
 		}
 	};
 
+	INSTANTIATE_TEST_CASE_P
+	(
+		AntlrContextToDynamicMathAstConverterTests,
+		getConvertedNumberLiteralContextTests,
+		testing::ValuesIn(getConvertedNumberLiteralContext_ParamsValues)
+	);
+
 	TEST_P(getConvertedNumberLiteralContextTests, getConvertedNumberLiteralContext$returns$expected$value)
 	{
 		// Arrange
@@ -1211,6 +1253,13 @@ namespace CmdCalculatorTests
 		}
 	};
 
+	INSTANTIATE_TEST_CASE_P
+	(
+		AntlrContextToDynamicMathAstConverterTests,
+		getConvertedSignOperationContextTests,
+		testing::ValuesIn(getConvertedSignOperationContext_ParamsValues)
+	);
+
 	TEST_P(getConvertedSignOperationContextTests, getConvertedSignOperationContext$returns$expected$value)
 	{
 		// Arrange
@@ -1285,6 +1334,13 @@ namespace CmdCalculatorTests
 		}
 	};
 
+	INSTANTIATE_TEST_CASE_P
+	(
+		AntlrContextToDynamicMathAstConverterTests,
+		getConvertedSqrtOperationContextTests,
+		testing::ValuesIn(getConvertedSqrtOperationContext_ParamsValues)
+	);
+
 	TEST_P(getConvertedSqrtOperationContextTests, getConvertedSqrtOperationContext$returns$expected$value)
 	{
 		// Arrange
@@ -1356,6 +1412,13 @@ namespace CmdCalculatorTests
 			.expectedStringRepresentation{ "(  5   )" }
 		}
 	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		AntlrContextToDynamicMathAstConverterTests,
+		getConvertedGroupingContextTests,
+		testing::ValuesIn(getConvertedGroupingContext_ParamsValues)
+	);
 
 	TEST_P(getConvertedGroupingContextTests, getConvertedGroupingContext$returns$expected$value)
 	{
@@ -1475,6 +1538,13 @@ namespace CmdCalculatorTests
 		}
 	};
 
+	INSTANTIATE_TEST_CASE_P
+	(
+		AntlrContextToDynamicMathAstConverterTests,
+		getConvertedGroupingMultiplicationContextTests,
+		testing::ValuesIn(getConvertedGroupingMultiplicationContext_ParamsValues)
+	);
+
 	TEST_P(getConvertedGroupingMultiplicationContextTests, getConvertedGroupingMultiplicationContext$returns$expected$value)
 	{
 		// Arrange
@@ -1558,6 +1628,13 @@ namespace CmdCalculatorTests
 			.expectedStringRepresentation{ "|  5   |" }
 		}
 	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		AntlrContextToDynamicMathAstConverterTests,
+		getConvertedAbsoluteValueOperationContextTests,
+		testing::ValuesIn(getConvertedAbsoluteValueOperationContext_ParamsValues)
+	);
 
 	TEST_P(getConvertedAbsoluteValueOperationContextTests, getConvertedAbsoluteValueOperationContext$returns$expected$value)
 	{

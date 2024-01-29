@@ -55,9 +55,9 @@ namespace CmdCalculator
 		&& requires
 		(
 			T&& instance,
-			const AntlrContextTypeDeductions::BinaryOperatorLeadingTriviaType<typename T::FullExpressionAntlrContextType>* leadingTrivia,
+			const AntlrContextTypeDeductions::BinaryOperatorLeadingTriviaType<typename T::FullExpressionAntlrContextType>* const leadingTrivia,
 			const AntlrContextTypeDeductions::BinaryOperatorType<typename T::FullExpressionAntlrContextType>& context,
-			const AntlrContextTypeDeductions::BinaryOperatorTrailingTriviaType<typename T::FullExpressionAntlrContextType>* trailingTrivia
+			const AntlrContextTypeDeductions::BinaryOperatorTrailingTriviaType<typename T::FullExpressionAntlrContextType>* const trailingTrivia
 		)
 		{
 			{ instance.getConvertedBinaryOperatorContext(leadingTrivia, context, trailingTrivia) } ->

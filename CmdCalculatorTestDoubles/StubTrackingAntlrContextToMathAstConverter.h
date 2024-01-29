@@ -77,7 +77,11 @@ namespace CmdCalculatorTestDoubles
 
 
 		std::unique_ptr<CmdCalculator::MathAst::DynamicBinaryOperatorNode<StringT>> getConvertedBinaryOperatorContext
-		(const CmdCalculator::AntlrContextTypeDeductions::BinaryOperatorType<FullExpressionAntlrContextType>& context)
+		(
+			const CmdCalculator::AntlrContextTypeDeductions::BinaryOperatorLeadingTriviaType<FullExpressionAntlrContextType>* const leadingTrivia,
+			const CmdCalculator::AntlrContextTypeDeductions::BinaryOperatorType<FullExpressionAntlrContextType>& context,
+			const CmdCalculator::AntlrContextTypeDeductions::BinaryOperatorTrailingTriviaType<FullExpressionAntlrContextType>* const trailingTrivia
+		)
 		{
 			throw CmdCalculator::NotImplementedException{};
 		}
