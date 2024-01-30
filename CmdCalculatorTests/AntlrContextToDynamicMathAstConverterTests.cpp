@@ -283,9 +283,9 @@ namespace CmdCalculatorTests
 		{
 			.context
 			{
-				.leadingTrivia{},
+				.leadingTrivia{ makeOptionalToken("  ") },
 				.expressionValue{ makeAdditionChainExprCtx(std::views::iota(0, 4)) },
-				.trailingTrivia{}
+				.trailingTrivia{ makeOptionalToken("   ") }
 			},
 			.expectedExpressionStringRepresentation{ "0+1+2+3" },
 			.expectedLeadingTrivia{ "  " },
@@ -879,10 +879,10 @@ namespace CmdCalculatorTests
 			{
 				std::make_shared<CmdCalculatorTestDoubles::StubAntlrToken<std::string>>(makeToken("   "))
 			},
-			.expectedOperatorKind{ CmdCalculator::MathAst::EBinaryOperator::Modulo },
+			.expectedOperatorKind{ CmdCalculator::MathAst::EBinaryOperator::Multiplication },
 			.expectedLeadingTrivia{ "  " },
 			.expectedTrailingTrivia{ "   " },
-			.expectedStringRepresentation{ "  %   " }
+			.expectedStringRepresentation{ "  *   " }
 		}
 	};
 
@@ -1534,7 +1534,7 @@ namespace CmdCalculatorTests
 			.expectedTailMultiplicandStringRepresentations{ "   (1)", " (2)", "  (3)" },
 			.expectedLeadingTrivia{ "" },
 			.expectedTrailingTrivia{ "" },
-			.expectedStringRepresentation{ "0   (1) (2) (3)" }
+			.expectedStringRepresentation{ "0   (1) (2)  (3)" }
 		}
 	};
 

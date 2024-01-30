@@ -64,6 +64,18 @@ namespace CmdCalculator::AntlrContextTypeDeductions
 	;
 
 	template<FullExpressionAntlrContext FullExpressionAntlrContextT>
+	using GroupingTailMultiplicandType =
+		std::ranges::range_value_t
+		<
+			decltype
+			(
+				std::declval<GroupingMultiplicationType<FullExpressionAntlrContextT>>()
+				.getTailMultiplicands()
+			)
+		>
+	;
+
+	template<FullExpressionAntlrContext FullExpressionAntlrContextT>
 	using BinaryOperatorType =
 		std::remove_reference_t
 		<
@@ -110,6 +122,26 @@ namespace CmdCalculator::AntlrContextTypeDeductions
 		(
 			std::declval<NonGroupingMultiplicationType<FullExpressionAntlrContextT>>()
 			.getNumberLiteral()
+		)
+		::value_type
+	;
+
+	template<FullExpressionAntlrContext FullExpressionAntlrContextT>
+	using WholefulNumberLiteralType =
+		typename decltype
+		(
+			std::declval<NumberLiteralType<FullExpressionAntlrContextT>>()
+			.getWholefulNumberLiteral()
+		)
+		::value_type
+	;
+
+	template<FullExpressionAntlrContext FullExpressionAntlrContextT>
+	using WholelessNumberLiteralType =
+		typename decltype
+		(
+			std::declval<NumberLiteralType<FullExpressionAntlrContextT>>()
+			.getWholelessNumberLiteral()
 		)
 		::value_type
 	;
