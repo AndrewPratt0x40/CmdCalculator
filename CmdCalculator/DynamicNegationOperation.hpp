@@ -1,3 +1,5 @@
+#pragma once
+
 #include "DynamicNegationOperation.h"
 #include "NotImplementedException.h"
 

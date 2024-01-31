@@ -40,4 +40,4 @@ namespace CmdCalculator::Expressions
 	};
 }
 
-#include "DynamicNegation.hpp"
+#include "DynamicNegationOperation.hpp"

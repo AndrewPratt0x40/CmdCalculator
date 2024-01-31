@@ -31,6 +31,6 @@ namespace CmdCalculator::Expressions
 
 		/// \brief Accessor to the full simplification of the expression.
 		/// \returns The expression in it's simplest form.
-		virtual DynamicExpressionBox getFullSimplification() const = 0;
+		virtual DynamicExpressionBox<NumberType> getFullSimplification() const = 0;
 	};
 }

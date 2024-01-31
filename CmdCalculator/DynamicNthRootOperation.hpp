@@ -1,3 +1,5 @@
+#pragma once
+
 #include "DynamicNthRootOperation.h"
 #include "NotImplementedException.h"
 

@@ -1,3 +1,5 @@
+#pragma once
+
 #include "DynamicNumber.h"
 #include "NotImplementedException.h"
 

@@ -1,3 +1,5 @@
+#pragma once
+
 #include "DynamicAbsoluteValueOperation.h"
 #include "NotImplementedException.h"
 

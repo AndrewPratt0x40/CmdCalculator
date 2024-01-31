@@ -1,3 +1,5 @@
+#pragma once
+
 #include "DynamicModuloOperation.h"
 #include "NotImplementedException.h"
 
