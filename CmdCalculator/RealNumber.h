@@ -22,9 +22,9 @@ namespace CmdCalculator::Arithmetic
 		&& std::totally_ordered<T>
 		&& requires(T&& instance)
 		{
-			{ ++instance } -> std::same_as<T>;
+			{ ++instance } -> std::same_as<T&>;
 			{ instance++ } -> std::same_as<T>;
-			{ --instance } -> std::same_as<T>;
+			{ --instance } -> std::same_as<T&>;
 			{ instance-- } -> std::same_as<T>;
 			{ instance.getSign() } -> std::same_as<ESign>;
 			{ instance.getAbsoluteValue() } -> std::same_as<T>;

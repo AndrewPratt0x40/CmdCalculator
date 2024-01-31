@@ -4,6 +4,7 @@
 
 #include "../CmdCalculator/DynamicExpression.h"
 #include "../CmdCalculator/Expression.h"
+#include "../CmdCalculatorTestDoubles/FakeRealNumber.h"
 
 namespace CmdCalculatorTestDoubleTests
 {
@@ -13,7 +14,13 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			CmdCalculator::Expressions::Expression<CmdCalculator::Expressions::DynamicExpression<std::string>>
+			CmdCalculator::Expressions::Expression
+			<
+				CmdCalculator::Expressions::DynamicExpression
+				<
+					CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber
+				>
+			>
 		);
 	}
 

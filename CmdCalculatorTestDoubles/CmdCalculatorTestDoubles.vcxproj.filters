@@ -267,7 +267,7 @@
     <ClInclude Include="StubFullExpressionAntlrContext.h">
       <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext</Filter>
     </ClInclude>
-    <ClInclude Include="DummyRealNumber.h">
+    <ClInclude Include="FakeRealNumber.h">
       <Filter>Source Code\CmdCalculator\Arithmetic\RealNumber</Filter>
     </ClInclude>
   </ItemGroup>
