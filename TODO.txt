@@ -3,7 +3,7 @@
 	DONE - Create exceptions for invalid parsing of input expression
 DONE - Create AntlrInvokingStringToAntlrContextConverter
 	DONE - Have AntlrInvokingStringToAntlrContextConverter wrap ANTLR exceptions in CmdCalculator-specific exceptions
-- Create AntlrContextToDynamicMathAstConverter
+DONE - Create AntlrContextToDynamicMathAstConverter
 - Declare DynamicExpression types
 - Create DynamicMathAstToDynamicExpressionConverter
 	- Make sure expression parts are sorted correctly!

@@ -202,6 +202,45 @@
     <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter\AntlrContextToDynamicMathAstConverter">
       <UniqueIdentifier>{ea0f5851-67db-48af-93f5-2b3ab9fb2d25}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic">
+      <UniqueIdentifier>{388ef0c7-ba6b-4ca3-ac1d-9f2e8b08ed85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicExpressionBox">
+      <UniqueIdentifier>{80f38f30-3df7-4f68-bc7e-974f29e1ac9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicNumber">
+      <UniqueIdentifier>{eaec103d-4cb5-4be5-888d-1cd025bfe842}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Arithmetic">
+      <UniqueIdentifier>{d967c03b-c2a4-48f0-8520-c87ceb865247}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicNegationOperation">
+      <UniqueIdentifier>{8fef2f13-c122-4dd4-9c42-220dd0c1c39d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicAdditionOperation">
+      <UniqueIdentifier>{65b25256-1750-4bc8-a4f5-1f6d85e263a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicSubtractionOperation">
+      <UniqueIdentifier>{3d788480-ec6c-44ae-ad3f-1c434ed85fb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicMultiplicationOperation">
+      <UniqueIdentifier>{6d16e2c5-7d1f-4b01-adae-af4bf88cf123}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicDivisionOperation">
+      <UniqueIdentifier>{0286e3eb-9319-41e1-b512-0c77840f9f1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicExponentiationOperation">
+      <UniqueIdentifier>{58c2e267-4e7c-479e-b492-5d66b023fd59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicNthRootOperation">
+      <UniqueIdentifier>{4b02a9a8-afea-4f78-aea8-c5324f12f969}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicModuloOperation">
+      <UniqueIdentifier>{c96a89f6-02af-4f5f-9af2-d890b3192b77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicAbsoluteValueOperation">
+      <UniqueIdentifier>{5da6d1b3-0434-42f0-9776-bc65d62d7157}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -441,6 +480,54 @@
     <ClInclude Include="EBinaryOperator.h">
       <Filter>Source Code\Math AST</Filter>
     </ClInclude>
+    <ClInclude Include="DynamicExpression.h">
+      <Filter>Source Code\Expressions\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicExpressionBox.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicExpressionBox</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicNumber.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicNumber</Filter>
+    </ClInclude>
+    <ClInclude Include="RealNumber.h">
+      <Filter>Source Code\Arithmetic</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicNegationOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicNegationOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicAdditionOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicAdditionOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicAdditionOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicAdditionOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicSubtractionOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicSubtractionOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicSubtractionOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicSubtractionOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicMultiplicationOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicMultiplicationOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicDivisionOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicDivisionOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicDivisionOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicDivisionOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicExponentiationOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicExponentiationOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicNthRootOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicNthRootOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicModuloOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicModuloOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicAbsoluteValueOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicAbsoluteValueOperation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -547,6 +634,30 @@
     </ClCompile>
     <ClCompile Include="AntlrInvokingStringToAntlrContextConverter.cpp">
       <Filter>Source Code\Conversions\String to Math AST\ANTLR\StringToAntlrContextConverter\AntlrInvokingStringToAntlrContextConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicExpressionBox.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicExpressionBox</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicNumber.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicNumber</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicNegationOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicNegationOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicMultiplicationOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicMultiplicationOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicExponentiationOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicExponentiationOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicNthRootOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicNthRootOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicModuloOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicModuloOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicAbsoluteValueOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicAbsoluteValueOperation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
