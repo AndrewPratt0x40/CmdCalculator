@@ -107,6 +107,7 @@
     <ClInclude Include="DynamicSubtractionOperation.h" />
     <ClInclude Include="DynamicSubtractionOperation.hpp" />
     <ClInclude Include="EmptyInputExpressionException.h" />
+    <ClInclude Include="ESign.h" />
     <ClInclude Include="RealNumber.h" />
     <ClInclude Include="TrueAbsoluteValueOperationAntlrContextView.h" />
     <ClInclude Include="TrueAntlrTokenView.h" />

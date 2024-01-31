@@ -78,6 +78,7 @@
   <ItemGroup>
     <ClInclude Include="FakeCalculation.h" />
     <ClInclude Include="FakeConsole.h" />
+    <ClInclude Include="DummyRealNumber.h" />
     <ClInclude Include="StubAbsoluteValueOperationAntlrContext.h" />
     <ClInclude Include="StubAntlrToken.h" />
     <ClInclude Include="StubBinaryOperatorAntlrContext.h" />

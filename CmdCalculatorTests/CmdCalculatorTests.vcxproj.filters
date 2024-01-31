@@ -103,6 +103,9 @@
     <ClCompile Include="AntlrContextToDynamicMathAstConverterTests.cpp">
       <Filter>Source Code\Tests\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter</Filter>
     </ClCompile>
+    <ClCompile Include="DynamicExpressionTests.cpp">
+      <Filter>Source Code\Tests\Expressions\Dynamic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -188,6 +191,12 @@
     </Filter>
     <Filter Include="Source Code\Tests\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter">
       <UniqueIdentifier>{d079c8c0-c65e-49ac-8f67-d465e3385fd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Expressions">
+      <UniqueIdentifier>{815722be-8d28-46fa-a854-78925db5e6ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Expressions\Dynamic">
+      <UniqueIdentifier>{e9b88706-f9b0-4e3b-9d24-390af78c5e36}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -127,6 +127,9 @@
     <ClCompile Include="StubFullExpressionAntlrContextTests.cpp">
       <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext</Filter>
     </ClCompile>
+    <ClCompile Include="FakeRealNumberTests.cpp">
+      <Filter>Source Code\Tests\Arithmetic\RealNumber</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -233,6 +236,12 @@
     </Filter>
     <Filter Include="Source Code\Tests\MathAst\Dynamic">
       <UniqueIdentifier>{a34021a8-3ebd-466c-b878-55140f1a3c7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Arithmetic">
+      <UniqueIdentifier>{f9815e6b-d740-4c84-9be6-c0098e294f94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Arithmetic\RealNumber">
+      <UniqueIdentifier>{e01b6e22-905d-4dc9-83cd-20e7efdbb811}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

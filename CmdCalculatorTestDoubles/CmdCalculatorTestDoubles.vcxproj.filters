@@ -127,6 +127,12 @@
     <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext">
       <UniqueIdentifier>{7844ef14-ba5a-4a42-9c0e-4326d9298ba3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\CmdCalculator\Arithmetic">
+      <UniqueIdentifier>{392723aa-b7e8-42e4-a06d-0922b227e49e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Arithmetic\RealNumber">
+      <UniqueIdentifier>{b48384d2-c872-43c7-adae-8b6a97f4ee23}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FakeConsole.h">
@@ -260,6 +266,9 @@
     </ClInclude>
     <ClInclude Include="StubFullExpressionAntlrContext.h">
       <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="DummyRealNumber.h">
+      <Filter>Source Code\CmdCalculator\Arithmetic\RealNumber</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

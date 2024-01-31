@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FakeConsoleTests.cpp" />
+    <ClCompile Include="FakeRealNumberTests.cpp" />
     <ClCompile Include="StubAbsoluteValueOperationAntlrContextTests.cpp" />
     <ClCompile Include="StubAntlrTokenTests.cpp" />
     <ClCompile Include="StubBinaryOperatorAntlrContextTests.cpp" />

@@ -92,6 +92,7 @@
     <ClCompile Include="DynamicBinaryOperatorNodeTests.cpp" />
     <ClCompile Include="DynamicExpressionNodeTests.cpp" />
     <ClCompile Include="DynamicExpressionPartNodeTests.cpp" />
+    <ClCompile Include="DynamicExpressionTests.cpp" />
     <ClCompile Include="DynamicGroupingMultiplicationNodeTests.cpp" />
     <ClCompile Include="DynamicGroupingNodeTests.cpp" />
     <ClCompile Include="DynamicMathAstNodeTests.cpp" />

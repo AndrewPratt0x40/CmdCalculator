@@ -528,6 +528,9 @@
     <ClInclude Include="DynamicAbsoluteValueOperation.h">
       <Filter>Source Code\Expressions\Dynamic\DynamicAbsoluteValueOperation</Filter>
     </ClInclude>
+    <ClInclude Include="ESign.h">
+      <Filter>Source Code\Arithmetic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
