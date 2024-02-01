@@ -241,6 +241,9 @@
     <Filter Include="Source Code\Expressions\Dynamic\DynamicAbsoluteValueOperation">
       <UniqueIdentifier>{5da6d1b3-0434-42f0-9776-bc65d62d7157}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\CommonDynamicBinaryOperation">
+      <UniqueIdentifier>{efabf42c-22d7-4bd5-8f0f-d97a5a682e99}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -531,6 +534,9 @@
     <ClInclude Include="ESign.h">
       <Filter>Source Code\Arithmetic</Filter>
     </ClInclude>
+    <ClInclude Include="CommonDynamicBinaryOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\CommonDynamicBinaryOperation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -661,6 +667,9 @@
     </ClCompile>
     <ClCompile Include="DynamicAbsoluteValueOperation.hpp">
       <Filter>Source Code\Expressions\Dynamic\DynamicAbsoluteValueOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonDynamicBinaryOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\CommonDynamicBinaryOperation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

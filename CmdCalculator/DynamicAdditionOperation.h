@@ -1,6 +1,6 @@
 #pragma once
 
-#include "DynamicExpression.h"
+#include "CommonDynamicBinaryOperation.h"
 #include "RealNumber.h"
 
 #include <concepts>
@@ -12,13 +12,15 @@ namespace CmdCalculator::Expressions
 	/// \tparam NumberT The type to use for numbers.
 	template<Arithmetic::RealNumber NumberT>
 	class DynamicAdditionOperation :
-		public DynamicExpression<NumberT>,
+		public CommonDynamicBinaryOperation<NumberT>,
 		public Expression_IntendedSatisfaction
 	{
 	public:
 
-		using NumberType = DynamicExpression<NumberT>::NumberType;
+		using NumberType = CommonDynamicBinaryOperation<NumberT>::NumberType;
 
+
+	public:
 
 		/// \brief Creates a new instance of the \ref DynamicAdditionOperation class.
 		/// \param augend The operand that the addend is to be added to.
@@ -41,6 +43,7 @@ namespace CmdCalculator::Expressions
 		/// \brief Accessor to the addend of the operation.
 		/// \returns The operand to be added to the augend.
 		DynamicExpression<NumberType>& getAddend() const;
+
 
 		NumberType getEvaluation() const override;
 

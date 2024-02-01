@@ -15,10 +15,13 @@ inline CmdCalculator::Expressions::DynamicAdditionOperation<NumberT>::DynamicAdd
 (
 	std::unique_ptr<DynamicExpression<NumberType>> augend,
 	std::unique_ptr<DynamicExpression<NumberType>> addend
-)
-{
-	throw NotImplementedException{};
-}
+) :
+	CmdCalculator::Expressions::CommonDynamicBinaryOperation<NumberType>
+	(
+		std::move(augend),
+		std::move(addend)
+	)
+{}
 
 
 template<CmdCalculator::Arithmetic::RealNumber NumberT>
@@ -29,7 +32,7 @@ template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline CmdCalculator::Expressions::DynamicExpression<THIS_NUMBER_TYPENAME>&
 	CmdCalculator::Expressions::DynamicAdditionOperation<NumberT>::getAugend() const
 {
-	throw NotImplementedException{};
+	return CommonDynamicBinaryOperation<NumberType>::getLeftOperand();
 }
 
 
@@ -37,14 +40,14 @@ template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline CmdCalculator::Expressions::DynamicExpression<THIS_NUMBER_TYPENAME>&
 	CmdCalculator::Expressions::DynamicAdditionOperation<NumberT>::getAddend() const
 {
-	throw NotImplementedException{};
+	return CommonDynamicBinaryOperation<NumberType>::getRightOperand();
 }
 
 
 template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline THIS_NUMBER_TYPE CmdCalculator::Expressions::DynamicAdditionOperation<NumberT>::getEvaluation() const
 {
-	throw NotImplementedException{};
+	return getAugend().getEvaluation() + getAddend().getEvaluation();
 }
 
 

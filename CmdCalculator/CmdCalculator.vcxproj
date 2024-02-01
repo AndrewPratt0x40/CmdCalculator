@@ -91,6 +91,7 @@
     <ClInclude Include="AntlrInvokingStringToAntlrContextConverter.h" />
     <ClInclude Include="AntlrToken.h" />
     <ClInclude Include="BadRawCmdLineArgsException.h" />
+    <ClInclude Include="CommonDynamicBinaryOperation.h" />
     <ClInclude Include="DynamicAbsoluteValueOperation.h" />
     <ClInclude Include="DynamicAdditionOperation.h" />
     <ClInclude Include="DynamicAdditionOperation.hpp" />
@@ -184,6 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AntlrInvokingStringToAntlrContextConverter.cpp" />
+    <ClCompile Include="CommonDynamicBinaryOperation.hpp" />
     <ClCompile Include="DynamicAbsoluteValueOperation.hpp" />
     <ClCompile Include="DynamicExponentiationOperation.hpp" />
     <ClCompile Include="DynamicExpressionBox.hpp" />
