@@ -133,13 +133,19 @@
     <Filter Include="Source Code\CmdCalculator\Arithmetic\RealNumber">
       <UniqueIdentifier>{b48384d2-c872-43c7-adae-8b6a97f4ee23}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\CmdCalculator\Expressions\Expression">
+      <UniqueIdentifier>{0ada4dfa-0fc9-4bfb-8279-437109c8e770}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Expressions\Dynamic">
+      <UniqueIdentifier>{c24cacc8-3353-4363-a54a-995d96fed2c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Expressions\Dynamic\DynamicExpression">
+      <UniqueIdentifier>{52e44d9e-b571-471f-8158-ef5ed3b46c10}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FakeConsole.h">
       <Filter>Source Code\CmdCalculator\Console</Filter>
-    </ClInclude>
-    <ClInclude Include="StubExpression.h">
-      <Filter>Source Code\CmdCalculator\Expressions</Filter>
     </ClInclude>
     <ClInclude Include="StubThrowingRawCmdLineArgParser.h">
       <Filter>Source Code\CmdCalculator\RawCmdLineArgParser</Filter>
@@ -161,9 +167,6 @@
     </ClInclude>
     <ClInclude Include="StubTrackingMathAstNode.h">
       <Filter>Source Code\CmdCalculator\MathAst\MathAstNode</Filter>
-    </ClInclude>
-    <ClInclude Include="StubTrackingExpression.h">
-      <Filter>Source Code\CmdCalculator\Expressions</Filter>
     </ClInclude>
     <ClInclude Include="StubTrackingConvertedString.h">
       <Filter>Source Code\CmdCalculator\String</Filter>
@@ -269,6 +272,15 @@
     </ClInclude>
     <ClInclude Include="FakeRealNumber.h">
       <Filter>Source Code\CmdCalculator\Arithmetic\RealNumber</Filter>
+    </ClInclude>
+    <ClInclude Include="StubExpression.h">
+      <Filter>Source Code\CmdCalculator\Expressions\Expression</Filter>
+    </ClInclude>
+    <ClInclude Include="StubTrackingExpression.h">
+      <Filter>Source Code\CmdCalculator\Expressions\Expression</Filter>
+    </ClInclude>
+    <ClInclude Include="StubDynamicExpression.h">
+      <Filter>Source Code\CmdCalculator\Expressions\Dynamic\DynamicExpression</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

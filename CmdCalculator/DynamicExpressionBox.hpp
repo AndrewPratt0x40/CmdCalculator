@@ -1,5 +1,7 @@
 #pragma once
 
+#include <assert.h>
+
 #include "DynamicExpressionBox.h"
 #include "NotImplementedException.h"
 
@@ -13,17 +15,18 @@
 template<CmdCalculator::Arithmetic::RealNumber NumberT>
 CmdCalculator::Expressions::DynamicExpressionBox<NumberT>::DynamicExpressionBox
 (
-	std::unique_ptr<DynamicExpression<THIS_NUMBER_TYPENAME>> innerValue
-)
+	std::unique_ptr<DynamicExpression<NumberType>> innerValue
+) :
+	m_innerValue{ std::move(innerValue) }
 {
-	throw NotImplementedException{};
+	assert(m_innerValue);
 }
 
 
 template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline bool CmdCalculator::Expressions::DynamicExpressionBox<NumberT>::isSimplifiable() const
 {
-	throw NotImplementedException{};
+	return m_innerValue->isSimplifiable();
 }
 
 
@@ -31,7 +34,7 @@ template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline CmdCalculator::Expressions::DynamicExpressionBox<THIS_NUMBER_TYPENAME>
 	CmdCalculator::Expressions::DynamicExpressionBox<NumberT>::getFullSimplification() const
 {
-	throw NotImplementedException{};
+	return std::move(m_innerValue->getFullSimplification());
 }
 
 

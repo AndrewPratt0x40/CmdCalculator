@@ -23,6 +23,13 @@ namespace CmdCalculator::Expressions
 		using NumberType = NumberT;
 
 
+	private:
+
+		std::unique_ptr<DynamicExpression<NumberType>> m_innerValue;
+
+
+	public:
+
 		/// \brief Creates a new instance of the \ref DynamicExpressionBox class.
 		/// \param innerValue The value to box.
 		DynamicExpressionBox(std::unique_ptr<DynamicExpression<NumberType>> innerValue);

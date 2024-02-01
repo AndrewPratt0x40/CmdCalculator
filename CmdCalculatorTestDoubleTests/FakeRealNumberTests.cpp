@@ -1,7 +1,5 @@
 #include "pch.h"
 
-#include <string>
-
 #include "../CmdCalculatorTestDoubles/FakeRealNumber.h"
 
 namespace CmdCalculatorTestDoubleTests

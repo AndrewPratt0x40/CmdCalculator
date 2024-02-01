@@ -7,9 +7,6 @@
     <ClCompile Include="FakeConsoleTests.cpp">
       <Filter>Source Code\Tests\Console</Filter>
     </ClCompile>
-    <ClCompile Include="StubExpressionTests.cpp">
-      <Filter>Source Code\Tests\Expressions</Filter>
-    </ClCompile>
     <ClCompile Include="StubMathAstNodeTests.cpp">
       <Filter>Source Code\Tests\MathAst</Filter>
     </ClCompile>
@@ -42,9 +39,6 @@
     </ClCompile>
     <ClCompile Include="StubTrackingMathAstNodeTests.cpp">
       <Filter>Source Code\Tests\MathAst</Filter>
-    </ClCompile>
-    <ClCompile Include="StubTrackingExpressionTests.cpp">
-      <Filter>Source Code\Tests\Expressions</Filter>
     </ClCompile>
     <ClCompile Include="StubTrackingMathAstToExpressionConverterTests.cpp">
       <Filter>Source Code\Tests\Conversions\MathAstToExpressionConverter</Filter>
@@ -129,6 +123,15 @@
     </ClCompile>
     <ClCompile Include="FakeRealNumberTests.cpp">
       <Filter>Source Code\Tests\Arithmetic\RealNumber</Filter>
+    </ClCompile>
+    <ClCompile Include="StubExpressionTests.cpp">
+      <Filter>Source Code\Tests\Expressions\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingExpressionTests.cpp">
+      <Filter>Source Code\Tests\Expressions\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="StubDynamicExpressionTests.cpp">
+      <Filter>Source Code\Tests\Expressions\Dynamic\DynamicExpression</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -242,6 +245,15 @@
     </Filter>
     <Filter Include="Source Code\Tests\Arithmetic\RealNumber">
       <UniqueIdentifier>{e01b6e22-905d-4dc9-83cd-20e7efdbb811}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Expressions\Expression">
+      <UniqueIdentifier>{86922ebf-4e6a-48bf-8331-5d19ffad4cac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Expressions\Dynamic">
+      <UniqueIdentifier>{e770efcb-c713-40b6-a8e9-7a3711f79f16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Expressions\Dynamic\DynamicExpression">
+      <UniqueIdentifier>{3642df62-54fa-47be-a290-769b7769ff6c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
