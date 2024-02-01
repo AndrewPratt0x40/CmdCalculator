@@ -1,6 +1,6 @@
 #pragma once
 
-#include "DynamicExpression.h"
+#include "CommonDynamicBinaryOperation.h"
 #include "RealNumber.h"
 
 #include <concepts>
@@ -13,7 +13,8 @@ namespace CmdCalculator::Expressions
 	/// \tparam NumberT The type to use for numbers.
 	template<Arithmetic::RealNumber NumberT>
 	class DynamicSubtractionOperation :
-		public DynamicExpression<NumberT>
+		public CommonDynamicBinaryOperation<NumberT>,
+		public Expression_IntendedSatisfaction
 	{
 	public:
 

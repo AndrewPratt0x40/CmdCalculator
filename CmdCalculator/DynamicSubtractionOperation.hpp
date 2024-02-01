@@ -15,10 +15,13 @@ inline CmdCalculator::Expressions::DynamicSubtractionOperation<NumberT>::Dynamic
 (
 	std::unique_ptr<DynamicExpression<NumberType>> minuend,
 	std::unique_ptr<DynamicExpression<NumberType>> subtrahend
-)
-{
-	throw NotImplementedException{};
-}
+) :
+	CommonDynamicBinaryOperation<NumberType>
+	(
+		std::move(minuend),
+		std::move(subtrahend)
+	)
+{}
 
 
 template<CmdCalculator::Arithmetic::RealNumber NumberT>
@@ -29,7 +32,7 @@ template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline CmdCalculator::Expressions::DynamicExpression<THIS_NUMBER_TYPENAME>&
 	CmdCalculator::Expressions::DynamicSubtractionOperation<NumberT>::getMinuend() const
 {
-	throw NotImplementedException{};
+	return CommonDynamicBinaryOperation<NumberType>::getLeftOperand();
 }
 
 
@@ -37,7 +40,7 @@ template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline CmdCalculator::Expressions::DynamicExpression<THIS_NUMBER_TYPENAME>&
 	CmdCalculator::Expressions::DynamicSubtractionOperation<NumberT>::getSubtrahend() const
 {
-	throw NotImplementedException{};
+	return CommonDynamicBinaryOperation<NumberType>::getRightOperand();
 }
 
 
@@ -45,7 +48,7 @@ template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline THIS_NUMBER_TYPE
 	CmdCalculator::Expressions::DynamicSubtractionOperation<NumberT>::getEvaluation() const
 {
-	throw NotImplementedException{};
+	return getMinuend().getEvaluation() - getSubtrahend().getEvaluation();
 }
 
 
