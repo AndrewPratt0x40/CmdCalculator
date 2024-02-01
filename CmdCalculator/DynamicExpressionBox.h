@@ -38,14 +38,19 @@ namespace CmdCalculator::Expressions
 		DynamicExpressionBox() = delete;
 
 
-		/// \brief Tests whether or not the expression can be simplified.
+		/*/// \brief Tests whether or not the expression can be simplified.
 		/// \returns True if the expression is simplifiable, false if the expression is already in it's simplest form.
-		inline bool isSimplifiable() const;
+		inline bool isSimplifiable() const;*/
 
 
-		/// \brief Accessor to the full simplification of the expression.
+		/// \brief Accessor to the evaluation of the expression.
+		/// \returns The numeric value that the expression evaluates to.
+		inline NumberType getEvaluation() const;
+
+
+		/*/// \brief Accessor to the full simplification of the expression.
 		/// \returns The expression in it's simplest form.
-		inline DynamicExpressionBox getFullSimplification() const;
+		inline DynamicExpressionBox getFullSimplification() const;*/
 	};
 }
 

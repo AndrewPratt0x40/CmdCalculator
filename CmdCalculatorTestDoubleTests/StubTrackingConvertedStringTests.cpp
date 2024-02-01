@@ -3,6 +3,7 @@
 #include <string>
 
 #include "../CmdCalculatorTestDoubles/StubTrackingConvertedString.h""
+#include "../CmdCalculatorTestDoubles/FakeRealNumber.h"
 #include "../CmdCalculatorTestDoubles/StubExpression.h"
 #include "../CmdCalculator/strings.h"
 
@@ -20,6 +21,9 @@ namespace CmdCalculatorTestDoubleTests
 				<
 					std::string,
 					CmdCalculatorTestDoubles::Expressions::StubExpression
+					<
+						CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber
+					>
 				>
 			>
 		);

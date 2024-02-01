@@ -75,7 +75,7 @@ namespace CmdCalculator
 				m_mathAstToExpressionConverter.getMathAstAsExpression
 				(
 					*m_stringToMathAstConverter.getStringAsMathAst(m_inputExpression)
-				).getFullSimplification(),
+				)/*.getFullSimplification()*/,
 				m_configuration
 			);
 		}

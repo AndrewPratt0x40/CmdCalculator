@@ -1,6 +1,7 @@
 #pragma once
 
 #include<concepts>
+#include "RealNumber.h"
 #include "utilities.h"
 
 namespace CmdCalculator::Expressions
@@ -17,8 +18,9 @@ namespace CmdCalculator::Expressions
 		IntendsToSatisfy<T, Expression_IntendedSatisfaction>
 		&& requires(T&& instance)
 		{
-			{ instance.isSimplifiable() } -> std::same_as<bool>;
-			{ instance.getFullSimplification() } -> IntendsToSatisfy<Expression_IntendedSatisfaction>;
+			{ instance.getEvaluation() } -> Arithmetic::RealNumber;
+			// TODO: { instance.isSimplifiable() } -> std::same_as<bool>;
+			// TODO: { instance.getFullSimplification() } -> IntendsToSatisfy<Expression_IntendedSatisfaction>;
 		}
 	;
 }

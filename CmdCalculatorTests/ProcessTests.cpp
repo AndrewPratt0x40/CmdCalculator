@@ -12,6 +12,7 @@
 #include "..\CmdCalculatorTestDoubles/StubRawCmdLineArgParser.h"
 #include "..\CmdCalculatorTestDoubles/StubThrowingRawCmdLineArgParser.h"
 #include "..\CmdCalculatorTestDoubles/StubMathAstNode.h"
+#include "..\CmdCalculatorTestDoubles/FakeRealNumber.h"
 #include "..\CmdCalculatorTestDoubles/StubExpression.h"
 #include "..\CmdCalculatorTestDoubles/StubStringToMathAstConverter.h"
 #include "..\CmdCalculatorTestDoubles/StubValidatingStringToMathAstConverter.h"
@@ -62,12 +63,12 @@ namespace CmdCalculatorTests
 		using MathAstToExpressionConverterType = CmdCalculatorTestDoubles::StubMathAstToExpressionConverter
 		<
 			CmdCalculatorTestDoubles::MathAst::StubMathAstNode<std::string>,
-			CmdCalculatorTestDoubles::Expressions::StubExpression
+			CmdCalculatorTestDoubles::Expressions::StubExpression<CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber>
 		>;
 
 		using ExpressionToStringConverterType = CmdCalculatorTestDoubles::StubExpressionToStringConverter
 		<
-			CmdCalculatorTestDoubles::Expressions::StubExpression,
+			CmdCalculatorTestDoubles::Expressions::StubExpression<CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber>,
 			std::string
 		>;
 

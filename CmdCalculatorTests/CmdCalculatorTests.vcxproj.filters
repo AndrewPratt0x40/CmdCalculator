@@ -109,6 +109,9 @@
     <ClCompile Include="DynamicExpressionBoxTests.cpp">
       <Filter>Source Code\Tests\Expressions\Dynamic</Filter>
     </ClCompile>
+    <ClCompile Include="DynamicAdditionOperationTests.cpp">
+      <Filter>Source Code\Tests\Expressions\Dynamic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">

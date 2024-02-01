@@ -89,6 +89,7 @@
     <ClCompile Include="AntlrInvokingStringToAntlrContextConverterTests.cpp" />
     <ClCompile Include="CalculationConfigurationTests.cpp" />
     <ClCompile Include="DynamicAbsoluteValueNodeTests.cpp" />
+    <ClCompile Include="DynamicAdditionOperationTests.cpp" />
     <ClCompile Include="DynamicBinaryOperatorNodeTests.cpp" />
     <ClCompile Include="DynamicExpressionBoxTests.cpp" />
     <ClCompile Include="DynamicExpressionNodeTests.cpp" />

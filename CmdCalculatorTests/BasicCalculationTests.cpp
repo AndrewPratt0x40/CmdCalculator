@@ -6,6 +6,7 @@
 #include "../CmdCalculator/BasicCalculation.h"
 #include "../CmdCalculatorTestDoubles/StubMathAstNode.h"
 #include "../CmdCalculatorTestDoubles/StubTrackingMathAstNode.h"
+#include "../CmdCalculatorTestDoubles/FakeRealNumber.h"
 #include "../CmdCalculatorTestDoubles/StubExpression.h"
 #include "../CmdCalculatorTestDoubles/StubTrackingExpression.h"
 #include "../CmdCalculatorTestDoubles/StubStringToMathAstConverter.h"
@@ -39,11 +40,11 @@ namespace CmdCalculatorTests
 					CmdCalculatorTestDoubles::StubMathAstToExpressionConverter
 					<
 						CmdCalculatorTestDoubles::MathAst::StubMathAstNode<std::string>,
-						CmdCalculatorTestDoubles::Expressions::StubExpression
+						CmdCalculatorTestDoubles::Expressions::StubExpression<CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber>
 					>,
 					CmdCalculatorTestDoubles::StubExpressionToStringConverter
 					<
-						CmdCalculatorTestDoubles::Expressions::StubExpression,
+						CmdCalculatorTestDoubles::Expressions::StubExpression<CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber>,
 						std::string
 					>
 				>
@@ -69,11 +70,11 @@ namespace CmdCalculatorTests
 		CmdCalculatorTestDoubles::StubMathAstToExpressionConverter
 		<
 			CmdCalculatorTestDoubles::MathAst::StubMathAstNode<std::string>,
-			CmdCalculatorTestDoubles::Expressions::StubExpression
+			CmdCalculatorTestDoubles::Expressions::StubExpression<CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber>
 		> mathAstToExpressionConverter{};
 		CmdCalculatorTestDoubles::StubExpressionToStringConverter
 		<
-			CmdCalculatorTestDoubles::Expressions::StubExpression,
+			CmdCalculatorTestDoubles::Expressions::StubExpression<CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber>,
 			std::string
 		> expressionToStringConverter{};
 
@@ -102,9 +103,14 @@ namespace CmdCalculatorTests
 		);
 		EXPECT_EQ
 		(
+			mathAstToExpressionConverter.convertedExpression.evaluation,
+			instance.getMathAstToExpressionConverter().convertedExpression.evaluation
+		);
+		/*EXPECT_EQ
+		(
 			mathAstToExpressionConverter.convertedExpression.fullSimplification,
 			instance.getMathAstToExpressionConverter().convertedExpression.fullSimplification
-		);
+		);*/
 		EXPECT_EQ
 		(
 			expressionToStringConverter.stringifiedExpression,
@@ -155,7 +161,8 @@ namespace CmdCalculatorTests
 
 		MathAstToExpressionConverterType mathAstToExpressionConverter
 		{
-			.convertedIsSimplifiableValue{true},
+			.convertedEvaluation{ 12.34 }
+			//.convertedIsSimplifiableValue{true},
 		};
 
 		ExpressionToStringConverterType expressionToStringConverter
@@ -186,8 +193,8 @@ namespace CmdCalculatorTests
 		EXPECT_EQ(returnValue.expressionSource.mathAstSource.getStringRepresentation(), stringToMathAstConverter.convertedValueStringRepresentation);
 		EXPECT_EQ(returnValue.expressionSource.mathAstSource.stringSource, inputExpression);
 
-		EXPECT_TRUE(returnValue.expressionSource.wasSimplified);
-		EXPECT_FALSE(returnValue.expressionSource.isSimplifiable());
+		//EXPECT_TRUE(returnValue.expressionSource.wasSimplified);
+		//EXPECT_FALSE(returnValue.expressionSource.isSimplifiable());
 	}
 
 #pragma endregion

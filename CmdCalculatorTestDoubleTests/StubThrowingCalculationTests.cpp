@@ -7,6 +7,7 @@
 #include "../CmdCalculatorTestDoubles/StubCalculation.h"
 #include "../CmdCalculatorTestDoubles/StubThrowingCalculation.h"
 #include "../CmdCalculatorTestDoubles/StubMathAstNode.h"
+#include "../CmdCalculatorTestDoubles/FakeRealNumber.h"
 #include "../CmdCalculatorTestDoubles/StubExpression.h"
 #include "../CmdCalculatorTestDoubles/StubStringToMathAstConverter.h"
 #include "../CmdCalculatorTestDoubles/StubMathAstToExpressionConverter.h"
@@ -40,10 +41,16 @@ namespace CmdCalculatorTestDoubleTests
 				<
 					CmdCalculatorTestDoubles::MathAst::StubMathAstNode<std::string>,
 					CmdCalculatorTestDoubles::Expressions::StubExpression
+					<
+						CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber
+					>
 				>,
 				CmdCalculatorTestDoubles::StubExpressionToStringConverter
 				<
-					CmdCalculatorTestDoubles::Expressions::StubExpression,
+					CmdCalculatorTestDoubles::Expressions::StubExpression
+					<
+						CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber
+					>,
 					std::string
 				>
 			>,

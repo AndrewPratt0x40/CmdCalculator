@@ -276,11 +276,11 @@
     <ClInclude Include="StubExpression.h">
       <Filter>Source Code\CmdCalculator\Expressions\Expression</Filter>
     </ClInclude>
-    <ClInclude Include="StubTrackingExpression.h">
-      <Filter>Source Code\CmdCalculator\Expressions\Expression</Filter>
-    </ClInclude>
     <ClInclude Include="StubDynamicExpression.h">
       <Filter>Source Code\CmdCalculator\Expressions\Dynamic\DynamicExpression</Filter>
+    </ClInclude>
+    <ClInclude Include="StubTrackingExpression.h">
+      <Filter>Source Code\CmdCalculator\Expressions\Expression</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,7 @@
 #include <algorithm>
 
 #include "../CmdCalculatorTestDoubles/StubExpression.h"
+#include "../CmdCalculatorTestDoubles/FakeRealNumber.h"
 
 namespace CmdCalculatorTestDoubleTests
 {
@@ -15,7 +16,13 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			CmdCalculator::Expressions::Expression<CmdCalculatorTestDoubles::Expressions::StubExpression>
+			CmdCalculator::Expressions::Expression
+			<
+				CmdCalculatorTestDoubles::Expressions::StubExpression
+				<
+					CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber
+				>
+			>
 		);
 	}
 

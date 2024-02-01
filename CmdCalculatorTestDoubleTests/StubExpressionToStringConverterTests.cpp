@@ -2,6 +2,7 @@
 
 #include <string>
 
+#include "../CmdCalculatorTestDoubles/FakeRealNumber.h"
 #include "../CmdCalculatorTestDoubles/StubExpression.h"
 #include "../CmdCalculatorTestDoubles/StubExpressionToStringConverter.h"
 #include "../CmdCalculator/ExpressionToStringConverter.h"
@@ -26,7 +27,14 @@ namespace CmdCalculatorTestDoubleTests
 
 	using StubExpressionToStringConverterWithTParamsTests_Types = testing::Types
 	<
-		StubExpressionToStringConverter_TParams<CmdCalculatorTestDoubles::Expressions::StubExpression, std::string>
+		StubExpressionToStringConverter_TParams
+		<
+			CmdCalculatorTestDoubles::Expressions::StubExpression
+			<
+				CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber
+			>,
+			std::string
+		>
 	>;
 
 	TYPED_TEST_CASE(StubExpressionToStringConverterWithTParamsTests, StubExpressionToStringConverterWithTParamsTests_Types);

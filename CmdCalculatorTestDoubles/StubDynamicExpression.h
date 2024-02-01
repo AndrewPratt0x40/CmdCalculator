@@ -20,20 +20,32 @@ namespace CmdCalculatorTestDoubles::Expressions
 		using FullSimplificationFuncType = std::function<CmdCalculator::Expressions::DynamicExpressionBox<NumberType>()>;
 
 
-		bool isSimplifiableValue;
-		std::optional<FullSimplificationFuncType> fullSimplification;
+		NumberType evaluation;
+		//bool isSimplifiableValue;
+		//std::optional<FullSimplificationFuncType> fullSimplification;
 
 
+		StubDynamicExpression(NumberType evaluation) :
+			evaluation{ evaluation }
+		{}
+		
+		
 		virtual ~StubDynamicExpression() = default;
 
 
-		bool isSimplifiable() const override
+		/*bool isSimplifiable() const override
 		{
 			return isSimplifiableValue;
+		}*/
+
+
+		NumberType getEvaluation() const override
+		{
+			return evaluation;
 		}
 
 
-		CmdCalculator::Expressions::DynamicExpressionBox<NumberType> getFullSimplification() const override
+		/*CmdCalculator::Expressions::DynamicExpressionBox<NumberType> getFullSimplification() const override
 		{
 			return fullSimplification.has_value()
 				? fullSimplification.value()()
@@ -42,6 +54,6 @@ namespace CmdCalculatorTestDoubles::Expressions
 					std::make_unique<StubDynamicExpression<NumberType>>(*this)
 				}
 			;
-		}
+		}*/
 	};
 }

@@ -4,22 +4,36 @@
 #include <memory>
 
 #include "../CmdCalculator/Expression.h"
+#include "../CmdCalculator/RealNumber.h"
 #include "../CmdCalculator/MathAstNode.h"
 #include "../CmdCalculator/strings.h"
 
 namespace CmdCalculatorTestDoubles::Expressions
 {
-	template<CmdCalculator::MathAst::MathAstNode SourceMathAstNodeT>
+	template
+	<
+		CmdCalculator::Arithmetic::RealNumber NumberT,
+		CmdCalculator::MathAst::MathAstNode SourceMathAstNodeT
+	>
 	struct StubTrackingExpression :
 		public CmdCalculator::Expressions::Expression_IntendedSatisfaction
 	{
+		using NumberType = NumberT;
+
 		SourceMathAstNodeT mathAstSource;
-		bool wasSimplified;
+		//bool wasSimplified;
 
-		bool isSimplifiableValue;
+		NumberType evaluation;
+		//bool isSimplifiableValue;
 
 
-		bool isSimplifiable() const
+		NumberType getEvaluation() const
+		{
+			return evaluation;
+		}
+
+
+		/*bool isSimplifiable() const
 		{
 			return isSimplifiableValue;
 		}
@@ -35,6 +49,6 @@ namespace CmdCalculatorTestDoubles::Expressions
 					.isSimplifiableValue{ false }
 				}
 				: *this;
-		}
+		}*/
 	};
 }

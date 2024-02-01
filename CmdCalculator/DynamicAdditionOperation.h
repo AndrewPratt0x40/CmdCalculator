@@ -12,7 +12,8 @@ namespace CmdCalculator::Expressions
 	/// \tparam NumberT The type to use for numbers.
 	template<Arithmetic::RealNumber NumberT>
 	class DynamicAdditionOperation :
-		public DynamicExpression<NumberT>
+		public DynamicExpression<NumberT>,
+		public Expression_IntendedSatisfaction
 	{
 	public:
 
@@ -41,11 +42,13 @@ namespace CmdCalculator::Expressions
 		/// \returns The operand to be added to the augend.
 		DynamicExpression<NumberType>& getAddend() const;
 
+		NumberType getEvaluation() const override;
 
-		bool isSimplifiable() const override;
+
+		//bool isSimplifiable() const override;
 
 
-		DynamicExpressionBox<NumberType> getFullSimplification() const override;
+		//DynamicExpressionBox<NumberType> getFullSimplification() const override;
 	};
 }
 

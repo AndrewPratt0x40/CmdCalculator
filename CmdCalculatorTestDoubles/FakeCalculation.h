@@ -59,7 +59,8 @@ namespace CmdCalculatorTestDoubles
 				m_mathAstToExpressionConverter.getMathAstAsExpression(*mathAst)
 			};
 
-			return m_expressionToStringConverter.stringifyExpression(expression.getFullSimplification(), m_configuration);
+			//return m_expressionToStringConverter.stringifyExpression(expression.getFullSimplification(), m_configuration);
+			return m_expressionToStringConverter.stringifyExpression(expression, m_configuration);
 		}
 
 

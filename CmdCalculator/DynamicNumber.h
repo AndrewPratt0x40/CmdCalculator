@@ -33,10 +33,13 @@ namespace CmdCalculator::Expressions
 		NumberType getValue() const;
 
 
-		bool isSimplifiable() const override;
+		NumberType getEvaluation() const override;
 
 
-		DynamicExpressionBox<NumberType> getFullSimplification() const override;
+		//bool isSimplifiable() const override;
+
+
+		//DynamicExpressionBox<NumberType> getFullSimplification() const override;
 	};
 }
 

@@ -24,13 +24,18 @@ namespace CmdCalculator::Expressions
 		{}
 
 
-		/// \brief Tests whether or not the expression can be simplified.
+		/*/// \brief Tests whether or not the expression can be simplified.
 		/// \returns True if the expression is simplifiable, false otherwise.
-		virtual bool isSimplifiable() const = 0;
+		virtual bool isSimplifiable() const = 0;*/
 
 
-		/// \brief Accessor to the full simplification of the expression.
+		/// \brief Accessor to the evaluation of the expression.
+		/// \returns The numeric value that the expression evaluates to.
+		virtual NumberType getEvaluation() const = 0;
+
+
+		/*/// \brief Accessor to the full simplification of the expression.
 		/// \returns The expression in it's simplest form.
-		virtual DynamicExpressionBox<NumberType> getFullSimplification() const = 0;
+		virtual DynamicExpressionBox<NumberType> getFullSimplification() const = 0;*/
 	};
 }

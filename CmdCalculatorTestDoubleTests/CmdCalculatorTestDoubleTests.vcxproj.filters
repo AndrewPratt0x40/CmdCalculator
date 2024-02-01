@@ -127,11 +127,11 @@
     <ClCompile Include="StubExpressionTests.cpp">
       <Filter>Source Code\Tests\Expressions\Expression</Filter>
     </ClCompile>
-    <ClCompile Include="StubTrackingExpressionTests.cpp">
-      <Filter>Source Code\Tests\Expressions\Expression</Filter>
-    </ClCompile>
     <ClCompile Include="StubDynamicExpressionTests.cpp">
       <Filter>Source Code\Tests\Expressions\Dynamic\DynamicExpression</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingExpressionTests.cpp">
+      <Filter>Source Code\Tests\Expressions\Expression</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

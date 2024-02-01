@@ -24,18 +24,25 @@ CmdCalculator::Expressions::DynamicExpressionBox<NumberT>::DynamicExpressionBox
 
 
 template<CmdCalculator::Arithmetic::RealNumber NumberT>
-inline bool CmdCalculator::Expressions::DynamicExpressionBox<NumberT>::isSimplifiable() const
+inline THIS_NUMBER_TYPE CmdCalculator::Expressions::DynamicExpressionBox<NumberT>::getEvaluation() const
 {
-	return m_innerValue->isSimplifiable();
+	return m_innerValue->getEvaluation();
 }
 
 
-template<CmdCalculator::Arithmetic::RealNumber NumberT>
+/*template<CmdCalculator::Arithmetic::RealNumber NumberT>
+inline bool CmdCalculator::Expressions::DynamicExpressionBox<NumberT>::isSimplifiable() const
+{
+	return m_innerValue->isSimplifiable();
+}*/
+
+
+/*template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline CmdCalculator::Expressions::DynamicExpressionBox<THIS_NUMBER_TYPENAME>
 	CmdCalculator::Expressions::DynamicExpressionBox<NumberT>::getFullSimplification() const
 {
 	return std::move(m_innerValue->getFullSimplification());
-}
+}*/
 
 
 #pragma pop_macro("THIS_NUMBER_TYPE")

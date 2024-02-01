@@ -3,6 +3,7 @@
 #include <string>
 
 #include "../CmdCalculatorTestDoubles/StubMathAstNode.h"
+#include "../CmdCalculatorTestDoubles/FakeRealNumber.h"
 #include "../CmdCalculatorTestDoubles/StubExpression.h"
 #include "../CmdCalculatorTestDoubles/StubMathAstToExpressionConverter.h"
 #include "../CmdCalculator/MathAstToExpressionConverter.h"
@@ -27,7 +28,14 @@ namespace CmdCalculatorTestDoubleTests
 
 	using StubMathAstToExpressionConverterWithTParamsTests_Types = testing::Types
 	<
-		StubMathAstToExpressionConverter_TParams<CmdCalculatorTestDoubles::MathAst::StubMathAstNode<std::string>, CmdCalculatorTestDoubles::Expressions::StubExpression>
+		StubMathAstToExpressionConverter_TParams
+		<
+			CmdCalculatorTestDoubles::MathAst::StubMathAstNode<std::string>,
+			CmdCalculatorTestDoubles::Expressions::StubExpression
+			<
+				CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber
+			>
+		>
 	>;
 
 	TYPED_TEST_CASE(StubMathAstToExpressionConverterWithTParamsTests, StubMathAstToExpressionConverterWithTParamsTests_Types);

@@ -103,6 +103,7 @@
     <ClInclude Include="StubCalculation.h" />
     <ClInclude Include="StubThrowingStringToAntlrContextConverter.h" />
     <ClInclude Include="StubTrackingDynamicExpressionNode.h" />
+    <ClInclude Include="StubTrackingExpression.h" />
     <ClInclude Include="StubTrackingFullExpressionAntlrContext.h" />
     <ClInclude Include="StubTrackingStringToAntlrContextConverter.h" />
     <ClInclude Include="StubTrackingConvertedString.h" />
@@ -114,7 +115,6 @@
     <ClInclude Include="StubStringToMathAstConverter.h" />
     <ClInclude Include="StubThrowingCalculation.h" />
     <ClInclude Include="StubThrowingRawCmdLineArgParser.h" />
-    <ClInclude Include="StubTrackingExpression.h" />
     <ClInclude Include="StubTrackingExpressionToStringConverter.h" />
     <ClInclude Include="StubTrackingMathAstNode.h" />
     <ClInclude Include="StubTrackingMathAstToExpressionConverter.h" />
