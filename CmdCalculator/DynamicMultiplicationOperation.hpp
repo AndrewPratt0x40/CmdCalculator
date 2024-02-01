@@ -15,10 +15,13 @@ inline CmdCalculator::Expressions::DynamicMultiplicationOperation<NumberT>::Dyna
 (
 	std::unique_ptr<DynamicExpression<NumberType>> multiplier,
 	std::unique_ptr<DynamicExpression<NumberType>> multiplicand
-)
-{
-	throw NotImplementedException{};
-}
+) :
+	CommonDynamicBinaryOperation<NumberType>
+	(
+		std::move(multiplier),
+		std::move(multiplicand)
+	)
+{}
 
 
 template<CmdCalculator::Arithmetic::RealNumber NumberT>
@@ -29,7 +32,7 @@ template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline CmdCalculator::Expressions::DynamicExpression<THIS_NUMBER_TYPENAME>&
 	CmdCalculator::Expressions::DynamicMultiplicationOperation<NumberT>::getMultiplier() const
 {
-	throw NotImplementedException{};
+	return CommonDynamicBinaryOperation<NumberType>::getLeftOperand();
 }
 
 
@@ -37,7 +40,7 @@ template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline CmdCalculator::Expressions::DynamicExpression<THIS_NUMBER_TYPENAME>&
 	CmdCalculator::Expressions::DynamicMultiplicationOperation<NumberT>::getMultiplicand() const
 {
-	throw NotImplementedException{};
+	return CommonDynamicBinaryOperation<NumberType>::getRightOperand();
 }
 
 
@@ -45,7 +48,7 @@ template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline THIS_NUMBER_TYPE
 	CmdCalculator::Expressions::DynamicMultiplicationOperation<NumberT>::getEvaluation() const
 {
-	throw NotImplementedException{};
+	return getMultiplier().getEvaluation() * getMultiplicand().getEvaluation();
 }
 
 
