@@ -49,6 +49,8 @@ namespace CmdCalculatorTestDoubles::Arithmetic
 		}
 
 
+#pragma region Operators
+
 		friend bool operator==(const FakeRealNumber& lhs, const FakeRealNumber& rhs)
 		{
 			return lhs.m_value == rhs.m_value;
@@ -201,5 +203,7 @@ namespace CmdCalculatorTestDoubles::Arithmetic
 		{
 			return FakeRealNumber{ std::abs(m_value) };
 		}
+
+#pragma endregion
 	};
 }

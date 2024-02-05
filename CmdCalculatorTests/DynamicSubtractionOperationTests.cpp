@@ -34,11 +34,20 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		using NumberType = CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber;
 		using OperandType = CmdCalculatorTestDoubles::Expressions::StubDynamicExpression<NumberType>;
+
 		OperandType minuend;
 		OperandType subtrahend;
 		double expectedMinuendEvaluation;
 		double expectedSubtrahendEvaluation;
 		double expectedEvaluation;
+
+		DynamicSubtractionOperation_TestData(const double minuend, const double subtrahend, const double evaluation) :
+			minuend{ DynamicSubtractionOperation_TestData::NumberType{ minuend } },
+			subtrahend{ DynamicSubtractionOperation_TestData::NumberType{ subtrahend } },
+			expectedMinuendEvaluation{ minuend },
+			expectedSubtrahendEvaluation{ subtrahend },
+			expectedEvaluation{ evaluation }
+		{}
 	};
 
 	class DynamicSubtractionOperationWithTestDataTests :
@@ -47,55 +56,47 @@ namespace CmdCalculatorTestDoubleTests
 
 	const DynamicSubtractionOperation_TestData DynamicSubtractionOperation_TestDataValues[]
 	{
-		{
-			.minuend{ DynamicSubtractionOperation_TestData::NumberType{ 0.0 } },
-			.subtrahend{ DynamicSubtractionOperation_TestData::NumberType{ 0.0 } },
-			.expectedMinuendEvaluation{ 0.0 },
-			.expectedSubtrahendEvaluation{ 0.0 },
-			.expectedEvaluation{ 0.0 }
-		},
-		{
-			.minuend{ DynamicSubtractionOperation_TestData::NumberType{ 1.0 } },
-			.subtrahend{ DynamicSubtractionOperation_TestData::NumberType{ 1.0 } },
-			.expectedMinuendEvaluation{ 1.0 },
-			.expectedSubtrahendEvaluation{ 1.0 },
-			.expectedEvaluation{ 0.0 }
-		},
-		{
-			.minuend{ DynamicSubtractionOperation_TestData::NumberType{ 12.34 } },
-			.subtrahend{ DynamicSubtractionOperation_TestData::NumberType{ 56.78 } },
-			.expectedMinuendEvaluation{ 12.34 },
-			.expectedSubtrahendEvaluation{ 56.78 },
-			.expectedEvaluation{ -44.44 }
-		},
-		{
-			.minuend{ DynamicSubtractionOperation_TestData::NumberType{ 56.78 } },
-			.subtrahend{ DynamicSubtractionOperation_TestData::NumberType{ 12.34 } },
-			.expectedMinuendEvaluation{ 56.78 },
-			.expectedSubtrahendEvaluation{ 12.34 },
-			.expectedEvaluation{ 44.44 }
-		},
-		{
-			.minuend{ DynamicSubtractionOperation_TestData::NumberType{ -12.34 } },
-			.subtrahend{ DynamicSubtractionOperation_TestData::NumberType{ 56.78 } },
-			.expectedMinuendEvaluation{ -12.34 },
-			.expectedSubtrahendEvaluation{ 56.78 },
-			.expectedEvaluation{ -69.12 }
-		},
-		{
-			.minuend{ DynamicSubtractionOperation_TestData::NumberType{ 12.34 } },
-			.subtrahend{ DynamicSubtractionOperation_TestData::NumberType{ -56.78 } },
-			.expectedMinuendEvaluation{ 12.34 },
-			.expectedSubtrahendEvaluation{ -56.78 },
-			.expectedEvaluation{ 69.12 }
-		},
-		{
-			.minuend{ DynamicSubtractionOperation_TestData::NumberType{ -12.34 } },
-			.subtrahend{ DynamicSubtractionOperation_TestData::NumberType{ -56.78 } },
-			.expectedMinuendEvaluation{ -12.34 },
-			.expectedSubtrahendEvaluation{ -56.78 },
-			.expectedEvaluation{ 44.44 }
-		}
+		DynamicSubtractionOperation_TestData{  0.0,  0.0,  0.0 },
+		DynamicSubtractionOperation_TestData{  0.0,  0.5, -0.5 },
+		DynamicSubtractionOperation_TestData{  0.0,  1.0, -1.0 },
+		DynamicSubtractionOperation_TestData{  0.0,  1.5, -1.5 },
+		DynamicSubtractionOperation_TestData{  0.0,  2.0, -2.0 },
+
+		DynamicSubtractionOperation_TestData{  0.5,  0.0,  0.5 },
+		DynamicSubtractionOperation_TestData{  0.5,  0.5,  0.0 },
+		DynamicSubtractionOperation_TestData{  0.5,  1.0, -0.5 },
+		DynamicSubtractionOperation_TestData{  0.5,  1.5, -1.0 },
+		DynamicSubtractionOperation_TestData{  0.5,  2.0, -1.5 },
+
+		DynamicSubtractionOperation_TestData{  1.0,  0.0,  1.0 },
+		DynamicSubtractionOperation_TestData{  1.0,  0.5,  0.5 },
+		DynamicSubtractionOperation_TestData{  1.0,  1.0,  0.0 },
+		DynamicSubtractionOperation_TestData{  1.0,  1.5, -0.5 },
+		DynamicSubtractionOperation_TestData{  1.0,  2.0, -1.0 },
+
+		DynamicSubtractionOperation_TestData{  1.5,  0.0,  1.5 },
+		DynamicSubtractionOperation_TestData{  1.5,  0.5,  1.0 },
+		DynamicSubtractionOperation_TestData{  1.5,  1.0,  0.5 },
+		DynamicSubtractionOperation_TestData{  1.5,  1.5,  0.0 },
+		DynamicSubtractionOperation_TestData{  1.5,  2.0, -0.5 },
+
+		DynamicSubtractionOperation_TestData{  2.0,  0.0,  2.0 },
+		DynamicSubtractionOperation_TestData{  2.0,  0.5,  1.5 },
+		DynamicSubtractionOperation_TestData{  2.0,  1.0,  1.0 },
+		DynamicSubtractionOperation_TestData{  2.0,  1.5,  0.5 },
+		DynamicSubtractionOperation_TestData{  2.0,  2.0,  0.0 },
+
+		DynamicSubtractionOperation_TestData{  12.34,  56.78, -44.44 },
+		DynamicSubtractionOperation_TestData{  56.78,  12.34,  44.44 },
+
+		DynamicSubtractionOperation_TestData{  12.34, -56.78,  69.12 },
+		DynamicSubtractionOperation_TestData{ -56.78,  12.34, -69.12 },
+
+		DynamicSubtractionOperation_TestData{ -12.34,  56.78, -69.12 },
+		DynamicSubtractionOperation_TestData{  56.78, -12.34,  69.12 },
+
+		DynamicSubtractionOperation_TestData{ -12.34, -56.78,  44.44 },
+		DynamicSubtractionOperation_TestData{ -56.78, -12.34, -44.44 }
 	};
 
 	INSTANTIATE_TEST_CASE_P

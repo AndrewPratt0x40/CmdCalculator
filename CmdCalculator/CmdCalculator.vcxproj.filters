@@ -244,6 +244,12 @@
     <Filter Include="Source Code\Expressions\Dynamic\CommonDynamicBinaryOperation">
       <UniqueIdentifier>{efabf42c-22d7-4bd5-8f0f-d97a5a682e99}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Exceptions\ExpressionEvaluationException">
+      <UniqueIdentifier>{9ad88c69-225f-4730-8f88-9d2648a95fdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\ExpressionEvaluationException\DivisionByZeroException">
+      <UniqueIdentifier>{6f199a57-0cf5-423e-b1c1-e2add6bad1a4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -537,6 +543,12 @@
     <ClInclude Include="CommonDynamicBinaryOperation.h">
       <Filter>Source Code\Expressions\Dynamic\CommonDynamicBinaryOperation</Filter>
     </ClInclude>
+    <ClInclude Include="DivisionByZeroException.h">
+      <Filter>Source Code\Exceptions\ExpressionEvaluationException\DivisionByZeroException</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressionEvaluationException.h">
+      <Filter>Source Code\Exceptions\ExpressionEvaluationException</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -670,6 +682,9 @@
     </ClCompile>
     <ClCompile Include="CommonDynamicBinaryOperation.hpp">
       <Filter>Source Code\Expressions\Dynamic\CommonDynamicBinaryOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="DivisionByZeroException.cpp">
+      <Filter>Source Code\Exceptions\ExpressionEvaluationException\DivisionByZeroException</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -36,11 +36,13 @@ namespace CmdCalculator::Expressions
 
 		/// \brief Accessor to the minuend of the operation.
 		/// \returns The operand that the subtrahend is to be subtracted from.
+		/// \example The minuend of the expression <tt>1-2<\tt> would be <tt>1</tt>.
 		DynamicExpression<NumberType>& getMinuend() const;
 
 
 		/// \brief Accessor to the subtrahend of the operation.
 		/// \returns The operand to be subtracted from the minuend.
+		/// \example The subtrahend of the expression <tt>1-2<\tt> would be <tt>2</tt>.
 		DynamicExpression<NumberType>& getSubtrahend() const;
 
 

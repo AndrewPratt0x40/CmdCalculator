@@ -36,11 +36,13 @@ namespace CmdCalculator::Expressions
 
 		/// \brief Accessor to the multiplier of the operation.
 		/// \returns The operand that the multiplicand is to be multiplied with.
+		/// \example The multiplier of the expression <tt>1*2<\tt> would be <tt>1</tt>.
 		DynamicExpression<NumberType>& getMultiplier() const;
 
 
 		/// \brief Accessor to the multiplicand of the operation.
 		/// \returns The operand to multiply with the multiplier.
+		/// \example The multiplicand of the expression <tt>1*2<\tt> would be <tt>2</tt>.
 		DynamicExpression<NumberType>& getMultiplicand() const;
 
 

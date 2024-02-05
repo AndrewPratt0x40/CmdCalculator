@@ -34,11 +34,20 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		using NumberType = CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber;
 		using OperandType = CmdCalculatorTestDoubles::Expressions::StubDynamicExpression<NumberType>;
+
 		OperandType multiplier;
 		OperandType multiplicand;
 		double expectedMultiplierEvaluation;
 		double expectedMultiplicandEvaluation;
 		double expectedEvaluation;
+
+		DynamicMultiplicationOperation_TestData(const double multiplier, const double multiplicand, const double evaluation) :
+			multiplier{ DynamicMultiplicationOperation_TestData::NumberType{ multiplier } },
+			multiplicand{ DynamicMultiplicationOperation_TestData::NumberType{ multiplicand } },
+			expectedMultiplierEvaluation{ multiplier },
+			expectedMultiplicandEvaluation{ multiplicand },
+			expectedEvaluation{ evaluation }
+		{}
 	};
 
 	class DynamicMultiplicationOperationWithTestDataTests :
@@ -47,55 +56,47 @@ namespace CmdCalculatorTestDoubleTests
 
 	const DynamicMultiplicationOperation_TestData DynamicMultiplicationOperation_TestDataValues[]
 	{
-		{
-			.multiplier{ DynamicMultiplicationOperation_TestData::NumberType{ 0.0 } },
-			.multiplicand{ DynamicMultiplicationOperation_TestData::NumberType{ 0.0 } },
-			.expectedMultiplierEvaluation{ 0.0 },
-			.expectedMultiplicandEvaluation{ 0.0 },
-			.expectedEvaluation{ 0.0 }
-		},
-		{
-			.multiplier{ DynamicMultiplicationOperation_TestData::NumberType{ 1.0 } },
-			.multiplicand{ DynamicMultiplicationOperation_TestData::NumberType{ 1.0 } },
-			.expectedMultiplierEvaluation{ 1.0 },
-			.expectedMultiplicandEvaluation{ 1.0 },
-			.expectedEvaluation{ 1.0 }
-		},
-		{
-			.multiplier{ DynamicMultiplicationOperation_TestData::NumberType{ 12.34 } },
-			.multiplicand{ DynamicMultiplicationOperation_TestData::NumberType{ 56.78 } },
-			.expectedMultiplierEvaluation{ 12.34 },
-			.expectedMultiplicandEvaluation{ 56.78 },
-			.expectedEvaluation{ 700.6652 }
-		},
-		{
-			.multiplier{ DynamicMultiplicationOperation_TestData::NumberType{ 56.78 } },
-			.multiplicand{ DynamicMultiplicationOperation_TestData::NumberType{ 12.34 } },
-			.expectedMultiplierEvaluation{ 56.78 },
-			.expectedMultiplicandEvaluation{ 12.34 },
-			.expectedEvaluation{ 700.6652 }
-		},
-		{
-			.multiplier{ DynamicMultiplicationOperation_TestData::NumberType{ -12.34 } },
-			.multiplicand{ DynamicMultiplicationOperation_TestData::NumberType{ 56.78 } },
-			.expectedMultiplierEvaluation{ -12.34 },
-			.expectedMultiplicandEvaluation{ 56.78 },
-			.expectedEvaluation{ -700.6652 }
-		},
-		{
-			.multiplier{ DynamicMultiplicationOperation_TestData::NumberType{ 12.34 } },
-			.multiplicand{ DynamicMultiplicationOperation_TestData::NumberType{ -56.78 } },
-			.expectedMultiplierEvaluation{ 12.34 },
-			.expectedMultiplicandEvaluation{ -56.78 },
-			.expectedEvaluation{ -700.6652 }
-		},
-		{
-			.multiplier{ DynamicMultiplicationOperation_TestData::NumberType{ -12.34 } },
-			.multiplicand{ DynamicMultiplicationOperation_TestData::NumberType{ -56.78 } },
-			.expectedMultiplierEvaluation{ -12.34 },
-			.expectedMultiplicandEvaluation{ -56.78 },
-			.expectedEvaluation{ 700.6652 }
-		}
+		DynamicMultiplicationOperation_TestData{  0.0,  0.0,  0.00 },
+		DynamicMultiplicationOperation_TestData{  0.0,  0.5,  0.00 },
+		DynamicMultiplicationOperation_TestData{  0.0,  1.0,  0.00 },
+		DynamicMultiplicationOperation_TestData{  0.0,  1.5,  0.00 },
+		DynamicMultiplicationOperation_TestData{  0.0,  2.0,  0.00 },
+
+		DynamicMultiplicationOperation_TestData{  0.5,  0.0,  0.00 },
+		DynamicMultiplicationOperation_TestData{  0.5,  0.5,  0.25 },
+		DynamicMultiplicationOperation_TestData{  0.5,  1.0,  0.50 },
+		DynamicMultiplicationOperation_TestData{  0.5,  1.5,  0.75 },
+		DynamicMultiplicationOperation_TestData{  0.5,  2.0,  1.00 },
+
+		DynamicMultiplicationOperation_TestData{  1.0,  0.0,  0.00 },
+		DynamicMultiplicationOperation_TestData{  1.0,  0.5,  0.50 },
+		DynamicMultiplicationOperation_TestData{  1.0,  1.0,  1.00 },
+		DynamicMultiplicationOperation_TestData{  1.0,  1.5,  1.50 },
+		DynamicMultiplicationOperation_TestData{  1.0,  2.0,  2.00 },
+
+		DynamicMultiplicationOperation_TestData{  1.5,  0.0,  0.00 },
+		DynamicMultiplicationOperation_TestData{  1.5,  0.5,  0.75 },
+		DynamicMultiplicationOperation_TestData{  1.5,  1.0,  1.50 },
+		DynamicMultiplicationOperation_TestData{  1.5,  1.5,  2.25 },
+		DynamicMultiplicationOperation_TestData{  1.5,  2.0,  3.00 },
+
+		DynamicMultiplicationOperation_TestData{  2.0,  0.0,  0.00 },
+		DynamicMultiplicationOperation_TestData{  2.0,  0.5,  1.00 },
+		DynamicMultiplicationOperation_TestData{  2.0,  1.0,  2.00 },
+		DynamicMultiplicationOperation_TestData{  2.0,  1.5,  3.00 },
+		DynamicMultiplicationOperation_TestData{  2.0,  2.0,  4.00 },
+
+		DynamicMultiplicationOperation_TestData{  12.34,  56.78,  700.6652 },
+		DynamicMultiplicationOperation_TestData{  56.78,  12.34,  700.6652 },
+
+		DynamicMultiplicationOperation_TestData{  12.34, -56.78, -700.6652 },
+		DynamicMultiplicationOperation_TestData{ -56.78,  12.34, -700.6652 },
+
+		DynamicMultiplicationOperation_TestData{ -12.34,  56.78, -700.6652 },
+		DynamicMultiplicationOperation_TestData{  56.78, -12.34, -700.6652 },
+
+		DynamicMultiplicationOperation_TestData{ -12.34, -56.78,  700.6652 },
+		DynamicMultiplicationOperation_TestData{ -56.78, -12.34,  700.6652 }
 	};
 
 	INSTANTIATE_TEST_CASE_P

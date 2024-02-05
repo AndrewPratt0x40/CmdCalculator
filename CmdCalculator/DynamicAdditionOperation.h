@@ -37,11 +37,13 @@ namespace CmdCalculator::Expressions
 
 		/// \brief Accessor to the augend of the operation.
 		/// \returns The operand that the addend is to be added to.
+		/// \example The augend of the expression <tt>1+2<\tt> would be <tt>1</tt>.
 		DynamicExpression<NumberType>& getAugend() const;
 
 
 		/// \brief Accessor to the addend of the operation.
 		/// \returns The operand to be added to the augend.
+		/// \example The addend of the expression <tt>1+2<\tt> would be <tt>2</tt>.
 		DynamicExpression<NumberType>& getAddend() const;
 
 

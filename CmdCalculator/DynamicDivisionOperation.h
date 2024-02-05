@@ -1,6 +1,6 @@
 #pragma once
 
-#include "DynamicExpression.h"
+#include "CommonDynamicBinaryOperation.h"
 #include "RealNumber.h"
 
 #include <concepts>
@@ -13,11 +13,12 @@ namespace CmdCalculator::Expressions
 	/// \tparam NumberT The type to use for numbers.
 	template<Arithmetic::RealNumber NumberT>
 	class DynamicDivisionOperation :
-		public DynamicExpression<NumberT>
+		public CommonDynamicBinaryOperation<NumberT>,
+		public Expression_IntendedSatisfaction
 	{
 	public:
 
-		using NumberType = DynamicExpression<NumberT>::NumberType;
+		using NumberType = CommonDynamicBinaryOperation<NumberT>::NumberType;
 
 
 		/// \brief Creates a new instance of the \ref DynamicDivisionOperation class.
@@ -35,11 +36,13 @@ namespace CmdCalculator::Expressions
 
 		/// \brief Accessor to the dividend of the operation.
 		/// \returns The operand to divide by the divisor.
+		/// \example The dividend of the expression <tt>1/2<\tt> would be <tt>1</tt>.
 		DynamicExpression<NumberType>& getDividend() const;
 
 
 		/// \brief Accessor to the divisor of the operation.
 		/// \returns The operand that the dividend is to be divided by.
+		/// \example The divisor of the expression <tt>1/2<\tt> would be <tt>2</tt>.
 		DynamicExpression<NumberType>& getDivisor() const;
 
 

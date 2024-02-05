@@ -92,6 +92,7 @@
     <ClInclude Include="AntlrToken.h" />
     <ClInclude Include="BadRawCmdLineArgsException.h" />
     <ClInclude Include="CommonDynamicBinaryOperation.h" />
+    <ClInclude Include="DivisionByZeroException.h" />
     <ClInclude Include="DynamicAbsoluteValueOperation.h" />
     <ClInclude Include="DynamicAdditionOperation.h" />
     <ClInclude Include="DynamicAdditionOperation.hpp" />
@@ -109,6 +110,7 @@
     <ClInclude Include="DynamicSubtractionOperation.hpp" />
     <ClInclude Include="EmptyInputExpressionException.h" />
     <ClInclude Include="ESign.h" />
+    <ClInclude Include="ExpressionEvaluationException.h" />
     <ClInclude Include="RealNumber.h" />
     <ClInclude Include="TrueAbsoluteValueOperationAntlrContextView.h" />
     <ClInclude Include="TrueAntlrTokenView.h" />
@@ -186,6 +188,7 @@
   <ItemGroup>
     <ClCompile Include="AntlrInvokingStringToAntlrContextConverter.cpp" />
     <ClCompile Include="CommonDynamicBinaryOperation.hpp" />
+    <ClCompile Include="DivisionByZeroException.cpp" />
     <ClCompile Include="DynamicAbsoluteValueOperation.hpp" />
     <ClCompile Include="DynamicExponentiationOperation.hpp" />
     <ClCompile Include="DynamicExpressionBox.hpp" />

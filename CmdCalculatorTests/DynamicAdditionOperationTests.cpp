@@ -34,11 +34,20 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		using NumberType = CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber;
 		using OperandType = CmdCalculatorTestDoubles::Expressions::StubDynamicExpression<NumberType>;
+
 		OperandType augend;
 		OperandType addend;
 		double expectedAugendEvaluation;
 		double expectedAddendEvaluation;
 		double expectedEvaluation;
+
+		DynamicAdditionOperation_TestData(const double augend, const double addend, const double evaluation) :
+			augend{ DynamicAdditionOperation_TestData::NumberType{ augend } },
+			addend{ DynamicAdditionOperation_TestData::NumberType{ addend } },
+			expectedAugendEvaluation{ augend },
+			expectedAddendEvaluation{ addend },
+			expectedEvaluation{ evaluation }
+		{}
 	};
 
 	class DynamicAdditionOperationWithTestDataTests :
@@ -47,55 +56,47 @@ namespace CmdCalculatorTestDoubleTests
 
 	const DynamicAdditionOperation_TestData DynamicAdditionOperation_TestDataValues[]
 	{
-		{
-			.augend{ DynamicAdditionOperation_TestData::NumberType{ 0.0 } },
-			.addend{ DynamicAdditionOperation_TestData::NumberType{ 0.0 } },
-			.expectedAugendEvaluation{ 0.0 },
-			.expectedAddendEvaluation{ 0.0 },
-			.expectedEvaluation{ 0.0 }
-		},
-		{
-			.augend{ DynamicAdditionOperation_TestData::NumberType{ 1.0 } },
-			.addend{ DynamicAdditionOperation_TestData::NumberType{ 1.0 } },
-			.expectedAugendEvaluation{ 1.0 },
-			.expectedAddendEvaluation{ 1.0 },
-			.expectedEvaluation{ 2.0 }
-		},
-		{
-			.augend{ DynamicAdditionOperation_TestData::NumberType{ 12.34 } },
-			.addend{ DynamicAdditionOperation_TestData::NumberType{ 56.78 } },
-			.expectedAugendEvaluation{ 12.34 },
-			.expectedAddendEvaluation{ 56.78 },
-			.expectedEvaluation{ 69.12 }
-		},
-		{
-			.augend{ DynamicAdditionOperation_TestData::NumberType{ 56.78 } },
-			.addend{ DynamicAdditionOperation_TestData::NumberType{ 12.34 } },
-			.expectedAugendEvaluation{ 56.78 },
-			.expectedAddendEvaluation{ 12.34 },
-			.expectedEvaluation{ 69.12 }
-		},
-		{
-			.augend{ DynamicAdditionOperation_TestData::NumberType{ -12.34 } },
-			.addend{ DynamicAdditionOperation_TestData::NumberType{ 56.78 } },
-			.expectedAugendEvaluation{ -12.34 },
-			.expectedAddendEvaluation{ 56.78 },
-			.expectedEvaluation{ 44.44 }
-		},
-		{
-			.augend{ DynamicAdditionOperation_TestData::NumberType{ 12.34 } },
-			.addend{ DynamicAdditionOperation_TestData::NumberType{ -56.78 } },
-			.expectedAugendEvaluation{ 12.34 },
-			.expectedAddendEvaluation{ -56.78 },
-			.expectedEvaluation{ -44.44 }
-		},
-		{
-			.augend{ DynamicAdditionOperation_TestData::NumberType{ -12.34 } },
-			.addend{ DynamicAdditionOperation_TestData::NumberType{ -56.78 } },
-			.expectedAugendEvaluation{ -12.34 },
-			.expectedAddendEvaluation{ -56.78 },
-			.expectedEvaluation{ -69.12 }
-		}
+		DynamicAdditionOperation_TestData{  0.0,  0.0,  0.0 },
+		DynamicAdditionOperation_TestData{  0.0,  0.5,  0.5 },
+		DynamicAdditionOperation_TestData{  0.0,  1.0,  1.0 },
+		DynamicAdditionOperation_TestData{  0.0,  1.5,  1.5 },
+		DynamicAdditionOperation_TestData{  0.0,  2.0,  2.0 },
+
+		DynamicAdditionOperation_TestData{  0.5,  0.0,  0.5 },
+		DynamicAdditionOperation_TestData{  0.5,  0.5,  1.0 },
+		DynamicAdditionOperation_TestData{  0.5,  1.0,  1.5 },
+		DynamicAdditionOperation_TestData{  0.5,  1.5,  2.0 },
+		DynamicAdditionOperation_TestData{  0.5,  2.0,  2.5 },
+
+		DynamicAdditionOperation_TestData{  1.0,  0.0,  1.0 },
+		DynamicAdditionOperation_TestData{  1.0,  0.5,  1.5 },
+		DynamicAdditionOperation_TestData{  1.0,  1.0,  2.0 },
+		DynamicAdditionOperation_TestData{  1.0,  1.5,  2.5 },
+		DynamicAdditionOperation_TestData{  1.0,  2.0,  3.0 },
+
+		DynamicAdditionOperation_TestData{  1.5,  0.0,  1.5 },
+		DynamicAdditionOperation_TestData{  1.5,  0.5,  2.0 },
+		DynamicAdditionOperation_TestData{  1.5,  1.0,  2.5 },
+		DynamicAdditionOperation_TestData{  1.5,  1.5,  3.0 },
+		DynamicAdditionOperation_TestData{  1.5,  2.0,  3.5 },
+
+		DynamicAdditionOperation_TestData{  2.0,  0.0,  2.0 },
+		DynamicAdditionOperation_TestData{  2.0,  0.5,  2.5 },
+		DynamicAdditionOperation_TestData{  2.0,  1.0,  3.0 },
+		DynamicAdditionOperation_TestData{  2.0,  1.5,  3.5 },
+		DynamicAdditionOperation_TestData{  2.0,  2.0,  4.0 },
+
+		DynamicAdditionOperation_TestData{  12.34,  56.78,  69.12 },
+		DynamicAdditionOperation_TestData{  56.78,  12.34,  69.12 },
+
+		DynamicAdditionOperation_TestData{  12.34, -56.78, -44.44 },
+		DynamicAdditionOperation_TestData{ -56.78,  12.34, -44.44 },
+
+		DynamicAdditionOperation_TestData{ -12.34,  56.78,  44.44},
+		DynamicAdditionOperation_TestData{  56.78, -12.34,  44.44},
+
+		DynamicAdditionOperation_TestData{ -12.34, -56.78, -69.12},
+		DynamicAdditionOperation_TestData{ -56.78, -12.34, -69.12}
 	};
 
 	INSTANTIATE_TEST_CASE_P

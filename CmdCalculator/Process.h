@@ -14,6 +14,7 @@
 #include "strings.h"
 #include "ProcessConfiguration.h"
 #include "Console.h"
+#include "RealNumber.h"
 #include "RawCmdLineArgParser.h"
 #include "StringToMathAstConverter.h"
 #include "MathAstToExpressionConverter.h"
@@ -23,6 +24,8 @@
 #include "InvalidInputExpressionException.h"
 #include "EmptyInputExpressionException.h"
 #include "UnexpectedInputExpressionCharException.h"
+#include "ExpressionEvaluationException.h"
+#include "DivisionByZeroException.h"
 
 using namespace std::string_literals;
 using namespace std::string_view_literals;
@@ -294,7 +297,7 @@ namespace CmdCalculator
 
 			bool shouldRepromptOnFailure{};
 
-			// TODO: Error message generation should be handled by a seperate component.
+			// TODO: Error message generation should be handled by a separate component.
 			try
 			{
 				OutputExpressionT outputExpression{ calculation.getOutputExpression() };
@@ -448,6 +451,29 @@ namespace CmdCalculator
 				(
 					console,
 					"Expression is invalid for unknown reasons."s,
+					EWriteMode::Error
+				);
+				shouldRepromptOnFailure = true;
+			}
+			catch (const DivisionByZeroException& exception)
+			{
+				writeLineToConsole
+				(
+					console,
+					std::format
+					(
+						"Attempted to divide {} by zero while evaluating expression.",
+						exception.getDividend()
+					),
+					EWriteMode::Error
+				);
+			}
+			catch (const ExpressionEvaluationException&)
+			{
+				writeLineToConsole
+				(
+					console,
+					"An unknown error occurred while evaluating the expression."s,
 					EWriteMode::Error
 				);
 				shouldRepromptOnFailure = true;
