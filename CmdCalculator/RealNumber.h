@@ -34,6 +34,7 @@ namespace CmdCalculator::Arithmetic
 			{ instance-- } -> std::same_as<T>;
 			{ instance.getSign() } -> std::same_as<ESign>;
 			{ instance.getAbsoluteValue() } -> std::same_as<T>;
+			{ instance.getWholePart() } -> std::same_as<T>;
 		}
 		&& requires(T&& instance, T&& operand)
 		{

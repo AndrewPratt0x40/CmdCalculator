@@ -498,9 +498,6 @@
     <ClInclude Include="DynamicNumber.h">
       <Filter>Source Code\Expressions\Dynamic\DynamicNumber</Filter>
     </ClInclude>
-    <ClInclude Include="RealNumber.h">
-      <Filter>Source Code\Arithmetic</Filter>
-    </ClInclude>
     <ClInclude Include="DynamicNegationOperation.h">
       <Filter>Source Code\Expressions\Dynamic\DynamicNegationOperation</Filter>
     </ClInclude>
@@ -548,6 +545,9 @@
     </ClInclude>
     <ClInclude Include="ExpressionEvaluationException.h">
       <Filter>Source Code\Exceptions\ExpressionEvaluationException</Filter>
+    </ClInclude>
+    <ClInclude Include="RealNumber.h">
+      <Filter>Source Code\Arithmetic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -15,10 +15,13 @@ inline CmdCalculator::Expressions::DynamicExponentiationOperation<NumberT>::Dyna
 (
 	std::unique_ptr<DynamicExpression<NumberType>> base,
 	std::unique_ptr<DynamicExpression<NumberType>> exponent
-)
-{
-	throw NotImplementedException{};
-}
+) :
+	CommonDynamicBinaryOperation<NumberType>
+	(
+		std::move(base),
+		std::move(exponent)
+	)
+{}
 
 
 template<CmdCalculator::Arithmetic::RealNumber NumberT>
@@ -29,7 +32,7 @@ template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline CmdCalculator::Expressions::DynamicExpression<THIS_NUMBER_TYPENAME>&
 	CmdCalculator::Expressions::DynamicExponentiationOperation<NumberT>::getBase() const
 {
-	throw NotImplementedException{};
+	return CommonDynamicBinaryOperation<NumberType>::getLeftOperand();
 }
 
 
@@ -37,7 +40,7 @@ template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline CmdCalculator::Expressions::DynamicExpression<THIS_NUMBER_TYPENAME>&
 	CmdCalculator::Expressions::DynamicExponentiationOperation<NumberT>::getExponent() const
 {
-	throw NotImplementedException{};
+	return CommonDynamicBinaryOperation<NumberType>::getRightOperand();
 }
 
 
@@ -45,7 +48,10 @@ template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline THIS_NUMBER_TYPE
 	CmdCalculator::Expressions::DynamicExponentiationOperation<NumberT>::getEvaluation() const
 {
-	throw NotImplementedException{};
+	const auto exponentEvaluation{ getExponent().getEvaluation() };
+	assert(exponentEvaluation.getSign() != Arithmetic::ESign::Negative);
+	assert(exponentEvaluation == exponentEvaluation.getWholePart());
+	return getBase().getEvaluation().pow(exponentEvaluation);
 }
 
 

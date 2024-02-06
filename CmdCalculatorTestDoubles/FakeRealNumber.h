@@ -217,6 +217,12 @@ namespace CmdCalculatorTestDoubles::Arithmetic
 			return FakeRealNumber{ std::abs(m_value) };
 		}
 
+
+		FakeRealNumber getWholePart() const
+		{
+			return FakeRealNumber{ std::trunc(m_value) };
+		}
+
 #pragma endregion
 	};
 }

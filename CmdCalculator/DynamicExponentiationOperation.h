@@ -1,7 +1,7 @@
 #pragma once
 #pragma once
 
-#include "DynamicExpression.h"
+#include "CommonDynamicBinaryOperation.h"
 #include "RealNumber.h"
 
 #include <concepts>
@@ -14,13 +14,15 @@ namespace CmdCalculator::Expressions
 	/// \tparam NumberT The type to use for numbers.
 	template<Arithmetic::RealNumber NumberT>
 	class DynamicExponentiationOperation :
-		public DynamicExpression<NumberT>
+		public CommonDynamicBinaryOperation<NumberT>,
+		public Expression_IntendedSatisfaction
 	{
 	public:
 
 		using NumberType = DynamicExpression<NumberT>::NumberType;
 
 
+		// TODO: Take a whole number (non-negative integer) for the exponent instead of any real number.
 		/// \brief Creates a new instance of the \ref DynamicExponentiationOperation class.
 		/// \param base The operand to be raised by the exponent.
 		/// \param exponent The operand that the base is raised by.
