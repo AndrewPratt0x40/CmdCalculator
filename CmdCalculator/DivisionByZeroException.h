@@ -23,6 +23,11 @@ namespace CmdCalculator
 
 		/// \brief Creates a new instance of the \ref DivisionByZeroException class.
 		/// \param dividend The dividend that attempted to divide by zero represented as a string.
+		DivisionByZeroException(std::string&& dividend);
+		
+		
+		/// \brief Creates a new instance of the \ref DivisionByZeroException class.
+		/// \param dividend The dividend that attempted to divide by zero represented as a string.
 		DivisionByZeroException(std::string_view dividend);
 
 

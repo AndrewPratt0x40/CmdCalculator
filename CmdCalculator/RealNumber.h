@@ -3,6 +3,7 @@
 #include <concepts>
 
 #include "ESign.h"
+#include "strings.h"
 #include "utilities.h"
 
 
@@ -20,8 +21,13 @@ namespace CmdCalculator::Arithmetic
 		IntendsToSatisfy<T, RealNumber_IntendedSatisfaction>
 		&& std::copyable<T>
 		&& std::totally_ordered<T>
+		&& requires()
+		{
+			{ T::getZero() } -> std::same_as<T>;
+		}
 		&& requires(T&& instance)
 		{
+			{ instance.getStringRepresentation() } -> String;
 			{ ++instance } -> std::same_as<T&>;
 			{ instance++ } -> std::same_as<T>;
 			{ --instance } -> std::same_as<T&>;

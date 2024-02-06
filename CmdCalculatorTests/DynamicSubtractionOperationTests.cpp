@@ -7,7 +7,7 @@
 #include "../CmdCalculatorTestDoubles/StubDynamicExpression.h"
 #include "../CmdCalculatorTestDoubles/FakeRealNumber.h"
 
-namespace CmdCalculatorTestDoubleTests
+namespace CmdCalculatorTests
 {
 #pragma region Concept satisfaction
 
@@ -48,6 +48,26 @@ namespace CmdCalculatorTestDoubleTests
 			expectedSubtrahendEvaluation{ subtrahend },
 			expectedEvaluation{ evaluation }
 		{}
+
+
+		friend std::ostream& operator<<(std::ostream & ostream, const DynamicSubtractionOperation_TestData & testData)
+		{
+			ostream
+				<< '['
+				<< testData.minuend.evaluation.FAKE_getValue()
+				<< " - "
+				<< testData.subtrahend.evaluation.FAKE_getValue()
+				<< " == {"
+				<< testData.expectedMinuendEvaluation
+				<< '-'
+				<< testData.expectedSubtrahendEvaluation
+				<< '='
+				<< testData.expectedEvaluation
+				<< "}]"
+			;
+
+			return ostream;
+		}
 	};
 
 	class DynamicSubtractionOperationWithTestDataTests :
@@ -132,9 +152,9 @@ namespace CmdCalculatorTestDoubleTests
 		};
 
 		// Assert
-		EXPECT_EQ(expectedMinuendEvaluation, instance.getMinuend().getEvaluation().FAKE_getValue());
-		EXPECT_EQ(expectedSubtrahendEvaluation, instance.getSubtrahend().getEvaluation().FAKE_getValue());
-		EXPECT_EQ(expectedEvaluation, instance.getEvaluation().FAKE_getValue());
+		EXPECT_DOUBLE_EQ(expectedMinuendEvaluation, instance.getMinuend().getEvaluation().FAKE_getValue());
+		EXPECT_DOUBLE_EQ(expectedSubtrahendEvaluation, instance.getSubtrahend().getEvaluation().FAKE_getValue());
+		EXPECT_DOUBLE_EQ(expectedEvaluation, instance.getEvaluation().FAKE_getValue());
 	}
 
 #pragma endregion

@@ -2,6 +2,7 @@
 
 #include <concepts>
 #include <cmath>
+#include <string>
 
 #include "../CmdCalculator/RealNumber.h"
 #include "../CmdCalculator/std_polyfills.h"
@@ -37,6 +38,18 @@ namespace CmdCalculatorTestDoubles::Arithmetic
 		}
 
 
+		static FakeRealNumber getZero()
+		{
+			return FakeRealNumber{ 0.0 };
+		}
+
+
+		std::string getStringRepresentation() const
+		{
+			return std::to_string(m_value);
+		}
+
+
 		CmdCalculator::Arithmetic::ESign getSign() const
 		{
 			if (m_value == 0)
@@ -49,7 +62,7 @@ namespace CmdCalculatorTestDoubles::Arithmetic
 		}
 
 
-#pragma region Operators
+#pragma region Operations
 
 		friend bool operator==(const FakeRealNumber& lhs, const FakeRealNumber& rhs)
 		{

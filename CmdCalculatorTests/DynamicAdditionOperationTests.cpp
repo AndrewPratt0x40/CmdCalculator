@@ -7,7 +7,7 @@
 #include "../CmdCalculatorTestDoubles/StubDynamicExpression.h"
 #include "../CmdCalculatorTestDoubles/FakeRealNumber.h"
 
-namespace CmdCalculatorTestDoubleTests
+namespace CmdCalculatorTests
 {
 #pragma region Concept satisfaction
 
@@ -48,6 +48,26 @@ namespace CmdCalculatorTestDoubleTests
 			expectedAddendEvaluation{ addend },
 			expectedEvaluation{ evaluation }
 		{}
+
+
+		friend std::ostream& operator<<(std::ostream & ostream, const DynamicAdditionOperation_TestData & testData)
+		{
+			ostream
+				<< '['
+				<< testData.augend.evaluation.FAKE_getValue()
+				<< " + "
+				<< testData.addend.evaluation.FAKE_getValue()
+				<< " == {"
+				<< testData.expectedAugendEvaluation
+				<< '+'
+				<< testData.expectedAddendEvaluation
+				<< '='
+				<< testData.expectedEvaluation
+				<< "}]"
+			;
+
+			return ostream;
+		}
 	};
 
 	class DynamicAdditionOperationWithTestDataTests :
@@ -132,9 +152,9 @@ namespace CmdCalculatorTestDoubleTests
 		};
 
 		// Assert
-		EXPECT_EQ(expectedAugendEvaluation, instance.getAugend().getEvaluation().FAKE_getValue());
-		EXPECT_EQ(expectedAddendEvaluation, instance.getAddend().getEvaluation().FAKE_getValue());
-		EXPECT_EQ(expectedEvaluation, instance.getEvaluation().FAKE_getValue());
+		EXPECT_DOUBLE_EQ(expectedAugendEvaluation, instance.getAugend().getEvaluation().FAKE_getValue());
+		EXPECT_DOUBLE_EQ(expectedAddendEvaluation, instance.getAddend().getEvaluation().FAKE_getValue());
+		EXPECT_DOUBLE_EQ(expectedEvaluation, instance.getEvaluation().FAKE_getValue());
 	}
 
 #pragma endregion

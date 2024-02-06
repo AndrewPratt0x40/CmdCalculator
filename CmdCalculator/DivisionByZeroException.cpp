@@ -1,6 +1,11 @@
 #include "DivisionByZeroException.h"
 
 
+CmdCalculator::DivisionByZeroException::DivisionByZeroException(std::string&& dividend) :
+	m_dividend{ std::move(dividend) }
+{}
+
+
 CmdCalculator::DivisionByZeroException::DivisionByZeroException(std::string_view dividend) :
 	m_dividend{ dividend }
 {}

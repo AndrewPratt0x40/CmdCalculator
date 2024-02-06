@@ -1,13 +1,15 @@
 #include "pch.h"
 
 #include <string>
+#include <iostream>
 
 #include "../CmdCalculator/DynamicDivisionOperation.h"
 #include "../CmdCalculator/Expression.h"
+#include "../CmdCalculator/DivisionByZeroException.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpression.h"
 #include "../CmdCalculatorTestDoubles/FakeRealNumber.h"
 
-namespace CmdCalculatorTestDoubleTests
+namespace CmdCalculatorTests
 {
 #pragma region Concept satisfaction
 
@@ -48,6 +50,26 @@ namespace CmdCalculatorTestDoubleTests
 			expectedDivisorEvaluation{ divisor },
 			expectedEvaluation{ evaluation }
 		{}
+
+
+		friend std::ostream& operator<<(std::ostream& ostream, const DynamicDivisionOperation_TestData& testData)
+		{
+			ostream
+				<< '['
+				<< testData.dividend.evaluation.FAKE_getValue()
+				<< " / "
+				<< testData.divisor.evaluation.FAKE_getValue()
+				<< " == {"
+				<< testData.expectedDividendEvaluation
+				<< '/'
+				<< testData.expectedDivisorEvaluation
+				<< '='
+				<< testData.expectedEvaluation
+				<< "}]"
+			;
+
+			return ostream;
+		}
 	};
 
 	class DynamicDivisionOperationWithTestDataTests :
@@ -65,13 +87,13 @@ namespace CmdCalculatorTestDoubleTests
 		//DynamicDivisionOperation_TestData{  0.5,  0.0,  NaN  },
 		DynamicDivisionOperation_TestData{  0.5,  0.5,  1.00 },
 		DynamicDivisionOperation_TestData{  0.5,  1.0,  0.50 },
-		DynamicDivisionOperation_TestData{  0.5,  1.5,  1./3 },
+		DynamicDivisionOperation_TestData{  0.5,  1.5,  0.33333333333333333 },
 		DynamicDivisionOperation_TestData{  0.5,  2.0,  0.25 },
 
 		//DynamicDivisionOperation_TestData{  1.0,  0.0,  NaN  },
 		DynamicDivisionOperation_TestData{  1.0,  0.5,  2.00 },
 		DynamicDivisionOperation_TestData{  1.0,  1.0,  1.00 },
-		DynamicDivisionOperation_TestData{  1.0,  1.5,  2./3 },
+		DynamicDivisionOperation_TestData{  1.0,  1.5,  0.66666666666666666 },
 		DynamicDivisionOperation_TestData{  1.0,  2.0,  0.50 },
 
 		//DynamicDivisionOperation_TestData{  1.5,  0.0,  NaN  },
@@ -83,20 +105,20 @@ namespace CmdCalculatorTestDoubleTests
 		//DynamicDivisionOperation_TestData{  2.0,  0.0,  NaN  },
 		DynamicDivisionOperation_TestData{  2.0,  0.5,  4.00 },
 		DynamicDivisionOperation_TestData{  2.0,  1.0,  2.00 },
-		DynamicDivisionOperation_TestData{  2.0,  1.5,  4./3 },
+		DynamicDivisionOperation_TestData{  2.0,  1.5,  1.33333333333333333 },
 		DynamicDivisionOperation_TestData{  2.0,  2.0,  1.0 },
 
-		DynamicDivisionOperation_TestData{  12.34,  56.78,  0.217330045791 },
-		DynamicDivisionOperation_TestData{  56.78,  12.34,  4.60129659643 },
+		DynamicDivisionOperation_TestData{  12.34,  56.78,  0.21733004579077139 },
+		DynamicDivisionOperation_TestData{  56.78,  12.34,  4.60129659643435980 },
 
-		DynamicDivisionOperation_TestData{  12.34, -56.78, -0.217330045791 },
-		DynamicDivisionOperation_TestData{ -56.78,  12.34, -4.60129659643 },
+		DynamicDivisionOperation_TestData{  12.34, -56.78, -0.21733004579077139 },
+		DynamicDivisionOperation_TestData{ -56.78,  12.34, -4.60129659643435980 },
 
-		DynamicDivisionOperation_TestData{ -12.34,  56.78, -0.217330045791 },
-		DynamicDivisionOperation_TestData{  56.78, -12.34, -4.60129659643 },
+		DynamicDivisionOperation_TestData{ -12.34,  56.78, -0.21733004579077139 },
+		DynamicDivisionOperation_TestData{  56.78, -12.34, -4.60129659643435980 },
 
-		DynamicDivisionOperation_TestData{ -12.34, -56.78,  0.217330045791 },
-		DynamicDivisionOperation_TestData{ -56.78, -12.34,  4.60129659643 },
+		DynamicDivisionOperation_TestData{ -12.34, -56.78,  0.21733004579077139 },
+		DynamicDivisionOperation_TestData{ -56.78, -12.34,  4.60129659643435980 },
 	};
 
 	INSTANTIATE_TEST_CASE_P
@@ -132,9 +154,58 @@ namespace CmdCalculatorTestDoubleTests
 		};
 
 		// Assert
-		EXPECT_EQ(expectedDividendEvaluation, instance.getDividend().getEvaluation().FAKE_getValue());
-		EXPECT_EQ(expectedDivisorEvaluation, instance.getDivisor().getEvaluation().FAKE_getValue());
-		EXPECT_EQ(expectedEvaluation, instance.getEvaluation().FAKE_getValue());
+		EXPECT_DOUBLE_EQ(expectedDividendEvaluation, instance.getDividend().getEvaluation().FAKE_getValue());
+		EXPECT_DOUBLE_EQ(expectedDivisorEvaluation, instance.getDivisor().getEvaluation().FAKE_getValue());
+		EXPECT_DOUBLE_EQ(expectedEvaluation, instance.getEvaluation().FAKE_getValue());
+	}
+
+#pragma endregion
+
+
+#pragma region Division by zero
+
+	class DynamicDivisionOperationDivisionByZeroTests :
+		public testing::TestWithParam<double>
+	{};
+
+	const double DynamicDivisionOperationDivisionByZeroTests_Values[]
+	{
+		-12.34,
+		 0.00,
+		 0.50,
+		 1.00,
+		 12.34,
+		 56.78
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		DynamicDivisionOperationTests,
+		DynamicDivisionOperationDivisionByZeroTests,
+		testing::ValuesIn(DynamicDivisionOperationDivisionByZeroTests_Values)
+	);
+
+
+	TEST_P(DynamicDivisionOperationDivisionByZeroTests, Calling$evaluate$with$divisor$of$zero$throws$DivisionByZeroException)
+	{
+		// Arrange
+		using NumberType = CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber;
+		using OperandType = CmdCalculatorTestDoubles::Expressions::StubDynamicExpression<NumberType>;
+
+		const NumberType dividend{ GetParam() };
+		const NumberType divisor{ 0.0 };
+
+		auto dividendToPass{ std::make_unique<OperandType>(dividend) };
+		auto divisorToPass{ std::make_unique<OperandType>(divisor) };
+
+		CmdCalculator::Expressions::DynamicDivisionOperation<NumberType> instance
+		{
+			std::move(dividendToPass),
+			std::move(divisorToPass)
+		};
+
+		// Act/Assert
+		EXPECT_THROW(instance.getEvaluation(), CmdCalculator::DivisionByZeroException);
 	}
 
 #pragma endregion

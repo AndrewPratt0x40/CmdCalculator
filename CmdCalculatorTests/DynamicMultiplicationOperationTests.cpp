@@ -7,7 +7,7 @@
 #include "../CmdCalculatorTestDoubles/StubDynamicExpression.h"
 #include "../CmdCalculatorTestDoubles/FakeRealNumber.h"
 
-namespace CmdCalculatorTestDoubleTests
+namespace CmdCalculatorTests
 {
 #pragma region Concept satisfaction
 
@@ -48,6 +48,26 @@ namespace CmdCalculatorTestDoubleTests
 			expectedMultiplicandEvaluation{ multiplicand },
 			expectedEvaluation{ evaluation }
 		{}
+
+
+		friend std::ostream& operator<<(std::ostream & ostream, const DynamicMultiplicationOperation_TestData & testData)
+		{
+			ostream
+				<< '['
+				<< testData.multiplier.evaluation.FAKE_getValue()
+				<< " * "
+				<< testData.multiplicand.evaluation.FAKE_getValue()
+				<< " == {"
+				<< testData.expectedMultiplierEvaluation
+				<< '+'
+				<< testData.expectedMultiplicandEvaluation
+				<< "*"
+				<< testData.expectedEvaluation
+				<< "}]"
+			;
+
+			return ostream;
+		}
 	};
 
 	class DynamicMultiplicationOperationWithTestDataTests :
@@ -132,9 +152,9 @@ namespace CmdCalculatorTestDoubleTests
 		};
 
 		// Assert
-		EXPECT_EQ(expectedMultiplierEvaluation, instance.getMultiplier().getEvaluation().FAKE_getValue());
-		EXPECT_EQ(expectedMultiplicandEvaluation, instance.getMultiplicand().getEvaluation().FAKE_getValue());
-		EXPECT_EQ(expectedEvaluation, instance.getEvaluation().FAKE_getValue());
+		EXPECT_DOUBLE_EQ(expectedMultiplierEvaluation, instance.getMultiplier().getEvaluation().FAKE_getValue());
+		EXPECT_DOUBLE_EQ(expectedMultiplicandEvaluation, instance.getMultiplicand().getEvaluation().FAKE_getValue());
+		EXPECT_DOUBLE_EQ(expectedEvaluation, instance.getEvaluation().FAKE_getValue());
 	}
 
 #pragma endregion
