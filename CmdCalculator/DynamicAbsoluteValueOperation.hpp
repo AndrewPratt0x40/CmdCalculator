@@ -1,5 +1,7 @@
 #pragma once
 
+#include <assert.h>
+
 #include "DynamicAbsoluteValueOperation.h"
 #include "NotImplementedException.h"
 
@@ -11,9 +13,10 @@
 
 
 template<CmdCalculator::Arithmetic::RealNumber NumberT>
-inline CmdCalculator::Expressions::DynamicAbsoluteValueOperation<NumberT>::DynamicAbsoluteValueOperation(std::unique_ptr<DynamicExpression<NumberType>> operand)
+inline CmdCalculator::Expressions::DynamicAbsoluteValueOperation<NumberT>::DynamicAbsoluteValueOperation(std::unique_ptr<DynamicExpression<NumberType>> operand) :
+	m_operand{ std::move(operand) }
 {
-	throw NotImplementedException{};
+	assert(m_operand);
 }
 
 
@@ -25,7 +28,7 @@ template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline CmdCalculator::Expressions::DynamicExpression<THIS_NUMBER_TYPENAME>&
 	CmdCalculator::Expressions::DynamicAbsoluteValueOperation<NumberT>::getOperand() const
 {
-	throw NotImplementedException{};
+	return *m_operand;
 }
 
 
@@ -33,7 +36,7 @@ template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline THIS_NUMBER_TYPE
 	CmdCalculator::Expressions::DynamicAbsoluteValueOperation<NumberT>::getEvaluation() const
 {
-	throw NotImplementedException{};
+	return getOperand().getEvaluation().getAbsoluteValue();
 }
 
 

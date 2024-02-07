@@ -130,6 +130,9 @@
     <ClCompile Include="DynamicModuloOperationTests.cpp">
       <Filter>Source Code\Tests\Expressions\Dynamic</Filter>
     </ClCompile>
+    <ClCompile Include="DynamicAbsoluteValueOperationTests.cpp">
+      <Filter>Source Code\Tests\Expressions\Dynamic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">

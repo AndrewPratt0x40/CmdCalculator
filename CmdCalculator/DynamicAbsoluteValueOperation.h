@@ -13,12 +13,19 @@ namespace CmdCalculator::Expressions
 	/// \tparam NumberT The type to use for numbers.
 	template<Arithmetic::RealNumber NumberT>
 	class DynamicAbsoluteValueOperation :
-		public DynamicExpression<NumberT>
+		public DynamicExpression<NumberT>,
+		public Expression_IntendedSatisfaction
 	{
 	public:
 
 		using NumberType = DynamicExpression<NumberT>::NumberType;
 
+
+	private:
+		const std::unique_ptr<DynamicExpression<NumberType>> m_operand;
+
+
+	public:
 
 		/// \brief Creates a new instance of the \ref DynamicAbsoluteValueOperation class.
 		/// \param operand The operand who's absolute value to retrieve.
