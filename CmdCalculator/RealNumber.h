@@ -23,33 +23,34 @@ namespace CmdCalculator::Arithmetic
 		&& std::totally_ordered<T>
 		&& requires()
 		{
-			{ T::getZero() } -> std::same_as<T>;
+			{ T::getZero() } -> std::convertible_to<T>;
 		}
 		&& requires(T&& instance)
 		{
 			{ instance.getStringRepresentation() } -> String;
+			{ -instance } -> std::convertible_to<T>;
 			{ ++instance } -> std::same_as<T&>;
-			{ instance++ } -> std::same_as<T>;
+			{ instance++ } -> std::convertible_to<T>;
 			{ --instance } -> std::same_as<T&>;
-			{ instance-- } -> std::same_as<T>;
+			{ instance-- } -> std::convertible_to<T>;
 			{ instance.getSign() } -> std::same_as<ESign>;
-			{ instance.getAbsoluteValue() } -> std::same_as<T>;
-			{ instance.getWholePart() } -> std::same_as<T>;
+			{ instance.getAbsoluteValue() } -> std::convertible_to<T>;
+			{ instance.getWholePart() } -> std::convertible_to<T>;
 		}
 		&& requires(T&& instance, T&& operand)
 		{
-			{ instance + operand } -> std::same_as<T>;
+			{ instance + operand } -> std::convertible_to<T>;
 			{ instance += operand } -> std::same_as<T&>;
-			{ instance - operand } -> std::same_as<T>;
+			{ instance - operand } -> std::convertible_to<T>;
 			{ instance -= operand } -> std::same_as<T&>;
-			{ instance * operand } -> std::same_as<T>;
+			{ instance * operand } -> std::convertible_to<T>;
 			{ instance *= operand } -> std::same_as<T&>;
-			{ instance / operand } -> std::same_as<T>;
+			{ instance / operand } -> std::convertible_to<T>;
 			{ instance /= operand } -> std::same_as<T&>;
-			{ instance % operand } -> std::same_as<T>;
+			{ instance % operand } -> std::convertible_to<T>;
 			{ instance %= operand } -> std::same_as<T&>;
-			{ instance.pow(operand) } -> std::same_as<T>;
-			{ instance.nthRoot(operand) } -> std::same_as<T>;
+			{ instance.pow(operand) } -> std::convertible_to<T>;
+			{ instance.nthRoot(operand) } -> std::convertible_to<T>;
 		}
 	;
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "DynamicModuloOperation.h"
+#include "DivisionByZeroException.h"
 #include "NotImplementedException.h"
 
 
@@ -15,10 +16,13 @@ inline CmdCalculator::Expressions::DynamicModuloOperation<NumberT>::DynamicModul
 (
 	std::unique_ptr<DynamicExpression<NumberType>> dividend,
 	std::unique_ptr<DynamicExpression<NumberType>> divisor
-)
-{
-	throw NotImplementedException{};
-}
+) :
+	CommonDynamicBinaryOperation<NumberType>
+	(
+		std::move(dividend),
+		std::move(divisor)
+	)
+{}
 
 
 template<CmdCalculator::Arithmetic::RealNumber NumberT>
@@ -29,7 +33,7 @@ template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline CmdCalculator::Expressions::DynamicExpression<THIS_NUMBER_TYPENAME>&
 	CmdCalculator::Expressions::DynamicModuloOperation<NumberT>::getDividend() const
 {
-	throw NotImplementedException{};
+	return CommonDynamicBinaryOperation<NumberType>::getLeftOperand();
 }
 
 
@@ -37,7 +41,7 @@ template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline CmdCalculator::Expressions::DynamicExpression<THIS_NUMBER_TYPENAME>&
 	CmdCalculator::Expressions::DynamicModuloOperation<NumberT>::getDivisor() const
 {
-	throw NotImplementedException{};
+	return CommonDynamicBinaryOperation<NumberType>::getRightOperand();
 }
 
 
@@ -45,7 +49,32 @@ template<CmdCalculator::Arithmetic::RealNumber NumberT>
 inline THIS_NUMBER_TYPE
 	CmdCalculator::Expressions::DynamicModuloOperation<NumberT>::getEvaluation() const
 {
-	throw NotImplementedException{};
+	const NumberType divisorEvaluation{ getDivisor().getEvaluation() };
+	if (divisorEvaluation == NumberType::getZero())
+	{
+		throw DivisionByZeroException
+		{
+			std::move
+			(
+				convertString<char>(divisorEvaluation.getStringRepresentation())
+			)
+		};
+	}
+
+	const auto dividendEvaluation{ getDividend().getEvaluation() };
+
+	const auto unsignedEvaluation{ (dividendEvaluation % divisorEvaluation).getAbsoluteValue()};
+	
+	if
+	(
+		(dividendEvaluation.getSign() == Arithmetic::ESign::Negative)
+		!= (divisorEvaluation.getSign() == Arithmetic::ESign::Negative)
+	)
+	{
+		return -unsignedEvaluation;
+	}
+
+	return unsignedEvaluation;
 }
 
 

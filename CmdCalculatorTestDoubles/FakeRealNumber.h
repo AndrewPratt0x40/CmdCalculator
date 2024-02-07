@@ -100,6 +100,12 @@ namespace CmdCalculatorTestDoubles::Arithmetic
 		}
 
 
+		FakeRealNumber operator-() const
+		{
+			return FakeRealNumber{ -m_value };
+		}
+
+
 		FakeRealNumber& operator++()
 		{
 			++m_value;
@@ -188,7 +194,7 @@ namespace CmdCalculatorTestDoubles::Arithmetic
 
 		FakeRealNumber& operator%=(const FakeRealNumber& rhs)
 		{
-			m_value = static_cast<int>(m_value) % static_cast<int>(rhs.m_value);
+			m_value = std::fmod(m_value, rhs.m_value);
 			return *this;
 		}
 
