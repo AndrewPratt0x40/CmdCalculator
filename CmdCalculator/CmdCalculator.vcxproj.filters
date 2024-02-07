@@ -250,6 +250,9 @@
     <Filter Include="Source Code\Exceptions\ExpressionEvaluationException\DivisionByZeroException">
       <UniqueIdentifier>{6f199a57-0cf5-423e-b1c1-e2add6bad1a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Exceptions\ExpressionEvaluationException\NegativeRadicandException">
+      <UniqueIdentifier>{bdb9caba-d564-41c7-8cb1-7fbe0db7b523}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -549,6 +552,9 @@
     <ClInclude Include="RealNumber.h">
       <Filter>Source Code\Arithmetic</Filter>
     </ClInclude>
+    <ClInclude Include="NegativeRadicandException.h">
+      <Filter>Source Code\Exceptions\ExpressionEvaluationException\NegativeRadicandException</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -685,6 +691,9 @@
     </ClCompile>
     <ClCompile Include="DivisionByZeroException.cpp">
       <Filter>Source Code\Exceptions\ExpressionEvaluationException\DivisionByZeroException</Filter>
+    </ClCompile>
+    <ClCompile Include="NegativeRadicandException.cpp">
+      <Filter>Source Code\Exceptions\ExpressionEvaluationException\NegativeRadicandException</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

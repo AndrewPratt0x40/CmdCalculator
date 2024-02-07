@@ -111,6 +111,7 @@
     <ClInclude Include="EmptyInputExpressionException.h" />
     <ClInclude Include="ESign.h" />
     <ClInclude Include="ExpressionEvaluationException.h" />
+    <ClInclude Include="NegativeRadicandException.h" />
     <ClInclude Include="RealNumber.h" />
     <ClInclude Include="TrueAbsoluteValueOperationAntlrContextView.h" />
     <ClInclude Include="TrueAntlrTokenView.h" />
@@ -198,6 +199,7 @@
     <ClCompile Include="DynamicNthRootOperation.hpp" />
     <ClCompile Include="DynamicNumber.hpp" />
     <ClCompile Include="EmptyInputExpressionException.cpp" />
+    <ClCompile Include="NegativeRadicandException.cpp" />
     <ClCompile Include="NotImplementedException.cpp" />
     <ClCompile Include="TrueAbsoluteValueOperationAntlrContextView.cpp" />
     <ClCompile Include="TrueAntlrTokenView.cpp" />

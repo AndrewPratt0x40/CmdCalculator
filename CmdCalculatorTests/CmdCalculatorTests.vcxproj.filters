@@ -124,6 +124,9 @@
     <ClCompile Include="DynamicExponentiationOperationTests.cpp">
       <Filter>Source Code\Tests\Expressions\Dynamic</Filter>
     </ClCompile>
+    <ClCompile Include="DynamicNthRootOperationTests.cpp">
+      <Filter>Source Code\Tests\Expressions\Dynamic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">

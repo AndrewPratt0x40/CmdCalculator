@@ -55,9 +55,9 @@ namespace CmdCalculatorTests
 #pragma endregion
 
 
-#pragma region Constructor
+#pragma region Expected State
 
-	TEST(BasicCalculationTests, Constructor$sets$members$correctly)
+	TEST(BasicCalculationTests, BasicCalculation$has$expected$state)
 	{
 		// Arrange
 		std::string inputExpression{ "2 + 3" };

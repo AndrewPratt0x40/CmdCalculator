@@ -1,7 +1,7 @@
 #pragma once
 #pragma once
 
-#include "DynamicExpression.h"
+#include "CommonDynamicBinaryOperation.h"
 #include "RealNumber.h"
 
 #include <concepts>
@@ -14,13 +14,16 @@ namespace CmdCalculator::Expressions
 	/// \tparam NumberT The type to use for numbers.
 	template<Arithmetic::RealNumber NumberT>
 	class DynamicNthRootOperation :
-		public DynamicExpression<NumberT>
+		public CommonDynamicBinaryOperation<NumberT>,
+		public Expression_IntendedSatisfaction
 	{
 	public:
 
 		using NumberType = DynamicExpression<NumberT>::NumberType;
 
 
+		// TODO: Take a natural number (positive integer) for the degree instead of any real number.
+		// TODO: Consider supporting negative radicands.
 		/// \brief Creates a new instance of the \ref DynamicNthRootOperation class.
 		/// \param degree The operand that is the root to get from the radicand.
 		/// \param radicand The operand who's root to get.
@@ -36,11 +39,13 @@ namespace CmdCalculator::Expressions
 
 		/// \brief Accessor to the degree of the operation.
 		/// \returns The operand that is the root to get from the radicand.
+		/// \example The degree of the expression <tt>1_2<\tt> would be <tt>2</tt>.
 		DynamicExpression<NumberType>& getDegree() const;
 
 
 		/// \brief Accessor to the radicand of the operation.
 		/// \returns The operand who's root to get.
+		/// \example The radicand of the expression <tt>1_2<\tt> would be <tt>1</tt>.
 		DynamicExpression<NumberType>& getRadicand() const;
 
 

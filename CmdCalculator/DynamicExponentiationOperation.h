@@ -38,11 +38,13 @@ namespace CmdCalculator::Expressions
 
 		/// \brief Accessor to the base of the operation.
 		/// \returns The operand to be raised by the exponent.
+		/// \example The base of the expression <tt>1^2<\tt> would be <tt>1</tt>.
 		DynamicExpression<NumberType>& getBase() const;
 
 
 		/// \brief Accessor to the exponent of the operation.
 		/// \returns The operand that the base is raised by.
+		/// \example The exponent of the expression <tt>1^2<\tt> would be <tt>2</tt>.
 		DynamicExpression<NumberType>& getExponent() const;
 
 
