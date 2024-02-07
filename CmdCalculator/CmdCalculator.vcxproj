@@ -46,6 +46,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+  <PropertyGroup Label="Vcpkg" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -111,6 +112,8 @@
     <ClInclude Include="EmptyInputExpressionException.h" />
     <ClInclude Include="ESign.h" />
     <ClInclude Include="ExpressionEvaluationException.h" />
+    <ClInclude Include="FundamentallyBackedRealNumber.h" />
+    <ClInclude Include="FundamentallyBackedRealNumber.hpp" />
     <ClInclude Include="NegativeRadicandException.h" />
     <ClInclude Include="RealNumber.h" />
     <ClInclude Include="TrueAbsoluteValueOperationAntlrContextView.h" />
@@ -199,6 +202,7 @@
     <ClCompile Include="DynamicNthRootOperation.hpp" />
     <ClCompile Include="DynamicNumber.hpp" />
     <ClCompile Include="EmptyInputExpressionException.cpp" />
+    <ClCompile Include="FundamentallyBackedRealNumber.cpp" />
     <ClCompile Include="NegativeRadicandException.cpp" />
     <ClCompile Include="NotImplementedException.cpp" />
     <ClCompile Include="TrueAbsoluteValueOperationAntlrContextView.cpp" />

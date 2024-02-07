@@ -28,12 +28,12 @@ namespace CmdCalculator::Arithmetic
 		&& requires(T&& instance)
 		{
 			{ instance.getStringRepresentation() } -> String;
+			{ instance.getSign() } -> std::same_as<ESign>;
 			{ -instance } -> std::convertible_to<T>;
 			{ ++instance } -> std::same_as<T&>;
 			{ instance++ } -> std::convertible_to<T>;
 			{ --instance } -> std::same_as<T&>;
 			{ instance-- } -> std::convertible_to<T>;
-			{ instance.getSign() } -> std::same_as<ESign>;
 			{ instance.getAbsoluteValue() } -> std::convertible_to<T>;
 			{ instance.getWholePart() } -> std::convertible_to<T>;
 		}

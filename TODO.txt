@@ -4,7 +4,8 @@
 DONE - Create AntlrInvokingStringToAntlrContextConverter
 	DONE - Have AntlrInvokingStringToAntlrContextConverter wrap ANTLR exceptions in CmdCalculator-specific exceptions
 DONE - Create AntlrContextToDynamicMathAstConverter
-- Declare DynamicExpression types
+DONE - Declare DynamicExpression types
+- Implement FundamentallyBackedRealNumber
 - Create DynamicMathAstToDynamicExpressionConverter
 	- Make sure expression parts are sorted correctly!
 - Implement DynamicExpression types

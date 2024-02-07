@@ -253,6 +253,12 @@
     <Filter Include="Source Code\Exceptions\ExpressionEvaluationException\NegativeRadicandException">
       <UniqueIdentifier>{bdb9caba-d564-41c7-8cb1-7fbe0db7b523}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Arithmetic\RealNumber">
+      <UniqueIdentifier>{5eb00000-b345-4061-90a8-6d0ba5f09454}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Arithmetic\RealNumber\FundamentallyBackedRealNumber">
+      <UniqueIdentifier>{e04d6432-e705-48fa-8862-e6e4bfd3fdaa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -549,11 +555,17 @@
     <ClInclude Include="ExpressionEvaluationException.h">
       <Filter>Source Code\Exceptions\ExpressionEvaluationException</Filter>
     </ClInclude>
-    <ClInclude Include="RealNumber.h">
-      <Filter>Source Code\Arithmetic</Filter>
-    </ClInclude>
     <ClInclude Include="NegativeRadicandException.h">
       <Filter>Source Code\Exceptions\ExpressionEvaluationException\NegativeRadicandException</Filter>
+    </ClInclude>
+    <ClInclude Include="RealNumber.h">
+      <Filter>Source Code\Arithmetic\RealNumber</Filter>
+    </ClInclude>
+    <ClInclude Include="FundamentallyBackedRealNumber.h">
+      <Filter>Source Code\Arithmetic\RealNumber\FundamentallyBackedRealNumber</Filter>
+    </ClInclude>
+    <ClInclude Include="FundamentallyBackedRealNumber.hpp">
+      <Filter>Source Code\Arithmetic\RealNumber\FundamentallyBackedRealNumber</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -695,5 +707,6 @@
     <ClCompile Include="NegativeRadicandException.cpp">
       <Filter>Source Code\Exceptions\ExpressionEvaluationException\NegativeRadicandException</Filter>
     </ClCompile>
+    <ClCompile Include="FundamentallyBackedRealNumber.cpp" />
   </ItemGroup>
 </Project>
