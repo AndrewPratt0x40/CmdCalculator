@@ -133,6 +133,9 @@
     <ClCompile Include="DynamicAbsoluteValueOperationTests.cpp">
       <Filter>Source Code\Tests\Expressions\Dynamic</Filter>
     </ClCompile>
+    <ClCompile Include="FundamentallyBackedRealNumberTests.cpp">
+      <Filter>Source Code\Tests\Arithmetic\RealNumber</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -224,6 +227,12 @@
     </Filter>
     <Filter Include="Source Code\Tests\Expressions\Dynamic">
       <UniqueIdentifier>{e9b88706-f9b0-4e3b-9d24-390af78c5e36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Arithmetic">
+      <UniqueIdentifier>{c1dbbaa0-8e10-46c2-9946-641c83652be4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Arithmetic\RealNumber">
+      <UniqueIdentifier>{5dcafd11-34b1-4d68-a23b-73bb8b1f6b56}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -20,6 +20,13 @@ inline CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>::Fundame
 
 
 template<std::floating_point InnerT>
+inline CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>::FundamentallyBackedRealNumber(const THIS_TYPE&)
+{
+	throw NotImplementedException{};
+}
+
+
+template<std::floating_point InnerT>
 inline THIS_TYPE CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>::getZero()
 {
 	throw NotImplementedException{};
@@ -78,51 +85,89 @@ inline THIS_TYPE CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT
 template<std::floating_point InnerT>
 CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator-(const THIS_TYPE& number)
 {
-	throw NotImplementedException{};
+	throw CmdCalculator::NotImplementedException{};
 }
 
 
 #pragma region Comparison operators
 
 template<std::floating_point InnerT>
-bool operator==(const THIS_TYPE& lhs, const THIS_TYPE& rhs)
+bool operator==
+(
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+)
 {
-	throw NotImplementedException{};
+	throw CmdCalculator::NotImplementedException{};
 }
 
 
 template<std::floating_point InnerT>
-bool operator!=(const THIS_TYPE& lhs, const THIS_TYPE& rhs)
+bool operator!=
+(
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+)
 {
-	throw NotImplementedException{};
+	throw CmdCalculator::NotImplementedException{};
 }
 
 
 template<std::floating_point InnerT>
-bool operator<(const THIS_TYPE& lhs, const THIS_TYPE& rhs)
+bool operator<
+(
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+)
 {
-	throw NotImplementedException{};
+	throw CmdCalculator::NotImplementedException{};
 }
 
 
 template<std::floating_point InnerT>
-bool operator<=(const THIS_TYPE& lhs, const THIS_TYPE& rhs)
+bool operator<=
+(
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+)
 {
-	throw NotImplementedException{};
+	throw CmdCalculator::NotImplementedException{};
 }
 
 
 template<std::floating_point InnerT>
-bool operator>(const THIS_TYPE& lhs, const THIS_TYPE& rhs)
+bool operator>
+(
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+)
 {
-	throw NotImplementedException{};
+	throw CmdCalculator::NotImplementedException{};
 }
 
 
 template<std::floating_point InnerT>
-bool operator>=(const THIS_TYPE& lhs, const THIS_TYPE& rhs)
+bool operator>=
+(
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+)
 {
-	throw NotImplementedException{};
+	throw CmdCalculator::NotImplementedException{};
+}
+
+#pragma endregion
+
+
+#pragma region Unary arithmetic operators
+
+template<std::floating_point InnerT>
+bool operator-
+(
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+)
+{
+	throw CmdCalculator::NotImplementedException{};
 }
 
 #pragma endregion
@@ -138,9 +183,13 @@ inline THIS_TYPE& CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<Inner
 
 
 template<std::floating_point InnerT>
-CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator+(const THIS_TYPE& lhs, const THIS_TYPE& rhs)
+CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator+
+(
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+)
 {
-	throw NotImplementedException{};
+	throw CmdCalculator::NotImplementedException{};
 }
 
 
@@ -152,9 +201,13 @@ inline THIS_TYPE& CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<Inner
 
 
 template<std::floating_point InnerT>
-CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator-(const THIS_TYPE& lhs, const THIS_TYPE& rhs)
+CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator-
+(
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+)
 {
-	throw NotImplementedException{};
+	throw CmdCalculator::NotImplementedException{};
 }
 
 
@@ -166,9 +219,13 @@ inline THIS_TYPE& CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<Inner
 
 
 template<std::floating_point InnerT>
-CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator*(const THIS_TYPE& lhs, const THIS_TYPE& rhs)
+CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator*
+(
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+)
 {
-	throw NotImplementedException{};
+	throw CmdCalculator::NotImplementedException{};
 }
 
 
@@ -180,9 +237,13 @@ inline THIS_TYPE& CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<Inner
 
 
 template<std::floating_point InnerT>
-CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator/(const THIS_TYPE& lhs, const THIS_TYPE& rhs)
+CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator/
+(
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+)
 {
-	throw NotImplementedException{};
+	throw CmdCalculator::NotImplementedException{};
 }
 
 
@@ -194,9 +255,13 @@ inline THIS_TYPE& CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<Inner
 
 
 template<std::floating_point InnerT>
-CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator%(const THIS_TYPE& lhs, const THIS_TYPE& rhs)
+CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator%
+(
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+	const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+)
 {
-	throw NotImplementedException{};
+	throw CmdCalculator::NotImplementedException{};
 }
 
 #pragma endregion
