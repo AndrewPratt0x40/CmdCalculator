@@ -5,39 +5,57 @@
 
 #include "RealNumber.h"
 
+
+#pragma region Non-member forward declarations
 namespace CmdCalculator::Arithmetic
 {
-#pragma region Non-member forward declarations
-
 	template<std::floating_point InnerT>
 	class FundamentallyBackedRealNumber;
 
-#pragma push_macro("THIS_INNER_TYPE")
-#define THIS_INNER_TYPE CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>::InnerType
-#pragma push_macro("THIS_INNER_TYPENAME")
-#define THIS_INNER_TYPENAME typename THIS_INNER_TYPE
-#pragma push_macro("THIS_TYPE")
-#define THIS_TYPE CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<THIS_INNER_TYPENAME>
 
 #pragma region Comparison operators
 
 	template<std::floating_point InnerT>
-	bool operator==(const THIS_TYPE& lhs, const THIS_TYPE& rhs);
+	bool operator==
+	(
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+	);
 
 	template<std::floating_point InnerT>
-	bool operator!=(const THIS_TYPE& lhs, const THIS_TYPE& rhs);
+	bool operator!=
+	(
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+	);
 
 	template<std::floating_point InnerT>
-	bool operator<(const THIS_TYPE& lhs, const THIS_TYPE& rhs);
+	bool operator<
+	(
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+	);
 
 	template<std::floating_point InnerT>
-	bool operator<=(const THIS_TYPE& lhs, const THIS_TYPE& rhs);
+	bool operator<=
+	(
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+	);
 
 	template<std::floating_point InnerT>
-	bool operator>(const THIS_TYPE& lhs, const THIS_TYPE& rhs);
+	bool operator>
+	(
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+	);
 
 	template<std::floating_point InnerT>
-	bool operator>=(const THIS_TYPE& lhs, const THIS_TYPE& rhs);
+	bool operator>=
+	(
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+	);
 
 #pragma endregion
 
@@ -45,7 +63,10 @@ namespace CmdCalculator::Arithmetic
 #pragma region Unary arithmetic operators
 
 	template<std::floating_point InnerT>
-	FundamentallyBackedRealNumber<THIS_INNER_TYPENAME>& operator-(const THIS_TYPE& rhs);
+	CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator-
+	(
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+	);
 
 #pragma endregion
 
@@ -53,29 +74,48 @@ namespace CmdCalculator::Arithmetic
 #pragma region Binary arithmetic operations
 
 	template<std::floating_point InnerT>
-	FundamentallyBackedRealNumber<THIS_INNER_TYPENAME> operator+(const THIS_TYPE& lhs, const THIS_TYPE& rhs);
+	CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator+
+	(
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+	);
 
 	template<std::floating_point InnerT>
-	FundamentallyBackedRealNumber<THIS_INNER_TYPENAME> operator-(const THIS_TYPE& lhs, const THIS_TYPE& rhs);
-	
-	template<std::floating_point InnerT>
-	FundamentallyBackedRealNumber<THIS_INNER_TYPENAME> operator*(const THIS_TYPE& lhs, const THIS_TYPE& rhs);
+	CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator-
+	(
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+	);
 
 	template<std::floating_point InnerT>
-	FundamentallyBackedRealNumber<THIS_INNER_TYPENAME> operator/(const THIS_TYPE& lhs, const THIS_TYPE& rhs);
+	CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator*
+	(
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+	);
 
 	template<std::floating_point InnerT>
-	FundamentallyBackedRealNumber<THIS_INNER_TYPENAME> operator%(const THIS_TYPE& lhs, const THIS_TYPE& rhs);
+	CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator/
+	(
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+	);
+
+	template<std::floating_point InnerT>
+	CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator%
+	(
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
+	);
+
+#pragma endregion
+}
 
 #pragma endregion
 
-#pragma pop_macro("THIS_TYPE")
-#pragma pop_macro("THIS_INNER_TYPE")
-#pragma pop_macro("THIS_INNER_TYPENAME")
 
-#pragma endregion
-
-
+namespace CmdCalculator::Arithmetic
+{
 	/// \brief A satisfaction of the \ref RealNumber concept that is implemented with a fundamental type.
 	template<std::floating_point InnerT>
 	class FundamentallyBackedRealNumber :
@@ -96,12 +136,12 @@ namespace CmdCalculator::Arithmetic
 		FundamentallyBackedRealNumber(const InnerType innerValue = default);
 
 
-		FundamentallyBackedRealNumber(const FundamentallyBackedRealNumber<InnerType>&);
+		FundamentallyBackedRealNumber(const FundamentallyBackedRealNumber<InnerT>&);
 
 
 		/// \brief Accessor to a \ref FundamentallyBackedRealNumber instance equal to zero.
 		/// \returns A representation of zero.
-		static FundamentallyBackedRealNumber<InnerType> getZero();
+		static FundamentallyBackedRealNumber<InnerT> getZero();
 
 
 		/// \brief Accessor to the fundamental value the object represents.
@@ -121,92 +161,92 @@ namespace CmdCalculator::Arithmetic
 
 		/// \brief Accessor to the absolute value of the number.
 		/// \returns The absolute value of the number.
-		FundamentallyBackedRealNumber<InnerType> getAbsoluteValue() const;
+		FundamentallyBackedRealNumber<InnerT> getAbsoluteValue() const;
 
 
 		/// \brief Accessor to the whole part of the number.
 		/// \returns The whole part of the number.
 		/// \example The whole part of <tt>1234.5678</tt> would be <tt>1234</tt>.
-		FundamentallyBackedRealNumber<InnerType> getWholePart() const;
+		FundamentallyBackedRealNumber<InnerT> getWholePart() const;
 
 
 		/// \brief Calculates the number to the power of another number.
 		/// \param exponent The exponent to raise to.
 		/// \returns The number to the power of \p exponent.
-		FundamentallyBackedRealNumber<InnerType> pow(const FundamentallyBackedRealNumber<InnerType>& exponent) const;
+		FundamentallyBackedRealNumber<InnerT> pow(const FundamentallyBackedRealNumber<InnerT>& exponent) const;
 
 
 		/// \brief Calculates the nth-root of another.
 		/// \param degree The degree of the root to get.
 		/// \returns The nth-root of the number with a degree of \p degree.
-		FundamentallyBackedRealNumber<InnerType> nthRoot(const FundamentallyBackedRealNumber<InnerType>& degree) const;
+		FundamentallyBackedRealNumber<InnerT> nthRoot(const FundamentallyBackedRealNumber<InnerT>& degree) const;
 
 
 #pragma region Comparison operators
 
-		friend bool operator==(const FundamentallyBackedRealNumber<InnerType>& lhs, const FundamentallyBackedRealNumber<InnerType>& rhs);
-		friend bool operator!=(const FundamentallyBackedRealNumber<InnerType>& lhs, const FundamentallyBackedRealNumber<InnerType>& rhs);
-		friend bool operator<(const FundamentallyBackedRealNumber<InnerType>& lhs, const FundamentallyBackedRealNumber<InnerType>& rhs);
-		friend bool operator<=(const FundamentallyBackedRealNumber<InnerType>& lhs, const FundamentallyBackedRealNumber<InnerType>& rhs);
-		friend bool operator>(const FundamentallyBackedRealNumber<InnerType>& lhs, const FundamentallyBackedRealNumber<InnerType>& rhs);
-		friend bool operator>=(const FundamentallyBackedRealNumber<InnerType>& lhs, const FundamentallyBackedRealNumber<InnerType>& rhs);
+		friend bool operator==<InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
+		friend bool operator!=(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
+		friend bool operator<(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
+		friend bool operator<=(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
+		friend bool operator>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
+		friend bool operator>=(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
 
 #pragma endregion
 
 
 #pragma region Unary arithmetic operators
 
-		friend FundamentallyBackedRealNumber<InnerType>& operator-();
+		friend FundamentallyBackedRealNumber<InnerT>& operator-(const FundamentallyBackedRealNumber<InnerT>& rhs);
 
-		FundamentallyBackedRealNumber<InnerType>& operator++();
-		FundamentallyBackedRealNumber<InnerType> operator++(int);
+		FundamentallyBackedRealNumber<InnerT>& operator++();
+		FundamentallyBackedRealNumber<InnerT> operator++(int);
 
-		FundamentallyBackedRealNumber<InnerType>& operator--();
-		FundamentallyBackedRealNumber<InnerType> operator--(int);
+		FundamentallyBackedRealNumber<InnerT>& operator--();
+		FundamentallyBackedRealNumber<InnerT> operator--(int);
 
 #pragma endregion
 
 
 #pragma region Binary arithmetic operators
 		
-		FundamentallyBackedRealNumber<InnerType>& operator+=(const FundamentallyBackedRealNumber<InnerType>& rhs);
+		FundamentallyBackedRealNumber<InnerT>& operator+=(const FundamentallyBackedRealNumber<InnerT>& rhs);
 
-		friend FundamentallyBackedRealNumber<InnerType> operator+
+		friend FundamentallyBackedRealNumber<InnerT> operator+
 		(
-			const FundamentallyBackedRealNumber<InnerType>& lhs,
-			const FundamentallyBackedRealNumber<InnerType>& rhs
+			const FundamentallyBackedRealNumber<InnerT>& lhs,
+			const FundamentallyBackedRealNumber<InnerT>& rhs
 		);
 
-		FundamentallyBackedRealNumber<InnerType>& operator-=(const FundamentallyBackedRealNumber<InnerType>& rhs);
+		FundamentallyBackedRealNumber<InnerT>& operator-=(const FundamentallyBackedRealNumber<InnerT>& rhs);
 
-		friend FundamentallyBackedRealNumber<InnerType> operator-
+		friend FundamentallyBackedRealNumber<InnerT> operator-
 		(
-			const FundamentallyBackedRealNumber<InnerType>& lhs,
-			const FundamentallyBackedRealNumber<InnerType>& rhs
+			const FundamentallyBackedRealNumber<InnerT>& lhs,
+			const FundamentallyBackedRealNumber<InnerT>& rhs
 		);
 
-		FundamentallyBackedRealNumber<InnerType>& operator*=(const FundamentallyBackedRealNumber<InnerType>& rhs);
+		FundamentallyBackedRealNumber<InnerT>& operator*=(const FundamentallyBackedRealNumber<InnerT>& rhs);
 
-		friend FundamentallyBackedRealNumber<InnerType> operator*
+		friend FundamentallyBackedRealNumber<InnerT> operator*
 		(
-			const FundamentallyBackedRealNumber<InnerType>& lhs,
-			const FundamentallyBackedRealNumber<InnerType>& rhs
+			const FundamentallyBackedRealNumber<InnerT>& lhs,
+			const FundamentallyBackedRealNumber<InnerT>& rhs
 		);
 
-		FundamentallyBackedRealNumber<InnerType>& operator/=(const FundamentallyBackedRealNumber<InnerType>& rhs);
+		FundamentallyBackedRealNumber<InnerT>& operator/=(const FundamentallyBackedRealNumber<InnerT>& rhs);
 
-		friend FundamentallyBackedRealNumber<InnerType> operator/
+		friend FundamentallyBackedRealNumber<InnerT> operator/
 		(
-			const FundamentallyBackedRealNumber<InnerType>& lhs,
-			const FundamentallyBackedRealNumber<InnerType>& rhs
+			const FundamentallyBackedRealNumber<InnerT>& lhs,
+			const FundamentallyBackedRealNumber<InnerT>& rhs
 		);
 
-		FundamentallyBackedRealNumber<InnerType>& operator%=(const FundamentallyBackedRealNumber<InnerType>& rhs);
+		FundamentallyBackedRealNumber<InnerT>& operator%=(const FundamentallyBackedRealNumber<InnerT>& rhs);
 
-		friend FundamentallyBackedRealNumber<InnerType> operator%
+		friend FundamentallyBackedRealNumber<InnerT> operator%
 		(
-			const FundamentallyBackedRealNumber<InnerType>& lhs,
-			const FundamentallyBackedRealNumber<InnerType>& rhs
+			const FundamentallyBackedRealNumber<InnerT>& lhs,
+			const FundamentallyBackedRealNumber<InnerT>& rhs
 		);
 
 #pragma endregion
