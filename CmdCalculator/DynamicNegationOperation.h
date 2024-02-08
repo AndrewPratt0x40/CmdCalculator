@@ -20,6 +20,12 @@ namespace CmdCalculator::Expressions
 		using NumberType = DynamicExpression<NumberT>::NumberType;
 
 
+	private:
+		const std::unique_ptr<DynamicExpression<NumberType>> m_operand;
+
+
+	public:
+
 		/// \brief Creates a new instance of the \ref DynamicNegationOperation class.
 		/// \param operand The operand who's value is negated by the operation.
 		DynamicNegationOperation(std::unique_ptr<DynamicExpression<NumberType>> operand);

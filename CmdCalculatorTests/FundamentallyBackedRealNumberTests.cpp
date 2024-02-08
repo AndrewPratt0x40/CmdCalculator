@@ -83,9 +83,9 @@ namespace CmdCalculatorTestDoubleTests
 		using InnerType = InnerT;
 		constexpr static inline InnerType zeroValue{ ZeroV };
 
-		friend std::ostream& operator<<(std::ostream& os, const FundamentallyBackedRealNumber_getInnerValue_TestData<InnerType, InnerValueV>& testData)
+		friend std::ostream& operator<<(std::ostream& os, const FundamentallyBackedRealNumber_getZero_TestData<InnerType, ZeroV>& testData)
 		{
-			os << nameOfInnerType<InnerType> << '{' << testData.innerValue << '}';
+			os << nameOfInnerType<InnerType> << '{' << testData.zeroValue << '}';
 			return os;
 		}
 	};
@@ -108,7 +108,7 @@ namespace CmdCalculatorTestDoubleTests
 	TYPED_TEST_CASE
 	(
 		FundamentallyBackedRealNumbergetZeroTests,
-		FundamentallyBackedRealNumberWithTParam_Types
+		FundamentallyBackedRealNumbergetZero_Types
 	);
 	
 	TYPED_TEST(FundamentallyBackedRealNumbergetZeroTests, getZero$returns$zero)
@@ -603,8 +603,9 @@ namespace CmdCalculatorTestDoubleTests
 	
 	TEST_P(FundamentallyBackedRealNumberpowTests, pow$returns$expected$value)
 	{
+		FAIL();
 		// Arrange
-		const double innerValue{ GetParam().innerValue};
+		/*const double innerValue{GetParam().innerValue};
 		const double expected{ GetParam().expected };
 		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> instance
 		{
@@ -614,7 +615,7 @@ namespace CmdCalculatorTestDoubleTests
 		const double actual{ instance.pow().getInnerValue() };
 
 		// Assert
-		EXPECT_DOUBLE_EQ(expected, actual);
+		EXPECT_DOUBLE_EQ(expected, actual);*/
 	}
 
 #pragma endregion

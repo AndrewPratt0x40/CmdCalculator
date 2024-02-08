@@ -79,7 +79,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ArithmeticOperationsData.h" />
     <ClInclude Include="common.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="TrueBinaryOperatorAntlrContextViewTests.cpp" />
@@ -104,6 +103,7 @@
     <ClCompile Include="DynamicMathAstNodeTests.cpp" />
     <ClCompile Include="DynamicModuloOperationTests.cpp" />
     <ClCompile Include="DynamicMultiplicationOperationTests.cpp" />
+    <ClCompile Include="DynamicNegationOperationTests.cpp" />
     <ClCompile Include="DynamicNthRootOperationTests.cpp" />
     <ClCompile Include="DynamicNumberLiteralNodeTests.cpp" />
     <ClCompile Include="DynamicSignOperationNodeTests.cpp" />
