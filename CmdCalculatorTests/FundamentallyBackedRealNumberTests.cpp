@@ -8,6 +8,9 @@
 #include "../CmdCalculator/FundamentallyBackedRealNumber.h"
 #include "../CmdCalculator/RealNumber.h"
 
+using namespace std::string_literals;
+
+
 namespace CmdCalculatorTestDoubleTests
 {
 #pragma region Shared test data
@@ -20,6 +23,23 @@ namespace CmdCalculatorTestDoubleTests
 	constexpr static auto nameOfInnerType<double>{ "double" };
 	template<>
 	constexpr static auto nameOfInnerType<long double>{ "long double" };
+
+
+	static constexpr std::string getNameOfESign(const CmdCalculator::Arithmetic::ESign sign)
+	{
+		switch (sign)
+		{
+		case CmdCalculator::Arithmetic::ESign::Negative:
+			return "Negative"s;
+		case CmdCalculator::Arithmetic::ESign::Neutral:
+			return "Neutral"s;
+		case CmdCalculator::Arithmetic::ESign::Positive:
+			return "Positive"s;
+		default:
+			return "UNKNOWN"s;
+		}
+	}
+
 
 	using FundamentallyBackedRealNumber_ValidInnerTypes = testing::Types<float, double, long double>;
 
@@ -237,19 +257,19 @@ namespace CmdCalculatorTestDoubleTests
 			.expectedStringRepresentationRegex{ "\\s*(\\+|-)?\\s*0+(\\.0*)?\\s*" }
 		},
 		{
-			.innerValue{ -0.001 },
+			.innerValue{ 0.001 },
 			.expectedStringRepresentationRegex{ "\\s*\\+?\\s*0+\\.0010*\\s*" }
 		},
 		{
-			.innerValue{ -1.0 },
+			.innerValue{ 1.0 },
 			.expectedStringRepresentationRegex{ "\\s*\\+?\\s*0*1(\\.0*)?\\s*" }
 		},
 		{
-			.innerValue{ -12.34 },
+			.innerValue{ 12.34 },
 			.expectedStringRepresentationRegex{ "\\s*\\+?\\s*0*12\\.340*\\s*" }
 		},
 		{
-			.innerValue{ -56.78 },
+			.innerValue{ 56.78 },
 			.expectedStringRepresentationRegex{ "\\s*\\+?\\s*0*56\\.780*\\s*" }
 		}
 	};
@@ -275,6 +295,326 @@ namespace CmdCalculatorTestDoubleTests
 
 		// Assert
 		EXPECT_TRUE(std::regex_match(actual, expectedRegex));
+	}
+
+#pragma endregion
+
+
+#pragma region getSign
+
+	struct FundamentallyBackedRealNumber_getSign_TestData
+	{
+		double innerValue;
+		CmdCalculator::Arithmetic::ESign expectedSign;
+
+		friend std::ostream& operator<<(std::ostream& os, const FundamentallyBackedRealNumber_getSign_TestData& testData)
+		{
+			os
+				<< "FundamentallyBackedRealNumber{"
+				<< testData.innerValue
+				<< "}.getSign() == "
+				<< getNameOfESign(testData.expectedSign)
+			;
+			return os;
+		}
+	};
+	
+	
+	class FundamentallyBackedRealNumbergetSignTests :
+		public testing::TestWithParam<FundamentallyBackedRealNumber_getSign_TestData>
+	{};
+
+
+	const FundamentallyBackedRealNumber_getSign_TestData FundamentallyBackedRealNumber_getSign_TestDataValues[]
+	{
+		{
+			.innerValue{ std::numeric_limits<double>::lowest() },
+			.expectedSign{ CmdCalculator::Arithmetic::ESign::Negative }
+		},
+		{
+			.innerValue{ -12.34 },
+			.expectedSign{ CmdCalculator::Arithmetic::ESign::Negative }
+		},
+		{
+			.innerValue{ -1.0 },
+			.expectedSign{ CmdCalculator::Arithmetic::ESign::Negative }
+		},
+		{
+			.innerValue{ -std::numeric_limits<double>::min() },
+			.expectedSign{ CmdCalculator::Arithmetic::ESign::Negative }
+		},
+		{
+			.innerValue{ 0 },
+			.expectedSign{ CmdCalculator::Arithmetic::ESign::Neutral }
+		},
+		{
+			.innerValue{ std::numeric_limits<double>::min() },
+			.expectedSign{ CmdCalculator::Arithmetic::ESign::Positive }
+		},
+		{
+			.innerValue{ 1.0 },
+			.expectedSign{ CmdCalculator::Arithmetic::ESign::Positive }
+		},
+		{
+			.innerValue{ 12.34 },
+			.expectedSign{ CmdCalculator::Arithmetic::ESign::Positive }
+		},
+		{
+			.innerValue{ std::numeric_limits<double>::max() },
+			.expectedSign{ CmdCalculator::Arithmetic::ESign::Positive }
+		}
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		FundamentallyBackedRealNumberTests,
+		FundamentallyBackedRealNumbergetSignTests,
+		testing::ValuesIn(FundamentallyBackedRealNumber_getSign_TestDataValues)
+	);
+	
+	TEST_P(FundamentallyBackedRealNumbergetSignTests, getSign$returns$expected$value)
+	{
+		// Arrange
+		const double innerValue{ GetParam().innerValue};
+		const CmdCalculator::Arithmetic::ESign expected{ GetParam().expectedSign };
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> instance
+		{
+			innerValue
+		};
+		// Act
+		const CmdCalculator::Arithmetic::ESign actual{ instance.getSign() };
+
+		// Assert
+		EXPECT_EQ(expected, actual);
+	}
+
+#pragma endregion
+
+
+#pragma region getAbsoluteValue
+
+	struct FundamentallyBackedRealNumber_getAbsoluteValue_TestData
+	{
+		double innerValue;
+		double expected;
+
+		friend std::ostream& operator<<(std::ostream& os, const FundamentallyBackedRealNumber_getAbsoluteValue_TestData& testData)
+		{
+			os
+				<< "FundamentallyBackedRealNumber{"
+				<< testData.innerValue
+				<< "}.getAbsoluteValue() == "
+				<< testData.expected
+			;
+			return os;
+		}
+	};
+	
+	
+	class FundamentallyBackedRealNumbergetAbsoluteValueTests :
+		public testing::TestWithParam<FundamentallyBackedRealNumber_getAbsoluteValue_TestData>
+	{};
+
+
+	const FundamentallyBackedRealNumber_getAbsoluteValue_TestData FundamentallyBackedRealNumber_getAbsoluteValue_TestDataValues[]
+	{
+		{
+			.innerValue{ -12.34 },
+			.expected{ 12.34 }
+		},
+		{
+			.innerValue{ -1.0 },
+			.expected{ 1.0 }
+		},
+		{
+			.innerValue{ -std::numeric_limits<double>::min() },
+			.expected{ std::numeric_limits<double>::min() }
+		},
+		{
+			.innerValue{ 0 },
+			.expected{ 0 }
+		},
+		{
+			.innerValue{ std::numeric_limits<double>::min() },
+			.expected{ std::numeric_limits<double>::min() }
+		},
+		{
+			.innerValue{ 1.0 },
+			.expected{ 1.0 }
+		},
+		{
+			.innerValue{ 12.34 },
+			.expected{ 12.34 }
+		},
+		{
+			.innerValue{ std::numeric_limits<double>::max() },
+			.expected{ std::numeric_limits<double>::max() }
+		}
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		FundamentallyBackedRealNumberTests,
+		FundamentallyBackedRealNumbergetAbsoluteValueTests,
+		testing::ValuesIn(FundamentallyBackedRealNumber_getAbsoluteValue_TestDataValues)
+	);
+	
+	TEST_P(FundamentallyBackedRealNumbergetAbsoluteValueTests, getAbsoluteValue$returns$expected$value)
+	{
+		// Arrange
+		const double innerValue{ GetParam().innerValue};
+		const double expected{ GetParam().expected };
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> instance
+		{
+			innerValue
+		};
+		// Act
+		const double actual{ instance.getAbsoluteValue().getInnerValue() };
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expected, actual);
+	}
+
+#pragma endregion
+
+
+#pragma region getWholePart
+
+	struct FundamentallyBackedRealNumber_getWholePart_TestData
+	{
+		double innerValue;
+		double expected;
+
+		friend std::ostream& operator<<(std::ostream& os, const FundamentallyBackedRealNumber_getWholePart_TestData& testData)
+		{
+			os
+				<< "FundamentallyBackedRealNumber{"
+				<< testData.innerValue
+				<< "}.getWholePart() == "
+				<< testData.expected
+			;
+			return os;
+		}
+	};
+	
+	
+	class FundamentallyBackedRealNumbergetWholePartTests :
+		public testing::TestWithParam<FundamentallyBackedRealNumber_getWholePart_TestData>
+	{};
+
+
+	const FundamentallyBackedRealNumber_getWholePart_TestData FundamentallyBackedRealNumber_getWholePart_TestDataValues[]
+	{
+		{
+			.innerValue{ -12.34 },
+			.expected{ -12 }
+		},
+		{
+			.innerValue{ -1.0 },
+			.expected{ -1 }
+		},
+		{
+			.innerValue{ -0.123 },
+			.expected{ 0 }
+		},
+		{
+			.innerValue{ 0 },
+			.expected{ 0 }
+		},
+		{
+			.innerValue{ 0.123 },
+			.expected{ 0 }
+		},
+		{
+			.innerValue{ 1.0 },
+			.expected{ 1 }
+		},
+		{
+			.innerValue{ 12.34 },
+			.expected{ 12 }
+		}
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		FundamentallyBackedRealNumberTests,
+		FundamentallyBackedRealNumbergetWholePartTests,
+		testing::ValuesIn(FundamentallyBackedRealNumber_getWholePart_TestDataValues)
+	);
+	
+	TEST_P(FundamentallyBackedRealNumbergetWholePartTests, getWholePart$returns$expected$value)
+	{
+		// Arrange
+		const double innerValue{ GetParam().innerValue};
+		const double expected{ GetParam().expected };
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> instance
+		{
+			innerValue
+		};
+		// Act
+		const double actual{ instance.getWholePart().getInnerValue() };
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expected, actual);
+	}
+
+#pragma endregion
+
+
+#pragma region pow
+
+	struct FundamentallyBackedRealNumber_pow_TestData
+	{
+		double baseInnerValue;
+		double exponentInnerValue;
+		double expected;
+
+		friend std::ostream& operator<<(std::ostream& os, const FundamentallyBackedRealNumber_pow_TestData& testData)
+		{
+			os
+				<< "FundamentallyBackedRealNumber{"
+				<< testData.baseInnerValue
+				<< "}.pow(FundamentallyBackedRealNumber{"
+				<< testData.exponentInnerValue
+				<< "}) == "
+				<< testData.expected
+			;
+			return os;
+		}
+	};
+	
+	
+	class FundamentallyBackedRealNumberpowTests :
+		public testing::TestWithParam<FundamentallyBackedRealNumber_pow_TestData>
+	{};
+
+
+	const FundamentallyBackedRealNumber_pow_TestData FundamentallyBackedRealNumber_pow_TestDataValues[]
+	{
+		{  }
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		FundamentallyBackedRealNumberTests,
+		FundamentallyBackedRealNumberpowTests,
+		testing::ValuesIn(FundamentallyBackedRealNumber_pow_TestDataValues)
+	);
+	
+	TEST_P(FundamentallyBackedRealNumberpowTests, pow$returns$expected$value)
+	{
+		// Arrange
+		const double innerValue{ GetParam().innerValue};
+		const double expected{ GetParam().expected };
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> instance
+		{
+			innerValue
+		};
+		// Act
+		const double actual{ instance.pow().getInnerValue() };
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expected, actual);
 	}
 
 #pragma endregion
