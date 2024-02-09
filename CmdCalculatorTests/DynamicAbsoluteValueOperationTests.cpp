@@ -1,7 +1,9 @@
 #include "pch.h"
 
 #include <string>
+#include <ranges>
 
+#include "common.h"
 #include "../CmdCalculator/DynamicAbsoluteValueOperation.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpression.h"
@@ -39,12 +41,6 @@ namespace CmdCalculatorTests
 		double expectedOperandEvaluation;
 		double expectedEvaluation;
 
-		DynamicAbsoluteValueOperation_TestData(const double operand, const double evaluation) :
-			operand{ DynamicAbsoluteValueOperation_TestData::NumberType{ operand } },
-			expectedOperandEvaluation{ operand },
-			expectedEvaluation{ evaluation }
-		{}
-
 
 		friend std::ostream& operator<<(std::ostream & ostream, const DynamicAbsoluteValueOperation_TestData & testData)
 		{
@@ -67,28 +63,28 @@ namespace CmdCalculatorTests
 		public testing::TestWithParam<DynamicAbsoluteValueOperation_TestData>
 	{};
 
-	const DynamicAbsoluteValueOperation_TestData DynamicAbsoluteValueOperation_TestDataValues[]
+	const auto DynamicAbsoluteValueOperation_TestDataValues
 	{
-		DynamicAbsoluteValueOperation_TestData{ -56.78,  56.78 },
-		DynamicAbsoluteValueOperation_TestData{ -12.34,  12.34 },
-		DynamicAbsoluteValueOperation_TestData{  -2.00,   2.00 },
-		DynamicAbsoluteValueOperation_TestData{  -1.50,   1.50 },
-		DynamicAbsoluteValueOperation_TestData{  -1.00,   1.00 },
-		DynamicAbsoluteValueOperation_TestData{  -0.50,   0.50 },
-		DynamicAbsoluteValueOperation_TestData{   0.00,   0.00 },
-		DynamicAbsoluteValueOperation_TestData{   0.50,   0.50 },
-		DynamicAbsoluteValueOperation_TestData{   1.00,   1.00 },
-		DynamicAbsoluteValueOperation_TestData{   1.50,   1.50 },
-		DynamicAbsoluteValueOperation_TestData{   2.00,   2.00 },
-		DynamicAbsoluteValueOperation_TestData{  12.34,  12.34 },
-		DynamicAbsoluteValueOperation_TestData{  56.78,  56.78 }
+		SharedTestData::absoluteValueOperationsDataValues
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return DynamicAbsoluteValueOperation_TestData
+				{
+					.operand{ data.operand },
+					.expectedOperandEvaluation{ data.operand },
+					.expectedEvaluation{ data.result }
+				};
+			}
+		)
 	};
 
 	INSTANTIATE_TEST_CASE_P
 	(
 		DynamicAbsoluteValueOperationTests,
 		DynamicAbsoluteValueOperationWithTestDataTests,
-		testing::ValuesIn(DynamicAbsoluteValueOperation_TestDataValues)
+		ValuesInRange(DynamicAbsoluteValueOperation_TestDataValues)
 	);
 
 #pragma endregion

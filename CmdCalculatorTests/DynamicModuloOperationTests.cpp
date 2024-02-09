@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 
+#include "common.h"
 #include "../CmdCalculator/DynamicModuloOperation.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculator/DivisionByZeroException.h"
@@ -76,50 +77,28 @@ namespace CmdCalculatorTests
 		public testing::TestWithParam<DynamicModuloOperation_TestData>
 	{};
 
-	const DynamicModuloOperation_TestData DynamicModuloOperation_TestDataValues[]
+	const auto DynamicModuloOperation_TestDataValues
 	{
-		DynamicModuloOperation_TestData{  0.00,  1.0,  0.00 },
-		DynamicModuloOperation_TestData{  0.25,  1.0,  0.25 },
-		DynamicModuloOperation_TestData{  0.50,  1.0,  0.50 },
-		DynamicModuloOperation_TestData{  0.75,  1.0,  0.75 },
-		DynamicModuloOperation_TestData{  1.00,  1.0,  0.00 },
-		DynamicModuloOperation_TestData{  1.25,  1.0,  0.25 },
-		DynamicModuloOperation_TestData{  1.50,  1.0,  0.50 },
-		DynamicModuloOperation_TestData{  2.00,  1.0,  0.00 },
-
-		DynamicModuloOperation_TestData{  0.00,  3.0,  0.00 },
-		DynamicModuloOperation_TestData{  1.00,  3.0,  1.00 },
-		DynamicModuloOperation_TestData{  2.00,  3.0,  2.00 },
-		DynamicModuloOperation_TestData{  3.00,  3.0,  0.00 },
-		DynamicModuloOperation_TestData{  4.00,  3.0,  1.00 },
-		DynamicModuloOperation_TestData{  5.00,  3.0,  2.00 },
-		DynamicModuloOperation_TestData{  6.00,  3.0,  0.00 },
-		DynamicModuloOperation_TestData{  7.00,  3.0,  1.00 },
-
-		DynamicModuloOperation_TestData{  0.00,  1.5,  0.00 },
-		DynamicModuloOperation_TestData{  0.50,  1.5,  0.50 },
-		DynamicModuloOperation_TestData{  1.00,  1.5,  1.00 },
-		DynamicModuloOperation_TestData{  1.50,  1.5,  0.00 },
-		DynamicModuloOperation_TestData{  2.00,  1.5,  0.50 },
-
-		DynamicModuloOperation_TestData{  12.34,  56.78,  12.34 },
-		DynamicModuloOperation_TestData{  56.78,  12.34,   7.42 },
-
-		DynamicModuloOperation_TestData{  12.34, -56.78, -12.34 },
-		DynamicModuloOperation_TestData{ -56.78,  12.34,  -7.42 },
-
-		DynamicModuloOperation_TestData{ -12.34,  56.78, -12.34 },
-		DynamicModuloOperation_TestData{  56.78, -12.34, - 7.42 },
-
-		DynamicModuloOperation_TestData{ -12.34, -56.78,  12.34 },
-		DynamicModuloOperation_TestData{ -56.78, -12.34,   7.42 }
+		SharedTestData::moduloOperationsDataValues
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return DynamicModuloOperation_TestData
+				{
+					data.leftOperand,
+					data.rightOperand,
+					data.result
+				};
+			}
+		)
 	};
 
 	INSTANTIATE_TEST_CASE_P
 	(
 		DynamicModuloOperationTests,
 		DynamicModuloOperationWithTestDataTests,
-		testing::ValuesIn(DynamicModuloOperation_TestDataValues)
+		ValuesInRange(DynamicModuloOperation_TestDataValues)
 	);
 
 #pragma endregion

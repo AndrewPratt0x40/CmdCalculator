@@ -2,6 +2,7 @@
 
 #include <string>
 
+#include "common.h"
 #include "../CmdCalculator/DynamicMultiplicationOperation.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpression.h"
@@ -74,56 +75,28 @@ namespace CmdCalculatorTests
 		public testing::TestWithParam<DynamicMultiplicationOperation_TestData>
 	{};
 
-	const DynamicMultiplicationOperation_TestData DynamicMultiplicationOperation_TestDataValues[]
+	const auto DynamicMultiplicationOperation_TestDataValues
 	{
-		DynamicMultiplicationOperation_TestData{  0.0,  0.0,  0.00 },
-		DynamicMultiplicationOperation_TestData{  0.0,  0.5,  0.00 },
-		DynamicMultiplicationOperation_TestData{  0.0,  1.0,  0.00 },
-		DynamicMultiplicationOperation_TestData{  0.0,  1.5,  0.00 },
-		DynamicMultiplicationOperation_TestData{  0.0,  2.0,  0.00 },
-
-		DynamicMultiplicationOperation_TestData{  0.5,  0.0,  0.00 },
-		DynamicMultiplicationOperation_TestData{  0.5,  0.5,  0.25 },
-		DynamicMultiplicationOperation_TestData{  0.5,  1.0,  0.50 },
-		DynamicMultiplicationOperation_TestData{  0.5,  1.5,  0.75 },
-		DynamicMultiplicationOperation_TestData{  0.5,  2.0,  1.00 },
-
-		DynamicMultiplicationOperation_TestData{  1.0,  0.0,  0.00 },
-		DynamicMultiplicationOperation_TestData{  1.0,  0.5,  0.50 },
-		DynamicMultiplicationOperation_TestData{  1.0,  1.0,  1.00 },
-		DynamicMultiplicationOperation_TestData{  1.0,  1.5,  1.50 },
-		DynamicMultiplicationOperation_TestData{  1.0,  2.0,  2.00 },
-
-		DynamicMultiplicationOperation_TestData{  1.5,  0.0,  0.00 },
-		DynamicMultiplicationOperation_TestData{  1.5,  0.5,  0.75 },
-		DynamicMultiplicationOperation_TestData{  1.5,  1.0,  1.50 },
-		DynamicMultiplicationOperation_TestData{  1.5,  1.5,  2.25 },
-		DynamicMultiplicationOperation_TestData{  1.5,  2.0,  3.00 },
-
-		DynamicMultiplicationOperation_TestData{  2.0,  0.0,  0.00 },
-		DynamicMultiplicationOperation_TestData{  2.0,  0.5,  1.00 },
-		DynamicMultiplicationOperation_TestData{  2.0,  1.0,  2.00 },
-		DynamicMultiplicationOperation_TestData{  2.0,  1.5,  3.00 },
-		DynamicMultiplicationOperation_TestData{  2.0,  2.0,  4.00 },
-
-		DynamicMultiplicationOperation_TestData{  12.34,  56.78,  700.6652 },
-		DynamicMultiplicationOperation_TestData{  56.78,  12.34,  700.6652 },
-
-		DynamicMultiplicationOperation_TestData{  12.34, -56.78, -700.6652 },
-		DynamicMultiplicationOperation_TestData{ -56.78,  12.34, -700.6652 },
-
-		DynamicMultiplicationOperation_TestData{ -12.34,  56.78, -700.6652 },
-		DynamicMultiplicationOperation_TestData{  56.78, -12.34, -700.6652 },
-
-		DynamicMultiplicationOperation_TestData{ -12.34, -56.78,  700.6652 },
-		DynamicMultiplicationOperation_TestData{ -56.78, -12.34,  700.6652 }
+		SharedTestData::multiplicationOperationsDataValues
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return DynamicMultiplicationOperation_TestData
+				{
+					data.leftOperand,
+					data.rightOperand,
+					data.result
+				};
+			}
+		)
 	};
 
 	INSTANTIATE_TEST_CASE_P
 	(
 		DynamicMultiplicationOperationTests,
 		DynamicMultiplicationOperationWithTestDataTests,
-		testing::ValuesIn(DynamicMultiplicationOperation_TestDataValues)
+		ValuesInRange(DynamicMultiplicationOperation_TestDataValues)
 	);
 
 #pragma endregion

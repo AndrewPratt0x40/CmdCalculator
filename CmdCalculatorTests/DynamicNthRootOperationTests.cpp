@@ -3,6 +3,7 @@
 #include <string>
 #include <ranges>
 
+#include "common.h"
 #include "../CmdCalculator/DynamicNthRootOperation.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculator/NegativeRadicandException.h"
@@ -76,42 +77,28 @@ namespace CmdCalculatorTests
 		public testing::TestWithParam<DynamicNthRootOperation_TestData>
 	{};
 
-	const DynamicNthRootOperation_TestData DynamicNthRootOperation_TestDataValues[]
+	const auto DynamicNthRootOperation_TestDataValues
 	{
-		DynamicNthRootOperation_TestData{  1.0,  0.0,  0.0 },
-		DynamicNthRootOperation_TestData{  2.0,  0.0,  0.0 },
-		DynamicNthRootOperation_TestData{  3.0,  0.0,  0.0 },
-
-		DynamicNthRootOperation_TestData{  1.0,  0.5,  0.5 },
-		DynamicNthRootOperation_TestData{  2.0,  0.5,  0.70710678118654752 },
-		DynamicNthRootOperation_TestData{  3.0,  0.5,  0.79370052598409973 },
-
-		DynamicNthRootOperation_TestData{  1.0,  1.0,  1.0 },
-		DynamicNthRootOperation_TestData{  2.0,  1.0,  1.0 },
-		DynamicNthRootOperation_TestData{  3.0,  1.0,  1.0 },
-
-		DynamicNthRootOperation_TestData{  1.0,  1.5,  1.5 },
-		DynamicNthRootOperation_TestData{  2.0,  1.5,  1.22474487139158904 },
-		DynamicNthRootOperation_TestData{  3.0,  1.5,  1.14471424255333186 },
-
-		DynamicNthRootOperation_TestData{  1.0,  2.0,  2.0 },
-		DynamicNthRootOperation_TestData{  2.0,  2.0,  1.41421356237309504 },
-		DynamicNthRootOperation_TestData{  3.0,  2.0,  1.25992104989487316 },
-
-		DynamicNthRootOperation_TestData{  1.0,  16.0,  16.0 },
-		DynamicNthRootOperation_TestData{  2.0,  16.0,   4.0 },
-		DynamicNthRootOperation_TestData{  3.0,  16.0,   2.51984209978974632 },
-
-		DynamicNthRootOperation_TestData{  1.0,  125.0,  125.0 },
-		DynamicNthRootOperation_TestData{  2.0,  125.0,   11.1803398874989484 },
-		DynamicNthRootOperation_TestData{  3.0,  125.0,    5.0 }
+		SharedTestData::nthRootOperationsDataValues
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return DynamicNthRootOperation_TestData
+				{
+					data.leftOperand,
+					data.rightOperand,
+					data.result
+				};
+			}
+		)
 	};
 
 	INSTANTIATE_TEST_CASE_P
 	(
 		DynamicNthRootOperationTests,
 		DynamicNthRootOperationWithTestDataTests,
-		testing::ValuesIn(DynamicNthRootOperation_TestDataValues)
+		ValuesInRange(DynamicNthRootOperation_TestDataValues)
 	);
 
 #pragma endregion

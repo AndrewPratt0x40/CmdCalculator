@@ -2,6 +2,7 @@
 
 #include <string>
 
+#include "common.h"
 #include "../CmdCalculator/DynamicExponentiationOperation.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpression.h"
@@ -74,49 +75,28 @@ namespace CmdCalculatorTests
 		public testing::TestWithParam<DynamicExponentiationOperation_TestData>
 	{};
 
-	const DynamicExponentiationOperation_TestData DynamicExponentiationOperation_TestDataValues[]
+	const auto DynamicExponentiationOperation_TestDataValues
 	{
-		DynamicExponentiationOperation_TestData{  0.0,  0,  1.0 },
-		DynamicExponentiationOperation_TestData{  0.0,  1,  0.0 },
-		DynamicExponentiationOperation_TestData{  0.0,  2,  0.0 },
-		DynamicExponentiationOperation_TestData{  0.0,  3,  0.0 },
-		DynamicExponentiationOperation_TestData{  0.0,  10, 0.0 },
-
-		DynamicExponentiationOperation_TestData{  0.5,  0,  1.0 },
-		DynamicExponentiationOperation_TestData{  0.5,  1,  0.5 },
-		DynamicExponentiationOperation_TestData{  0.5,  2,  0.25 },
-		DynamicExponentiationOperation_TestData{  0.5,  3,  0.125 },
-		DynamicExponentiationOperation_TestData{  0.5,  10, 0.0009765625 },
-
-		DynamicExponentiationOperation_TestData{  1.0,  0,  1.0 },
-		DynamicExponentiationOperation_TestData{  1.0,  1,  1.0 },
-		DynamicExponentiationOperation_TestData{  1.0,  2,  1.0 },
-		DynamicExponentiationOperation_TestData{  1.0,  3,  1.0 },
-		DynamicExponentiationOperation_TestData{  1.0,  10, 1.0 },
-
-		DynamicExponentiationOperation_TestData{  1.5,  0,  1.0 },
-		DynamicExponentiationOperation_TestData{  1.5,  1,  1.5 },
-		DynamicExponentiationOperation_TestData{  1.5,  2,  2.25 },
-		DynamicExponentiationOperation_TestData{  1.5,  3,  3.375 },
-		DynamicExponentiationOperation_TestData{  1.5,  10, 57.6650390625 },
-
-		DynamicExponentiationOperation_TestData{  2.0,  0,  1.0 },
-		DynamicExponentiationOperation_TestData{  2.0,  1,  2.0 },
-		DynamicExponentiationOperation_TestData{  2.0,  2,  4.0 },
-		DynamicExponentiationOperation_TestData{  2.0,  3,  8.0 },
-		DynamicExponentiationOperation_TestData{  2.0,  10, 1024.0 },
-
-		DynamicExponentiationOperation_TestData{ -1.0,  0,  1.0 },
-		DynamicExponentiationOperation_TestData{ -1.0,  1, -1.0 },
-		DynamicExponentiationOperation_TestData{ -1.0,  2,  1.0 },
-		DynamicExponentiationOperation_TestData{ -1.0,  3, -1.0 },
+		SharedTestData::exponentiationOperationsDataValues
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return DynamicExponentiationOperation_TestData
+				{
+					data.leftOperand,
+					data.rightOperand,
+					data.result
+				};
+			}
+		)
 	};
 
 	INSTANTIATE_TEST_CASE_P
 	(
 		DynamicExponentiationOperationTests,
 		DynamicExponentiationOperationWithTestDataTests,
-		testing::ValuesIn(DynamicExponentiationOperation_TestDataValues)
+		ValuesInRange(DynamicExponentiationOperation_TestDataValues)
 	);
 
 #pragma endregion

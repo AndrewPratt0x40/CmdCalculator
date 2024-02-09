@@ -2,6 +2,7 @@
 
 #include <string>
 
+#include "common.h"
 #include "../CmdCalculator/DynamicSubtractionOperation.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpression.h"
@@ -74,56 +75,28 @@ namespace CmdCalculatorTests
 		public testing::TestWithParam<DynamicSubtractionOperation_TestData>
 	{};
 
-	const DynamicSubtractionOperation_TestData DynamicSubtractionOperation_TestDataValues[]
+	const auto DynamicSubtractionOperation_TestDataValues
 	{
-		DynamicSubtractionOperation_TestData{  0.0,  0.0,  0.0 },
-		DynamicSubtractionOperation_TestData{  0.0,  0.5, -0.5 },
-		DynamicSubtractionOperation_TestData{  0.0,  1.0, -1.0 },
-		DynamicSubtractionOperation_TestData{  0.0,  1.5, -1.5 },
-		DynamicSubtractionOperation_TestData{  0.0,  2.0, -2.0 },
-
-		DynamicSubtractionOperation_TestData{  0.5,  0.0,  0.5 },
-		DynamicSubtractionOperation_TestData{  0.5,  0.5,  0.0 },
-		DynamicSubtractionOperation_TestData{  0.5,  1.0, -0.5 },
-		DynamicSubtractionOperation_TestData{  0.5,  1.5, -1.0 },
-		DynamicSubtractionOperation_TestData{  0.5,  2.0, -1.5 },
-
-		DynamicSubtractionOperation_TestData{  1.0,  0.0,  1.0 },
-		DynamicSubtractionOperation_TestData{  1.0,  0.5,  0.5 },
-		DynamicSubtractionOperation_TestData{  1.0,  1.0,  0.0 },
-		DynamicSubtractionOperation_TestData{  1.0,  1.5, -0.5 },
-		DynamicSubtractionOperation_TestData{  1.0,  2.0, -1.0 },
-
-		DynamicSubtractionOperation_TestData{  1.5,  0.0,  1.5 },
-		DynamicSubtractionOperation_TestData{  1.5,  0.5,  1.0 },
-		DynamicSubtractionOperation_TestData{  1.5,  1.0,  0.5 },
-		DynamicSubtractionOperation_TestData{  1.5,  1.5,  0.0 },
-		DynamicSubtractionOperation_TestData{  1.5,  2.0, -0.5 },
-
-		DynamicSubtractionOperation_TestData{  2.0,  0.0,  2.0 },
-		DynamicSubtractionOperation_TestData{  2.0,  0.5,  1.5 },
-		DynamicSubtractionOperation_TestData{  2.0,  1.0,  1.0 },
-		DynamicSubtractionOperation_TestData{  2.0,  1.5,  0.5 },
-		DynamicSubtractionOperation_TestData{  2.0,  2.0,  0.0 },
-
-		DynamicSubtractionOperation_TestData{  12.34,  56.78, -44.44 },
-		DynamicSubtractionOperation_TestData{  56.78,  12.34,  44.44 },
-
-		DynamicSubtractionOperation_TestData{  12.34, -56.78,  69.12 },
-		DynamicSubtractionOperation_TestData{ -56.78,  12.34, -69.12 },
-
-		DynamicSubtractionOperation_TestData{ -12.34,  56.78, -69.12 },
-		DynamicSubtractionOperation_TestData{  56.78, -12.34,  69.12 },
-
-		DynamicSubtractionOperation_TestData{ -12.34, -56.78,  44.44 },
-		DynamicSubtractionOperation_TestData{ -56.78, -12.34, -44.44 }
+		SharedTestData::subtractionOperationsDataValues
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return DynamicSubtractionOperation_TestData
+				{
+					data.leftOperand,
+					data.rightOperand,
+					data.result
+				};
+			}
+		)
 	};
 
 	INSTANTIATE_TEST_CASE_P
 	(
 		DynamicSubtractionOperationTests,
 		DynamicSubtractionOperationWithTestDataTests,
-		testing::ValuesIn(DynamicSubtractionOperation_TestDataValues)
+		ValuesInRange(DynamicSubtractionOperation_TestDataValues)
 	);
 
 #pragma endregion

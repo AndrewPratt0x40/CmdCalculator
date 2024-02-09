@@ -2,6 +2,7 @@
 
 #include <string>
 
+#include "common.h"
 #include "../CmdCalculator/DynamicAdditionOperation.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpression.h"
@@ -74,56 +75,28 @@ namespace CmdCalculatorTests
 		public testing::TestWithParam<DynamicAdditionOperation_TestData>
 	{};
 
-	const DynamicAdditionOperation_TestData DynamicAdditionOperation_TestDataValues[]
+	const auto DynamicAdditionOperation_TestDataValues
 	{
-		DynamicAdditionOperation_TestData{  0.0,  0.0,  0.0 },
-		DynamicAdditionOperation_TestData{  0.0,  0.5,  0.5 },
-		DynamicAdditionOperation_TestData{  0.0,  1.0,  1.0 },
-		DynamicAdditionOperation_TestData{  0.0,  1.5,  1.5 },
-		DynamicAdditionOperation_TestData{  0.0,  2.0,  2.0 },
-
-		DynamicAdditionOperation_TestData{  0.5,  0.0,  0.5 },
-		DynamicAdditionOperation_TestData{  0.5,  0.5,  1.0 },
-		DynamicAdditionOperation_TestData{  0.5,  1.0,  1.5 },
-		DynamicAdditionOperation_TestData{  0.5,  1.5,  2.0 },
-		DynamicAdditionOperation_TestData{  0.5,  2.0,  2.5 },
-
-		DynamicAdditionOperation_TestData{  1.0,  0.0,  1.0 },
-		DynamicAdditionOperation_TestData{  1.0,  0.5,  1.5 },
-		DynamicAdditionOperation_TestData{  1.0,  1.0,  2.0 },
-		DynamicAdditionOperation_TestData{  1.0,  1.5,  2.5 },
-		DynamicAdditionOperation_TestData{  1.0,  2.0,  3.0 },
-
-		DynamicAdditionOperation_TestData{  1.5,  0.0,  1.5 },
-		DynamicAdditionOperation_TestData{  1.5,  0.5,  2.0 },
-		DynamicAdditionOperation_TestData{  1.5,  1.0,  2.5 },
-		DynamicAdditionOperation_TestData{  1.5,  1.5,  3.0 },
-		DynamicAdditionOperation_TestData{  1.5,  2.0,  3.5 },
-
-		DynamicAdditionOperation_TestData{  2.0,  0.0,  2.0 },
-		DynamicAdditionOperation_TestData{  2.0,  0.5,  2.5 },
-		DynamicAdditionOperation_TestData{  2.0,  1.0,  3.0 },
-		DynamicAdditionOperation_TestData{  2.0,  1.5,  3.5 },
-		DynamicAdditionOperation_TestData{  2.0,  2.0,  4.0 },
-
-		DynamicAdditionOperation_TestData{  12.34,  56.78,  69.12 },
-		DynamicAdditionOperation_TestData{  56.78,  12.34,  69.12 },
-
-		DynamicAdditionOperation_TestData{  12.34, -56.78, -44.44 },
-		DynamicAdditionOperation_TestData{ -56.78,  12.34, -44.44 },
-
-		DynamicAdditionOperation_TestData{ -12.34,  56.78,  44.44},
-		DynamicAdditionOperation_TestData{  56.78, -12.34,  44.44},
-
-		DynamicAdditionOperation_TestData{ -12.34, -56.78, -69.12},
-		DynamicAdditionOperation_TestData{ -56.78, -12.34, -69.12}
+		SharedTestData::additionOperationsDataValues
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return DynamicAdditionOperation_TestData
+				{
+					data.leftOperand,
+					data.rightOperand,
+					data.result
+				};
+			}
+		)
 	};
 
 	INSTANTIATE_TEST_CASE_P
 	(
 		DynamicAdditionOperationTests,
 		DynamicAdditionOperationWithTestDataTests,
-		testing::ValuesIn(DynamicAdditionOperation_TestDataValues)
+		ValuesInRange(DynamicAdditionOperation_TestDataValues)
 	);
 
 #pragma endregion

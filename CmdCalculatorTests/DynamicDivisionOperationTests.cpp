@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 
+#include "common.h"
 #include "../CmdCalculator/DynamicDivisionOperation.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculator/DivisionByZeroException.h"
@@ -76,56 +77,28 @@ namespace CmdCalculatorTests
 		public testing::TestWithParam<DynamicDivisionOperation_TestData>
 	{};
 
-	const DynamicDivisionOperation_TestData DynamicDivisionOperation_TestDataValues[]
+	const auto DynamicDivisionOperation_TestDataValues
 	{
-		//DynamicDivisionOperation_TestData{  0.0,  0.0,  NaN  },
-		DynamicDivisionOperation_TestData{  0.0,  0.5,  0.00 },
-		DynamicDivisionOperation_TestData{  0.0,  1.0,  0.00 },
-		DynamicDivisionOperation_TestData{  0.0,  1.5,  0.00 },
-		DynamicDivisionOperation_TestData{  0.0,  2.0,  0.00 },
-
-		//DynamicDivisionOperation_TestData{  0.5,  0.0,  NaN  },
-		DynamicDivisionOperation_TestData{  0.5,  0.5,  1.00 },
-		DynamicDivisionOperation_TestData{  0.5,  1.0,  0.50 },
-		DynamicDivisionOperation_TestData{  0.5,  1.5,  0.33333333333333333 },
-		DynamicDivisionOperation_TestData{  0.5,  2.0,  0.25 },
-
-		//DynamicDivisionOperation_TestData{  1.0,  0.0,  NaN  },
-		DynamicDivisionOperation_TestData{  1.0,  0.5,  2.00 },
-		DynamicDivisionOperation_TestData{  1.0,  1.0,  1.00 },
-		DynamicDivisionOperation_TestData{  1.0,  1.5,  0.66666666666666666 },
-		DynamicDivisionOperation_TestData{  1.0,  2.0,  0.50 },
-
-		//DynamicDivisionOperation_TestData{  1.5,  0.0,  NaN  },
-		DynamicDivisionOperation_TestData{  1.5,  0.5,  3.00 },
-		DynamicDivisionOperation_TestData{  1.5,  1.0,  1.50 },
-		DynamicDivisionOperation_TestData{  1.5,  1.5,  1.00 },
-		DynamicDivisionOperation_TestData{  1.5,  2.0,  0.75 },
-
-		//DynamicDivisionOperation_TestData{  2.0,  0.0,  NaN  },
-		DynamicDivisionOperation_TestData{  2.0,  0.5,  4.00 },
-		DynamicDivisionOperation_TestData{  2.0,  1.0,  2.00 },
-		DynamicDivisionOperation_TestData{  2.0,  1.5,  1.33333333333333333 },
-		DynamicDivisionOperation_TestData{  2.0,  2.0,  1.0 },
-
-		DynamicDivisionOperation_TestData{  12.34,  56.78,  0.21733004579077139 },
-		DynamicDivisionOperation_TestData{  56.78,  12.34,  4.60129659643435980 },
-
-		DynamicDivisionOperation_TestData{  12.34, -56.78, -0.21733004579077139 },
-		DynamicDivisionOperation_TestData{ -56.78,  12.34, -4.60129659643435980 },
-
-		DynamicDivisionOperation_TestData{ -12.34,  56.78, -0.21733004579077139 },
-		DynamicDivisionOperation_TestData{  56.78, -12.34, -4.60129659643435980 },
-
-		DynamicDivisionOperation_TestData{ -12.34, -56.78,  0.21733004579077139 },
-		DynamicDivisionOperation_TestData{ -56.78, -12.34,  4.60129659643435980 },
+		SharedTestData::divisionOperationsDataValues
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return DynamicDivisionOperation_TestData
+				{
+					data.leftOperand,
+					data.rightOperand,
+					data.result
+				};
+			}
+		)
 	};
 
 	INSTANTIATE_TEST_CASE_P
 	(
 		DynamicDivisionOperationTests,
 		DynamicDivisionOperationWithTestDataTests,
-		testing::ValuesIn(DynamicDivisionOperation_TestDataValues)
+		ValuesInRange(DynamicDivisionOperation_TestDataValues)
 	);
 
 #pragma endregion
