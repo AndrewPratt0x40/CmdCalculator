@@ -5,13 +5,14 @@
 #include <iostream>
 #include <regex>
 
+#include "common.h"
 #include "../CmdCalculator/FundamentallyBackedRealNumber.h"
 #include "../CmdCalculator/RealNumber.h"
 
 using namespace std::string_literals;
 
 
-namespace CmdCalculatorTestDoubleTests
+namespace CmdCalculatorTests
 {
 #pragma region Shared test data
 
@@ -325,44 +326,45 @@ namespace CmdCalculatorTestDoubleTests
 	{};
 
 
-	const FundamentallyBackedRealNumber_getSign_TestData FundamentallyBackedRealNumber_getSign_TestDataValues[]
+	const auto FundamentallyBackedRealNumber_getSign_TestDataValues
 	{
+		[]()
 		{
-			.innerValue{ std::numeric_limits<double>::lowest() },
-			.expectedSign{ CmdCalculator::Arithmetic::ESign::Negative }
-		},
-		{
-			.innerValue{ -12.34 },
-			.expectedSign{ CmdCalculator::Arithmetic::ESign::Negative }
-		},
-		{
-			.innerValue{ -1.0 },
-			.expectedSign{ CmdCalculator::Arithmetic::ESign::Negative }
-		},
-		{
-			.innerValue{ -std::numeric_limits<double>::min() },
-			.expectedSign{ CmdCalculator::Arithmetic::ESign::Negative }
-		},
-		{
-			.innerValue{ 0 },
-			.expectedSign{ CmdCalculator::Arithmetic::ESign::Neutral }
-		},
-		{
-			.innerValue{ std::numeric_limits<double>::min() },
-			.expectedSign{ CmdCalculator::Arithmetic::ESign::Positive }
-		},
-		{
-			.innerValue{ 1.0 },
-			.expectedSign{ CmdCalculator::Arithmetic::ESign::Positive }
-		},
-		{
-			.innerValue{ 12.34 },
-			.expectedSign{ CmdCalculator::Arithmetic::ESign::Positive }
-		},
-		{
-			.innerValue{ std::numeric_limits<double>::max() },
-			.expectedSign{ CmdCalculator::Arithmetic::ESign::Positive }
-		}
+			std::vector<FundamentallyBackedRealNumber_getSign_TestData> dataValues
+			{
+				FundamentallyBackedRealNumber_getSign_TestData
+				{
+					.innerValue{ 0.0 },
+					.expectedSign{ CmdCalculator::Arithmetic::ESign::Neutral }
+				}
+			};
+
+			for (const SharedTestData::ArithmeticOperationValue auto positiveNumber : SharedTestData::positiveNumbers)
+			{
+				dataValues.emplace_back
+				(
+					FundamentallyBackedRealNumber_getSign_TestData
+					{
+						.innerValue{ positiveNumber },
+						.expectedSign{ CmdCalculator::Arithmetic::ESign::Positive }
+					}
+				);
+			}
+
+			for (const SharedTestData::ArithmeticOperationValue auto negativeNumber : SharedTestData::negativeNumbers)
+			{
+				dataValues.emplace_back
+				(
+					FundamentallyBackedRealNumber_getSign_TestData
+					{
+						.innerValue{ negativeNumber },
+						.expectedSign{ CmdCalculator::Arithmetic::ESign::Negative }
+					}
+				);
+			}
+
+			return dataValues;
+		}()
 	};
 
 	INSTANTIATE_TEST_CASE_P
@@ -416,47 +418,27 @@ namespace CmdCalculatorTestDoubleTests
 	{};
 
 
-	const FundamentallyBackedRealNumber_getAbsoluteValue_TestData FundamentallyBackedRealNumber_getAbsoluteValue_TestDataValues[]
+	const auto FundamentallyBackedRealNumber_getAbsoluteValue_TestDataValues
 	{
-		{
-			.innerValue{ -12.34 },
-			.expected{ 12.34 }
-		},
-		{
-			.innerValue{ -1.0 },
-			.expected{ 1.0 }
-		},
-		{
-			.innerValue{ -std::numeric_limits<double>::min() },
-			.expected{ std::numeric_limits<double>::min() }
-		},
-		{
-			.innerValue{ 0 },
-			.expected{ 0 }
-		},
-		{
-			.innerValue{ std::numeric_limits<double>::min() },
-			.expected{ std::numeric_limits<double>::min() }
-		},
-		{
-			.innerValue{ 1.0 },
-			.expected{ 1.0 }
-		},
-		{
-			.innerValue{ 12.34 },
-			.expected{ 12.34 }
-		},
-		{
-			.innerValue{ std::numeric_limits<double>::max() },
-			.expected{ std::numeric_limits<double>::max() }
-		}
+		SharedTestData::absoluteValueOperationsDataValues
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return FundamentallyBackedRealNumber_getAbsoluteValue_TestData
+				{
+					.innerValue{ data.operand },
+					.expected{ data.result }
+				};
+			}
+		)
 	};
 
 	INSTANTIATE_TEST_CASE_P
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumbergetAbsoluteValueTests,
-		testing::ValuesIn(FundamentallyBackedRealNumber_getAbsoluteValue_TestDataValues)
+		ValuesInRange(FundamentallyBackedRealNumber_getAbsoluteValue_TestDataValues)
 	);
 	
 	TEST_P(FundamentallyBackedRealNumbergetAbsoluteValueTests, getAbsoluteValue$returns$expected$value)
@@ -589,33 +571,49 @@ namespace CmdCalculatorTestDoubleTests
 	{};
 
 
-	const FundamentallyBackedRealNumber_pow_TestData FundamentallyBackedRealNumber_pow_TestDataValues[]
+	const auto FundamentallyBackedRealNumber_pow_TestDataValues
 	{
-		{  }
+		SharedTestData::exponentiationOperationsDataValues
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return FundamentallyBackedRealNumber_pow_TestData
+				{
+					.baseInnerValue{ data.leftOperand },
+					.exponentInnerValue{ data.rightOperand },
+					.expected{ data.result }
+				};
+			}
+		)
 	};
 
 	INSTANTIATE_TEST_CASE_P
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumberpowTests,
-		testing::ValuesIn(FundamentallyBackedRealNumber_pow_TestDataValues)
+		ValuesInRange(FundamentallyBackedRealNumber_pow_TestDataValues)
 	);
 	
 	TEST_P(FundamentallyBackedRealNumberpowTests, pow$returns$expected$value)
 	{
-		FAIL();
 		// Arrange
-		/*const double innerValue{GetParam().innerValue};
+		const double innerValue{ GetParam().baseInnerValue };
+		const double exponentInnerValue{ GetParam().baseInnerValue };
 		const double expected{ GetParam().expected };
 		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> instance
 		{
 			innerValue
+		};
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> exponent
+		{
+			exponentInnerValue
 		};
 		// Act
-		const double actual{ instance.pow().getInnerValue() };
+		const double actual{ instance.pow(exponent).getInnerValue() };
 
 		// Assert
-		EXPECT_DOUBLE_EQ(expected, actual);*/
+		EXPECT_DOUBLE_EQ(expected, actual);
 	}
 
 #pragma endregion

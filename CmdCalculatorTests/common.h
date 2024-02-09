@@ -24,6 +24,15 @@ namespace CmdCalculatorTests
 			std::convertible_to<T, double>
 		;
 
+		template<class T>
+		concept ArithmeticOperationValueRange =
+			std::ranges::input_range<T>
+			&& ArithmeticOperationValue
+			<
+				std::ranges::range_value_t<T>
+			>
+		;
+
 
 		template<ArithmeticOperationValue ValueT = double>
 		struct UnaryArithmeticOperationData
@@ -72,6 +81,38 @@ namespace CmdCalculatorTests
 		;
 
 
+		constexpr inline ArithmeticOperationValueRange auto positiveNumbers
+		{
+			std::initializer_list<double>
+			{
+				std::numeric_limits<double>::min(),
+				0.5,
+				1.0,
+				1.5,
+				2.0,
+				12.34,
+				56.78,
+				std::numeric_limits<double>::max()
+			}
+		};
+
+
+		constexpr inline ArithmeticOperationValueRange auto negativeNumbers
+		{
+			std::initializer_list<double>
+			{
+				-std::numeric_limits<double>::min(),
+				-0.5,
+				-1.0,
+				-1.5,
+				-2.0,
+				-12.34,
+				-56.78,
+				std::numeric_limits<double>::lowest()
+			}
+		};
+		
+		
 		constexpr inline UnaryArithmeticOperationDataRange auto negationOperationsDataValues
 		{
 			std::initializer_list<UnaryArithmeticOperationData<double>>
@@ -113,7 +154,8 @@ namespace CmdCalculatorTests
 				{1.5, 1.5},
 				{2.0, 2.0},
 				{12.34, 12.34},
-				{56.78, 56.78}
+				{56.78, 56.78},
+				{std::numeric_limits<double>::max(), std::numeric_limits<double>::max()}
 			}
 		};
 
