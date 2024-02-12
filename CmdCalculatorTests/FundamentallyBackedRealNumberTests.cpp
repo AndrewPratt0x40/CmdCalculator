@@ -599,7 +599,7 @@ namespace CmdCalculatorTests
 	{
 		// Arrange
 		const double innerValue{ GetParam().baseInnerValue };
-		const double exponentInnerValue{ GetParam().baseInnerValue };
+		const double exponentInnerValue{ GetParam().exponentInnerValue };
 		const double expected{ GetParam().expected };
 		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> instance
 		{
@@ -611,6 +611,82 @@ namespace CmdCalculatorTests
 		};
 		// Act
 		const double actual{ instance.pow(exponent).getInnerValue() };
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expected, actual);
+	}
+
+#pragma endregion
+
+
+#pragma region nthRoot
+
+	struct FundamentallyBackedRealNumber_nthRoot_TestData
+	{
+		double degreeInnerValue;
+		double radicandInnerValue;
+		double expected;
+
+		friend std::ostream& operator<<(std::ostream& os, const FundamentallyBackedRealNumber_nthRoot_TestData& testData)
+		{
+			os
+				<< "FundamentallyBackedRealNumber{"
+				<< testData.degreeInnerValue
+				<< "}.nthRoot(FundamentallyBackedRealNumber{"
+				<< testData.radicandInnerValue
+				<< "}) == "
+				<< testData.expected
+			;
+			return os;
+		}
+	};
+	
+	
+	class FundamentallyBackedRealNumbernthRootTests :
+		public testing::TestWithParam<FundamentallyBackedRealNumber_nthRoot_TestData>
+	{};
+
+
+	const auto FundamentallyBackedRealNumber_nthRoot_TestDataValues
+	{
+		SharedTestData::nthRootOperationsDataValues
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return FundamentallyBackedRealNumber_nthRoot_TestData
+				{
+					.degreeInnerValue{ data.leftOperand },
+					.radicandInnerValue{ data.rightOperand },
+					.expected{ data.result }
+				};
+			}
+		)
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		FundamentallyBackedRealNumberTests,
+		FundamentallyBackedRealNumbernthRootTests,
+		ValuesInRange(FundamentallyBackedRealNumber_nthRoot_TestDataValues)
+	);
+	
+	TEST_P(FundamentallyBackedRealNumbernthRootTests, nthRoot$returns$expected$value)
+	{
+		// Arrange
+		const double innerValue{ GetParam().degreeInnerValue };
+		const double radicandInnerValue{ GetParam().radicandInnerValue };
+		const double expected{ GetParam().expected };
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> instance
+		{
+			innerValue
+		};
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> radicand
+		{
+			radicandInnerValue
+		};
+		// Act
+		const double actual{ instance.nthRoot(radicand).getInnerValue() };
 
 		// Assert
 		EXPECT_DOUBLE_EQ(expected, actual);

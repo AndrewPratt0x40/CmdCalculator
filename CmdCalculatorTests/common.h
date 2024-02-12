@@ -3,6 +3,7 @@
 #include <concepts>
 #include <ranges>
 #include <vector>
+#include <array>
 
 
 namespace CmdCalculatorTests
@@ -58,6 +59,53 @@ namespace CmdCalculatorTests
 
 
 		template<ArithmeticOperationValue ValueT = double>
+		struct TrueBinaryBooleanOperationData
+		{
+			using ValueType = ValueT;
+
+			ValueType leftOperand;
+			ValueType rightOperand;
+		};
+
+		template<class T>
+		concept TrueBinaryBooleanOperationDataRange =
+			std::ranges::input_range<T>
+			&& std::same_as
+			<
+				std::ranges::range_value_t<T>,
+				TrueBinaryBooleanOperationData
+				<
+					typename std::ranges::range_value_t<T>::ValueType
+				>
+			>
+		;
+
+
+		template<ArithmeticOperationValue ValueT = double>
+		struct BinaryBooleanOperationData
+		{
+			using ValueType = ValueT;
+
+			ValueType leftOperand;
+			ValueType rightOperand;
+			bool result;
+		};
+
+		template<class T>
+		concept BinaryBooleanOperationDataRange =
+			std::ranges::input_range<T>
+			&& std::same_as
+			<
+				std::ranges::range_value_t<T>,
+				BinaryBooleanOperationData
+				<
+					typename std::ranges::range_value_t<T>::ValueType
+				>
+			>
+		;
+
+
+		template<ArithmeticOperationValue ValueT = double>
 		struct BinaryArithmeticOperationData
 		{
 			using ValueType = ValueT;
@@ -81,38 +129,209 @@ namespace CmdCalculatorTests
 		;
 
 
-		constexpr inline ArithmeticOperationValueRange auto positiveNumbers
+		constexpr inline ArithmeticOperationValueRange auto numbers =
 		{
-			std::initializer_list<double>
+			std::numeric_limits<double>::lowest(),
+			-56.78,
+			-12.34,
+			-2.0,
+			-1.5,
+			-1.0,
+			-0.5,
+			-std::numeric_limits<double>::min(),
+			0.0,
+			std::numeric_limits<double>::min(),
+			0.5,
+			1.0,
+			1.5,
+			2.0,
+			12.34,
+			56.78,
+			std::numeric_limits<double>::max()
+		};
+
+
+		constexpr inline TrueBinaryBooleanOperationDataRange auto equalNumbers
+		{
+			numbers
+			| std::views::transform
+			(
+				[](const ArithmeticOperationValue auto number)
+				{
+					return TrueBinaryBooleanOperationData<double>
+					{
+						.leftOperand{ number },
+						.rightOperand{ number }
+					};
+				}
+			)
+		};
+
+		constexpr inline TrueBinaryBooleanOperationDataRange auto inequalNumbers
+		{
+			std::initializer_list<TrueBinaryBooleanOperationData<double>>
 			{
-				std::numeric_limits<double>::min(),
-				0.5,
-				1.0,
-				1.5,
-				2.0,
-				12.34,
-				56.78,
-				std::numeric_limits<double>::max()
+				{std::numeric_limits<double>::lowest(), -12.34},
+				{std::numeric_limits<double>::lowest(), -1.0},
+				{std::numeric_limits<double>::lowest(), -std::numeric_limits<double>::min()},
+				{std::numeric_limits<double>::lowest(), 0.0},
+				{std::numeric_limits<double>::lowest(), std::numeric_limits<double>::min()},
+				{std::numeric_limits<double>::lowest(), 1.0},
+				{std::numeric_limits<double>::lowest(), 12.34},
+				{std::numeric_limits<double>::lowest(), std::numeric_limits<double>::max()},
+
+				{-12.34, std::numeric_limits<double>::lowest()},
+				{-12.34, -1.0},
+				{-12.34, -std::numeric_limits<double>::min()},
+				{-12.34, 0.0},
+				{-12.34, std::numeric_limits<double>::min()},
+				{-12.34, 1.0},
+				{-12.34, 12.34},
+				{-12.34, std::numeric_limits<double>::max()},
+
+				{-1.0, std::numeric_limits<double>::lowest()},
+				{-1.0, -12.34},
+				{-1.0, -std::numeric_limits<double>::min()},
+				{-1.0, 0.0},
+				{-1.0, std::numeric_limits<double>::min()},
+				{-1.0, 1.0},
+				{-1.0, 12.34},
+				{-1.0, std::numeric_limits<double>::max()},
+
+				{-std::numeric_limits<double>::min(), std::numeric_limits<double>::lowest()},
+				{-std::numeric_limits<double>::min(), -12.34},
+				{-std::numeric_limits<double>::min(), -1.0},
+				{-std::numeric_limits<double>::min(), 0.0},
+				{-std::numeric_limits<double>::min(), std::numeric_limits<double>::min()},
+				{-std::numeric_limits<double>::min(), 1.0},
+				{-std::numeric_limits<double>::min(), 12.34},
+				{-std::numeric_limits<double>::min(), std::numeric_limits<double>::max()},
+
+				{0.0, std::numeric_limits<double>::lowest()},
+				{0.0, -12.34},
+				{0.0, -1.0},
+				{0.0, -std::numeric_limits<double>::min()},
+				{0.0, std::numeric_limits<double>::min()},
+				{0.0, 1.0},
+				{0.0, 12.34},
+				{0.0, std::numeric_limits<double>::max()},
+
+				{std::numeric_limits<double>::min(), std::numeric_limits<double>::lowest()},
+				{std::numeric_limits<double>::min(), -12.34},
+				{std::numeric_limits<double>::min(), -1.0},
+				{std::numeric_limits<double>::min(), -std::numeric_limits<double>::min()},
+				{std::numeric_limits<double>::min(), 0.0},
+				{std::numeric_limits<double>::min(), 1.0},
+				{std::numeric_limits<double>::min(), 12.34},
+				{std::numeric_limits<double>::min(), std::numeric_limits<double>::max()},
+
+				{1.0, std::numeric_limits<double>::lowest()},
+				{1.0, -12.34},
+				{1.0, -1.0},
+				{1.0, -std::numeric_limits<double>::min()},
+				{1.0, 0.0},
+				{1.0, std::numeric_limits<double>::min()},
+				{1.0, 12.34},
+				{1.0, std::numeric_limits<double>::max()},
+
+				{12.34, std::numeric_limits<double>::lowest()},
+				{12.34, -12.34},
+				{12.34, -1.0},
+				{12.34, -std::numeric_limits<double>::min()},
+				{12.34, 0.0},
+				{12.34, std::numeric_limits<double>::min()},
+				{12.34, 1.0},
+				{12.34, std::numeric_limits<double>::max()},
+
+				{std::numeric_limits<double>::max(), std::numeric_limits<double>::lowest()},
+				{std::numeric_limits<double>::max(), -12.34},
+				{std::numeric_limits<double>::max(), -1.0},
+				{std::numeric_limits<double>::max(), -std::numeric_limits<double>::min()},
+				{std::numeric_limits<double>::max(), 0.0},
+				{std::numeric_limits<double>::max(), std::numeric_limits<double>::min()},
+				{std::numeric_limits<double>::max(), 1.0},
+				{std::numeric_limits<double>::max(), 12.34}
 			}
 		};
 
 
-		constexpr inline ArithmeticOperationValueRange auto negativeNumbers
+		constexpr inline TrueBinaryBooleanOperationDataRange auto lessThanNumbers
 		{
-			std::initializer_list<double>
+			std::initializer_list<TrueBinaryBooleanOperationData<double>>
 			{
-				-std::numeric_limits<double>::min(),
-				-0.5,
-				-1.0,
-				-1.5,
-				-2.0,
-				-12.34,
-				-56.78,
-				std::numeric_limits<double>::lowest()
+				{-12.34, std::numeric_limits<double>::lowest()},
+
+				{-1.0, std::numeric_limits<double>::lowest()},
+				{-1.0, -12.34},
+
+				{-std::numeric_limits<double>::min(), std::numeric_limits<double>::lowest()},
+				{-std::numeric_limits<double>::min(), -12.34},
+				{-std::numeric_limits<double>::min(), -1.0},
+
+				{0.0, std::numeric_limits<double>::lowest()},
+				{0.0, -12.34},
+				{0.0, -1.0},
+				{0.0, -std::numeric_limits<double>::min()},
+
+				{std::numeric_limits<double>::min(), std::numeric_limits<double>::lowest()},
+				{std::numeric_limits<double>::min(), -12.34},
+				{std::numeric_limits<double>::min(), -1.0},
+				{std::numeric_limits<double>::min(), -std::numeric_limits<double>::min()},
+				{std::numeric_limits<double>::min(), 0.0},
+				{std::numeric_limits<double>::min(), 1.0},
+				{std::numeric_limits<double>::min(), 12.34},
+				{std::numeric_limits<double>::min(), std::numeric_limits<double>::max()},
+
+				{1.0, std::numeric_limits<double>::lowest()},
+				{1.0, -12.34},
+				{1.0, -1.0},
+				{1.0, -std::numeric_limits<double>::min()},
+				{1.0, 0.0},
+				{1.0, std::numeric_limits<double>::min()},
+				{1.0, 12.34},
+				{1.0, std::numeric_limits<double>::max()},
+
+				{12.34, std::numeric_limits<double>::lowest()},
+				{12.34, -12.34},
+				{12.34, -1.0},
+				{12.34, -std::numeric_limits<double>::min()},
+				{12.34, 0.0},
+				{12.34, std::numeric_limits<double>::min()},
+				{12.34, 1.0},
+				{12.34, std::numeric_limits<double>::max()},
+
+				{std::numeric_limits<double>::max(), std::numeric_limits<double>::lowest()},
+				{std::numeric_limits<double>::max(), -12.34},
+				{std::numeric_limits<double>::max(), -1.0},
+				{std::numeric_limits<double>::max(), -std::numeric_limits<double>::min()},
+				{std::numeric_limits<double>::max(), 0.0},
+				{std::numeric_limits<double>::max(), std::numeric_limits<double>::min()},
+				{std::numeric_limits<double>::max(), 1.0},
+				{std::numeric_limits<double>::max(), 12.34}
 			}
 		};
-		
-		
+
+
+		inline BinaryBooleanOperationDataRange auto inequalityOperationDataValues()
+		{
+			return
+				equalityOperationDataValues()
+				| std::views::transform
+				(
+					[](const BinaryBooleanOperationData<double> equalityOperationDataValue)
+					{
+						return BinaryBooleanOperationData<double>
+						{
+							.leftOperand{ equalityOperationDataValue.leftOperand },
+							.rightOperand{ equalityOperationDataValue.rightOperand },
+							.result{ !equalityOperationDataValue.result }
+						};
+					}
+				)
+			;
+		}
+
+
 		constexpr inline UnaryArithmeticOperationDataRange auto negationOperationsDataValues
 		{
 			std::initializer_list<UnaryArithmeticOperationData<double>>
