@@ -1,5 +1,7 @@
 #pragma once
 
+#include "pch.h"
+
 #include <algorithm>
 #include <concepts>
 #include <ranges>
@@ -8,10 +10,19 @@
 #include <optional>
 #include <utility>
 
+#include "../CmdCalculator/ESign.h"
+
 
 namespace CmdCalculatorTests
 {
-	auto ValuesInRange(std::ranges::input_range auto range)
+	auto ValuesInRange(std::ranges::range auto range)
+	{
+		std::vector<std::ranges::range_value_t<decltype(range)>> values{};
+		std::ranges::copy(range, std::back_inserter(values));
+		return testing::ValuesIn(values);
+	}
+	
+	auto ValuesInRange(std::ranges::forward_range auto range)
 	{
 		return testing::ValuesIn(std::ranges::begin(range), std::ranges::end(range));
 	}
@@ -138,9 +149,7 @@ namespace CmdCalculatorTests
 			using ValueType = ValueT;
 
 			ValueType value;
-			bool isNegative;
-			bool isNeutral;
-			bool isPositive;
+			CmdCalculator::Arithmetic::ESign sign;
 			std::optional<ValueType> absoluteValue;
 			std::optional<ValueType> negatedValue;
 
@@ -196,21 +205,122 @@ namespace CmdCalculatorTests
 			CompositeOperandData<double>
 			{
 				.value{ std::numeric_limits<double>::lowest() },
-				.isNegative{ true },
-				.isNeutral{ false },
-				.isPositive{ false },
+				.sign{ CmdCalculator::Arithmetic::ESign::Negative },
 				.absoluteValue{},
 				.negatedValue{}
 			},
 			CompositeOperandData<double>
 			{
 				.value{ -56.78 },
-				.isNegative{ true },
-				.isNeutral{ false },
-				.isPositive{ false },
+				.sign{ CmdCalculator::Arithmetic::ESign::Negative },
 				.absoluteValue{ std::make_optional<double>(56.78) },
 				.negatedValue{ std::make_optional<double>(56.78) }
-			}
+			},
+			CompositeOperandData<double>
+			{
+				.value{ -12.34 },
+				.sign{ CmdCalculator::Arithmetic::ESign::Negative },
+				.absoluteValue{ std::make_optional<double>(12.34) },
+				.negatedValue{ std::make_optional<double>(12.34) }
+			},
+			CompositeOperandData<double>
+			{
+				.value{ -2.0 },
+				.sign{ CmdCalculator::Arithmetic::ESign::Negative },
+				.absoluteValue{ std::make_optional<double>(2.0) },
+				.negatedValue{ std::make_optional<double>(2.0) }
+			},
+			CompositeOperandData<double>
+			{
+				.value{ -1.5 },
+				.sign{ CmdCalculator::Arithmetic::ESign::Negative },
+				.absoluteValue{ std::make_optional<double>(1.5) },
+				.negatedValue{ std::make_optional<double>(1.5) }
+			},
+			CompositeOperandData<double>
+			{
+				.value{ -1.0 },
+				.sign{ CmdCalculator::Arithmetic::ESign::Negative },
+				.absoluteValue{ std::make_optional<double>(1.0) },
+				.negatedValue{ std::make_optional<double>(1.0) }
+			},
+			CompositeOperandData<double>
+			{
+				.value{ -0.5 },
+				.sign{ CmdCalculator::Arithmetic::ESign::Negative },
+				.absoluteValue{ std::make_optional<double>(0.5) },
+				.negatedValue{ std::make_optional<double>(0.5) }
+			},
+			CompositeOperandData<double>
+			{
+				.value{ -std::numeric_limits<double>::min() },
+				.sign{ CmdCalculator::Arithmetic::ESign::Negative },
+				.absoluteValue{ std::make_optional<double>(std::numeric_limits<double>::min()) },
+				.negatedValue{ std::make_optional<double>(std::numeric_limits<double>::min()) }
+			},
+			CompositeOperandData<double>
+			{
+				.value{ 0.0 },
+				.sign{ CmdCalculator::Arithmetic::ESign::Neutral },
+				.absoluteValue{ std::make_optional<double>(0.0) },
+				.negatedValue{ std::make_optional<double>(0.0) }
+			},
+			CompositeOperandData<double>
+			{
+				.value{ std::numeric_limits<double>::min() },
+				.sign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.absoluteValue{ std::make_optional<double>(-std::numeric_limits<double>::min()) },
+				.negatedValue{ std::make_optional<double>(-std::numeric_limits<double>::min()) }
+			},
+			CompositeOperandData<double>
+			{
+				.value{ 0.5 },
+				.sign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.absoluteValue{ std::make_optional<double>(-0.5) },
+				.negatedValue{ std::make_optional<double>(-0.5) }
+			},
+			CompositeOperandData<double>
+			{
+				.value{ 1.0 },
+				.sign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.absoluteValue{ std::make_optional<double>(-1.0) },
+				.negatedValue{ std::make_optional<double>(-1.0) }
+			},
+			CompositeOperandData<double>
+			{
+				.value{ 1.5 },
+				.sign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.absoluteValue{ std::make_optional<double>(-1.5) },
+				.negatedValue{ std::make_optional<double>(-1.5) }
+			},
+			CompositeOperandData<double>
+			{
+				.value{ 2.0 },
+				.sign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.absoluteValue{ std::make_optional<double>(-2.0) },
+				.negatedValue{ std::make_optional<double>(-2.0) }
+			},
+			CompositeOperandData<double>
+			{
+				.value{ 12.34 },
+				.sign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.absoluteValue{ std::make_optional<double>(-12.34) },
+				.negatedValue{ std::make_optional<double>(-12.34) }
+			},
+			CompositeOperandData<double>
+			{
+				.value{ 56.78 },
+				.sign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.absoluteValue{ std::make_optional<double>(-56.78) },
+				.negatedValue{ std::make_optional<double>(-56.78) }
+			},
+			CompositeOperandData<double>
+			{
+				.value{ std::numeric_limits<double>::max() },
+				.sign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.absoluteValue{ std::numeric_limits<double>::max() },
+				.negatedValue{}
+			},
 		};
 		static_assert(std::ranges::sized_range<decltype(orderedOperandDataValues)>);
 		static_assert(std::ranges::random_access_range<decltype(orderedOperandDataValues)>);

@@ -64,7 +64,7 @@ namespace CmdCalculatorTests
 
 	const auto DynamicNegationOperation_TestDataValues
 	{
-		SharedTestData::negationOperationsDataValues
+		SharedTestData::negationOperationsDataValues()
 		| std::views::transform
 		(
 			[](const auto& data)

@@ -65,7 +65,7 @@ namespace CmdCalculatorTests
 
 	const auto DynamicAbsoluteValueOperation_TestDataValues
 	{
-		SharedTestData::absoluteValueOperationsDataValues
+		SharedTestData::absoluteValueOperationsDataValues()
 		| std::views::transform
 		(
 			[](const auto& data)

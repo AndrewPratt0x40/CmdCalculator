@@ -185,11 +185,11 @@ namespace CmdCalculator::Arithmetic
 #pragma region Comparison operators
 
 		friend bool operator==<InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
-		friend bool operator!=(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
-		friend bool operator<(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
-		friend bool operator<=(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
-		friend bool operator>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
-		friend bool operator>=(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
+		friend bool operator!=<InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
+		friend bool operator< <InnerT > (const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
+		friend bool operator<=<InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
+		friend bool operator><InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
+		friend bool operator>=<InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
 
 #pragma endregion
 

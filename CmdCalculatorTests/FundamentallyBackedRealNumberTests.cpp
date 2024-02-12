@@ -328,50 +328,25 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_getSign_TestDataValues
 	{
-		[]()
-		{
-			std::vector<FundamentallyBackedRealNumber_getSign_TestData> dataValues
+		SharedTestData::orderedOperandDataValues
+		| std::views::transform
+		(
+			[](const auto& data)
 			{
-				FundamentallyBackedRealNumber_getSign_TestData
+				return FundamentallyBackedRealNumber_getSign_TestData
 				{
-					.innerValue{ 0.0 },
-					.expectedSign{ CmdCalculator::Arithmetic::ESign::Neutral }
-				}
-			};
-
-			for (const SharedTestData::ArithmeticOperationValue auto positiveNumber : SharedTestData::positiveNumbers)
-			{
-				dataValues.emplace_back
-				(
-					FundamentallyBackedRealNumber_getSign_TestData
-					{
-						.innerValue{ positiveNumber },
-						.expectedSign{ CmdCalculator::Arithmetic::ESign::Positive }
-					}
-				);
+					.innerValue{ data.value },
+					.expectedSign{ data.sign }
+				};
 			}
-
-			for (const SharedTestData::ArithmeticOperationValue auto negativeNumber : SharedTestData::negativeNumbers)
-			{
-				dataValues.emplace_back
-				(
-					FundamentallyBackedRealNumber_getSign_TestData
-					{
-						.innerValue{ negativeNumber },
-						.expectedSign{ CmdCalculator::Arithmetic::ESign::Negative }
-					}
-				);
-			}
-
-			return dataValues;
-		}()
+		)
 	};
 
 	INSTANTIATE_TEST_CASE_P
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumbergetSignTests,
-		testing::ValuesIn(FundamentallyBackedRealNumber_getSign_TestDataValues)
+		ValuesInRange(FundamentallyBackedRealNumber_getSign_TestDataValues)
 	);
 	
 	TEST_P(FundamentallyBackedRealNumbergetSignTests, getSign$returns$expected$value)
@@ -420,7 +395,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_getAbsoluteValue_TestDataValues
 	{
-		SharedTestData::absoluteValueOperationsDataValues
+		SharedTestData::absoluteValueOperationsDataValues()
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -691,6 +666,474 @@ namespace CmdCalculatorTests
 		// Assert
 		EXPECT_DOUBLE_EQ(expected, actual);
 	}
+
+#pragma endregion
+
+
+#pragma region Operators
+
+#pragma region Comparison operators
+
+#pragma region Equality
+
+	struct FundamentallyBackedRealNumber_equality_operator_TestData
+	{
+		double lhsInnerValue;
+		double rhsInnerValue;
+		bool expected;
+
+		friend std::ostream& operator<<(std::ostream& os, const FundamentallyBackedRealNumber_equality_operator_TestData& testData)
+		{
+			os
+				<< "(FundamentallyBackedRealNumber{"
+				<< testData.lhsInnerValue
+				<< "} == FundamentallyBackedRealNumber{"
+				<< testData.rhsInnerValue
+				<< "}) == "
+				<< testData.expected
+			;
+			return os;
+		}
+	};
+	
+	
+	class FundamentallyBackedRealNumberEqualityOperatorTests :
+		public testing::TestWithParam<FundamentallyBackedRealNumber_equality_operator_TestData>
+	{};
+
+
+	const auto FundamentallyBackedRealNumber_equality_operator_TestDataValues
+	{
+		SharedTestData::equalityOperationDataValues()
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return FundamentallyBackedRealNumber_equality_operator_TestData
+				{
+					.lhsInnerValue{ data.leftOperand },
+					.rhsInnerValue{ data.rightOperand },
+					.expected{ data.result }
+				};
+			}
+		)
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		FundamentallyBackedRealNumberTests,
+		FundamentallyBackedRealNumberEqualityOperatorTests,
+		ValuesInRange(FundamentallyBackedRealNumber_equality_operator_TestDataValues)
+	);
+	
+	TEST_P(FundamentallyBackedRealNumberEqualityOperatorTests, equality$operator$returns$expected$value)
+	{
+		// Arrange
+		const double lhsInnerValue{ GetParam().lhsInnerValue };
+		const double rhsInnerValue{ GetParam().rhsInnerValue };
+		const bool expected{ GetParam().expected };
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> lhs
+		{
+			lhsInnerValue
+		};
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> rhs
+		{
+			rhsInnerValue
+		};
+		// Act
+		const bool actual{ lhs == rhs };
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expected, actual);
+	}
+
+#pragma endregion
+
+
+#pragma region Inequality
+
+	struct FundamentallyBackedRealNumber_inequality_operator_TestData
+	{
+		double lhsInnerValue;
+		double rhsInnerValue;
+		bool expected;
+
+		friend std::ostream& operator<<(std::ostream& os, const FundamentallyBackedRealNumber_inequality_operator_TestData& testData)
+		{
+			os
+				<< "(FundamentallyBackedRealNumber{"
+				<< testData.lhsInnerValue
+				<< "} != FundamentallyBackedRealNumber{"
+				<< testData.rhsInnerValue
+				<< "}) == "
+				<< testData.expected
+			;
+			return os;
+		}
+	};
+	
+	
+	class FundamentallyBackedRealNumberInequalityOperatorTests :
+		public testing::TestWithParam<FundamentallyBackedRealNumber_inequality_operator_TestData>
+	{};
+
+
+	const auto FundamentallyBackedRealNumber_inequality_operator_TestDataValues
+	{
+		SharedTestData::inequalityOperationDataValues()
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return FundamentallyBackedRealNumber_inequality_operator_TestData
+				{
+					.lhsInnerValue{ data.leftOperand },
+					.rhsInnerValue{ data.rightOperand },
+					.expected{ data.result }
+				};
+			}
+		)
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		FundamentallyBackedRealNumberTests,
+		FundamentallyBackedRealNumberInequalityOperatorTests,
+		ValuesInRange(FundamentallyBackedRealNumber_inequality_operator_TestDataValues)
+	);
+	
+	TEST_P(FundamentallyBackedRealNumberInequalityOperatorTests, inequality$operator$returns$expected$value)
+	{
+		// Arrange
+		const double lhsInnerValue{ GetParam().lhsInnerValue };
+		const double rhsInnerValue{ GetParam().rhsInnerValue };
+		const bool expected{ GetParam().expected };
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> lhs
+		{
+			lhsInnerValue
+		};
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> rhs
+		{
+			rhsInnerValue
+		};
+		// Act
+		const bool actual{ lhs != rhs };
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expected, actual);
+	}
+
+#pragma endregion
+
+
+#pragma region Less Than
+
+	struct FundamentallyBackedRealNumber_lessThan_operator_TestData
+	{
+		double lhsInnerValue;
+		double rhsInnerValue;
+		bool expected;
+
+		friend std::ostream& operator<<(std::ostream& os, const FundamentallyBackedRealNumber_lessThan_operator_TestData& testData)
+		{
+			os
+				<< "(FundamentallyBackedRealNumber{"
+				<< testData.lhsInnerValue
+				<< "} < FundamentallyBackedRealNumber{"
+				<< testData.rhsInnerValue
+				<< "}) == "
+				<< testData.expected
+			;
+			return os;
+		}
+	};
+	
+	
+	class FundamentallyBackedRealNumberLessThanOperatorTests :
+		public testing::TestWithParam<FundamentallyBackedRealNumber_lessThan_operator_TestData>
+	{};
+
+
+	const auto FundamentallyBackedRealNumber_lessThan_operator_TestDataValues
+	{
+		SharedTestData::lessThanOperationDataValues()
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return FundamentallyBackedRealNumber_lessThan_operator_TestData
+				{
+					.lhsInnerValue{ data.leftOperand },
+					.rhsInnerValue{ data.rightOperand },
+					.expected{ data.result }
+				};
+			}
+		)
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		FundamentallyBackedRealNumberTests,
+		FundamentallyBackedRealNumberLessThanOperatorTests,
+		ValuesInRange(FundamentallyBackedRealNumber_lessThan_operator_TestDataValues)
+	);
+	
+	TEST_P(FundamentallyBackedRealNumberLessThanOperatorTests, lessThan$operator$returns$expected$value)
+	{
+		// Arrange
+		const double lhsInnerValue{ GetParam().lhsInnerValue };
+		const double rhsInnerValue{ GetParam().rhsInnerValue };
+		const bool expected{ GetParam().expected };
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> lhs
+		{
+			lhsInnerValue
+		};
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> rhs
+		{
+			rhsInnerValue
+		};
+
+		// Act
+		const bool actual{ lhs < rhs };
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expected, actual);
+	}
+
+#pragma endregion
+
+
+#pragma region Less Than or Equal To
+
+	struct FundamentallyBackedRealNumber_lessThanEqualTo_operator_TestData
+	{
+		double lhsInnerValue;
+		double rhsInnerValue;
+		bool expected;
+
+		friend std::ostream& operator<<(std::ostream& os, const FundamentallyBackedRealNumber_lessThanEqualTo_operator_TestData& testData)
+		{
+			os
+				<< "(FundamentallyBackedRealNumber{"
+				<< testData.lhsInnerValue
+				<< "} <= FundamentallyBackedRealNumber{"
+				<< testData.rhsInnerValue
+				<< "}) == "
+				<< testData.expected
+			;
+			return os;
+		}
+	};
+	
+	
+	class FundamentallyBackedRealNumberLessThanEqualToOperatorTests :
+		public testing::TestWithParam<FundamentallyBackedRealNumber_lessThanEqualTo_operator_TestData>
+	{};
+
+
+	const auto FundamentallyBackedRealNumber_lessThanEqualTo_operator_TestDataValues
+	{
+		SharedTestData::lessThanEqualToOperationDataValues()
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return FundamentallyBackedRealNumber_lessThanEqualTo_operator_TestData
+				{
+					.lhsInnerValue{ data.leftOperand },
+					.rhsInnerValue{ data.rightOperand },
+					.expected{ data.result }
+				};
+			}
+		)
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		FundamentallyBackedRealNumberTests,
+		FundamentallyBackedRealNumberLessThanEqualToOperatorTests,
+		ValuesInRange(FundamentallyBackedRealNumber_lessThanEqualTo_operator_TestDataValues)
+	);
+	
+	TEST_P(FundamentallyBackedRealNumberLessThanEqualToOperatorTests, lessThanEqualTo$operator$returns$expected$value)
+	{
+		// Arrange
+		const double lhsInnerValue{ GetParam().lhsInnerValue };
+		const double rhsInnerValue{ GetParam().rhsInnerValue };
+		const bool expected{ GetParam().expected };
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> lhs
+		{
+			lhsInnerValue
+		};
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> rhs
+		{
+			rhsInnerValue
+		};
+
+		// Act
+		const bool actual{ lhs <= rhs };
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expected, actual);
+	}
+
+#pragma endregion
+
+
+#pragma region Greater Than
+
+	struct FundamentallyBackedRealNumber_greaterThan_operator_TestData
+	{
+		double lhsInnerValue;
+		double rhsInnerValue;
+		bool expected;
+
+		friend std::ostream& operator<<(std::ostream& os, const FundamentallyBackedRealNumber_greaterThan_operator_TestData& testData)
+		{
+			os
+				<< "(FundamentallyBackedRealNumber{"
+				<< testData.lhsInnerValue
+				<< "} > FundamentallyBackedRealNumber{"
+				<< testData.rhsInnerValue
+				<< "}) == "
+				<< testData.expected
+			;
+			return os;
+		}
+	};
+	
+	
+	class FundamentallyBackedRealNumberGreaterThanOperatorTests :
+		public testing::TestWithParam<FundamentallyBackedRealNumber_greaterThan_operator_TestData>
+	{};
+
+
+	const auto FundamentallyBackedRealNumber_greaterThan_operator_TestDataValues
+	{
+		SharedTestData::greaterThanOperationDataValues()
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return FundamentallyBackedRealNumber_greaterThan_operator_TestData
+				{
+					.lhsInnerValue{ data.leftOperand },
+					.rhsInnerValue{ data.rightOperand },
+					.expected{ data.result }
+				};
+			}
+		)
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		FundamentallyBackedRealNumberTests,
+		FundamentallyBackedRealNumberGreaterThanOperatorTests,
+		ValuesInRange(FundamentallyBackedRealNumber_greaterThan_operator_TestDataValues)
+	);
+	
+	TEST_P(FundamentallyBackedRealNumberGreaterThanOperatorTests, greaterThan$operator$returns$expected$value)
+	{
+		// Arrange
+		const double lhsInnerValue{ GetParam().lhsInnerValue };
+		const double rhsInnerValue{ GetParam().rhsInnerValue };
+		const bool expected{ GetParam().expected };
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> lhs
+		{
+			lhsInnerValue
+		};
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> rhs
+		{
+			rhsInnerValue
+		};
+
+		// Act
+		const bool actual{ lhs > rhs };
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expected, actual);
+	}
+
+#pragma endregion
+
+
+#pragma region Greater Than or Equal To
+
+	struct FundamentallyBackedRealNumber_greaterThanEqualTo_operator_TestData
+	{
+		double lhsInnerValue;
+		double rhsInnerValue;
+		bool expected;
+
+		friend std::ostream& operator<<(std::ostream& os, const FundamentallyBackedRealNumber_greaterThanEqualTo_operator_TestData& testData)
+		{
+			os
+				<< "(FundamentallyBackedRealNumber{"
+				<< testData.lhsInnerValue
+				<< "} >= FundamentallyBackedRealNumber{"
+				<< testData.rhsInnerValue
+				<< "}) == "
+				<< testData.expected
+			;
+			return os;
+		}
+	};
+	
+	
+	class FundamentallyBackedRealNumberGreaterThanEqualToOperatorTests :
+		public testing::TestWithParam<FundamentallyBackedRealNumber_greaterThanEqualTo_operator_TestData>
+	{};
+
+
+	const auto FundamentallyBackedRealNumber_greaterThanEqualTo_operator_TestDataValues
+	{
+		SharedTestData::greaterThanEqualToOperationDataValues()
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return FundamentallyBackedRealNumber_greaterThanEqualTo_operator_TestData
+				{
+					.lhsInnerValue{ data.leftOperand },
+					.rhsInnerValue{ data.rightOperand },
+					.expected{ data.result }
+				};
+			}
+		)
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		FundamentallyBackedRealNumberTests,
+		FundamentallyBackedRealNumberGreaterThanEqualToOperatorTests,
+		ValuesInRange(FundamentallyBackedRealNumber_greaterThanEqualTo_operator_TestDataValues)
+	);
+	
+	TEST_P(FundamentallyBackedRealNumberGreaterThanEqualToOperatorTests, greaterThanEqualTo$operator$returns$expected$value)
+	{
+		// Arrange
+		const double lhsInnerValue{ GetParam().lhsInnerValue };
+		const double rhsInnerValue{ GetParam().rhsInnerValue };
+		const bool expected{ GetParam().expected };
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> lhs
+		{
+			lhsInnerValue
+		};
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> rhs
+		{
+			rhsInnerValue
+		};
+
+		// Act
+		const bool actual{ lhs >= rhs };
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expected, actual);
+	}
+
+#pragma endregion
+
+#pragma endregion
 
 #pragma endregion
 }
