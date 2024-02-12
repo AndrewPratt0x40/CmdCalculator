@@ -1,9 +1,12 @@
 #pragma once
 
+#include <algorithm>
 #include <concepts>
 #include <ranges>
 #include <vector>
 #include <array>
+#include <optional>
+#include <utility>
 
 
 namespace CmdCalculatorTests
@@ -129,253 +132,314 @@ namespace CmdCalculatorTests
 		;
 
 
-		constexpr inline ArithmeticOperationValueRange auto numbers =
+		template<ArithmeticOperationValue ValueT = double>
+		struct CompositeOperandData
 		{
-			std::numeric_limits<double>::lowest(),
-			-56.78,
-			-12.34,
-			-2.0,
-			-1.5,
-			-1.0,
-			-0.5,
-			-std::numeric_limits<double>::min(),
-			0.0,
-			std::numeric_limits<double>::min(),
-			0.5,
-			1.0,
-			1.5,
-			2.0,
-			12.34,
-			56.78,
-			std::numeric_limits<double>::max()
-		};
+			using ValueType = ValueT;
 
+			ValueType value;
+			bool isNegative;
+			bool isNeutral;
+			bool isPositive;
+			std::optional<ValueType> absoluteValue;
+			std::optional<ValueType> negatedValue;
 
-		constexpr inline TrueBinaryBooleanOperationDataRange auto equalNumbers
-		{
-			numbers
-			| std::views::transform
-			(
-				[](const ArithmeticOperationValue auto number)
-				{
-					return TrueBinaryBooleanOperationData<double>
-					{
-						.leftOperand{ number },
-						.rightOperand{ number }
-					};
-				}
-			)
-		};
-
-		constexpr inline TrueBinaryBooleanOperationDataRange auto inequalNumbers
-		{
-			std::initializer_list<TrueBinaryBooleanOperationData<double>>
+			constexpr friend bool operator==(const CompositeOperandData& lhs, const CompositeOperandData& rhs)
 			{
-				{std::numeric_limits<double>::lowest(), -12.34},
-				{std::numeric_limits<double>::lowest(), -1.0},
-				{std::numeric_limits<double>::lowest(), -std::numeric_limits<double>::min()},
-				{std::numeric_limits<double>::lowest(), 0.0},
-				{std::numeric_limits<double>::lowest(), std::numeric_limits<double>::min()},
-				{std::numeric_limits<double>::lowest(), 1.0},
-				{std::numeric_limits<double>::lowest(), 12.34},
-				{std::numeric_limits<double>::lowest(), std::numeric_limits<double>::max()},
-
-				{-12.34, std::numeric_limits<double>::lowest()},
-				{-12.34, -1.0},
-				{-12.34, -std::numeric_limits<double>::min()},
-				{-12.34, 0.0},
-				{-12.34, std::numeric_limits<double>::min()},
-				{-12.34, 1.0},
-				{-12.34, 12.34},
-				{-12.34, std::numeric_limits<double>::max()},
-
-				{-1.0, std::numeric_limits<double>::lowest()},
-				{-1.0, -12.34},
-				{-1.0, -std::numeric_limits<double>::min()},
-				{-1.0, 0.0},
-				{-1.0, std::numeric_limits<double>::min()},
-				{-1.0, 1.0},
-				{-1.0, 12.34},
-				{-1.0, std::numeric_limits<double>::max()},
-
-				{-std::numeric_limits<double>::min(), std::numeric_limits<double>::lowest()},
-				{-std::numeric_limits<double>::min(), -12.34},
-				{-std::numeric_limits<double>::min(), -1.0},
-				{-std::numeric_limits<double>::min(), 0.0},
-				{-std::numeric_limits<double>::min(), std::numeric_limits<double>::min()},
-				{-std::numeric_limits<double>::min(), 1.0},
-				{-std::numeric_limits<double>::min(), 12.34},
-				{-std::numeric_limits<double>::min(), std::numeric_limits<double>::max()},
-
-				{0.0, std::numeric_limits<double>::lowest()},
-				{0.0, -12.34},
-				{0.0, -1.0},
-				{0.0, -std::numeric_limits<double>::min()},
-				{0.0, std::numeric_limits<double>::min()},
-				{0.0, 1.0},
-				{0.0, 12.34},
-				{0.0, std::numeric_limits<double>::max()},
-
-				{std::numeric_limits<double>::min(), std::numeric_limits<double>::lowest()},
-				{std::numeric_limits<double>::min(), -12.34},
-				{std::numeric_limits<double>::min(), -1.0},
-				{std::numeric_limits<double>::min(), -std::numeric_limits<double>::min()},
-				{std::numeric_limits<double>::min(), 0.0},
-				{std::numeric_limits<double>::min(), 1.0},
-				{std::numeric_limits<double>::min(), 12.34},
-				{std::numeric_limits<double>::min(), std::numeric_limits<double>::max()},
-
-				{1.0, std::numeric_limits<double>::lowest()},
-				{1.0, -12.34},
-				{1.0, -1.0},
-				{1.0, -std::numeric_limits<double>::min()},
-				{1.0, 0.0},
-				{1.0, std::numeric_limits<double>::min()},
-				{1.0, 12.34},
-				{1.0, std::numeric_limits<double>::max()},
-
-				{12.34, std::numeric_limits<double>::lowest()},
-				{12.34, -12.34},
-				{12.34, -1.0},
-				{12.34, -std::numeric_limits<double>::min()},
-				{12.34, 0.0},
-				{12.34, std::numeric_limits<double>::min()},
-				{12.34, 1.0},
-				{12.34, std::numeric_limits<double>::max()},
-
-				{std::numeric_limits<double>::max(), std::numeric_limits<double>::lowest()},
-				{std::numeric_limits<double>::max(), -12.34},
-				{std::numeric_limits<double>::max(), -1.0},
-				{std::numeric_limits<double>::max(), -std::numeric_limits<double>::min()},
-				{std::numeric_limits<double>::max(), 0.0},
-				{std::numeric_limits<double>::max(), std::numeric_limits<double>::min()},
-				{std::numeric_limits<double>::max(), 1.0},
-				{std::numeric_limits<double>::max(), 12.34}
+				return lhs.value == rhs.value;
+			}
+			
+			constexpr friend auto operator<=>(const CompositeOperandData& lhs, const CompositeOperandData& rhs)
+			{
+				return lhs.value <=> rhs.value;
 			}
 		};
+		static_assert(std::totally_ordered<CompositeOperandData<>>);
+
+		template<class T>
+		concept CompositeOperandDataRange =
+			std::ranges::input_range<T>
+			&& std::same_as
+			<
+				std::ranges::range_value_t<T>,
+				CompositeOperandData
+				<
+					typename std::ranges::range_value_t<T>::ValueType
+				>
+			>
+		;
+
+		template<class T>
+		concept CompositeOperandDataPairRange =
+			std::ranges::input_range<T>
+			&& std::same_as
+			<
+				std::remove_cvref_t<decltype(std::declval<std::ranges::range_value_t<T>>().first)>,
+				CompositeOperandData
+				<
+					typename decltype(std::declval<std::ranges::range_value_t<T>>().first)::ValueType
+				>
+			>
+			&& std::same_as
+			<
+				std::remove_cvref_t<decltype(std::declval<std::ranges::range_value_t<T>>().second)>,
+				CompositeOperandData
+				<
+					typename decltype(std::declval<std::ranges::range_value_t<T>>().second)::ValueType
+				>
+			>
+		;
 
 
-		constexpr inline TrueBinaryBooleanOperationDataRange auto lessThanNumbers
+		constexpr inline CompositeOperandDataRange auto orderedOperandDataValues =
 		{
-			std::initializer_list<TrueBinaryBooleanOperationData<double>>
+			CompositeOperandData<double>
 			{
-				{-12.34, std::numeric_limits<double>::lowest()},
-
-				{-1.0, std::numeric_limits<double>::lowest()},
-				{-1.0, -12.34},
-
-				{-std::numeric_limits<double>::min(), std::numeric_limits<double>::lowest()},
-				{-std::numeric_limits<double>::min(), -12.34},
-				{-std::numeric_limits<double>::min(), -1.0},
-
-				{0.0, std::numeric_limits<double>::lowest()},
-				{0.0, -12.34},
-				{0.0, -1.0},
-				{0.0, -std::numeric_limits<double>::min()},
-
-				{std::numeric_limits<double>::min(), std::numeric_limits<double>::lowest()},
-				{std::numeric_limits<double>::min(), -12.34},
-				{std::numeric_limits<double>::min(), -1.0},
-				{std::numeric_limits<double>::min(), -std::numeric_limits<double>::min()},
-				{std::numeric_limits<double>::min(), 0.0},
-				{std::numeric_limits<double>::min(), 1.0},
-				{std::numeric_limits<double>::min(), 12.34},
-				{std::numeric_limits<double>::min(), std::numeric_limits<double>::max()},
-
-				{1.0, std::numeric_limits<double>::lowest()},
-				{1.0, -12.34},
-				{1.0, -1.0},
-				{1.0, -std::numeric_limits<double>::min()},
-				{1.0, 0.0},
-				{1.0, std::numeric_limits<double>::min()},
-				{1.0, 12.34},
-				{1.0, std::numeric_limits<double>::max()},
-
-				{12.34, std::numeric_limits<double>::lowest()},
-				{12.34, -12.34},
-				{12.34, -1.0},
-				{12.34, -std::numeric_limits<double>::min()},
-				{12.34, 0.0},
-				{12.34, std::numeric_limits<double>::min()},
-				{12.34, 1.0},
-				{12.34, std::numeric_limits<double>::max()},
-
-				{std::numeric_limits<double>::max(), std::numeric_limits<double>::lowest()},
-				{std::numeric_limits<double>::max(), -12.34},
-				{std::numeric_limits<double>::max(), -1.0},
-				{std::numeric_limits<double>::max(), -std::numeric_limits<double>::min()},
-				{std::numeric_limits<double>::max(), 0.0},
-				{std::numeric_limits<double>::max(), std::numeric_limits<double>::min()},
-				{std::numeric_limits<double>::max(), 1.0},
-				{std::numeric_limits<double>::max(), 12.34}
+				.value{ std::numeric_limits<double>::lowest() },
+				.isNegative{ true },
+				.isNeutral{ false },
+				.isPositive{ false },
+				.absoluteValue{},
+				.negatedValue{}
+			},
+			CompositeOperandData<double>
+			{
+				.value{ -56.78 },
+				.isNegative{ true },
+				.isNeutral{ false },
+				.isPositive{ false },
+				.absoluteValue{ std::make_optional<double>(56.78) },
+				.negatedValue{ std::make_optional<double>(56.78) }
 			}
+		};
+		static_assert(std::ranges::sized_range<decltype(orderedOperandDataValues)>);
+		static_assert(std::ranges::random_access_range<decltype(orderedOperandDataValues)>);
+		static_assert(std::ranges::is_sorted(orderedOperandDataValues));
+
+
+		constexpr inline std::ranges::input_range auto orderedOperandDataIndexes
+		{
+			std::views::iota(0, std::ranges::ssize(orderedOperandDataValues))
+		};
+
+		using OrderedOperandDataIndexType = std::ranges::range_value_t<decltype(orderedOperandDataIndexes)>;
+		static_assert(std::constructible_from<OrderedOperandDataIndexType, int>);
+
+		constexpr inline CompositeOperandData<double> orderedOperandDataAt(const OrderedOperandDataIndexType index)
+		{
+			return *(std::ranges::cbegin(orderedOperandDataValues) + index);
 		};
 
 
-		inline BinaryBooleanOperationDataRange auto inequalityOperationDataValues()
+		constexpr inline CompositeOperandDataPairRange auto orderedOperandDataValuePairs()
 		{
 			return
-				equalityOperationDataValues()
+				orderedOperandDataIndexes
 				| std::views::transform
 				(
-					[](const BinaryBooleanOperationData<double> equalityOperationDataValue)
+					[](const OrderedOperandDataIndexType lhsIndex) constexpr
 					{
-						return BinaryBooleanOperationData<double>
-						{
-							.leftOperand{ equalityOperationDataValue.leftOperand },
-							.rightOperand{ equalityOperationDataValue.rightOperand },
-							.result{ !equalityOperationDataValue.result }
-						};
+						return
+							orderedOperandDataIndexes
+							| std::views::transform
+							(
+								[lhsIndex](const OrderedOperandDataIndexType rhsIndex) constexpr
+								{
+									return std::make_pair
+									(
+										orderedOperandDataAt(lhsIndex),
+										orderedOperandDataAt(rhsIndex)
+									);
+								}
+							)
+						;
 					}
 				)
+				| std::views::join
 			;
 		}
 
 
-		constexpr inline UnaryArithmeticOperationDataRange auto negationOperationsDataValues
+		const inline ArithmeticOperationValueRange auto numbers()
 		{
-			std::initializer_list<UnaryArithmeticOperationData<double>>
-			{
-				{-56.78, 56.78},
-				{-12.34, 12.34},
-				{-2.0, 2.0},
-				{-1.5, 1.5},
-				{-1.0, 1.0},
-				{-0.5, 0.5},
-				{-std::numeric_limits<double>::min(), std::numeric_limits<double>::min()},
-				{0.0, 0.0},
-				{std::numeric_limits<double>::min(), -std::numeric_limits<double>::min()},
-				{0.5, -0.5},
-				{1.0, -1.0},
-				{1.5, -1.5},
-				{2.0, -2.0},
-				{12.34, -12.34},
-				{56.78, -56.78}
-			}
+			return
+				orderedOperandDataValues
+				| std::views::transform
+				(
+					[](const CompositeOperandData<double>& operandDataValue)
+					{
+						return operandDataValue.value;
+					}
+				)
+			;
 		};
 
 
-		constexpr inline UnaryArithmeticOperationDataRange auto absoluteValueOperationsDataValues
+		inline constexpr BinaryBooleanOperationDataRange auto equalityOperationDataValues()
 		{
-			std::initializer_list<UnaryArithmeticOperationData<double>>
-			{
-				{-56.78, 56.78},
-				{-12.34, 12.34},
-				{-2.0, 2.0},
-				{-1.5, 1.5},
-				{-1.0, 1.0},
-				{-0.5, 0.5},
-				{-std::numeric_limits<double>::min(), std::numeric_limits<double>::min()},
-				{0.0, 0.0},
-				{std::numeric_limits<double>::min(), std::numeric_limits<double>::min()},
-				{0.5, 0.5},
-				{1.0, 1.0},
-				{1.5, 1.5},
-				{2.0, 2.0},
-				{12.34, 12.34},
-				{56.78, 56.78},
-				{std::numeric_limits<double>::max(), std::numeric_limits<double>::max()}
-			}
+			return
+				orderedOperandDataValuePairs()
+				| std::views::transform
+				(
+					[](const auto pair)
+					{
+						return BinaryBooleanOperationData<double>
+						{
+							.leftOperand{ pair.first.value },
+							.rightOperand{ pair.second.value },
+							.result{ pair.first == pair.second }
+						};
+					}
+				)
+			;
+		};
+
+
+		inline constexpr BinaryBooleanOperationDataRange auto inequalityOperationDataValues()
+		{
+			return
+				orderedOperandDataValuePairs()
+				| std::views::transform
+				(
+					[](const auto pair)
+					{
+						return BinaryBooleanOperationData<double>
+						{
+							.leftOperand{ pair.first.value },
+							.rightOperand{ pair.second.value },
+							.result{ pair.first != pair.second }
+						};
+					}
+				)
+			;
+		};
+
+
+		inline constexpr BinaryBooleanOperationDataRange auto lessThanOperationDataValues()
+		{
+			return
+				orderedOperandDataValuePairs()
+				| std::views::transform
+				(
+					[](const auto pair)
+					{
+						return BinaryBooleanOperationData<double>
+						{
+							.leftOperand{ pair.first.value },
+							.rightOperand{ pair.second.value },
+							.result{ pair.first < pair.second }
+						};
+					}
+				)
+			;
+		};
+
+
+		inline constexpr BinaryBooleanOperationDataRange auto lessThanEqualToOperationDataValues()
+		{
+			return
+				orderedOperandDataValuePairs()
+				| std::views::transform
+				(
+					[](const auto pair)
+					{
+						return BinaryBooleanOperationData<double>
+						{
+							.leftOperand{ pair.first.value },
+							.rightOperand{ pair.second.value },
+							.result{ pair.first <= pair.second }
+						};
+					}
+				)
+			;
+		};
+
+
+		inline constexpr BinaryBooleanOperationDataRange auto greaterThanOperationDataValues()
+		{
+			return
+				orderedOperandDataValuePairs()
+				| std::views::transform
+				(
+					[](const auto pair)
+					{
+						return BinaryBooleanOperationData<double>
+						{
+							.leftOperand{ pair.first.value },
+							.rightOperand{ pair.second.value },
+							.result{ pair.first > pair.second }
+						};
+					}
+				)
+			;
+		};
+
+
+		inline constexpr BinaryBooleanOperationDataRange auto greaterThanEqualToOperationDataValues()
+		{
+			return
+				orderedOperandDataValuePairs()
+				| std::views::transform
+				(
+					[](const auto pair)
+					{
+						return BinaryBooleanOperationData<double>
+						{
+							.leftOperand{ pair.first.value },
+							.rightOperand{ pair.second.value },
+							.result{ pair.first <= pair.second }
+						};
+					}
+				)
+			;
+		};
+
+
+		constexpr inline UnaryArithmeticOperationDataRange auto negationOperationsDataValues()
+		{
+			return
+				orderedOperandDataValues
+				| std::views::filter
+				(
+					[](const CompositeOperandData<double> operandDataValue)
+					{ return operandDataValue.negatedValue.has_value(); }
+				)
+				| std::views::transform
+				(
+					[](const CompositeOperandData<double> operandDataValue)
+					{
+						return UnaryArithmeticOperationData<double>
+						{
+							.operand{ operandDataValue.value },
+							.result{ operandDataValue.negatedValue.value() }
+						};
+					}
+				)
+			;
+		};
+
+
+		constexpr inline UnaryArithmeticOperationDataRange auto absoluteValueOperationsDataValues()
+		{
+			return
+				orderedOperandDataValues
+				| std::views::filter
+				(
+					[](const CompositeOperandData<double> operandDataValue)
+					{ return operandDataValue.absoluteValue.has_value(); }
+				)
+				| std::views::transform
+				(
+					[](const CompositeOperandData<double> operandDataValue)
+					{
+						return UnaryArithmeticOperationData<double>
+						{
+							.operand{ operandDataValue.value },
+							.result{ operandDataValue.absoluteValue.value() }
+						};
+					}
+				)
+			;
 		};
 
 
