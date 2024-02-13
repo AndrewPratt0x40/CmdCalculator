@@ -152,6 +152,8 @@ namespace CmdCalculatorTests
 			CmdCalculator::Arithmetic::ESign sign;
 			std::optional<ValueType> absoluteValue;
 			std::optional<ValueType> negatedValue;
+			std::optional<ValueType> incrementedValue;
+			std::optional<ValueType> decrementedValue;
 
 			constexpr friend bool operator==(const CompositeOperandData& lhs, const CompositeOperandData& rhs)
 			{
@@ -207,120 +209,154 @@ namespace CmdCalculatorTests
 				.value{ std::numeric_limits<double>::lowest() },
 				.sign{ CmdCalculator::Arithmetic::ESign::Negative },
 				.absoluteValue{},
-				.negatedValue{}
+				.negatedValue{},
+				.incrementedValue{ std::numeric_limits<double>::lowest() + 1 },
+				.decrementedValue{}
 			},
 			CompositeOperandData<double>
 			{
 				.value{ -56.78 },
 				.sign{ CmdCalculator::Arithmetic::ESign::Negative },
 				.absoluteValue{ std::make_optional<double>(56.78) },
-				.negatedValue{ std::make_optional<double>(56.78) }
+				.negatedValue{ std::make_optional<double>(56.78) },
+				.incrementedValue{ std::make_optional<double>(-55.78) },
+				.decrementedValue{ std::make_optional<double>(-57.78) }
 			},
 			CompositeOperandData<double>
 			{
 				.value{ -12.34 },
 				.sign{ CmdCalculator::Arithmetic::ESign::Negative },
 				.absoluteValue{ std::make_optional<double>(12.34) },
-				.negatedValue{ std::make_optional<double>(12.34) }
+				.negatedValue{ std::make_optional<double>(12.34) },
+				.incrementedValue{ std::make_optional<double>(-11.34) },
+				.decrementedValue{ std::make_optional<double>(-13.34) }
 			},
 			CompositeOperandData<double>
 			{
 				.value{ -2.0 },
 				.sign{ CmdCalculator::Arithmetic::ESign::Negative },
 				.absoluteValue{ std::make_optional<double>(2.0) },
-				.negatedValue{ std::make_optional<double>(2.0) }
+				.negatedValue{ std::make_optional<double>(2.0) },
+				.incrementedValue{ std::make_optional<double>(-1.0) },
+				.decrementedValue{ std::make_optional<double>(-3.0) }
 			},
 			CompositeOperandData<double>
 			{
 				.value{ -1.5 },
 				.sign{ CmdCalculator::Arithmetic::ESign::Negative },
 				.absoluteValue{ std::make_optional<double>(1.5) },
-				.negatedValue{ std::make_optional<double>(1.5) }
+				.negatedValue{ std::make_optional<double>(1.5) },
+				.incrementedValue{ std::make_optional<double>(-0.5) },
+				.decrementedValue{ std::make_optional<double>(-2.5) }
 			},
 			CompositeOperandData<double>
 			{
 				.value{ -1.0 },
 				.sign{ CmdCalculator::Arithmetic::ESign::Negative },
 				.absoluteValue{ std::make_optional<double>(1.0) },
-				.negatedValue{ std::make_optional<double>(1.0) }
+				.negatedValue{ std::make_optional<double>(1.0) },
+				.incrementedValue{ std::make_optional<double>(0.0) },
+				.decrementedValue{ std::make_optional<double>(-2.0) }
 			},
 			CompositeOperandData<double>
 			{
 				.value{ -0.5 },
 				.sign{ CmdCalculator::Arithmetic::ESign::Negative },
 				.absoluteValue{ std::make_optional<double>(0.5) },
-				.negatedValue{ std::make_optional<double>(0.5) }
+				.negatedValue{ std::make_optional<double>(0.5) },
+				.incrementedValue{ std::make_optional<double>(0.5) },
+				.decrementedValue{ std::make_optional<double>(-1.5) }
 			},
 			CompositeOperandData<double>
 			{
 				.value{ -std::numeric_limits<double>::min() },
 				.sign{ CmdCalculator::Arithmetic::ESign::Negative },
 				.absoluteValue{ std::make_optional<double>(std::numeric_limits<double>::min()) },
-				.negatedValue{ std::make_optional<double>(std::numeric_limits<double>::min()) }
+				.negatedValue{ std::make_optional<double>(std::numeric_limits<double>::min()) },
+				.incrementedValue{ std::make_optional<double>(-std::numeric_limits<double>::min() + 1.0) },
+				.decrementedValue{ std::make_optional<double>(-std::numeric_limits<double>::min() - 1.0) }
 			},
 			CompositeOperandData<double>
 			{
 				.value{ 0.0 },
 				.sign{ CmdCalculator::Arithmetic::ESign::Neutral },
 				.absoluteValue{ std::make_optional<double>(0.0) },
-				.negatedValue{ std::make_optional<double>(0.0) }
+				.negatedValue{ std::make_optional<double>(0.0) },
+				.incrementedValue{ std::make_optional<double>(1.0) },
+				.decrementedValue{ std::make_optional<double>(-1.0) }
 			},
 			CompositeOperandData<double>
 			{
 				.value{ std::numeric_limits<double>::min() },
 				.sign{ CmdCalculator::Arithmetic::ESign::Positive },
-				.absoluteValue{ std::make_optional<double>(-std::numeric_limits<double>::min()) },
-				.negatedValue{ std::make_optional<double>(-std::numeric_limits<double>::min()) }
+				.absoluteValue{ std::make_optional<double>(std::numeric_limits<double>::min()) },
+				.negatedValue{ std::make_optional<double>(-std::numeric_limits<double>::min()) },
+				.incrementedValue{ std::make_optional<double>(std::numeric_limits<double>::min() + 1.0) },
+				.decrementedValue{ std::make_optional<double>(std::numeric_limits<double>::min() - 1.0) }
 			},
 			CompositeOperandData<double>
 			{
 				.value{ 0.5 },
 				.sign{ CmdCalculator::Arithmetic::ESign::Positive },
-				.absoluteValue{ std::make_optional<double>(-0.5) },
-				.negatedValue{ std::make_optional<double>(-0.5) }
+				.absoluteValue{ std::make_optional<double>(0.5) },
+				.negatedValue{ std::make_optional<double>(-0.5) },
+				.incrementedValue{ std::make_optional<double>(1.5) },
+				.decrementedValue{ std::make_optional<double>(-0.5) }
 			},
 			CompositeOperandData<double>
 			{
 				.value{ 1.0 },
 				.sign{ CmdCalculator::Arithmetic::ESign::Positive },
-				.absoluteValue{ std::make_optional<double>(-1.0) },
-				.negatedValue{ std::make_optional<double>(-1.0) }
+				.absoluteValue{ std::make_optional<double>(1.0) },
+				.negatedValue{ std::make_optional<double>(-1.0) },
+				.incrementedValue{ std::make_optional<double>(2.0) },
+				.decrementedValue{ std::make_optional<double>(0.0) }
 			},
 			CompositeOperandData<double>
 			{
 				.value{ 1.5 },
 				.sign{ CmdCalculator::Arithmetic::ESign::Positive },
-				.absoluteValue{ std::make_optional<double>(-1.5) },
-				.negatedValue{ std::make_optional<double>(-1.5) }
+				.absoluteValue{ std::make_optional<double>(1.5) },
+				.negatedValue{ std::make_optional<double>(-1.5) },
+				.incrementedValue{ std::make_optional<double>(2.5) },
+				.decrementedValue{ std::make_optional<double>(0.5) }
 			},
 			CompositeOperandData<double>
 			{
 				.value{ 2.0 },
 				.sign{ CmdCalculator::Arithmetic::ESign::Positive },
-				.absoluteValue{ std::make_optional<double>(-2.0) },
-				.negatedValue{ std::make_optional<double>(-2.0) }
+				.absoluteValue{ std::make_optional<double>(2.0) },
+				.negatedValue{ std::make_optional<double>(-2.0) },
+				.incrementedValue{ std::make_optional<double>(3.0) },
+				.decrementedValue{ std::make_optional<double>(2.0) }
 			},
 			CompositeOperandData<double>
 			{
 				.value{ 12.34 },
 				.sign{ CmdCalculator::Arithmetic::ESign::Positive },
-				.absoluteValue{ std::make_optional<double>(-12.34) },
-				.negatedValue{ std::make_optional<double>(-12.34) }
+				.absoluteValue{ std::make_optional<double>(12.34) },
+				.negatedValue{ std::make_optional<double>(-12.34) },
+				.incrementedValue{ std::make_optional<double>(13.34) },
+				.decrementedValue{ std::make_optional<double>(11.34) }
 			},
 			CompositeOperandData<double>
 			{
 				.value{ 56.78 },
 				.sign{ CmdCalculator::Arithmetic::ESign::Positive },
-				.absoluteValue{ std::make_optional<double>(-56.78) },
-				.negatedValue{ std::make_optional<double>(-56.78) }
+				.absoluteValue{ std::make_optional<double>(56.78) },
+				.negatedValue{ std::make_optional<double>(-56.78) },
+				.incrementedValue{ std::make_optional<double>(57.78) },
+				.decrementedValue{ std::make_optional<double>(55.78) }
 			},
 			CompositeOperandData<double>
 			{
 				.value{ std::numeric_limits<double>::max() },
 				.sign{ CmdCalculator::Arithmetic::ESign::Positive },
 				.absoluteValue{ std::numeric_limits<double>::max() },
-				.negatedValue{}
-			},
+				.negatedValue{},
+				.incrementedValue{},
+				.decrementedValue{ std::make_optional<double>(std::numeric_limits<double>::max() - 1.0) }
+			}
 		};
 		static_assert(std::ranges::sized_range<decltype(orderedOperandDataValues)>);
 		static_assert(std::ranges::random_access_range<decltype(orderedOperandDataValues)>);
@@ -522,6 +558,54 @@ namespace CmdCalculatorTests
 						{
 							.operand{ operandDataValue.value },
 							.result{ operandDataValue.negatedValue.value() }
+						};
+					}
+				)
+			;
+		};
+
+
+		constexpr inline UnaryArithmeticOperationDataRange auto incrementationOperationsDataValues()
+		{
+			return
+				orderedOperandDataValues
+				| std::views::filter
+				(
+					[](const CompositeOperandData<double> operandDataValue)
+					{ return operandDataValue.incrementedValue.has_value(); }
+				)
+				| std::views::transform
+				(
+					[](const CompositeOperandData<double> operandDataValue)
+					{
+						return UnaryArithmeticOperationData<double>
+						{
+							.operand{ operandDataValue.value },
+							.result{ operandDataValue.incrementedValue.value() }
+						};
+					}
+				)
+			;
+		};
+
+
+		constexpr inline UnaryArithmeticOperationDataRange auto decrementationOperationsDataValues()
+		{
+			return
+				orderedOperandDataValues
+				| std::views::filter
+				(
+					[](const CompositeOperandData<double> operandDataValue)
+					{ return operandDataValue.decrementedValue.has_value(); }
+				)
+				| std::views::transform
+				(
+					[](const CompositeOperandData<double> operandDataValue)
+					{
+						return UnaryArithmeticOperationData<double>
+						{
+							.operand{ operandDataValue.value },
+							.result{ operandDataValue.decrementedValue.value() }
 						};
 					}
 				)

@@ -1204,6 +1204,184 @@ namespace CmdCalculatorTests
 
 #pragma endregion
 
+
+#pragma region Incrementation
+
+	struct FundamentallyBackedRealNumber_incrementation_operator_TestData
+	{
+		double innerValueBeforeIncrementation;
+		double innerValueAfterIncrementation;
+
+		friend std::ostream& operator<<(std::ostream& os, const FundamentallyBackedRealNumber_incrementation_operator_TestData& testData)
+		{
+			os
+				<< "FundamentallyBackedRealNumber{"
+				<< testData.innerValueBeforeIncrementation
+				<< "}++ == "
+				<< testData.innerValueAfterIncrementation
+			;
+			return os;
+		}
+	};
+	
+	
+	class FundamentallyBackedRealNumberIncrementationOperatorTests :
+		public testing::TestWithParam<FundamentallyBackedRealNumber_incrementation_operator_TestData>
+	{};
+
+
+	const auto FundamentallyBackedRealNumber_incrementation_operator_TestDataValues
+	{
+		SharedTestData::incrementationOperationsDataValues()
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return FundamentallyBackedRealNumber_incrementation_operator_TestData
+				{
+					.innerValueBeforeIncrementation{ data.operand },
+					.innerValueAfterIncrementation{ data.result }
+				};
+			}
+		)
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		FundamentallyBackedRealNumberTests,
+		FundamentallyBackedRealNumberIncrementationOperatorTests,
+		ValuesInRange(FundamentallyBackedRealNumber_incrementation_operator_TestDataValues)
+	);
+
+	
+	TEST_P(FundamentallyBackedRealNumberIncrementationOperatorTests, prefix$incrementation$operator$returns$and$sets$expected$value)
+	{
+		// Arrange
+		const double innerValue{ GetParam().innerValueBeforeIncrementation };
+		const double expectedInnerValue{ GetParam().innerValueAfterIncrementation };
+		const double expectedReturnValue{ GetParam().innerValueAfterIncrementation };
+		CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> instance
+		{
+			innerValue
+		};
+		// Act
+		const double actualReturnValue{ (++instance).getInnerValue()};
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expectedInnerValue, instance.getInnerValue());
+		EXPECT_DOUBLE_EQ(expectedReturnValue, actualReturnValue);
+	}
+	
+	
+	TEST_P(FundamentallyBackedRealNumberIncrementationOperatorTests, postfix$incrementation$operator$returns$and$sets$expected$value)
+	{
+		// Arrange
+		const double innerValue{ GetParam().innerValueBeforeIncrementation };
+		const double expectedInnerValue{ GetParam().innerValueAfterIncrementation };
+		const double expectedReturnValue{ GetParam().innerValueBeforeIncrementation };
+		CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> instance
+		{
+			innerValue
+		};
+		// Act
+		const double actualReturnValue{ (instance++).getInnerValue()};
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expectedInnerValue, instance.getInnerValue());
+		EXPECT_DOUBLE_EQ(expectedReturnValue, actualReturnValue);
+	}
+
+#pragma endregion
+
+
+#pragma region Decrementation
+
+	struct FundamentallyBackedRealNumber_decrementation_operator_TestData
+	{
+		double innerValueBeforeDecrementation;
+		double innerValueAfterDecrementation;
+
+		friend std::ostream& operator<<(std::ostream& os, const FundamentallyBackedRealNumber_decrementation_operator_TestData& testData)
+		{
+			os
+				<< "FundamentallyBackedRealNumber{"
+				<< testData.innerValueBeforeDecrementation
+				<< "}-- == "
+				<< testData.innerValueAfterDecrementation
+			;
+			return os;
+		}
+	};
+	
+	
+	class FundamentallyBackedRealNumberDecrementationOperatorTests :
+		public testing::TestWithParam<FundamentallyBackedRealNumber_decrementation_operator_TestData>
+	{};
+
+
+	const auto FundamentallyBackedRealNumber_decrementation_operator_TestDataValues
+	{
+		SharedTestData::decrementationOperationsDataValues()
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return FundamentallyBackedRealNumber_decrementation_operator_TestData
+				{
+					.innerValueBeforeDecrementation{ data.operand },
+					.innerValueAfterDecrementation{ data.result }
+				};
+			}
+		)
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		FundamentallyBackedRealNumberTests,
+		FundamentallyBackedRealNumberDecrementationOperatorTests,
+		ValuesInRange(FundamentallyBackedRealNumber_decrementation_operator_TestDataValues)
+	);
+
+	
+	TEST_P(FundamentallyBackedRealNumberDecrementationOperatorTests, prefix$decrementation$operator$returns$and$sets$expected$value)
+	{
+		// Arrange
+		const double innerValue{ GetParam().innerValueBeforeDecrementation };
+		const double expectedInnerValue{ GetParam().innerValueAfterDecrementation };
+		const double expectedReturnValue{ GetParam().innerValueAfterDecrementation };
+		CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> instance
+		{
+			innerValue
+		};
+		// Act
+		const double actualReturnValue{ (--instance).getInnerValue()};
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expectedInnerValue, instance.getInnerValue());
+		EXPECT_DOUBLE_EQ(expectedReturnValue, actualReturnValue);
+	}
+	
+	
+	TEST_P(FundamentallyBackedRealNumberDecrementationOperatorTests, postfix$decrementation$operator$returns$and$sets$expected$value)
+	{
+		// Arrange
+		const double innerValue{ GetParam().innerValueBeforeDecrementation };
+		const double expectedInnerValue{ GetParam().innerValueAfterDecrementation };
+		const double expectedReturnValue{ GetParam().innerValueBeforeDecrementation };
+		CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> instance
+		{
+			innerValue
+		};
+		// Act
+		const double actualReturnValue{ (instance--).getInnerValue()};
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expectedInnerValue, instance.getInnerValue());
+		EXPECT_DOUBLE_EQ(expectedReturnValue, actualReturnValue);
+	}
+
+#pragma endregion
+
 #pragma endregion
 
 
@@ -1307,6 +1485,7 @@ namespace CmdCalculatorTests
 
 #pragma endregion
 
+
 #pragma region Subtraction
 
 	struct FundamentallyBackedRealNumber_subtraction_operator_TestData
@@ -1400,6 +1579,309 @@ namespace CmdCalculatorTests
 
 		// Act
 		const double actual{ (lhs - rhs).getInnerValue() };
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expected, actual);
+	}
+
+#pragma endregion
+
+
+#pragma region Multiplication
+
+	struct FundamentallyBackedRealNumber_multiplication_operator_TestData
+	{
+		double lhsInnerValue;
+		double rhsInnerValue;
+		double expected;
+
+		friend std::ostream& operator<<(std::ostream& os, const FundamentallyBackedRealNumber_multiplication_operator_TestData& testData)
+		{
+			os
+				<< "(FundamentallyBackedRealNumber{"
+				<< testData.lhsInnerValue
+				<< "} * FundamentallyBackedRealNumber{"
+				<< testData.rhsInnerValue
+				<< "}) == "
+				<< testData.expected
+			;
+			return os;
+		}
+	};
+	
+	
+	class FundamentallyBackedRealNumberMultiplicationOperatorTests :
+		public testing::TestWithParam<FundamentallyBackedRealNumber_multiplication_operator_TestData>
+	{};
+
+
+	const auto FundamentallyBackedRealNumber_multiplication_operator_TestDataValues
+	{
+		SharedTestData::multiplicationOperationsDataValues
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return FundamentallyBackedRealNumber_multiplication_operator_TestData
+				{
+					.lhsInnerValue{ data.leftOperand },
+					.rhsInnerValue{ data.rightOperand },
+					.expected{ data.result }
+				};
+			}
+		)
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		FundamentallyBackedRealNumberTests,
+		FundamentallyBackedRealNumberMultiplicationOperatorTests,
+		ValuesInRange(FundamentallyBackedRealNumber_multiplication_operator_TestDataValues)
+	);
+
+
+	TEST_P(FundamentallyBackedRealNumberMultiplicationOperatorTests, multiplication$equality$operator$assigns$expected$value)
+	{
+		// Arrange
+		const double lhsInnerValue{ GetParam().lhsInnerValue };
+		const double rhsInnerValue{ GetParam().rhsInnerValue };
+		const double expected{ GetParam().expected };
+		CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> lhs
+		{
+			lhsInnerValue
+		};
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> rhs
+		{
+			rhsInnerValue
+		};
+
+		// Act
+		lhs *= rhs;
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expected, lhs.getInnerValue());
+	}
+
+
+	TEST_P(FundamentallyBackedRealNumberMultiplicationOperatorTests, multiplication$operator$returns$expected$value)
+	{
+		// Arrange
+		const double lhsInnerValue{ GetParam().lhsInnerValue };
+		const double rhsInnerValue{ GetParam().rhsInnerValue };
+		const double expected{ GetParam().expected };
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> lhs
+		{
+			lhsInnerValue
+		};
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> rhs
+		{
+			rhsInnerValue
+		};
+
+		// Act
+		const double actual{ (lhs * rhs).getInnerValue() };
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expected, actual);
+	}
+
+#pragma endregion
+
+
+#pragma region Division
+
+	struct FundamentallyBackedRealNumber_division_operator_TestData
+	{
+		double lhsInnerValue;
+		double rhsInnerValue;
+		double expected;
+
+		friend std::ostream& operator<<(std::ostream& os, const FundamentallyBackedRealNumber_division_operator_TestData& testData)
+		{
+			os
+				<< "(FundamentallyBackedRealNumber{"
+				<< testData.lhsInnerValue
+				<< "} / FundamentallyBackedRealNumber{"
+				<< testData.rhsInnerValue
+				<< "}) == "
+				<< testData.expected
+			;
+			return os;
+		}
+	};
+	
+	
+	class FundamentallyBackedRealNumberDivisionOperatorTests :
+		public testing::TestWithParam<FundamentallyBackedRealNumber_division_operator_TestData>
+	{};
+
+
+	const auto FundamentallyBackedRealNumber_division_operator_TestDataValues
+	{
+		SharedTestData::divisionOperationsDataValues
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return FundamentallyBackedRealNumber_division_operator_TestData
+				{
+					.lhsInnerValue{ data.leftOperand },
+					.rhsInnerValue{ data.rightOperand },
+					.expected{ data.result }
+				};
+			}
+		)
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		FundamentallyBackedRealNumberTests,
+		FundamentallyBackedRealNumberDivisionOperatorTests,
+		ValuesInRange(FundamentallyBackedRealNumber_division_operator_TestDataValues)
+	);
+
+
+	TEST_P(FundamentallyBackedRealNumberDivisionOperatorTests, division$equality$operator$assigns$expected$value)
+	{
+		// Arrange
+		const double lhsInnerValue{ GetParam().lhsInnerValue };
+		const double rhsInnerValue{ GetParam().rhsInnerValue };
+		const double expected{ GetParam().expected };
+		CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> lhs
+		{
+			lhsInnerValue
+		};
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> rhs
+		{
+			rhsInnerValue
+		};
+
+		// Act
+		lhs /= rhs;
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expected, lhs.getInnerValue());
+	}
+
+
+	TEST_P(FundamentallyBackedRealNumberDivisionOperatorTests, division$operator$returns$expected$value)
+	{
+		// Arrange
+		const double lhsInnerValue{ GetParam().lhsInnerValue };
+		const double rhsInnerValue{ GetParam().rhsInnerValue };
+		const double expected{ GetParam().expected };
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> lhs
+		{
+			lhsInnerValue
+		};
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> rhs
+		{
+			rhsInnerValue
+		};
+
+		// Act
+		const double actual{ (lhs / rhs).getInnerValue() };
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expected, actual);
+	}
+
+#pragma endregion
+
+
+#pragma region Modulo
+
+	struct FundamentallyBackedRealNumber_modulo_operator_TestData
+	{
+		double lhsInnerValue;
+		double rhsInnerValue;
+		double expected;
+
+		friend std::ostream& operator<<(std::ostream& os, const FundamentallyBackedRealNumber_modulo_operator_TestData& testData)
+		{
+			os
+				<< "(FundamentallyBackedRealNumber{"
+				<< testData.lhsInnerValue
+				<< "} % FundamentallyBackedRealNumber{"
+				<< testData.rhsInnerValue
+				<< "}) == "
+				<< testData.expected
+			;
+			return os;
+		}
+	};
+	
+	
+	class FundamentallyBackedRealNumberModuloOperatorTests :
+		public testing::TestWithParam<FundamentallyBackedRealNumber_modulo_operator_TestData>
+	{};
+
+
+	const auto FundamentallyBackedRealNumber_modulo_operator_TestDataValues
+	{
+		SharedTestData::moduloOperationsDataValues
+		| std::views::transform
+		(
+			[](const auto& data)
+			{
+				return FundamentallyBackedRealNumber_modulo_operator_TestData
+				{
+					.lhsInnerValue{ data.leftOperand },
+					.rhsInnerValue{ data.rightOperand },
+					.expected{ data.result }
+				};
+			}
+		)
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		FundamentallyBackedRealNumberTests,
+		FundamentallyBackedRealNumberModuloOperatorTests,
+		ValuesInRange(FundamentallyBackedRealNumber_modulo_operator_TestDataValues)
+	);
+
+
+	TEST_P(FundamentallyBackedRealNumberModuloOperatorTests, modulo$equality$operator$assigns$expected$value)
+	{
+		// Arrange
+		const double lhsInnerValue{ GetParam().lhsInnerValue };
+		const double rhsInnerValue{ GetParam().rhsInnerValue };
+		const double expected{ GetParam().expected };
+		CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> lhs
+		{
+			lhsInnerValue
+		};
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> rhs
+		{
+			rhsInnerValue
+		};
+
+		// Act
+		lhs %= rhs;
+
+		// Assert
+		EXPECT_DOUBLE_EQ(expected, lhs.getInnerValue());
+	}
+
+
+	TEST_P(FundamentallyBackedRealNumberModuloOperatorTests, modulo$operator$returns$expected$value)
+	{
+		// Arrange
+		const double lhsInnerValue{ GetParam().lhsInnerValue };
+		const double rhsInnerValue{ GetParam().rhsInnerValue };
+		const double expected{ GetParam().expected };
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> lhs
+		{
+			lhsInnerValue
+		};
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> rhs
+		{
+			rhsInnerValue
+		};
+
+		// Act
+		const double actual{ (lhs % rhs).getInnerValue() };
 
 		// Assert
 		EXPECT_DOUBLE_EQ(expected, actual);
