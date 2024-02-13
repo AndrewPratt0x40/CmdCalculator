@@ -184,19 +184,19 @@ namespace CmdCalculator::Arithmetic
 
 #pragma region Comparison operators
 
-		friend bool operator==<InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
-		friend bool operator!=<InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
-		friend bool operator< <InnerT > (const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
-		friend bool operator<=<InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
-		friend bool operator><InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
-		friend bool operator>=<InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
+		friend bool operator== <InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
+		friend bool operator!= <InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
+		friend bool operator< <InnerT >(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
+		friend bool operator<= <InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
+		friend bool operator> <InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
+		friend bool operator>= <InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
 
 #pragma endregion
 
 
 #pragma region Unary arithmetic operators
 
-		friend FundamentallyBackedRealNumber<InnerT>& operator-(const FundamentallyBackedRealNumber<InnerT>& rhs);
+		friend FundamentallyBackedRealNumber<InnerT> operator- <InnerT>(const FundamentallyBackedRealNumber<InnerT>& rhs);
 
 		FundamentallyBackedRealNumber<InnerT>& operator++();
 		FundamentallyBackedRealNumber<InnerT> operator++(int);
@@ -211,7 +211,7 @@ namespace CmdCalculator::Arithmetic
 		
 		FundamentallyBackedRealNumber<InnerT>& operator+=(const FundamentallyBackedRealNumber<InnerT>& rhs);
 
-		friend FundamentallyBackedRealNumber<InnerT> operator+
+		friend FundamentallyBackedRealNumber<InnerT> operator+ <InnerT>
 		(
 			const FundamentallyBackedRealNumber<InnerT>& lhs,
 			const FundamentallyBackedRealNumber<InnerT>& rhs
@@ -219,7 +219,7 @@ namespace CmdCalculator::Arithmetic
 
 		FundamentallyBackedRealNumber<InnerT>& operator-=(const FundamentallyBackedRealNumber<InnerT>& rhs);
 
-		friend FundamentallyBackedRealNumber<InnerT> operator-
+		friend FundamentallyBackedRealNumber<InnerT> operator- <InnerT>
 		(
 			const FundamentallyBackedRealNumber<InnerT>& lhs,
 			const FundamentallyBackedRealNumber<InnerT>& rhs
@@ -227,7 +227,7 @@ namespace CmdCalculator::Arithmetic
 
 		FundamentallyBackedRealNumber<InnerT>& operator*=(const FundamentallyBackedRealNumber<InnerT>& rhs);
 
-		friend FundamentallyBackedRealNumber<InnerT> operator*
+		friend FundamentallyBackedRealNumber<InnerT> operator* <InnerT>
 		(
 			const FundamentallyBackedRealNumber<InnerT>& lhs,
 			const FundamentallyBackedRealNumber<InnerT>& rhs
@@ -235,7 +235,7 @@ namespace CmdCalculator::Arithmetic
 
 		FundamentallyBackedRealNumber<InnerT>& operator/=(const FundamentallyBackedRealNumber<InnerT>& rhs);
 
-		friend FundamentallyBackedRealNumber<InnerT> operator/
+		friend FundamentallyBackedRealNumber<InnerT> operator/ <InnerT>
 		(
 			const FundamentallyBackedRealNumber<InnerT>& lhs,
 			const FundamentallyBackedRealNumber<InnerT>& rhs
@@ -243,7 +243,7 @@ namespace CmdCalculator::Arithmetic
 
 		FundamentallyBackedRealNumber<InnerT>& operator%=(const FundamentallyBackedRealNumber<InnerT>& rhs);
 
-		friend FundamentallyBackedRealNumber<InnerT> operator%
+		friend FundamentallyBackedRealNumber<InnerT> operator% <InnerT>
 		(
 			const FundamentallyBackedRealNumber<InnerT>& lhs,
 			const FundamentallyBackedRealNumber<InnerT>& rhs
