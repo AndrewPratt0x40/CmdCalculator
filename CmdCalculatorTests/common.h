@@ -144,6 +144,30 @@ namespace CmdCalculatorTests
 
 
 		template<ArithmeticOperationValue ValueT = double>
+		struct BinaryThreeWayComparisonOperationData
+		{
+			using ValueType = ValueT;
+
+			ValueType leftOperand;
+			ValueType rightOperand;
+			CmdCalculator::Arithmetic::ESign result;
+		};
+
+		template<class T>
+		concept BinaryThreeWayComparisonOperationDataRange =
+			std::ranges::input_range<T>
+			&& std::same_as
+			<
+				std::ranges::range_value_t<T>,
+				BinaryThreeWayComparisonOperationData
+				<
+					typename std::ranges::range_value_t<T>::ValueType
+				>
+			>
+		;
+
+
+		template<ArithmeticOperationValue ValueT = double>
 		struct CompositeOperandData
 		{
 			using ValueType = ValueT;
@@ -328,7 +352,7 @@ namespace CmdCalculatorTests
 				.absoluteValue{ std::make_optional<double>(2.0) },
 				.negatedValue{ std::make_optional<double>(-2.0) },
 				.incrementedValue{ std::make_optional<double>(3.0) },
-				.decrementedValue{ std::make_optional<double>(2.0) }
+				.decrementedValue{ std::make_optional<double>(1.0) }
 			},
 			CompositeOperandData<double>
 			{
@@ -415,6 +439,33 @@ namespace CmdCalculatorTests
 					[](const CompositeOperandData<double>& operandDataValue)
 					{
 						return operandDataValue.value;
+					}
+				)
+			;
+		};
+
+
+		inline constexpr BinaryThreeWayComparisonOperationDataRange auto threeWayComparisonOperationDataValues()
+		{
+			return
+				orderedOperandDataValuePairs()
+				| std::views::transform
+				(
+					[](const auto pair)
+					{
+						return BinaryThreeWayComparisonOperationData<double>
+						{
+							.leftOperand{ pair.first.value },
+							.rightOperand{ pair.second.value },
+							.result
+							{
+								pair.first < pair.second
+									? CmdCalculator::Arithmetic::ESign::Negative
+									: pair.first > pair.second
+										? CmdCalculator::Arithmetic::ESign::Positive
+										: CmdCalculator::Arithmetic::ESign::Neutral
+							}
+						};
 					}
 				)
 			;
@@ -533,7 +584,7 @@ namespace CmdCalculatorTests
 						{
 							.leftOperand{ pair.first.value },
 							.rightOperand{ pair.second.value },
-							.result{ pair.first <= pair.second }
+							.result{ pair.first >= pair.second }
 						};
 					}
 				)
@@ -936,14 +987,14 @@ namespace CmdCalculatorTests
 				{12.34, 56.78, 12.34},
 				{56.78, 12.34, 7.42},
 
-				{12.34, -56.78, -12.34},
-				{-56.78, 12.34, -7.42},
+				{12.34, -56.78, 12.34},
+				{-56.78, 12.34, 4.92},
 
-				{-12.34, 56.78, -12.34},
-				{56.78, -12.34, -7.42},
+				{-12.34, 56.78, 44.44},
+				{56.78, -12.34, 7.42},
 
-				{-12.34, -56.78, 12.34},
-				{-56.78, -12.34, 7.42}
+				{-12.34, -56.78, 44.44},
+				{-56.78, -12.34, 4.92}
 			}
 		};
 	}

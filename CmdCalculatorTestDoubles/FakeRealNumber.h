@@ -11,6 +11,7 @@
 
 namespace CmdCalculatorTestDoubles::Arithmetic
 {
+	// TODO: Unit test this class better
 	class FakeRealNumber :
 		public CmdCalculator::Arithmetic::RealNumber_IntendedSatisfaction
 	{
@@ -194,7 +195,9 @@ namespace CmdCalculatorTestDoubles::Arithmetic
 
 		FakeRealNumber& operator%=(const FakeRealNumber& rhs)
 		{
-			m_value = std::fmod(m_value, rhs.m_value);
+			const auto absRhs{ rhs.getAbsoluteValue().m_value };
+			m_value = m_value - absRhs * std::floor(m_value / absRhs);
+
 			return *this;
 		}
 

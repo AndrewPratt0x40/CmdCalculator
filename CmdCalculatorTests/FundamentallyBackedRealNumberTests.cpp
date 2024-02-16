@@ -649,19 +649,19 @@ namespace CmdCalculatorTests
 	TEST_P(FundamentallyBackedRealNumbernthRootTests, nthRoot$returns$expected$value)
 	{
 		// Arrange
-		const double innerValue{ GetParam().degreeInnerValue };
 		const double radicandInnerValue{ GetParam().radicandInnerValue };
+		const double degreeInnerValue{ GetParam().degreeInnerValue };
 		const double expected{ GetParam().expected };
-		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> instance
-		{
-			innerValue
-		};
 		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> radicand
 		{
 			radicandInnerValue
+		};
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<double> degree
+		{
+			degreeInnerValue
 		};
 		// Act
-		const double actual{ instance.nthRoot(radicand).getInnerValue() };
+		const double actual{ radicand.nthRoot(degree).getInnerValue() };
 
 		// Assert
 		EXPECT_DOUBLE_EQ(expected, actual);
@@ -1840,7 +1840,6 @@ namespace CmdCalculatorTests
 		FundamentallyBackedRealNumberModuloOperatorTests,
 		ValuesInRange(FundamentallyBackedRealNumber_modulo_operator_TestDataValues)
 	);
-
 
 	TEST_P(FundamentallyBackedRealNumberModuloOperatorTests, modulo$equality$operator$assigns$expected$value)
 	{

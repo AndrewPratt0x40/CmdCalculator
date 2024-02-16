@@ -23,35 +23,7 @@ namespace CmdCalculator::Arithmetic
 	);
 
 	template<std::floating_point InnerT>
-	bool operator!=
-	(
-		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
-		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
-	);
-
-	template<std::floating_point InnerT>
-	bool operator<
-	(
-		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
-		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
-	);
-
-	template<std::floating_point InnerT>
-	bool operator<=
-	(
-		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
-		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
-	);
-
-	template<std::floating_point InnerT>
-	bool operator>
-	(
-		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
-		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
-	);
-
-	template<std::floating_point InnerT>
-	bool operator>=
+	std::strong_ordering operator<=>
 	(
 		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
 		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
@@ -76,35 +48,35 @@ namespace CmdCalculator::Arithmetic
 	template<std::floating_point InnerT>
 	CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator+
 	(
-		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+		CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> lhs,
 		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
 	);
 
 	template<std::floating_point InnerT>
 	CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator-
 	(
-		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+		CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> lhs,
 		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
 	);
 
 	template<std::floating_point InnerT>
 	CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator*
 	(
-		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+		CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> lhs,
 		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
 	);
 
 	template<std::floating_point InnerT>
 	CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator/
 	(
-		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+		CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> lhs,
 		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
 	);
 
 	template<std::floating_point InnerT>
 	CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> operator%
 	(
-		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& lhs,
+		CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> lhs,
 		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT>& rhs
 	);
 
@@ -185,11 +157,9 @@ namespace CmdCalculator::Arithmetic
 #pragma region Comparison operators
 
 		friend bool operator== <InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
-		friend bool operator!= <InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
-		friend bool operator< <InnerT >(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
-		friend bool operator<= <InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
-		friend bool operator> <InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
-		friend bool operator>= <InnerT>(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs);
+		friend std::strong_ordering operator<=> <InnerT>
+			(const FundamentallyBackedRealNumber<InnerT>& lhs, const FundamentallyBackedRealNumber<InnerT>& rhs)
+		;
 
 #pragma endregion
 
@@ -213,7 +183,7 @@ namespace CmdCalculator::Arithmetic
 
 		friend FundamentallyBackedRealNumber<InnerT> operator+ <InnerT>
 		(
-			const FundamentallyBackedRealNumber<InnerT>& lhs,
+			FundamentallyBackedRealNumber<InnerT> lhs,
 			const FundamentallyBackedRealNumber<InnerT>& rhs
 		);
 
@@ -221,7 +191,7 @@ namespace CmdCalculator::Arithmetic
 
 		friend FundamentallyBackedRealNumber<InnerT> operator- <InnerT>
 		(
-			const FundamentallyBackedRealNumber<InnerT>& lhs,
+			FundamentallyBackedRealNumber<InnerT> lhs,
 			const FundamentallyBackedRealNumber<InnerT>& rhs
 		);
 
@@ -229,7 +199,7 @@ namespace CmdCalculator::Arithmetic
 
 		friend FundamentallyBackedRealNumber<InnerT> operator* <InnerT>
 		(
-			const FundamentallyBackedRealNumber<InnerT>& lhs,
+			FundamentallyBackedRealNumber<InnerT> lhs,
 			const FundamentallyBackedRealNumber<InnerT>& rhs
 		);
 
@@ -237,7 +207,7 @@ namespace CmdCalculator::Arithmetic
 
 		friend FundamentallyBackedRealNumber<InnerT> operator/ <InnerT>
 		(
-			const FundamentallyBackedRealNumber<InnerT>& lhs,
+			FundamentallyBackedRealNumber<InnerT> lhs,
 			const FundamentallyBackedRealNumber<InnerT>& rhs
 		);
 
@@ -245,7 +215,7 @@ namespace CmdCalculator::Arithmetic
 
 		friend FundamentallyBackedRealNumber<InnerT> operator% <InnerT>
 		(
-			const FundamentallyBackedRealNumber<InnerT>& lhs,
+			FundamentallyBackedRealNumber<InnerT> lhs,
 			const FundamentallyBackedRealNumber<InnerT>& rhs
 		);
 

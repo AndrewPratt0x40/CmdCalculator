@@ -61,20 +61,7 @@ inline THIS_NUMBER_TYPE
 		};
 	}
 
-	const auto dividendEvaluation{ getDividend().getEvaluation() };
-
-	const auto unsignedEvaluation{ (dividendEvaluation % divisorEvaluation).getAbsoluteValue()};
-	
-	if
-	(
-		(dividendEvaluation.getSign() == Arithmetic::ESign::Negative)
-		!= (divisorEvaluation.getSign() == Arithmetic::ESign::Negative)
-	)
-	{
-		return -unsignedEvaluation;
-	}
-
-	return unsignedEvaluation;
+	return getDividend().getEvaluation() % divisorEvaluation;
 }
 
 
