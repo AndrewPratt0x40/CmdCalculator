@@ -139,6 +139,9 @@
     <ClCompile Include="DynamicNegationOperationTests.cpp">
       <Filter>Source Code\Tests\Expressions\Dynamic</Filter>
     </ClCompile>
+    <ClCompile Include="DynamicMathAstToDynamicExpressionConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -236,6 +239,12 @@
     </Filter>
     <Filter Include="Source Code\Tests\Arithmetic\RealNumber">
       <UniqueIdentifier>{5dcafd11-34b1-4d68-a23b-73bb8b1f6b56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression">
+      <UniqueIdentifier>{fabf1aa6-464c-4327-9fe2-4b82bc02f7d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression">
+      <UniqueIdentifier>{b5c9fa56-35e7-478d-9a04-9cad6b64be80}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

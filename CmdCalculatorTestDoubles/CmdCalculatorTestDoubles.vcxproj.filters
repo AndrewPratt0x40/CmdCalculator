@@ -43,12 +43,6 @@
     <Filter Include="Source Code\CmdCalculator\Conversions\ExpressionToStringConverter">
       <UniqueIdentifier>{e3874a65-0c11-4bb6-9f28-3998e2575a6a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\MathAstToExpressionConverter">
-      <UniqueIdentifier>{a03cf543-6e5f-4b37-91e9-ba6d1955a285}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter">
-      <UniqueIdentifier>{7067254a-f655-4f52-a1d8-f87f2c9d820b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Code\CmdCalculator\MathAst\Dynamic">
       <UniqueIdentifier>{065f72ed-0763-47d2-a9e3-33ebcc56bc77}</UniqueIdentifier>
     </Filter>
@@ -64,69 +58,6 @@
     <Filter Include="Source Code\CmdCalculator\MathAst\Dynamic\DynamicExpressionPartNode">
       <UniqueIdentifier>{58046699-5297-456e-aa3c-9aaed09f19dd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR">
-      <UniqueIdentifier>{f5740463-aec5-44ba-b416-a9af3cbc3b2c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\StringToAntlrContextConverter">
-      <UniqueIdentifier>{a581a1f2-00bd-4ec7-9a16-d945ef8a4be0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\AntlrContextToMathAstConverter">
-      <UniqueIdentifier>{e5a27535-d5cf-43a3-b421-33130fead60e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\AntlrToken">
-      <UniqueIdentifier>{1f90f98b-7b7b-4a41-b447-3d7a65e55249}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects">
-      <UniqueIdentifier>{da69689f-a4e2-4bf1-840a-0f23c3678e60}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext">
-      <UniqueIdentifier>{3f802ffb-e3bd-4dab-a43d-91a79a209965}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\ExpressionAntlrContext">
-      <UniqueIdentifier>{115c937c-2aa3-4a5f-a94c-598f560a4b51}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperandAntlrContext">
-      <UniqueIdentifier>{0b57457d-4c8d-4279-b9fc-bfd7fb85cb14}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NonGroupingMultiplicationAntlrContext">
-      <UniqueIdentifier>{ec54a3b1-2326-4d8c-bd6e-526aa906a661}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NumberLiteralAntlrContext">
-      <UniqueIdentifier>{d6fa09cb-8842-4d27-8556-ed6d2fc35344}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholefulNumberLiteralAntlrContext">
-      <UniqueIdentifier>{522e93e4-815d-4de1-b01a-58d344f3ab0b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext">
-      <UniqueIdentifier>{df39bd0e-98ac-414b-9c5c-1ba9e0785e4f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperationAntlrContext">
-      <UniqueIdentifier>{988e060e-b44a-4de7-8629-cfe21b1fd2ef}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext">
-      <UniqueIdentifier>{a43db124-35c8-4ebe-a23a-bd136ebad84e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext">
-      <UniqueIdentifier>{6d747f8d-7de1-4a89-9d46-1d88e0813f26}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingAntlrContext">
-      <UniqueIdentifier>{b4e577e1-a290-4ece-b372-e65c12b77824}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext">
-      <UniqueIdentifier>{35af051b-6380-46a9-acff-335e6b57d561}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingMultiplicationAntlrContext">
-      <UniqueIdentifier>{c1275108-da9c-4a52-b668-725bad40e114}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingTailMultiplicandAntlrContext">
-      <UniqueIdentifier>{7f47c1eb-2d96-452a-9e2d-d8cf449ff86b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperationPartPairAntlrContext">
-      <UniqueIdentifier>{13bd59d8-6ba5-4448-a324-d9fc2216dc5b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext">
-      <UniqueIdentifier>{7844ef14-ba5a-4a42-9c0e-4326d9298ba3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Code\CmdCalculator\Arithmetic">
       <UniqueIdentifier>{392723aa-b7e8-42e4-a06d-0922b227e49e}</UniqueIdentifier>
     </Filter>
@@ -141,6 +72,87 @@
     </Filter>
     <Filter Include="Source Code\CmdCalculator\Expressions\Dynamic\DynamicExpression">
       <UniqueIdentifier>{52e44d9e-b571-471f-8158-ef5ed3b46c10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\Math AST to Expression">
+      <UniqueIdentifier>{d510e42a-50fb-44ab-91a5-df40c582a9b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\Math AST to Expression\MathAstToExpressionConverter">
+      <UniqueIdentifier>{a03cf543-6e5f-4b37-91e9-ba6d1955a285}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST">
+      <UniqueIdentifier>{f0f1af2e-fc7b-46c8-8153-d3d00b738623}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter">
+      <UniqueIdentifier>{7067254a-f655-4f52-a1d8-f87f2c9d820b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR">
+      <UniqueIdentifier>{f5740463-aec5-44ba-b416-a9af3cbc3b2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\StringToAntlrContextConverter">
+      <UniqueIdentifier>{a581a1f2-00bd-4ec7-9a16-d945ef8a4be0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\AntlrContextToMathAstConverter">
+      <UniqueIdentifier>{e5a27535-d5cf-43a3-b421-33130fead60e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\AntlrToken">
+      <UniqueIdentifier>{1f90f98b-7b7b-4a41-b447-3d7a65e55249}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects">
+      <UniqueIdentifier>{da69689f-a4e2-4bf1-840a-0f23c3678e60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext">
+      <UniqueIdentifier>{3f802ffb-e3bd-4dab-a43d-91a79a209965}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\ExpressionAntlrContext">
+      <UniqueIdentifier>{115c937c-2aa3-4a5f-a94c-598f560a4b51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperandAntlrContext">
+      <UniqueIdentifier>{0b57457d-4c8d-4279-b9fc-bfd7fb85cb14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NonGroupingMultiplicationAntlrContext">
+      <UniqueIdentifier>{ec54a3b1-2326-4d8c-bd6e-526aa906a661}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NumberLiteralAntlrContext">
+      <UniqueIdentifier>{d6fa09cb-8842-4d27-8556-ed6d2fc35344}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholefulNumberLiteralAntlrContext">
+      <UniqueIdentifier>{522e93e4-815d-4de1-b01a-58d344f3ab0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext">
+      <UniqueIdentifier>{df39bd0e-98ac-414b-9c5c-1ba9e0785e4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperationAntlrContext">
+      <UniqueIdentifier>{988e060e-b44a-4de7-8629-cfe21b1fd2ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext">
+      <UniqueIdentifier>{a43db124-35c8-4ebe-a23a-bd136ebad84e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext">
+      <UniqueIdentifier>{6d747f8d-7de1-4a89-9d46-1d88e0813f26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingAntlrContext">
+      <UniqueIdentifier>{b4e577e1-a290-4ece-b372-e65c12b77824}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext">
+      <UniqueIdentifier>{35af051b-6380-46a9-acff-335e6b57d561}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingMultiplicationAntlrContext">
+      <UniqueIdentifier>{c1275108-da9c-4a52-b668-725bad40e114}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingTailMultiplicandAntlrContext">
+      <UniqueIdentifier>{7f47c1eb-2d96-452a-9e2d-d8cf449ff86b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperationPartPairAntlrContext">
+      <UniqueIdentifier>{13bd59d8-6ba5-4448-a324-d9fc2216dc5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext">
+      <UniqueIdentifier>{7844ef14-ba5a-4a42-9c0e-4326d9298ba3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression">
+      <UniqueIdentifier>{9d8b821f-6b62-49bc-8d8f-8bb7a22bb35a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter">
+      <UniqueIdentifier>{fd1084c0-c846-4d8a-8116-f84638fbf2a1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -175,82 +187,82 @@
       <Filter>Source Code\CmdCalculator\Conversions\ExpressionToStringConverter</Filter>
     </ClInclude>
     <ClInclude Include="StubMathAstToExpressionConverter.h">
-      <Filter>Source Code\CmdCalculator\Conversions\MathAstToExpressionConverter</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\Math AST to Expression\MathAstToExpressionConverter</Filter>
     </ClInclude>
     <ClInclude Include="StubTrackingExpressionToStringConverter.h">
       <Filter>Source Code\CmdCalculator\Conversions\ExpressionToStringConverter</Filter>
     </ClInclude>
     <ClInclude Include="StubTrackingMathAstToExpressionConverter.h">
-      <Filter>Source Code\CmdCalculator\Conversions\MathAstToExpressionConverter</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\Math AST to Expression\MathAstToExpressionConverter</Filter>
     </ClInclude>
     <ClInclude Include="StubStringToMathAstConverter.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter</Filter>
     </ClInclude>
     <ClInclude Include="StubTrackingStringToMathAstConverter.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter</Filter>
     </ClInclude>
     <ClInclude Include="StubValidatingStringToMathAstConverter.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter</Filter>
     </ClInclude>
     <ClInclude Include="StubTrackingStringToAntlrContextConverter.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\StringToAntlrContextConverter</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\StringToAntlrContextConverter</Filter>
     </ClInclude>
     <ClInclude Include="StubThrowingStringToAntlrContextConverter.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\StringToAntlrContextConverter</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\StringToAntlrContextConverter</Filter>
     </ClInclude>
     <ClInclude Include="StubTrackingAntlrContextToMathAstConverter.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\AntlrContextToMathAstConverter</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\AntlrContextToMathAstConverter</Filter>
     </ClInclude>
     <ClInclude Include="StubAntlrToken.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\AntlrToken</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\AntlrToken</Filter>
     </ClInclude>
     <ClInclude Include="StubTrackingFullExpressionAntlrContext.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext</Filter>
     </ClInclude>
     <ClInclude Include="StubExpressionAntlrContext.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\ExpressionAntlrContext</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\ExpressionAntlrContext</Filter>
     </ClInclude>
     <ClInclude Include="StubOperandAntlrContext.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperandAntlrContext</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperandAntlrContext</Filter>
     </ClInclude>
     <ClInclude Include="StubNonGroupingMultiplicationAntlrContext.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NonGroupingMultiplicationAntlrContext</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NonGroupingMultiplicationAntlrContext</Filter>
     </ClInclude>
     <ClInclude Include="StubNumberLiteralAntlrContext.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NumberLiteralAntlrContext</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NumberLiteralAntlrContext</Filter>
     </ClInclude>
     <ClInclude Include="StubWholefulNumberLiteralAntlrContext.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholefulNumberLiteralAntlrContext</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholefulNumberLiteralAntlrContext</Filter>
     </ClInclude>
     <ClInclude Include="StubWholelessNumberLiteralAntlrContext.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext</Filter>
     </ClInclude>
     <ClInclude Include="StubSignOperationAntlrContext.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperationAntlrContext</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperationAntlrContext</Filter>
     </ClInclude>
     <ClInclude Include="StubSignOperatorAntlrContext.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext</Filter>
     </ClInclude>
     <ClInclude Include="StubSqrtOperationAntlrContext.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext</Filter>
     </ClInclude>
     <ClInclude Include="StubGroupingAntlrContext.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingAntlrContext</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingAntlrContext</Filter>
     </ClInclude>
     <ClInclude Include="StubAbsoluteValueOperationAntlrContext.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext</Filter>
     </ClInclude>
     <ClInclude Include="StubGroupingMultiplicationAntlrContext.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingMultiplicationAntlrContext</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingMultiplicationAntlrContext</Filter>
     </ClInclude>
     <ClInclude Include="StubGroupingTailMultiplicandAntlrContext.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingTailMultiplicandAntlrContext</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingTailMultiplicandAntlrContext</Filter>
     </ClInclude>
     <ClInclude Include="StubOperationPartPairAntlrContext.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperationPartPairAntlrContext</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperationPartPairAntlrContext</Filter>
     </ClInclude>
     <ClInclude Include="StubBinaryOperatorAntlrContext.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext</Filter>
     </ClInclude>
     <ClInclude Include="StubTrackingDynamicExpressionNode.h">
       <Filter>Source Code\CmdCalculator\MathAst\Dynamic\DynamicExpressionNode</Filter>
@@ -268,7 +280,7 @@
       <Filter>Source Code\CmdCalculator\MathAst\Dynamic\DynamicExpressionPartNode</Filter>
     </ClInclude>
     <ClInclude Include="StubFullExpressionAntlrContext.h">
-      <Filter>Source Code\CmdCalculator\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext</Filter>
+      <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext</Filter>
     </ClInclude>
     <ClInclude Include="FakeRealNumber.h">
       <Filter>Source Code\CmdCalculator\Arithmetic\RealNumber</Filter>
@@ -281,6 +293,9 @@
     </ClInclude>
     <ClInclude Include="StubTrackingExpression.h">
       <Filter>Source Code\CmdCalculator\Expressions\Expression</Filter>
+    </ClInclude>
+    <ClInclude Include="StubDynamicOperandToDynamicExpressionConverter.h">
+      <Filter>Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

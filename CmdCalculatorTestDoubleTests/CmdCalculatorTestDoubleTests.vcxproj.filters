@@ -26,22 +26,22 @@
       <Filter>Source Code\Tests\Conversions\ExpressionToStringConverter</Filter>
     </ClCompile>
     <ClCompile Include="StubMathAstToExpressionConverterTests.cpp">
-      <Filter>Source Code\Tests\Conversions\MathAstToExpressionConverter</Filter>
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\MathAstToExpressionConverter</Filter>
     </ClCompile>
     <ClCompile Include="StubStringToMathAstConverterTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter</Filter>
     </ClCompile>
     <ClCompile Include="StubValidatingStringToMathAstConverterTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter</Filter>
     </ClCompile>
     <ClCompile Include="StubTrackingStringToMathAstConverterTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter</Filter>
     </ClCompile>
     <ClCompile Include="StubTrackingMathAstNodeTests.cpp">
       <Filter>Source Code\Tests\MathAst</Filter>
     </ClCompile>
     <ClCompile Include="StubTrackingMathAstToExpressionConverterTests.cpp">
-      <Filter>Source Code\Tests\Conversions\MathAstToExpressionConverter</Filter>
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\MathAstToExpressionConverter</Filter>
     </ClCompile>
     <ClCompile Include="StubTrackingConvertedStringTests.cpp">
       <Filter>Source Code\Tests\String</Filter>
@@ -50,64 +50,64 @@
       <Filter>Source Code\Tests\Conversions\ExpressionToStringConverter</Filter>
     </ClCompile>
     <ClCompile Include="StubTrackingStringToAntlrContextConverterTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\StringToAntlrContextConverter</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\StringToAntlrContextConverter</Filter>
     </ClCompile>
     <ClCompile Include="StubThrowingStringToAntlrContextConverterTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\StringToAntlrContextConverter</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\StringToAntlrContextConverter</Filter>
     </ClCompile>
     <ClCompile Include="StubTrackingAntlrContextToMathAstConverterTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\AntlrContextToMathAstConverter</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\AntlrContextToMathAstConverter</Filter>
     </ClCompile>
     <ClCompile Include="StubAntlrTokenTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\AntlrToken</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\AntlrToken</Filter>
     </ClCompile>
     <ClCompile Include="StubTrackingFullExpressionAntlrContextTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext</Filter>
     </ClCompile>
     <ClCompile Include="StubExpressionAntlrContextTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\ExpressionAntlrContext</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\ExpressionAntlrContext</Filter>
     </ClCompile>
     <ClCompile Include="StubOperandAntlrContextTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperandAntlrContext</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperandAntlrContext</Filter>
     </ClCompile>
     <ClCompile Include="StubNonGroupingMultiplicationAntlrContextTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NonGroupingMultiplicationAntlrContext</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NonGroupingMultiplicationAntlrContext</Filter>
     </ClCompile>
     <ClCompile Include="StubNumberLiteralAntlrContextTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NumberLiteralAntlrContext</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NumberLiteralAntlrContext</Filter>
     </ClCompile>
     <ClCompile Include="StubWholefulNumberLiteralAntlrContextTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholefulNumberLiteralAntlrContext</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholefulNumberLiteralAntlrContext</Filter>
     </ClCompile>
     <ClCompile Include="StubWholelessNumberLiteralAntlrContextTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext</Filter>
     </ClCompile>
     <ClCompile Include="StubSignOperationAntlrContextTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperationAntlrContext</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperationAntlrContext</Filter>
     </ClCompile>
     <ClCompile Include="StubSignOperatorAntlrContextTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext</Filter>
     </ClCompile>
     <ClCompile Include="StubSqrtOperationAntlrContextTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext</Filter>
     </ClCompile>
     <ClCompile Include="StubGroupingAntlrContextTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingAntlrContext</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingAntlrContext</Filter>
     </ClCompile>
     <ClCompile Include="StubAbsoluteValueOperationAntlrContextTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext</Filter>
     </ClCompile>
     <ClCompile Include="StubGroupingMultiplicationAntlrContextTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingMultiplicationAntlrContext</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingMultiplicationAntlrContext</Filter>
     </ClCompile>
     <ClCompile Include="StubGroupingTailMultiplicandAntlrContextTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingTailMultiplicandAntlrContext</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingTailMultiplicandAntlrContext</Filter>
     </ClCompile>
     <ClCompile Include="StubOperationPartPairAntlrContextTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperationPartPairAntlrContext</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperationPartPairAntlrContext</Filter>
     </ClCompile>
     <ClCompile Include="StubBinaryOperatorAntlrContextTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext</Filter>
     </ClCompile>
     <ClCompile Include="StubTrackingDynamicExpressionNodeTests.cpp">
       <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
@@ -119,7 +119,7 @@
       <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
     </ClCompile>
     <ClCompile Include="StubFullExpressionAntlrContextTests.cpp">
-      <Filter>Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext</Filter>
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext</Filter>
     </ClCompile>
     <ClCompile Include="FakeRealNumberTests.cpp">
       <Filter>Source Code\Tests\Arithmetic\RealNumber</Filter>
@@ -132,6 +132,9 @@
     </ClCompile>
     <ClCompile Include="StubTrackingExpressionTests.cpp">
       <Filter>Source Code\Tests\Expressions\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="StubDynamicOperandToDynamicExpressionConverter.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -165,77 +168,8 @@
     <Filter Include="Source Code\Tests\Conversions\ExpressionToStringConverter">
       <UniqueIdentifier>{edd3a2a7-fc25-4118-9913-a66568a98a20}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Code\Tests\Conversions\MathAstToExpressionConverter">
-      <UniqueIdentifier>{ccc57f9f-4acd-4fbd-9af3-f4f84c111f3b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter">
-      <UniqueIdentifier>{c024f50c-e35a-4ecf-b401-089611c81516}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Code\Tests\String">
       <UniqueIdentifier>{48a46ac3-c962-4bd7-ad7c-5f366a72f160}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR">
-      <UniqueIdentifier>{43787c9f-164c-4eb8-a5c8-10bf97ede755}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\StringToAntlrContextConverter">
-      <UniqueIdentifier>{58c88fb6-386e-4947-abe9-f35751c310b7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\AntlrContextToMathAstConverter">
-      <UniqueIdentifier>{a0049ffd-f85f-4d0a-8136-e21f9bfe776c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\AntlrToken">
-      <UniqueIdentifier>{a42c1944-b2f6-40d3-b82d-95ed4335ba5c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects">
-      <UniqueIdentifier>{413703ce-0c65-4b5e-b865-51b3ab167f17}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext">
-      <UniqueIdentifier>{bca2b048-c152-4e56-882a-e59974d174b9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\ExpressionAntlrContext">
-      <UniqueIdentifier>{220d06f5-ed4b-4ef4-991e-6b7bc82644ca}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperandAntlrContext">
-      <UniqueIdentifier>{dcb7c614-ce51-492e-af14-9e9f3d9664fc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NonGroupingMultiplicationAntlrContext">
-      <UniqueIdentifier>{bbe6db83-50ba-409e-8777-7437b4af730b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NumberLiteralAntlrContext">
-      <UniqueIdentifier>{fc8c13a8-d261-42e7-b455-f6a8df4d2d7a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholefulNumberLiteralAntlrContext">
-      <UniqueIdentifier>{1006de42-3f2a-446b-b792-929b907c795a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext">
-      <UniqueIdentifier>{df58ef9b-42f6-433f-a419-d00c3c09712d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperationAntlrContext">
-      <UniqueIdentifier>{b7556b34-4a3d-484e-8989-d3343bef78b1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext">
-      <UniqueIdentifier>{423b10f1-4167-4655-8146-23dcdaf7624f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext">
-      <UniqueIdentifier>{3cbc69aa-f885-4d4e-8307-189fdc84a09b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingAntlrContext">
-      <UniqueIdentifier>{19359ded-e4c8-472b-9b03-9c4310578ccb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext">
-      <UniqueIdentifier>{13bfd92f-d316-434a-a5a0-ed96533cefcc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingMultiplicationAntlrContext">
-      <UniqueIdentifier>{a70258f6-da80-49a5-b762-8e56b9151624}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingTailMultiplicandAntlrContext">
-      <UniqueIdentifier>{886fe41b-e7b8-4f7e-a7f2-3a91512d7d1b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperationPartPairAntlrContext">
-      <UniqueIdentifier>{e38591b7-b965-4801-a8b5-bd7c83aed97e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Code\Tests\Conversions\StringToMathAstConverter\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext">
-      <UniqueIdentifier>{9951ba43-c608-4c96-8c68-ff342f7d3bef}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Code\Tests\MathAst\Dynamic">
       <UniqueIdentifier>{a34021a8-3ebd-466c-b878-55140f1a3c7d}</UniqueIdentifier>
@@ -254,6 +188,87 @@
     </Filter>
     <Filter Include="Source Code\Tests\Expressions\Dynamic\DynamicExpression">
       <UniqueIdentifier>{3642df62-54fa-47be-a290-769b7769ff6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST">
+      <UniqueIdentifier>{6b1b59ac-a013-43a8-b688-a31d01994e2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter">
+      <UniqueIdentifier>{c024f50c-e35a-4ecf-b401-089611c81516}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR">
+      <UniqueIdentifier>{43787c9f-164c-4eb8-a5c8-10bf97ede755}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\StringToAntlrContextConverter">
+      <UniqueIdentifier>{58c88fb6-386e-4947-abe9-f35751c310b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\AntlrContextToMathAstConverter">
+      <UniqueIdentifier>{a0049ffd-f85f-4d0a-8136-e21f9bfe776c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\AntlrToken">
+      <UniqueIdentifier>{a42c1944-b2f6-40d3-b82d-95ed4335ba5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects">
+      <UniqueIdentifier>{413703ce-0c65-4b5e-b865-51b3ab167f17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext">
+      <UniqueIdentifier>{bca2b048-c152-4e56-882a-e59974d174b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\ExpressionAntlrContext">
+      <UniqueIdentifier>{220d06f5-ed4b-4ef4-991e-6b7bc82644ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperandAntlrContext">
+      <UniqueIdentifier>{dcb7c614-ce51-492e-af14-9e9f3d9664fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NonGroupingMultiplicationAntlrContext">
+      <UniqueIdentifier>{bbe6db83-50ba-409e-8777-7437b4af730b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NumberLiteralAntlrContext">
+      <UniqueIdentifier>{fc8c13a8-d261-42e7-b455-f6a8df4d2d7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholefulNumberLiteralAntlrContext">
+      <UniqueIdentifier>{1006de42-3f2a-446b-b792-929b907c795a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext">
+      <UniqueIdentifier>{df58ef9b-42f6-433f-a419-d00c3c09712d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperationAntlrContext">
+      <UniqueIdentifier>{b7556b34-4a3d-484e-8989-d3343bef78b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext">
+      <UniqueIdentifier>{423b10f1-4167-4655-8146-23dcdaf7624f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext">
+      <UniqueIdentifier>{3cbc69aa-f885-4d4e-8307-189fdc84a09b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingAntlrContext">
+      <UniqueIdentifier>{19359ded-e4c8-472b-9b03-9c4310578ccb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext">
+      <UniqueIdentifier>{13bfd92f-d316-434a-a5a0-ed96533cefcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingMultiplicationAntlrContext">
+      <UniqueIdentifier>{a70258f6-da80-49a5-b762-8e56b9151624}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingTailMultiplicandAntlrContext">
+      <UniqueIdentifier>{886fe41b-e7b8-4f7e-a7f2-3a91512d7d1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperationPartPairAntlrContext">
+      <UniqueIdentifier>{e38591b7-b965-4801-a8b5-bd7c83aed97e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext">
+      <UniqueIdentifier>{9951ba43-c608-4c96-8c68-ff342f7d3bef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression">
+      <UniqueIdentifier>{0e0d2dae-3e9c-42aa-893d-abc486971a5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\MathAstToExpressionConverter">
+      <UniqueIdentifier>{ccc57f9f-4acd-4fbd-9af3-f4f84c111f3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression">
+      <UniqueIdentifier>{dbbcfa50-9e8f-4d85-a108-88b099a21ae8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter">
+      <UniqueIdentifier>{c2666bd0-2ce4-498b-aa42-0275e12c2344}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

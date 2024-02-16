@@ -87,6 +87,7 @@
     <ClInclude Include="StubDynamicExpressionPartNode.h" />
     <ClInclude Include="StubDynamicGroupingNode.h" />
     <ClInclude Include="StubDynamicOperandNode.h" />
+    <ClInclude Include="StubDynamicOperandToDynamicExpressionConverter.h" />
     <ClInclude Include="StubExpressionAntlrContext.h" />
     <ClInclude Include="StubFullExpressionAntlrContext.h" />
     <ClInclude Include="StubGroupingAntlrContext.h" />
