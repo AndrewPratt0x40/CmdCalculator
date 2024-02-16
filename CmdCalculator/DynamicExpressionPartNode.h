@@ -20,5 +20,12 @@ namespace CmdCalculator::MathAst
 
 		virtual ~DynamicExpressionPartNode()
 		{}
+
+
+		/// \brief Tests if the node is a binary operator or not.
+		/// \returns True if the node is a binary operator, false otherwise.
+		/// \remark If this method returns true, it is assumed that the instance is convertible to \ref MathAst::DynamicBinaryOperatorNode.
+		/// \remark If this method returns false, it is assumed that the instance is convertible to \ref MathAst::DynamicOperandNode.
+		virtual bool isBinaryOperator() const = 0;
 	};
 }

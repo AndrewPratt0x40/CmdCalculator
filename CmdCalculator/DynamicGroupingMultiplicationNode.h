@@ -58,6 +58,12 @@ namespace CmdCalculator::MathAst
 			assert(m_headMultiplicand);
 			std::ranges::move(tailMultiplicands, std::back_inserter(m_tailMultiplicands));
 		}
+
+
+		inline EDerivedDynamicOperandNodeKind getDerivedOperandKind() const override
+		{
+			return EDerivedDynamicOperandNodeKind::GroupingMultiplication;
+		}
 		
 		
 		/// \brief Accessor to the head multiplicand of the operation.

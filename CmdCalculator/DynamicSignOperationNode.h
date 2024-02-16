@@ -61,6 +61,12 @@ namespace CmdCalculator::MathAst
 		{}
 
 
+		inline EDerivedDynamicOperandNodeKind getDerivedOperandKind() const override
+		{
+			return EDerivedDynamicOperandNodeKind::SignOperation;
+		}
+
+
 		/// \brief Tests if the sign expression is positive or negative.
 		/// \returns True if the sign expression is positive, false if it's negative.
 		bool isPositive() const

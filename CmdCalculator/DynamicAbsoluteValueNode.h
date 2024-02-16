@@ -54,6 +54,12 @@ namespace CmdCalculator::MathAst
 		{
 			assert(m_containedExpression);
 		}
+
+
+		inline EDerivedDynamicOperandNodeKind getDerivedOperandKind() const override
+		{
+			return EDerivedDynamicOperandNodeKind::AbsoluteValue;
+		}
 		
 		
 		DynamicExpressionNode<StringT>* getContainedExpression() const override

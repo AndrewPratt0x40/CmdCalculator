@@ -57,5 +57,11 @@ namespace CmdCalculator::MathAst
 		{
 			assert(DynamicUnaryOperationNode<StringType>::getOperand());
 		}
+
+
+		inline EDerivedDynamicOperandNodeKind getDerivedOperandKind() const override
+		{
+			return EDerivedDynamicOperandNodeKind::SqrtOperation;
+		}
 	};
 }

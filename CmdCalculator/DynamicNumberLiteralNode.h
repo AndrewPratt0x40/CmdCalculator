@@ -105,6 +105,12 @@ namespace CmdCalculator::MathAst
 			assert(m_wholePart >= 0);
 			assert(m_fractionalPart >= 0);
 		}
+
+
+		inline EDerivedDynamicOperandNodeKind getDerivedOperandKind() const override
+		{
+			return EDerivedDynamicOperandNodeKind::NumberLiteral;
+		}
 		
 		
 		/// \brief Accessor to the whole part of the number.

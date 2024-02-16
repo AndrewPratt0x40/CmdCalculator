@@ -16,6 +16,7 @@ namespace CmdCalculator::Arithmetic
 
 	/// \brief A real number.
 	/// \tparam T The real number type.
+	/// \remark Modulo operations should use Euclidean division, and always return a positive value.
 	template<class T>
 	concept RealNumber =
 		IntendsToSatisfy<T, RealNumber_IntendedSatisfaction>

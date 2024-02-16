@@ -259,6 +259,21 @@
     <Filter Include="Source Code\Arithmetic\RealNumber\FundamentallyBackedRealNumber">
       <UniqueIdentifier>{e04d6432-e705-48fa-8862-e6e4bfd3fdaa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression">
+      <UniqueIdentifier>{5803058d-d854-4f51-9caa-604b096f466f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression">
+      <UniqueIdentifier>{a8aeb0b4-7caf-4401-b859-800f233d629a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter">
+      <UniqueIdentifier>{9682bb30-f64c-4225-8524-66d061c0b5c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter">
+      <UniqueIdentifier>{30527aad-ff6a-48c5-a8a4-a026df885741}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter\BasicDynamicOperandToDynamicExpressionConverter">
+      <UniqueIdentifier>{cc893260-480b-44b7-ba1f-8994afc8457a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -284,9 +299,6 @@
     </ClInclude>
     <ClInclude Include="Expression.h">
       <Filter>Source Code\Expressions</Filter>
-    </ClInclude>
-    <ClInclude Include="MathAstToExpressionConverter.h">
-      <Filter>Source Code\Conversions</Filter>
     </ClInclude>
     <ClInclude Include="ExpressionToStringConverter.h">
       <Filter>Source Code\Conversions</Filter>
@@ -319,9 +331,6 @@
       <Filter>Source Code\Math AST\Dynamic</Filter>
     </ClInclude>
     <ClInclude Include="DynamicExpressionPartNode.h">
-      <Filter>Source Code\Math AST\Dynamic</Filter>
-    </ClInclude>
-    <ClInclude Include="DynamicOperandNode.h">
       <Filter>Source Code\Math AST\Dynamic</Filter>
     </ClInclude>
     <ClInclude Include="DynamicExpressionContainingNode.h">
@@ -567,6 +576,18 @@
     <ClInclude Include="FundamentallyBackedRealNumber.hpp">
       <Filter>Source Code\Arithmetic\RealNumber\FundamentallyBackedRealNumber</Filter>
     </ClInclude>
+    <ClInclude Include="MathAstToExpressionConverter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicMathAstToDynamicExpressionConverter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicOperandToDynamicExpressionConverter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicOperandNode.h">
+      <Filter>Source Code\Math AST\Dynamic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -708,5 +729,8 @@
       <Filter>Source Code\Exceptions\ExpressionEvaluationException\NegativeRadicandException</Filter>
     </ClCompile>
     <ClCompile Include="FundamentallyBackedRealNumber.cpp" />
+    <ClCompile Include="DynamicMathAstToDynamicExpressionConverter.cpp">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

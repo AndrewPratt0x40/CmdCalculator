@@ -102,11 +102,13 @@
     <ClInclude Include="DynamicExponentiationOperation.h" />
     <ClInclude Include="DynamicExpression.h" />
     <ClInclude Include="DynamicExpressionBox.h" />
+    <ClInclude Include="DynamicMathAstToDynamicExpressionConverter.h" />
     <ClInclude Include="DynamicModuloOperation.h" />
     <ClInclude Include="DynamicMultiplicationOperation.h" />
     <ClInclude Include="DynamicNegationOperation.h" />
     <ClInclude Include="DynamicNthRootOperation.h" />
     <ClInclude Include="DynamicNumber.h" />
+    <ClInclude Include="DynamicOperandToDynamicExpressionConverter.h" />
     <ClInclude Include="DynamicSubtractionOperation.h" />
     <ClInclude Include="DynamicSubtractionOperation.hpp" />
     <ClInclude Include="EmptyInputExpressionException.h" />
@@ -196,6 +198,7 @@
     <ClCompile Include="DynamicAbsoluteValueOperation.hpp" />
     <ClCompile Include="DynamicExponentiationOperation.hpp" />
     <ClCompile Include="DynamicExpressionBox.hpp" />
+    <ClCompile Include="DynamicMathAstToDynamicExpressionConverter.cpp" />
     <ClCompile Include="DynamicModuloOperation.hpp" />
     <ClCompile Include="DynamicMultiplicationOperation.hpp" />
     <ClCompile Include="DynamicNegationOperation.hpp" />

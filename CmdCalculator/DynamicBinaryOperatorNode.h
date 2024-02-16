@@ -62,6 +62,12 @@ namespace CmdCalculator::MathAst
 		{}
 
 
+		inline bool isBinaryOperator() const
+		{
+			return true;
+		}
+
+
 		/// \brief Accessor to the kind of operator the node holds.
 		/// \returns The operator kind.
 		EBinaryOperator getOperatorKind() const

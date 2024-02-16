@@ -62,6 +62,12 @@ namespace CmdCalculator::MathAst
 		}
 
 
+		inline EDerivedDynamicOperandNodeKind getDerivedOperandKind() const override
+		{
+			return EDerivedDynamicOperandNodeKind::Grouping;
+		}
+
+
 		DynamicExpressionNode<StringType>* getContainedExpression() const override
 		{
 			return m_containedExpression.get();
