@@ -6,7 +6,7 @@
 #include "MathAstToExpressionConverter.h"
 #include "DynamicOperandToDynamicExpressionConverter.h"
 #include "DynamicExpressionNode.h"
-#include "DynamicExpression.h"
+#include "DynamicExpressionBox.h"
 #include "FundamentallyBackedRealNumber.h"
 #include "strings.h"
 
@@ -25,7 +25,7 @@ namespace CmdCalculator
 
 		using RootMathAstNodeType = MathAst::DynamicExpressionNode<MathAstStringType>;
 		using OutputExpressionNumberType = OperandToExpressionConverterType::ExpressionNumberType;
-		using OutputExpressionType = Expressions::DynamicExpression<OutputExpressionNumberType>;
+		using OutputExpressionType = Expressions::DynamicExpressionBox<OutputExpressionNumberType>;
 
 
 	private:
@@ -37,6 +37,6 @@ namespace CmdCalculator
 		/// \brief Converts a mathematical abstract syntax tree into an expression.
 		/// \param sourceRootNode The root node of the math AST to convert from.
 		/// \returns \p sourceRootNode as a \ref Expressions::DynamicExpressionNode instance.
-		std::unique_ptr<OutputExpressionType> getMathAstAsExpression(const RootMathAstNodeType& sourceRootNode) const;
+		OutputExpressionType getMathAstAsExpression(const RootMathAstNodeType& sourceRootNode) const;
 	};
 }

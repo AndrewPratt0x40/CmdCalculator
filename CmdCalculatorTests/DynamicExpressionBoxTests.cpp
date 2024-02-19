@@ -2,11 +2,13 @@
 
 #include <string>
 
+#include "common.h"
 #include "../CmdCalculator/DynamicExpressionBox.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculatorTestDoubles/FakeRealNumber.h"
+#include "../CmdCalculatorTestDoubles/StubDynamicExpression.h"
 
-namespace CmdCalculatorTestDoubleTests
+namespace CmdCalculatorTests
 {
 #pragma region Concept satisfaction
 
@@ -22,6 +24,48 @@ namespace CmdCalculatorTestDoubleTests
 				>
 			>
 		);
+	}
+
+#pragma endregion
+
+
+#pragma region getEvaluation
+
+	class DynamicExpressionBoxgetEvaluationTests :
+		public testing::TestWithParam<double>
+	{};
+
+	const auto DynamicExpressionBoxgetEvaluation_TestDataValues
+	{
+		SharedTestData::numbers()
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		DynamicExpressionBoxTests,
+		DynamicExpressionBoxgetEvaluationTests,
+		ValuesInRange(DynamicExpressionBoxgetEvaluation_TestDataValues)
+	);
+
+	TEST_P(DynamicExpressionBoxgetEvaluationTests, getEvaluation$returns$evaluation$of$inner$value)
+	{
+		// Arrange
+		using NumberType = CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber;
+		using InnerType = CmdCalculatorTestDoubles::Expressions::StubDynamicExpression<NumberType>;
+		const double expectedEvaluation{ GetParam() };
+		const CmdCalculator::Expressions::DynamicExpressionBox<NumberType> instance
+		{
+			std::move
+			(
+				std::make_unique<InnerType>(GetParam())
+			)
+		};
+
+		// Act
+		const double actualEvaluation{ instance.getEvaluation().FAKE_getValue() };
+
+		// Assert
+		EXPECT_EQ(expectedEvaluation, actualEvaluation);
 	}
 
 #pragma endregion
