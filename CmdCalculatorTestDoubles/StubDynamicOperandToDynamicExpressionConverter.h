@@ -1,5 +1,6 @@
 #pragma once
 
+#include <concepts>
 #include <memory>
 
 #include "../CmdCalculator/DynamicOperandToDynamicExpressionConverter.h"
@@ -11,18 +12,27 @@
 
 namespace CmdCalculatorTestDoubles
 {
+	template<class T>
+	concept DynamicExpressionFor_StubDynamicOperandToDynamicExpressionConverter =
+		std::convertible_to
+		<
+			std::unique_ptr<T>,
+			std::unique_ptr
+			<
+				CmdCalculator::Expressions::DynamicExpression
+				<
+					typename T::NumberType
+				>
+			>
+		>
+	;
+
+
 	template
 	<
 		CmdCalculator::String MathAstStringT,
-		CmdCalculator::Expressions::Expression ExpressionT
+		DynamicExpressionFor_StubDynamicOperandToDynamicExpressionConverter ExpressionT
 	>
-	requires
-		std::convertible_to
-		<
-			std::unique_ptr<ExpressionT>,
-			std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<typename ExpressionT::NumberType>>,
-		>
-		&& std::copyable<ExpressionT>
 	struct StubDynamicOperandToDynamicExpressionConverter :
 		public CmdCalculator::DynamicOperandToDynamicExpressionConverter_IntendedSatisfaction
 	{
@@ -36,7 +46,7 @@ namespace CmdCalculatorTestDoubles
 		CmdCalculator::Expressions::DynamicExpression<ExpressionNumberType> getOperandAsExpression
 			(const CmdCalculator::MathAst::DynamicOperandNode<MathAstStringType>& sourceOperand) const
 		{
-			return std::make_unique<CmdCalculator::Expressions::DynamicExpression<ExpressionNumberType>>
+			return std::make_unique<ExpressionType>
 				(convertedOperand)
 			;
 		}

@@ -11,7 +11,7 @@ namespace CmdCalculatorTestDoubleTests
 {
 	struct DynamicSqrtOperationNode_TestParams
 	{
-		CmdCalculatorTestDoubles::MathAst::StubDynamicOperandNode<std::string> operand;
+		std::string operand;
 		std::string innerTrivia;
 		std::string leadingTrivia;
 		std::string trailingTrivia;
@@ -31,7 +31,7 @@ namespace CmdCalculatorTestDoubleTests
 		(
 			DynamicSqrtOperationNode_TestParams
 			{
-				.operand{ "", "", "Operand" },
+				.operand{ "Operand" },
 				.innerTrivia{ "" },
 				.leadingTrivia{ "" },
 				.trailingTrivia{ "" },
@@ -39,7 +39,7 @@ namespace CmdCalculatorTestDoubleTests
 			},
 			DynamicSqrtOperationNode_TestParams
 			{
-				.operand{ "", "", "Operand" },
+				.operand{ "Operand" },
 				.innerTrivia{ "  " },
 				.leadingTrivia{ "   " },
 				.trailingTrivia{ "    " },
@@ -56,13 +56,18 @@ namespace CmdCalculatorTestDoubleTests
 		auto operandToPass
 		{
 			std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicOperandNode<std::string>>
-				(GetParam().operand)
+			(
+				CmdCalculator::MathAst::EDerivedDynamicOperandNodeKind::NumberLiteral,
+				"",
+				"",
+				GetParam().operand
+			)
 		};
 		const std::string innerTriviaToPass{ GetParam().innerTrivia };
 		const std::string leadingTriviaToPass{ GetParam().leadingTrivia };
 		const std::string trailingTriviaToPass{ GetParam().trailingTrivia };
 
-		const std::string expectedOperandStringRepresentation{ GetParam().operand.getStringRepresentation() };
+		const std::string expectedOperandStringRepresentation{ GetParam().operand };
 		const std::string expectedInnerTrivia{ GetParam().innerTrivia };
 		const std::string expectedLeadingTrivia{ GetParam().leadingTrivia };
 		const std::string expectedTrailingTrivia{ GetParam().trailingTrivia };

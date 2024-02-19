@@ -1,6 +1,7 @@
 #pragma once
 
 #include <concepts>
+#include <memory>
 
 #include "MathAstToExpressionConverter.h"
 #include "DynamicOperandToDynamicExpressionConverter.h"
@@ -36,6 +37,6 @@ namespace CmdCalculator
 		/// \brief Converts a mathematical abstract syntax tree into an expression.
 		/// \param sourceRootNode The root node of the math AST to convert from.
 		/// \returns \p sourceRootNode as a \ref Expressions::DynamicExpressionNode instance.
-		OutputExpressionType getMathAstAsExpression(const RootMathAstNodeType& sourceRootNode) const;
+		std::unique_ptr<OutputExpressionType> getMathAstAsExpression(const RootMathAstNodeType& sourceRootNode) const;
 	};
 }

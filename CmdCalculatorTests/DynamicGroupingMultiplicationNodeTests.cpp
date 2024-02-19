@@ -18,7 +18,7 @@ namespace CmdCalculatorTestDoubleTests
 {
 	struct DynamicGroupingMultiplicationNode_TestParams
 	{
-		CmdCalculatorTestDoubles::MathAst::StubDynamicOperandNode<std::string> headMultiplicand;
+		std::string headMultiplicand;
 		std::vector<std::string> tailMultiplicands;
 		std::string leadingTrivia;
 		std::string trailingTrivia;
@@ -33,7 +33,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		DynamicGroupingMultiplicationNode_TestParams
 		{
-			.headMultiplicand{ "", "", "Head" },
+			.headMultiplicand{ "Head" },
 			.tailMultiplicands{},
 			.leadingTrivia{ "" },
 			.trailingTrivia{ "" },
@@ -41,7 +41,7 @@ namespace CmdCalculatorTestDoubleTests
 		},
 		DynamicGroupingMultiplicationNode_TestParams
 		{
-			.headMultiplicand{ "", "", "Head" },
+			.headMultiplicand{ "Head" },
 			.tailMultiplicands{ "(Tail)" },
 			.leadingTrivia{ "" },
 			.trailingTrivia{ "" },
@@ -49,7 +49,7 @@ namespace CmdCalculatorTestDoubleTests
 		},
 		DynamicGroupingMultiplicationNode_TestParams
 		{
-			.headMultiplicand{ "", "", "Head" },
+			.headMultiplicand{ "Head" },
 			.tailMultiplicands{ "(Tail1)", "(Tail2)", "(Tail3)" },
 			.leadingTrivia{ "" },
 			.trailingTrivia{ "" },
@@ -57,7 +57,7 @@ namespace CmdCalculatorTestDoubleTests
 		},
 		DynamicGroupingMultiplicationNode_TestParams
 		{
-			.headMultiplicand{ "", "", "Head" },
+			.headMultiplicand{ "Head" },
 			.tailMultiplicands{ "(Tail1)", "(Tail2)", "(Tail3)" },
 			.leadingTrivia{ " " },
 			.trailingTrivia{ "  " },
@@ -81,7 +81,12 @@ namespace CmdCalculatorTestDoubleTests
 		auto headMultiplicandToPass
 		{
 			std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicOperandNode<std::string>>
-				(GetParam().headMultiplicand)
+			(
+				CmdCalculator::MathAst::EDerivedDynamicOperandNodeKind::NumberLiteral,
+				"",
+				"",
+				GetParam().headMultiplicand
+			)
 		};
 		auto tailMultiplicandsView
 		{
@@ -117,7 +122,7 @@ namespace CmdCalculatorTestDoubleTests
 
 		const std::string expectedHeadMultiplicandStringRepresentation
 		{
-			GetParam().headMultiplicand.getStringRepresentation()
+			GetParam().headMultiplicand
 		};
 		const auto expectedTailMultiplicandStringRepresentations
 		{

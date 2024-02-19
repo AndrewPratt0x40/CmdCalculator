@@ -11,7 +11,7 @@ namespace CmdCalculatorTestDoubleTests
 {
 	struct DynamicSignOperationNode_TestParams
 	{
-		CmdCalculatorTestDoubles::MathAst::StubDynamicOperandNode<std::string> operand;
+		std::string operand;
 		bool isPositive;
 		std::string innerTrivia;
 		std::string leadingTrivia;
@@ -32,7 +32,7 @@ namespace CmdCalculatorTestDoubleTests
 		(
 			DynamicSignOperationNode_TestParams
 			{
-				.operand{ "", "", "Operand" },
+				.operand{ "Operand" },
 				.isPositive{ false },
 				.innerTrivia{ "" },
 				.leadingTrivia{ "" },
@@ -41,7 +41,7 @@ namespace CmdCalculatorTestDoubleTests
 			},
 			DynamicSignOperationNode_TestParams
 			{
-				.operand{ "", "", "Operand" },
+				.operand{ "Operand" },
 				.isPositive{ true },
 				.innerTrivia{ "" },
 				.leadingTrivia{ "" },
@@ -50,7 +50,7 @@ namespace CmdCalculatorTestDoubleTests
 			},
 			DynamicSignOperationNode_TestParams
 			{
-				.operand{ "", "", "Operand" },
+				.operand{ "Operand" },
 				.isPositive{ true },
 				.innerTrivia{ "  " },
 				.leadingTrivia{ "   " },
@@ -68,14 +68,19 @@ namespace CmdCalculatorTestDoubleTests
 		auto operandToPass
 		{
 			std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicOperandNode<std::string>>
-				(GetParam().operand)
+			(
+				CmdCalculator::MathAst::EDerivedDynamicOperandNodeKind::NumberLiteral,
+				"",
+				"",
+				GetParam().operand
+			)
 		};
 		const bool isPositiveToPass{ GetParam().isPositive };
 		const std::string innerTriviaToPass{ GetParam().innerTrivia };
 		const std::string leadingTriviaToPass{ GetParam().leadingTrivia };
 		const std::string trailingTriviaToPass{ GetParam().trailingTrivia };
 
-		const std::string expectedOperandStringRepresentation{ GetParam().operand.getStringRepresentation() };
+		const std::string expectedOperandStringRepresentation{ GetParam().operand };
 		const bool expectedIsPositive{ GetParam().isPositive };
 		const std::string expectedInnerTrivia{ GetParam().innerTrivia };
 		const std::string expectedLeadingTrivia{ GetParam().leadingTrivia };

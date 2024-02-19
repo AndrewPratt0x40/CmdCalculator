@@ -8,6 +8,7 @@
 #include "../CmdCalculator/ExpressionNode.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpressionPartNode.h"
 
+
 namespace CmdCalculatorTestDoubleTests
 {
 #pragma region Concept satisfaction
@@ -65,7 +66,7 @@ namespace CmdCalculatorTestDoubleTests
 				.parts
 				{
 					CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>
-						{ "", "", "Part" }
+						{ false, "", "", "Part" }
 				},
 				.stringRepresentation{ "Part" }
 			},
@@ -76,11 +77,11 @@ namespace CmdCalculatorTestDoubleTests
 				.parts
 				{
 					CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>
-						{ "", "", "<Part1>" },
+						{  false, "", "", "<Part1>" },
 					CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>
-						{ "", "", "<Part2>" },
+						{  false, "", "", "<Part2>" },
 					CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>
-						{ "", "", "<Part3>" }
+						{  false, "", "", "<Part3>" }
 				},
 				.stringRepresentation{ "<Part1><Part2><Part3>" }
 			},
@@ -91,11 +92,11 @@ namespace CmdCalculatorTestDoubleTests
 				.parts
 				{
 					CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>
-						{ "", "", "<Part1>" },
+						{ false,  "", "", "<Part1>" },
 					CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>
-						{ "", "", "<Part2>" },
+						{  false, "", "", "<Part2>" },
 					CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>
-						{ "", "", "<Part3>" }
+						{  false, "", "", "<Part3>" }
 				},
 				.stringRepresentation{ " <Part1><Part2><Part3>  " }
 			}

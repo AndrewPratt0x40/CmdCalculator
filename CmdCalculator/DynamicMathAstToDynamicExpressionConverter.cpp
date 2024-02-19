@@ -3,9 +3,9 @@
 
 
 
-template<CmdCalculator::String MathAstStringT, std::floating_point InnerExpressionNumberT>
-inline CmdCalculator::DynamicMathAstToDynamicExpressionConverter<MathAstStringT, InnerExpressionNumberT>::OutputExpressionType
-	CmdCalculator::DynamicMathAstToDynamicExpressionConverter<MathAstStringT, InnerExpressionNumberT>::getMathAstAsExpression
+template<CmdCalculator::DynamicOperandToDynamicExpressionConverter OperandToExpressionConverterT>
+inline std::unique_ptr<typename CmdCalculator::DynamicMathAstToDynamicExpressionConverter<OperandToExpressionConverterT>::OutputExpressionType>
+	CmdCalculator::DynamicMathAstToDynamicExpressionConverter<OperandToExpressionConverterT>::getMathAstAsExpression
 (
 	const RootMathAstNodeType& sourceRootNode
 ) const

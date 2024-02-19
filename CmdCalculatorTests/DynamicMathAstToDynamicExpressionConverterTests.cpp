@@ -2,7 +2,9 @@
 
 #include "../CmdCalculator/DynamicMathAstToDynamicExpressionConverter.h"
 #include "../CmdCalculator/MathAstToExpressionConverter.h"
-#include "../CmdCalculatorTestDoubles/StubFullExpressionAntlrContext.h"
+#include "../CmdCalculatorTestDoubles/StubDynamicOperandToDynamicExpressionConverter.h"
+#include "../CmdCalculatorTestDoubles/StubDynamicExpression.h"
+#include "../CmdCalculatorTestDoubles/FakeRealNumber.h"
 
 #include <algorithm>
 #include <string>
@@ -26,7 +28,14 @@ namespace CmdCalculatorTests
 			<
 				CmdCalculator::DynamicMathAstToDynamicExpressionConverter
 				<
-					TODO
+					CmdCalculatorTestDoubles::StubDynamicOperandToDynamicExpressionConverter
+					<
+						std::string,
+						CmdCalculatorTestDoubles::Expressions::StubDynamicExpression
+						<
+							CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber
+						>
+					>
 				>
 			>
 		);
