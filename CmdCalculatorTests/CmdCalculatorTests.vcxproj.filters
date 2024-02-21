@@ -142,6 +142,9 @@
     <ClCompile Include="DynamicMathAstToDynamicExpressionConverterTests.cpp">
       <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression</Filter>
     </ClCompile>
+    <ClCompile Include="DynamicExpressionPartSplitterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\DynamicExpressionPartSplitter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -245,6 +248,12 @@
     </Filter>
     <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression">
       <UniqueIdentifier>{b5c9fa56-35e7-478d-9a04-9cad6b64be80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting">
+      <UniqueIdentifier>{7c7f8fae-e060-485d-8122-faf44ea5f6c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\DynamicExpressionPartSplitter">
+      <UniqueIdentifier>{df9c5d26-c08c-405d-b3d1-5945b8c10372}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

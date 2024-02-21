@@ -20,7 +20,7 @@ namespace CmdCalculator
 	template<class T, class ArgsT>
 	concept RawCmdLineArgParser =
 		IntendsToSatisfy<T, RawCmdLineArgParser_IntendedSatisfaction>
-		&& std::ranges::input_range<ArgsT>
+		&& std::ranges::forward_range<ArgsT>
 		&& String<std::ranges::range_value_t<ArgsT>>
 		&& String<typename T::ExpressionStringType>
 		&& requires()

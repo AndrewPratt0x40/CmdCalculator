@@ -84,7 +84,7 @@ namespace CmdCalculator
 		/// \param config The process configuration.
 		/// \param console The text console to use for input and output.
 		/// \returns True if the process ran successfully, false if the process exited due to an error.
-		template<Console ConsoleT, String ExpressionStringT, std::ranges::input_range ArgsT>
+		template<Console ConsoleT, String ExpressionStringT, std::ranges::forward_range ArgsT>
 			requires String<std::ranges::range_value_t<ArgsT>>
 		bool run(ArgsT&& rawCmdLineArgs, const ProcessConfiguration<ExpressionStringT> defaultConfig, ConsoleT& console)
 		{
@@ -187,7 +187,7 @@ namespace CmdCalculator
 		/// \param defaultConfig The default process configuration to use.
 		/// \param console The text console to use for input and output.
 		/// \returns The process configuration resulting from the parsed command-line arguments, or an empty value if parsing failed.
-		template<Console ConsoleT, String ExpressionStringT, std::ranges::input_range ArgsT>
+		template<Console ConsoleT, String ExpressionStringT, std::ranges::forward_range ArgsT>
 			requires String<std::ranges::range_value_t<ArgsT>>
 		std::optional<ProcessConfiguration<ExpressionStringT>> parseCmdLineArgs
 		(

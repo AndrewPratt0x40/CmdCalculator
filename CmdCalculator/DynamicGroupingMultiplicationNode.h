@@ -41,7 +41,7 @@ namespace CmdCalculator::MathAst
 		/// \param tailMultiplicands The grouping operations to multiply the head multiplicand by.
 		/// \param leadingTrivia Trivial content at the beginning of the string contents of the node.
 		/// \param trailingTrivia Trivial content at the end of the string contents of the node.
-		template<std::ranges::input_range TailMultiplicandsRangeT>
+		template<std::ranges::forward_range TailMultiplicandsRangeT>
 			requires std::same_as<std::unique_ptr<MathAst::DynamicGroupingNode<StringType>>, std::ranges::range_value_t<TailMultiplicandsRangeT>>
 		DynamicGroupingMultiplicationNode
 		(

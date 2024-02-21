@@ -25,7 +25,7 @@ namespace CmdCalculator
 		{
 			{ instance.getHeadOperand() } -> OperandAntlrContext;
 
-			{ instance.getOperationPartPairs() } -> std::ranges::input_range;
+			{ instance.getOperationPartPairs() } -> std::ranges::forward_range;
 			OperationPartPairAntlrContext<std::ranges::range_value_t<decltype(instance.getOperationPartPairs())>>;
 
 			std::same_as

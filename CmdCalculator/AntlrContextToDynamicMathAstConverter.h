@@ -279,7 +279,7 @@ namespace CmdCalculator
 		}
 
 
-		std::ranges::input_range auto getConvertedTailMultiplicandsView(std::ranges::input_range auto tailMultiplicands) const
+		std::ranges::forward_range auto getConvertedTailMultiplicandsView(std::ranges::forward_range auto tailMultiplicands) const
 			requires std::same_as
 			<
 				std::remove_cv_t<std::ranges::range_value_t<decltype(tailMultiplicands)>>,
@@ -296,7 +296,7 @@ namespace CmdCalculator
 		}
 
 
-		auto getConvertedTailMultiplicands(std::ranges::input_range auto tailMultiplicands) const
+		auto getConvertedTailMultiplicands(std::ranges::forward_range auto tailMultiplicands) const
 			requires std::same_as
 			<
 				std::remove_cv_t<std::ranges::range_value_t<decltype(tailMultiplicands)>>,

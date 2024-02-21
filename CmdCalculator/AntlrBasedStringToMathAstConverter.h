@@ -81,7 +81,7 @@ namespace CmdCalculator
 
 				const std::map<std::string_view, size_t> tokenTypeMap{ recognizer->getTokenTypeMap() };
 
-				std::ranges::input_range auto expectedValuesView
+				std::ranges::forward_range auto expectedValuesView
 				{
 					// Get a collection of the token ids of every expected token.
 					exception.getExpectedTokens().toList()

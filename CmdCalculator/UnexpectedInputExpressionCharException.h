@@ -25,7 +25,7 @@ namespace CmdCalculator
 		/// \tparam ExpectedValuesT The type of \p expectedValues.
 		/// \param charIndex The index of the unexpected character.
 		/// \param expectedValues A range of string descriptions of each possible value that was expected.
-		template<std::ranges::input_range ExpectedValuesT>
+		template<std::ranges::forward_range ExpectedValuesT>
 			requires std::same_as<std::string, std::ranges::range_value_t<ExpectedValuesT>>
 		UnexpectedInputExpressionCharException
 		(
@@ -55,7 +55,7 @@ namespace CmdCalculator
 
 		/// \brief Accessor to the index of the unexpected character.
 		/// \returns The unexpected character's index.
-		std::ranges::input_range auto getExpectedValues() const
+		std::ranges::forward_range auto getExpectedValues() const
 		{
 			return m_expectedValues | std::views::all;
 		}

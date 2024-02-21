@@ -86,12 +86,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FakeConsoleTests.cpp" />
+    <ClCompile Include="FakeHalfwayDynamicExpressionPartSplitterTests.cpp" />
     <ClCompile Include="FakeRealNumberTests.cpp" />
     <ClCompile Include="StubAbsoluteValueOperationAntlrContextTests.cpp" />
     <ClCompile Include="StubAntlrTokenTests.cpp" />
     <ClCompile Include="StubBinaryOperatorAntlrContextTests.cpp" />
     <ClCompile Include="StubDynamicExpressionNodeTests.cpp" />
     <ClCompile Include="StubDynamicExpressionPartNodeTests.cpp" />
+    <ClCompile Include="StubDynamicExpressionPartSplitResultTests.cpp" />
     <ClCompile Include="StubDynamicExpressionTests.cpp" />
     <ClCompile Include="StubDynamicOperandNodeTests.cpp" />
     <ClCompile Include="StubDynamicOperandToDynamicExpressionConverter.cpp" />

@@ -28,7 +28,7 @@ namespace CmdCalculator
 		{
 			{ instance.getHeadMultiplicand() } -> NonGroupingMultiplicationAntlrContext;
 
-			{ instance.getTailMultiplicands() } -> std::ranges::input_range;
+			{ instance.getTailMultiplicands() } -> std::ranges::forward_range;
 			GroupingTailMultiplicandAntlrContext<std::ranges::range_value_t<decltype(instance.getTailMultiplicands())>>;
 		}
 	;

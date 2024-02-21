@@ -6,6 +6,25 @@
 
 namespace CmdCalculator::MathAst
 {
+	template<String StringT>
+	class DynamicExpressionPartNode;
+
+
+	/// \brief A range of polymorphic \ref DynamicExpressionPartNode instances.
+	/// \tparam T The range type.
+	/// \tparam StringT The string type that each expression part node uses.
+	template<class T, class StringT>
+	concept DynamicExpressionPartNodeRange =
+		String<StringT>
+		&& std::ranges::forward_range<T>
+		&& std::convertible_to
+		<
+			std::remove_cv_t<std::ranges::range_value_t<T>>,
+			DynamicExpressionPartNode<StringT>&
+		>
+	;
+
+
 	/// \brief A type that satisfies \ref ExpressionPartNode that is implemented via dynamic polymorphism.
 	/// \tparam StringT The string type to use.
 	template<String StringT>

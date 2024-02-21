@@ -403,8 +403,8 @@ namespace CmdCalculatorTests
 				returnValue->getParts()
 				| std::views::transform
 				(
-					[](const auto* part)
-					{ return part->getStringRepresentation(); }
+					[](const CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>& part)
+					{ return part.getStringRepresentation(); }
 				)
 			)
 		);

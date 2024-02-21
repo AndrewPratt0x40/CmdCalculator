@@ -43,7 +43,7 @@ namespace CmdCalculator::MathAst
 		/// \param leadingTrivia Trivial content at the beginning of the string contents of the node.
 		/// \param trailingTrivia Trivial content at the end of the string contents of the node.
 		/// \param parts A range of every part of the expression, in order.
-		template<std::ranges::input_range PartsRangeT>
+		template<std::ranges::forward_range PartsRangeT>
 			requires std::same_as<std::unique_ptr<DynamicExpressionPartNode<StringType>>, std::ranges::range_value_t<PartsRangeT>>
 		DynamicExpressionNode
 		(
@@ -69,12 +69,15 @@ namespace CmdCalculator::MathAst
 
 		/// \brief Accessor to the parts of the expression.
 		/// \returns A range of every part of the expression, in order.
-		auto getParts() const
+		DynamicExpressionPartNodeRange<StringType> auto getParts() const
 		{
 			return
 				m_parts
 				| std::views::transform
-				([](const std::unique_ptr<DynamicExpressionPartNode<StringType>>& part) { return part.get(); })
+				(
+					[](const std::unique_ptr<DynamicExpressionPartNode<StringType>>& part)
+					{ return std::ref<DynamicExpressionPartNode<StringType>>(*part); }
+				)
 			;
 		}
 
@@ -102,8 +105,8 @@ namespace CmdCalculator::MathAst
 					getParts()
 					| std::views::transform
 					(
-						[](const auto* part)
-						{ return static_cast<StdStringType>(part->getStringRepresentation()); }
+						[](const DynamicExpressionPartNode<StringType>& part)
+						{ return static_cast<StdStringType>(part.getStringRepresentation()); }
 					),
 					static_cast<StdStringType>(getLeadingTrivia()),
 					std::plus()

@@ -154,6 +154,15 @@
     <Filter Include="Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter">
       <UniqueIdentifier>{fd1084c0-c846-4d8a-8116-f84638fbf2a1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting">
+      <UniqueIdentifier>{d619b612-156e-48f7-9991-67130bc99896}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\DynamicExpressionPartSplitter">
+      <UniqueIdentifier>{27a73c88-15a5-42cb-8802-1d1ce8e06cff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\DynamicExpressionPartSplitResult">
+      <UniqueIdentifier>{1705900f-f3ac-460c-ae11-2bb48d16fd3f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FakeConsole.h">
@@ -296,6 +305,12 @@
     </ClInclude>
     <ClInclude Include="StubDynamicOperandToDynamicExpressionConverter.h">
       <Filter>Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="FakeHalfwayDynamicExpressionPartSplitter.h">
+      <Filter>Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\DynamicExpressionPartSplitter</Filter>
+    </ClInclude>
+    <ClInclude Include="StubDynamicExpressionPartSplitResult.h">
+      <Filter>Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\DynamicExpressionPartSplitResult</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

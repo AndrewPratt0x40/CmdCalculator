@@ -33,7 +33,7 @@ namespace CmdCalculator
 
 		/// \brief Accessor to the operation part pair objects of the expression.
 		/// \returns A range of views of every operation part pair object.
-		std::ranges::input_range auto getOperationPartPairs() const
+		std::ranges::forward_range auto getOperationPartPairs() const
 		{
 			return
 				m_expressionContext->operation_part_pairs

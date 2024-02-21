@@ -97,6 +97,7 @@
     <ClCompile Include="DynamicExpressionBoxTests.cpp" />
     <ClCompile Include="DynamicExpressionNodeTests.cpp" />
     <ClCompile Include="DynamicExpressionPartNodeTests.cpp" />
+    <ClCompile Include="DynamicExpressionPartSplitterTests.cpp" />
     <ClCompile Include="DynamicExpressionTests.cpp" />
     <ClCompile Include="DynamicGroupingMultiplicationNodeTests.cpp" />
     <ClCompile Include="DynamicGroupingNodeTests.cpp" />

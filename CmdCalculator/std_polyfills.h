@@ -79,7 +79,7 @@ namespace CmdCalculator::Polyfills
 				return std::move(accum);
 			}
  
-			template<std::ranges::input_range R, class T,
+			template<std::ranges::forward_range R, class T,
 					 __indirectly_binary_left_foldable<T, std::ranges::iterator_t<R>> F>
 			constexpr auto operator()( R&& r, T init, F f ) const
 			{

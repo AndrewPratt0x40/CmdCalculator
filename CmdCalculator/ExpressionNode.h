@@ -26,7 +26,7 @@ namespace CmdCalculator::MathAst
 		&& MathAstNode<T>
 		&& requires(T&& instance)
 		{
-			{ instance.getParts() } -> std::ranges::input_range;
+			{ instance.getParts() } -> std::ranges::forward_range;
 			ExpressionPartNode<std::ranges::range_value_t<decltype(instance.getParts())>>;
 		}
 	;

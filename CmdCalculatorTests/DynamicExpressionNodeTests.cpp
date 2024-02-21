@@ -167,9 +167,9 @@ namespace CmdCalculatorTestDoubleTests
 				instance.getParts()
 				| std::views::transform
 				(
-					[](auto* part)
+					[](const CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>& part)
 					{
-						return part->getStringRepresentation();
+						return part.getStringRepresentation();
 					}
 				)
 			)

@@ -54,7 +54,7 @@ namespace CmdCalculatorTestDoubles
 		}
 
 
-		template<std::ranges::input_range NextInputsT>
+		template<std::ranges::forward_range NextInputsT>
 			requires std::same_as<StringType, std::ranges::range_value_t<NextInputsT>>
 		void FAKE_setNextInputs(NextInputsT nextInputs)
 		{
@@ -119,7 +119,7 @@ namespace CmdCalculatorTestDoubles
 		{}
 
 
-		template<std::ranges::input_range NextInputsT>
+		template<std::ranges::forward_range NextInputsT>
 			requires std::same_as<StringType, std::ranges::range_value_t<NextInputsT>>
 		FakeConsole(StringType defaultInput, NextInputsT nextInputs, std::initializer_list<TextSpan> textSpans) :
 			FakeConsole(defaultInput, textSpans)

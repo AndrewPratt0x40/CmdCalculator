@@ -274,6 +274,15 @@
     <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter\BasicDynamicOperandToDynamicExpressionConverter">
       <UniqueIdentifier>{cc893260-480b-44b7-ba1f-8994afc8457a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting">
+      <UniqueIdentifier>{2a959cbb-8b8d-433e-8194-6beadfc34fdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\DynamicExpressionPartSplitter">
+      <UniqueIdentifier>{f67b9b47-838f-404d-92f6-2a8641f76366}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\DynamicExpressionPartSplitResult">
+      <UniqueIdentifier>{2d617037-61d5-418e-8a2b-5773b0b0bd8b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -588,6 +597,12 @@
     <ClInclude Include="DynamicOperandNode.h">
       <Filter>Source Code\Math AST\Dynamic</Filter>
     </ClInclude>
+    <ClInclude Include="DynamicExpressionPartSplitter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\DynamicExpressionPartSplitter</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicExpressionPartSplitResult.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\DynamicExpressionPartSplitResult</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -731,6 +746,9 @@
     <ClCompile Include="FundamentallyBackedRealNumber.cpp" />
     <ClCompile Include="DynamicMathAstToDynamicExpressionConverter.cpp">
       <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicExpressionPartSplitter.hpp">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\DynamicExpressionPartSplitter</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
