@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "common.h"
+#include "../CmdCalculatorTestUtils/common.h"
 #include "../CmdCalculator/DynamicAdditionOperation.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpression.h"
@@ -77,7 +77,7 @@ namespace CmdCalculatorTests
 
 	const auto DynamicAdditionOperation_TestDataValues
 	{
-		SharedTestData::additionOperationsDataValues
+		CmdCalculatorTestUtils::SharedTestData::additionOperationsDataValues
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -96,7 +96,7 @@ namespace CmdCalculatorTests
 	(
 		DynamicAdditionOperationTests,
 		DynamicAdditionOperationWithTestDataTests,
-		ValuesInRange(DynamicAdditionOperation_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(DynamicAdditionOperation_TestDataValues)
 	);
 
 #pragma endregion

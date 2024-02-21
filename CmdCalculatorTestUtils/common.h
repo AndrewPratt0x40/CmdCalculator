@@ -1,7 +1,5 @@
 #pragma once
 
-#include "pch.h"
-
 #include <algorithm>
 #include <concepts>
 #include <ranges>
@@ -13,25 +11,25 @@
 #include "../CmdCalculator/ESign.h"
 
 
-namespace CmdCalculatorTests
+namespace CmdCalculatorTestUtils
 {
-	auto CmdCalculatorTestUtils::ValuesInRange(std::ranges::range auto range)
+	auto ValuesInRange(std::ranges::range auto range)
 	{
 		std::vector<std::ranges::range_value_t<decltype(range)>> values{};
 		std::ranges::copy(range, std::back_inserter(values));
 		return testing::ValuesIn(values);
 	}
 	
-	auto CmdCalculatorTestUtils::ValuesInRange(std::ranges::forward_range auto range)
+	auto ValuesInRange(std::ranges::forward_range auto range)
 	{
 		return testing::ValuesIn(std::ranges::begin(range), std::ranges::end(range));
 	}
 
 
-	struct CmdCalculatorTestUtils::EmptyStruct {};
+	struct EmptyStruct {};
 
 
-	namespace CmdCalculatorTestUtils::SharedTestData
+	namespace SharedTestData
 	{
 
 		template<class T>

@@ -9,7 +9,7 @@
 #include <vector>
 #include <span>
 
-#include "common.h"
+#include "../CmdCalculatorTestUtils/common.h"
 #include "..\CmdCalculator\NotImplementedException.h"
 #include "..\CmdCalculator\utilities.h"
 

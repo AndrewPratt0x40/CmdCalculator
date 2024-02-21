@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "common.h"
+#include "../CmdCalculatorTestUtils/common.h"
 #include "../CmdCalculator/DynamicNegationOperation.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpression.h"
@@ -64,7 +64,7 @@ namespace CmdCalculatorTests
 
 	const auto DynamicNegationOperation_TestDataValues
 	{
-		SharedTestData::negationOperationsDataValues()
+		CmdCalculatorTestUtils::SharedTestData::negationOperationsDataValues()
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -83,7 +83,7 @@ namespace CmdCalculatorTests
 	(
 		DynamicNegationOperationTests,
 		DynamicNegationOperationWithTestDataTests,
-		ValuesInRange(DynamicNegationOperation_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(DynamicNegationOperation_TestDataValues)
 	);
 
 #pragma endregion

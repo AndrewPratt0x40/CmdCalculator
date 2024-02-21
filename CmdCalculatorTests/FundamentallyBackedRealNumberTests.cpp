@@ -5,7 +5,7 @@
 #include <iostream>
 #include <regex>
 
-#include "common.h"
+#include "../CmdCalculatorTestUtils/common.h"
 #include "../CmdCalculator/FundamentallyBackedRealNumber.h"
 #include "../CmdCalculator/RealNumber.h"
 
@@ -328,7 +328,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_getSign_TestDataValues
 	{
-		SharedTestData::orderedOperandDataValues
+		CmdCalculatorTestUtils::SharedTestData::orderedOperandDataValues
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -346,7 +346,7 @@ namespace CmdCalculatorTests
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumbergetSignTests,
-		ValuesInRange(FundamentallyBackedRealNumber_getSign_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(FundamentallyBackedRealNumber_getSign_TestDataValues)
 	);
 	
 	TEST_P(FundamentallyBackedRealNumbergetSignTests, getSign$returns$expected$value)
@@ -395,7 +395,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_getAbsoluteValue_TestDataValues
 	{
-		SharedTestData::absoluteValueOperationsDataValues()
+		CmdCalculatorTestUtils::SharedTestData::absoluteValueOperationsDataValues()
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -413,7 +413,7 @@ namespace CmdCalculatorTests
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumbergetAbsoluteValueTests,
-		ValuesInRange(FundamentallyBackedRealNumber_getAbsoluteValue_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(FundamentallyBackedRealNumber_getAbsoluteValue_TestDataValues)
 	);
 	
 	TEST_P(FundamentallyBackedRealNumbergetAbsoluteValueTests, getAbsoluteValue$returns$expected$value)
@@ -548,7 +548,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_pow_TestDataValues
 	{
-		SharedTestData::exponentiationOperationsDataValues
+		CmdCalculatorTestUtils::SharedTestData::exponentiationOperationsDataValues
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -567,7 +567,7 @@ namespace CmdCalculatorTests
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumberpowTests,
-		ValuesInRange(FundamentallyBackedRealNumber_pow_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(FundamentallyBackedRealNumber_pow_TestDataValues)
 	);
 	
 	TEST_P(FundamentallyBackedRealNumberpowTests, pow$returns$expected$value)
@@ -624,7 +624,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_nthRoot_TestDataValues
 	{
-		SharedTestData::nthRootOperationsDataValues
+		CmdCalculatorTestUtils::SharedTestData::nthRootOperationsDataValues
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -643,7 +643,7 @@ namespace CmdCalculatorTests
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumbernthRootTests,
-		ValuesInRange(FundamentallyBackedRealNumber_nthRoot_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(FundamentallyBackedRealNumber_nthRoot_TestDataValues)
 	);
 	
 	TEST_P(FundamentallyBackedRealNumbernthRootTests, nthRoot$returns$expected$value)
@@ -704,7 +704,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_equality_operator_TestDataValues
 	{
-		SharedTestData::equalityOperationDataValues()
+		CmdCalculatorTestUtils::SharedTestData::equalityOperationDataValues()
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -723,7 +723,7 @@ namespace CmdCalculatorTests
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumberEqualityOperatorTests,
-		ValuesInRange(FundamentallyBackedRealNumber_equality_operator_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(FundamentallyBackedRealNumber_equality_operator_TestDataValues)
 	);
 	
 	TEST_P(FundamentallyBackedRealNumberEqualityOperatorTests, equality$operator$returns$expected$value)
@@ -780,7 +780,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_inequality_operator_TestDataValues
 	{
-		SharedTestData::inequalityOperationDataValues()
+		CmdCalculatorTestUtils::SharedTestData::inequalityOperationDataValues()
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -799,7 +799,7 @@ namespace CmdCalculatorTests
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumberInequalityOperatorTests,
-		ValuesInRange(FundamentallyBackedRealNumber_inequality_operator_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(FundamentallyBackedRealNumber_inequality_operator_TestDataValues)
 	);
 	
 	TEST_P(FundamentallyBackedRealNumberInequalityOperatorTests, inequality$operator$returns$expected$value)
@@ -856,7 +856,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_lessThan_operator_TestDataValues
 	{
-		SharedTestData::lessThanOperationDataValues()
+		CmdCalculatorTestUtils::SharedTestData::lessThanOperationDataValues()
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -875,7 +875,7 @@ namespace CmdCalculatorTests
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumberLessThanOperatorTests,
-		ValuesInRange(FundamentallyBackedRealNumber_lessThan_operator_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(FundamentallyBackedRealNumber_lessThan_operator_TestDataValues)
 	);
 	
 	TEST_P(FundamentallyBackedRealNumberLessThanOperatorTests, lessThan$operator$returns$expected$value)
@@ -933,7 +933,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_lessThanEqualTo_operator_TestDataValues
 	{
-		SharedTestData::lessThanEqualToOperationDataValues()
+		CmdCalculatorTestUtils::SharedTestData::lessThanEqualToOperationDataValues()
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -952,7 +952,7 @@ namespace CmdCalculatorTests
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumberLessThanEqualToOperatorTests,
-		ValuesInRange(FundamentallyBackedRealNumber_lessThanEqualTo_operator_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(FundamentallyBackedRealNumber_lessThanEqualTo_operator_TestDataValues)
 	);
 	
 	TEST_P(FundamentallyBackedRealNumberLessThanEqualToOperatorTests, lessThanEqualTo$operator$returns$expected$value)
@@ -1010,7 +1010,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_greaterThan_operator_TestDataValues
 	{
-		SharedTestData::greaterThanOperationDataValues()
+		CmdCalculatorTestUtils::SharedTestData::greaterThanOperationDataValues()
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -1029,7 +1029,7 @@ namespace CmdCalculatorTests
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumberGreaterThanOperatorTests,
-		ValuesInRange(FundamentallyBackedRealNumber_greaterThan_operator_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(FundamentallyBackedRealNumber_greaterThan_operator_TestDataValues)
 	);
 	
 	TEST_P(FundamentallyBackedRealNumberGreaterThanOperatorTests, greaterThan$operator$returns$expected$value)
@@ -1087,7 +1087,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_greaterThanEqualTo_operator_TestDataValues
 	{
-		SharedTestData::greaterThanEqualToOperationDataValues()
+		CmdCalculatorTestUtils::SharedTestData::greaterThanEqualToOperationDataValues()
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -1106,7 +1106,7 @@ namespace CmdCalculatorTests
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumberGreaterThanEqualToOperatorTests,
-		ValuesInRange(FundamentallyBackedRealNumber_greaterThanEqualTo_operator_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(FundamentallyBackedRealNumber_greaterThanEqualTo_operator_TestDataValues)
 	);
 	
 	TEST_P(FundamentallyBackedRealNumberGreaterThanEqualToOperatorTests, greaterThanEqualTo$operator$returns$expected$value)
@@ -1165,7 +1165,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_negation_operator_TestDataValues
 	{
-		SharedTestData::negationOperationsDataValues()
+		CmdCalculatorTestUtils::SharedTestData::negationOperationsDataValues()
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -1183,7 +1183,7 @@ namespace CmdCalculatorTests
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumberNegationOperatorTests,
-		ValuesInRange(FundamentallyBackedRealNumber_negation_operator_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(FundamentallyBackedRealNumber_negation_operator_TestDataValues)
 	);
 	
 	TEST_P(FundamentallyBackedRealNumberNegationOperatorTests, negation$operator$returns$expected$value)
@@ -1232,7 +1232,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_incrementation_operator_TestDataValues
 	{
-		SharedTestData::incrementationOperationsDataValues()
+		CmdCalculatorTestUtils::SharedTestData::incrementationOperationsDataValues()
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -1250,7 +1250,7 @@ namespace CmdCalculatorTests
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumberIncrementationOperatorTests,
-		ValuesInRange(FundamentallyBackedRealNumber_incrementation_operator_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(FundamentallyBackedRealNumber_incrementation_operator_TestDataValues)
 	);
 
 	
@@ -1321,7 +1321,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_decrementation_operator_TestDataValues
 	{
-		SharedTestData::decrementationOperationsDataValues()
+		CmdCalculatorTestUtils::SharedTestData::decrementationOperationsDataValues()
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -1339,7 +1339,7 @@ namespace CmdCalculatorTests
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumberDecrementationOperatorTests,
-		ValuesInRange(FundamentallyBackedRealNumber_decrementation_operator_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(FundamentallyBackedRealNumber_decrementation_operator_TestDataValues)
 	);
 
 	
@@ -1417,7 +1417,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_addition_operator_TestDataValues
 	{
-		SharedTestData::additionOperationsDataValues
+		CmdCalculatorTestUtils::SharedTestData::additionOperationsDataValues
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -1436,7 +1436,7 @@ namespace CmdCalculatorTests
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumberAdditionOperatorTests,
-		ValuesInRange(FundamentallyBackedRealNumber_addition_operator_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(FundamentallyBackedRealNumber_addition_operator_TestDataValues)
 	);
 
 
@@ -1516,7 +1516,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_subtraction_operator_TestDataValues
 	{
-		SharedTestData::subtractionOperationsDataValues
+		CmdCalculatorTestUtils::SharedTestData::subtractionOperationsDataValues
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -1535,7 +1535,7 @@ namespace CmdCalculatorTests
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumberSubtractionOperatorTests,
-		ValuesInRange(FundamentallyBackedRealNumber_subtraction_operator_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(FundamentallyBackedRealNumber_subtraction_operator_TestDataValues)
 	);
 
 
@@ -1617,7 +1617,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_multiplication_operator_TestDataValues
 	{
-		SharedTestData::multiplicationOperationsDataValues
+		CmdCalculatorTestUtils::SharedTestData::multiplicationOperationsDataValues
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -1636,7 +1636,7 @@ namespace CmdCalculatorTests
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumberMultiplicationOperatorTests,
-		ValuesInRange(FundamentallyBackedRealNumber_multiplication_operator_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(FundamentallyBackedRealNumber_multiplication_operator_TestDataValues)
 	);
 
 
@@ -1718,7 +1718,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_division_operator_TestDataValues
 	{
-		SharedTestData::divisionOperationsDataValues
+		CmdCalculatorTestUtils::SharedTestData::divisionOperationsDataValues
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -1737,7 +1737,7 @@ namespace CmdCalculatorTests
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumberDivisionOperatorTests,
-		ValuesInRange(FundamentallyBackedRealNumber_division_operator_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(FundamentallyBackedRealNumber_division_operator_TestDataValues)
 	);
 
 
@@ -1819,7 +1819,7 @@ namespace CmdCalculatorTests
 
 	const auto FundamentallyBackedRealNumber_modulo_operator_TestDataValues
 	{
-		SharedTestData::moduloOperationsDataValues
+		CmdCalculatorTestUtils::SharedTestData::moduloOperationsDataValues
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -1838,7 +1838,7 @@ namespace CmdCalculatorTests
 	(
 		FundamentallyBackedRealNumberTests,
 		FundamentallyBackedRealNumberModuloOperatorTests,
-		ValuesInRange(FundamentallyBackedRealNumber_modulo_operator_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(FundamentallyBackedRealNumber_modulo_operator_TestDataValues)
 	);
 
 	TEST_P(FundamentallyBackedRealNumberModuloOperatorTests, modulo$equality$operator$assigns$expected$value)

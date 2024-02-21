@@ -3,7 +3,7 @@
 #include <string>
 #include <ranges>
 
-#include "common.h"
+#include "../CmdCalculatorTestUtils/common.h"
 #include "../CmdCalculator/DynamicAbsoluteValueOperation.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpression.h"
@@ -65,7 +65,7 @@ namespace CmdCalculatorTests
 
 	const auto DynamicAbsoluteValueOperation_TestDataValues
 	{
-		SharedTestData::absoluteValueOperationsDataValues()
+		CmdCalculatorTestUtils::SharedTestData::absoluteValueOperationsDataValues()
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -84,7 +84,7 @@ namespace CmdCalculatorTests
 	(
 		DynamicAbsoluteValueOperationTests,
 		DynamicAbsoluteValueOperationWithTestDataTests,
-		ValuesInRange(DynamicAbsoluteValueOperation_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(DynamicAbsoluteValueOperation_TestDataValues)
 	);
 
 #pragma endregion

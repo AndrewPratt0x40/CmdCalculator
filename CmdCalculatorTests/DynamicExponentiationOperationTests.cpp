@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "common.h"
+#include "../CmdCalculatorTestUtils/common.h"
 #include "../CmdCalculator/DynamicExponentiationOperation.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpression.h"
@@ -77,7 +77,7 @@ namespace CmdCalculatorTests
 
 	const auto DynamicExponentiationOperation_TestDataValues
 	{
-		SharedTestData::exponentiationOperationsDataValues
+		CmdCalculatorTestUtils::SharedTestData::exponentiationOperationsDataValues
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -96,7 +96,7 @@ namespace CmdCalculatorTests
 	(
 		DynamicExponentiationOperationTests,
 		DynamicExponentiationOperationWithTestDataTests,
-		ValuesInRange(DynamicExponentiationOperation_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(DynamicExponentiationOperation_TestDataValues)
 	);
 
 #pragma endregion

@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "common.h"
+#include "../CmdCalculatorTestUtils/common.h"
 #include "../CmdCalculator/DynamicExpressionBox.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculatorTestDoubles/FakeRealNumber.h"
@@ -37,14 +37,14 @@ namespace CmdCalculatorTests
 
 	const auto DynamicExpressionBoxgetEvaluation_TestDataValues
 	{
-		SharedTestData::numbers()
+		CmdCalculatorTestUtils::SharedTestData::numbers()
 	};
 
 	INSTANTIATE_TEST_CASE_P
 	(
 		DynamicExpressionBoxTests,
 		DynamicExpressionBoxgetEvaluationTests,
-		ValuesInRange(DynamicExpressionBoxgetEvaluation_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(DynamicExpressionBoxgetEvaluation_TestDataValues)
 	);
 
 	TEST_P(DynamicExpressionBoxgetEvaluationTests, getEvaluation$returns$evaluation$of$inner$value)

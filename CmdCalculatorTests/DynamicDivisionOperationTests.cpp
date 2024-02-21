@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 
-#include "common.h"
+#include "../CmdCalculatorTestUtils/common.h"
 #include "../CmdCalculator/DynamicDivisionOperation.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculator/DivisionByZeroException.h"
@@ -79,7 +79,7 @@ namespace CmdCalculatorTests
 
 	const auto DynamicDivisionOperation_TestDataValues
 	{
-		SharedTestData::divisionOperationsDataValues
+		CmdCalculatorTestUtils::SharedTestData::divisionOperationsDataValues
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -98,7 +98,7 @@ namespace CmdCalculatorTests
 	(
 		DynamicDivisionOperationTests,
 		DynamicDivisionOperationWithTestDataTests,
-		ValuesInRange(DynamicDivisionOperation_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(DynamicDivisionOperation_TestDataValues)
 	);
 
 #pragma endregion

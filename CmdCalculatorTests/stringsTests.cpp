@@ -3,7 +3,7 @@
 #include <concepts>
 #include <string>
 
-#include "common.h"
+#include "../CmdCalculatorTestUtils/common.h"
 #include "..\CmdCalculator\NotImplementedException.h"
 #include "..\CmdCalculator\strings.h"
 
@@ -30,13 +30,13 @@ namespace CmdCalculatorTests
 
 	using StringOfCharTests_Types = testing::Types
 	<
-		StringOfChar_TypeParams<int, EmptyStruct, false>,
+		StringOfChar_TypeParams<int, CmdCalculatorTestUtils::EmptyStruct, false>,
 		StringOfChar_TypeParams<int, char, false>,
 		StringOfChar_TypeParams<int, wchar_t, false>,
-		StringOfChar_TypeParams<std::basic_string<char>, EmptyStruct, false>,
+		StringOfChar_TypeParams<std::basic_string<char>, CmdCalculatorTestUtils::EmptyStruct, false>,
 		StringOfChar_TypeParams<std::basic_string<char>, char, true>,
 		StringOfChar_TypeParams<std::basic_string<char>, wchar_t, false>,
-		StringOfChar_TypeParams<std::basic_string<wchar_t>, EmptyStruct, false>,
+		StringOfChar_TypeParams<std::basic_string<wchar_t>, CmdCalculatorTestUtils::EmptyStruct, false>,
 		StringOfChar_TypeParams<std::basic_string<wchar_t>, char, false>,
 		StringOfChar_TypeParams<std::basic_string<wchar_t>, wchar_t, true>
 	>;
@@ -75,11 +75,11 @@ namespace CmdCalculatorTests
 	using StringTests_Types = testing::Types
 	<
 		String_TypeParams<int, false>,
-		String_TypeParams<EmptyStruct, false>,
+		String_TypeParams<CmdCalculatorTestUtils::EmptyStruct, false>,
 		String_TypeParams<char, false>,
 		String_TypeParams<wchar_t, false>,
 		String_TypeParams<std::basic_string<int>, true>,
-		String_TypeParams<std::basic_string<EmptyStruct>, true>,
+		String_TypeParams<std::basic_string<CmdCalculatorTestUtils::EmptyStruct>, true>,
 		String_TypeParams<std::basic_string<char>, true>,
 		String_TypeParams<std::basic_string<wchar_t>, true>
 	>;
@@ -118,13 +118,13 @@ namespace CmdCalculatorTests
 
 	using StringViewOfCharTests_Types = testing::Types
 	<
-		StringViewOfChar_TypeParams<int, EmptyStruct, false>,
+		StringViewOfChar_TypeParams<int, CmdCalculatorTestUtils::EmptyStruct, false>,
 		StringViewOfChar_TypeParams<int, char, false>,
 		StringViewOfChar_TypeParams<int, wchar_t, false>,
-		StringViewOfChar_TypeParams<std::basic_string_view<char>, EmptyStruct, false>,
+		StringViewOfChar_TypeParams<std::basic_string_view<char>, CmdCalculatorTestUtils::EmptyStruct, false>,
 		StringViewOfChar_TypeParams<std::basic_string_view<char>, char, true>,
 		StringViewOfChar_TypeParams<std::basic_string_view<char>, wchar_t, false>,
-		StringViewOfChar_TypeParams<std::basic_string_view<wchar_t>, EmptyStruct, false>,
+		StringViewOfChar_TypeParams<std::basic_string_view<wchar_t>, CmdCalculatorTestUtils::EmptyStruct, false>,
 		StringViewOfChar_TypeParams<std::basic_string_view<wchar_t>, char, false>,
 		StringViewOfChar_TypeParams<std::basic_string_view<wchar_t>, wchar_t, true>
 	>;
@@ -163,11 +163,11 @@ namespace CmdCalculatorTests
 	using StringViewTests_Types = testing::Types
 	<
 		StringView_TypeParams<int, false>,
-		StringView_TypeParams<EmptyStruct, false>,
+		StringView_TypeParams<CmdCalculatorTestUtils::EmptyStruct, false>,
 		StringView_TypeParams<char, false>,
 		StringView_TypeParams<wchar_t, false>,
 		StringView_TypeParams<std::basic_string_view<int>, true>,
-		StringView_TypeParams<std::basic_string_view<EmptyStruct>, true>,
+		StringView_TypeParams<std::basic_string_view<CmdCalculatorTestUtils::EmptyStruct>, true>,
 		StringView_TypeParams<std::basic_string_view<char>, true>,
 		StringView_TypeParams<std::basic_string_view<wchar_t>, true>
 	>;

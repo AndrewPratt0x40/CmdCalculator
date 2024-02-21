@@ -3,7 +3,7 @@
 #include <string>
 #include <ranges>
 
-#include "common.h"
+#include "../CmdCalculatorTestUtils/common.h"
 #include "../CmdCalculator/DynamicNthRootOperation.h"
 #include "../CmdCalculator/Expression.h"
 #include "../CmdCalculator/NegativeRadicandException.h"
@@ -79,7 +79,7 @@ namespace CmdCalculatorTests
 
 	const auto DynamicNthRootOperation_TestDataValues
 	{
-		SharedTestData::nthRootOperationsDataValues
+		CmdCalculatorTestUtils::SharedTestData::nthRootOperationsDataValues
 		| std::views::transform
 		(
 			[](const auto& data)
@@ -98,7 +98,7 @@ namespace CmdCalculatorTests
 	(
 		DynamicNthRootOperationTests,
 		DynamicNthRootOperationWithTestDataTests,
-		ValuesInRange(DynamicNthRootOperation_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(DynamicNthRootOperation_TestDataValues)
 	);
 
 #pragma endregion
