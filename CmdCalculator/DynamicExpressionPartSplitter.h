@@ -5,6 +5,7 @@
 
 #include "utilities.h"
 #include "DynamicExpressionPartSplitResult.h"
+#include "DynamicExpressionPartRecursiveSplitResult.h"
 #include "DynamicExpressionPartNode.h"
 #include "strings.h"
 
@@ -26,8 +27,7 @@ namespace CmdCalculator
 		&& requires(T&& instance, PartsInputRangeT parts)
 		{
 			{ instance.canSplit(parts) } -> std::same_as<bool>;
-			{ instance.tryToSplit(parts) } -> Optional;
-			DynamicExpressionPartSplitResult<OptionalValueType<decltype(instance.tryToSplit(parts))>>;
+			{ instance.tryToSplit(parts) } -> OptionalDynamicExpressionPartSplitResult;
 		}
 	;
 
@@ -38,9 +38,9 @@ namespace CmdCalculator
 	/// \param splitter The object to split the expression parts.
 	/// \param parts The range of expression parts to split.
 	/// \returns \p parts recursively split by \p splitter.
-	template<class SplitterT, std::ranges::forward_range PartsInputRangeT>
+	template<class SplitterT, class PartsInputRangeT>
 		requires DynamicExpressionPartSplitter<SplitterT, PartsInputRangeT>
-	std::ranges::forward_range auto recursivelySplitExpressionParts(const SplitterT& splitter, PartsInputRangeT parts);
+	DynamicExpressionPartRecursiveSplitResult auto recursivelySplitExpressionParts(const SplitterT& splitter, PartsInputRangeT parts);
 }
 
 

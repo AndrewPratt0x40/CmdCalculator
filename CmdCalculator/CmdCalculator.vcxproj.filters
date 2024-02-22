@@ -283,6 +283,9 @@
     <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\DynamicExpressionPartSplitResult">
       <UniqueIdentifier>{2d617037-61d5-418e-8a2b-5773b0b0bd8b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\DynamicExpressionPartRecursiveSplitResult">
+      <UniqueIdentifier>{345f36b7-170c-429c-90a7-add4a020409b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -602,6 +605,9 @@
     </ClInclude>
     <ClInclude Include="DynamicExpressionPartSplitResult.h">
       <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\DynamicExpressionPartSplitResult</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicExpressionPartRecursiveSplitResult.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\DynamicExpressionPartRecursiveSplitResult</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

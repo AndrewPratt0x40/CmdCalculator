@@ -4,9 +4,10 @@
 #include "NotImplementedException.h"
 
 
-template<class SplitterT, std::ranges::forward_range PartsInputRangeT>
+template<class SplitterT, class PartsInputRangeT>
 	requires CmdCalculator::DynamicExpressionPartSplitter<SplitterT, PartsInputRangeT>
-std::ranges::forward_range auto CmdCalculator::recursivelySplitExpressionParts(const SplitterT& splitter, PartsInputRangeT parts)
+CmdCalculator::DynamicExpressionPartRecursiveSplitResult auto CmdCalculator::recursivelySplitExpressionParts
+	(const SplitterT& splitter, PartsInputRangeT parts)
 {
 	throw NotImplementedException{};
 }

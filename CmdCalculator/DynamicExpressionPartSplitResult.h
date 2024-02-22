@@ -34,4 +34,13 @@ namespace CmdCalculator
 			{ instance.getRightParts() } -> MathAst::DynamicExpressionPartNodeRange<typename T::MathAstStringType>;
 		}
 	;
+
+
+	/// \brief An optional \ref DynamicExpressionPartSplitResult value.
+	/// \tparam T The optional split result type.
+	template<class T>
+	concept OptionalDynamicExpressionPartSplitResult =
+		Optional<T>
+		&& DynamicExpressionPartSplitResult<OptionalValueType<T>>
+	;
 }
