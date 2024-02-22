@@ -14,68 +14,67 @@
 namespace CmdCalculatorTestDoubles
 {
 	template<CmdCalculator::String MathAstStringT>
-	struct StubDynamicExpressionPartSplitResult :
+	class StubDynamicExpressionPartSplitResult :
 		public CmdCalculator::DynamicExpressionPartSplitResult_IntendedSatisfaction
 	{
+	public:
 		using MathAstStringType = MathAstStringT;
 		using DynamicExpressionPartType = CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringType>;
 
 
-		std::vector<std::reference_wrapper<DynamicExpressionPartType>> leftParts;
-		DynamicExpressionPartType& splitPart;
-		std::vector<std::reference_wrapper<DynamicExpressionPartType>> rightParts;
+	private:
+		const std::vector<std::reference_wrapper<const DynamicExpressionPartType>> m_leftParts;
+		const std::reference_wrapper<const DynamicExpressionPartType> m_splitPart;
+		const std::vector<std::reference_wrapper<const DynamicExpressionPartType>> m_rightParts;
 
 
+		static std::vector<std::reference_wrapper<const DynamicExpressionPartType>> initPartRangeMember
+			(const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto partRefs)
+		{
+			std::ranges::input_range auto partsView
+			{
+				partRefs
+				| std::views::transform
+				(
+					[](const DynamicExpressionPartType& part)
+					{ return std::ref(part); }
+				)
+			};
+
+			return std::vector<std::reference_wrapper<const DynamicExpressionPartType>>
+				{ std::ranges::begin(partsView), std::ranges::end(partsView) }
+			;
+		}
+
+
+	public:
 		StubDynamicExpressionPartSplitResult
 		(
-			CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto leftPartRefs,
-			DynamicExpressionPartType& splitPart,
-			CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto rightPartRefs
+			const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto leftPartRefs,
+			const DynamicExpressionPartType& splitPart,
+			const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto rightPartRefs
 		) :
-			splitPart{ splitPart }
-		{
-			std::ranges::input_range auto leftPartsView
-			{
-				leftPartRefs
-				| std::views::transform
-				(
-					[](DynamicExpressionPartType& leftPart)
-					{ return std::ref(leftPart); }
-				)
-			};
-
-			leftPartRefs = { std::ranges::begin(leftPartsView), std::ranges::end(leftPartsView) };
-
-
-			std::ranges::input_range auto rightPartsView
-			{
-				rightPartRefs
-				| std::views::transform
-				(
-					[](DynamicExpressionPartType& rightPart)
-					{ return std::ref(rightPart); }
-				)
-			};
-
-			rightPartRefs = { std::ranges::begin(rightPartRefs), std::ranges::end(rightPartRefs) };
-		}
+			m_leftParts{ initPartRangeMember(leftPartRefs) },
+			m_splitPart{ std::ref(splitPart) },
+			m_rightParts{ initPartRangeMember(rightPartRefs) }
+		{}
 
 
 		CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto getLeftParts() const
 		{
-			return leftParts | std::views::all;
+			return m_leftParts | std::views::all;
 		}
 
 
-		DynamicExpressionPartType& getSplitPart() const
+		const DynamicExpressionPartType& getSplitPart() const
 		{
-			return splitPart;
+			return m_splitPart;
 		}
 
 
 		CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto getRightParts() const
 		{
-			return rightParts | std::views::all;
+			return m_rightParts | std::views::all;
 		}
 	};
 }

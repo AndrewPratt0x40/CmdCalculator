@@ -149,7 +149,7 @@ namespace CmdCalculatorTestDoubleTests
 	};
 
 
-	TEST(FakeHalfwayDynamicExpressionPartSplitter$TestDataTests, canSplit$IFF$less$than$3$or$odd$number$of$parts)
+	TEST(FakeHalfwayDynamicExpressionPartSplitter$TestDataTests, canSplit$IFF$odd$number$of$at$least$3$of$parts)
 	{
 		EXPECT_TRUE
 		(
@@ -162,8 +162,8 @@ namespace CmdCalculatorTestDoubleTests
 						testData.expectCanSplit
 						==
 						(
-							testData.parts.size() < 3
-							|| testData.parts.size() % 2 != 0
+							testData.parts.size() >= 3
+							&& testData.parts.size() % 2 != 0
 						)
 					;
 				}
