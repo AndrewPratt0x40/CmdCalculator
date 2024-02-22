@@ -86,7 +86,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FakeConsoleTests.cpp" />
-    <ClCompile Include="FakeHalfwayDynamicExpressionPartSplitterTests.cpp" />
+    <ClCompile Include="FakeHalfwayDynamicExpressionPartRecursiveSplitterTests.cpp" />
+    <ClCompile Include="FakeHalfwayDynamicExpressionPartSingleSplitterTests.cpp" />
     <ClCompile Include="FakeRealNumberTests.cpp" />
     <ClCompile Include="StubAbsoluteValueOperationAntlrContextTests.cpp" />
     <ClCompile Include="StubAntlrTokenTests.cpp" />
@@ -94,7 +95,7 @@
     <ClCompile Include="StubDynamicExpressionNodeTests.cpp" />
     <ClCompile Include="StubDynamicExpressionPartNodeTests.cpp" />
     <ClCompile Include="StubDynamicExpressionPartRecursiveSplitResultTests.cpp" />
-    <ClCompile Include="StubDynamicExpressionPartSplitResultTests.cpp" />
+    <ClCompile Include="StubDynamicExpressionPartSingleSplitResultTests.cpp" />
     <ClCompile Include="StubDynamicExpressionTests.cpp" />
     <ClCompile Include="StubDynamicOperandNodeTests.cpp" />
     <ClCompile Include="StubDynamicOperandToDynamicExpressionConverter.cpp" />

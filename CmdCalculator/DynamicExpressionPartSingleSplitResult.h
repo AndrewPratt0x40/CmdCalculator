@@ -10,16 +10,16 @@
 
 namespace CmdCalculator
 {
-	/// \brief The base type for types that are intended to satisfy the \ref DynamicExpressionPartSplitResult concept.
-	struct DynamicExpressionPartSplitResult_IntendedSatisfaction
+	/// \brief The base type for types that are intended to satisfy the \ref DynamicExpressionPartSingleSplitResult concept.
+	struct DynamicExpressionPartSingleSplitResult_IntendedSatisfaction
 	{};
 
 
 	/// \brief The result of splitting a range of \ref MathAst::DynamicExpressionPartNode instances by their order of operation once.
 	/// \tparam T The split result type.
 	template<class T>
-	concept DynamicExpressionPartSplitResult =
-		IntendsToSatisfy<T, DynamicExpressionPartSplitResult_IntendedSatisfaction>
+	concept DynamicExpressionPartSingleSplitResult =
+		IntendsToSatisfy<T, DynamicExpressionPartSingleSplitResult_IntendedSatisfaction>
 		&& String<typename T::MathAstStringType>
 		&& requires(T&& instance)
 		{
@@ -33,14 +33,5 @@ namespace CmdCalculator
 
 			{ instance.getRightParts() } -> MathAst::DynamicExpressionPartNodeRange<typename T::MathAstStringType>;
 		}
-	;
-
-
-	/// \brief An optional \ref DynamicExpressionPartSplitResult value.
-	/// \tparam T The optional split result type.
-	template<class T>
-	concept OptionalDynamicExpressionPartSplitResult =
-		Optional<T>
-		&& DynamicExpressionPartSplitResult<OptionalValueType<T>>
 	;
 }

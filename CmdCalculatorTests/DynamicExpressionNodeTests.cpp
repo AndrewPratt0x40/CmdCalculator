@@ -21,6 +21,19 @@ namespace CmdCalculatorTestDoubleTests
 		);
 	}
 
+
+	TEST(DynamicExpressionNodeTests, DynamicExpressionNodePartsView$satisfies$DynamicExpressionPartNodeRange$concept)
+	{
+		static_assert
+		(
+			CmdCalculator::MathAst::DynamicExpressionPartNodeRange
+			<
+				CmdCalculator::MathAst::DynamicExpressionNodePartsView<std::string>,
+				std::string
+			>
+		);
+	}
+
 #pragma endregion
 
 

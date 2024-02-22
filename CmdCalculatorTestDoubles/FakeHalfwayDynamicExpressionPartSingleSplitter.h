@@ -4,18 +4,18 @@
 #include <memory>
 #include <optional>
 
-#include "../CmdCalculator/DynamicExpressionPartSplitter.h"
+#include "../CmdCalculator/DynamicExpressionPartSingleSplitter.h"
 #include "../CmdCalculator/DynamicExpressionPartNode.h"
 #include "../CmdCalculator/strings.h"
 #include "../CmdCalculator/NotImplementedException.h"
-#include "StubDynamicExpressionPartSplitResult.h"
+#include "StubDynamicExpressionPartSingleSplitResult.h"
 
 
 namespace CmdCalculatorTestDoubles
 {
 	template<CmdCalculator::String MathAstStringT>
-	struct FakeHalfwayDynamicExpressionPartSplitter :
-		public CmdCalculator::DynamicExpressionPartSplitter_IntendedSatisfaction
+	struct FakeHalfwayDynamicExpressionPartSingleSplitter :
+		public CmdCalculator::DynamicExpressionPartSingleSplitter_IntendedSatisfaction
 	{
 		using MathAstStringType = MathAstStringT;
 		using DynamicExpressionPartType = CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringType>;
@@ -28,7 +28,7 @@ namespace CmdCalculatorTestDoubles
 		}
 		
 		
-		std::optional<StubDynamicExpressionPartSplitResult<MathAstStringType>>
+		std::optional<StubDynamicExpressionPartSingleSplitResult<MathAstStringType>>
 			tryToSplit(CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto parts) const
 		{
 			if (!canSplit(parts))
@@ -63,7 +63,7 @@ namespace CmdCalculatorTestDoubles
 				)
 			};
 
-			return StubDynamicExpressionPartSplitResult<MathAstStringType>
+			return StubDynamicExpressionPartSingleSplitResult<MathAstStringType>
 			{
 				leftParts,
 				splitPart,

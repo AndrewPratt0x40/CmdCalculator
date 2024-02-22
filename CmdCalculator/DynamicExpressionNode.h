@@ -115,4 +115,22 @@ namespace CmdCalculator::MathAst
 			);
 		}
 	};
+
+
+	template<String StringT>
+	using DynamicExpressionNodesGetPartsReturnType =
+		decltype(std::declval<DynamicExpressionNode<StringT>>().getParts())
+	;
+
+
+	/// \brief A view of \ref DynamicExpressionPartNode instances stored within a \ref DynamicExpressionNode instance.
+	/// \tparam StringT The string type used by the instances.
+	template<String StringT>
+	using DynamicExpressionNodePartsView =
+		std::ranges::subrange
+		<
+			std::ranges::iterator_t<DynamicExpressionNodesGetPartsReturnType<StringT>>,
+			std::ranges::sentinel_t<DynamicExpressionNodesGetPartsReturnType<StringT>>
+		>
+	;
 }

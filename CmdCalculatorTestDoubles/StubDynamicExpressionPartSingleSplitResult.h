@@ -6,7 +6,7 @@
 #include <optional>
 #include <vector>
 
-#include "../CmdCalculator/DynamicExpressionPartSplitResult.h"
+#include "../CmdCalculator/DynamicExpressionPartSingleSplitResult.h"
 #include "../CmdCalculator/DynamicExpressionPartNode.h"
 #include "../CmdCalculator/strings.h"
 
@@ -14,8 +14,8 @@
 namespace CmdCalculatorTestDoubles
 {
 	template<CmdCalculator::String MathAstStringT>
-	class StubDynamicExpressionPartSplitResult :
-		public CmdCalculator::DynamicExpressionPartSplitResult_IntendedSatisfaction
+	class StubDynamicExpressionPartSingleSplitResult :
+		public CmdCalculator::DynamicExpressionPartSingleSplitResult_IntendedSatisfaction
 	{
 	public:
 		using MathAstStringType = MathAstStringT;
@@ -48,7 +48,7 @@ namespace CmdCalculatorTestDoubles
 
 
 	public:
-		StubDynamicExpressionPartSplitResult
+		StubDynamicExpressionPartSingleSplitResult
 		(
 			const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto leftPartRefs,
 			const DynamicExpressionPartType& splitPart,

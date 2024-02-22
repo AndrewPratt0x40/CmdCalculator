@@ -1,8 +1,8 @@
 #include "pch.h"
 
-#include "../CmdCalculator/DynamicExpressionPartSplitter.h"
+#include "../CmdCalculator/DynamicExpressionPartSingleSplitter.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpressionPartNode.h"
-#include "../CmdCalculatorTestDoubles/StubDynamicExpressionPartSplitResult.h"
+#include "../CmdCalculatorTestDoubles/StubDynamicExpressionPartSingleSplitResult.h"
 
 #include <string>
 #include <vector>
@@ -16,7 +16,7 @@ namespace CmdCalculatorTests
 	struct recursivelySplitExpressionParts_TestData
 	{
 		std::vector<CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>> parts;
-		std::optional<CmdCalculatorTestDoubles::StubDynamicExpressionPartSplitResult<std::string>> expected;
+		std::optional<CmdCalculatorTestDoubles::StubDynamicExpressionPartSingleSplitResult<std::string>> expected;
 	};
 	
 	TEST(recursivelySplitExpressionPartsTests, recursivelySplitExpressionParts$returns$recursive$calls$to$trySplit)

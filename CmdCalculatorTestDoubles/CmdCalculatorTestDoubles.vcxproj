@@ -79,6 +79,7 @@
     <ClInclude Include="FakeCalculation.h" />
     <ClInclude Include="FakeConsole.h" />
     <ClInclude Include="FakeRealNumber.h" />
+    <ClInclude Include="FakeHalfwayDynamicExpressionPartRecursiveSplitter.h" />
     <ClInclude Include="StubAbsoluteValueOperationAntlrContext.h" />
     <ClInclude Include="StubAntlrToken.h" />
     <ClInclude Include="StubBinaryOperatorAntlrContext.h" />
@@ -86,8 +87,8 @@
     <ClInclude Include="StubDynamicExpressionNode.h" />
     <ClInclude Include="StubDynamicExpressionPartNode.h" />
     <ClInclude Include="StubDynamicExpressionPartRecursiveSplitResult.h" />
-    <ClInclude Include="StubDynamicExpressionPartSplitResult.h" />
-    <ClInclude Include="FakeHalfwayDynamicExpressionPartSplitter.h" />
+    <ClInclude Include="StubDynamicExpressionPartSingleSplitResult.h" />
+    <ClInclude Include="FakeHalfwayDynamicExpressionPartSingleSplitter.h" />
     <ClInclude Include="StubDynamicGroupingNode.h" />
     <ClInclude Include="StubDynamicOperandNode.h" />
     <ClInclude Include="StubDynamicOperandToDynamicExpressionConverter.h" />
