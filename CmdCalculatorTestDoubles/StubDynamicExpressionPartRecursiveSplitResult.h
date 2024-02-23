@@ -53,9 +53,9 @@ namespace CmdCalculatorTestDoubles
 			return std::format
 			(
 				"{{{}<{}>{}}}",
-				leftPart ? stringifyStubDynamicExpressionPartRecursiveSplitResult(*leftPart) : "null"s,
+				leftPart ? (leftPart->STUB_getStringRepresentation()) : "null"s,
 				splitPart.get().getStringRepresentation(),
-				rightPart ? stringifyStubDynamicExpressionPartRecursiveSplitResult(*rightPart) : "null"s
+				rightPart ? (rightPart->STUB_getStringRepresentation()) : "null"s
 			);
 		};
 

@@ -79,7 +79,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="common.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="TrueBinaryOperatorAntlrContextViewTests.cpp" />
   </ItemGroup>
@@ -142,6 +141,9 @@
     </ProjectReference>
     <ProjectReference Include="..\CmdCalculatorTestDoubles\CmdCalculatorTestDoubles.vcxproj">
       <Project>{80aa43e2-f1c0-4a47-b09f-1656a1c96fae}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CmdCalculatorTestUtils\CmdCalculatorTestUtils.vcxproj">
+      <Project>{1cac90e9-39e9-49d5-9683-601b4de41e30}</Project>
     </ProjectReference>
     <ProjectReference Include="..\CmdCalculator\CmdCalculator.vcxproj">
       <Project>{04baed67-6b9a-4d4d-a1a1-cbb2eb87ecd5}</Project>

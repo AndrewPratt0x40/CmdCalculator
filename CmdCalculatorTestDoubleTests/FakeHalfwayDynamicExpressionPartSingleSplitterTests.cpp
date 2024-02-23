@@ -121,10 +121,10 @@ namespace CmdCalculatorTestDoubleTests
 		},
 		{
 			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4" }) },
-			.expectCanSplit{ false },
-			.expectedLeftParts{},
-			.expectedSplitPart{},
-			.expectedRightParts{}
+			.expectCanSplit{ true },
+			.expectedLeftParts{ "Part1", "Part2" },
+			.expectedSplitPart{ "Part3" },
+			.expectedRightParts{ "Part4" }
 		},
 		{
 			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4", "Part5" }) },
@@ -132,11 +132,25 @@ namespace CmdCalculatorTestDoubleTests
 			.expectedLeftParts{ "Part1", "Part2" },
 			.expectedSplitPart{ "Part3" },
 			.expectedRightParts{ "Part4", "Part5" }
+		},
+		{
+			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6" })},
+			.expectCanSplit{ true },
+			.expectedLeftParts{ "Part1", "Part2", "Part3" },
+			.expectedSplitPart{ "Part4" },
+			.expectedRightParts{ "Part5", "Part6" }
+		},
+		{
+			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6", "Part7" })},
+			.expectCanSplit{ true },
+			.expectedLeftParts{ "Part1", "Part2", "Part3" },
+			.expectedSplitPart{ "Part4" },
+			.expectedRightParts{ "Part5", "Part6", "Part7" }
 		}
 	};
 
 
-	TEST(FakeHalfwayDynamicExpressionPartSingleSplitter$TestDataTests, canSplit$IFF$odd$number$of$at$least$3$of$parts)
+	TEST(FakeHalfwayDynamicExpressionPartSingleSplitter$TestDataTests, canSplit$IFF$has$at$least$3$parts)
 	{
 		EXPECT_TRUE
 		(
@@ -144,16 +158,7 @@ namespace CmdCalculatorTestDoubleTests
 			(
 				FakeHalfwayDynamicExpressionPartSingleSplitter_TestDataValues,
 				[](const FakeHalfwayDynamicExpressionPartSingleSplitter_TestData& testData)
-				{
-					return
-						testData.expectCanSplit
-						==
-						(
-							testData.parts.size() >= 3
-							&& testData.parts.size() % 2 != 0
-						)
-					;
-				}
+				{ return testData.expectCanSplit == (testData.parts.size() >= 3); }
 			)
 		);
 	}
@@ -260,88 +265,34 @@ namespace CmdCalculatorTestDoubleTests
 #pragma endregion
 
 
-#pragma region canSplit with an even amount of parts
+#pragma region canSplit with at least 3 parts
 
-	class FakeHalfwayDynamicExpressionPartSingleSplitter$canSplit$withEvenNumParts$Tests :
+	class FakeHalfwayDynamicExpressionPartSingleSplitter$canSplit$withAtLeast3Parts$Tests :
 		public testing::TestWithParam<FakeHalfwayDynamicExpressionPartSingleSplitter_TestData>
 	{};
 
-	const std::ranges::input_range auto FakeHalfwayDynamicExpressionPartSingleSplitter_evenNumParts_TestDataValues
+	const std::ranges::input_range auto FakeHalfwayDynamicExpressionPartSingleSplitter_atLeast3Parts_TestDataValues
 	{
 		FakeHalfwayDynamicExpressionPartSingleSplitter_TestDataValues
 		| std::views::filter
 		(
 			[](const FakeHalfwayDynamicExpressionPartSingleSplitter_TestData& testData)
-			{ return testData.parts.size() % 2 == 0; }
+			{ return testData.parts.size() >= 3; }
 		)
 	};
 
 	INSTANTIATE_TEST_CASE_P
 	(
 		FakeHalfwayDynamicExpressionPartSingleSplitterTests,
-		FakeHalfwayDynamicExpressionPartSingleSplitter$canSplit$withEvenNumParts$Tests,
-		CmdCalculatorTestUtils::ValuesInRange(FakeHalfwayDynamicExpressionPartSingleSplitter_evenNumParts_TestDataValues)
+		FakeHalfwayDynamicExpressionPartSingleSplitter$canSplit$withAtLeast3Parts$Tests,
+		CmdCalculatorTestUtils::ValuesInRange(FakeHalfwayDynamicExpressionPartSingleSplitter_atLeast3Parts_TestDataValues)
 	);
 
 
-	TEST_P(FakeHalfwayDynamicExpressionPartSingleSplitter$canSplit$withEvenNumParts$Tests, calling$canSplit$with$an$even$number$of$parts$returns$false)
+	TEST_P(FakeHalfwayDynamicExpressionPartSingleSplitter$canSplit$withAtLeast3Parts$Tests, calling$canSplit$with$at$least$3$parts$returns$true)
 	{
 		// Arrange
 		ASSERT_FALSE(GetParam().expectCanSplit);
-		const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto parts
-		{
-			GetParam().parts
-			| std::views::transform
-			(
-				[](const CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>& part)
-				{ return std::ref(part); }
-			)
-		};
-		CmdCalculatorTestDoubles::FakeHalfwayDynamicExpressionPartSingleSplitter<std::string> instance{};
-
-		// Act
-		const bool returnValue{ instance.canSplit(parts) };
-
-		// Assert
-		EXPECT_FALSE(returnValue);
-	}
-
-#pragma endregion
-
-
-#pragma region canSplit with an odd number of at least 3 of parts
-
-	class FakeHalfwayDynamicExpressionPartSingleSplitter$canSplit$withOddNumParts$Tests :
-		public testing::TestWithParam<FakeHalfwayDynamicExpressionPartSingleSplitter_TestData>
-	{};
-
-	const std::ranges::input_range auto FakeHalfwayDynamicExpressionPartSingleSplitter_oddNumParts_TestDataValues
-	{
-		FakeHalfwayDynamicExpressionPartSingleSplitter_TestDataValues
-		| std::views::filter
-		(
-			[](const FakeHalfwayDynamicExpressionPartSingleSplitter_TestData& testData)
-			{
-				return
-					(testData.parts.size() >= 3)
-					&& (testData.parts.size() % 2 != 0)
-				;
-			}
-		)
-	};
-
-	INSTANTIATE_TEST_CASE_P
-	(
-		FakeHalfwayDynamicExpressionPartSingleSplitterTests,
-		FakeHalfwayDynamicExpressionPartSingleSplitter$canSplit$withOddNumParts$Tests,
-		CmdCalculatorTestUtils::ValuesInRange(FakeHalfwayDynamicExpressionPartSingleSplitter_oddNumParts_TestDataValues)
-	);
-
-
-	TEST_P(FakeHalfwayDynamicExpressionPartSingleSplitter$canSplit$withOddNumParts$Tests, calling$canSplit$with$an$odd$number$of$at$least$3$of$parts$returns$true)
-	{
-		// Arrange
-		ASSERT_TRUE(GetParam().expectCanSplit);
 		const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto parts
 		{
 			GetParam().parts

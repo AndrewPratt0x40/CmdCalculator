@@ -260,9 +260,6 @@
     <ClInclude Include="pch.h">
       <Filter>Source Code\pch</Filter>
     </ClInclude>
-    <ClInclude Include="common.h">
-      <Filter>Source Code</Filter>
-    </ClInclude>
     <ClInclude Include="TrueBinaryOperatorAntlrContextViewTests.cpp">
       <Filter>Source Code\Tests\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext</Filter>
     </ClInclude>

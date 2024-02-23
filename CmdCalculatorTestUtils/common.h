@@ -1,5 +1,7 @@
 #pragma once
 
+#include "pch.h"
+
 #include <algorithm>
 #include <concepts>
 #include <ranges>
@@ -13,11 +15,27 @@
 
 namespace CmdCalculatorTestUtils
 {
-	auto ValuesInRange(std::ranges::range auto range)
+	template<class T>
+	concept StdVector = std::same_as<T, std::vector<typename T::value_type>>;
+
+	StdVector auto moveRangeToVector(std::ranges::input_range auto range)
+	{
+		std::vector<std::ranges::range_value_t<decltype(range)>> values{};
+		std::ranges::move(range, std::back_inserter(values));
+		return values;
+	}
+
+	StdVector auto copyRangeToVector(std::ranges::input_range auto range)
 	{
 		std::vector<std::ranges::range_value_t<decltype(range)>> values{};
 		std::ranges::copy(range, std::back_inserter(values));
-		return testing::ValuesIn(values);
+		return values;
+	}
+
+
+	auto ValuesInRange(std::ranges::range auto range)
+	{
+		return testing::ValuesIn(copyRangeToVector(range));
 	}
 	
 	auto ValuesInRange(std::ranges::forward_range auto range)
