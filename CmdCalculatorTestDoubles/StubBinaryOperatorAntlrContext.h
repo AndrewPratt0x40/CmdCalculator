@@ -8,15 +8,15 @@
 namespace CmdCalculatorTestDoubles
 {
 	struct StubBinaryOperatorAntlrContext :
-		public CmdCalculator::BinaryOperatorAntlrContext_IntendedSatisfaction
+		public ::CmdCalculator::BinaryOperatorAntlrContext_IntendedSatisfaction
 	{
 		using AntlrTokenType = StubAntlrToken<std::string>;
 
-		CmdCalculator::MathAst::EBinaryOperator binaryOperatorAntlrContextKind;
+		::CmdCalculator::MathAst::EBinaryOperator binaryOperatorAntlrContextKind;
 		AntlrTokenType token;
 
 
-		CmdCalculator::MathAst::EBinaryOperator getBinaryOperatorAntlrContextKind() const
+		::CmdCalculator::MathAst::EBinaryOperator getBinaryOperatorAntlrContextKind() const
 		{
 			return binaryOperatorAntlrContextKind;
 		}

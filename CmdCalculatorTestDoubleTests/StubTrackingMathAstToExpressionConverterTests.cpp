@@ -14,7 +14,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			CmdCalculator::MathAstToExpressionConverter
+			::CmdCalculator::MathAstToExpressionConverter
 			<
 				CmdCalculatorTestDoubles::StubTrackingMathAstToExpressionConverter
 				<

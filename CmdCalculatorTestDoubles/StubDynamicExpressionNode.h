@@ -11,18 +11,18 @@
 
 namespace CmdCalculatorTestDoubles::MathAst
 {
-	template<CmdCalculator::String StringT>
+	template<::CmdCalculator::String StringT>
 	class StubDynamicExpressionNode :
-		public CmdCalculator::MathAst::DynamicExpressionNode<StringT>,
-		public CmdCalculator::MathAst::ExpressionNode_IntendedSatisfaction,
-		public CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction
+		public ::CmdCalculator::MathAst::DynamicExpressionNode<StringT>,
+		public ::CmdCalculator::MathAst::ExpressionNode_IntendedSatisfaction,
+		public ::CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction
 	{
 	public:
 		using StringType = StringT;
 
 
 		StringType stringRepresentation;
-		using PartsValueType = CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>;
+		using PartsValueType = ::CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>;
 		using PartsRangeType = std::vector<std::unique_ptr<PartsValueType>>;
 		using PartsType = std::ranges::owning_view<PartsRangeType>;
 
@@ -34,7 +34,7 @@ namespace CmdCalculatorTestDoubles::MathAst
 			const StringType trailingTrivia,
 			PartsType&& parts
 		) :
-			CmdCalculator::MathAst::DynamicExpressionNode<StringType>(leadingTrivia, trailingTrivia, std::move(parts)),
+			::CmdCalculator::MathAst::DynamicExpressionNode<StringType>(leadingTrivia, trailingTrivia, std::move(parts)),
 			stringRepresentation{ stringRepresentation }
 		{}
 

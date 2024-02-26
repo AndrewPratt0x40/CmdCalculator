@@ -9,9 +9,9 @@
 
 namespace CmdCalculatorTestDoubles
 {
-	template<class ExceptionT, CmdCalculator::String ExpressionStringT>
+	template<class ExceptionT, ::CmdCalculator::String ExpressionStringT>
 	struct StubThrowingRawCmdLineArgParser :
-		public CmdCalculator::RawCmdLineArgParser_IntendedSatisfaction
+		public ::CmdCalculator::RawCmdLineArgParser_IntendedSatisfaction
 	{
 		using ExceptionType = ExceptionT;
 		using ExpressionStringType = ExpressionStringT;
@@ -19,13 +19,13 @@ namespace CmdCalculatorTestDoubles
 		ExceptionT exceptionToThrow;
 
 
-		CmdCalculator::ProcessConfiguration<ExpressionStringT> parseRawCmdLineArgs
+		::CmdCalculator::ProcessConfiguration<ExpressionStringT> parseRawCmdLineArgs
 		(
 			auto&& rawCmdLineArgs,
-			const CmdCalculator::ProcessConfiguration<ExpressionStringT>& defaultConfiguration
+			const ::CmdCalculator::ProcessConfiguration<ExpressionStringT>& defaultConfiguration
 		) const
 			requires std::ranges::forward_range<decltype(rawCmdLineArgs)>
-		&& CmdCalculator::String<std::ranges::range_value_t<decltype(rawCmdLineArgs)>>
+		&& ::CmdCalculator::String<std::ranges::range_value_t<decltype(rawCmdLineArgs)>>
 		{
 			throw exceptionToThrow;
 		}

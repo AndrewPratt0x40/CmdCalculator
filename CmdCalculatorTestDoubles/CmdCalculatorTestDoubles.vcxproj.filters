@@ -297,9 +297,6 @@
     <ClInclude Include="StubDynamicGroupingNode.h">
       <Filter>Source Code\CmdCalculator\MathAst\Dynamic\DynamicGroupingNode</Filter>
     </ClInclude>
-    <ClInclude Include="StubDynamicExpressionPartNode.h">
-      <Filter>Source Code\CmdCalculator\MathAst\Dynamic\DynamicExpressionPartNode</Filter>
-    </ClInclude>
     <ClInclude Include="StubFullExpressionAntlrContext.h">
       <Filter>Source Code\CmdCalculator\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext</Filter>
     </ClInclude>
@@ -329,6 +326,9 @@
     </ClInclude>
     <ClInclude Include="FakeHalfwayDynamicExpressionPartRecursiveSplitter.h">
       <Filter>Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter</Filter>
+    </ClInclude>
+    <ClInclude Include="StubDynamicExpressionPartNode.h">
+      <Filter>Source Code\CmdCalculator\MathAst\Dynamic\DynamicExpressionPartNode</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

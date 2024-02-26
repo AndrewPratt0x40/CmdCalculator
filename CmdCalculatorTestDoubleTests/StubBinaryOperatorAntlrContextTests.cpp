@@ -13,7 +13,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			CmdCalculator::BinaryOperatorAntlrContext
+			::CmdCalculator::BinaryOperatorAntlrContext
 			<
 				CmdCalculatorTestDoubles::StubBinaryOperatorAntlrContext
 			>

@@ -25,7 +25,7 @@ namespace CmdCalculatorTestDoubles
 			>
 		>
 	struct StubThrowingCalculation :
-		public CmdCalculator::Calculation_IntendedSatisfaction
+		public ::CmdCalculator::Calculation_IntendedSatisfaction
 	{
 		using InputExpressionType = T::InputExpressionType;
 		using StringToMathAstConverterType = T::StringToMathAstConverterType;
@@ -36,7 +36,7 @@ namespace CmdCalculatorTestDoubles
 
 		typename T::InputExpressionType inputExpression;
 		typename T::OutputExpressionType outputExpression;
-		CmdCalculator::CalculationConfiguration configuration;
+		::CmdCalculator::CalculationConfiguration configuration;
 
 		typename T::StringToMathAstConverterType stringToMathAstConverter;
 		typename T::MathAstToExpressionConverterType mathAstToExpressionConverter;
@@ -55,7 +55,7 @@ namespace CmdCalculatorTestDoubles
 		}
 
 
-		CmdCalculator::CalculationConfiguration getConfiguration() const
+		::CmdCalculator::CalculationConfiguration getConfiguration() const
 		{
 			return configuration;
 		}
@@ -82,7 +82,7 @@ namespace CmdCalculatorTestDoubles
 		StubThrowingCalculation
 		(
 			typename T::InputExpressionType inputExpression,
-			CmdCalculator::CalculationConfiguration configuration,
+			::CmdCalculator::CalculationConfiguration configuration,
 			typename T::StringToMathAstConverterType stringToMathAstConverter,
 			typename T::MathAstToExpressionConverterType mathAstToExpressionConverter,
 			typename T::ExpressionToStringConverterType expressionToStringConverter

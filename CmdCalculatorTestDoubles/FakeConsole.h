@@ -14,7 +14,7 @@ namespace CmdCalculatorTestDoubles
 {
 	template <class CharT>
 	class FakeConsole :
-		public CmdCalculator::Console_IntendedSatisfaction
+		public ::CmdCalculator::Console_IntendedSatisfaction
 	{
 	public:
 		using StringType = std::basic_string<CharT>;
@@ -23,11 +23,11 @@ namespace CmdCalculatorTestDoubles
 		struct TextSpan
 		{
 			const StringType text;
-			const CmdCalculator::EWriteMode writeMode;
+			const ::CmdCalculator::EWriteMode writeMode;
 
 			bool operator==(const TextSpan&) const = default;
 
-			TextSpan(const StringType text, const CmdCalculator::EWriteMode writeMode) :
+			TextSpan(const StringType text, const ::CmdCalculator::EWriteMode writeMode) :
 				text{text},
 				writeMode{writeMode}
 			{}
@@ -93,13 +93,13 @@ namespace CmdCalculatorTestDoubles
 		}
 		
 
-		void write(const StringViewType text, const CmdCalculator::EWriteMode writeMode)
+		void write(const StringViewType text, const ::CmdCalculator::EWriteMode writeMode)
 		{
 			m_textSpans.push_back(TextSpan{ std::string{text}, writeMode });
 		}
 
 
-		void writeLine(const StringViewType text, const CmdCalculator::EWriteMode writeMode)
+		void writeLine(const StringViewType text, const ::CmdCalculator::EWriteMode writeMode)
 		{
 			write(std::string{ text } + '\n', writeMode);
 		}

@@ -14,7 +14,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			CmdCalculator::AbsoluteValueOperationAntlrContext
+			::CmdCalculator::AbsoluteValueOperationAntlrContext
 			<
 				CmdCalculatorTestDoubles::StubAbsoluteValueOperationAntlrContext
 			>

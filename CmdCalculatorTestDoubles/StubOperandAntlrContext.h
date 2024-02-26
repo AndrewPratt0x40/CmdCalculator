@@ -9,7 +9,7 @@
 namespace CmdCalculatorTestDoubles
 {
 	struct StubOperandAntlrContext :
-		public CmdCalculator::OperandAntlrContext_IntendedSatisfaction
+		public ::CmdCalculator::OperandAntlrContext_IntendedSatisfaction
 	{
 		using NonGroupingMultiplicationAntlrContextType = StubNonGroupingMultiplicationAntlrContext;
 		using GroupingMultiplicationAntlrContextType = StubGroupingMultiplicationAntlrContext;

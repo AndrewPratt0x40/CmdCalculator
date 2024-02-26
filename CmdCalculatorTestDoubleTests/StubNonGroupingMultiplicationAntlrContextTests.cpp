@@ -13,7 +13,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			CmdCalculator::NonGroupingMultiplicationAntlrContext
+			::CmdCalculator::NonGroupingMultiplicationAntlrContext
 			<
 				CmdCalculatorTestDoubles::StubNonGroupingMultiplicationAntlrContext
 			>

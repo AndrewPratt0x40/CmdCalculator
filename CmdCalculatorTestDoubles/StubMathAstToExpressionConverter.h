@@ -6,9 +6,9 @@
 
 namespace CmdCalculatorTestDoubles
 {
-	template<CmdCalculator::MathAst::MathAstNode RootMathAstNodeT, CmdCalculator::Expressions::Expression ExpressionT>
+	template<::CmdCalculator::MathAst::MathAstNode RootMathAstNodeT, ::CmdCalculator::Expressions::Expression ExpressionT>
 	struct StubMathAstToExpressionConverter :
-		public CmdCalculator::MathAstToExpressionConverter_IntendedSatisfaction
+		public ::CmdCalculator::MathAstToExpressionConverter_IntendedSatisfaction
 	{
 		using RootMathAstNodeType = RootMathAstNodeT;
 		using ExpressionType = ExpressionT;

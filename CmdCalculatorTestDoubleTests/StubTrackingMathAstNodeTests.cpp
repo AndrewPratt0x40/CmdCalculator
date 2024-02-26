@@ -12,7 +12,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			CmdCalculator::MathAst::MathAstNode<CmdCalculatorTestDoubles::MathAst::StubTrackingMathAstNode<std::string, std::string_view>>
+			::CmdCalculator::MathAst::MathAstNode<CmdCalculatorTestDoubles::MathAst::StubTrackingMathAstNode<std::string, std::string_view>>
 		);
 	}
 

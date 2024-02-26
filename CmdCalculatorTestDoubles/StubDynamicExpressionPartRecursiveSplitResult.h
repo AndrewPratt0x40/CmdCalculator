@@ -18,15 +18,15 @@ using namespace std::string_literals;
 
 namespace CmdCalculatorTestDoubles
 {
-	template<CmdCalculator::String MathAstStringT>
+	template<::CmdCalculator::String MathAstStringT>
 	struct StubDynamicExpressionPartRecursiveSplitResult :
-		public CmdCalculator::DynamicExpressionPartRecursiveSplitResult_IntendedSatisfaction
+		public ::CmdCalculator::DynamicExpressionPartRecursiveSplitResult_IntendedSatisfaction
 	{
 		using MathAstStringType = MathAstStringT;
 
 
 		std::unique_ptr<StubDynamicExpressionPartRecursiveSplitResult<MathAstStringT>> leftPart;
-		std::reference_wrapper<CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringT>> splitPart;
+		std::reference_wrapper<::CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringT>> splitPart;
 		std::unique_ptr<StubDynamicExpressionPartRecursiveSplitResult<MathAstStringT>> rightPart;
 
 
@@ -36,7 +36,7 @@ namespace CmdCalculatorTestDoubles
 		}
 
 
-		CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringT>& getSplitPart() const
+		::CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringT>& getSplitPart() const
 		{
 			return splitPart.get();
 		}

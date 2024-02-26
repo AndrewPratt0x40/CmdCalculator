@@ -13,7 +13,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			CmdCalculator::DynamicOperandToDynamicExpressionConverter
+			::CmdCalculator::DynamicOperandToDynamicExpressionConverter
 			<
 				CmdCalculatorTestDoubles::StubDynamicOperandToDynamicExpressionConverter
 				<

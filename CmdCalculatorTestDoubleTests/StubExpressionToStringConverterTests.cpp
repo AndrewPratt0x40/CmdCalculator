@@ -13,7 +13,7 @@ namespace CmdCalculatorTestDoubleTests
 {
 #pragma region Concept satisfaction
 
-	template<CmdCalculator::Expressions::Expression ExpressionT, CmdCalculator::String StringT>
+	template<::CmdCalculator::Expressions::Expression ExpressionT, ::CmdCalculator::String StringT>
 	struct StubExpressionToStringConverter_TParams
 	{
 		using ExpressionType = ExpressionT;
@@ -44,7 +44,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			CmdCalculator::ExpressionToStringConverter
+			::CmdCalculator::ExpressionToStringConverter
 			<
 				CmdCalculatorTestDoubles::StubExpressionToStringConverter
 				<

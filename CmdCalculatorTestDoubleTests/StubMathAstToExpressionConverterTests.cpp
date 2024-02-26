@@ -14,7 +14,7 @@ namespace CmdCalculatorTestDoubleTests
 {
 #pragma region Concept satisfaction
 
-	template<CmdCalculator::MathAst::MathAstNode RootMathAstNodeT, CmdCalculator::Expressions::Expression ExpressionT>
+	template<::CmdCalculator::MathAst::MathAstNode RootMathAstNodeT, ::CmdCalculator::Expressions::Expression ExpressionT>
 	struct StubMathAstToExpressionConverter_TParams
 	{
 		using RootMathAstNodeType = RootMathAstNodeT;
@@ -45,7 +45,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			CmdCalculator::MathAstToExpressionConverter
+			::CmdCalculator::MathAstToExpressionConverter
 			<
 				CmdCalculatorTestDoubles::StubMathAstToExpressionConverter
 				<

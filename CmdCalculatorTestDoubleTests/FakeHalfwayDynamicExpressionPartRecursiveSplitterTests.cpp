@@ -70,9 +70,9 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			CmdCalculator::DynamicExpressionPartRecursiveSplitter
+			::CmdCalculator::DynamicExpressionPartRecursiveSplitter
 			<
-				CmdCalculatorTestDoubles::FakeHalfwayDynamicExpressionPartRecursiveSplitter
+				::CmdCalculatorTestDoubles::FakeHalfwayDynamicExpressionPartRecursiveSplitter
 				<
 					std::string
 				>
@@ -97,7 +97,7 @@ namespace CmdCalculatorTestDoubleTests
 			return parts.empty()
 				? ""
 				:
-					CmdCalculator::Polyfills::ranges::fold_left
+					::CmdCalculator::Polyfills::ranges::fold_left
 					(
 						parts
 							| std::views::take(parts.size() - 1)
@@ -215,6 +215,15 @@ namespace CmdCalculatorTestDoubleTests
 						;
 					}
 				)
+			)
+		};
+		const ::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto partsView
+		{
+			parts
+			| std::views::transform
+			(
+				[](const auto& part)
+				{ return std::ref(part); }
 			)
 		};
 		const std::optional<std::string> expectedReturnValue{ GetParam().expectedResult };

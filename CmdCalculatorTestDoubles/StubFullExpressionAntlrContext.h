@@ -12,11 +12,11 @@ namespace CmdCalculatorTestDoubles
 {
 	template
 	<
-		CmdCalculator::AntlrToken AntlrTokenT = StubAntlrToken<std::string>,
-		CmdCalculator::ExpressionAntlrContext ExpressionAntlrContextT = StubExpressionAntlrContext
+		::CmdCalculator::AntlrToken AntlrTokenT = StubAntlrToken<std::string>,
+		::CmdCalculator::ExpressionAntlrContext ExpressionAntlrContextT = StubExpressionAntlrContext
 	>
 	struct StubFullExpressionAntlrContext :
-		public CmdCalculator::FullExpressionAntlrContext_IntendedSatisfaction
+		public ::CmdCalculator::FullExpressionAntlrContext_IntendedSatisfaction
 	{
 		using AntlrTokenType = AntlrTokenT;
 		using ExpressionAntlrContextType = ExpressionAntlrContextT;

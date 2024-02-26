@@ -13,7 +13,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			CmdCalculator::AntlrContextToMathAstConverter
+			::CmdCalculator::AntlrContextToMathAstConverter
 			<
 				CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, int, std::string_view>
 			>

@@ -12,7 +12,7 @@
 namespace CmdCalculatorTestDoubles
 {
 	struct StubNonGroupingMultiplicationAntlrContext :
-		public CmdCalculator::NonGroupingMultiplicationAntlrContext_IntendedSatisfaction
+		public ::CmdCalculator::NonGroupingMultiplicationAntlrContext_IntendedSatisfaction
 	{
 		using NumberLiteralAntlrContextType = StubNumberLiteralAntlrContext;
 		using SignOperationAntlrContextType = StubSignOperationAntlrContext;
@@ -20,7 +20,7 @@ namespace CmdCalculatorTestDoubles
 		using GroupingAntlrContextType = StubGroupingAntlrContext;
 		using AbsoluteValueOperationAntlrContextType = StubAbsoluteValueOperationAntlrContext;
 
-		CmdCalculator::ENonGroupingMultiplicationAntlrContextKind nonGroupingMultiplicationKind;
+		::CmdCalculator::ENonGroupingMultiplicationAntlrContextKind nonGroupingMultiplicationKind;
 		std::optional<NumberLiteralAntlrContextType> numberLiteral;
 		std::optional<SignOperationAntlrContextType> signOperation;
 		std::optional<SqrtOperationAntlrContextType> sqrtOperation;
@@ -28,7 +28,7 @@ namespace CmdCalculatorTestDoubles
 		std::optional<AbsoluteValueOperationAntlrContextType> absoluteValueOperation;
 
 
-		CmdCalculator::ENonGroupingMultiplicationAntlrContextKind getNonGroupingMultiplicationKind() const
+		::CmdCalculator::ENonGroupingMultiplicationAntlrContextKind getNonGroupingMultiplicationKind() const
 		{
 			return nonGroupingMultiplicationKind;
 		}

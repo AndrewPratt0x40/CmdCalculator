@@ -8,15 +8,15 @@
 namespace CmdCalculatorTestDoubles
 {
 	struct StubSignOperatorAntlrContext :
-		public CmdCalculator::SignOperatorAntlrContext_IntendedSatisfaction
+		public ::CmdCalculator::SignOperatorAntlrContext_IntendedSatisfaction
 	{
 		using AntlrTokenType = StubAntlrToken<std::string>;
 
-		CmdCalculator::ESignOperatorAntlrContextKind signOperatorAntlrContextKind;
+		::CmdCalculator::ESignOperatorAntlrContextKind signOperatorAntlrContextKind;
 		AntlrTokenType token;
 
 
-		CmdCalculator::ESignOperatorAntlrContextKind getSignOperatorAntlrContextKind() const
+		::CmdCalculator::ESignOperatorAntlrContextKind getSignOperatorAntlrContextKind() const
 		{
 			return signOperatorAntlrContextKind;
 		}

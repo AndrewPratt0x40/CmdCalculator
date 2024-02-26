@@ -16,7 +16,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			CmdCalculator::Expressions::Expression
+			::CmdCalculator::Expressions::Expression
 			<
 				CmdCalculatorTestDoubles::Expressions::StubExpression
 				<

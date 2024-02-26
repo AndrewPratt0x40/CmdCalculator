@@ -10,9 +10,9 @@
 
 namespace CmdCalculatorTestDoubles
 {
-	template<CmdCalculator::StringView SourceStringViewT>
+	template<::CmdCalculator::StringView SourceStringViewT>
 	struct StubTrackingFullExpressionAntlrContext :
-		public CmdCalculator::FullExpressionAntlrContext_IntendedSatisfaction
+		public ::CmdCalculator::FullExpressionAntlrContext_IntendedSatisfaction
 	{
 		using SourceStringViewType = SourceStringViewT;
 		using AntlrTokenType = StubAntlrToken<std::string>;

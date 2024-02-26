@@ -14,7 +14,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			CmdCalculator::StringToAntlrContextConverter<CmdCalculatorTestDoubles::StubThrowingStringToAntlrContextConverter<std::string_view, std::exception>>
+			::CmdCalculator::StringToAntlrContextConverter<CmdCalculatorTestDoubles::StubThrowingStringToAntlrContextConverter<std::string_view, std::exception>>
 		);
 	}
 

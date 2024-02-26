@@ -5,9 +5,9 @@
 
 namespace CmdCalculatorTestDoubles
 {
-	template<CmdCalculator::String StringT>
+	template<::CmdCalculator::String StringT>
 	struct StubAntlrToken :
-		public CmdCalculator::AntlrToken_IntendedSatisfaction
+		public ::CmdCalculator::AntlrToken_IntendedSatisfaction
 	{
 		using StringType = StringT;
 

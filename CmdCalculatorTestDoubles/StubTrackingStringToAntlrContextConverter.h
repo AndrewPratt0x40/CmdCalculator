@@ -9,9 +9,9 @@
 
 namespace CmdCalculatorTestDoubles
 {
-	template<CmdCalculator::StringView StringViewT>
+	template<::CmdCalculator::StringView StringViewT>
 	struct StubTrackingStringToAntlrContextConverter :
-		public CmdCalculator::StringToAntlrContextConverter_IntendedSatisfaction
+		public ::CmdCalculator::StringToAntlrContextConverter_IntendedSatisfaction
 	{
 	public:
 		using StringViewType = StringViewT;

@@ -8,7 +8,7 @@
 namespace CmdCalculatorTestDoubles
 {
 	struct StubWholelessNumberLiteralAntlrContext :
-		public CmdCalculator::WholelessNumberLiteralAntlrContext_IntendedSatisfaction
+		public ::CmdCalculator::WholelessNumberLiteralAntlrContext_IntendedSatisfaction
 	{
 		using AntlrTokenType = StubAntlrToken<std::string>;
 

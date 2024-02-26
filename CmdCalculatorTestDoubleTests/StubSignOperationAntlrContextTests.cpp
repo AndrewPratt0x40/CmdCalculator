@@ -13,7 +13,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			CmdCalculator::SignOperationAntlrContext
+			::CmdCalculator::SignOperationAntlrContext
 			<
 				CmdCalculatorTestDoubles::StubSignOperationAntlrContext
 			>

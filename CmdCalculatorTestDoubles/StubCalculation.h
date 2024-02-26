@@ -12,7 +12,7 @@ namespace CmdCalculatorTestDoubles
 {
 	template<class T>
 	concept StubCalculationOutputExpressionProvider =
-		CmdCalculator::String<typename T::OutputExpressionType>
+		::CmdCalculator::String<typename T::OutputExpressionType>
 		&& requires
 		{
 			{ T::getOutputExpression() } -> std::same_as<typename T::OutputExpressionType>;
@@ -22,15 +22,15 @@ namespace CmdCalculatorTestDoubles
 
 	template
 	<
-		CmdCalculator::String InputExpressionT,
-		CmdCalculator::String OutputExpressionT,
+		::CmdCalculator::String InputExpressionT,
+		::CmdCalculator::String OutputExpressionT,
 		class StringToMathAstConverterT,
 		class MathAstToExpressionConverterT,
 		class ExpressionToStringConverterT
 	> requires
-		CmdCalculator::StringToMathAstConverter<StringToMathAstConverterT>
-		&& CmdCalculator::MathAstToExpressionConverter<MathAstToExpressionConverterT>
-		&& CmdCalculator::ExpressionToStringConverter<ExpressionToStringConverterT>
+		::CmdCalculator::StringToMathAstConverter<StringToMathAstConverterT>
+		&& ::CmdCalculator::MathAstToExpressionConverter<MathAstToExpressionConverterT>
+		&& ::CmdCalculator::ExpressionToStringConverter<ExpressionToStringConverterT>
 	struct StubCalculation_TParams
 	{
 		using InputExpressionType = InputExpressionT;
@@ -55,7 +55,7 @@ namespace CmdCalculatorTestDoubles
 			>
 		>
 	struct StubCalculation :
-		public CmdCalculator::Calculation_IntendedSatisfaction
+		public ::CmdCalculator::Calculation_IntendedSatisfaction
 	{
 		using InputExpressionType = T::InputExpressionType;
 		using StringToMathAstConverterType = T::StringToMathAstConverterType;
@@ -64,7 +64,7 @@ namespace CmdCalculatorTestDoubles
 		
 		typename T::InputExpressionType inputExpression;
 		typename T::OutputExpressionType outputExpression;
-		CmdCalculator::CalculationConfiguration configuration;
+		::CmdCalculator::CalculationConfiguration configuration;
 
 		typename T::StringToMathAstConverterType stringToMathAstConverter;
 		typename T::MathAstToExpressionConverterType mathAstToExpressionConverter;
@@ -83,7 +83,7 @@ namespace CmdCalculatorTestDoubles
 		}
 
 
-		CmdCalculator::CalculationConfiguration getConfiguration() const
+		::CmdCalculator::CalculationConfiguration getConfiguration() const
 		{
 			return configuration;
 		}
@@ -110,7 +110,7 @@ namespace CmdCalculatorTestDoubles
 		StubCalculation
 		(
 			typename T::InputExpressionType inputExpression,
-			CmdCalculator::CalculationConfiguration configuration,
+			::CmdCalculator::CalculationConfiguration configuration,
 			typename T::StringToMathAstConverterType stringToMathAstConverter,
 			typename T::MathAstToExpressionConverterType mathAstToExpressionConverter,
 			typename T::ExpressionToStringConverterType expressionToStringConverter

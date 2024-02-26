@@ -11,7 +11,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			CmdCalculator::Arithmetic::RealNumber<CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber>
+			::CmdCalculator::Arithmetic::RealNumber<CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber>
 		);
 	}
 
@@ -37,7 +37,7 @@ namespace CmdCalculatorTestDoubleTests
 	struct FakeRealNumbergetSignTestData
 	{
 		double value;
-		CmdCalculator::Arithmetic::ESign expectedSign;
+		::CmdCalculator::Arithmetic::ESign expectedSign;
 	};
 
 	class FakeRealNumbergetSignTests :
@@ -48,39 +48,39 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		{
 			.value{ std::numeric_limits<double>::lowest() },
-			.expectedSign{ CmdCalculator::Arithmetic::ESign::Negative }
+			.expectedSign{ ::CmdCalculator::Arithmetic::ESign::Negative }
 		},
 		{
 			.value{ -12.34 },
-			.expectedSign{ CmdCalculator::Arithmetic::ESign::Negative }
+			.expectedSign{ ::CmdCalculator::Arithmetic::ESign::Negative }
 		},
 		{
 			.value{ -1.0 },
-			.expectedSign{ CmdCalculator::Arithmetic::ESign::Negative }
+			.expectedSign{ ::CmdCalculator::Arithmetic::ESign::Negative }
 		},
 		{
 			.value{ -std::numeric_limits<double>::min() },
-			.expectedSign{ CmdCalculator::Arithmetic::ESign::Negative }
+			.expectedSign{ ::CmdCalculator::Arithmetic::ESign::Negative }
 		},
 		{
 			.value{ 0.0 },
-			.expectedSign{ CmdCalculator::Arithmetic::ESign::Neutral }
+			.expectedSign{ ::CmdCalculator::Arithmetic::ESign::Neutral }
 		},
 		{
 			.value{ std::numeric_limits<double>::min() },
-			.expectedSign{ CmdCalculator::Arithmetic::ESign::Positive }
+			.expectedSign{ ::CmdCalculator::Arithmetic::ESign::Positive }
 		},
 		{
 			.value{ 1.0 },
-			.expectedSign{ CmdCalculator::Arithmetic::ESign::Positive }
+			.expectedSign{ ::CmdCalculator::Arithmetic::ESign::Positive }
 		},
 		{
 			.value{ 12.34 },
-			.expectedSign{ CmdCalculator::Arithmetic::ESign::Positive }
+			.expectedSign{ ::CmdCalculator::Arithmetic::ESign::Positive }
 		},
 		{
 			.value{ std::numeric_limits<double>::max() },
-			.expectedSign{ CmdCalculator::Arithmetic::ESign::Positive }
+			.expectedSign{ ::CmdCalculator::Arithmetic::ESign::Positive }
 		}
 	};
 
@@ -94,7 +94,7 @@ namespace CmdCalculatorTestDoubleTests
 	TEST_P(FakeRealNumbergetSignTests, getSign$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::Arithmetic::ESign expectedSign{ GetParam().expectedSign };
+		const ::CmdCalculator::Arithmetic::ESign expectedSign{ GetParam().expectedSign };
 		const CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber instance{ GetParam().value };
 
 		// Assert

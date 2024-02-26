@@ -13,7 +13,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			CmdCalculator::AntlrToken
+			::CmdCalculator::AntlrToken
 			<
 				CmdCalculatorTestDoubles::StubAntlrToken<std::string>
 			>

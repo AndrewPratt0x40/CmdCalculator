@@ -13,7 +13,7 @@ namespace CmdCalculatorTestDoubles
 
 
 	struct StubGroupingAntlrContext :
-		public CmdCalculator::GroupingAntlrContext_IntendedSatisfaction
+		public ::CmdCalculator::GroupingAntlrContext_IntendedSatisfaction
 	{
 		using AntlrTokenType = StubAntlrToken<std::string>;
 		using ExpressionAntlrContextType = StubExpressionAntlrContext;

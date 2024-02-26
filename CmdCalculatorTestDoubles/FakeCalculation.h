@@ -13,13 +13,13 @@ namespace CmdCalculatorTestDoubles
 	// TODO: Unit test
 	template
 	<
-		CmdCalculator::String InputExpressionT,
-		CmdCalculator::StringToMathAstConverter StringToMathAstConverterT,
-		CmdCalculator::MathAstToExpressionConverter MathAstToExpressionConverterT,
-		CmdCalculator::ExpressionToStringConverter ExpressionToStringConverterT
+		::CmdCalculator::String InputExpressionT,
+		::CmdCalculator::StringToMathAstConverter StringToMathAstConverterT,
+		::CmdCalculator::MathAstToExpressionConverter MathAstToExpressionConverterT,
+		::CmdCalculator::ExpressionToStringConverter ExpressionToStringConverterT
 	>
 	class FakeCalculation :
-		public CmdCalculator::Calculation_IntendedSatisfaction
+		public ::CmdCalculator::Calculation_IntendedSatisfaction
 	{
 	public:
 		using InputExpressionType = InputExpressionT;
@@ -29,7 +29,7 @@ namespace CmdCalculatorTestDoubles
 
 	private:
 		InputExpressionType m_inputExpression;
-		CmdCalculator::CalculationConfiguration m_configuration;
+		::CmdCalculator::CalculationConfiguration m_configuration;
 		StringToMathAstConverterType m_stringToMathAstConverter;
 		MathAstToExpressionConverterType m_mathAstToExpressionConverter;
 		ExpressionToStringConverterType m_expressionToStringConverter;
@@ -64,7 +64,7 @@ namespace CmdCalculatorTestDoubles
 		}
 
 
-		CmdCalculator::CalculationConfiguration getConfiguration() const
+		::CmdCalculator::CalculationConfiguration getConfiguration() const
 		{
 			return m_configuration;
 		}
@@ -91,7 +91,7 @@ namespace CmdCalculatorTestDoubles
 		FakeCalculation
 		(
 			InputExpressionType inputExpression,
-			CmdCalculator::CalculationConfiguration configuration,
+			::CmdCalculator::CalculationConfiguration configuration,
 			StringToMathAstConverterType stringToMathAstConverter,
 			MathAstToExpressionConverterType mathAstToExpressionConverter,
 			ExpressionToStringConverterType expressionToStringConverter

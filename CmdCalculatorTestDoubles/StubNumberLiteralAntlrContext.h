@@ -9,17 +9,17 @@
 namespace CmdCalculatorTestDoubles
 {
 	struct StubNumberLiteralAntlrContext :
-		public CmdCalculator::NumberLiteralAntlrContext_IntendedSatisfaction
+		public ::CmdCalculator::NumberLiteralAntlrContext_IntendedSatisfaction
 	{
 		using WholefulNumberLiteralAntlrContextType = StubWholefulNumberLiteralAntlrContext;
 		using WholelessNumberLiteralAntlrContextType = StubWholelessNumberLiteralAntlrContext;
 
-		CmdCalculator::ENumberLiteralAntlrContextKind numberLiteralAntlrContextKind;
+		::CmdCalculator::ENumberLiteralAntlrContextKind numberLiteralAntlrContextKind;
 		std::optional<WholefulNumberLiteralAntlrContextType> wholefulNumberLiteral;
 		std::optional<WholelessNumberLiteralAntlrContextType> wholelessNumberLiteral;
 
 
-		CmdCalculator::ENumberLiteralAntlrContextKind getNumberLiteralAntlrContextKind() const
+		::CmdCalculator::ENumberLiteralAntlrContextKind getNumberLiteralAntlrContextKind() const
 		{
 			return numberLiteralAntlrContextKind;
 		}

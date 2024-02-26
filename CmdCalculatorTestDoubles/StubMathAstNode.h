@@ -8,9 +8,9 @@
 
 namespace CmdCalculatorTestDoubles::MathAst
 {
-	template<CmdCalculator::String StringT>
+	template<::CmdCalculator::String StringT>
 	struct StubMathAstNode :
-		public CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction
+		public ::CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction
 	{
 		using StringType = StringT;
 
