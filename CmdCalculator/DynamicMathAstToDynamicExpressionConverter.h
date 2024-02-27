@@ -27,18 +27,12 @@ namespace CmdCalculator
 		&& RecursiveSplitResultToDynamicExpressionConverter<RecursiveSplitResultToDynamicExpressionConverterT>
 		&& requires
 		(
-			DynamicExpressionPartRecursiveSplitterT&& dynamicExpressionPartRecursiveSplitter,
-			RecursiveSplitResultToDynamicExpressionConverterT&& recursiveSplitResultToDynamicExpressionConverter
+			RecursiveSplitResultToDynamicExpressionConverterT && recursiveSplitResultToDynamicExpressionConverter
 		)
 		{
 			recursiveSplitResultToDynamicExpressionConverter.getSplitResultAsExpression
 			(
-				dynamicExpressionPartRecursiveSplitter
-				.tryToSplit
-				(
-					std::declval<MathAst::DynamicExpressionNodePartsView<typename DynamicExpressionPartRecursiveSplitterT::MathAstStringType>>()
-				)
-				.value()
+				std::declval<SplitResultType<DynamicExpressionPartRecursiveSplitterT>>()
 			);
 		}
 	;
@@ -71,6 +65,16 @@ namespace CmdCalculator
 
 
 	public:
+
+		/// \brief Creates a new instance of the \ref DynamicMathAstToDynamicExpressionConverter class.
+		/// \param splitter The object to use for splitting collections of expression parts.
+		/// \param splitResultConverter The object to use for converting split results into \ref Expressions::DynamicExpression instances.
+		DynamicMathAstToDynamicExpressionConverter
+		(
+			DynamicExpressionPartRecursiveSplitterType&& splitter,
+			RecursiveSplitResultToDynamicExpressionConverterType&& splitResultConverter
+		);
+
 
 		/// \brief Converts a mathematical abstract syntax tree into an expression.
 		/// \param sourceRootNode The root node of the math AST to convert from.

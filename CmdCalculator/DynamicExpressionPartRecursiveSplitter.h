@@ -28,4 +28,19 @@ namespace CmdCalculator
 			DynamicExpressionPartRecursiveSplitResult<OptionalValueType<decltype(instance.tryToSplit(parts))>>;
 		}
 	;
+
+
+	template<DynamicExpressionPartRecursiveSplitter SplitterT>
+	using SplitResultType =
+		OptionalValueType
+		<
+			decltype
+			(
+				std::declval<SplitterT>().tryToSplit
+				(
+					std::declval<MathAst::DynamicExpressionNodePartsView<typename SplitterT::MathAstStringType>>()
+				)
+			)
+		>
+	;
 }
