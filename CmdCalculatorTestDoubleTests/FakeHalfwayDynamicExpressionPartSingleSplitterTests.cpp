@@ -10,6 +10,7 @@
 #include "../CmdCalculator/DynamicExpressionPartSingleSplitter.h"
 #include "../CmdCalculatorTestDoubles/FakeHalfwayDynamicExpressionPartSingleSplitter.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpressionPartNode.h"
+#include "shared_splitting_test_utils.h"
 
 namespace CmdCalculatorTestDoubleTests
 {
@@ -43,50 +44,36 @@ namespace CmdCalculatorTestDoubleTests
 		std::vector<std::string> expectedLeftParts;
 		std::optional<std::string> expectedSplitPart;
 		std::vector<std::string> expectedRightParts;
+
+
+		friend std::ostream& operator<<
+		(
+			std::ostream& ostream,
+			const FakeHalfwayDynamicExpressionPartSingleSplitter_TestData& testData
+		)
+		{
+			ostream
+				<< "FakeHalfwayDynamicExpressionPartRecursiveSplitter.tryToSplit({"
+				<< stringifySplittingParts(testData.parts)
+				<< "}) = {"
+			;
+			if (testData.expectedSplitPart.has_value())
+			{
+				ostream
+					<< "{"
+					<< stringifySplittingParts(testData.expectedLeftParts)
+					<< "}<"
+					<< testData.expectedSplitPart.value()
+					<< ">{"
+					<< stringifySplittingParts(testData.expectedRightParts)
+				;
+			}
+
+			ostream << "}";
+
+			return ostream;
+		}
 	};
-
-
-	CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>
-		makeExpressionPart(std::string stringRepresentation)
-	{
-		return CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>
-		{
-			false,
-			"",
-			"",
-			stringRepresentation
-		};
-	}
-
-
-	std::optional<CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>>
-		makeOptionalExpressionPart(std::string stringRepresentation)
-	{
-		return std::make_optional<CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>>
-			(makeExpressionPart(stringRepresentation))
-		;
-	}
-
-
-	std::vector<CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>>
-		makeExpressionParts(std::initializer_list<std::string> stringRepresentations)
-	{
-		std::ranges::input_range auto partsView
-		{
-			stringRepresentations
-			| std::views::transform
-			(
-				[](const std::string& stringRepresentation)
-				{ return makeExpressionPart(stringRepresentation); }
-			)
-		};
-
-		return std::vector<CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>>
-		{
-			std::ranges::begin(partsView),
-			std::ranges::end(partsView)
-		};
-	}
 
 
 	const FakeHalfwayDynamicExpressionPartSingleSplitter_TestData FakeHalfwayDynamicExpressionPartSingleSplitter_TestDataValues[]
@@ -292,7 +279,7 @@ namespace CmdCalculatorTestDoubleTests
 	TEST_P(FakeHalfwayDynamicExpressionPartSingleSplitter$canSplit$withAtLeast3Parts$Tests, calling$canSplit$with$at$least$3$parts$returns$true)
 	{
 		// Arrange
-		ASSERT_FALSE(GetParam().expectCanSplit);
+		ASSERT_TRUE(GetParam().expectCanSplit);
 		const ::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto parts
 		{
 			GetParam().parts

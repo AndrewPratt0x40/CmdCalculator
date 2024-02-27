@@ -24,7 +24,7 @@ namespace CmdCalculatorTestDoubles
 		bool canSplit(::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto parts) const
 		{
 			const std::integral auto partsSize{ std::ranges::size(parts) };
-			return partsSize >= 3 && (partsSize % 2 != 0);
+			return partsSize >= 3;
 		}
 		
 		

@@ -26,7 +26,7 @@ namespace CmdCalculatorTestDoubles
 
 
 		std::unique_ptr<StubDynamicExpressionPartRecursiveSplitResult<MathAstStringT>> leftPart;
-		std::reference_wrapper<::CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringT>> splitPart;
+		std::reference_wrapper<const ::CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringT>> splitPart;
 		std::unique_ptr<StubDynamicExpressionPartRecursiveSplitResult<MathAstStringT>> rightPart;
 
 

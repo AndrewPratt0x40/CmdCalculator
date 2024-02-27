@@ -10,9 +10,10 @@
 #include "../CmdCalculator/std_polyfills.h"
 #include "../CmdCalculatorTestDoubles/FakeHalfwayDynamicExpressionPartRecursiveSplitter.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpressionPartNode.h"
+#include "shared_splitting_test_utils.h"
 
 
-using namespace std::string_literals;
+//using namespace std::string_literals;
 
 
 namespace CmdCalculatorTestDoubleTests
@@ -87,33 +88,11 @@ namespace CmdCalculatorTestDoubleTests
 
 	struct FakeHalfwayDynamicExpressionPartRecursiveSplitter_tryToSplit_TestData
 	{
-		std::vector<std::string> parts;
+		using PartType = CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>;
+
+		std::vector<PartType> parts;
 		// TODO: Consider using a more direct way of comparing results.
 		std::optional<std::string> expectedResult;
-
-
-		static std::string stringifyParts(const std::vector<std::string>& parts)
-		{
-			return parts.empty()
-				? ""
-				:
-					::CmdCalculator::Polyfills::ranges::fold_left
-					(
-						parts
-							| std::views::take(parts.size() - 1)
-							| std::views::drop(1)
-							| std::views::transform
-							(
-								[](const std::string& part)
-								{ return std::format("\"{}\", ", part); }
-							)
-						,
-						std::format("\"{}\", ", parts.front()),
-						std::plus<std::string>()
-					)
-					+ std::format("\"{}\"", parts.back())
-			;
-		}
 
 
 		friend std::ostream& operator<<
@@ -124,7 +103,7 @@ namespace CmdCalculatorTestDoubleTests
 		{
 			ostream
 				<< "FakeHalfwayDynamicExpressionPartRecursiveSplitter.tryToSplit({"
-				<< FakeHalfwayDynamicExpressionPartRecursiveSplitter_tryToSplit_TestData::stringifyParts(testData.parts)
+				<< stringifySplittingParts(testData.parts)
 				<< "}) = "
 				<< testData.expectedResult.value_or("{}")
 			;
@@ -145,47 +124,47 @@ namespace CmdCalculatorTestDoubleTests
 			.expectedResult{}
 		},
 		{
-			.parts{ "Part1" },
+			.parts{ makeExpressionParts({ "Part1" }) },
 			.expectedResult{ std::make_optional<std::string>("{null<Part1>null}") }
 		},
 		{
-			.parts{ "Part1", "Part2" },
+			.parts{ makeExpressionParts({ "Part1", "Part2" }) },
 			.expectedResult{}
 		},
 		{
-			.parts{ "Part1", "Part2", "Part3" },
+			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3" }) },
 			.expectedResult{ std::make_optional<std::string>("{{null<Part1>null}<Part2>{null<Part3>null}}") }
 		},
 		{
-			.parts{ "Part1", "Part2", "Part3", "Part4" },
+			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4" }) },
 			.expectedResult{}
 		},
 		{
-			.parts{ "Part1", "Part2", "Part3", "Part4", "Part5" },
+			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4", "Part5" }) },
 			.expectedResult{ std::make_optional<std::string>("{{null<Part1>null}<Part2>{{null<Part3>null}<Part4>{null<Part5>null}}}") }
 		},
 		{
-			.parts{ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6" },
+			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6" }) },
 			.expectedResult{}
 		},
 		{
-			.parts{ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6", "Part7" },
+			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6", "Part7" }) },
 			.expectedResult{ std::make_optional<std::string>("{{{null<Part1>null}<Part2>{null<Part3>null}}<Part4>{{null<Part5>null}<Part6>{null<Part7>null}}}") }
 		},
 		{
-			.parts{ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6", "Part7", "Part8" },
+			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6", "Part7", "Part8" }) },
 			.expectedResult{}
 		},
 		{
-			.parts{ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6", "Part7", "Part8", "Part9" },
+			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6", "Part7", "Part8", "Part9" }) },
 			.expectedResult{ std::make_optional<std::string>("{{{null<Part1>null}<Part2>{null<Part3>null}}<Part4>{{null<Part5>null}<Part6>{{null<Part7>null}<Part8>{null<Part9>null}}}}") }
 		},
 		{
-			.parts{ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6", "Part7", "Part8", "Part9", "Part10" },
+			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6", "Part7", "Part8", "Part9", "Part10" }) },
 			.expectedResult{}
 		},
 		{
-			.parts{ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6", "Part7", "Part8", "Part9", "Part10", "Part11" },
+			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6", "Part7", "Part8", "Part9", "Part10", "Part11" }) },
 			.expectedResult{ std::make_optional<std::string>("{{{null<Part1>null}<Part2>{{null<Part3>null}<Part4>{null<Part5>null}}}<Part6>{{null<Part7>null}<Part8>{{null<Part9>null}<Part10>{null<Part11>null}}}}") }
 		}
 	};
@@ -201,25 +180,9 @@ namespace CmdCalculatorTestDoubleTests
 	TEST_P(FakeHalfwayDynamicExpressionPartRecursiveSplitter$tryToSplit$Tests, calling$tryToSplit$returns$expected$result)
 	{
 		// Arrange
-		CmdCalculatorTestUtils::StdVector auto parts
-		{
-			CmdCalculatorTestUtils::moveRangeToVector
-			(
-				GetParam().parts
-				| std::views::transform
-				(
-					[](const std::string& partStringRepresentation)
-					{
-						return CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>
-							{ false, "", "", partStringRepresentation }
-						;
-					}
-				)
-			)
-		};
 		const ::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto partsView
 		{
-			parts
+			GetParam().parts
 			| std::views::transform
 			(
 				[](const auto& part)
@@ -227,12 +190,12 @@ namespace CmdCalculatorTestDoubleTests
 			)
 		};
 		const std::optional<std::string> expectedReturnValue{ GetParam().expectedResult };
-		CmdCalculatorTestDoubles::FakeHalfwayDynamicExpressionPartRecursiveSplitter<std::string> instance{};
+		::CmdCalculatorTestDoubles::FakeHalfwayDynamicExpressionPartRecursiveSplitter<std::string> instance{};
 
 		// Act
 		const std::optional<CmdCalculatorTestDoubles::StubDynamicExpressionPartRecursiveSplitResult<std::string>> returnValue
 		{
-			instance.tryToSplit(parts)
+			instance.tryToSplit(partsView)
 		};
 
 		// Assert

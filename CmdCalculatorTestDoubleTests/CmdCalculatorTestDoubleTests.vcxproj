@@ -83,12 +83,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="shared_splitting_test_utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FakeConsoleTests.cpp" />
     <ClCompile Include="FakeHalfwayDynamicExpressionPartRecursiveSplitterTests.cpp" />
     <ClCompile Include="FakeHalfwayDynamicExpressionPartSingleSplitterTests.cpp" />
     <ClCompile Include="FakeRealNumberTests.cpp" />
+    <ClCompile Include="shared_splitting_test_utils.cpp" />
     <ClCompile Include="StubAbsoluteValueOperationAntlrContextTests.cpp" />
     <ClCompile Include="StubAntlrTokenTests.cpp" />
     <ClCompile Include="StubBinaryOperatorAntlrContextTests.cpp" />

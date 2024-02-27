@@ -151,6 +151,9 @@
     <ClCompile Include="FakeHalfwayDynamicExpressionPartRecursiveSplitterTests.cpp">
       <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter</Filter>
     </ClCompile>
+    <ClCompile Include="shared_splitting_test_utils.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Shared Splitting Test Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -306,10 +309,16 @@
     <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter">
       <UniqueIdentifier>{485420fa-318e-4ece-a6af-4414ed5d3efd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Shared Splitting Test Utils">
+      <UniqueIdentifier>{e9078b84-d20d-41b7-8df7-f22bb0e481d0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Source Code\pch</Filter>
+    </ClInclude>
+    <ClInclude Include="shared_splitting_test_utils.h">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Shared Splitting Test Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
