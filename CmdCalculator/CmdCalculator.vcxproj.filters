@@ -295,6 +295,9 @@
     <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter">
       <UniqueIdentifier>{4490b619-5515-4113-b565-aaf38a5d995d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter">
+      <UniqueIdentifier>{70da2a39-45b2-4015-a9fa-b0d3f955b37e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -621,6 +624,9 @@
     <ClInclude Include="DynamicExpressionPartRecursiveSplitter.h">
       <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter</Filter>
     </ClInclude>
+    <ClInclude Include="RecursiveSplitResultToDynamicExpressionConverter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -761,12 +767,8 @@
     <ClCompile Include="NegativeRadicandException.cpp">
       <Filter>Source Code\Exceptions\ExpressionEvaluationException\NegativeRadicandException</Filter>
     </ClCompile>
-    <ClCompile Include="FundamentallyBackedRealNumber.cpp" />
     <ClCompile Include="DynamicMathAstToDynamicExpressionConverter.cpp">
       <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

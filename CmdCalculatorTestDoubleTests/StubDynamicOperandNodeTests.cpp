@@ -15,7 +15,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			::CmdCalculator::MathAst::ExpressionPartNode
+			CmdCalculator::MathAst::ExpressionPartNode
 			<
 				CmdCalculatorTestDoubles::MathAst::StubDynamicOperandNode<std::string>
 			>

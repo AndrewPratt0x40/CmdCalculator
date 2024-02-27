@@ -12,11 +12,11 @@ namespace CmdCalculatorTestDoubles::Expressions
 {
 	template
 	<
-		::CmdCalculator::Arithmetic::RealNumber NumberT,
-		::CmdCalculator::MathAst::MathAstNode SourceMathAstNodeT
+		CmdCalculator::Arithmetic::RealNumber NumberT,
+		CmdCalculator::MathAst::MathAstNode SourceMathAstNodeT
 	>
 	struct StubTrackingExpression :
-		public ::CmdCalculator::Expressions::Expression_IntendedSatisfaction
+		public CmdCalculator::Expressions::Expression_IntendedSatisfaction
 	{
 		using NumberType = NumberT;
 

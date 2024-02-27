@@ -10,7 +10,7 @@
 namespace CmdCalculatorTestDoubles
 {
 	struct StubExpressionAntlrContext :
-		public ::CmdCalculator::ExpressionAntlrContext_IntendedSatisfaction
+		public CmdCalculator::ExpressionAntlrContext_IntendedSatisfaction
 	{
 		using OperandAntlrContextType = StubOperandAntlrContext;
 		using OperationPartPairAntlrContexType = StubOperationPartPairAntlrContext;

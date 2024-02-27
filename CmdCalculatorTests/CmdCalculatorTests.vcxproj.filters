@@ -255,6 +255,9 @@
     <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\DynamicExpressionPartSplitter">
       <UniqueIdentifier>{df9c5d26-c08c-405d-b3d1-5945b8c10372}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter">
+      <UniqueIdentifier>{d30bbda1-8f08-4645-8af3-688394e8454c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">

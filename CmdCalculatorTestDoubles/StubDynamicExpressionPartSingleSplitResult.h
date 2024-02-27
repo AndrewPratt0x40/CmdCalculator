@@ -13,13 +13,13 @@
 
 namespace CmdCalculatorTestDoubles
 {
-	template<::CmdCalculator::String MathAstStringT>
+	template<CmdCalculator::String MathAstStringT>
 	class StubDynamicExpressionPartSingleSplitResult :
-		public ::CmdCalculator::DynamicExpressionPartSingleSplitResult_IntendedSatisfaction
+		public CmdCalculator::DynamicExpressionPartSingleSplitResult_IntendedSatisfaction
 	{
 	public:
 		using MathAstStringType = MathAstStringT;
-		using DynamicExpressionPartType = ::CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringType>;
+		using DynamicExpressionPartType = CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringType>;
 
 
 	private:
@@ -29,7 +29,7 @@ namespace CmdCalculatorTestDoubles
 
 
 		static std::vector<std::reference_wrapper<const DynamicExpressionPartType>> initPartRangeMember
-			(const ::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto partRefs)
+			(const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto partRefs)
 		{
 			std::ranges::input_range auto partsView
 			{
@@ -50,9 +50,9 @@ namespace CmdCalculatorTestDoubles
 	public:
 		StubDynamicExpressionPartSingleSplitResult
 		(
-			const ::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto leftPartRefs,
+			const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto leftPartRefs,
 			const DynamicExpressionPartType& splitPart,
-			const ::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto rightPartRefs
+			const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto rightPartRefs
 		) :
 			m_leftParts{ initPartRangeMember(leftPartRefs) },
 			m_splitPart{ std::ref(splitPart) },
@@ -60,7 +60,7 @@ namespace CmdCalculatorTestDoubles
 		{}
 
 
-		::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto getLeftParts() const
+		CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto getLeftParts() const
 		{
 			return m_leftParts | std::views::all;
 		}
@@ -72,7 +72,7 @@ namespace CmdCalculatorTestDoubles
 		}
 
 
-		::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto getRightParts() const
+		CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto getRightParts() const
 		{
 			return m_rightParts | std::views::all;
 		}

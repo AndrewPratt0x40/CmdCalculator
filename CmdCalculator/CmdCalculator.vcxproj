@@ -124,6 +124,7 @@
     <ClInclude Include="FundamentallyBackedRealNumber.hpp" />
     <ClInclude Include="NegativeRadicandException.h" />
     <ClInclude Include="RealNumber.h" />
+    <ClInclude Include="RecursiveSplitResultToDynamicExpressionConverter.h" />
     <ClInclude Include="TrueAbsoluteValueOperationAntlrContextView.h" />
     <ClInclude Include="TrueAntlrTokenView.h" />
     <ClInclude Include="BinaryOperatorAntlrContext.h" />
@@ -211,7 +212,6 @@
     <ClCompile Include="DynamicNthRootOperation.hpp" />
     <ClCompile Include="DynamicNumber.hpp" />
     <ClCompile Include="EmptyInputExpressionException.cpp" />
-    <ClCompile Include="FundamentallyBackedRealNumber.cpp" />
     <ClCompile Include="NegativeRadicandException.cpp" />
     <ClCompile Include="NotImplementedException.cpp" />
     <ClCompile Include="TrueAbsoluteValueOperationAntlrContextView.cpp" />
@@ -252,9 +252,6 @@
       <Project>{eb525848-c145-4190-8c59-856a35ea2f49}</Project>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -32,7 +32,7 @@ namespace CmdCalculatorTestDoubleTests
 
 	TYPED_TEST(FakeConsoleWithCharTypeTests, FakeConsole$satisfies$Console$concept)
 	{
-		EXPECT_TRUE(::CmdCalculator::Console<CmdCalculatorTestDoubles::FakeConsole<TypeParam>>);
+		EXPECT_TRUE(CmdCalculator::Console<CmdCalculatorTestDoubles::FakeConsole<TypeParam>>);
 	}
 
 #pragma endregion
@@ -99,7 +99,7 @@ namespace CmdCalculatorTestDoubleTests
 			CmdCalculatorTestDoubles::FakeConsole<char>::TextSpan
 			{
 				"Some text span contents",
-				::CmdCalculator::EWriteMode::Error
+				CmdCalculator::EWriteMode::Error
 			}
 		}
 	};
@@ -450,7 +450,7 @@ namespace CmdCalculatorTestDoubleTests
 	struct FakeConsole_write_Params
 	{
 		const std::string_view text;
-		const ::CmdCalculator::EWriteMode writeMode;
+		const CmdCalculator::EWriteMode writeMode;
 	};
 	
 	struct FakeConsole_write_testData
@@ -471,11 +471,11 @@ namespace CmdCalculatorTestDoubleTests
 		"Hello world!\tMore text...\nNew line with trailing whitespace! "sv
 	};
 
-	constexpr ::CmdCalculator::EWriteMode FakeConsole_write_textModesToWriteIn[]
+	constexpr CmdCalculator::EWriteMode FakeConsole_write_textModesToWriteIn[]
 	{
-		::CmdCalculator::EWriteMode::Info,
-		::CmdCalculator::EWriteMode::Error,
-		::CmdCalculator::EWriteMode::Debug
+		CmdCalculator::EWriteMode::Info,
+		CmdCalculator::EWriteMode::Error,
+		CmdCalculator::EWriteMode::Debug
 	};
 
 
@@ -483,12 +483,12 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		{},
 		{
-			{"firstSpan", ::CmdCalculator::EWriteMode::Info}
+			{"firstSpan", CmdCalculator::EWriteMode::Info}
 		},
 		{
-			{"firstSpan", ::CmdCalculator::EWriteMode::Info},
-			{"secondSpan", ::CmdCalculator::EWriteMode::Info},
-			{"thirdSpan", ::CmdCalculator::EWriteMode::Info}
+			{"firstSpan", CmdCalculator::EWriteMode::Info},
+			{"secondSpan", CmdCalculator::EWriteMode::Info},
+			{"thirdSpan", CmdCalculator::EWriteMode::Info}
 		},
 	};
 
@@ -540,7 +540,7 @@ namespace CmdCalculatorTestDoubleTests
 		CmdCalculatorTestDoubles::FakeConsole<char> instance{ GetParam().ctorParams.defaultInput, GetParam().ctorParams.textSpans };
 
 		std::string_view textToWrite{ GetParam().writeParams.text };
-		::CmdCalculator::EWriteMode modeToWriteIn{ GetParam().writeParams.writeMode };
+		CmdCalculator::EWriteMode modeToWriteIn{ GetParam().writeParams.writeMode };
 		std::string_view expectedTextToBeWritten{ textToWrite };
 		
 		std::vector<CmdCalculatorTestDoubles::FakeConsole<char>::TextSpan> textSpansBefore;
@@ -570,7 +570,7 @@ namespace CmdCalculatorTestDoubleTests
 		CmdCalculatorTestDoubles::FakeConsole<char> instance{ GetParam().ctorParams.defaultInput, GetParam().ctorParams.textSpans };
 
 		std::string_view textToWrite{ GetParam().writeParams.text };
-		::CmdCalculator::EWriteMode modeToWriteIn{ GetParam().writeParams.writeMode };
+		CmdCalculator::EWriteMode modeToWriteIn{ GetParam().writeParams.writeMode };
 		std::string expectedTextToBeWritten{ std::string{textToWrite} + '\n' };
 
 		std::vector<CmdCalculatorTestDoubles::FakeConsole<char>::TextSpan> textSpansBefore;

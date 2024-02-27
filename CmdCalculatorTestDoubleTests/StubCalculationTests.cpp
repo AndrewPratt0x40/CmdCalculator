@@ -63,7 +63,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			::CmdCalculator::Calculation<CmdCalculatorTestDoubles::StubCalculation<TypeParam, OutputExpressionProviderForStubCalculation>>
+			CmdCalculator::Calculation<CmdCalculatorTestDoubles::StubCalculation<TypeParam, OutputExpressionProviderForStubCalculation>>
 		);
 	}
 

@@ -14,7 +14,7 @@ namespace CmdCalculatorTestDoubles
 
 
 	struct StubSignOperationAntlrContext :
-		public ::CmdCalculator::SignOperationAntlrContext_IntendedSatisfaction
+		public CmdCalculator::SignOperationAntlrContext_IntendedSatisfaction
 	{
 		using SignOperatorAntlrContextType = StubSignOperatorAntlrContext;
 		using AntlrTokenType = StubAntlrToken<std::string>;

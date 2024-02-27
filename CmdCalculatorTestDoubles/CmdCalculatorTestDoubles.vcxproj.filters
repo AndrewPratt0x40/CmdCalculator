@@ -175,6 +175,9 @@
     <Filter Include="Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter">
       <UniqueIdentifier>{fb6257e4-a326-4025-b933-3d1c1a5d76ed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter">
+      <UniqueIdentifier>{9909a034-564a-4db6-ae34-072532d516da}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FakeConsole.h">
@@ -321,7 +324,7 @@
     <ClInclude Include="StubDynamicExpressionPartSingleSplitResult.h">
       <Filter>Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitResult</Filter>
     </ClInclude>
-    <ClInclude Include="StubDynamicExpressionPartRecursiveSplitResult.h">
+    <ClInclude Include="StubTrackingDynamicExpressionPartRecursiveSplitResult.h">
       <Filter>Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitResult</Filter>
     </ClInclude>
     <ClInclude Include="FakeHalfwayDynamicExpressionPartRecursiveSplitter.h">
@@ -329,6 +332,15 @@
     </ClInclude>
     <ClInclude Include="StubDynamicExpressionPartNode.h">
       <Filter>Source Code\CmdCalculator\MathAst\Dynamic\DynamicExpressionPartNode</Filter>
+    </ClInclude>
+    <ClInclude Include="StubTrackingDynamicOperandToDynamicExpressionConverter.h">
+      <Filter>Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="StubTrackingDynamicExpression.h">
+      <Filter>Source Code\CmdCalculator\Expressions\Dynamic\DynamicExpression</Filter>
+    </ClInclude>
+    <ClInclude Include="StubTrackingRecursiveSplitResultToDynamicExpressionConverter.h">
+      <Filter>Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

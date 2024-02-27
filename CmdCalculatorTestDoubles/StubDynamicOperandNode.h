@@ -8,17 +8,17 @@
 
 namespace CmdCalculatorTestDoubles::MathAst
 {
-	template<::CmdCalculator::String StringT>
+	template<CmdCalculator::String StringT>
 	class StubDynamicOperandNode :
-		public ::CmdCalculator::MathAst::DynamicOperandNode<StringT>,
-		public ::CmdCalculator::MathAst::ExpressionPartNode_IntendedSatisfaction,
-		public ::CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction
+		public CmdCalculator::MathAst::DynamicOperandNode<StringT>,
+		public CmdCalculator::MathAst::ExpressionPartNode_IntendedSatisfaction,
+		public CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction
 	{
 	public:
 		using StringType = StringT;
 
 
-		::CmdCalculator::MathAst::EDerivedDynamicOperandNodeKind derivedOperandKind;
+		CmdCalculator::MathAst::EDerivedDynamicOperandNodeKind derivedOperandKind;
 		StringType leadingTrivia;
 		StringType trailingTrivia;
 		StringType stringRepresentation;
@@ -26,7 +26,7 @@ namespace CmdCalculatorTestDoubles::MathAst
 		
 		StubDynamicOperandNode
 		(
-			const ::CmdCalculator::MathAst::EDerivedDynamicOperandNodeKind derivedOperandKind,
+			const CmdCalculator::MathAst::EDerivedDynamicOperandNodeKind derivedOperandKind,
 			const StringType leadingTrivia,
 			const StringType trailingTrivia,
 			const StringType stringRepresentation
@@ -38,7 +38,7 @@ namespace CmdCalculatorTestDoubles::MathAst
 		{}
 
 
-		::CmdCalculator::MathAst::EDerivedDynamicOperandNodeKind getDerivedOperandKind() const override
+		CmdCalculator::MathAst::EDerivedDynamicOperandNodeKind getDerivedOperandKind() const override
 		{
 			return derivedOperandKind;
 		}

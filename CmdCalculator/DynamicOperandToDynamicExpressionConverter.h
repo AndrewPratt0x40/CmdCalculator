@@ -24,7 +24,7 @@ namespace CmdCalculator
 		&& Arithmetic::RealNumber<typename T::ExpressionNumberType>
 		&& requires(T&& instance, const MathAst::DynamicOperandNode<typename T::MathAstStringType>& sourceOperand)
 	{
-		std::same_as
+		std::convertible_to
 		<
 			decltype(instance.getOperandAsExpression(sourceOperand)),
 			std::unique_ptr<Expressions::DynamicExpression<typename T::ExpressionNumberType>>

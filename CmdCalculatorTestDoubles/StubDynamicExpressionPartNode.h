@@ -8,10 +8,10 @@
 
 namespace CmdCalculatorTestDoubles::MathAst
 {
-	template<::CmdCalculator::String StringT>
+	template<CmdCalculator::String StringT>
 	class StubDynamicExpressionPartNode :
-		public ::CmdCalculator::MathAst::DynamicExpressionPartNode<StringT>,
-		public ::CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction
+		public CmdCalculator::MathAst::DynamicExpressionPartNode<StringT>,
+		public CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction
 	{
 	public:
 		using StringType = StringT;

@@ -12,7 +12,7 @@ namespace CmdCalculatorTestDoubleTests
 {
 #pragma region Concept satisfaction
 
-	template<::CmdCalculator::StringView StringViewT, ::CmdCalculator::String MathAstNodeStringT>
+	template<CmdCalculator::StringView StringViewT, CmdCalculator::String MathAstNodeStringT>
 	struct StubTrackingStringToMathAstConverter_TParams
 	{
 		using StringViewType = StringViewT;
@@ -36,7 +36,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			::CmdCalculator::StringToMathAstConverter
+			CmdCalculator::StringToMathAstConverter
 			<
 				CmdCalculatorTestDoubles::StubTrackingStringToMathAstConverter
 				<

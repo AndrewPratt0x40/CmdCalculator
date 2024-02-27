@@ -13,7 +13,7 @@ namespace CmdCalculatorTestDoubles
 
 
 	struct StubSqrtOperationAntlrContext :
-		public ::CmdCalculator::SqrtOperationAntlrContext_IntendedSatisfaction
+		public CmdCalculator::SqrtOperationAntlrContext_IntendedSatisfaction
 	{
 		using AntlrTokenType = StubAntlrToken<std::string>;
 		using OperandAntlrContextType = StubOperandAntlrContext;

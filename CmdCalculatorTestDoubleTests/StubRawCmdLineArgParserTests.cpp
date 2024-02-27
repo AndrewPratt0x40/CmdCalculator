@@ -14,7 +14,7 @@ namespace CmdCalculatorTestDoubleTests
 {
 #pragma region Concept satisfaction
 
-	template<std::ranges::input_range ArgsT, ::CmdCalculator::String ExpressionStringT>
+	template<std::ranges::input_range ArgsT, CmdCalculator::String ExpressionStringT>
 	struct StubRawCmdLineArgParser_TParams
 	{
 		using ArgsType = ArgsT;
@@ -40,7 +40,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			::CmdCalculator::RawCmdLineArgParser
+			CmdCalculator::RawCmdLineArgParser
 			<
 				CmdCalculatorTestDoubles::StubRawCmdLineArgParser<typename TypeParam::ExpressionStringType>,
 				typename TypeParam::ArgsType

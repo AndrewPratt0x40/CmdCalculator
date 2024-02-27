@@ -22,15 +22,15 @@ namespace CmdCalculatorTestDoubleTests
 	/*
 	bool areResultsEqual
 	(
-		const CmdCalculatorTestDoubles::StubDynamicExpressionPartRecursiveSplitResult<std::string>& lhs,
-		const CmdCalculatorTestDoubles::StubDynamicExpressionPartRecursiveSplitResult<std::string>& rhs
+		const CmdCalculatorTestDoubles::StubTrackingDynamicExpressionPartRecursiveSplitResult<std::string>& lhs,
+		const CmdCalculatorTestDoubles::StubTrackingDynamicExpressionPartRecursiveSplitResult<std::string>& rhs
 	);
 
 
 	bool areResultPtrsEqual
 	(
-		const CmdCalculatorTestDoubles::StubDynamicExpressionPartRecursiveSplitResult<std::string>* lhs,
-		const CmdCalculatorTestDoubles::StubDynamicExpressionPartRecursiveSplitResult<std::string>* rhs
+		const CmdCalculatorTestDoubles::StubTrackingDynamicExpressionPartRecursiveSplitResult<std::string>* lhs,
+		const CmdCalculatorTestDoubles::StubTrackingDynamicExpressionPartRecursiveSplitResult<std::string>* rhs
 	)
 	{
 		return lhs && rhs && areResultsEqual(*lhs, *rhs);
@@ -39,8 +39,8 @@ namespace CmdCalculatorTestDoubleTests
 
 	bool areResultsEqual
 	(
-		const CmdCalculatorTestDoubles::StubDynamicExpressionPartRecursiveSplitResult<std::string>& lhs,
-		const CmdCalculatorTestDoubles::StubDynamicExpressionPartRecursiveSplitResult<std::string>& rhs
+		const CmdCalculatorTestDoubles::StubTrackingDynamicExpressionPartRecursiveSplitResult<std::string>& lhs,
+		const CmdCalculatorTestDoubles::StubTrackingDynamicExpressionPartRecursiveSplitResult<std::string>& rhs
 	)
 	{
 		return
@@ -53,8 +53,8 @@ namespace CmdCalculatorTestDoubleTests
 
 	bool isExpectedResult
 	(
-		const std::optional<CmdCalculatorTestDoubles::StubDynamicExpressionPartRecursiveSplitResult<std::string>>& expected,
-		const std::optional<CmdCalculatorTestDoubles::StubDynamicExpressionPartRecursiveSplitResult<std::string>>& actual
+		const std::optional<CmdCalculatorTestDoubles::StubTrackingDynamicExpressionPartRecursiveSplitResult<std::string>>& expected,
+		const std::optional<CmdCalculatorTestDoubles::StubTrackingDynamicExpressionPartRecursiveSplitResult<std::string>>& actual
 	)
 	{
 		if (expected.has_value() && actual.has_value())
@@ -71,7 +71,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			::CmdCalculator::DynamicExpressionPartRecursiveSplitter
+			CmdCalculator::DynamicExpressionPartRecursiveSplitter
 			<
 				::CmdCalculatorTestDoubles::FakeHalfwayDynamicExpressionPartRecursiveSplitter
 				<
@@ -180,7 +180,7 @@ namespace CmdCalculatorTestDoubleTests
 	TEST_P(FakeHalfwayDynamicExpressionPartRecursiveSplitter$tryToSplit$Tests, calling$tryToSplit$returns$expected$result)
 	{
 		// Arrange
-		const ::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto partsView
+		const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto partsView
 		{
 			GetParam().parts
 			| std::views::transform
@@ -193,7 +193,7 @@ namespace CmdCalculatorTestDoubleTests
 		::CmdCalculatorTestDoubles::FakeHalfwayDynamicExpressionPartRecursiveSplitter<std::string> instance{};
 
 		// Act
-		const std::optional<CmdCalculatorTestDoubles::StubDynamicExpressionPartRecursiveSplitResult<std::string>> returnValue
+		CmdCalculator::Optional auto returnValue
 		{
 			instance.tryToSplit(partsView)
 		};

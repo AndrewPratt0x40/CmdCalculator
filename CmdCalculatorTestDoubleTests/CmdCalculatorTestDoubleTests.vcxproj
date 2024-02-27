@@ -96,7 +96,7 @@
     <ClCompile Include="StubBinaryOperatorAntlrContextTests.cpp" />
     <ClCompile Include="StubDynamicExpressionNodeTests.cpp" />
     <ClCompile Include="StubDynamicExpressionPartNodeTests.cpp" />
-    <ClCompile Include="StubDynamicExpressionPartRecursiveSplitResultTests.cpp" />
+    <ClCompile Include="StubTrackingDynamicExpressionPartRecursiveSplitResult.cpp" />
     <ClCompile Include="StubDynamicExpressionPartSingleSplitResultTests.cpp" />
     <ClCompile Include="StubDynamicExpressionTests.cpp" />
     <ClCompile Include="StubDynamicOperandNodeTests.cpp" />
@@ -130,11 +130,14 @@
     <ClCompile Include="StubThrowingStringToAntlrContextConverterTests.cpp" />
     <ClCompile Include="StubTrackingConvertedStringTests.cpp" />
     <ClCompile Include="StubTrackingDynamicExpressionNodeTests.cpp" />
+    <ClCompile Include="StubTrackingDynamicExpressionTests.cpp" />
+    <ClCompile Include="StubTrackingDynamicOperandToDynamicExpressionConverterTests.cpp" />
     <ClCompile Include="StubTrackingExpressionTests.cpp" />
     <ClCompile Include="StubTrackingExpressionToStringConverterTests.cpp" />
     <ClCompile Include="StubTrackingFullExpressionAntlrContextTests.cpp" />
     <ClCompile Include="StubTrackingMathAstNodeTests.cpp" />
     <ClCompile Include="StubTrackingMathAstToExpressionConverterTests.cpp" />
+    <ClCompile Include="StubTrackingRecursiveSplitResultToDynamicExpressionConverterTests.cpp" />
     <ClCompile Include="StubTrackingStringToAntlrContextConverterTests.cpp" />
     <ClCompile Include="StubTrackingStringToMathAstConverterTests.cpp" />
     <ClCompile Include="StubValidatingStringToMathAstConverterTests.cpp" />

@@ -8,10 +8,10 @@
 
 namespace CmdCalculatorTestDoubles::MathAst
 {
-	template<::CmdCalculator::String StringT>
+	template<CmdCalculator::String StringT>
 	class StubDynamicGroupingNode :
-		public ::CmdCalculator::MathAst::DynamicGroupingNode<StringT>,
-		public ::CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction
+		public CmdCalculator::MathAst::DynamicGroupingNode<StringT>,
+		public CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction
 	{
 	public:
 		using StringType = StringT;
@@ -22,12 +22,12 @@ namespace CmdCalculatorTestDoubles::MathAst
 		
 		StubDynamicGroupingNode
 		(
-			std::unique_ptr<::CmdCalculator::MathAst::DynamicExpressionNode<StringType>> containedExpression,
+			std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionNode<StringType>> containedExpression,
 			const StringType leadingTrivia,
 			const StringType trailingTrivia,
 			const StringType stringRepresentation
 		) :
-			::CmdCalculator::MathAst::DynamicGroupingNode<StringType>(std::move(containedExpression), leadingTrivia, trailingTrivia),
+			CmdCalculator::MathAst::DynamicGroupingNode<StringType>(std::move(containedExpression), leadingTrivia, trailingTrivia),
 			stringRepresentation{ stringRepresentation }
 		{}
 

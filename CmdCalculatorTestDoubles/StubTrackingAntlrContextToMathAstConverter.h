@@ -19,12 +19,12 @@ namespace CmdCalculatorTestDoubles
 {
 	template
 	<
-		::CmdCalculator::String StringT,
+		CmdCalculator::String StringT,
 		std::integral IntT,
-		::CmdCalculator::StringView SourceStringViewT
+		CmdCalculator::StringView SourceStringViewT
 	>
 	class StubTrackingAntlrContextToMathAstConverter :
-		public ::CmdCalculator::AntlrContextToMathAstConverter_IntendedSatisfaction
+		public CmdCalculator::AntlrContextToMathAstConverter_IntendedSatisfaction
 	{
 	public:
 
@@ -37,10 +37,10 @@ namespace CmdCalculatorTestDoubles
 		StringT convertedContextStringRepresentation;
 		StringT convertedContextLeadingTrivia;
 		StringT convertedContextTrailingTrivia;
-		//std::span<std::shared_ptr<::CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>>> convertedContextParts;
+		//std::span<std::shared_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<StringType>>> convertedContextParts;
 
 
-		std::unique_ptr<::CmdCalculator::MathAst::DynamicExpressionNode<StringType>> getConvertedFullExpressionContext
+		std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionNode<StringType>> getConvertedFullExpressionContext
 		(const FullExpressionAntlrContextType& context)
 		{
 			return
@@ -55,77 +55,77 @@ namespace CmdCalculatorTestDoubles
 		}
 
 
-		std::unique_ptr<::CmdCalculator::MathAst::DynamicExpressionNode<StringT>> getConvertedExpressionContext
-		(const ::CmdCalculator::AntlrContextTypeDeductions::ExpressionType<FullExpressionAntlrContextType>& context)
+		std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionNode<StringT>> getConvertedExpressionContext
+		(const CmdCalculator::AntlrContextTypeDeductions::ExpressionType<FullExpressionAntlrContextType>& context)
 		{
-			throw ::CmdCalculator::NotImplementedException{};
+			throw CmdCalculator::NotImplementedException{};
 		}
 
 
-		std::unique_ptr<::CmdCalculator::MathAst::DynamicOperandNode<StringT>> getConvertedOperandContext
-		(const ::CmdCalculator::AntlrContextTypeDeductions::OperandType<FullExpressionAntlrContextType>& context)
+		std::unique_ptr<CmdCalculator::MathAst::DynamicOperandNode<StringT>> getConvertedOperandContext
+		(const CmdCalculator::AntlrContextTypeDeductions::OperandType<FullExpressionAntlrContextType>& context)
 		{
-			throw ::CmdCalculator::NotImplementedException{};
+			throw CmdCalculator::NotImplementedException{};
 		}
 
 
-		std::unique_ptr<::CmdCalculator::ConvertedOperation_part_pairContext<StringType>> getConvertedOperationPartPairContext
-		(const ::CmdCalculator::AntlrContextTypeDeductions::OperationPartPairType<FullExpressionAntlrContextType>& context)
+		std::unique_ptr<CmdCalculator::ConvertedOperation_part_pairContext<StringType>> getConvertedOperationPartPairContext
+		(const CmdCalculator::AntlrContextTypeDeductions::OperationPartPairType<FullExpressionAntlrContextType>& context)
 		{
-			throw ::CmdCalculator::NotImplementedException{};
+			throw CmdCalculator::NotImplementedException{};
 		}
 
 
-		std::unique_ptr<::CmdCalculator::MathAst::DynamicBinaryOperatorNode<StringT>> getConvertedBinaryOperatorContext
+		std::unique_ptr<CmdCalculator::MathAst::DynamicBinaryOperatorNode<StringT>> getConvertedBinaryOperatorContext
 		(
-			const ::CmdCalculator::AntlrContextTypeDeductions::BinaryOperatorLeadingTriviaType<FullExpressionAntlrContextType>* const leadingTrivia,
-			const ::CmdCalculator::AntlrContextTypeDeductions::BinaryOperatorType<FullExpressionAntlrContextType>& context,
-			const ::CmdCalculator::AntlrContextTypeDeductions::BinaryOperatorTrailingTriviaType<FullExpressionAntlrContextType>* const trailingTrivia
+			const CmdCalculator::AntlrContextTypeDeductions::BinaryOperatorLeadingTriviaType<FullExpressionAntlrContextType>* const leadingTrivia,
+			const CmdCalculator::AntlrContextTypeDeductions::BinaryOperatorType<FullExpressionAntlrContextType>& context,
+			const CmdCalculator::AntlrContextTypeDeductions::BinaryOperatorTrailingTriviaType<FullExpressionAntlrContextType>* const trailingTrivia
 		)
 		{
-			throw ::CmdCalculator::NotImplementedException{};
+			throw CmdCalculator::NotImplementedException{};
 		}
 
 
-		std::unique_ptr<::CmdCalculator::MathAst::DynamicNumberLiteralNode<StringT, IntT>> getConvertedNumberLiteralContext
-		(const ::CmdCalculator::AntlrContextTypeDeductions::NumberLiteralType<FullExpressionAntlrContextType>& context)
+		std::unique_ptr<CmdCalculator::MathAst::DynamicNumberLiteralNode<StringT, IntT>> getConvertedNumberLiteralContext
+		(const CmdCalculator::AntlrContextTypeDeductions::NumberLiteralType<FullExpressionAntlrContextType>& context)
 		{
-			throw ::CmdCalculator::NotImplementedException{};
+			throw CmdCalculator::NotImplementedException{};
 		}
 
 
-		std::unique_ptr<::CmdCalculator::MathAst::DynamicSignOperationNode<StringT>> getConvertedSignOperationContext
-		(const ::CmdCalculator::AntlrContextTypeDeductions::SignOperationType<FullExpressionAntlrContextType>& context)
+		std::unique_ptr<CmdCalculator::MathAst::DynamicSignOperationNode<StringT>> getConvertedSignOperationContext
+		(const CmdCalculator::AntlrContextTypeDeductions::SignOperationType<FullExpressionAntlrContextType>& context)
 		{
-			throw ::CmdCalculator::NotImplementedException{};
+			throw CmdCalculator::NotImplementedException{};
 		}
 
 
-		std::unique_ptr<::CmdCalculator::MathAst::DynamicSqrtOperationNode<StringT>> getConvertedSqrtOperationContext
-		(const ::CmdCalculator::AntlrContextTypeDeductions::SqrtOperationType<FullExpressionAntlrContextType>& context)
+		std::unique_ptr<CmdCalculator::MathAst::DynamicSqrtOperationNode<StringT>> getConvertedSqrtOperationContext
+		(const CmdCalculator::AntlrContextTypeDeductions::SqrtOperationType<FullExpressionAntlrContextType>& context)
 		{
-			throw ::CmdCalculator::NotImplementedException{};
+			throw CmdCalculator::NotImplementedException{};
 		}
 
 
-		std::unique_ptr<::CmdCalculator::MathAst::DynamicGroupingNode<StringT>> getConvertedGroupingContext
-		(const ::CmdCalculator::AntlrContextTypeDeductions::GroupingType<FullExpressionAntlrContextType>& context)
+		std::unique_ptr<CmdCalculator::MathAst::DynamicGroupingNode<StringT>> getConvertedGroupingContext
+		(const CmdCalculator::AntlrContextTypeDeductions::GroupingType<FullExpressionAntlrContextType>& context)
 		{
-			throw ::CmdCalculator::NotImplementedException{};
+			throw CmdCalculator::NotImplementedException{};
 		}
 
 
-		std::unique_ptr<::CmdCalculator::MathAst::DynamicGroupingMultiplicationNode<StringT>> getConvertedGroupingMultiplicationContext
-		(const ::CmdCalculator::AntlrContextTypeDeductions::GroupingMultiplicationType<FullExpressionAntlrContextType>& context)
+		std::unique_ptr<CmdCalculator::MathAst::DynamicGroupingMultiplicationNode<StringT>> getConvertedGroupingMultiplicationContext
+		(const CmdCalculator::AntlrContextTypeDeductions::GroupingMultiplicationType<FullExpressionAntlrContextType>& context)
 		{
-			throw ::CmdCalculator::NotImplementedException{};
+			throw CmdCalculator::NotImplementedException{};
 		}
 
 
-		std::unique_ptr<::CmdCalculator::MathAst::DynamicAbsoluteValueNode<StringT>> getConvertedAbsoluteValueOperationContext
-		(const ::CmdCalculator::AntlrContextTypeDeductions::AbsoluteValueOperationType<FullExpressionAntlrContextType>& context)
+		std::unique_ptr<CmdCalculator::MathAst::DynamicAbsoluteValueNode<StringT>> getConvertedAbsoluteValueOperationContext
+		(const CmdCalculator::AntlrContextTypeDeductions::AbsoluteValueOperationType<FullExpressionAntlrContextType>& context)
 		{
-			throw ::CmdCalculator::NotImplementedException{};
+			throw CmdCalculator::NotImplementedException{};
 		}
 	};
 }

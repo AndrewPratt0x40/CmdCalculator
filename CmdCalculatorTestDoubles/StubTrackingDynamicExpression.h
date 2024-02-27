@@ -6,31 +6,38 @@
 #include <functional>
 
 #include "../CmdCalculator/DynamicExpression.h"
-#include "../CmdCalculator/DynamicExpressionBox.h"
+#include "../CmdCalculator/DynamicMathAstNode.h"
 #include "../CmdCalculator/Expression.h"
 
 namespace CmdCalculatorTestDoubles::Expressions
 {
-	template<CmdCalculator::Arithmetic::RealNumber NumberT>
-	struct StubDynamicExpression :
+	template
+	<
+		CmdCalculator::Arithmetic::RealNumber NumberT,
+		class SourceT
+	>
+	struct StubTrackingDynamicExpression :
 		public CmdCalculator::Expressions::DynamicExpression<NumberT>,
 		public CmdCalculator::Expressions::Expression_IntendedSatisfaction
 	{
 		using NumberType = CmdCalculator::Expressions::DynamicExpression<NumberT>::NumberType;
+		using SourceType = SourceT;
 		//using FullSimplificationFuncType = std::function<CmdCalculator::Expressions::DynamicExpressionBox<NumberType>()>;
 
 
+		std::reference_wrapper<SourceType> source;
 		NumberType evaluation;
 		//bool isSimplifiableValue;
 		//std::optional<FullSimplificationFuncType> fullSimplification;
 
 
-		StubDynamicExpression(NumberType evaluation) :
+		StubTrackingDynamicExpression(const SourceType& mathAstSource, NumberType evaluation) :
+			source{ std::ref(source) },
 			evaluation{ evaluation }
 		{}
 		
 		
-		virtual ~StubDynamicExpression() = default;
+		virtual ~StubTrackingDynamicExpression() = default;
 
 
 		/*bool isSimplifiable() const override

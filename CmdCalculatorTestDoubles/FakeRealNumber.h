@@ -13,7 +13,7 @@ namespace CmdCalculatorTestDoubles::Arithmetic
 {
 	// TODO: Unit test this class better
 	class FakeRealNumber :
-		public ::CmdCalculator::Arithmetic::RealNumber_IntendedSatisfaction
+		public CmdCalculator::Arithmetic::RealNumber_IntendedSatisfaction
 	{
 	private:
 		double m_value;
@@ -51,15 +51,15 @@ namespace CmdCalculatorTestDoubles::Arithmetic
 		}
 
 
-		::CmdCalculator::Arithmetic::ESign getSign() const
+		CmdCalculator::Arithmetic::ESign getSign() const
 		{
 			if (m_value == 0)
-				return ::CmdCalculator::Arithmetic::ESign::Neutral;
+				return CmdCalculator::Arithmetic::ESign::Neutral;
 
 			if (m_value > 0)
-				return ::CmdCalculator::Arithmetic::ESign::Positive;
+				return CmdCalculator::Arithmetic::ESign::Positive;
 
-			return ::CmdCalculator::Arithmetic::ESign::Negative;
+			return CmdCalculator::Arithmetic::ESign::Negative;
 		}
 
 

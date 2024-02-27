@@ -21,7 +21,7 @@ namespace CmdCalculatorTestDoubleTests
 		return parts.empty()
 			? ""
 			:
-				::CmdCalculator::Polyfills::ranges::fold_left
+				CmdCalculator::Polyfills::ranges::fold_left
 				(
 					parts
 					| std::views::take(parts.size() - 1)
@@ -40,7 +40,7 @@ namespace CmdCalculatorTestDoubleTests
 	}
 
 
-	static std::string stringifySplittingParts(const ::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto parts)
+	static std::string stringifySplittingParts(const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto parts)
 	{
 		return stringifySplittingParts
 		(

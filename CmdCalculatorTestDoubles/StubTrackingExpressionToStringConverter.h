@@ -10,11 +10,11 @@ namespace CmdCalculatorTestDoubles
 {
 	template
 	<
-		::CmdCalculator::Expressions::Expression ExpressionT,
-		::CmdCalculator::String InnerStringT
+		CmdCalculator::Expressions::Expression ExpressionT,
+		CmdCalculator::String InnerStringT
 	>
 	struct StubTrackingExpressionToStringConverter :
-		public ::CmdCalculator::ExpressionToStringConverter_IntendedSatisfaction
+		public CmdCalculator::ExpressionToStringConverter_IntendedSatisfaction
 	{
 		using ExpressionType = ExpressionT;
 		using StringType = StubTrackingConvertedString
@@ -25,7 +25,7 @@ namespace CmdCalculatorTestDoubles
 
 		InnerStringT stringifiedExpression;
 
-		StringType stringifyExpression(const ExpressionT& source, const ::CmdCalculator::CalculationConfiguration configuration) const
+		StringType stringifyExpression(const ExpressionT& source, const CmdCalculator::CalculationConfiguration configuration) const
 		{
 			return StringType
 			{

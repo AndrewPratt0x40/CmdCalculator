@@ -10,7 +10,7 @@
 namespace CmdCalculatorTestDoubles
 {
 	struct StubOperationPartPairAntlrContext :
-		public ::CmdCalculator::OperationPartPairAntlrContext_IntendedSatisfaction
+		public CmdCalculator::OperationPartPairAntlrContext_IntendedSatisfaction
 	{
 		using AntlrTokenType = StubAntlrToken<std::string>;
 		using BinaryOperatorAntlrContextType = StubBinaryOperatorAntlrContext;

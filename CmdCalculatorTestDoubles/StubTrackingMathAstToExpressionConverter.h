@@ -8,9 +8,9 @@
 
 namespace CmdCalculatorTestDoubles
 {
-	template<::CmdCalculator::MathAst::MathAstNode RootMathAstNodeT>
+	template<CmdCalculator::MathAst::MathAstNode RootMathAstNodeT>
 	struct StubTrackingMathAstToExpressionConverter :
-		public ::CmdCalculator::MathAstToExpressionConverter_IntendedSatisfaction
+		public CmdCalculator::MathAstToExpressionConverter_IntendedSatisfaction
 	{
 		using NumberType = Arithmetic::FakeRealNumber;
 		using RootMathAstNodeType = RootMathAstNodeT;

@@ -13,7 +13,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			::CmdCalculator::WholelessNumberLiteralAntlrContext
+			CmdCalculator::WholelessNumberLiteralAntlrContext
 			<
 				CmdCalculatorTestDoubles::StubWholelessNumberLiteralAntlrContext
 			>

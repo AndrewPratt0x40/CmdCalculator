@@ -8,9 +8,9 @@
 
 namespace CmdCalculatorTestDoubles
 {
-	template<::CmdCalculator::StringView StringViewT, ::CmdCalculator::String MathAstNodeStringT>
+	template<CmdCalculator::StringView StringViewT, CmdCalculator::String MathAstNodeStringT>
 	class StubTrackingStringToMathAstConverter :
-		public ::CmdCalculator::StringToMathAstConverter_IntendedSatisfaction
+		public CmdCalculator::StringToMathAstConverter_IntendedSatisfaction
 	{
 	public:
 		using StringViewType = StringViewT;

@@ -11,25 +11,25 @@
 #include "../CmdCalculator/DynamicExpressionPartNode.h"
 #include "../CmdCalculator/strings.h"
 #include "../CmdCalculator/NotImplementedException.h"
-#include "StubDynamicExpressionPartRecursiveSplitResult.h"
+#include "StubTrackingDynamicExpressionPartRecursiveSplitResult.h"
 
 
 namespace CmdCalculatorTestDoubles
 {
-	template<::CmdCalculator::String MathAstStringT>
+	template<CmdCalculator::String MathAstStringT>
 	class FakeHalfwayDynamicExpressionPartRecursiveSplitter :
-		public ::CmdCalculator::DynamicExpressionPartRecursiveSplitter_IntendedSatisfaction
+		public CmdCalculator::DynamicExpressionPartRecursiveSplitter_IntendedSatisfaction
 	{
 	public:
 		using MathAstStringType = MathAstStringT;
-		using DynamicExpressionPartType = ::CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringType>;
+		using DynamicExpressionPartType = CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringType>;
 
 
 	private:
 		
-		const ::CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringType>& getPart
+		const CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringType>& getPart
 		(
-			::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto parts,
+			CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto parts,
 			const std::integral auto index
 		) const
 		{
@@ -46,7 +46,7 @@ namespace CmdCalculatorTestDoubles
 
 
 		template<std::input_or_output_iterator PartsIterT>
-		StubDynamicExpressionPartRecursiveSplitResult<MathAstStringType> split
+		StubTrackingDynamicExpressionPartRecursiveSplitResult<std::ranges::subrange<PartsIterT>, MathAstStringType> split
 		(
 			const std::integral auto partsSize,
 			const std::ranges::subrange<PartsIterT> parts
@@ -55,8 +55,16 @@ namespace CmdCalculatorTestDoubles
 
 	public:
 
-		std::optional<StubDynamicExpressionPartRecursiveSplitResult<MathAstStringType>>
-			tryToSplit(::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto parts) const
+		template<CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> PartsT>
+		std::optional
+		<
+			StubTrackingDynamicExpressionPartRecursiveSplitResult
+			<
+				std::ranges::subrange<std::ranges::iterator_t<PartsT>>,
+				MathAstStringT
+			>
+		>
+			tryToSplit(PartsT parts) const
 		{
 			const std::integral auto partsSize{ std::ranges::ssize(parts) };
 			if (partsSize % 2 == 0)
@@ -68,9 +76,9 @@ namespace CmdCalculatorTestDoubles
 
 
 
-	template<::CmdCalculator::String MathAstStringT>
+	template<CmdCalculator::String MathAstStringT>
 	template<std::input_or_output_iterator PartsIterT>
-	inline StubDynamicExpressionPartRecursiveSplitResult<MathAstStringT>
+	inline StubTrackingDynamicExpressionPartRecursiveSplitResult<std::ranges::subrange<PartsIterT>, MathAstStringT>
 		FakeHalfwayDynamicExpressionPartRecursiveSplitter<MathAstStringT>::split
 	(
 		const std::integral auto partsSize,
@@ -82,8 +90,9 @@ namespace CmdCalculatorTestDoubles
 
 		if (partsSize == 1)
 		{
-			return StubDynamicExpressionPartRecursiveSplitResult<MathAstStringType>
+			return StubTrackingDynamicExpressionPartRecursiveSplitResult<std::ranges::subrange<PartsIterT>, MathAstStringType>
 			{
+				.sourceParts{ parts },
 				.leftPart{},
 				.splitPart{ std::ref<const CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringType>>(getPart(parts, 0)) },
 				.rightPart{}
@@ -97,11 +106,12 @@ namespace CmdCalculatorTestDoubles
 			: partsSize / 2
 		};
 
-		return StubDynamicExpressionPartRecursiveSplitResult<MathAstStringType>
+		return StubTrackingDynamicExpressionPartRecursiveSplitResult<std::ranges::subrange<PartsIterT>, MathAstStringType>
 		{
+			.sourceParts{ parts },
 			.leftPart
 			{
-				std::make_unique<StubDynamicExpressionPartRecursiveSplitResult<MathAstStringType>>
+				std::make_unique<StubTrackingDynamicExpressionPartRecursiveSplitResult<std::ranges::subrange<PartsIterT>, MathAstStringType>>
 				(
 					split
 					(
@@ -113,7 +123,7 @@ namespace CmdCalculatorTestDoubles
 			.splitPart{ std::ref<const CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringType>>(getPart(parts, splitIndex)) },
 			.rightPart
 			{
-				std::make_unique<StubDynamicExpressionPartRecursiveSplitResult<MathAstStringType>>
+				std::make_unique<StubTrackingDynamicExpressionPartRecursiveSplitResult<std::ranges::subrange<PartsIterT>, MathAstStringType>>
 				(
 					split
 					(

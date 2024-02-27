@@ -5,7 +5,7 @@
 namespace CmdCalculatorTestDoubles
 {
 	struct DummyInvalidInputExpressionException :
-		public ::CmdCalculator::InvalidInputExpressionException
+		public CmdCalculator::InvalidInputExpressionException
 	{
 	};
 }

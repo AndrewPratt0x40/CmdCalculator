@@ -20,7 +20,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			::CmdCalculator::DynamicExpressionPartSingleSplitter
+			CmdCalculator::DynamicExpressionPartSingleSplitter
 			<
 				CmdCalculatorTestDoubles::FakeHalfwayDynamicExpressionPartSingleSplitter
 				<
@@ -231,7 +231,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		// Arrange
 		ASSERT_FALSE(GetParam().expectCanSplit);
-		const ::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto parts
+		const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto parts
 		{
 			GetParam().parts
 			| std::views::transform
@@ -280,7 +280,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		// Arrange
 		ASSERT_TRUE(GetParam().expectCanSplit);
-		const ::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto parts
+		const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto parts
 		{
 			GetParam().parts
 			| std::views::transform
@@ -322,7 +322,7 @@ namespace CmdCalculatorTestDoubleTests
 	TEST_P(FakeHalfwayDynamicExpressionPartSingleSplitter$tryToSplit$withAnyParts$Tests, calling$tryToSplit$returns$value$IFF$canSplit$returns$true)
 	{
 		// Arrange
-		const ::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto parts
+		const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto parts
 		{
 			GetParam().parts
 			| std::views::transform
@@ -371,7 +371,7 @@ namespace CmdCalculatorTestDoubleTests
 	TEST_P(FakeHalfwayDynamicExpressionPartSingleSplitter$tryToSplit$withSplittableParts$Tests, calling$tryToSplit$with$splittable$parts$returns$split$parts)
 	{
 		// Arrange
-		const ::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto parts
+		const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto parts
 		{
 			GetParam().parts
 			| std::views::transform
@@ -398,7 +398,7 @@ namespace CmdCalculatorTestDoubleTests
 				returnValue.value().getLeftParts()
 				| std::views::transform
 				(
-					[](const ::CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>& expressionPart)
+					[](const CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>& expressionPart)
 					{ return expressionPart.getStringRepresentation(); }
 				)
 			)
@@ -412,7 +412,7 @@ namespace CmdCalculatorTestDoubleTests
 				returnValue.value().getRightParts()
 				| std::views::transform
 				(
-					[](const ::CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>& expressionPart)
+					[](const CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>& expressionPart)
 					{ return expressionPart.getStringRepresentation(); }
 				)
 			)

@@ -3,9 +3,26 @@
 
 
 
-template<CmdCalculator::DynamicOperandToDynamicExpressionConverter OperandToExpressionConverterT>
-inline typename CmdCalculator::DynamicMathAstToDynamicExpressionConverter<OperandToExpressionConverterT>::OutputExpressionType
-	CmdCalculator::DynamicMathAstToDynamicExpressionConverter<OperandToExpressionConverterT>::getMathAstAsExpression
+template
+<
+	CmdCalculator::DynamicExpressionPartRecursiveSplitter DynamicExpressionPartRecursiveSplitterT,
+	CmdCalculator::RecursiveSplitResultToDynamicExpressionConverter RecursiveSplitResultToDynamicExpressionConverterT
+>
+	requires CmdCalculator::CompatibleSplitterAndResultToExpressionConverter
+	<
+		DynamicExpressionPartRecursiveSplitterT,
+		RecursiveSplitResultToDynamicExpressionConverterT
+	>
+inline typename CmdCalculator::DynamicMathAstToDynamicExpressionConverter
+<
+	DynamicExpressionPartRecursiveSplitterT,
+	RecursiveSplitResultToDynamicExpressionConverterT
+>::OutputExpressionType
+	CmdCalculator::DynamicMathAstToDynamicExpressionConverter
+	<
+		DynamicExpressionPartRecursiveSplitterT,
+		RecursiveSplitResultToDynamicExpressionConverterT
+	>::getMathAstAsExpression
 (
 	const RootMathAstNodeType& sourceRootNode
 ) const

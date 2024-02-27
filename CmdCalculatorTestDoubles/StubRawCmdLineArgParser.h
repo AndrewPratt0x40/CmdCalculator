@@ -9,22 +9,22 @@
 
 namespace CmdCalculatorTestDoubles
 {
-	template<::CmdCalculator::String ExpressionStringT>
+	template<CmdCalculator::String ExpressionStringT>
 	struct StubRawCmdLineArgParser :
-		public ::CmdCalculator::RawCmdLineArgParser_IntendedSatisfaction
+		public CmdCalculator::RawCmdLineArgParser_IntendedSatisfaction
 	{
 		using ExpressionStringType = ExpressionStringT;
 
-		::CmdCalculator::ProcessConfiguration<ExpressionStringT> parsedRawCmdLineArgs;
+		CmdCalculator::ProcessConfiguration<ExpressionStringT> parsedRawCmdLineArgs;
 
 		
-		::CmdCalculator::ProcessConfiguration<ExpressionStringT> parseRawCmdLineArgs
+		CmdCalculator::ProcessConfiguration<ExpressionStringT> parseRawCmdLineArgs
 		(
 			auto&& rawCmdLineArgs,
-			const ::CmdCalculator::ProcessConfiguration<ExpressionStringT>& defaultConfiguration
+			const CmdCalculator::ProcessConfiguration<ExpressionStringT>& defaultConfiguration
 		) const
 			requires std::ranges::forward_range<decltype(rawCmdLineArgs)>
-			&& ::CmdCalculator::String<std::ranges::range_value_t<decltype(rawCmdLineArgs)>>
+			&& CmdCalculator::String<std::ranges::range_value_t<decltype(rawCmdLineArgs)>>
 		{
 			return parsedRawCmdLineArgs;
 		}

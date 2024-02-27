@@ -64,7 +64,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			::CmdCalculator::Calculation
+			CmdCalculator::Calculation
 			<
 				CmdCalculatorTestDoubles::StubThrowingCalculation
 				<

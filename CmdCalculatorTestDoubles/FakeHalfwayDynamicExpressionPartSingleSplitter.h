@@ -13,15 +13,15 @@
 
 namespace CmdCalculatorTestDoubles
 {
-	template<::CmdCalculator::String MathAstStringT>
+	template<CmdCalculator::String MathAstStringT>
 	struct FakeHalfwayDynamicExpressionPartSingleSplitter :
-		public ::CmdCalculator::DynamicExpressionPartSingleSplitter_IntendedSatisfaction
+		public CmdCalculator::DynamicExpressionPartSingleSplitter_IntendedSatisfaction
 	{
 		using MathAstStringType = MathAstStringT;
-		using DynamicExpressionPartType = ::CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringType>;
+		using DynamicExpressionPartType = CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringType>;
 
 
-		bool canSplit(::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto parts) const
+		bool canSplit(CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto parts) const
 		{
 			const std::integral auto partsSize{ std::ranges::size(parts) };
 			return partsSize >= 3;
@@ -29,20 +29,20 @@ namespace CmdCalculatorTestDoubles
 		
 		
 		std::optional<StubDynamicExpressionPartSingleSplitResult<MathAstStringType>>
-			tryToSplit(::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto parts) const
+			tryToSplit(CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto parts) const
 		{
 			if (!canSplit(parts))
 				return {};
 
 			const std::integral auto leftPartsSize{ std::ranges::size(parts) / 2 };
 
-			const ::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto leftParts
+			const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto leftParts
 			{
 				parts
 				| std::views::take(leftPartsSize)
 				| std::views::transform
 				(
-					[](const ::CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringType>& leftPart)
+					[](const CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringType>& leftPart)
 					{ return std::ref(leftPart); }
 				)
 			};
@@ -52,13 +52,13 @@ namespace CmdCalculatorTestDoubles
 				*(std::ranges::cbegin(parts) + leftPartsSize)
 			};
 
-			const ::CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto rightParts
+			const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto rightParts
 			{
 				parts
 				| std::views::drop(leftPartsSize + 1)
 				| std::views::transform
 				(
-					[](const ::CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringType>& rightPart)
+					[](const CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringType>& rightPart)
 					{ return std::ref(rightPart); }
 				)
 			};

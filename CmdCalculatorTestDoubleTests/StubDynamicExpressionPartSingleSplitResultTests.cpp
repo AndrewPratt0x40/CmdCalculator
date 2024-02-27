@@ -13,7 +13,7 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		static_assert
 		(
-			::CmdCalculator::DynamicExpressionPartSingleSplitResult
+			CmdCalculator::DynamicExpressionPartSingleSplitResult
 			<
 				CmdCalculatorTestDoubles::StubDynamicExpressionPartSingleSplitResult
 				<

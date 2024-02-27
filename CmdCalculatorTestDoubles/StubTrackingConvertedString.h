@@ -9,8 +9,8 @@ namespace CmdCalculatorTestDoubles
 {
 	template
 	<
-		::CmdCalculator::String StringT,
-		::CmdCalculator::Expressions::Expression SourceExpressionT
+		CmdCalculator::String StringT,
+		CmdCalculator::Expressions::Expression SourceExpressionT
 	>
 	struct StubTrackingConvertedString
 	{
@@ -21,7 +21,7 @@ namespace CmdCalculatorTestDoubles
 
 		StringT value;
 		SourceExpressionT expressionSource;
-		::CmdCalculator::CalculationConfiguration configurationUsed;
+		CmdCalculator::CalculationConfiguration configurationUsed;
 
 		
 		operator StringT() const

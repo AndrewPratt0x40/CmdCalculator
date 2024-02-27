@@ -8,9 +8,9 @@
 
 namespace CmdCalculatorTestDoubles::Expressions
 {
-	template<::CmdCalculator::Arithmetic::RealNumber NumberT>
+	template<CmdCalculator::Arithmetic::RealNumber NumberT>
 	struct StubExpression :
-		public ::CmdCalculator::Expressions::Expression_IntendedSatisfaction
+		public CmdCalculator::Expressions::Expression_IntendedSatisfaction
 	{
 		using NumberType = NumberT;
 

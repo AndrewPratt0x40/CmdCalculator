@@ -8,13 +8,13 @@
 #include "../CmdCalculator/DynamicOperandNode.h"
 #include "../CmdCalculator/DynamicExpression.h"
 #include "../CmdCalculator/strings.h"
-#include "../CmdCalculatorTestDoubles/StubDynamicExpression.h"
+#include "../CmdCalculatorTestDoubles/StubTrackingDynamicExpression.h"
 
 
 namespace CmdCalculatorTestDoubles
 {
 	template<CmdCalculator::String MathAstStringT, CmdCalculator::Arithmetic::RealNumber ExpressionNumberT>
-	struct StubDynamicOperandToDynamicExpressionConverter :
+	struct StubTrackingDynamicOperandToDynamicExpressionConverter :
 		public CmdCalculator::DynamicOperandToDynamicExpressionConverter_IntendedSatisfaction
 	{
 		using MathAstStringType = MathAstStringT;
@@ -26,8 +26,16 @@ namespace CmdCalculatorTestDoubles
 		std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<ExpressionNumberType>> getOperandAsExpression
 			(const CmdCalculator::MathAst::DynamicOperandNode<MathAstStringType>& sourceOperand) const
 		{
-			return std::make_unique<CmdCalculatorTestDoubles::Expressions::StubDynamicExpression<ExpressionNumberType>>
-				(convertedOperandEvaluation)
+			return 
+				std::make_unique
+				<
+					CmdCalculatorTestDoubles::Expressions::StubTrackingDynamicExpression
+					<
+						ExpressionNumberType,
+						CmdCalculator::MathAst::DynamicOperandNode<MathAstStringType>
+					>
+				>
+				(sourceOperand, convertedOperandEvaluation)
 			;
 		}
 	};

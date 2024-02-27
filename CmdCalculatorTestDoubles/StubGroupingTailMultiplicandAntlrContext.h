@@ -9,7 +9,7 @@
 namespace CmdCalculatorTestDoubles
 {
 	struct StubGroupingTailMultiplicandAntlrContext :
-		public ::CmdCalculator::GroupingTailMultiplicandAntlrContext_IntendedSatisfaction
+		public CmdCalculator::GroupingTailMultiplicandAntlrContext_IntendedSatisfaction
 	{
 		using AntlrTokenType = StubAntlrToken<std::string>;
 		using GroupingAntlrContextType = StubGroupingAntlrContext;
