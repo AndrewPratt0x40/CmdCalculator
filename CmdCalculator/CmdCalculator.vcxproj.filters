@@ -767,7 +767,7 @@
     <ClCompile Include="NegativeRadicandException.cpp">
       <Filter>Source Code\Exceptions\ExpressionEvaluationException\NegativeRadicandException</Filter>
     </ClCompile>
-    <ClCompile Include="DynamicMathAstToDynamicExpressionConverter.cpp">
+    <ClCompile Include="DynamicMathAstToDynamicExpressionConverter.hpp">
       <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter</Filter>
     </ClCompile>
   </ItemGroup>

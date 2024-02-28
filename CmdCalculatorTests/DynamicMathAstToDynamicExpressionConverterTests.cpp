@@ -3,17 +3,21 @@
 #include <string>
 #include <format>
 #include <algorithm>
+#include <memory>
 #include <concepts>
 #include <ranges>
 #include <vector>
+#include <functional>
 
 #include "../CmdCalculator/DynamicMathAstToDynamicExpressionConverter.h"
 #include "../CmdCalculator/MathAstToExpressionConverter.h"
+#include "../CmdCalculator/DynamicExpressionBox.h"
 #include "../CmdCalculator/std_polyfills.h"
 #include "../CmdCalculatorTestDoubles/StubTrackingDynamicOperandToDynamicExpressionConverter.h"
 #include "../CmdCalculatorTestDoubles/StubTrackingRecursiveSplitResultToDynamicExpressionConverter.h"
 #include "../CmdCalculatorTestDoubles/FakeHalfwayDynamicExpressionPartRecursiveSplitter.h"
 #include "../CmdCalculatorTestDoubles/StubTrackingDynamicExpression.h"
+#include "../CmdCalculatorTestDoubles/StubDynamicExpressionNode.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpressionPartNode.h"
 #include "../CmdCalculatorTestDoubles/FakeRealNumber.h"
 
@@ -57,32 +61,8 @@ namespace CmdCalculatorTests
 
 	struct DynamicMathAstToDynamicExpressionConverter_getMathAstAsExpression_TestData
 	{
-		std::vector<std::string> parts;
-
-
-		std::string stringifyParts() const
-		{
-			if (parts.empty())
-				return "";
-
-			return
-				CmdCalculator::Polyfills::ranges::fold_left
-				(
-					parts
-						|std::views::take(parts.size() - 1)
-						|std::views::drop(1)
-						| std::views::transform
-						(
-							[](const std::string& part)
-							{ return std::format("\"{}\", ", part); }
-						)
-					,
-					std::format("\"{}\", ", parts.front()),
-					std::plus<std::string>()
-				)
-				+ std::format("\"{}\"", parts.back())
-			;
-		}
+		std::string desc;
+		std::function<std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionNode<std::string>>()> sourceExpression;
 		
 		
 		friend std::ostream& operator<<
@@ -92,9 +72,9 @@ namespace CmdCalculatorTests
 		)
 		{
 			ostream
-				<< "FakeHalfwayDynamicExpressionPartRecursiveSplitter.getMathAstAsExpression({"
-				<< testData.stringifyParts()
-				<< "}) = "
+				<< "FakeHalfwayDynamicExpressionPartRecursiveSplitter.getMathAstAsExpression("
+				<< testData.desc
+				<< ") = "
 				// TODO: << testData.expectedResult.value_or("{}")
 			;
 
@@ -111,6 +91,7 @@ namespace CmdCalculatorTests
 	{
 		{
 			// TODO
+			.sourceExpression{}
 		}
 	};
 
@@ -124,42 +105,20 @@ namespace CmdCalculatorTests
 	TEST_P(DynamicMathAstToDynamicExpressionConverter$getMathAstAsExpression$Tests, getMathAstAsExpression$returns$the$result$of$splitting$and$converting$the$given$parts)
 	{
 		// Arrange
-		using ExpressionNodePartType = CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>;
+		using NumberType = CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber;
 		using SplitterType = CmdCalculatorTestDoubles::FakeHalfwayDynamicExpressionPartRecursiveSplitter<std::string>;
 		using SplitResultConverterType = CmdCalculatorTestDoubles::StubTrackingRecursiveSplitResultToDynamicExpressionConverter
 		<
 			CmdCalculator::SplitResultType<SplitterType>,
-			CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber
+			NumberType
 		>;
 
+		std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionNode<std::string>> rootSourceNode
+		{
+			GetParam().sourceExpression()
+		};
 		SplitterType splitter{};
 		SplitResultConverterType splitResultConverter{};
-
-		const std::ranges::common_range auto partsCreationRange
-		{
-			GetParam().parts
-			| std::views::transform
-			(
-				[](const std::string& part)
-				{
-					return ExpressionNodePartType{false, "", "", part};
-				}
-			)
-		};
-		const std::vector<ExpressionNodePartType> parts
-		{
-			std::ranges::begin(partsCreationRange),
-			std::ranges::end(partsCreationRange)
-		};
-		const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto partRefsView
-		{
-			parts
-			| std::views::transform
-			(
-				[](const auto& part)
-				{ return std::ref(part); }
-			)
-		};
 
 		CmdCalculator::DynamicMathAstToDynamicExpressionConverter<SplitterType, SplitResultConverterType> instance
 		{
@@ -167,8 +126,26 @@ namespace CmdCalculatorTests
 			std::move(splitResultConverter)
 		};
 
-		// Arrange
-		instance.getMathAstAsExpression()
+		// Act
+		const decltype(instance)::OutputExpressionType returnValue
+		{
+			instance.getMathAstAsExpression(*rootSourceNode)
+		};
+
+		// Assert
+		/*static_assert
+		(
+			std::same_as
+			<
+				decltype(returnValue.getInnerValue()),
+				const decltype(instance)::OutputExpressionInnerType&
+			>
+		);
+		const typename decltype(instance)::OutputExpressionInnerType& actualExpression
+		{
+			returnValue.getInnerValue()
+		};*/
+		//actualExpression.source.get().sourceParts.front().get()
 	}
 
 #pragma endregion

@@ -32,25 +32,20 @@ namespace CmdCalculatorTestDoubles
 		using SourceSplitResultType = SourceSplitResultT;
 		using ExpressionNumberType = ExpressionNumberT;
 		using MathAstStringType = SourceSplitResultType::MathAstStringType;
+		using ConvertedSplitResultType = CmdCalculatorTestDoubles::Expressions::StubTrackingDynamicExpression
+		<
+			ExpressionNumberType,
+			SourceSplitResultType
+		>;
 
 
-		ExpressionNumberType convertedOperandEvaluation;
+		ExpressionNumberType convertedSplitResultEvaluation;
 
 
-		std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<ExpressionNumberType>> getSplitResultAsExpression
+		std::unique_ptr<ConvertedSplitResultType> getSplitResultAsExpression
 			(const SourceSplitResultType& sourceSplitResult) const
 		{
-			return
-				std::make_unique
-				<
-					CmdCalculatorTestDoubles::Expressions::StubTrackingDynamicExpression
-					<
-						ExpressionNumberType,
-						SourceSplitResultType
-					>
-				>
-				(sourceSplitResult, convertedOperandEvaluation)
-			;
+			return std::make_unique<ConvertedSplitResultType>(sourceSplitResult, convertedSplitResultEvaluation);
 		}
 	};
 }

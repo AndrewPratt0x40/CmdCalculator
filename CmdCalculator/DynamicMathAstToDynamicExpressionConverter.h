@@ -57,7 +57,20 @@ namespace CmdCalculator
 
 		using RootMathAstNodeType = MathAst::DynamicExpressionNode<MathAstStringType>;
 		using OutputExpressionNumberType = RecursiveSplitResultToDynamicExpressionConverterType::ExpressionNumberType;
-		using OutputExpressionType = Expressions::DynamicExpressionBox<OutputExpressionNumberType>;
+		using OutputExpressionInnerType =
+			SmartPointedToType
+			<
+				decltype
+				(
+					std::declval<RecursiveSplitResultToDynamicExpressionConverterType>()
+					.getSplitResultAsExpression
+					(
+						std::declval<SplitResultType<DynamicExpressionPartRecursiveSplitterType>>()
+					)
+				)
+			>
+		;
+		using OutputExpressionType = Expressions::DynamicExpressionBox<OutputExpressionInnerType>;
 
 
 	private:
@@ -82,3 +95,6 @@ namespace CmdCalculator
 		OutputExpressionType getMathAstAsExpression(const RootMathAstNodeType& sourceRootNode) const;
 	};
 }
+
+
+#include "DynamicMathAstToDynamicExpressionConverter.hpp"

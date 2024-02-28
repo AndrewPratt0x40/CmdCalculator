@@ -20,7 +20,7 @@ namespace CmdCalculatorTests
 			<
 				CmdCalculator::Expressions::DynamicExpressionBox
 				<
-					CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber
+					CmdCalculator::Expressions::DynamicExpression<CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber>
 				>
 			>
 		);
@@ -53,11 +53,11 @@ namespace CmdCalculatorTests
 		using NumberType = CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber;
 		using InnerType = CmdCalculatorTestDoubles::Expressions::StubDynamicExpression<NumberType>;
 		const double expectedEvaluation{ GetParam() };
-		const CmdCalculator::Expressions::DynamicExpressionBox<NumberType> instance
+		const CmdCalculator::Expressions::DynamicExpressionBox<InnerType> instance
 		{
 			std::move
 			(
-				std::make_unique<InnerType>(GetParam())
+				std::make_unique<InnerType>(NumberType{ GetParam() })
 			)
 		};
 
