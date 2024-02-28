@@ -44,7 +44,7 @@ namespace CmdCalculator::MathAst
 		/// \param trailingTrivia Trivial content at the end of the string contents of the node.
 		/// \param parts A range of every part of the expression, in order.
 		template<std::ranges::forward_range PartsRangeT>
-			requires std::same_as<std::unique_ptr<DynamicExpressionPartNode<StringType>>, std::ranges::range_value_t<PartsRangeT>>
+			requires std::convertible_to<std::unique_ptr<DynamicExpressionPartNode<StringType>>, std::ranges::range_value_t<PartsRangeT>>
 		DynamicExpressionNode
 		(
 			const StringType leadingTrivia,

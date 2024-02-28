@@ -18,25 +18,7 @@ namespace CmdCalculatorTestDoubleTests
 	static std::string stringifySplittingParts(std::ranges::forward_range auto parts)
 		requires std::same_as<std::string, std::ranges::range_value_t<decltype(parts)>>
 	{
-		return parts.empty()
-			? ""
-			:
-				CmdCalculator::Polyfills::ranges::fold_left
-				(
-					parts
-					| std::views::take(parts.size() - 1)
-					| std::views::drop(1)
-					| std::views::transform
-					(
-						[](const std::string& part)
-						{ return std::format("\"{}\", ", part); }
-					)
-					,
-					std::format("\"{}\", ", parts.front()),
-					std::plus<std::string>()
-				)
-				+ std::format("\"{}\"", parts.back())
-		;
+		return CmdCalculatorTestUtils::joinStrings(parts);
 	}
 
 

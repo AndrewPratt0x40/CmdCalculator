@@ -4,12 +4,14 @@
 
 #include <algorithm>
 #include <concepts>
+#include <format>
 #include <ranges>
 #include <vector>
 #include <array>
 #include <optional>
 #include <utility>
 
+#include "../CmdCalculator/std_polyfills.h"
 #include "../CmdCalculator/ESign.h"
 
 
@@ -41,6 +43,51 @@ namespace CmdCalculatorTestUtils
 	auto ValuesInRange(std::ranges::forward_range auto range)
 	{
 		return testing::ValuesIn(std::ranges::begin(range), std::ranges::end(range));
+	}
+
+
+	template<class T>
+	concept StringForwardRange =
+		std::ranges::forward_range<T>
+		&& std::convertible_to<std::string, std::ranges::range_value_t<T>>
+	;
+
+
+	constexpr std::string joinStrings
+	(
+		const StringForwardRange auto parts,
+		const std::string sep
+	)
+	{
+		return parts.empty()
+			? ""
+			:
+				CmdCalculator::Polyfills::ranges::fold_left
+				(
+					parts
+					| std::views::take(parts.size() - 1)
+					| std::views::drop(1)
+					| std::views::transform
+					(
+						[&sep](const std::string& part)
+						{ return std::format("{}{}", part, sep); }
+					)
+					,
+					std::format("{}{}", parts.front(), sep),
+					std::plus<std::string>()
+				)
+				+ parts.back()
+		;
+	}
+
+
+	std::string joinStrings
+	(
+		const StringForwardRange auto parts,
+		const char sep = ','
+	)
+	{
+		return joinStrings(parts, std::string{ 1, sep });
 	}
 
 

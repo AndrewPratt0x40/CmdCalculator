@@ -125,7 +125,7 @@ namespace CmdCalculatorTestDoubleTests
 		},
 		{
 			.parts{ makeExpressionParts({ "Part1" }) },
-			.expectedResult{ std::make_optional<std::string>("{null<Part1>null}") }
+			.expectedResult{ std::make_optional<std::string>("{[Part1]->null<Part1>null}") }
 		},
 		{
 			.parts{ makeExpressionParts({ "Part1", "Part2" }) },
@@ -133,7 +133,7 @@ namespace CmdCalculatorTestDoubleTests
 		},
 		{
 			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3" }) },
-			.expectedResult{ std::make_optional<std::string>("{{null<Part1>null}<Part2>{null<Part3>null}}") }
+			.expectedResult{ std::make_optional<std::string>("{[Part1,Part2,Part3]->{[Part1]->null<Part1>null}<Part2>{[Part3]->null<Part3>null}}") }
 		},
 		{
 			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4" }) },
@@ -141,7 +141,7 @@ namespace CmdCalculatorTestDoubleTests
 		},
 		{
 			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4", "Part5" }) },
-			.expectedResult{ std::make_optional<std::string>("{{null<Part1>null}<Part2>{{null<Part3>null}<Part4>{null<Part5>null}}}") }
+			.expectedResult{ std::make_optional<std::string>("{[Part1,Part2,Part3,Part4,Part5]->{null<Part1>null}<Part2>{[Part3,Part4,Part5]->{[Part3]->null<Part3>null}<Part4>{[Part5]->null<Part5>null}}}") }
 		},
 		{
 			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6" }) },
@@ -149,7 +149,7 @@ namespace CmdCalculatorTestDoubleTests
 		},
 		{
 			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6", "Part7" }) },
-			.expectedResult{ std::make_optional<std::string>("{{{null<Part1>null}<Part2>{null<Part3>null}}<Part4>{{null<Part5>null}<Part6>{null<Part7>null}}}") }
+			.expectedResult{ std::make_optional<std::string>("{[Part1,Part2,Part3,Part4,Part5,Part6,Part7]->{[Part1,Part2,Part3]->{[Part1]->null<Part1>null}<Part2>{[Part3]->null<Part3>null}}<Part4>{[Part5,Part6,Part7]->{[Part5]->null<Part5>null}<Part6>{[Part7]->null<Part7>null}}}") }
 		},
 		{
 			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6", "Part7", "Part8" }) },
@@ -157,7 +157,7 @@ namespace CmdCalculatorTestDoubleTests
 		},
 		{
 			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6", "Part7", "Part8", "Part9" }) },
-			.expectedResult{ std::make_optional<std::string>("{{{null<Part1>null}<Part2>{null<Part3>null}}<Part4>{{null<Part5>null}<Part6>{{null<Part7>null}<Part8>{null<Part9>null}}}}") }
+			.expectedResult{ std::make_optional<std::string>("{[Part1,Part2,Part3,Part4,Part5,Part6,Part7,Part8,Part9]->{[Part1,Part2,Part3]->{[Part1]->null<Part1>null}<Part2>{[Part3]->null<Part3>null}}<Part4>{[Part5,Part6,Part7,Part8,Part9]->{[Part5]->null<Part5>null}<Part6>{[Part7,Part8,Part9]->{[Part7]->null<Part7>null}<Part8>{[Part9]->null<Part9>null}}}}") }
 		},
 		{
 			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6", "Part7", "Part8", "Part9", "Part10" }) },
@@ -165,7 +165,7 @@ namespace CmdCalculatorTestDoubleTests
 		},
 		{
 			.parts{ makeExpressionParts({ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6", "Part7", "Part8", "Part9", "Part10", "Part11" }) },
-			.expectedResult{ std::make_optional<std::string>("{{{null<Part1>null}<Part2>{{null<Part3>null}<Part4>{null<Part5>null}}}<Part6>{{null<Part7>null}<Part8>{{null<Part9>null}<Part10>{null<Part11>null}}}}") }
+			.expectedResult{ std::make_optional<std::string>("{[Part1,Part2,Part3,Part4,Part5,Part6,Part7,Part8,Part9,Part10,Part11]->{[Part1,Part2,Part3,Part4,Part5]->{[Part1]->null<Part1>null}<Part2>{[Part3,Part4,Part5]->{[Part3]->null<Part3>null}<Part4>{[Part5]->null<Part5>null}}}<Part6>{[Part7,Part8,Part9,Part10,Part11]->{[Part1]->null<Part7>null}<Part8>{[Part9,Part10,Part11]->{[Part9]->null<Part9>null}<Part10>{[Part11]->null<Part11>null}}}}") }
 		}
 	};
 
