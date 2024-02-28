@@ -47,25 +47,34 @@ namespace CmdCalculatorTestUtils
 
 
 	template<class T>
-	concept StringForwardRange =
+	concept SizedForwardStringRange =
 		std::ranges::forward_range<T>
+		&& std::ranges::sized_range<T>
 		&& std::convertible_to<std::string, std::ranges::range_value_t<T>>
 	;
 
 
 	constexpr std::string joinStrings
 	(
-		const StringForwardRange auto parts,
+		const SizedForwardStringRange auto parts,
 		const std::string sep
 	)
 	{
+		if (std::ranges::empty(parts))
+			return "";
+
+		const std::integral auto numParts{ std::ranges::size(parts) };
+
+		if (numParts == 1)
+			return *std::ranges::begin(parts);
+
 		return parts.empty()
 			? ""
 			:
 				CmdCalculator::Polyfills::ranges::fold_left
 				(
 					parts
-					| std::views::take(parts.size() - 1)
+					| std::views::take(numParts - 1)
 					| std::views::drop(1)
 					| std::views::transform
 					(
@@ -73,21 +82,20 @@ namespace CmdCalculatorTestUtils
 						{ return std::format("{}{}", part, sep); }
 					)
 					,
-					std::format("{}{}", parts.front(), sep),
+					std::format("{}{}", *std::ranges::begin(parts), sep),
 					std::plus<std::string>()
 				)
-				+ parts.back()
+				+ *(std::ranges::next(std::ranges::begin(parts), numParts - 1))
 		;
 	}
 
 
 	std::string joinStrings
 	(
-		const StringForwardRange auto parts,
-		const char sep = ','
+		const SizedForwardStringRange auto parts
 	)
 	{
-		return joinStrings(parts, std::string{ 1, sep });
+		return joinStrings(parts, ",");
 	}
 
 

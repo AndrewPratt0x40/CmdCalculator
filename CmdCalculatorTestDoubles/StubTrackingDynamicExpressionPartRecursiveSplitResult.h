@@ -8,6 +8,7 @@
 #include <format>
 #include <iostream>
 
+#include "../CmdCalculatorTestUtils/common.h"
 #include "../CmdCalculator/DynamicExpressionPartRecursiveSplitResult.h"
 #include "../CmdCalculator/DynamicExpressionPartNode.h"
 #include "../CmdCalculator/DynamicExpressionPartRecursiveSplitter.h"
@@ -62,18 +63,14 @@ namespace CmdCalculatorTestDoubles
 			return std::format
 			(
 				"{{[{}]->{}<{}>{}}}",
-				CmdCalculator::Polyfills::ranges::fold_left
+				CmdCalculatorTestUtils::joinStrings
 				(
 					sourceParts
-						| std::views::drop(1)
-						| std::views::transform
-						(
-							[](const CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringT>& sourcePart)
-							{ return sourcePart.getStringRepresentation(); }
-						)
-					,
-					(*std::ranges::begin(sourceParts)).get().getStringRepresentation(),
-					std::plus<std::string>()
+					| std::views::transform
+					(
+						[](const CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringType>& part)
+						{ return CmdCalculator::convertString<char>(part.getStringRepresentation()); }
+					)
 				),
 				leftPart ? (leftPart->STUB_getStringRepresentation()) : "null"s,
 				splitPart.get().getStringRepresentation(),
