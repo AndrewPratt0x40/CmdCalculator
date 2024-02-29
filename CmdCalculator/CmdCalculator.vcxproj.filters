@@ -298,6 +298,12 @@
     <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter">
       <UniqueIdentifier>{70da2a39-45b2-4015-a9fa-b0d3f955b37e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter\SingularInvokingDEPSplitter">
+      <UniqueIdentifier>{267aac73-8843-47eb-8437-031956771a3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitResult\BasicDEPRecursiveSplitResult">
+      <UniqueIdentifier>{9a6a2ed0-8f27-415e-8930-9cdb29213753}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -627,6 +633,12 @@
     <ClInclude Include="RecursiveSplitResultToDynamicExpressionConverter.h">
       <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter</Filter>
     </ClInclude>
+    <ClInclude Include="SingularInvokingDEPSplitter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter\SingularInvokingDEPSplitter</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicDEPRecursiveSplitResult.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitResult\BasicDEPRecursiveSplitResult</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -769,6 +781,12 @@
     </ClCompile>
     <ClCompile Include="DynamicMathAstToDynamicExpressionConverter.hpp">
       <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicDEPRecursiveSplitResult.hpp">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitResult\BasicDEPRecursiveSplitResult</Filter>
+    </ClCompile>
+    <ClCompile Include="SingularInvokingDEPSplitter.hpp">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter\SingularInvokingDEPSplitter</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -22,11 +22,11 @@ namespace CmdCalculator
 		&& String<typename T::MathAstStringType>
 		&& requires(T&& instance)
 		{
-			{ instance.getLeftPart() } -> std::convertible_to<std::remove_cvref_t<T>*>;
+			{ instance.getLeftPart() } -> std::convertible_to<const std::remove_cvref_t<T>*>;
 
-			{ instance.getSplitPart() } -> std::convertible_to<MathAst::DynamicExpressionPartNode<typename T::MathAstStringType>&>;
+			{ instance.getSplitPart() } -> std::convertible_to<const MathAst::DynamicExpressionPartNode<typename T::MathAstStringType>&>;
 
-			{ instance.getRightPart() } -> std::convertible_to<std::remove_cvref_t<T>*>;
+			{ instance.getRightPart() } -> std::convertible_to<const std::remove_cvref_t<T>*>;
 		}
 	;
 }
