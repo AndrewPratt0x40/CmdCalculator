@@ -25,14 +25,14 @@ namespace CmdCalculatorTestDoubles::Expressions
 		//using FullSimplificationFuncType = std::function<CmdCalculator::Expressions::DynamicExpressionBox<NumberType>()>;
 
 
-		std::reference_wrapper<SourceType> source;
+		SourceType source;
 		NumberType evaluation;
 		//bool isSimplifiableValue;
 		//std::optional<FullSimplificationFuncType> fullSimplification;
 
 
-		StubTrackingDynamicExpression(const SourceType& mathAstSource, NumberType evaluation) :
-			source{ std::ref(source) },
+		StubTrackingDynamicExpression(SourceType source, NumberType evaluation) :
+			source{ source },
 			evaluation{ evaluation }
 		{}
 		

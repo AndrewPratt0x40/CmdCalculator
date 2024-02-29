@@ -74,7 +74,8 @@ namespace CmdCalculator
 
 
 	private:
-		// TODO
+		DynamicExpressionPartRecursiveSplitterType m_splitter;
+		RecursiveSplitResultToDynamicExpressionConverterType m_splitResultConverter;
 
 
 	public:

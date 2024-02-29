@@ -78,7 +78,7 @@ namespace CmdCalculatorTests
 				<< "FakeHalfwayDynamicExpressionPartRecursiveSplitter.getMathAstAsExpression("
 				<< CmdCalculatorTestUtils::joinStrings(testData.sourceExpressionParts)
 				<< ") = {evaluation = "
-				<< testData.expectedResult
+				<< testData.evaluation
 				<< ", result = "
 				<< testData.expectedResult
 				<< "}"
@@ -113,7 +113,7 @@ namespace CmdCalculatorTests
 		{
 			.sourceExpressionParts{ "Part1", "Part2", "Part3", "Part4", "Part5" },
 			.evaluation{ 0.0 },
-			.expectedResult{ "{[Part1,Part2,Part3,Part4,Part5]->{null<Part1>null}<Part2>{[Part3,Part4,Part5]->{[Part3]->null<Part3>null}<Part4>{[Part5]->null<Part5>null}}}" }
+			.expectedResult{ "{[Part1,Part2,Part3,Part4,Part5]->{[Part1]->null<Part1>null}<Part2>{[Part3,Part4,Part5]->{[Part3]->null<Part3>null}<Part4>{[Part5]->null<Part5>null}}}" }
 		},
 		{
 			.sourceExpressionParts{ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6", "Part7" },
@@ -128,7 +128,7 @@ namespace CmdCalculatorTests
 		{
 			.sourceExpressionParts{ "Part1", "Part2", "Part3", "Part4", "Part5", "Part6", "Part7", "Part8", "Part9", "Part10", "Part11" },
 			.evaluation{ 0.0 },
-			.expectedResult{ "{[Part1,Part2,Part3,Part4,Part5,Part6,Part7,Part8,Part9,Part10,Part11]->{[Part1,Part2,Part3,Part4,Part5]->{[Part1]->null<Part1>null}<Part2>{[Part3,Part4,Part5]->{[Part3]->null<Part3>null}<Part4>{[Part5]->null<Part5>null}}}<Part6>{[Part7,Part8,Part9,Part10,Part11]->{[Part1]->null<Part7>null}<Part8>{[Part9,Part10,Part11]->{[Part9]->null<Part9>null}<Part10>{[Part11]->null<Part11>null}}}}" }
+			.expectedResult{ "{[Part1,Part2,Part3,Part4,Part5,Part6,Part7,Part8,Part9,Part10,Part11]->{[Part1,Part2,Part3,Part4,Part5]->{[Part1]->null<Part1>null}<Part2>{[Part3,Part4,Part5]->{[Part3]->null<Part3>null}<Part4>{[Part5]->null<Part5>null}}}<Part6>{[Part7,Part8,Part9,Part10,Part11]->{[Part7]->null<Part7>null}<Part8>{[Part9,Part10,Part11]->{[Part9]->null<Part9>null}<Part10>{[Part11]->null<Part11>null}}}}" }
 		}
 	};
 
@@ -196,6 +196,11 @@ namespace CmdCalculatorTests
 		SplitterType splitter{};
 		SplitResultConverterType splitResultConverter
 		{
+			.sourceSplitResultStringFunc
+			{
+				[](const CmdCalculator::SplitResultType<SplitterType>& sourceSplitResult)
+				{ return sourceSplitResult.STUB_getStringRepresentation(); }
+			},
 			.convertedSplitResultEvaluation{ GetParam().evaluation }
 		};
 
@@ -225,7 +230,7 @@ namespace CmdCalculatorTests
 			returnValue.getInnerValue()
 		};
 		EXPECT_EQ(expectedEvaluation, returnedInnerExpression.getEvaluation().FAKE_getValue());
-		EXPECT_EQ(expectedResult, returnedInnerExpression.source.get().STUB_getStringRepresentation());
+		EXPECT_EQ(expectedResult, returnedInnerExpression.source);
 	}
 
 #pragma endregion

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <assert.h>
+
 #include "DynamicMathAstToDynamicExpressionConverter.h"
 #include "NotImplementedException.h"
 
@@ -22,10 +24,10 @@ inline CmdCalculator::DynamicMathAstToDynamicExpressionConverter
 (
 	DynamicExpressionPartRecursiveSplitterType&& splitter,
 	RecursiveSplitResultToDynamicExpressionConverterType&& splitResultConverter
-)
-{
-	throw NotImplementedException{};
-}
+) :
+	m_splitter{ splitter },
+	m_splitResultConverter{ splitResultConverter }
+{}
 
 
 template
@@ -52,5 +54,17 @@ inline typename CmdCalculator::DynamicMathAstToDynamicExpressionConverter
 	const RootMathAstNodeType& sourceRootNode
 ) const
 {
-	throw NotImplementedException{};
+	const Optional auto splitResult{ m_splitter.tryToSplit(sourceRootNode.getParts()) };
+	assert(splitResult.has_value());
+
+	UniquePtr auto convertedSplitResult
+	{
+		std::move(m_splitResultConverter.getSplitResultAsExpression(splitResult.value()))
+	};
+	assert(convertedSplitResult);
+
+	return Expressions::DynamicExpressionBox<OutputExpressionInnerType>
+	{
+		std::move(convertedSplitResult)
+	};
 }
