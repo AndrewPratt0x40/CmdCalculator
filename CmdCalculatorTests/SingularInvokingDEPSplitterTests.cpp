@@ -12,6 +12,7 @@
 #include "../CmdCalculator/SingularInvokingDEPSplitter.h"
 #include "../CmdCalculator/DynamicExpressionPartRecursiveSplitter.h"
 #include "../CmdCalculatorTestDoubles/FakeHalfwayDynamicExpressionPartSingleSplitter.h"
+#include "../CmdCalculatorTestDoubles/StubDynamicExpressionPartNode.h"
 
 
 namespace CmdCalculatorTests
@@ -427,7 +428,62 @@ namespace CmdCalculatorTests
 	TEST_P(SingularInvokingDEPSplitter$tryToSplit$Tests, calling$tryToSplit$returns$expected$result)
 	{
 		// Arrange
+		using SingularSplitterType = CmdCalculatorTestDoubles::FakeHalfwayDynamicExpressionPartSingleSplitter<std::string>;
 
+		const std::optional<SingularInvokingDEPSplitter_tryToSplit_result_TestData> expected
+		{
+			GetParam().expected()
+		};
+
+		const std::ranges::range auto expressionPartsRange
+		{
+			GetParam().parts
+			| std::views::transform
+			(
+				[](const std::string& part)
+				{
+					return CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>
+					{
+						false, "", "", part
+					};
+				}
+			)
+		};
+		const std::vector<CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>> expressionParts
+		{
+			std::ranges::begin(expressionPartsRange),
+			std::ranges::end(expressionPartsRange)
+		};
+		const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto expressionPartRefsView
+		{
+			expressionParts
+			| std::views::transform
+			(
+				[](const CmdCalculatorTestDoubles::MathAst::StubDynamicExpressionPartNode<std::string>& part)
+				{ return std::ref(part); }
+			)
+		};
+
+		SingularSplitterType singularSplitter{};
+		CmdCalculator::SingularInvokingDEPSplitter<SingularSplitterType> instance
+		{
+			std::move(singularSplitter)
+		};
+
+		// Act
+		const std::optional<CmdCalculator::BasicDEPRecursiveSplitResult<std::string>> returnValue
+		{
+			instance.tryToSplit(expressionPartRefsView)
+		};
+
+		// Assert
+		if (!expected.has_value())
+			EXPECT_FALSE(returnValue.has_value());
+		else
+		{
+			ASSERT_TRUE(returnValue.has_value());
+			EXPECT_TRUE(compare_tryToSplitResult(expected.value(), returnValue.value()));
+		}
 	}
 
 #pragma endregion
