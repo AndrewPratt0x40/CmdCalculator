@@ -145,6 +145,9 @@
     <ClCompile Include="BasicDEPRecursiveSplitResultTests.cpp">
       <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitResult</Filter>
     </ClCompile>
+    <ClCompile Include="SingularInvokingDEPSplitterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -260,6 +263,9 @@
     </Filter>
     <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitResult">
       <UniqueIdentifier>{2b8b72a7-d8da-4fad-8ee1-35b77d5e2e26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter">
+      <UniqueIdentifier>{e5416214-66ea-429e-8802-81259b343b7d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -11,9 +11,6 @@
 #include <functional>
 
 
-using namespace std::string_literals;
-
-
 namespace CmdCalculatorTests
 {
 #pragma region Concept satisfaction

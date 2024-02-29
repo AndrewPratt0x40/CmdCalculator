@@ -8,7 +8,7 @@ DONE - Declare DynamicExpression types
 DONE - Implement FundamentallyBackedRealNumber
 - Create DynamicMathAstToDynamicExpressionConverter
 	DONE - Make sure expression parts are sorted correctly!
-	- Implement BasicDEPRecursiveSplitResult
+	DONE - Implement BasicDEPRecursiveSplitResult
 	- Implement SingularInvokingDEPSplitter
 	- Implement BasicDEPSingleSplitResult
 	- Implement BasicDEPSingleSplitter
