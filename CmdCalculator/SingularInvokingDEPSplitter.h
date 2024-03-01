@@ -1,6 +1,7 @@
 #pragma once
 
 #include <optional>
+#include <memory>
 
 #include "DynamicExpressionPartRecursiveSplitter.h"
 #include "DynamicExpressionPartSingleSplitter.h"
@@ -18,10 +19,11 @@ namespace CmdCalculator
 	public:
 		using SingularSplitterType = SingularSplitterT;
 		using MathAstStringType = typename SingularSplitterType::MathAstStringType;
+		using SingularSplitterResultType = SingleSplitResultType<SingularSplitterType>;
 
 
 	private:
-		// TODO
+		SingularSplitterType m_singularSplitter;
 
 
 	public:
@@ -34,7 +36,30 @@ namespace CmdCalculator
 		/// \param parts The range of expression part nodes to split.
 		/// \returns \p parts split by their order of operations, or an empty object if splitting failed.
 		std::optional<BasicDEPRecursiveSplitResult<MathAstStringType>> tryToSplit
-			(MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto parts);
+			(MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto parts) const
+		;
+
+
+	private:
+		std::optional<BasicDEPRecursiveSplitResult<MathAstStringType>> resultPtrToOptional
+			(std::unique_ptr<BasicDEPRecursiveSplitResult<MathAstStringType>>& resultPtr) const
+		;
+
+
+		std::unique_ptr<BasicDEPRecursiveSplitResult<MathAstStringType>> tryToSplitAsPtr
+			(MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto parts) const
+		;
+
+
+		std::unique_ptr<BasicDEPRecursiveSplitResult<MathAstStringType>> tryConvertSingleSplitResult
+			(const SingularSplitterResultType& singleSplitResult) const
+		;
+
+		bool tryConvertSingleSplitResultSide
+		(
+			MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto singleSplitResultSideParts,
+			std::unique_ptr<BasicDEPRecursiveSplitResult<MathAstStringType>>& part
+		) const;
 	};
 }
 

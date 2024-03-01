@@ -33,14 +33,6 @@ namespace CmdCalculatorTestDoubles
 			const std::integral auto index
 		) const
 		{
-			/*auto fooBegin{std::ranges::begin(parts)};
-			auto fooBeginElem{ *std::ranges::begin(parts) };
-			auto fooBeginElemX{ (*std::ranges::begin(parts)).getStringRepresentation() };
-
-			auto fooNext{ std::ranges::next(std::ranges::begin(parts), 0) };
-			auto fooNextElem{ *std::ranges::next(std::ranges::begin(parts), 0) };
-			auto fooNextElemX{ (*std::ranges::next(std::ranges::begin(parts), 0)).getStringRepresentation() };*/
-
 			return *std::ranges::next(std::ranges::begin(parts), index);
 		}
 
