@@ -1,6 +1,6 @@
-	DONE - Move static_asserts from source code to unit tests
-	DONE - Create ANTLR context object wrappers
-	DONE - Create exceptions for invalid parsing of input expression
+DONE - Move static_asserts from source code to unit tests
+DONE - Create ANTLR context object wrappers
+DONE - Create exceptions for invalid parsing of input expression
 DONE - Create AntlrInvokingStringToAntlrContextConverter
 	DONE - Have AntlrInvokingStringToAntlrContextConverter wrap ANTLR exceptions in CmdCalculator-specific exceptions
 DONE - Create AntlrContextToDynamicMathAstConverter
@@ -9,7 +9,7 @@ DONE - Implement FundamentallyBackedRealNumber
 - Create DynamicMathAstToDynamicExpressionConverter
 	DONE - Make sure expression parts are sorted correctly!
 	DONE - Implement BasicDEPRecursiveSplitResult
-	- Implement SingularInvokingDEPSplitter
+	DONE - Implement SingularInvokingDEPSplitter
 	- Implement BasicDEPSingleSplitResult
 	- Implement BasicDEPSingleSplitter
 	- Implement BasicDynamicOperandToDynamicExpressionConverter

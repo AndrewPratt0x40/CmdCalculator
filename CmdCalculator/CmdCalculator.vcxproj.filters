@@ -304,6 +304,9 @@
     <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitResult\BasicDEPRecursiveSplitResult">
       <UniqueIdentifier>{9a6a2ed0-8f27-415e-8930-9cdb29213753}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitResult\BasicDEPSingleSplitResult">
+      <UniqueIdentifier>{f80fbc8d-d64e-4471-a8c5-1aa4854a3e35}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -639,6 +642,9 @@
     <ClInclude Include="BasicDEPRecursiveSplitResult.h">
       <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitResult\BasicDEPRecursiveSplitResult</Filter>
     </ClInclude>
+    <ClInclude Include="BasicDEPSingleSplitResult.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitResult\BasicDEPSingleSplitResult</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -787,6 +793,9 @@
     </ClCompile>
     <ClCompile Include="SingularInvokingDEPSplitter.hpp">
       <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter\SingularInvokingDEPSplitter</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicDEPSingleSplitResult.hpp">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitResult\BasicDEPSingleSplitResult</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

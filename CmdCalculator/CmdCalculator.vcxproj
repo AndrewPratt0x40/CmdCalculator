@@ -95,6 +95,7 @@
     <ClInclude Include="AntlrToken.h" />
     <ClInclude Include="BadRawCmdLineArgsException.h" />
     <ClInclude Include="BasicDEPRecursiveSplitResult.h" />
+    <ClInclude Include="BasicDEPSingleSplitResult.h" />
     <ClInclude Include="CommonDynamicBinaryOperation.h" />
     <ClInclude Include="DivisionByZeroException.h" />
     <ClInclude Include="DynamicAbsoluteValueOperation.h" />
@@ -203,6 +204,7 @@
   <ItemGroup>
     <ClCompile Include="AntlrInvokingStringToAntlrContextConverter.cpp" />
     <ClCompile Include="BasicDEPRecursiveSplitResult.hpp" />
+    <ClCompile Include="BasicDEPSingleSplitResult.hpp" />
     <ClCompile Include="CommonDynamicBinaryOperation.hpp" />
     <ClCompile Include="DivisionByZeroException.cpp" />
     <ClCompile Include="DynamicAbsoluteValueOperation.hpp" />

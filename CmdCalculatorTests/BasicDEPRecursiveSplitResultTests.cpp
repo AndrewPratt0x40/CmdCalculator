@@ -35,6 +35,24 @@ namespace CmdCalculatorTests
 	{
 		bool useNullLeftPart;
 		bool useNullRightPart;
+		
+		
+		friend std::ostream& operator<<
+		(
+			std::ostream& ostream,
+			const BasicDEPRecursiveSplitResult_TestData& testData
+		)
+		{
+			ostream
+				<< "BasicDEPRecursiveSplitResult with "
+				<< (testData.useNullLeftPart ? "null" : "non-null")
+				<< " left part and "
+				<< (testData.useNullRightPart ? "null" : "non-null")
+				<< " right part"
+			;
+
+			return ostream;
+		}
 	};
 
 	class BasicDEPRecursiveSplitResultWithParamsTests :
