@@ -1,8 +1,10 @@
 #pragma once
 
 #include <concepts>
+#include <ranges>
 #include <memory>
 #include <optional>
+#include <functional>
 
 #include "../CmdCalculator/DynamicExpressionPartSingleSplitter.h"
 #include "../CmdCalculator/DynamicExpressionPartNode.h"

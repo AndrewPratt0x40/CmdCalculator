@@ -122,11 +122,22 @@ inline bool
 	std::unique_ptr<BasicDEPRecursiveSplitResult<MathAstStringType>>& part
 ) const
 {
-	if (!std::ranges::empty(singleSplitResultSideParts))
+	const std::integral auto singleSplitResultSidePartsSize{ std::ranges::ssize(singleSplitResultSideParts) };
+
+	if (singleSplitResultSidePartsSize > 1)
 	{
 		part = std::move(tryToSplitAsPtr(singleSplitResultSideParts));
 		if (!part)
 			return false;
+	}
+	else if (singleSplitResultSidePartsSize == 1)
+	{
+		part = std::make_unique<BasicDEPRecursiveSplitResult<MathAstStringType>>
+		(
+			nullptr,
+			*std::begin(singleSplitResultSideParts),
+			nullptr
+		);
 	}
 	else
 		part = nullptr;
