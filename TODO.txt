@@ -10,7 +10,7 @@ DONE - Implement FundamentallyBackedRealNumber
 	DONE - Make sure expression parts are sorted correctly!
 	DONE - Implement BasicDEPRecursiveSplitResult
 	DONE - Implement SingularInvokingDEPSplitter
-	- Implement BasicDEPSingleSplitResult
+	DONE - Implement BasicDEPSingleSplitResult
 	- Implement BasicDEPSingleSplitter
 	- Implement BasicDynamicOperandToDynamicExpressionConverter
 	- Implement BasicRecursiveSplitResultToDynamicExpressionConverter

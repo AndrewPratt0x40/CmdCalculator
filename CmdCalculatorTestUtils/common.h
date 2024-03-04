@@ -13,6 +13,7 @@
 
 #include "../CmdCalculator/std_polyfills.h"
 #include "../CmdCalculator/ESign.h"
+#include "../CmdCalculator/EBinaryOperator.h"
 
 
 namespace CmdCalculatorTestUtils
@@ -105,6 +106,13 @@ namespace CmdCalculatorTestUtils
 	namespace SharedTestData
 	{
 
+		template<class T>
+		concept IntegralRange = 
+			std::ranges::forward_range<T>
+			&& std::integral<std::ranges::range_value_t<T>>
+		;
+		
+		
 		template<class T>
 		concept ArithmeticOperationValue =
 			std::convertible_to<T, double>
@@ -1068,5 +1076,122 @@ namespace CmdCalculatorTestUtils
 				{-56.78, -12.34, 4.92}
 			}
 		};
+
+
+		template<class T>
+		concept BinaryOperatorRange =
+			std::ranges::input_range<T>
+			&& std::same_as
+			<
+				CmdCalculator::MathAst::EBinaryOperator,
+				std::remove_cvref_t<std::ranges::range_value_t<T>>
+			>
+		;
+
+		template<class T>
+		concept BinaryOperator2dRange =
+			std::ranges::input_range<T>
+			&& BinaryOperatorRange
+			<
+				std::ranges::range_value_t<T>
+			>
+		;
+
+		constexpr inline BinaryOperatorRange auto binaryOperators
+		{
+			std::initializer_list<CmdCalculator::MathAst::EBinaryOperator>
+			{
+				CmdCalculator::MathAst::EBinaryOperator::Addition,
+				CmdCalculator::MathAst::EBinaryOperator::Subtraction,
+				CmdCalculator::MathAst::EBinaryOperator::Multiplication,
+				CmdCalculator::MathAst::EBinaryOperator::Division,
+				CmdCalculator::MathAst::EBinaryOperator::Exponentiation,
+				CmdCalculator::MathAst::EBinaryOperator::NthRoot,
+				CmdCalculator::MathAst::EBinaryOperator::Modulo
+			}
+		};
+
+		
+		struct BinaryOperatorData
+		{
+			CmdCalculator::MathAst::EBinaryOperator binaryOperator;
+			std::optional<CmdCalculator::MathAst::EBinaryOperator> inverse;
+		};
+		
+		template<class T>
+		concept BinaryOperatorDataRange =
+			std::ranges::input_range<T>
+			&& std::same_as
+			<
+				BinaryOperatorData,
+				std::remove_cvref_t<std::ranges::range_value_t<T>>
+			>
+		;
+
+		constexpr inline BinaryOperatorDataRange auto orderedBinaryOperatorDataValues
+		{
+			std::initializer_list<BinaryOperatorData>
+			{
+				BinaryOperatorData
+				{
+					.binaryOperator{ CmdCalculator::MathAst::EBinaryOperator::Modulo },
+					.inverse{},
+				},
+				BinaryOperatorData
+				{
+					.binaryOperator{ CmdCalculator::MathAst::EBinaryOperator::Exponentiation },
+					.inverse{ std::make_optional<CmdCalculator::MathAst::EBinaryOperator>(CmdCalculator::MathAst::EBinaryOperator::NthRoot) },
+				},
+				BinaryOperatorData
+				{
+					.binaryOperator{ CmdCalculator::MathAst::EBinaryOperator::Multiplication },
+					.inverse{ std::make_optional<CmdCalculator::MathAst::EBinaryOperator>(CmdCalculator::MathAst::EBinaryOperator::Division) },
+				},
+				BinaryOperatorData
+				{
+					.binaryOperator{ CmdCalculator::MathAst::EBinaryOperator::Addition },
+					.inverse{ std::make_optional<CmdCalculator::MathAst::EBinaryOperator>(CmdCalculator::MathAst::EBinaryOperator::Subtraction) },
+				}
+			}
+		};
+
+
+		constexpr inline BinaryOperator2dRange auto orderedBinaryOperators
+		{
+			orderedBinaryOperatorDataValues
+			| std::views::transform
+			(
+				[](const BinaryOperatorData& data)
+				{
+					if (data.inverse.has_value())
+					{
+						return std::initializer_list<CmdCalculator::MathAst::EBinaryOperator>
+						{
+							data.binaryOperator,
+							data.inverse.value()
+						};
+					}
+					return std::initializer_list<CmdCalculator::MathAst::EBinaryOperator>
+					{
+						data.binaryOperator
+					};
+				}
+			)
+		};
+
+
+		constexpr inline std::integral auto numberOfBinaryOperatorPrecedenceLevels{ std::ranges::ssize(orderedBinaryOperatorDataValues) };
+		static_assert(numberOfBinaryOperatorPrecedenceLevels >= 0);
+
+		constexpr inline IntegralRange auto binaryOperatorPrecedenceLevels
+		{
+			std::views::iota(0, numberOfBinaryOperatorPrecedenceLevels)
+		};
+
+
+		constexpr inline BinaryOperatorRange auto getBinaryOperatorsAtPrecedenceLevel(const std::integral auto level)
+		{
+			return *(std::ranges::begin(orderedBinaryOperators) + numberOfBinaryOperatorPrecedenceLevels - level);
+		}
 	}
 }

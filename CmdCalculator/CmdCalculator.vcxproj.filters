@@ -307,6 +307,9 @@
     <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitResult\BasicDEPSingleSplitResult">
       <UniqueIdentifier>{f80fbc8d-d64e-4471-a8c5-1aa4854a3e35}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitter\BasicDEPSingleSplitter">
+      <UniqueIdentifier>{c2e8c2b1-afbb-4f82-90ee-91064fe9565e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -645,6 +648,9 @@
     <ClInclude Include="BasicDEPSingleSplitResult.h">
       <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitResult\BasicDEPSingleSplitResult</Filter>
     </ClInclude>
+    <ClInclude Include="BasicDEPSingleSplitter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitter\BasicDEPSingleSplitter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -796,6 +802,9 @@
     </ClCompile>
     <ClCompile Include="BasicDEPSingleSplitResult.hpp">
       <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitResult\BasicDEPSingleSplitResult</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicDEPSingleSplitter.hpp">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitter\BasicDEPSingleSplitter</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
