@@ -1215,7 +1215,8 @@ namespace CmdCalculatorTestUtils
 
 		constexpr inline BinaryOperatorRange auto getBinaryOperatorsAtPrecedenceLevel(const std::integral auto level)
 		{
-			return *(std::ranges::begin(orderedBinaryOperators) + numberOfBinaryOperatorPrecedenceLevels - level);
+			assert(level < numberOfBinaryOperatorPrecedenceLevels);
+			return *(std::ranges::begin(orderedBinaryOperators) + numberOfBinaryOperatorPrecedenceLevels - level - 1);
 		}
 	}
 }

@@ -407,7 +407,13 @@ namespace CmdCalculatorTests
 			{
 #pragma region No parts
 				{
-					.parts{},
+					.parts
+					{
+						[]()
+						{
+							return makeParts({});
+						}
+					},
 					.expectedSplitResult{}
 				},
 #pragma endregion
