@@ -45,8 +45,72 @@ namespace CmdCalculatorTests
 	
 	struct BasicDEPSingleSplitter_TestData
 	{
-		std::vector<std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>>> parts;
+		std::function
+		<
+			std::vector<std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>>>()
+		> parts;
 		std::optional<BasicDEPSingleSplitter_ReturnValue_TestData> expectedSplitResult;
+
+
+		static std::string stringifyExpectedPart(const BasicDEPSingleSplitter_ReturnValue_TestData::PartType& part)
+		{
+			const std::string* partAsStr{ std::get_if<std::string>(&part) };
+			if (partAsStr)
+				return *partAsStr;
+			return CmdCalculatorTestUtils::getBinaryOperatorName(std::get<CmdCalculator::MathAst::EBinaryOperator>(part));
+		}
+		
+		
+		static std::string stringifyExpectedPartsRange(const std::vector<BasicDEPSingleSplitter_ReturnValue_TestData::PartType>& parts)
+		{
+			return CmdCalculatorTestUtils::joinStrings
+			(
+				parts
+				| std::views::transform
+				(
+					[](const BasicDEPSingleSplitter_ReturnValue_TestData::PartType& part)
+					{ return stringifyExpectedPart(part); }
+				)
+			);
+		}
+
+		
+		friend std::ostream& operator<<
+		(
+			std::ostream& ostream,
+			const BasicDEPSingleSplitter_TestData& testData
+		)
+		{
+			const auto parts{ testData.parts() };
+
+			ostream
+				<< "BasicDEPSingleSplitter.tryToSplit("
+				<< CmdCalculatorTestUtils::joinStrings
+				(
+					parts
+					| std::views::transform
+					(
+						[](const std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>>& part)
+						{ return part->getStringRepresentation(); }
+					)
+				)
+				<< ") = {"
+			;
+
+			if (testData.expectedSplitResult.has_value())
+			{
+				ostream
+					<< stringifyExpectedPartsRange(testData.expectedSplitResult.value().leftParts)
+					<< '<'
+					<< stringifyExpectedPart(testData.expectedSplitResult.value().splitPart)
+					<< '>'
+					<< stringifyExpectedPartsRange(testData.expectedSplitResult.value().rightParts)
+				;
+			}
+
+			ostream << '}';
+			return ostream;
+		}
 	};
 
 
@@ -69,20 +133,85 @@ namespace CmdCalculatorTests
 	}
 
 
+	static std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>> makePart(const BasicDEPSingleSplitter_ReturnValue_TestData::PartType& part)
+	{
+		const std::string* partAsStr{ std::get_if<std::string>(&part) };
+		if (partAsStr)
+			return makeOperandPart(*partAsStr);
+		return makeOperatorPart(std::get<CmdCalculator::MathAst::EBinaryOperator>(part));
+	}
+
+
+	static std::vector<std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>>> makeParts
+	(
+		const std::initializer_list<BasicDEPSingleSplitter_ReturnValue_TestData::PartType> parts
+	)
+	{
+		return CmdCalculatorTestUtils::moveRangeToVector
+		(
+			parts
+			| std::views::transform
+			(
+				[](const BasicDEPSingleSplitter_ReturnValue_TestData::PartType& part)
+				{ return makePart(part); }
+			)
+		);
+	}
+
+
+	static std::vector<std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>>> makeValidThreeParts
+	(
+		const CmdCalculator::MathAst::EBinaryOperator binaryOperator
+	)
+	{
+		return makeParts
+		({
+			"Operand1",
+			binaryOperator,
+			"Operand2"
+		});
+	}
+
+
+	static BasicDEPSingleSplitter_TestData makeValidThreePartBasicDEPSingleSplitter_TestData
+	(
+		const CmdCalculator::MathAst::EBinaryOperator binaryOperator
+	)
+	{
+		return BasicDEPSingleSplitter_TestData
+		{
+			.parts{ [&binaryOperator]() { return makeValidThreeParts(binaryOperator); } },
+			.expectedSplitResult
+			{
+				std::make_optional<BasicDEPSingleSplitter_ReturnValue_TestData>
+				(
+					BasicDEPSingleSplitter_ReturnValue_TestData
+					{
+						.leftParts{ "Operand1" },
+						.splitPart{ binaryOperator },
+						.rightParts{ "Operand2" }
+						
+					}
+				)
+			}
+		};
+	}
+
+
 	static std::vector<std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>>> makeValidFiveParts
 	(
 		const CmdCalculator::MathAst::EBinaryOperator binaryOperator1,
 		const CmdCalculator::MathAst::EBinaryOperator binaryOperator2
 	)
 	{
-		return std::vector<std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>>>
-		{
-			std::move(makeOperandPart("Operand1")),
-			std::move(makeOperatorPart(binaryOperator1)),
-			std::move(makeOperandPart("Operand2")),
-			std::move(makeOperatorPart(binaryOperator2)),
-			std::move(makeOperandPart("Operand3"))
-		};
+		return makeParts
+		({
+			"Operand1",
+			binaryOperator1,
+			"Operand2",
+			binaryOperator2,
+			"Operand3"
+		});
 	}
 
 
@@ -97,7 +226,7 @@ namespace CmdCalculatorTests
 		{
 			return BasicDEPSingleSplitter_TestData
 			{
-				.parts{ makeValidFiveParts(binaryOperator1, binaryOperator2) },
+				.parts{ [&binaryOperator1, &binaryOperator2]() { return makeValidFiveParts(binaryOperator1, binaryOperator2); } },
 				.expectedSplitResult
 				{
 					std::make_optional<BasicDEPSingleSplitter_ReturnValue_TestData>
@@ -120,7 +249,7 @@ namespace CmdCalculatorTests
 
 		return BasicDEPSingleSplitter_TestData
 		{
-			.parts{ makeValidFiveParts(binaryOperator1, binaryOperator2) },
+			.parts{ [&binaryOperator1, &binaryOperator2]() { return makeValidFiveParts(binaryOperator1, binaryOperator2); } },
 			.expectedSplitResult
 			{
 				std::make_optional<BasicDEPSingleSplitter_ReturnValue_TestData>
@@ -150,16 +279,16 @@ namespace CmdCalculatorTests
 		const CmdCalculator::MathAst::EBinaryOperator binaryOperator3
 	)
 	{
-		return std::vector<std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>>>
-		{
-			std::move(makeOperandPart("Operand1")),
-			std::move(makeOperatorPart(binaryOperator1)),
-			std::move(makeOperandPart("Operand2")),
-			std::move(makeOperatorPart(binaryOperator2)),
-			std::move(makeOperandPart("Operand3")),
-			std::move(makeOperatorPart(binaryOperator3)),
-			std::move(makeOperandPart("Operand4"))
-		};
+		return makeParts
+		({
+			"Operand1",
+			binaryOperator1,
+			"Operand2",
+			binaryOperator2,
+			"Operand3",
+			binaryOperator3,
+			"Operand4"
+			});
 	}
 
 
@@ -175,7 +304,11 @@ namespace CmdCalculatorTests
 		{
 			return BasicDEPSingleSplitter_TestData
 			{
-				.parts{ makeValidSevenParts(binaryOperator1, binaryOperator2, binaryOperator3) },
+				.parts
+				{
+					[&binaryOperator1, &binaryOperator2, &binaryOperator3]()
+					{ return makeValidSevenParts(binaryOperator1, binaryOperator2, binaryOperator3); }
+				},
 				.expectedSplitResult
 				{
 					std::make_optional<BasicDEPSingleSplitter_ReturnValue_TestData>
@@ -202,7 +335,11 @@ namespace CmdCalculatorTests
 		{
 			return BasicDEPSingleSplitter_TestData
 			{
-				.parts{ makeValidSevenParts(binaryOperator1, binaryOperator2, binaryOperator3) },
+				.parts
+				{
+					[&binaryOperator1, &binaryOperator2, &binaryOperator3]()
+					{ return makeValidSevenParts(binaryOperator1, binaryOperator2, binaryOperator3); }
+				},
 				.expectedSplitResult
 				{
 					std::make_optional<BasicDEPSingleSplitter_ReturnValue_TestData>
@@ -231,7 +368,11 @@ namespace CmdCalculatorTests
 		assert(splitOn == 3);
 		return BasicDEPSingleSplitter_TestData
 		{
-			.parts{ makeValidSevenParts(binaryOperator1, binaryOperator2, binaryOperator3) },
+			.parts
+			{
+				[&binaryOperator1, &binaryOperator2, &binaryOperator3]()
+				{ return makeValidSevenParts(binaryOperator1, binaryOperator2, binaryOperator3); }
+			},
 			.expectedSplitResult
 			{
 				std::make_optional<BasicDEPSingleSplitter_ReturnValue_TestData>
@@ -274,7 +415,13 @@ namespace CmdCalculatorTests
 				{
 					.parts
 					{
-						std::move(makeOperandPart("Operand"))
+						[]()
+						{
+							return makeParts
+							({
+								"Operand"
+							});
+						}
 					},
 					.expectedSplitResult
 					{
@@ -292,7 +439,13 @@ namespace CmdCalculatorTests
 				{
 					.parts
 					{
-						std::move(makeOperandPart("AnotherOperandWithADifferentValue"))
+						[]()
+						{
+							return makeParts
+							({
+								"AnotherOperandWithADifferentValue"
+							});
+						}
 					},
 					.expectedSplitResult
 					{
@@ -310,14 +463,26 @@ namespace CmdCalculatorTests
 				{
 					.parts
 					{
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Addition))
+						[]()
+						{
+							return makeParts
+							({
+								CmdCalculator::MathAst::EBinaryOperator::Addition
+							});
+						}
 					},
 					.expectedSplitResult{}
 				},
 				{
 					.parts
 					{
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Multiplication))
+						[]()
+						{
+							return makeParts
+							({
+								CmdCalculator::MathAst::EBinaryOperator::Multiplication
+							});
+						}
 					},
 					.expectedSplitResult{}
 				},
@@ -326,32 +491,56 @@ namespace CmdCalculatorTests
 				{
 					.parts
 					{
-						std::move(makeOperandPart("Operand1")),
-						std::move(makeOperandPart("Operand2"))
+						[]()
+						{
+							return makeParts
+							({
+								"Operand1",
+								"Operand2"
+							});
+						}
 					},
 					.expectedSplitResult{}
 				},
 				{
 					.parts
 					{
-						std::move(makeOperandPart("Operand")),
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Addition))
+						[]()
+						{
+							return makeParts
+							({
+								"Operand",
+								CmdCalculator::MathAst::EBinaryOperator::Addition
+							});
+						}
 					},
 					.expectedSplitResult{}
 				},
 				{
 					.parts
 					{
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Addition)),
-						std::move(makeOperandPart("Operand"))
+						[]()
+						{
+							return makeParts
+							({
+								CmdCalculator::MathAst::EBinaryOperator::Addition,
+								"Operand"
+							});
+						}
 					},
 					.expectedSplitResult{}
 				},
 				{
 					.parts
 					{
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Addition)),
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Addition))
+						[]()
+						{
+							return makeParts
+							({
+								CmdCalculator::MathAst::EBinaryOperator::Addition,
+								CmdCalculator::MathAst::EBinaryOperator::Addition
+							});
+						}
 					},
 					.expectedSplitResult{}
 				},
@@ -360,27 +549,45 @@ namespace CmdCalculatorTests
 				{
 					.parts
 					{
-						std::move(makeOperandPart("Operand1")),
-						std::move(makeOperandPart("Operand2")),
-						std::move(makeOperandPart("Operand3"))
+						[]()
+						{
+							return makeParts
+							({
+								"Operand1",
+								"Operand2",
+								"Operand3"
+							});
+						}
 					},
 					.expectedSplitResult{}
 				},
 				{
 					.parts
 					{
-						std::move(makeOperandPart("Operand1")),
-						std::move(makeOperandPart("Operand2")),
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Addition))
+						[]()
+						{
+							return makeParts
+							({
+								"Operand1",
+								"Operand2",
+								CmdCalculator::MathAst::EBinaryOperator::Addition
+							});
+						}
 					},
 					.expectedSplitResult{}
 				},
 				{
 					.parts
 					{
-						std::move(makeOperandPart("Operand1")),
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Addition)),
-						std::move(makeOperandPart("Operand2"))
+						[]()
+						{
+							return makeParts
+							({
+								"Operand1",
+								CmdCalculator::MathAst::EBinaryOperator::Addition,
+								"Operand2"
+							});
+						}
 					},
 					.expectedSplitResult
 					{
@@ -398,192 +605,88 @@ namespace CmdCalculatorTests
 				{
 					.parts
 					{
-						std::move(makeOperandPart("Operand")),
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Addition)),
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Addition))
+						[]()
+						{
+							return makeParts
+							({
+								"Operand",
+								CmdCalculator::MathAst::EBinaryOperator::Addition,
+								CmdCalculator::MathAst::EBinaryOperator::Addition
+							});
+						}
 					},
 					.expectedSplitResult{}
 				},
 				{
 					.parts
 					{
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Addition)),
-						std::move(makeOperandPart("Operand1")),
-						std::move(makeOperandPart("Operand2"))
+						[]()
+						{
+							return makeParts
+							({
+								CmdCalculator::MathAst::EBinaryOperator::Addition,
+								"Operand1",
+								"Operand2"
+							});
+						}
 					},
 					.expectedSplitResult{}
 				},
 				{
 					.parts
 					{
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Addition)),
-						std::move(makeOperandPart("Operand")),
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Addition))
+						[]()
+						{
+							return makeParts
+							({
+								CmdCalculator::MathAst::EBinaryOperator::Addition,
+								"Operand",
+								CmdCalculator::MathAst::EBinaryOperator::Addition
+							});
+						}
 					},
 					.expectedSplitResult{}
 				},
 				{
 					.parts
 					{
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Addition)),
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Addition)),
-						std::move(makeOperandPart("Operand"))
+						[]()
+						{
+							return makeParts
+							({
+								CmdCalculator::MathAst::EBinaryOperator::Addition,
+								CmdCalculator::MathAst::EBinaryOperator::Addition,
+								"Operand"
+							});
+						}
 					},
 					.expectedSplitResult{}
 				},
 				{
 					.parts
 					{
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Addition)),
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Addition)),
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Addition))
+						[]()
+						{
+							return makeParts
+							({
+								CmdCalculator::MathAst::EBinaryOperator::Addition,
+								CmdCalculator::MathAst::EBinaryOperator::Addition,
+								CmdCalculator::MathAst::EBinaryOperator::Addition
+							});
+						}
 					},
 					.expectedSplitResult{}
 				},
-#pragma endregion
-#pragma region Valid three-part expression
-				{
-					.parts
-					{
-						std::move(makeOperandPart("Operand1")),
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Addition)),
-						std::move(makeOperandPart("Operand2"))
-					},
-					.expectedSplitResult
-					{
-						std::make_optional<BasicDEPSingleSplitter_ReturnValue_TestData>
-						(
-							BasicDEPSingleSplitter_ReturnValue_TestData
-							{
-								.leftParts{ "Operand1" },
-								.splitPart{ CmdCalculator::MathAst::EBinaryOperator::Addition },
-								.rightParts{ "Operand2" }
-							}
-						)
-					}
-				},
-				{
-					.parts
-					{
-						std::move(makeOperandPart("Operand1")),
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Subtraction)),
-						std::move(makeOperandPart("Operand2"))
-					},
-					.expectedSplitResult
-					{
-						std::make_optional<BasicDEPSingleSplitter_ReturnValue_TestData>
-						(
-							BasicDEPSingleSplitter_ReturnValue_TestData
-							{
-								.leftParts{ "Operand1" },
-								.splitPart{ CmdCalculator::MathAst::EBinaryOperator::Subtraction },
-								.rightParts{ "Operand2" }
-							}
-						)
-					}
-				},
-				{
-					.parts
-					{
-						std::move(makeOperandPart("Operand1")),
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Multiplication)),
-						std::move(makeOperandPart("Operand2"))
-					},
-					.expectedSplitResult
-					{
-						std::make_optional<BasicDEPSingleSplitter_ReturnValue_TestData>
-						(
-							BasicDEPSingleSplitter_ReturnValue_TestData
-							{
-								.leftParts{ "Operand1" },
-								.splitPart{ CmdCalculator::MathAst::EBinaryOperator::Multiplication },
-								.rightParts{ "Operand2" }
-							}
-						)
-					}
-				},
-				{
-					.parts
-					{
-						std::move(makeOperandPart("Operand1")),
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Division)),
-						std::move(makeOperandPart("Operand2"))
-					},
-					.expectedSplitResult
-					{
-						std::make_optional<BasicDEPSingleSplitter_ReturnValue_TestData>
-						(
-							BasicDEPSingleSplitter_ReturnValue_TestData
-							{
-								.leftParts{ "Operand1" },
-								.splitPart{ CmdCalculator::MathAst::EBinaryOperator::Division },
-								.rightParts{ "Operand2" }
-							}
-						)
-					}
-				},
-				{
-					.parts
-					{
-						std::move(makeOperandPart("Operand1")),
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Exponentiation)),
-						std::move(makeOperandPart("Operand2"))
-					},
-					.expectedSplitResult
-					{
-						std::make_optional<BasicDEPSingleSplitter_ReturnValue_TestData>
-						(
-							BasicDEPSingleSplitter_ReturnValue_TestData
-							{
-								.leftParts{ "Operand1" },
-								.splitPart{ CmdCalculator::MathAst::EBinaryOperator::Exponentiation },
-								.rightParts{ "Operand2" }
-							}
-						)
-					}
-				},
-				{
-					.parts
-					{
-						std::move(makeOperandPart("Operand1")),
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::NthRoot)),
-						std::move(makeOperandPart("Operand2"))
-					},
-					.expectedSplitResult
-					{
-						std::make_optional<BasicDEPSingleSplitter_ReturnValue_TestData>
-						(
-							BasicDEPSingleSplitter_ReturnValue_TestData
-							{
-								.leftParts{ "Operand1" },
-								.splitPart{ CmdCalculator::MathAst::EBinaryOperator::NthRoot },
-								.rightParts{ "Operand2" }
-							}
-						)
-					}
-				},
-				{
-					.parts
-					{
-						std::move(makeOperandPart("Operand1")),
-						std::move(makeOperatorPart(CmdCalculator::MathAst::EBinaryOperator::Modulo)),
-						std::move(makeOperandPart("Operand2"))
-					},
-					.expectedSplitResult
-					{
-						std::make_optional<BasicDEPSingleSplitter_ReturnValue_TestData>
-						(
-							BasicDEPSingleSplitter_ReturnValue_TestData
-							{
-								.leftParts{ "Operand1" },
-								.splitPart{ CmdCalculator::MathAst::EBinaryOperator::Modulo },
-								.rightParts{ "Operand2" }
-							}
-						)
-					}
-				}
 #pragma endregion
 			};
+
+			for (const CmdCalculator::MathAst::EBinaryOperator binaryOperator : CmdCalculatorTestUtils::SharedTestData::binaryOperators)
+			{
+				values.push_back
+				(
+					makeValidThreePartBasicDEPSingleSplitter_TestData(binaryOperator)
+				);
+			}
 
 			for (const std::integral auto binaryOperator1Level : CmdCalculatorTestUtils::SharedTestData::binaryOperatorPrecedenceLevels) {
 			for (const CmdCalculator::MathAst::EBinaryOperator binaryOperator1 : CmdCalculatorTestUtils::SharedTestData::getBinaryOperatorsAtPrecedenceLevel(binaryOperator1Level)) {
@@ -637,7 +740,139 @@ namespace CmdCalculatorTests
 
 #pragma region canSplit
 
+	class BasicDEPSingleSplitter$canSplit$Tests :
+		public testing::TestWithParam<BasicDEPSingleSplitter_TestData>
+	{};
 
+	INSTANTIATE_TEST_CASE_P
+	(
+		BasicDEPSingleSplitterTests,
+		BasicDEPSingleSplitter$canSplit$Tests,
+		testing::ValuesIn(BasicDEPSingleSplitter_TestDataValues)
+	);
+
+	TEST_P(BasicDEPSingleSplitter$canSplit$Tests, canSplit$returns$true$IFF$given$parts$are$valid)
+	{
+		// Arrange
+		const std::vector<std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>>> parts
+		{
+			std::move(GetParam().parts())
+		};
+		const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto partRefsView
+		{
+			parts
+			| std::views::transform
+			(
+				[](const std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>>& part)
+				{ return std::ref(*part); }
+			)
+		};
+		const CmdCalculator::BasicDEPSingleSplitter<std::string> instance{};
+		const bool expected{ GetParam().expectedSplitResult.has_value() };
+
+		// Act
+		const bool actual{ instance.canSplit(partRefsView | std::views::all) };
+
+		// Assert
+		EXPECT_EQ(expected, actual);
+	}
+
+#pragma endregion
+
+
+#pragma region tryToSplit
+
+	class BasicDEPSingleSplitter$tryToSplit$Tests :
+		public testing::TestWithParam<BasicDEPSingleSplitter_TestData>
+	{};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		BasicDEPSingleSplitterTests,
+		BasicDEPSingleSplitter$tryToSplit$Tests,
+		testing::ValuesIn(BasicDEPSingleSplitter_TestDataValues)
+	);
+
+	TEST_P(BasicDEPSingleSplitter$tryToSplit$Tests, tryToSplit$returns$expected$value)
+	{
+		// Arrange
+		const auto doesActualPartEqualExpected
+		{
+			[]
+			(
+				const BasicDEPSingleSplitter_ReturnValue_TestData::PartType& expected,
+				const CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>& actual
+			) -> bool
+			{
+				const std::string* expectedAsStr{ std::get_if<std::string>(&expected) };
+				if (expectedAsStr)
+					return actual.getStringRepresentation() == *expectedAsStr;
+
+				if (!actual.isBinaryOperator())
+					return false;
+
+				return
+					reinterpret_cast<const CmdCalculator::MathAst::DynamicBinaryOperatorNode<std::string>&>
+						(actual).getOperatorKind()
+					== std::get<CmdCalculator::MathAst::EBinaryOperator>(expected)
+				;
+			}
+		};
+
+		const std::vector<std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>>> parts
+		{
+			std::move(GetParam().parts())
+		};
+
+		const CmdCalculator::MathAst::DynamicExpressionPartNodeRange<std::string> auto partRefsView
+		{
+			parts
+			| std::views::transform
+			(
+				[](const std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>>& part)
+				{ return std::ref(*part); }
+			)
+		};
+		const CmdCalculator::BasicDEPSingleSplitter<std::string> instance{};
+		const CmdCalculator::Optional auto expectedResultData{ GetParam().expectedSplitResult };
+
+		// Act
+		const CmdCalculator::Optional auto actual{ instance.tryToSplit(partRefsView | std::views::all) };
+
+		// Assert
+		EXPECT_EQ(expectedResultData.has_value(), actual.has_value());
+		if (expectedResultData.has_value())
+		{
+			EXPECT_TRUE
+			(
+				std::ranges::equal
+				(
+					expectedResultData.value().leftParts,
+					actual.value().getLeftParts(),
+					doesActualPartEqualExpected
+				)
+			);
+
+			EXPECT_TRUE
+			(
+				doesActualPartEqualExpected
+				(
+					expectedResultData.value().splitPart,
+					actual.value().getSplitPart()
+				)
+			);
+
+			EXPECT_TRUE
+			(
+				std::ranges::equal
+				(
+					expectedResultData.value().rightParts,
+					actual.value().getRightParts(),
+					doesActualPartEqualExpected
+				)
+			);
+		}
+	}
 
 #pragma endregion
 }

@@ -100,6 +100,30 @@ namespace CmdCalculatorTestUtils
 	}
 
 
+	constexpr std::string getBinaryOperatorName(const CmdCalculator::MathAst::EBinaryOperator binaryOperator)
+	{
+		switch (binaryOperator)
+		{
+		case CmdCalculator::MathAst::EBinaryOperator::Addition:
+			return "Addition";
+		case CmdCalculator::MathAst::EBinaryOperator::Subtraction:
+			return "Subtraction";
+		case CmdCalculator::MathAst::EBinaryOperator::Multiplication:
+			return "Multiplication";
+		case CmdCalculator::MathAst::EBinaryOperator::Division:
+			return "Division";
+		case CmdCalculator::MathAst::EBinaryOperator::Exponentiation:
+			return "Exponentiation";
+		case CmdCalculator::MathAst::EBinaryOperator::NthRoot:
+			return "NthRoot";
+		case CmdCalculator::MathAst::EBinaryOperator::Modulo:
+			return "Modulo";
+		default:
+			return "Unknown";
+		}
+	}
+
+
 	struct EmptyStruct {};
 
 
