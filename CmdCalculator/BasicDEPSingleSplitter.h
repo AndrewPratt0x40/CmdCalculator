@@ -19,12 +19,6 @@ namespace CmdCalculator
 		using MathAstStringType = MathAstStringT;
 
 
-	private:
-		// TODO
-
-
-	public:
-
 		/// \brief Determines whether or not the splitter can split the given parts.
 		/// \param parts The range of parts to examine.
 		/// \returns True if the splitter can split \p parts, false otherwise.
@@ -34,7 +28,7 @@ namespace CmdCalculator
 		/// \brief Attempts to split a range of expression part math AST nodes.
 		/// \param parts The range of expression part nodes to split.
 		/// \returns \p parts split by their order of operations once, or an empty object if splitting failed.
-		std::optional<BasicDEPSingleSplitResult<std::string>> tryToSplit(MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto parts) const;
+		std::optional<BasicDEPSingleSplitResult<MathAstStringT>> tryToSplit(MathAst::DynamicExpressionPartNodeRange<MathAstStringType> auto parts) const;
 	};
 }
 

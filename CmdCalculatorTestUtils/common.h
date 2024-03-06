@@ -1112,15 +1112,6 @@ namespace CmdCalculatorTestUtils
 			>
 		;
 
-		template<class T>
-		concept BinaryOperator2dRange =
-			std::ranges::input_range<T>
-			&& BinaryOperatorRange
-			<
-				std::ranges::range_value_t<T>
-			>
-		;
-
 		constexpr inline BinaryOperatorRange auto binaryOperators
 		{
 			std::initializer_list<CmdCalculator::MathAst::EBinaryOperator>
@@ -1139,7 +1130,7 @@ namespace CmdCalculatorTestUtils
 		struct BinaryOperatorData
 		{
 			CmdCalculator::MathAst::EBinaryOperator binaryOperator;
-			std::optional<CmdCalculator::MathAst::EBinaryOperator> inverse;
+			size_t precedenceLevel;
 		};
 		
 		template<class T>
@@ -1152,71 +1143,46 @@ namespace CmdCalculatorTestUtils
 			>
 		;
 
-		constexpr inline BinaryOperatorDataRange auto orderedBinaryOperatorDataValues
+		constexpr inline BinaryOperatorDataRange auto binaryOperatorDataValues
 		{
 			std::initializer_list<BinaryOperatorData>
 			{
 				BinaryOperatorData
 				{
-					.binaryOperator{ CmdCalculator::MathAst::EBinaryOperator::Modulo },
-					.inverse{},
+					.binaryOperator{ CmdCalculator::MathAst::EBinaryOperator::Addition },
+					.precedenceLevel{ 0 }
 				},
 				BinaryOperatorData
 				{
-					.binaryOperator{ CmdCalculator::MathAst::EBinaryOperator::Exponentiation },
-					.inverse{ std::make_optional<CmdCalculator::MathAst::EBinaryOperator>(CmdCalculator::MathAst::EBinaryOperator::NthRoot) },
+					.binaryOperator{ CmdCalculator::MathAst::EBinaryOperator::Subtraction },
+					.precedenceLevel{ 0 }
 				},
 				BinaryOperatorData
 				{
 					.binaryOperator{ CmdCalculator::MathAst::EBinaryOperator::Multiplication },
-					.inverse{ std::make_optional<CmdCalculator::MathAst::EBinaryOperator>(CmdCalculator::MathAst::EBinaryOperator::Division) },
+					.precedenceLevel{ 1 }
 				},
 				BinaryOperatorData
 				{
-					.binaryOperator{ CmdCalculator::MathAst::EBinaryOperator::Addition },
-					.inverse{ std::make_optional<CmdCalculator::MathAst::EBinaryOperator>(CmdCalculator::MathAst::EBinaryOperator::Subtraction) },
+					.binaryOperator{ CmdCalculator::MathAst::EBinaryOperator::Division },
+					.precedenceLevel{ 1 }
+				},
+				BinaryOperatorData
+				{
+					.binaryOperator{ CmdCalculator::MathAst::EBinaryOperator::Exponentiation },
+					.precedenceLevel{ 2 }
+				},
+				BinaryOperatorData
+				{
+					.binaryOperator{ CmdCalculator::MathAst::EBinaryOperator::NthRoot },
+					.precedenceLevel{ 2 }
+				},
+				BinaryOperatorData
+				{
+					.binaryOperator{ CmdCalculator::MathAst::EBinaryOperator::Modulo },
+					.precedenceLevel{ 3 }
 				}
 			}
 		};
-
-
-		constexpr inline BinaryOperator2dRange auto orderedBinaryOperators
-		{
-			orderedBinaryOperatorDataValues
-			| std::views::transform
-			(
-				[](const BinaryOperatorData& data)
-				{
-					if (data.inverse.has_value())
-					{
-						return std::initializer_list<CmdCalculator::MathAst::EBinaryOperator>
-						{
-							data.binaryOperator,
-							data.inverse.value()
-						};
-					}
-					return std::initializer_list<CmdCalculator::MathAst::EBinaryOperator>
-					{
-						data.binaryOperator
-					};
-				}
-			)
-		};
-
-
-		constexpr inline std::integral auto numberOfBinaryOperatorPrecedenceLevels{ std::ranges::ssize(orderedBinaryOperatorDataValues) };
-		static_assert(numberOfBinaryOperatorPrecedenceLevels >= 0);
-
-		constexpr inline IntegralRange auto binaryOperatorPrecedenceLevels
-		{
-			std::views::iota(0, numberOfBinaryOperatorPrecedenceLevels)
-		};
-
-
-		constexpr inline BinaryOperatorRange auto getBinaryOperatorsAtPrecedenceLevel(const std::integral auto level)
-		{
-			assert(level < numberOfBinaryOperatorPrecedenceLevels);
-			return *(std::ranges::begin(orderedBinaryOperators) + numberOfBinaryOperatorPrecedenceLevels - level - 1);
-		}
 	}
 }

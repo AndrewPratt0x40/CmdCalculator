@@ -180,7 +180,7 @@ namespace CmdCalculatorTests
 	{
 		return BasicDEPSingleSplitter_TestData
 		{
-			.parts{ [&binaryOperator]() { return makeValidThreeParts(binaryOperator); } },
+			.parts{ [binaryOperator]() { return makeValidThreeParts(binaryOperator); } },
 			.expectedSplitResult
 			{
 				std::make_optional<BasicDEPSingleSplitter_ReturnValue_TestData>
@@ -226,7 +226,7 @@ namespace CmdCalculatorTests
 		{
 			return BasicDEPSingleSplitter_TestData
 			{
-				.parts{ [&binaryOperator1, &binaryOperator2]() { return makeValidFiveParts(binaryOperator1, binaryOperator2); } },
+				.parts{ [binaryOperator1, binaryOperator2]() { return makeValidFiveParts(binaryOperator1, binaryOperator2); } },
 				.expectedSplitResult
 				{
 					std::make_optional<BasicDEPSingleSplitter_ReturnValue_TestData>
@@ -249,7 +249,7 @@ namespace CmdCalculatorTests
 
 		return BasicDEPSingleSplitter_TestData
 		{
-			.parts{ [&binaryOperator1, &binaryOperator2]() { return makeValidFiveParts(binaryOperator1, binaryOperator2); } },
+			.parts{ [binaryOperator1, binaryOperator2]() { return makeValidFiveParts(binaryOperator1, binaryOperator2); } },
 			.expectedSplitResult
 			{
 				std::make_optional<BasicDEPSingleSplitter_ReturnValue_TestData>
@@ -258,12 +258,12 @@ namespace CmdCalculatorTests
 					{
 						.leftParts
 						{
-							"Operand2",
+							"Operand1",
 							binaryOperator1,
-							"Operand3"
+							"Operand2"
 						},
 						.splitPart{ binaryOperator2 },
-						.rightParts{ "Operand1" }
+						.rightParts{ "Operand3" }
 						
 					}
 				)
@@ -306,7 +306,7 @@ namespace CmdCalculatorTests
 			{
 				.parts
 				{
-					[&binaryOperator1, &binaryOperator2, &binaryOperator3]()
+					[binaryOperator1, binaryOperator2, binaryOperator3]()
 					{ return makeValidSevenParts(binaryOperator1, binaryOperator2, binaryOperator3); }
 				},
 				.expectedSplitResult
@@ -337,7 +337,7 @@ namespace CmdCalculatorTests
 			{
 				.parts
 				{
-					[&binaryOperator1, &binaryOperator2, &binaryOperator3]()
+					[binaryOperator1, binaryOperator2, binaryOperator3]()
 					{ return makeValidSevenParts(binaryOperator1, binaryOperator2, binaryOperator3); }
 				},
 				.expectedSplitResult
@@ -370,7 +370,7 @@ namespace CmdCalculatorTests
 		{
 			.parts
 			{
-				[&binaryOperator1, &binaryOperator2, &binaryOperator3]()
+				[binaryOperator1, binaryOperator2, binaryOperator3]()
 				{ return makeValidSevenParts(binaryOperator1, binaryOperator2, binaryOperator3); }
 			},
 			.expectedSplitResult
@@ -384,8 +384,8 @@ namespace CmdCalculatorTests
 							"Operand1",
 							binaryOperator1,
 							"Operand2",
-							"Operand3",
-							binaryOperator3,
+							binaryOperator2,
+							"Operand3"
 						},
 						.splitPart{ binaryOperator3 },
 						.rightParts
@@ -682,7 +682,7 @@ namespace CmdCalculatorTests
 						}
 					},
 					.expectedSplitResult{}
-				},
+				}
 #pragma endregion
 			};
 
@@ -694,48 +694,43 @@ namespace CmdCalculatorTests
 				);
 			}
 
-			for (const std::integral auto binaryOperator1Level : CmdCalculatorTestUtils::SharedTestData::binaryOperatorPrecedenceLevels) {
-			for (const CmdCalculator::MathAst::EBinaryOperator binaryOperator1 : CmdCalculatorTestUtils::SharedTestData::getBinaryOperatorsAtPrecedenceLevel(binaryOperator1Level)) {
-			for (const std::integral auto binaryOperator2Level : CmdCalculatorTestUtils::SharedTestData::binaryOperatorPrecedenceLevels) {
-			for (const CmdCalculator::MathAst::EBinaryOperator binaryOperator2 : CmdCalculatorTestUtils::SharedTestData::getBinaryOperatorsAtPrecedenceLevel(binaryOperator1Level))
+			for (const CmdCalculatorTestUtils::SharedTestData::BinaryOperatorData binaryOperator1 : CmdCalculatorTestUtils::SharedTestData::binaryOperatorDataValues) {
+			for (const CmdCalculatorTestUtils::SharedTestData::BinaryOperatorData binaryOperator2 : CmdCalculatorTestUtils::SharedTestData::binaryOperatorDataValues)
 			{
 				values.push_back
 				(
 					makeValidFivePartBasicDEPSingleSplitter_TestData
 					(
-						binaryOperator1,
-						binaryOperator2,
-						binaryOperator1Level < binaryOperator2Level
+						binaryOperator1.binaryOperator,
+						binaryOperator2.binaryOperator,
+						binaryOperator1.precedenceLevel < binaryOperator2.precedenceLevel
 					)
 				);
-			}}}}
+			}}
 
-			for (const std::integral auto binaryOperator1Level : CmdCalculatorTestUtils::SharedTestData::binaryOperatorPrecedenceLevels) {
-			for (const CmdCalculator::MathAst::EBinaryOperator binaryOperator1 : CmdCalculatorTestUtils::SharedTestData::getBinaryOperatorsAtPrecedenceLevel(binaryOperator1Level)) {
-			for (const std::integral auto binaryOperator2Level : CmdCalculatorTestUtils::SharedTestData::binaryOperatorPrecedenceLevels) {
-			for (const CmdCalculator::MathAst::EBinaryOperator binaryOperator2 : CmdCalculatorTestUtils::SharedTestData::getBinaryOperatorsAtPrecedenceLevel(binaryOperator1Level)) {
-			for (const std::integral auto binaryOperator3Level : CmdCalculatorTestUtils::SharedTestData::binaryOperatorPrecedenceLevels) {
-			for (const CmdCalculator::MathAst::EBinaryOperator binaryOperator3 : CmdCalculatorTestUtils::SharedTestData::getBinaryOperatorsAtPrecedenceLevel(binaryOperator1Level))
+			for (const CmdCalculatorTestUtils::SharedTestData::BinaryOperatorData binaryOperator1 : CmdCalculatorTestUtils::SharedTestData::binaryOperatorDataValues) {
+			for (const CmdCalculatorTestUtils::SharedTestData::BinaryOperatorData binaryOperator2 : CmdCalculatorTestUtils::SharedTestData::binaryOperatorDataValues) {
+			for (const CmdCalculatorTestUtils::SharedTestData::BinaryOperatorData binaryOperator3 : CmdCalculatorTestUtils::SharedTestData::binaryOperatorDataValues)
 			{
 				values.push_back
 				(
 					makeValidSevenPartBasicDEPSingleSplitter_TestData
 					(
-						binaryOperator1,
-						binaryOperator2,
-						binaryOperator3,
-						binaryOperator1Level < binaryOperator2Level
-							? binaryOperator1Level < binaryOperator3Level
+						binaryOperator1.binaryOperator,
+						binaryOperator2.binaryOperator,
+						binaryOperator3.binaryOperator,
+						binaryOperator1.precedenceLevel < binaryOperator2.precedenceLevel
+							? binaryOperator1.precedenceLevel < binaryOperator3.precedenceLevel
 								? 1
 								: 3
-							: binaryOperator1Level < binaryOperator3Level
+							: binaryOperator1.precedenceLevel < binaryOperator3.precedenceLevel
 								? 2
-								: binaryOperator2Level < binaryOperator3Level
+								: binaryOperator2.precedenceLevel < binaryOperator3.precedenceLevel
 									? 2
 									: 3
 					)
 				);
-			}}}}}}
+			}}}
 
 			return values;
 		}()
@@ -849,6 +844,11 @@ namespace CmdCalculatorTests
 		EXPECT_EQ(expectedResultData.has_value(), actual.has_value());
 		if (expectedResultData.has_value())
 		{
+			EXPECT_EQ
+			(
+				expectedResultData.value().leftParts.size(),
+				std::ranges::size(actual.value().getLeftParts())
+			);
 			EXPECT_TRUE
 			(
 				std::ranges::equal
@@ -868,6 +868,11 @@ namespace CmdCalculatorTests
 				)
 			);
 
+			EXPECT_EQ
+			(
+				expectedResultData.value().rightParts.size(),
+				std::ranges::size(actual.value().getRightParts())
+			);
 			EXPECT_TRUE
 			(
 				std::ranges::equal
