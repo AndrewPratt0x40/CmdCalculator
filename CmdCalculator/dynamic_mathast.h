@@ -1,5 +1,7 @@
 #pragma once
 
+// TODO: A lot of the accessor methods in these objects return raw pointers that are never null,
+//	they should return references instead.
 #include "EBinaryOperator.h"
 #include "DynamicMathAstNode.h"
 #include "DynamicExpressionNode.h"

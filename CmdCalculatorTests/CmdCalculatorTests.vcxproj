@@ -88,6 +88,7 @@
     <ClCompile Include="AntlrInvokingStringToAntlrContextConverterTests.cpp" />
     <ClCompile Include="BasicDEPSingleSplitResultTests.cpp" />
     <ClCompile Include="BasicDEPSingleSplitterTests.cpp" />
+    <ClCompile Include="BasicDynamicOperandToDynamicExpressionConverterTests.cpp" />
     <ClCompile Include="CalculationConfigurationTests.cpp" />
     <ClCompile Include="DynamicAbsoluteValueNodeTests.cpp" />
     <ClCompile Include="DynamicAbsoluteValueOperationTests.cpp" />

@@ -5,6 +5,7 @@
 
 namespace CmdCalculator::MathAst
 {
+	// TODO: This is just RTTI with extra steps. Use double-dispatch or std::visit instead.
 	/// \brief Enumerates different types that are derived from \ref DynamicOperandNode.
 	enum class EDerivedDynamicOperandNodeKind
 	{

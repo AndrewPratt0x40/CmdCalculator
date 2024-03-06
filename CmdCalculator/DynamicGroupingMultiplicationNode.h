@@ -78,7 +78,7 @@ namespace CmdCalculator::MathAst
 		/// \brief Accessor to the tail multiplicands of the operation.
 		/// \returns The grouping operations to multiply the head multiplicand by.
 		/// \example The tail multiplicands of the grouping multiplication expression <tt>1(2)(3)</tt> would be <tt>2</tt> and <tt>3</tt>.
-		auto getTailMultiplicands() const
+		std::ranges::forward_range auto getTailMultiplicands() const
 		{
 			return
 				m_tailMultiplicands

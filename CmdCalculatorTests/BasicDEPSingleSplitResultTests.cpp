@@ -37,8 +37,8 @@ namespace CmdCalculatorTests
 		std::vector<std::string> leftParts;
 		std::string splitPart;
 		std::vector<std::string> rightParts;
-		
-		
+
+
 		friend std::ostream& operator<<
 		(
 			std::ostream& ostream,

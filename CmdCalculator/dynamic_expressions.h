@@ -1,0 +1,12 @@
+#pragma once
+#include "DynamicExpression.h"
+#include "DynamicAbsoluteValueOperation.h"
+#include "DynamicAdditionOperation.h"
+#include "DynamicDivisionOperation.h"
+#include "DynamicExponentiationOperation.h"
+#include "DynamicExpressionBox.h"
+#include "DynamicModuloOperation.h"
+#include "DynamicMultiplicationOperation.h"
+#include "DynamicNegationOperation.h"
+#include "DynamicNthRootOperation.h"
+#include "DynamicSubtractionOperation.h"

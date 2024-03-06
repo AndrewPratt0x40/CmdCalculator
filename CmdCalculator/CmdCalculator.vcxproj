@@ -97,6 +97,7 @@
     <ClInclude Include="BasicDEPRecursiveSplitResult.h" />
     <ClInclude Include="BasicDEPSingleSplitResult.h" />
     <ClInclude Include="BasicDEPSingleSplitter.h" />
+    <ClInclude Include="BasicDynamicOperandToDynamicExpressionConverter.h" />
     <ClInclude Include="CommonDynamicBinaryOperation.h" />
     <ClInclude Include="DivisionByZeroException.h" />
     <ClInclude Include="DynamicAbsoluteValueOperation.h" />
@@ -120,6 +121,7 @@
     <ClInclude Include="DynamicOperandToDynamicExpressionConverter.h" />
     <ClInclude Include="DynamicSubtractionOperation.h" />
     <ClInclude Include="DynamicSubtractionOperation.hpp" />
+    <ClInclude Include="dynamic_expressions.h" />
     <ClInclude Include="EmptyInputExpressionException.h" />
     <ClInclude Include="ESign.h" />
     <ClInclude Include="ExpressionEvaluationException.h" />
@@ -207,6 +209,7 @@
     <ClCompile Include="BasicDEPRecursiveSplitResult.hpp" />
     <ClCompile Include="BasicDEPSingleSplitResult.hpp" />
     <ClCompile Include="BasicDEPSingleSplitter.hpp" />
+    <ClCompile Include="BasicDynamicOperandToDynamicExpressionConverter.hpp" />
     <ClCompile Include="CommonDynamicBinaryOperation.hpp" />
     <ClCompile Include="DivisionByZeroException.cpp" />
     <ClCompile Include="DynamicAbsoluteValueOperation.hpp" />

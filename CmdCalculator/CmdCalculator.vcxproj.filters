@@ -651,6 +651,12 @@
     <ClInclude Include="BasicDEPSingleSplitter.h">
       <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitter\BasicDEPSingleSplitter</Filter>
     </ClInclude>
+    <ClInclude Include="BasicDynamicOperandToDynamicExpressionConverter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter\BasicDynamicOperandToDynamicExpressionConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="dynamic_expressions.h">
+      <Filter>Source Code\Expressions\Dynamic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -805,6 +811,9 @@
     </ClCompile>
     <ClCompile Include="BasicDEPSingleSplitter.hpp">
       <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitter\BasicDEPSingleSplitter</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicDynamicOperandToDynamicExpressionConverter.hpp">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter\BasicDynamicOperandToDynamicExpressionConverter</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

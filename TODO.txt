@@ -11,7 +11,7 @@ DONE - Implement FundamentallyBackedRealNumber
 	DONE - Implement BasicDEPRecursiveSplitResult
 	DONE - Implement SingularInvokingDEPSplitter
 	DONE - Implement BasicDEPSingleSplitResult
-	- Implement BasicDEPSingleSplitter
+	DONE - Implement BasicDEPSingleSplitter
 	- Implement BasicDynamicOperandToDynamicExpressionConverter
 	- Implement BasicRecursiveSplitResultToDynamicExpressionConverter
 - Implement DynamicExpression types
