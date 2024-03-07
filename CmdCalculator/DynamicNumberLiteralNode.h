@@ -60,6 +60,7 @@ namespace CmdCalculator::MathAst
 			m_leadingTrivia{ leadingTrivia },
 			m_trailingTrivia{ trailingTrivia }
 		{
+			const bool FOO{ m_isDecimalPointVisible || !m_fractionalPart.has_value() };
 			assert(m_wholePart.has_value() || m_fractionalPart.has_value());
 			assert(m_isDecimalPointVisible || !m_fractionalPart.has_value());
 		}

@@ -65,6 +65,16 @@ namespace CmdCalculator
 		}
 
 
+		static std::optional<StringType> getOptionalTokenAsOptionalString(const Optional auto token)
+			requires AntlrToken<OptionalValueType<decltype(token)>>
+		{
+			return token.has_value()
+				? std::make_optional<StringType>(token.value().getText())
+				: std::optional<StringType>{}
+			;
+		}
+
+
 		std::ranges::owning_view<std::vector<std::unique_ptr<MathAst::DynamicExpressionPartNode<StringType>>>> getConvertedExpressionParts
 			(const AntlrContextTypeDeductions::ExpressionType<FullExpressionAntlrContextType>& context) const
 		{
@@ -159,9 +169,9 @@ namespace CmdCalculator
 		{
 			return std::make_unique<MathAst::DynamicNumberLiteralNode<StringType>>
 			(
-				context.getWholePart().getText(),
-				getOptionalTokenText(context.getFractionalPart()),
-				context.getFractionalPart().has_value(),
+				std::make_optional<StringType>(context.getWholePart().getText()),
+				getOptionalTokenAsOptionalString(context.getFractionalPart()),
+				context.getDecimalPoint().has_value(),
 				getEmptyString(),
 				getEmptyString()
 			);
@@ -173,7 +183,7 @@ namespace CmdCalculator
 		{
 			return std::make_unique<MathAst::DynamicNumberLiteralNode<StringType>>
 			(
-				"",
+				std::optional<StringType>{},
 				context.getFractionalPart().getText(),
 				true,
 				getEmptyString(),

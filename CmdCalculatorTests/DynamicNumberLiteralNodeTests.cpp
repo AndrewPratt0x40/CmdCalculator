@@ -19,6 +19,38 @@ namespace CmdCalculatorTestDoubleTests
 		bool expectDecimalPointVisible;
 		bool expectFractionalPartVisible;
 		std::string stringRepresentation;
+
+
+		friend std::ostream& operator<<
+		(
+			std::ostream& ostream,
+			const DynamicNumberLiteralNode_TestParams& testData
+		)
+		{
+			ostream
+				<< "DynamicNumberLiteralNode{wholePart{"
+				<< testData.wholePart.value_or("")
+				<< "}, fractionalPart{"
+				<< testData.fractionalPart.value_or("")
+				<< "}, isDecimalPointVisible{"
+				<< testData.isDecimalPointVisible
+				<< "}, leadingTrivia{"
+				<< testData.leadingTrivia
+				<< "}, trailingTrivia{"
+				<< testData.trailingTrivia
+				<< "}} -> {isWholePartVisible{"
+				<< testData.expectWholePartVisible
+				<< "}, isDecimalPointVisible{"
+				<< testData.expectDecimalPointVisible
+				<< "}, isFractionalPartVisible"
+				<< testData.expectFractionalPartVisible
+				<< "}, {stringRepresentation{"
+				<< testData.stringRepresentation
+				<< "}}"
+			;
+
+			return ostream;
+		}
 	};
 
 	class DynamicNumberLiteralNodeWithCtorParamsTests :
@@ -113,7 +145,7 @@ namespace CmdCalculatorTestDoubleTests
 			.expectWholePartVisible{ true },
 			.expectDecimalPointVisible{ true },
 			.expectFractionalPartVisible{ true },
-			.stringRepresentation{ "0.00123000" }
+			.stringRepresentation{ "1.00123000" }
 		},
 		{
 			.wholePart{ std::make_optional<std::string>("123") },
@@ -124,7 +156,7 @@ namespace CmdCalculatorTestDoubleTests
 			.expectWholePartVisible{ true },
 			.expectDecimalPointVisible{ true },
 			.expectFractionalPartVisible{ true },
-			.stringRepresentation{ "1.0" }
+			.stringRepresentation{ "123.0" }
 		},
 		{
 			.wholePart{ std::make_optional<std::string>("123") },
@@ -222,7 +254,7 @@ namespace CmdCalculatorTestDoubleTests
 			.trailingTrivia{ "" },
 			.expectWholePartVisible{ true },
 			.expectDecimalPointVisible{ true },
-			.expectFractionalPartVisible{ true },
+			.expectFractionalPartVisible{ false },
 			.stringRepresentation{ "123." }
 		},
 		{
@@ -233,7 +265,7 @@ namespace CmdCalculatorTestDoubleTests
 			.trailingTrivia{ "" },
 			.expectWholePartVisible{ true },
 			.expectDecimalPointVisible{ false },
-			.expectFractionalPartVisible{ true },
+			.expectFractionalPartVisible{ false },
 			.stringRepresentation{ "123" }
 		}
 	};
