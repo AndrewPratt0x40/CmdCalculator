@@ -372,8 +372,9 @@ namespace CmdCalculatorTests
 
 	struct getOperandAsExpression_DynamicNumberLiteralNode_TestData
 	{
-		int wholePart;
-		float fractionalPart;
+		std::optional<std::string> wholePart;
+		std::optional<std::string> fractionalPart;
+		bool isDecimalPointVisible;
 		double expectedConvertedValue;
 
 
@@ -385,9 +386,9 @@ namespace CmdCalculatorTests
 		{
 			ostream
 				<< "BasicDynamicOperandToDynamicExpressionConverter.getOperandAsExpression(MathAst::DynamicNumberLiteralNode{"
-				<< testData.wholePart
-				<< '.'
-				<< testData.fractionalPart
+				<< (testData.wholePart.has_value() ? testData.wholePart.value() : "")
+				<< (testData.isDecimalPointVisible ? "." : "")
+				<< (testData.fractionalPart.has_value() ? testData.fractionalPart.value() : "")
 				<< "}) = Expressions::DynamicNumber{"
 				<< testData.expectedConvertedValue
 				<< '}'
@@ -403,261 +404,212 @@ namespace CmdCalculatorTests
 		public testing::TestWithParam<getOperandAsExpression_DynamicNumberLiteralNode_TestData>
 	{};
 
-	const getOperandAsExpression_DynamicNumberLiteralNode_TestData getOperandAsExpression_DynamicNumberLiteralNode_TestDataValues[]
-	{
 
+	struct NumberPartTestData
+	{
+		std::string str;
+		int asWholePart;
+		float asFractionalPart;
+	};
+
+	const std::initializer_list<NumberPartTestData> numberPartTestDataValues
+	{
 		{
-			.wholePart{ 0 },
-			.fractionalPart{ 0.0 },
-			.expectedConvertedValue{ 0.0 }
+			.str{ "0" },
+			.asWholePart{ 0 },
+			.asFractionalPart{ 0.0 }
 		},
 		{
-			.wholePart{ 0 },
-			.fractionalPart{ 0.1 },
-			.expectedConvertedValue{ 0.1 }
+			.str{ "1" },
+			.asWholePart{ 1 },
+			.asFractionalPart{ 0.1 }
 		},
 		{
-			.wholePart{ 0 },
-			.fractionalPart{ 0.2 },
-			.expectedConvertedValue{ 0.2 }
+			.str{ "5" },
+			.asWholePart{ 5 },
+			.asFractionalPart{ 0.5 }
 		},
 		{
-			.wholePart{ 0 },
-			.fractionalPart{ 0.456 },
-			.expectedConvertedValue{ 0.456 }
+			.str{ "00" },
+			.asWholePart{ 0 },
+			.asFractionalPart{ 0.0 }
 		},
 		{
-			.wholePart{ 0 },
-			.fractionalPart{ 0.0456 },
-			.expectedConvertedValue{ 0.0456 }
+			.str{ "01" },
+			.asWholePart{ 1 },
+			.asFractionalPart{ 0.01 }
 		},
 		{
-			.wholePart{ 0 },
-			.fractionalPart{ 0.00456 },
-			.expectedConvertedValue{ 0.00456 }
+			.str{ "05" },
+			.asWholePart{ 5 },
+			.asFractionalPart{ 0.05 }
 		},
 		{
-			.wholePart{ 0 },
-			.fractionalPart{ 0.000456 },
-			.expectedConvertedValue{ 0.000456 }
+			.str{ "10" },
+			.asWholePart{ 10 },
+			.asFractionalPart{ 0.1 }
 		},
 		{
-			.wholePart{ 1 },
-			.fractionalPart{ 0.0 },
-			.expectedConvertedValue{ 0.0 }
+			.str{ "11" },
+			.asWholePart{ 11 },
+			.asFractionalPart{ 0.11 }
 		},
 		{
-			.wholePart{ 1 },
-			.fractionalPart{ 0.1 },
-			.expectedConvertedValue{ 0.1 }
+			.str{ "15" },
+			.asWholePart{ 15 },
+			.asFractionalPart{ 0.15 }
 		},
 		{
-			.wholePart{ 1 },
-			.fractionalPart{ 0.2 },
-			.expectedConvertedValue{ 0.2 }
+			.str{ "50" },
+			.asWholePart{ 5 },
+			.asFractionalPart{ 0.5 }
 		},
 		{
-			.wholePart{ 1 },
-			.fractionalPart{ 0.456 },
-			.expectedConvertedValue{ 0.456 }
+			.str{ "51" },
+			.asWholePart{ 51 },
+			.asFractionalPart{ 0.51 }
 		},
 		{
-			.wholePart{ 1 },
-			.fractionalPart{ 0.0456 },
-			.expectedConvertedValue{ 0.0456 }
+			.str{ "55" },
+			.asWholePart{ 55 },
+			.asFractionalPart{ 0.55 }
 		},
 		{
-			.wholePart{ 1 },
-			.fractionalPart{ 0.00456 },
-			.expectedConvertedValue{ 0.00456 }
+			.str{ "000" },
+			.asWholePart{ 0 },
+			.asFractionalPart{ 0.0 }
 		},
 		{
-			.wholePart{ 1 },
-			.fractionalPart{ 0.000456 },
-			.expectedConvertedValue{ 1.000456 }
+			.str{ "001" },
+			.asWholePart{ 1 },
+			.asFractionalPart{ 0.001 }
 		},
 		{
-			.wholePart{ 2 },
-			.fractionalPart{ 0.0 },
-			.expectedConvertedValue{ 0.0 }
+			.str{ "005" },
+			.asWholePart{ 5 },
+			.asFractionalPart{ 0.005 }
 		},
 		{
-			.wholePart{ 2 },
-			.fractionalPart{ 0.1 },
-			.expectedConvertedValue{ 0.1 }
+			.str{ "010" },
+			.asWholePart{ 10 },
+			.asFractionalPart{ 0.01 }
 		},
 		{
-			.wholePart{ 2 },
-			.fractionalPart{ 0.2 },
-			.expectedConvertedValue{ 0.2 }
+			.str{ "011" },
+			.asWholePart{ 11 },
+			.asFractionalPart{ 0.011 }
 		},
 		{
-			.wholePart{ 2 },
-			.fractionalPart{ 0.456 },
-			.expectedConvertedValue{ 0.456 }
+			.str{ "015" },
+			.asWholePart{ 15 },
+			.asFractionalPart{ 0.015 }
 		},
 		{
-			.wholePart{ 2 },
-			.fractionalPart{ 0.0456 },
-			.expectedConvertedValue{ 0.0456 }
+			.str{ "050" },
+			.asWholePart{ 50 },
+			.asFractionalPart{ 0.05 }
 		},
 		{
-			.wholePart{ 2 },
-			.fractionalPart{ 0.00456 },
-			.expectedConvertedValue{ 0.00456 }
+			.str{ "051" },
+			.asWholePart{ 51 },
+			.asFractionalPart{ 0.051 }
 		},
 		{
-			.wholePart{ 2 },
-			.fractionalPart{ 0.000456 },
-			.expectedConvertedValue{ 2.000456 }
+			.str{ "055" },
+			.asWholePart{ 55 },
+			.asFractionalPart{ 0.055 }
 		},
 		{
-			.wholePart{ 123 },
-			.fractionalPart{ 0.0 },
-			.expectedConvertedValue{ 0.0 }
+			.str{ "100" },
+			.asWholePart{ 100 },
+			.asFractionalPart{ 0.1 }
 		},
 		{
-			.wholePart{ 123 },
-			.fractionalPart{ 0.1 },
-			.expectedConvertedValue{ 0.1 }
+			.str{ "101" },
+			.asWholePart{ 101 },
+			.asFractionalPart{ 0.101 }
 		},
 		{
-			.wholePart{ 123 },
-			.fractionalPart{ 0.2 },
-			.expectedConvertedValue{ 0.2 }
+			.str{ "105" },
+			.asWholePart{ 105 },
+			.asFractionalPart{ 0.105 }
 		},
 		{
-			.wholePart{ 123 },
-			.fractionalPart{ 0.456 },
-			.expectedConvertedValue{ 0.456 }
+			.str{ "110" },
+			.asWholePart{ 110 },
+			.asFractionalPart{ 0.11 }
 		},
 		{
-			.wholePart{ 123 },
-			.fractionalPart{ 0.0456 },
-			.expectedConvertedValue{ 0.0456 }
+			.str{ "111" },
+			.asWholePart{ 111 },
+			.asFractionalPart{ 0.111 }
 		},
 		{
-			.wholePart{ 123 },
-			.fractionalPart{ 0.00456 },
-			.expectedConvertedValue{ 0.00456 }
-		},
-		{
-			.wholePart{ 123 },
-			.fractionalPart{ 0.000456 },
-			.expectedConvertedValue{ 123.000456 }
-		},
-		{
-			.wholePart{ 1230 },
-			.fractionalPart{ 0.0 },
-			.expectedConvertedValue{ 0.0 }
-		},
-		{
-			.wholePart{ 1230 },
-			.fractionalPart{ 0.1 },
-			.expectedConvertedValue{ 0.1 }
-		},
-		{
-			.wholePart{ 1230 },
-			.fractionalPart{ 0.2 },
-			.expectedConvertedValue{ 0.2 }
-		},
-		{
-			.wholePart{ 1230 },
-			.fractionalPart{ 0.456 },
-			.expectedConvertedValue{ 0.456 }
-		},
-		{
-			.wholePart{ 1230 },
-			.fractionalPart{ 0.0456 },
-			.expectedConvertedValue{ 0.0456 }
-		},
-		{
-			.wholePart{ 1230 },
-			.fractionalPart{ 0.00456 },
-			.expectedConvertedValue{ 0.00456 }
-		},
-		{
-			.wholePart{ 1230 },
-			.fractionalPart{ 0.000456 },
-			.expectedConvertedValue{ 1230.000456 }
-		},
-		{
-			.wholePart{ 12300 },
-			.fractionalPart{ 0.0 },
-			.expectedConvertedValue{ 0.0 }
-		},
-		{
-			.wholePart{ 12300 },
-			.fractionalPart{ 0.1 },
-			.expectedConvertedValue{ 0.1 }
-		},
-		{
-			.wholePart{ 12300 },
-			.fractionalPart{ 0.2 },
-			.expectedConvertedValue{ 0.2 }
-		},
-		{
-			.wholePart{ 12300 },
-			.fractionalPart{ 0.456 },
-			.expectedConvertedValue{ 0.456 }
-		},
-		{
-			.wholePart{ 12300 },
-			.fractionalPart{ 0.0456 },
-			.expectedConvertedValue{ 0.0456 }
-		},
-		{
-			.wholePart{ 12300 },
-			.fractionalPart{ 0.00456 },
-			.expectedConvertedValue{ 0.00456 }
-		},
-		{
-			.wholePart{ 12300 },
-			.fractionalPart{ 0.000456 },
-			.expectedConvertedValue{ 12300.000456 }
-		},
-		{
-			.wholePart{ 123000 },
-			.fractionalPart{ 0.0 },
-			.expectedConvertedValue{ 0.0 }
-		},
-		{
-			.wholePart{ 123000 },
-			.fractionalPart{ 0.1 },
-			.expectedConvertedValue{ 0.1 }
-		},
-		{
-			.wholePart{ 123000 },
-			.fractionalPart{ 0.2 },
-			.expectedConvertedValue{ 0.2 }
-		},
-		{
-			.wholePart{ 123000 },
-			.fractionalPart{ 0.456 },
-			.expectedConvertedValue{ 0.456 }
-		},
-		{
-			.wholePart{ 123000 },
-			.fractionalPart{ 0.0456 },
-			.expectedConvertedValue{ 0.0456 }
-		},
-		{
-			.wholePart{ 123000 },
-			.fractionalPart{ 0.00456 },
-			.expectedConvertedValue{ 0.00456 }
-		},
-		{
-			.wholePart{ 123000 },
-			.fractionalPart{ 0.000456 },
-			.expectedConvertedValue{ 123000.000456 }
+			.str{ "115" },
+			.asWholePart{ 115 },
+			.asFractionalPart{ 0.115 }
 		}
+	};
+
+
+	const std::ranges::forward_range auto getOperandAsExpression_DynamicNumberLiteralNode_TestDataValues
+	{
+		[]()
+		{
+			std::vector<getOperandAsExpression_DynamicNumberLiteralNode_TestData> testDataValues
+			{
+				{
+					.wholePart{},
+					.fractionalPart{ std::make_optional<std::string>("456") },
+					.isDecimalPointVisible{ true },
+					.expectedConvertedValue{ 0.456 }
+				},
+				{
+					.wholePart{ std::make_optional<std::string>("123") },
+					.fractionalPart{},
+					.isDecimalPointVisible{ true },
+					.expectedConvertedValue{ 123.0 }
+				},
+				{
+					.wholePart{ std::make_optional<std::string>("123") },
+					.fractionalPart{},
+					.isDecimalPointVisible{ false },
+					.expectedConvertedValue{ 123.0 }
+				},
+				{
+					.wholePart{ std::make_optional<std::string>("123") },
+					.fractionalPart{ std::make_optional<std::string>("456") },
+					.isDecimalPointVisible{ true },
+					.expectedConvertedValue{ 123.456 }
+				}
+			};
+
+			for (const NumberPartTestData& wholePartData : numberPartTestDataValues)
+			{
+				for (const NumberPartTestData& fractionalPartData : numberPartTestDataValues)
+				{
+					testDataValues.push_back
+					(
+						getOperandAsExpression_DynamicNumberLiteralNode_TestData
+						{
+							.wholePart{ std::make_optional<std::string>(wholePartData.str) },
+							.fractionalPart{ std::make_optional<std::string>(fractionalPartData.str) },
+							.isDecimalPointVisible{ true },
+							.expectedConvertedValue{ wholePartData.asWholePart + fractionalPartData.asFractionalPart }
+						}
+					);
+				}
+			}
+
+			return testDataValues;
+		}()
 	};
 
 	INSTANTIATE_TEST_CASE_P
 	(
 		BasicDynamicOperandToDynamicExpressionConverterTests,
 		BasicDynamicOperandToDynamicExpressionConverter$getOperandAsExpression$with$DynamicNumberLiteralNode$Tests,
-		testing::ValuesIn(getOperandAsExpression_DynamicNumberLiteralNode_TestDataValues)
+		CmdCalculatorTestUtils::ValuesInRange(getOperandAsExpression_DynamicNumberLiteralNode_TestDataValues)
 	);
 
 
@@ -670,11 +622,11 @@ namespace CmdCalculatorTests
 		// Arrange
 		const StubInnerConverterType innerConverter{ makeInnerConverter() };
 		const std::string sourceOperandInnerStringRepresentation{ "Source" };
-		const CmdCalculator::MathAst::DynamicNumberLiteralNode<std::string, int, float> sourceOperand
+		const CmdCalculator::MathAst::DynamicNumberLiteralNode<std::string> sourceOperand
 		{
 			GetParam().wholePart,
 			GetParam().fractionalPart,
-			CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::FullDecimal,
+			GetParam().isDecimalPointVisible,
 			"",
 			""
 		};

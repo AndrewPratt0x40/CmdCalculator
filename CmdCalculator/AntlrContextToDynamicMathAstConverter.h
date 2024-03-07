@@ -22,14 +22,10 @@ namespace CmdCalculator
 	/// \brief A type that converts ANTLR parsing output into polymorphic mathematical abstract syntax trees.
 	/// \tparam FullExpressionAntlrContextT The ANTLR context object for a full expression to convert into a math AST.
 	/// \tparam CharT The character type to use for strings in the math AST.
-	/// \tparam WholePartT The type to use for the whole parts of numbers in the math AST.
-	/// \tparam FractionalPartT The type to use for the fractional parts of numbers in the math AST.
 	template
 	<
 		FullExpressionAntlrContext FullExpressionAntlrContextT,
-		class CharT,
-		std::integral WholePartT,
-		std::floating_point FractionalPartT
+		class CharT
 	>
 	class AntlrContextToDynamicMathAstConverter :
 		public AntlrContextToMathAstConverter_IntendedSatisfaction
@@ -39,8 +35,6 @@ namespace CmdCalculator
 		using FullExpressionAntlrContextType = FullExpressionAntlrContextT;
 		using CharType = CharT;
 		using StringType = std::basic_string<CharType>;
-		using WholePartType = WholePartT;
-		using FractionalPartType = FractionalPartT;
 
 
 	public:
@@ -68,79 +62,6 @@ namespace CmdCalculator
 				? token.value().getText()
 				: getEmptyString()
 			;
-		}
-
-
-		static WholePartType getWholePartNumericTokenValue(const AntlrToken auto& token)
-		{
-			const std::string str{ token.getText() };
-
-			if constexpr (std::unsigned_integral<WholePartType>)
-			{
-				if constexpr (sizeof(WholePartType) <= sizeof(unsigned long))
-					return static_cast<WholePartType>(std::stoul(str));
-				
-				return static_cast<WholePartType>(std::stoull(str));
-			}
-
-			if constexpr (sizeof(WholePartType) <= sizeof(int))
-				return static_cast<WholePartType>(std::stoi(str));
-
-			if constexpr (sizeof(WholePartType) <= sizeof(long))
-				return static_cast<WholePartType>(std::stol(str));
-
-			return static_cast<WholePartType>(std::stoll(str));
-		}
-
-
-		static WholePartType getOptionalWholePartNumericTokenValue(const Optional auto token)
-			requires AntlrToken<OptionalValueType<decltype(token)>>
-		{
-			return token.has_value()
-				? getWholePartNumericTokenValue(token.value())
-				: static_cast<WholePartType>(0)
-			;
-		}
-
-
-		static FractionalPartType getFractionalPartNumericTokenValue(const AntlrToken auto& token)
-		{
-			const std::string str{ token.getText() };
-
-			if constexpr (sizeof(FractionalPartType) <= sizeof(float))
-				return static_cast<FractionalPartType>(std::stof(str));
-
-			if constexpr (sizeof(FractionalPartType) <= sizeof(double))
-				return static_cast<FractionalPartType>(std::stod(str));
-
-			return static_cast<FractionalPartType>(std::stold(str));
-		}
-
-
-		static FractionalPartType getOptionalFractionalPartNumericTokenValue(const Optional auto token)
-			requires AntlrToken<OptionalValueType<decltype(token)>>
-		{
-			return token.has_value()
-				? getFractionalPartNumericTokenValue(token.value())
-				: static_cast<FractionalPartType>(0.0)
-			;
-		}
-
-
-		static MathAst::EDynamicNumberLiteralNodePartsConfig getPartsConfigOfWholefulNumber
-			(const AntlrContextTypeDeductions::WholefulNumberLiteralType<FullExpressionAntlrContextType>& context)
-		{
-			if (context.getDecimalPoint().has_value())
-			{
-				if (context.getFractionalPart().has_value())
-					return MathAst::EDynamicNumberLiteralNodePartsConfig::FullDecimal;
-
-				return MathAst::EDynamicNumberLiteralNodePartsConfig::FractionlessDecimal;
-			}
-
-			assert(!context.getFractionalPart().has_value());
-
-			return MathAst::EDynamicNumberLiteralNodePartsConfig::Integer;
 		}
 
 
@@ -233,28 +154,28 @@ namespace CmdCalculator
 		}
 
 
-		std::unique_ptr<MathAst::DynamicNumberLiteralNode<StringType, WholePartT, FractionalPartType>> getConvertedWholefulNumberLiteralContext
+		std::unique_ptr<MathAst::DynamicNumberLiteralNode<StringType>> getConvertedWholefulNumberLiteralContext
 			(const AntlrContextTypeDeductions::WholefulNumberLiteralType<FullExpressionAntlrContextType>& context) const
 		{
-			return std::make_unique<MathAst::DynamicNumberLiteralNode<StringType, WholePartT, FractionalPartType>>
+			return std::make_unique<MathAst::DynamicNumberLiteralNode<StringType>>
 			(
-				getWholePartNumericTokenValue(context.getWholePart()),
-				getOptionalFractionalPartNumericTokenValue(context.getFractionalPart()),
-				getPartsConfigOfWholefulNumber(context),
+				context.getWholePart().getText(),
+				getOptionalTokenText(context.getFractionalPart()),
+				context.getFractionalPart().has_value(),
 				getEmptyString(),
 				getEmptyString()
 			);
 		}
 
 
-		std::unique_ptr<MathAst::DynamicNumberLiteralNode<StringType, WholePartT, FractionalPartType>> getConvertedWholelessNumberLiteralContext
+		std::unique_ptr<MathAst::DynamicNumberLiteralNode<StringType>> getConvertedWholelessNumberLiteralContext
 			(const AntlrContextTypeDeductions::WholelessNumberLiteralType<FullExpressionAntlrContextType>& context) const
 		{
-			return std::make_unique<MathAst::DynamicNumberLiteralNode<StringType, WholePartT, FractionalPartType>>
+			return std::make_unique<MathAst::DynamicNumberLiteralNode<StringType>>
 			(
-				static_cast<WholePartType>(0),
-				getFractionalPartNumericTokenValue(context.getFractionalPart()),
-				MathAst::EDynamicNumberLiteralNodePartsConfig::WholelessDecimal,
+				"",
+				context.getFractionalPart().getText(),
+				true,
 				getEmptyString(),
 				getEmptyString()
 			);
@@ -400,7 +321,7 @@ namespace CmdCalculator
 		}
 
 
-		std::unique_ptr<MathAst::DynamicNumberLiteralNode<StringType, WholePartT, FractionalPartType>> getConvertedNumberLiteralContext
+		std::unique_ptr<MathAst::DynamicNumberLiteralNode<StringType>> getConvertedNumberLiteralContext
 			(const AntlrContextTypeDeductions::NumberLiteralType<FullExpressionAntlrContextType>& context) const
 		{
 			if (context.getNumberLiteralAntlrContextKind() == ENumberLiteralAntlrContextKind::Wholeful)
@@ -501,30 +422,28 @@ namespace CmdCalculator
 	template
 	<
 		FullExpressionAntlrContext FullExpressionAntlrContextT,
-		class CharT,
-		std::integral WholePartT,
-		std::floating_point FractionalPartT
+		class CharT
 	>
 	inline std::unique_ptr
 	<
 		MathAst::DynamicBinaryOperatorNode
 		<
-			typename AntlrContextToDynamicMathAstConverter<FullExpressionAntlrContextT, CharT, WholePartT, FractionalPartT>::StringType
+			typename AntlrContextToDynamicMathAstConverter<FullExpressionAntlrContextT, CharT>::StringType
 		>
 	>
-	AntlrContextToDynamicMathAstConverter<FullExpressionAntlrContextT, CharT, WholePartT, FractionalPartT>::getConvertedBinaryOperatorContext
+	AntlrContextToDynamicMathAstConverter<FullExpressionAntlrContextT, CharT>::getConvertedBinaryOperatorContext
 	(
 		const AntlrContextTypeDeductions::BinaryOperatorLeadingTriviaType
 		<
-			typename AntlrContextToDynamicMathAstConverter<FullExpressionAntlrContextT, CharT, WholePartT, FractionalPartT>::FullExpressionAntlrContextType
+			typename AntlrContextToDynamicMathAstConverter<FullExpressionAntlrContextT, CharT>::FullExpressionAntlrContextType
 		>* const leadingTrivia,
 		const AntlrContextTypeDeductions::BinaryOperatorType
 		<
-			typename AntlrContextToDynamicMathAstConverter<FullExpressionAntlrContextT, CharT, WholePartT, FractionalPartT>::FullExpressionAntlrContextType
+			typename AntlrContextToDynamicMathAstConverter<FullExpressionAntlrContextT, CharT>::FullExpressionAntlrContextType
 		>& context,
 		const AntlrContextTypeDeductions::BinaryOperatorTrailingTriviaType
 		<
-			typename AntlrContextToDynamicMathAstConverter<FullExpressionAntlrContextT, CharT, WholePartT, FractionalPartT>::FullExpressionAntlrContextType
+			typename AntlrContextToDynamicMathAstConverter<FullExpressionAntlrContextT, CharT>::FullExpressionAntlrContextType
 		>* const trailingTrivia
 	) const
 	{

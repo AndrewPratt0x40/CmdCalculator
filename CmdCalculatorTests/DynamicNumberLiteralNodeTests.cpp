@@ -10,9 +10,9 @@ namespace CmdCalculatorTestDoubleTests
 {
 	struct DynamicNumberLiteralNode_TestParams
 	{
-		int wholePart;
-		float fractionalPart;
-		CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig partsConfig;
+		std::optional<std::string> wholePart;
+		std::optional<std::string> fractionalPart;
+		bool isDecimalPointVisible;
 		std::string leadingTrivia;
 		std::string trailingTrivia;
 		bool expectWholePartVisible;
@@ -27,78 +27,215 @@ namespace CmdCalculatorTestDoubleTests
 
 	const DynamicNumberLiteralNode_TestParams DynamicNumberLiteralNode_TestParamsValues[]
 	{
-		DynamicNumberLiteralNode_TestParams
-			{
-				.wholePart{ 1 },
-				.fractionalPart{ 0.2 },
-				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::FullDecimal },
-				.leadingTrivia{ "" },
-				.trailingTrivia{ "" },
-				.expectWholePartVisible{ true },
-				.expectDecimalPointVisible{ true },
-				.expectFractionalPartVisible{ true },
-				.stringRepresentation{ "1.2" }
-			},
-			DynamicNumberLiteralNode_TestParams
-			{
-				.wholePart{ 1234 },
-				.fractionalPart{ 0.5678 },
-				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::FullDecimal },
-				.leadingTrivia{ "" },
-				.trailingTrivia{ "" },
-				.expectWholePartVisible{ true },
-				.expectDecimalPointVisible{ true },
-				.expectFractionalPartVisible{ true },
-				.stringRepresentation{ "1234.5678" }
-			},
-			DynamicNumberLiteralNode_TestParams
-			{
-				.wholePart{ 1 },
-				.fractionalPart{ 0.2 },
-				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::Integer },
-				.leadingTrivia{ "" },
-				.trailingTrivia{ "" },
-				.expectWholePartVisible{ true },
-				.expectDecimalPointVisible{ false },
-				.expectFractionalPartVisible{ false },
-				.stringRepresentation{ "1" }
-			},
-			DynamicNumberLiteralNode_TestParams
-			{
-				.wholePart{ 1 },
-				.fractionalPart{ 0.2 },
-				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::WholelessDecimal },
-				.leadingTrivia{ "" },
-				.trailingTrivia{ "" },
-				.expectWholePartVisible{ false },
-				.expectDecimalPointVisible{ true },
-				.expectFractionalPartVisible{ true },
-				.stringRepresentation{ ".2" }
-			},
-			DynamicNumberLiteralNode_TestParams
-			{
-				.wholePart{ 1 },
-				.fractionalPart{ 0.2 },
-				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::FractionlessDecimal },
-				.leadingTrivia{ "" },
-				.trailingTrivia{ "" },
-				.expectWholePartVisible{ true },
-				.expectDecimalPointVisible{ true },
-				.expectFractionalPartVisible{ false },
-				.stringRepresentation{ "1." }
-			},
-			DynamicNumberLiteralNode_TestParams
-			{
-				.wholePart{ 1 },
-				.fractionalPart{ 0.2 },
-				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::FullDecimal },
-				.leadingTrivia{ " " },
-				.trailingTrivia{ "  " },
-				.expectWholePartVisible{ true },
-				.expectDecimalPointVisible{ true },
-				.expectFractionalPartVisible{ true },
-				.stringRepresentation{ " 1.2  " }
-			}
+		{
+			.wholePart{ std::make_optional<std::string>("0") },
+			.fractionalPart{  std::make_optional<std::string>("0") },
+			.isDecimalPointVisible{ true },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ "0.0" }
+		},
+		{
+			.wholePart{ std::make_optional<std::string>("0") },
+			.fractionalPart{  std::make_optional<std::string>("1") },
+			.isDecimalPointVisible{ true },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ "0.1" }
+		},
+		{
+			.wholePart{ std::make_optional<std::string>("0") },
+			.fractionalPart{  std::make_optional<std::string>("123") },
+			.isDecimalPointVisible{ true },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ "0.123" }
+		},
+		{
+			.wholePart{ std::make_optional<std::string>("0") },
+			.fractionalPart{  std::make_optional<std::string>("00123000") },
+			.isDecimalPointVisible{ true },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ "0.00123000" }
+		},
+		{
+			.wholePart{ std::make_optional<std::string>("1") },
+			.fractionalPart{  std::make_optional<std::string>("0") },
+			.isDecimalPointVisible{ true },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ "1.0" }
+		},
+		{
+			.wholePart{ std::make_optional<std::string>("1") },
+			.fractionalPart{  std::make_optional<std::string>("1") },
+			.isDecimalPointVisible{ true },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ "1.1" }
+		},
+		{
+			.wholePart{ std::make_optional<std::string>("1") },
+			.fractionalPart{  std::make_optional<std::string>("123") },
+			.isDecimalPointVisible{ true },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ "1.123" }
+		},
+		{
+			.wholePart{ std::make_optional<std::string>("1") },
+			.fractionalPart{  std::make_optional<std::string>("00123000") },
+			.isDecimalPointVisible{ true },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ "0.00123000" }
+		},
+		{
+			.wholePart{ std::make_optional<std::string>("123") },
+			.fractionalPart{  std::make_optional<std::string>("0") },
+			.isDecimalPointVisible{ true },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ "1.0" }
+		},
+		{
+			.wholePart{ std::make_optional<std::string>("123") },
+			.fractionalPart{  std::make_optional<std::string>("1") },
+			.isDecimalPointVisible{ true },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ "123.1" }
+		},
+		{
+			.wholePart{ std::make_optional<std::string>("123") },
+			.fractionalPart{  std::make_optional<std::string>("123") },
+			.isDecimalPointVisible{ true },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ "123.123" }
+		},
+		{
+			.wholePart{ std::make_optional<std::string>("123") },
+			.fractionalPart{  std::make_optional<std::string>("00123000") },
+			.isDecimalPointVisible{ true },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ "123.00123000" }
+		},
+		{
+			.wholePart{ std::make_optional<std::string>("00123000") },
+			.fractionalPart{  std::make_optional<std::string>("0") },
+			.isDecimalPointVisible{ true },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ "00123000.0" }
+		},
+		{
+			.wholePart{ std::make_optional<std::string>("00123000") },
+			.fractionalPart{  std::make_optional<std::string>("1") },
+			.isDecimalPointVisible{ true },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ "00123000.1" }
+		},
+		{
+			.wholePart{ std::make_optional<std::string>("00123000") },
+			.fractionalPart{  std::make_optional<std::string>("123") },
+			.isDecimalPointVisible{ true },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ "00123000.123" }
+		},
+		{
+			.wholePart{ std::make_optional<std::string>("00123000") },
+			.fractionalPart{  std::make_optional<std::string>("00123000") },
+			.isDecimalPointVisible{ true },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ "00123000.00123000" }
+		},
+		{
+			.wholePart{},
+			.fractionalPart{  std::make_optional<std::string>("123") },
+			.isDecimalPointVisible{ true },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ false },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ ".123" }
+		},
+		{
+			.wholePart{ std::make_optional<std::string>("123") },
+			.fractionalPart{},
+			.isDecimalPointVisible{ true },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ true },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ "123." }
+		},
+		{
+			.wholePart{ std::make_optional<std::string>("123") },
+			.fractionalPart{},
+			.isDecimalPointVisible{ false },
+			.leadingTrivia{ "" },
+			.trailingTrivia{ "" },
+			.expectWholePartVisible{ true },
+			.expectDecimalPointVisible{ false },
+			.expectFractionalPartVisible{ true },
+			.stringRepresentation{ "123" }
+		}
 	};
 
 
@@ -115,14 +252,14 @@ namespace CmdCalculatorTestDoubleTests
 	TEST_P(DynamicNumberLiteralNodeWithCtorParamsTests, DynamicNumberLiteralNode$has$expected$state)
 	{
 		// Arrange
-		const int wholePartToPass{ GetParam().wholePart };
-		const float fractionalPartToPass{ GetParam().fractionalPart };
-		const CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig partsConfigToPass{ GetParam().partsConfig };
+		const std::optional<std::string> wholePartToPass{ GetParam().wholePart };
+		const std::optional<std::string> fractionalPartToPass{ GetParam().fractionalPart };
+		const bool isDecimalPointVisibleToPass{ GetParam().isDecimalPointVisible };
 		const std::string leadingTriviaToPass{ GetParam().leadingTrivia };
 		const std::string trailingTriviaToPass{ GetParam().trailingTrivia };
 
-		const int expectedWholePart{ GetParam().wholePart };
-		const float expectedFractionalPart{ GetParam().fractionalPart };
+		const std::optional<std::string> expectedWholePart{ GetParam().wholePart };
+		const std::optional<std::string> expectedFractionalPart{ GetParam().fractionalPart };
 		const bool expectedIsWholePartVisible{ GetParam().expectWholePartVisible };
 		const bool expectedIsDecimalPointVisible{ GetParam().expectDecimalPointVisible };
 		const bool expectedIsFractionalPartVisible{ GetParam().expectFractionalPartVisible };
@@ -131,11 +268,11 @@ namespace CmdCalculatorTestDoubleTests
 		const std::string expectedStringRepresentation{ GetParam().stringRepresentation };
 		
 		// Act
-		CmdCalculator::MathAst::DynamicNumberLiteralNode<std::string, int, float> instance
+		CmdCalculator::MathAst::DynamicNumberLiteralNode<std::string> instance
 		{
 			wholePartToPass,
 			fractionalPartToPass,
-			partsConfigToPass,
+			isDecimalPointVisibleToPass,
 			leadingTriviaToPass,
 			trailingTriviaToPass
 		};

@@ -15,7 +15,7 @@ namespace CmdCalculatorTestDoubleTests
 		(
 			CmdCalculator::AntlrContextToMathAstConverter
 			<
-				CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, int, float, std::string_view>
+				CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, std::string_view>
 			>
 		);
 	}

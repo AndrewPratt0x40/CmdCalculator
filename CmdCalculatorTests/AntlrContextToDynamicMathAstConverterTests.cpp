@@ -205,9 +205,7 @@ namespace CmdCalculatorTests
 				CmdCalculator::AntlrContextToDynamicMathAstConverter
 				<
 					CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>,
-					char,
-					int,
-					float
+					char
 				>
 			>
 		);
@@ -305,7 +303,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedFullExpressionContextTests, getConvertedFullExpressionContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<decltype(GetParam().context), char, int, float>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<decltype(GetParam().context), char>
 			instance{}
 		;
 		const CmdCalculator::FullExpressionAntlrContext auto context{ GetParam().context };
@@ -386,7 +384,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedExpressionContextTests, getConvertedExpressionContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char>
 			instance{}
 		;
 		const CmdCalculator::ExpressionAntlrContext auto context{ GetParam().context };
@@ -449,7 +447,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedOperandContextTests, getConvertedOperandContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char>
 			instance{}
 		;
 		const CmdCalculator::OperandAntlrContext auto context{ GetParam().context };
@@ -695,7 +693,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedOperationPartPairsContextTests, getConvertedOperationPartPairsContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char>
 			instance{}
 		;
 		const CmdCalculator::OperationPartPairAntlrContext auto context{ GetParam().context };
@@ -897,7 +895,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedBinaryOperatorContextTests, getConvertedBinaryOperatorContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char>
 			instance{}
 		;
 		const CmdCalculator::AntlrToken auto* leadingTrivia{ GetParam().leadingTrivia.get() };
@@ -926,8 +924,8 @@ namespace CmdCalculatorTests
 	struct getConvertedNumberLiteralContext_Params
 	{
 		CmdCalculatorTestDoubles::StubNumberLiteralAntlrContext context;
-		int expectedWholePart;
-		int expectedFractionalPart;
+		std::optional<std::string> expectedWholePart;
+		std::optional<std::string> expectedFractionalPart;
 		bool expectWholePartVisible;
 		bool expectDecimalPointVisible;
 		bool expectFractionalPartVisible;
@@ -952,7 +950,7 @@ namespace CmdCalculatorTests
 					(
 						CmdCalculatorTestDoubles::StubWholefulNumberLiteralAntlrContext
 						{
-							.wholePart{ makeNumToken(0) },
+							.wholePart{ makeToken("0") },
 							.decimalPoint{},
 							.fractionalPart{}
 						}
@@ -960,8 +958,8 @@ namespace CmdCalculatorTests
 				},
 				.wholelessNumberLiteral{}
 			},
-			.expectedWholePart{ 0 },
-			.expectedFractionalPart{ 0 },
+			.expectedWholePart{ std::make_optional<std::string>("0") },
+			.expectedFractionalPart{},
 			.expectWholePartVisible{ true },
 			.expectDecimalPointVisible{ false },
 			.expectFractionalPartVisible{ false },
@@ -979,7 +977,7 @@ namespace CmdCalculatorTests
 					(
 						CmdCalculatorTestDoubles::StubWholefulNumberLiteralAntlrContext
 						{
-							.wholePart{ makeNumToken(123) },
+							.wholePart{ makeToken("123") },
 							.decimalPoint{},
 							.fractionalPart{}
 						}
@@ -987,8 +985,8 @@ namespace CmdCalculatorTests
 				},
 				.wholelessNumberLiteral{}
 			},
-			.expectedWholePart{ 123 },
-			.expectedFractionalPart{ 0 },
+			.expectedWholePart{ std::make_optional<std::string>("123") },
+			.expectedFractionalPart{},
 			.expectWholePartVisible{ true },
 			.expectDecimalPointVisible{ false },
 			.expectFractionalPartVisible{ false },
@@ -1006,7 +1004,7 @@ namespace CmdCalculatorTests
 					(
 						CmdCalculatorTestDoubles::StubWholefulNumberLiteralAntlrContext
 						{
-							.wholePart{ makeNumToken(123) },
+							.wholePart{ makeToken("123") },
 							.decimalPoint{ makeOptionalToken(".") },
 							.fractionalPart{}
 						}
@@ -1014,8 +1012,8 @@ namespace CmdCalculatorTests
 				},
 				.wholelessNumberLiteral{}
 			},
-			.expectedWholePart{ 123 },
-			.expectedFractionalPart{ 0 },
+			.expectedWholePart{ std::make_optional<std::string>("123") },
+			.expectedFractionalPart{},
 			.expectWholePartVisible{ true },
 			.expectDecimalPointVisible{ true },
 			.expectFractionalPartVisible{ false },
@@ -1033,16 +1031,16 @@ namespace CmdCalculatorTests
 					(
 						CmdCalculatorTestDoubles::StubWholefulNumberLiteralAntlrContext
 						{
-							.wholePart{ makeNumToken(123) },
+							.wholePart{ makeToken("123") },
 							.decimalPoint{ makeOptionalToken(".") },
-							.fractionalPart{ makeOptionalNumToken(456) }
+							.fractionalPart{ makeOptionalToken("456") }
 						}
 					)
 				},
 				.wholelessNumberLiteral{}
 			},
-			.expectedWholePart{ 123 },
-			.expectedFractionalPart{ 456 },
+			.expectedWholePart{ std::make_optional<std::string>("123") },
+			.expectedFractionalPart{ std::make_optional<std::string>("456") },
 			.expectWholePartVisible{ true },
 			.expectDecimalPointVisible{ true },
 			.expectFractionalPartVisible{ true },
@@ -1062,13 +1060,13 @@ namespace CmdCalculatorTests
 						CmdCalculatorTestDoubles::StubWholelessNumberLiteralAntlrContext
 						{
 							.decimalPoint{ makeToken(".") },
-							.fractionalPart{ makeNumToken(0) }
+							.fractionalPart{ makeToken("0") }
 						}
 					)
 				}
 			},
-			.expectedWholePart{ 0 },
-			.expectedFractionalPart{ 0 },
+			.expectedWholePart{},
+			.expectedFractionalPart{ std::make_optional<std::string>("0") },
 			.expectWholePartVisible{ false },
 			.expectDecimalPointVisible{ true },
 			.expectFractionalPartVisible{ true },
@@ -1088,13 +1086,13 @@ namespace CmdCalculatorTests
 						CmdCalculatorTestDoubles::StubWholelessNumberLiteralAntlrContext
 						{
 							.decimalPoint{ makeToken(".") },
-							.fractionalPart{ makeNumToken(123) }
+							.fractionalPart{ makeToken("123") }
 						}
 					)
 				}
 			},
-			.expectedWholePart{ 0 },
-			.expectedFractionalPart{ 123 },
+			.expectedWholePart{},
+			.expectedFractionalPart{ std::make_optional<std::string>("123") },
 			.expectWholePartVisible{ false },
 			.expectDecimalPointVisible{ true },
 			.expectFractionalPartVisible{ true },
@@ -1114,7 +1112,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedNumberLiteralContextTests, getConvertedNumberLiteralContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char>
 			instance{}
 		;
 		const CmdCalculator::NumberLiteralAntlrContext auto context{ GetParam().context };
@@ -1264,7 +1262,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedSignOperationContextTests, getConvertedSignOperationContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char>
 			instance{}
 		;
 		const CmdCalculator::SignOperationAntlrContext auto context{ GetParam().context };
@@ -1345,7 +1343,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedSqrtOperationContextTests, getConvertedSqrtOperationContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char>
 			instance{}
 		;
 		const CmdCalculator::SqrtOperationAntlrContext auto context{ GetParam().context };
@@ -1424,7 +1422,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedGroupingContextTests, getConvertedGroupingContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char>
 			instance{}
 		;
 		const CmdCalculator::GroupingAntlrContext auto context{ GetParam().context };
@@ -1549,7 +1547,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedGroupingMultiplicationContextTests, getConvertedGroupingMultiplicationContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char>
 			instance{}
 		;
 		const CmdCalculator::GroupingMultiplicationAntlrContext auto context{ GetParam().context };
@@ -1640,7 +1638,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedAbsoluteValueOperationContextTests, getConvertedAbsoluteValueOperationContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char>
 			instance{}
 		;
 		const CmdCalculator::AbsoluteValueOperationAntlrContext auto context{ GetParam().context };
