@@ -7,10 +7,13 @@
 template
 <
 	CmdCalculator::MathAstToExpressionConverter InnerConverterT,
-	CmdCalculator::String MathAstStringT,
-	CmdCalculator::Arithmetic::RealNumber ExpressionNumberT
+	CmdCalculator::String MathAstStringT
 >
-inline CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT, ExpressionNumberT>::
+inline CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter
+<
+	InnerConverterT,
+	MathAstStringT
+>::
 	BasicDynamicOperandToDynamicExpressionConverter(const InnerConverterT& innerConverter)
 {
 	throw NotImplementedException{};
@@ -20,11 +23,17 @@ inline CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConve
 template
 <
 	CmdCalculator::MathAstToExpressionConverter InnerConverterT,
-	CmdCalculator::String MathAstStringT,
-	CmdCalculator::Arithmetic::RealNumber ExpressionNumberT
+	CmdCalculator::String MathAstStringT
 >
-inline std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<ExpressionNumberT>>
-	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT, ExpressionNumberT>::
+inline std::unique_ptr
+<
+	CmdCalculator::Expressions::DynamicExpression
+	<
+		typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>
+		::ExpressionNumberType
+	>
+>
+	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>::
 	getOperandAsExpression(const MathAst::DynamicOperandNode<MathAstStringT>& sourceOperand) const
 {
 	throw NotImplementedException{};

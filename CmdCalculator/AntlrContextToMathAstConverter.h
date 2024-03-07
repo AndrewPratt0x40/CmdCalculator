@@ -30,7 +30,8 @@ namespace CmdCalculator
 	concept AntlrContextToMathAstConverter =
 		IntendsToSatisfy<T, AntlrContextToMathAstConverter_IntendedSatisfaction>
 		&& String<typename T::StringType>
-		&& std::integral<typename T::IntType>
+		&& std::integral<typename T::WholePartType>
+		&& std::floating_point<typename T::FractionalPartType>
 		&& FullExpressionAntlrContext<typename T::FullExpressionAntlrContextType>
 		&& requires(T&& instance, const typename T::FullExpressionAntlrContextType& context)
 		{
@@ -66,7 +67,7 @@ namespace CmdCalculator
 		&& requires(T&& instance, const AntlrContextTypeDeductions::NumberLiteralType<typename T::FullExpressionAntlrContextType>& context)
 		{
 			{ instance.getConvertedNumberLiteralContext(context) } ->
-				std::same_as<std::unique_ptr<MathAst::DynamicNumberLiteralNode<typename T::StringType, typename T::IntType>>>;
+				std::same_as<std::unique_ptr<MathAst::DynamicNumberLiteralNode<typename T::StringType, typename T::WholePartType, typename T::FractionalPartType>>>;
 		}
 		&& requires(T&& instance, const AntlrContextTypeDeductions::SignOperationType<typename T::FullExpressionAntlrContextType>& context)
 		{

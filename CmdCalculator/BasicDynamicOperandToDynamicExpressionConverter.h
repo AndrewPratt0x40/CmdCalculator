@@ -4,7 +4,7 @@
 
 #include "DynamicOperandToDynamicExpressionConverter.h"
 #include "MathAstToExpressionConverter.h"
-#include "RealNumber.h"
+#include "FundamentallyBackedRealNumber.h"
 #include "dynamic_mathast.h"
 #include "dynamic_expressions.h"
 #include "strings.h"
@@ -19,8 +19,7 @@ namespace CmdCalculator
 	template
 	<
 		MathAstToExpressionConverter InnerConverterT,
-		String MathAstStringT,
-		Arithmetic::RealNumber ExpressionNumberT
+		String MathAstStringT
 	>
 	class BasicDynamicOperandToDynamicExpressionConverter :
 		public DynamicOperandToDynamicExpressionConverter_IntendedSatisfaction
@@ -28,7 +27,7 @@ namespace CmdCalculator
 	public:
 		using InnerConverterType = InnerConverterT;
 		using MathAstStringType = MathAstStringT;
-		using ExpressionNumberType = ExpressionNumberT;
+		using ExpressionNumberType = Arithmetic::FundamentallyBackedRealNumber<long double>;
 
 
 		/// \brief Creates a new instance of the \ref BasicDynamicOperandToDynamicExpressionConverter class.
@@ -39,7 +38,7 @@ namespace CmdCalculator
 		/// \brief Converts a math AST operand into an expression object.
 		/// \param sourceOperand The AST node to convert.
 		/// \return \p sourceOperand as an expression instance.
-		std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberT>> getOperandAsExpression
+		std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> getOperandAsExpression
 		(
 			const MathAst::DynamicOperandNode<MathAstStringT>& sourceOperand
 		) const;

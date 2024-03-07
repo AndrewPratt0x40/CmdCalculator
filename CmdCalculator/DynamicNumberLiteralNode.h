@@ -8,6 +8,7 @@
 #include <string>
 #include <ranges>
 #include <utility>
+#include <regex>
 
 namespace CmdCalculator::MathAst
 {
@@ -47,8 +48,14 @@ namespace CmdCalculator::MathAst
 	
 	/// \brief A node that holds an expression inside of it.
 	/// \tparam StringT The string type to use.
-	/// \tparam IntT The type to use to store integers.
-	template<String StringT, std::integral IntT>
+	/// \tparam WholePartT The type to use to the whole part of the number.
+	/// \tparam FractionalPartT The type to use to the fractional part of the number.
+	template
+	<
+		String StringT,
+		std::integral WholePartT,
+		std::floating_point FractionalPartT
+	>
 	class DynamicNumberLiteralNode :
 		public DynamicOperandNode<StringT>
 	{
@@ -56,7 +63,8 @@ namespace CmdCalculator::MathAst
 
 		using StringType = DynamicOperandNode<StringT>::StringType;
 
-		using IntType = IntT;
+		using WholePartType = WholePartT;
+		using FractionalPartType = FractionalPartT;
 
 
 	private:
@@ -64,8 +72,8 @@ namespace CmdCalculator::MathAst
 		using CharType = typename StringType::value_type;
 
 		
-		const IntType m_wholePart;
-		const IntType m_fractionalPart;
+		const WholePartT m_wholePart;
+		const FractionalPartT m_fractionalPart;
 		const EDynamicNumberLiteralNodePartsFlags m_partsFlags;
 		const StringType m_leadingTrivia;
 		const StringType m_trailingTrivia;
@@ -77,12 +85,6 @@ namespace CmdCalculator::MathAst
 		}
 
 
-		auto getIntAsString(const IntType intValue) const
-		{
-			return convertString<CharType>(std::to_string(intValue));
-		}
-
-
 	public:
 
 		virtual ~DynamicNumberLiteralNode() = default;
@@ -90,8 +92,8 @@ namespace CmdCalculator::MathAst
 
 		DynamicNumberLiteralNode
 		(
-			const IntType wholePart,
-			const IntType fractionalPart,
+			const WholePartType wholePart,
+			const FractionalPartType fractionalPart,
 			const EDynamicNumberLiteralNodePartsConfig partsConfig,
 			const StringType leadingTrivia,
 			const StringType trailingTrivia
@@ -119,7 +121,7 @@ namespace CmdCalculator::MathAst
 		/// \example The whole part of the number <tt>7.</tt> is <tt>7</tt>.
 		/// \example The whole part of the number <tt>.7</tt> is <tt>0</tt>.
 		/// \example The whole part of the number <tt>123.456</tt> is <tt>123</tt>.
-		IntT getWholePart() const
+		WholePartT getWholePart() const
 		{
 			return m_wholePart;
 		}
@@ -131,7 +133,7 @@ namespace CmdCalculator::MathAst
 		/// \example The fractional part of the number <tt>7.</tt> is <tt>0</tt>.
 		/// \example The fractional part of the number <tt>.7</tt> is <tt>7</tt>.
 		/// \example The fractional part of the number <tt>123.456</tt> is <tt>123</tt>.
-		IntT getFractionalPart() const
+		FractionalPartT getFractionalPart() const
 		{
 			return m_fractionalPart;
 		}
@@ -180,11 +182,29 @@ namespace CmdCalculator::MathAst
 			StdStringType str{ getLeadingTrivia() };
 
 			if (isWholePartVisible())
-				str += static_cast<StdStringType>(getIntAsString(getWholePart()));
+			{
+				str += static_cast<StdStringType>
+				(
+					std::to_string(getWholePart())
+				);
+			}
 			if (isDecimalPointVisible())
 				str += getDecimalPointChar();
 			if (isFractionalPartVisible())
-				str += static_cast<StdStringType>(getIntAsString(getFractionalPart()));
+			{
+				std::smatch match;
+				const StdStringType fractionalPartAsStr{ std::to_string(getFractionalPart()) };
+				const std::regex regex{ "\\s*[+-]?\\s*0*\\.*(\d+)" };
+				const bool wasMatched
+				{
+					std::regex_match(fractionalPartAsStr, match, regex)
+				};
+
+				assert(wasMatched);
+				assert(match.size() == 2);
+
+				str += match[1].str();
+			}
 
 			return static_cast<StringType>
 			(

@@ -206,7 +206,8 @@ namespace CmdCalculatorTests
 				<
 					CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>,
 					char,
-					int
+					int,
+					float
 				>
 			>
 		);
@@ -304,7 +305,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedFullExpressionContextTests, getConvertedFullExpressionContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<decltype(GetParam().context), char, int>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<decltype(GetParam().context), char, int, float>
 			instance{}
 		;
 		const CmdCalculator::FullExpressionAntlrContext auto context{ GetParam().context };
@@ -385,7 +386,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedExpressionContextTests, getConvertedExpressionContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
 			instance{}
 		;
 		const CmdCalculator::ExpressionAntlrContext auto context{ GetParam().context };
@@ -448,7 +449,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedOperandContextTests, getConvertedOperandContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
 			instance{}
 		;
 		const CmdCalculator::OperandAntlrContext auto context{ GetParam().context };
@@ -694,7 +695,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedOperationPartPairsContextTests, getConvertedOperationPartPairsContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
 			instance{}
 		;
 		const CmdCalculator::OperationPartPairAntlrContext auto context{ GetParam().context };
@@ -896,7 +897,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedBinaryOperatorContextTests, getConvertedBinaryOperatorContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
 			instance{}
 		;
 		const CmdCalculator::AntlrToken auto* leadingTrivia{ GetParam().leadingTrivia.get() };
@@ -1113,7 +1114,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedNumberLiteralContextTests, getConvertedNumberLiteralContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
 			instance{}
 		;
 		const CmdCalculator::NumberLiteralAntlrContext auto context{ GetParam().context };
@@ -1263,7 +1264,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedSignOperationContextTests, getConvertedSignOperationContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
 			instance{}
 		;
 		const CmdCalculator::SignOperationAntlrContext auto context{ GetParam().context };
@@ -1344,7 +1345,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedSqrtOperationContextTests, getConvertedSqrtOperationContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
 			instance{}
 		;
 		const CmdCalculator::SqrtOperationAntlrContext auto context{ GetParam().context };
@@ -1423,7 +1424,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedGroupingContextTests, getConvertedGroupingContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
 			instance{}
 		;
 		const CmdCalculator::GroupingAntlrContext auto context{ GetParam().context };
@@ -1548,7 +1549,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedGroupingMultiplicationContextTests, getConvertedGroupingMultiplicationContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
 			instance{}
 		;
 		const CmdCalculator::GroupingMultiplicationAntlrContext auto context{ GetParam().context };
@@ -1639,7 +1640,7 @@ namespace CmdCalculatorTests
 	TEST_P(getConvertedAbsoluteValueOperationContextTests, getConvertedAbsoluteValueOperationContext$returns$expected$value)
 	{
 		// Arrange
-		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int>
+		const CmdCalculator::AntlrContextToDynamicMathAstConverter<CmdCalculatorTestDoubles::StubFullExpressionAntlrContext<>, char, int, float>
 			instance{}
 		;
 		const CmdCalculator::AbsoluteValueOperationAntlrContext auto context{ GetParam().context };

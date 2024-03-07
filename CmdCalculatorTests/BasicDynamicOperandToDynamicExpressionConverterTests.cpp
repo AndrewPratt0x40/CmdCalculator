@@ -71,8 +71,7 @@ namespace CmdCalculatorTests
 				CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter
 				<
 					StubInnerConverterType,
-					std::string,
-					FakeExpressionNumberType
+					std::string
 				>
 			>
 		);
@@ -102,15 +101,15 @@ namespace CmdCalculatorTests
 		const CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter
 		<
 			StubInnerConverterType,
-			std::string,
-			FakeExpressionNumberType
+			std::string
 		> instance
 		{
 			innerConverter
 		};
+		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
 
 		// Act
-		const std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<FakeExpressionNumberType>> returnValue
+		const std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<ConvertedNumberType>> returnValue
 		{
 			instance.getOperandAsExpression(sourceOperand)
 		};
@@ -120,7 +119,7 @@ namespace CmdCalculatorTests
 
 		const auto* castedReturnValue
 		{
-			dynamic_cast<CmdCalculator::Expressions::DynamicAbsoluteValueOperation<FakeExpressionNumberType>*>
+			dynamic_cast<CmdCalculator::Expressions::DynamicAbsoluteValueOperation<ConvertedNumberType>*>
 				(returnValue.get())
 		};
 		ASSERT_TRUE(castedReturnValue);
@@ -161,15 +160,15 @@ namespace CmdCalculatorTests
 		const CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter
 		<
 			StubInnerConverterType,
-			std::string,
-			FakeExpressionNumberType
+			std::string
 		> instance
 		{
 			innerConverter
 		};
+		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
 
 		// Act
-		const std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<FakeExpressionNumberType>> returnValue
+		const std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<ConvertedNumberType>> returnValue
 		{
 			instance.getOperandAsExpression(sourceOperand)
 		};
@@ -284,15 +283,15 @@ namespace CmdCalculatorTests
 		const CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter
 		<
 			StubInnerConverterType,
-			std::string,
-			FakeExpressionNumberType
+			std::string
 		> instance
 		{
 			innerConverter
 		};
+		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
 
 		// Act
-		const std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<FakeExpressionNumberType>> returnValue
+		const std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<ConvertedNumberType>> returnValue
 		{
 			instance.getOperandAsExpression(sourceOperand)
 		};
@@ -301,7 +300,7 @@ namespace CmdCalculatorTests
 		ASSERT_TRUE(returnValue);
 		const auto* castedReturnValue
 		{
-			dynamic_cast<CmdCalculator::Expressions::DynamicMultiplicationOperation<FakeExpressionNumberType>*>
+			dynamic_cast<CmdCalculator::Expressions::DynamicMultiplicationOperation<ConvertedNumberType>*>
 				(returnValue.get())
 		};
 		ASSERT_TRUE(castedReturnValue);
@@ -310,13 +309,13 @@ namespace CmdCalculatorTests
 		<
 			void
 			(
-				const CmdCalculator::Expressions::DynamicMultiplicationOperation<FakeExpressionNumberType>&,
+				const CmdCalculator::Expressions::DynamicMultiplicationOperation<ConvertedNumberType>&,
 				const size_t
 			)
 		> validateReturnValue;
 		validateReturnValue = [&validateReturnValue, &multiplicandStrs]
 		(
-			const CmdCalculator::Expressions::DynamicMultiplicationOperation<FakeExpressionNumberType>& actual,
+			const CmdCalculator::Expressions::DynamicMultiplicationOperation<ConvertedNumberType>& actual,
 			const size_t offset
 		)
 		{
@@ -354,7 +353,7 @@ namespace CmdCalculatorTests
 			{
 				const auto* actualMultiplicand
 				{
-					dynamic_cast<CmdCalculator::Expressions::DynamicMultiplicationOperation<FakeExpressionNumberType>*>
+					dynamic_cast<CmdCalculator::Expressions::DynamicMultiplicationOperation<ConvertedNumberType>*>
 						(&actual.getMultiplicand())
 				};
 				ASSERT_TRUE(actualMultiplicand);
@@ -364,6 +363,536 @@ namespace CmdCalculatorTests
 		};
 
 		validateReturnValue(*castedReturnValue, 0);
+	}
+
+#pragma endregion
+
+
+#pragma region getOperandAsExpression(DynamicNumberLiteralNode)
+
+	struct getOperandAsExpression_DynamicNumberLiteralNode_TestData
+	{
+		int wholePart;
+		float fractionalPart;
+		double expectedConvertedValue;
+
+
+		friend std::ostream& operator<<
+		(
+			std::ostream& ostream,
+			const getOperandAsExpression_DynamicNumberLiteralNode_TestData& testData
+		)
+		{
+			ostream
+				<< "BasicDynamicOperandToDynamicExpressionConverter.getOperandAsExpression(MathAst::DynamicNumberLiteralNode{"
+				<< testData.wholePart
+				<< '.'
+				<< testData.fractionalPart
+				<< "}) = Expressions::DynamicNumber{"
+				<< testData.expectedConvertedValue
+				<< '}'
+			;
+
+			return ostream;
+		}
+	};
+
+
+
+	class BasicDynamicOperandToDynamicExpressionConverter$getOperandAsExpression$with$DynamicNumberLiteralNode$Tests :
+		public testing::TestWithParam<getOperandAsExpression_DynamicNumberLiteralNode_TestData>
+	{};
+
+	const getOperandAsExpression_DynamicNumberLiteralNode_TestData getOperandAsExpression_DynamicNumberLiteralNode_TestDataValues[]
+	{
+
+		{
+			.wholePart{ 0 },
+			.fractionalPart{ 0.0 },
+			.expectedConvertedValue{ 0.0 }
+		},
+		{
+			.wholePart{ 0 },
+			.fractionalPart{ 0.1 },
+			.expectedConvertedValue{ 0.1 }
+		},
+		{
+			.wholePart{ 0 },
+			.fractionalPart{ 0.2 },
+			.expectedConvertedValue{ 0.2 }
+		},
+		{
+			.wholePart{ 0 },
+			.fractionalPart{ 0.456 },
+			.expectedConvertedValue{ 0.456 }
+		},
+		{
+			.wholePart{ 0 },
+			.fractionalPart{ 0.0456 },
+			.expectedConvertedValue{ 0.0456 }
+		},
+		{
+			.wholePart{ 0 },
+			.fractionalPart{ 0.00456 },
+			.expectedConvertedValue{ 0.00456 }
+		},
+		{
+			.wholePart{ 0 },
+			.fractionalPart{ 0.000456 },
+			.expectedConvertedValue{ 0.000456 }
+		},
+		{
+			.wholePart{ 1 },
+			.fractionalPart{ 0.0 },
+			.expectedConvertedValue{ 0.0 }
+		},
+		{
+			.wholePart{ 1 },
+			.fractionalPart{ 0.1 },
+			.expectedConvertedValue{ 0.1 }
+		},
+		{
+			.wholePart{ 1 },
+			.fractionalPart{ 0.2 },
+			.expectedConvertedValue{ 0.2 }
+		},
+		{
+			.wholePart{ 1 },
+			.fractionalPart{ 0.456 },
+			.expectedConvertedValue{ 0.456 }
+		},
+		{
+			.wholePart{ 1 },
+			.fractionalPart{ 0.0456 },
+			.expectedConvertedValue{ 0.0456 }
+		},
+		{
+			.wholePart{ 1 },
+			.fractionalPart{ 0.00456 },
+			.expectedConvertedValue{ 0.00456 }
+		},
+		{
+			.wholePart{ 1 },
+			.fractionalPart{ 0.000456 },
+			.expectedConvertedValue{ 1.000456 }
+		},
+		{
+			.wholePart{ 2 },
+			.fractionalPart{ 0.0 },
+			.expectedConvertedValue{ 0.0 }
+		},
+		{
+			.wholePart{ 2 },
+			.fractionalPart{ 0.1 },
+			.expectedConvertedValue{ 0.1 }
+		},
+		{
+			.wholePart{ 2 },
+			.fractionalPart{ 0.2 },
+			.expectedConvertedValue{ 0.2 }
+		},
+		{
+			.wholePart{ 2 },
+			.fractionalPart{ 0.456 },
+			.expectedConvertedValue{ 0.456 }
+		},
+		{
+			.wholePart{ 2 },
+			.fractionalPart{ 0.0456 },
+			.expectedConvertedValue{ 0.0456 }
+		},
+		{
+			.wholePart{ 2 },
+			.fractionalPart{ 0.00456 },
+			.expectedConvertedValue{ 0.00456 }
+		},
+		{
+			.wholePart{ 2 },
+			.fractionalPart{ 0.000456 },
+			.expectedConvertedValue{ 2.000456 }
+		},
+		{
+			.wholePart{ 123 },
+			.fractionalPart{ 0.0 },
+			.expectedConvertedValue{ 0.0 }
+		},
+		{
+			.wholePart{ 123 },
+			.fractionalPart{ 0.1 },
+			.expectedConvertedValue{ 0.1 }
+		},
+		{
+			.wholePart{ 123 },
+			.fractionalPart{ 0.2 },
+			.expectedConvertedValue{ 0.2 }
+		},
+		{
+			.wholePart{ 123 },
+			.fractionalPart{ 0.456 },
+			.expectedConvertedValue{ 0.456 }
+		},
+		{
+			.wholePart{ 123 },
+			.fractionalPart{ 0.0456 },
+			.expectedConvertedValue{ 0.0456 }
+		},
+		{
+			.wholePart{ 123 },
+			.fractionalPart{ 0.00456 },
+			.expectedConvertedValue{ 0.00456 }
+		},
+		{
+			.wholePart{ 123 },
+			.fractionalPart{ 0.000456 },
+			.expectedConvertedValue{ 123.000456 }
+		},
+		{
+			.wholePart{ 1230 },
+			.fractionalPart{ 0.0 },
+			.expectedConvertedValue{ 0.0 }
+		},
+		{
+			.wholePart{ 1230 },
+			.fractionalPart{ 0.1 },
+			.expectedConvertedValue{ 0.1 }
+		},
+		{
+			.wholePart{ 1230 },
+			.fractionalPart{ 0.2 },
+			.expectedConvertedValue{ 0.2 }
+		},
+		{
+			.wholePart{ 1230 },
+			.fractionalPart{ 0.456 },
+			.expectedConvertedValue{ 0.456 }
+		},
+		{
+			.wholePart{ 1230 },
+			.fractionalPart{ 0.0456 },
+			.expectedConvertedValue{ 0.0456 }
+		},
+		{
+			.wholePart{ 1230 },
+			.fractionalPart{ 0.00456 },
+			.expectedConvertedValue{ 0.00456 }
+		},
+		{
+			.wholePart{ 1230 },
+			.fractionalPart{ 0.000456 },
+			.expectedConvertedValue{ 1230.000456 }
+		},
+		{
+			.wholePart{ 12300 },
+			.fractionalPart{ 0.0 },
+			.expectedConvertedValue{ 0.0 }
+		},
+		{
+			.wholePart{ 12300 },
+			.fractionalPart{ 0.1 },
+			.expectedConvertedValue{ 0.1 }
+		},
+		{
+			.wholePart{ 12300 },
+			.fractionalPart{ 0.2 },
+			.expectedConvertedValue{ 0.2 }
+		},
+		{
+			.wholePart{ 12300 },
+			.fractionalPart{ 0.456 },
+			.expectedConvertedValue{ 0.456 }
+		},
+		{
+			.wholePart{ 12300 },
+			.fractionalPart{ 0.0456 },
+			.expectedConvertedValue{ 0.0456 }
+		},
+		{
+			.wholePart{ 12300 },
+			.fractionalPart{ 0.00456 },
+			.expectedConvertedValue{ 0.00456 }
+		},
+		{
+			.wholePart{ 12300 },
+			.fractionalPart{ 0.000456 },
+			.expectedConvertedValue{ 12300.000456 }
+		},
+		{
+			.wholePart{ 123000 },
+			.fractionalPart{ 0.0 },
+			.expectedConvertedValue{ 0.0 }
+		},
+		{
+			.wholePart{ 123000 },
+			.fractionalPart{ 0.1 },
+			.expectedConvertedValue{ 0.1 }
+		},
+		{
+			.wholePart{ 123000 },
+			.fractionalPart{ 0.2 },
+			.expectedConvertedValue{ 0.2 }
+		},
+		{
+			.wholePart{ 123000 },
+			.fractionalPart{ 0.456 },
+			.expectedConvertedValue{ 0.456 }
+		},
+		{
+			.wholePart{ 123000 },
+			.fractionalPart{ 0.0456 },
+			.expectedConvertedValue{ 0.0456 }
+		},
+		{
+			.wholePart{ 123000 },
+			.fractionalPart{ 0.00456 },
+			.expectedConvertedValue{ 0.00456 }
+		},
+		{
+			.wholePart{ 123000 },
+			.fractionalPart{ 0.000456 },
+			.expectedConvertedValue{ 123000.000456 }
+		}
+	};
+
+	INSTANTIATE_TEST_CASE_P
+	(
+		BasicDynamicOperandToDynamicExpressionConverterTests,
+		BasicDynamicOperandToDynamicExpressionConverter$getOperandAsExpression$with$DynamicNumberLiteralNode$Tests,
+		testing::ValuesIn(getOperandAsExpression_DynamicNumberLiteralNode_TestDataValues)
+	);
+
+
+	TEST_P
+	(
+		BasicDynamicOperandToDynamicExpressionConverter$getOperandAsExpression$with$DynamicNumberLiteralNode$Tests,
+		calling$getOperandAsExpression$with$DynamicNumberLiteralNode$returns$DynamicNumber
+	)
+	{
+		// Arrange
+		const StubInnerConverterType innerConverter{ makeInnerConverter() };
+		const std::string sourceOperandInnerStringRepresentation{ "Source" };
+		const CmdCalculator::MathAst::DynamicNumberLiteralNode<std::string, int, float> sourceOperand
+		{
+			GetParam().wholePart,
+			GetParam().fractionalPart,
+			CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::FullDecimal,
+			"",
+			""
+		};
+
+		const double expectedConvertedValue{ GetParam().expectedConvertedValue };
+
+		const CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter
+		<
+			StubInnerConverterType,
+			std::string
+		> instance
+		{
+			innerConverter
+		};
+		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
+
+		// Act
+		const std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<ConvertedNumberType>> returnValue
+		{
+			instance.getOperandAsExpression(sourceOperand)
+		};
+
+		// Assert
+		ASSERT_TRUE(returnValue);
+
+		const auto* castedReturnValue
+		{
+			dynamic_cast<CmdCalculator::Expressions::DynamicNumber<ConvertedNumberType>*>
+				(returnValue.get())
+		};
+		ASSERT_TRUE(castedReturnValue);
+
+		EXPECT_DOUBLE_EQ
+		(
+			expectedConvertedValue,
+			castedReturnValue->getValue().getInnerValue()
+		);
+	}
+
+#pragma endregion
+
+
+#pragma region getOperandAsExpression(DynamicSignOperationNode)
+
+	TEST
+	(
+		BasicDynamicOperandToDynamicExpressionConverterTests,
+		calling$getOperandAsExpression$with$DynamicSignOperationNode$with$positive$sign$returns$converted$inner$expression
+	)
+	{
+		// Arrange
+		const StubInnerConverterType innerConverter{ makeInnerConverter() };
+		const std::string sourceOperandInnerStringRepresentation{ "Source" };
+		const CmdCalculator::MathAst::DynamicSignOperationNode<std::string> sourceOperand
+		{
+			makeOperandNode(sourceOperandInnerStringRepresentation),
+			true,
+			"", "", ""
+		};
+		const CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter
+		<
+			StubInnerConverterType,
+			std::string
+		> instance
+		{
+			innerConverter
+		};
+		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
+
+		// Act
+		const std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<ConvertedNumberType>> returnValue
+		{
+			instance.getOperandAsExpression(sourceOperand)
+		};
+
+		// Assert
+		ASSERT_TRUE(returnValue);
+
+		const auto* castedReturnValue
+		{
+			dynamic_cast<typename StubInnerConverterType::ExpressionType*>
+				(returnValue.get())
+		};
+		ASSERT_TRUE(castedReturnValue);
+
+		EXPECT_EQ
+		(
+			sourceOperandInnerStringRepresentation,
+			castedReturnValue->mathAstSource.getStringRepresentation()
+		);
+	}
+
+
+	TEST
+	(
+		BasicDynamicOperandToDynamicExpressionConverterTests,
+		calling$getOperandAsExpression$with$DynamicSignOperationNode$with$negative$sign$returns$DynamicNegationExpression
+	)
+	{
+		// Arrange
+		const StubInnerConverterType innerConverter{ makeInnerConverter() };
+		const std::string sourceOperandInnerStringRepresentation{ "Source" };
+		const CmdCalculator::MathAst::DynamicSignOperationNode<std::string> sourceOperand
+		{
+			makeOperandNode(sourceOperandInnerStringRepresentation),
+			false,
+			"", "", ""
+		};
+		const CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter
+		<
+			StubInnerConverterType,
+			std::string
+		> instance
+		{
+			innerConverter
+		};
+		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
+
+		// Act
+		const std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<ConvertedNumberType>> returnValue
+		{
+			instance.getOperandAsExpression(sourceOperand)
+		};
+
+		// Assert
+		ASSERT_TRUE(returnValue);
+
+		const auto* castedReturnValue
+		{
+			dynamic_cast<CmdCalculator::Expressions::DynamicNegationOperation<ConvertedNumberType>*>
+				(returnValue.get())
+		};
+		ASSERT_TRUE(castedReturnValue);
+
+		const auto* castedReturnValueOperand
+		{
+			dynamic_cast<typename StubInnerConverterType::ExpressionType*>
+				(&castedReturnValue->getOperand())
+		};
+		ASSERT_TRUE(castedReturnValueOperand);
+
+		EXPECT_EQ
+		(
+			sourceOperandInnerStringRepresentation,
+			castedReturnValueOperand->mathAstSource.getStringRepresentation()
+		);
+	}
+
+#pragma endregion
+
+
+#pragma region getOperandAsExpression(DynamicSqrtOperationNode)
+
+	TEST
+	(
+		BasicDynamicOperandToDynamicExpressionConverterTests,
+		calling$getOperandAsExpression$with$DynamicSqrtOperationNode$returns$DynamicNthRootOperation
+	)
+	{
+		// Arrange
+		const StubInnerConverterType innerConverter{ makeInnerConverter() };
+		const std::string sourceOperandInnerStringRepresentation{ "Source" };
+		const CmdCalculator::MathAst::DynamicSqrtOperationNode<std::string> sourceOperand
+		{
+			makeOperandNode(sourceOperandInnerStringRepresentation),
+			"", "", ""
+		};
+		const CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter
+		<
+			StubInnerConverterType,
+			std::string
+		> instance
+		{
+			innerConverter
+		};
+		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
+
+		// Act
+		const std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<ConvertedNumberType>> returnValue
+		{
+			instance.getOperandAsExpression(sourceOperand)
+		};
+
+		// Assert
+		ASSERT_TRUE(returnValue);
+
+		const auto* castedReturnValue
+		{
+			dynamic_cast<CmdCalculator::Expressions::DynamicNthRootOperation<ConvertedNumberType>*>
+				(returnValue.get())
+		};
+		ASSERT_TRUE(castedReturnValue);
+
+		const auto* castedReturnValueRadicand
+		{
+			dynamic_cast<typename StubInnerConverterType::ExpressionType*>
+				(&castedReturnValue->getRadicand())
+		};
+		ASSERT_TRUE(castedReturnValueRadicand);
+		
+		EXPECT_EQ
+		(
+			sourceOperandInnerStringRepresentation,
+			castedReturnValueRadicand->mathAstSource.getStringRepresentation()
+		);
+
+		const auto* castedReturnValueDegree
+		{
+			dynamic_cast<CmdCalculator::Expressions::DynamicNumber<ConvertedNumberType>*>
+				(&castedReturnValue->getDegree())
+		};
+		ASSERT_TRUE(castedReturnValueDegree);
+
+		EXPECT_DOUBLE_EQ
+		(
+			2.0,
+			castedReturnValueDegree->getValue().getInnerValue()
+		);
 	}
 
 #pragma endregion

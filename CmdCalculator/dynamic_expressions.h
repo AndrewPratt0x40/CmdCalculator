@@ -9,4 +9,5 @@
 #include "DynamicMultiplicationOperation.h"
 #include "DynamicNegationOperation.h"
 #include "DynamicNthRootOperation.h"
+#include "DynamicNumber.h"
 #include "DynamicSubtractionOperation.h"

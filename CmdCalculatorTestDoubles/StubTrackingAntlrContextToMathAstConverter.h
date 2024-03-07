@@ -20,7 +20,8 @@ namespace CmdCalculatorTestDoubles
 	template
 	<
 		CmdCalculator::String StringT,
-		std::integral IntT,
+		std::integral WholePartT,
+		std::floating_point FractionalPartT,
 		CmdCalculator::StringView SourceStringViewT
 	>
 	class StubTrackingAntlrContextToMathAstConverter :
@@ -29,7 +30,8 @@ namespace CmdCalculatorTestDoubles
 	public:
 
 		using StringType = StringT;
-		using IntType = IntT;
+		using WholePartType = WholePartT;
+		using FractionalPartType = FractionalPartT;
 		using SourceStringViewType = SourceStringViewT;
 		using FullExpressionAntlrContextType = StubTrackingFullExpressionAntlrContext<SourceStringViewType>;
 
@@ -87,7 +89,7 @@ namespace CmdCalculatorTestDoubles
 		}
 
 
-		std::unique_ptr<CmdCalculator::MathAst::DynamicNumberLiteralNode<StringT, IntT>> getConvertedNumberLiteralContext
+		std::unique_ptr<CmdCalculator::MathAst::DynamicNumberLiteralNode<StringT, WholePartT, FractionalPartT>> getConvertedNumberLiteralContext
 		(const CmdCalculator::AntlrContextTypeDeductions::NumberLiteralType<FullExpressionAntlrContextType>& context)
 		{
 			throw CmdCalculator::NotImplementedException{};

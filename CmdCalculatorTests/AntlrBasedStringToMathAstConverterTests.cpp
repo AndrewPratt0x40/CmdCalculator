@@ -30,7 +30,7 @@ namespace CmdCalculatorTests
 				<
 					std::string_view,
 					CmdCalculatorTestDoubles::StubTrackingStringToAntlrContextConverter<std::string_view>,
-					CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, int, std::string_view>
+					CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, int, float, std::string_view>
 				>
 			>
 		);
@@ -55,7 +55,7 @@ namespace CmdCalculatorTests
 			.convertedTrailingTrivia{}
 		};
 
-		using AntlrContextToMathAstConverterType = CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, int, std::string_view>;
+		using AntlrContextToMathAstConverterType = CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, int, float, std::string_view>;
 
 		AntlrContextToMathAstConverterType antlrContextToMathAstConverter
 		{
@@ -96,7 +96,7 @@ namespace CmdCalculatorTests
 			.convertedTrailingTrivia{}
 		};
 
-		using AntlrContextToMathAstConverterType = CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, int, std::string_view>;
+		using AntlrContextToMathAstConverterType = CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, int, float, std::string_view>;
 
 		AntlrContextToMathAstConverterType antlrContextToMathAstConverter
 		{
@@ -170,7 +170,7 @@ namespace CmdCalculatorTests
 #pragma warning(pop)
 		};
 
-		using AntlrContextToMathAstConverterType = CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, int, std::string_view>;
+		using AntlrContextToMathAstConverterType = CmdCalculatorTestDoubles::StubTrackingAntlrContextToMathAstConverter<std::string, int, float, std::string_view>;
 
 		AntlrContextToMathAstConverterType antlrContextToMathAstConverter
 		{

@@ -11,7 +11,7 @@ namespace CmdCalculatorTestDoubleTests
 	struct DynamicNumberLiteralNode_TestParams
 	{
 		int wholePart;
-		int fractionalPart;
+		float fractionalPart;
 		CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig partsConfig;
 		std::string leadingTrivia;
 		std::string trailingTrivia;
@@ -30,7 +30,7 @@ namespace CmdCalculatorTestDoubleTests
 		DynamicNumberLiteralNode_TestParams
 			{
 				.wholePart{ 1 },
-				.fractionalPart{ 2 },
+				.fractionalPart{ 0.2 },
 				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::FullDecimal },
 				.leadingTrivia{ "" },
 				.trailingTrivia{ "" },
@@ -42,7 +42,7 @@ namespace CmdCalculatorTestDoubleTests
 			DynamicNumberLiteralNode_TestParams
 			{
 				.wholePart{ 1234 },
-				.fractionalPart{ 5678 },
+				.fractionalPart{ 0.5678 },
 				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::FullDecimal },
 				.leadingTrivia{ "" },
 				.trailingTrivia{ "" },
@@ -54,7 +54,7 @@ namespace CmdCalculatorTestDoubleTests
 			DynamicNumberLiteralNode_TestParams
 			{
 				.wholePart{ 1 },
-				.fractionalPart{ 2 },
+				.fractionalPart{ 0.2 },
 				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::Integer },
 				.leadingTrivia{ "" },
 				.trailingTrivia{ "" },
@@ -66,7 +66,7 @@ namespace CmdCalculatorTestDoubleTests
 			DynamicNumberLiteralNode_TestParams
 			{
 				.wholePart{ 1 },
-				.fractionalPart{ 2 },
+				.fractionalPart{ 0.2 },
 				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::WholelessDecimal },
 				.leadingTrivia{ "" },
 				.trailingTrivia{ "" },
@@ -78,7 +78,7 @@ namespace CmdCalculatorTestDoubleTests
 			DynamicNumberLiteralNode_TestParams
 			{
 				.wholePart{ 1 },
-				.fractionalPart{ 2 },
+				.fractionalPart{ 0.2 },
 				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::FractionlessDecimal },
 				.leadingTrivia{ "" },
 				.trailingTrivia{ "" },
@@ -90,7 +90,7 @@ namespace CmdCalculatorTestDoubleTests
 			DynamicNumberLiteralNode_TestParams
 			{
 				.wholePart{ 1 },
-				.fractionalPart{ 2 },
+				.fractionalPart{ 0.2 },
 				.partsConfig{ CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig::FullDecimal },
 				.leadingTrivia{ " " },
 				.trailingTrivia{ "  " },
@@ -116,13 +116,13 @@ namespace CmdCalculatorTestDoubleTests
 	{
 		// Arrange
 		const int wholePartToPass{ GetParam().wholePart };
-		const int fractionalPartToPass{ GetParam().fractionalPart };
+		const float fractionalPartToPass{ GetParam().fractionalPart };
 		const CmdCalculator::MathAst::EDynamicNumberLiteralNodePartsConfig partsConfigToPass{ GetParam().partsConfig };
 		const std::string leadingTriviaToPass{ GetParam().leadingTrivia };
 		const std::string trailingTriviaToPass{ GetParam().trailingTrivia };
 
 		const int expectedWholePart{ GetParam().wholePart };
-		const int expectedFractionalPart{ GetParam().fractionalPart };
+		const float expectedFractionalPart{ GetParam().fractionalPart };
 		const bool expectedIsWholePartVisible{ GetParam().expectWholePartVisible };
 		const bool expectedIsDecimalPointVisible{ GetParam().expectDecimalPointVisible };
 		const bool expectedIsFractionalPartVisible{ GetParam().expectFractionalPartVisible };
@@ -131,7 +131,7 @@ namespace CmdCalculatorTestDoubleTests
 		const std::string expectedStringRepresentation{ GetParam().stringRepresentation };
 		
 		// Act
-		CmdCalculator::MathAst::DynamicNumberLiteralNode<std::string, int> instance
+		CmdCalculator::MathAst::DynamicNumberLiteralNode<std::string, int, float> instance
 		{
 			wholePartToPass,
 			fractionalPartToPass,
