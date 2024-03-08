@@ -6,7 +6,7 @@ DONE - Create AntlrInvokingStringToAntlrContextConverter
 DONE - Create AntlrContextToDynamicMathAstConverter
 DONE - Declare DynamicExpression types
 DONE - Implement FundamentallyBackedRealNumber
-- Create DynamicMathAstToDynamicExpressionConverter
+- Create BasicDynamicMathAstToDynamicExpressionConverter
 	DONE - Make sure expression parts are sorted correctly!
 	DONE - Implement BasicDEPRecursiveSplitResult
 	DONE - Implement SingularInvokingDEPSplitter

@@ -3,13 +3,13 @@
 #include "../CmdCalculatorTestUtils/common.h"
 #include "../CmdCalculator/BasicDynamicOperandToDynamicExpressionConverter.h"
 #include "../CmdCalculator/DynamicOperandToDynamicExpressionConverter.h"
+#include "../CmdCalculator/FundamentallyBackedRealNumber.h"
 #include "../CmdCalculator/dynamic_mathast.h"
 #include "../CmdCalculator/dynamic_expressions.h"
-#include "../CmdCalculatorTestDoubles/StubTrackingMathAstToExpressionConverter.h"
+#include "../CmdCalculatorTestDoubles/StubTrackingDynamicMathAstToDynamicExpressionConverter.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpressionNode.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicOperandNode.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpression.h"
-#include "../CmdCalculatorTestDoubles/FakeRealNumber.h"
 
 #include <string>
 #include <ranges>
@@ -24,11 +24,14 @@ namespace CmdCalculatorTests
 {
 #pragma region Shared test data
 
-	using FakeExpressionNumberType = CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber;
-	using StubInnerConverterType = CmdCalculatorTestDoubles::StubTrackingMathAstToExpressionConverter
+	using ExpressionNumberType = CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<long double>;
+	using StubInnerConverterType = CmdCalculatorTestDoubles::StubTrackingDynamicMathAstToDynamicExpressionConverter
 	<
-		CmdCalculator::MathAst::DynamicExpressionNode<std::string>
+		CmdCalculator::MathAst::DynamicExpressionNode<std::string>,
+		ExpressionNumberType
 	>;
+	using StubInnerConverterExpressionType = typename StubInnerConverterType::ExpressionType;
+	using StubInnerConverterBoxedExpressionType = typename StubInnerConverterType::BoxedExpressionType;
 
 
 	static std::unique_ptr<CmdCalculator::MathAst::DynamicExpressionNode<std::string>>
@@ -53,6 +56,11 @@ namespace CmdCalculatorTests
 	{
 		return StubInnerConverterType
 		{
+			.sourceRootNodeFunc
+			{
+				[](const StubInnerConverterType::RootMathAstNodeType& sourceRootNode)
+				{ return sourceRootNode.getStringRepresentation(); }
+			},
 			.convertedEvaluation{convertedEvaluation}
 		};
 	}
@@ -115,26 +123,26 @@ namespace CmdCalculatorTests
 		};
 
 		// Assert
-		ASSERT_TRUE(returnValue);
+		ASSERT_NE(nullptr, returnValue.get());
 
 		const auto* castedReturnValue
 		{
 			dynamic_cast<CmdCalculator::Expressions::DynamicAbsoluteValueOperation<ConvertedNumberType>*>
 				(returnValue.get())
 		};
-		ASSERT_TRUE(castedReturnValue);
+		ASSERT_NE(nullptr, castedReturnValue);
 
 		const auto* castedReturnValueOperand
 		{
-			dynamic_cast<typename StubInnerConverterType::ExpressionType*>
+			dynamic_cast<StubInnerConverterBoxedExpressionType*>
 				(&castedReturnValue->getOperand())
 		};
-		ASSERT_TRUE(castedReturnValueOperand);
+		ASSERT_NE(nullptr, castedReturnValueOperand);
 		
 		EXPECT_EQ
 		(
 			sourceOperandInnerStringRepresentation,
-			castedReturnValueOperand->mathAstSource.getStringRepresentation()
+			castedReturnValueOperand->source
 		);
 	}
 
@@ -174,19 +182,19 @@ namespace CmdCalculatorTests
 		};
 
 		// Assert
-		ASSERT_TRUE(returnValue);
+		ASSERT_NE(nullptr, returnValue.get());
 
 		const auto* castedReturnValue
 		{
-			dynamic_cast<typename StubInnerConverterType::ExpressionType*>
+			dynamic_cast<StubInnerConverterBoxedExpressionType*>
 				(returnValue.get())
 		};
-		ASSERT_TRUE(castedReturnValue);
+		ASSERT_NE(nullptr, castedReturnValue);
 
 		EXPECT_EQ
 		(
 			sourceOperandInnerStringRepresentation,
-			castedReturnValue->mathAstSource.getStringRepresentation()
+			castedReturnValue->source
 		);
 	}
 
@@ -297,13 +305,13 @@ namespace CmdCalculatorTests
 		};
 
 		// Assert
-		ASSERT_TRUE(returnValue);
+		ASSERT_NE(nullptr, returnValue.get());
 		const auto* castedReturnValue
 		{
 			dynamic_cast<CmdCalculator::Expressions::DynamicMultiplicationOperation<ConvertedNumberType>*>
 				(returnValue.get())
 		};
-		ASSERT_TRUE(castedReturnValue);
+		ASSERT_NE(nullptr, castedReturnValue);
 
 		std::function
 		<
@@ -322,7 +330,7 @@ namespace CmdCalculatorTests
 			const std::string expectedMultiplier{ multiplicandStrs.at(offset) };
 			const auto* actualMultiplier
 			{
-				dynamic_cast<typename StubInnerConverterType::ExpressionType*>
+				dynamic_cast<StubInnerConverterBoxedExpressionType*>
 					(&actual.getMultiplier())
 			};
 			ASSERT_TRUE(actualMultiplier);
@@ -330,7 +338,7 @@ namespace CmdCalculatorTests
 			EXPECT_EQ
 			(
 				expectedMultiplier,
-				actualMultiplier->mathAstSource.getStringRepresentation()
+				actualMultiplier->source
 			);
 
 			const std::string expectedMultiplicand{ multiplicandStrs.at(offset + 1) };
@@ -338,7 +346,7 @@ namespace CmdCalculatorTests
 			{
 				const auto* actualMultiplicand
 				{
-					dynamic_cast<typename StubInnerConverterType::ExpressionType*>
+					dynamic_cast<StubInnerConverterBoxedExpressionType*>
 						(&actual.getMultiplicand())
 				};
 				ASSERT_TRUE(actualMultiplicand);
@@ -346,7 +354,7 @@ namespace CmdCalculatorTests
 				EXPECT_EQ
 				(
 					expectedMultiplicand,
-					actualMultiplicand->mathAstSource.getStringRepresentation()
+					actualMultiplicand->source
 				);
 			}
 			else
@@ -650,14 +658,14 @@ namespace CmdCalculatorTests
 		};
 
 		// Assert
-		ASSERT_TRUE(returnValue);
+		ASSERT_NE(nullptr, returnValue.get());
 
 		const auto* castedReturnValue
 		{
 			dynamic_cast<CmdCalculator::Expressions::DynamicNumber<ConvertedNumberType>*>
 				(returnValue.get())
 		};
-		ASSERT_TRUE(castedReturnValue);
+		ASSERT_NE(nullptr, castedReturnValue);
 
 		EXPECT_DOUBLE_EQ
 		(
@@ -703,19 +711,19 @@ namespace CmdCalculatorTests
 		};
 
 		// Assert
-		ASSERT_TRUE(returnValue);
+		ASSERT_NE(nullptr, returnValue.get());
 
 		const auto* castedReturnValue
 		{
-			dynamic_cast<typename StubInnerConverterType::ExpressionType*>
+			dynamic_cast<StubInnerConverterBoxedExpressionType*>
 				(returnValue.get())
 		};
-		ASSERT_TRUE(castedReturnValue);
+		ASSERT_NE(nullptr, castedReturnValue);
 
 		EXPECT_EQ
 		(
 			sourceOperandInnerStringRepresentation,
-			castedReturnValue->mathAstSource.getStringRepresentation()
+			castedReturnValue->source
 		);
 	}
 
@@ -752,26 +760,26 @@ namespace CmdCalculatorTests
 		};
 
 		// Assert
-		ASSERT_TRUE(returnValue);
+		ASSERT_NE(nullptr, returnValue.get());
 
 		const auto* castedReturnValue
 		{
 			dynamic_cast<CmdCalculator::Expressions::DynamicNegationOperation<ConvertedNumberType>*>
 				(returnValue.get())
 		};
-		ASSERT_TRUE(castedReturnValue);
+		ASSERT_NE(nullptr, castedReturnValue);
 
 		const auto* castedReturnValueOperand
 		{
-			dynamic_cast<typename StubInnerConverterType::ExpressionType*>
+			dynamic_cast<StubInnerConverterBoxedExpressionType*>
 				(&castedReturnValue->getOperand())
 		};
-		ASSERT_TRUE(castedReturnValueOperand);
+		ASSERT_NE(nullptr, castedReturnValueOperand);
 
 		EXPECT_EQ
 		(
 			sourceOperandInnerStringRepresentation,
-			castedReturnValueOperand->mathAstSource.getStringRepresentation()
+			castedReturnValueOperand->source
 		);
 	}
 
@@ -811,26 +819,26 @@ namespace CmdCalculatorTests
 		};
 
 		// Assert
-		ASSERT_TRUE(returnValue);
+		ASSERT_NE(nullptr, returnValue.get());
 
 		const auto* castedReturnValue
 		{
 			dynamic_cast<CmdCalculator::Expressions::DynamicNthRootOperation<ConvertedNumberType>*>
 				(returnValue.get())
 		};
-		ASSERT_TRUE(castedReturnValue);
+		ASSERT_NE(nullptr, castedReturnValue);
 
 		const auto* castedReturnValueRadicand
 		{
-			dynamic_cast<typename StubInnerConverterType::ExpressionType*>
+			dynamic_cast<StubInnerConverterBoxedExpressionType*>
 				(&castedReturnValue->getRadicand())
 		};
-		ASSERT_TRUE(castedReturnValueRadicand);
+		ASSERT_NE(nullptr, castedReturnValueRadicand);
 		
 		EXPECT_EQ
 		(
 			sourceOperandInnerStringRepresentation,
-			castedReturnValueRadicand->mathAstSource.getStringRepresentation()
+			castedReturnValueRadicand->source
 		);
 
 		const auto* castedReturnValueDegree
@@ -838,7 +846,7 @@ namespace CmdCalculatorTests
 			dynamic_cast<CmdCalculator::Expressions::DynamicNumber<ConvertedNumberType>*>
 				(&castedReturnValue->getDegree())
 		};
-		ASSERT_TRUE(castedReturnValueDegree);
+		ASSERT_NE(nullptr, castedReturnValueDegree);
 
 		EXPECT_DOUBLE_EQ
 		(

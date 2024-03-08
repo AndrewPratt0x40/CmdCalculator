@@ -163,6 +163,9 @@
     <ClCompile Include="StubTrackingRecursiveSplitResultToDynamicExpressionConverterTests.cpp">
       <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter</Filter>
     </ClCompile>
+    <ClCompile Include="StubTrackingDynamicMathAstToDynamicExpressionConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -323,6 +326,9 @@
     </Filter>
     <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter">
       <UniqueIdentifier>{5e42c3c8-22b3-4c55-9662-744872e68ab4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter">
+      <UniqueIdentifier>{dd7f0959-346e-4e09-bdde-bd4d05bda86a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

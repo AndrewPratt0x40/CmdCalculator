@@ -2,7 +2,7 @@
 
 #include <assert.h>
 
-#include "DynamicMathAstToDynamicExpressionConverter.h"
+#include "BasicDynamicMathAstToDynamicExpressionConverter.h"
 #include "NotImplementedException.h"
 
 
@@ -17,10 +17,10 @@ template
 		DynamicExpressionPartRecursiveSplitterT,
 		RecursiveSplitResultToDynamicExpressionConverterT
 	>
-inline CmdCalculator::DynamicMathAstToDynamicExpressionConverter
+inline CmdCalculator::BasicDynamicMathAstToDynamicExpressionConverter
 <
 	DynamicExpressionPartRecursiveSplitterT, RecursiveSplitResultToDynamicExpressionConverterT>
-	::DynamicMathAstToDynamicExpressionConverter
+	::BasicDynamicMathAstToDynamicExpressionConverter
 (
 	DynamicExpressionPartRecursiveSplitterType&& splitter,
 	RecursiveSplitResultToDynamicExpressionConverterType&& splitResultConverter
@@ -40,12 +40,12 @@ template
 		DynamicExpressionPartRecursiveSplitterT,
 		RecursiveSplitResultToDynamicExpressionConverterT
 	>
-inline typename CmdCalculator::DynamicMathAstToDynamicExpressionConverter
+inline typename CmdCalculator::BasicDynamicMathAstToDynamicExpressionConverter
 <
 	DynamicExpressionPartRecursiveSplitterT,
 	RecursiveSplitResultToDynamicExpressionConverterT
 >::OutputExpressionType
-	CmdCalculator::DynamicMathAstToDynamicExpressionConverter
+	CmdCalculator::BasicDynamicMathAstToDynamicExpressionConverter
 	<
 		DynamicExpressionPartRecursiveSplitterT,
 		RecursiveSplitResultToDynamicExpressionConverterT

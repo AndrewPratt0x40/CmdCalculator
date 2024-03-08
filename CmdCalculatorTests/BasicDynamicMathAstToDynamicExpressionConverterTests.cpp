@@ -10,7 +10,7 @@
 #include <functional>
 
 #include "../CmdCalculatorTestUtils/common.h"
-#include "../CmdCalculator/DynamicMathAstToDynamicExpressionConverter.h"
+#include "../CmdCalculator/BasicDynamicMathAstToDynamicExpressionConverter.h"
 #include "../CmdCalculator/MathAstToExpressionConverter.h"
 #include "../CmdCalculator/DynamicExpressionBox.h"
 #include "../CmdCalculator/std_polyfills.h"
@@ -27,13 +27,13 @@ namespace CmdCalculatorTests
 {
 #pragma region Concept satisfaction
 	
-	TEST(DynamicMathAstToDynamicExpressionConverterTests, DynamicMathAstToDynamicExpressionConverter$satisfies$MathAstToExpressionConverter$concept)
+	TEST(BasicDynamicMathAstToDynamicExpressionConverterTests, BasicDynamicMathAstToDynamicExpressionConverter$satisfies$DynamicMathAstToDynamicExpressionConverter$concept)
 	{
 		static_assert
 		(
-			CmdCalculator::MathAstToExpressionConverter
+			CmdCalculator::DynamicMathAstToDynamicExpressionConverter
 			<
-				CmdCalculator::DynamicMathAstToDynamicExpressionConverter
+				CmdCalculator::BasicDynamicMathAstToDynamicExpressionConverter
 				<
 					CmdCalculatorTestDoubles::FakeHalfwayDynamicExpressionPartRecursiveSplitter
 					<
@@ -60,7 +60,7 @@ namespace CmdCalculatorTests
 
 #pragma region getMathAstAsExpression
 
-	struct DynamicMathAstToDynamicExpressionConverter_getMathAstAsExpression_TestData
+	struct BasicDynamicMathAstToDynamicExpressionConverter_getMathAstAsExpression_TestData
 	{
 		std::vector<std::string> sourceExpressionParts;
 		double evaluation;
@@ -71,7 +71,7 @@ namespace CmdCalculatorTests
 		friend std::ostream& operator<<
 		(
 			std::ostream& ostream,
-			const DynamicMathAstToDynamicExpressionConverter_getMathAstAsExpression_TestData& testData
+			const BasicDynamicMathAstToDynamicExpressionConverter_getMathAstAsExpression_TestData& testData
 		)
 		{
 			ostream
@@ -88,12 +88,12 @@ namespace CmdCalculatorTests
 		}
 	};
 
-	class DynamicMathAstToDynamicExpressionConverter$getMathAstAsExpression$Tests :
-		public testing::TestWithParam<DynamicMathAstToDynamicExpressionConverter_getMathAstAsExpression_TestData>
+	class BasicDynamicMathAstToDynamicExpressionConverter$getMathAstAsExpression$Tests :
+		public testing::TestWithParam<BasicDynamicMathAstToDynamicExpressionConverter_getMathAstAsExpression_TestData>
 	{};
 
-	const DynamicMathAstToDynamicExpressionConverter_getMathAstAsExpression_TestData
-		DynamicMathAstToDynamicExpressionConverter_getMathAstAsExpression_TestDataValues[]
+	const BasicDynamicMathAstToDynamicExpressionConverter_getMathAstAsExpression_TestData
+		BasicDynamicMathAstToDynamicExpressionConverter_getMathAstAsExpression_TestDataValues[]
 	{
 		{
 			.sourceExpressionParts{ "Part1" },
@@ -134,12 +134,12 @@ namespace CmdCalculatorTests
 
 	INSTANTIATE_TEST_CASE_P
 	(
-		DynamicMathAstToDynamicExpressionConverter$Tests,
-		DynamicMathAstToDynamicExpressionConverter$getMathAstAsExpression$Tests,
-		testing::ValuesIn(DynamicMathAstToDynamicExpressionConverter_getMathAstAsExpression_TestDataValues)
+		BasicDynamicMathAstToDynamicExpressionConverter$Tests,
+		BasicDynamicMathAstToDynamicExpressionConverter$getMathAstAsExpression$Tests,
+		testing::ValuesIn(BasicDynamicMathAstToDynamicExpressionConverter_getMathAstAsExpression_TestDataValues)
 	);
 
-	TEST_P(DynamicMathAstToDynamicExpressionConverter$getMathAstAsExpression$Tests, getMathAstAsExpression$returns$the$result$of$splitting$and$converting$the$given$parts)
+	TEST_P(BasicDynamicMathAstToDynamicExpressionConverter$getMathAstAsExpression$Tests, getMathAstAsExpression$returns$the$result$of$splitting$and$converting$the$given$parts)
 	{
 		// Arrange
 		using NumberType = CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber;
@@ -204,7 +204,7 @@ namespace CmdCalculatorTests
 			.convertedSplitResultEvaluation{ GetParam().evaluation }
 		};
 
-		CmdCalculator::DynamicMathAstToDynamicExpressionConverter<SplitterType, SplitResultConverterType> instance
+		CmdCalculator::BasicDynamicMathAstToDynamicExpressionConverter<SplitterType, SplitResultConverterType> instance
 		{
 			std::move(splitter),
 			std::move(splitResultConverter)

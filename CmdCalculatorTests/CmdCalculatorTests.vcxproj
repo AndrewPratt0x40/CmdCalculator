@@ -104,7 +104,7 @@
     <ClCompile Include="DynamicGroupingMultiplicationNodeTests.cpp" />
     <ClCompile Include="DynamicGroupingNodeTests.cpp" />
     <ClCompile Include="DynamicMathAstNodeTests.cpp" />
-    <ClCompile Include="DynamicMathAstToDynamicExpressionConverterTests.cpp" />
+    <ClCompile Include="BasicDynamicMathAstToDynamicExpressionConverterTests.cpp" />
     <ClCompile Include="DynamicModuloOperationTests.cpp" />
     <ClCompile Include="DynamicMultiplicationOperationTests.cpp" />
     <ClCompile Include="DynamicNegationOperationTests.cpp" />

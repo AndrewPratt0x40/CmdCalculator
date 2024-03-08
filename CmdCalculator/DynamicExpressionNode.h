@@ -17,6 +17,7 @@
 #include<locale>
 #include<assert.h>
 
+
 namespace CmdCalculator::MathAst
 {
 	/// \brief A type that satisfies \ref ExpressionNode that is implemented via dynamic polymorphism.
@@ -59,9 +60,18 @@ namespace CmdCalculator::MathAst
 		}
 
 
+		DynamicExpressionNode(DynamicExpressionNode<StringType>&& other) :
+			DynamicExpressionNode
+			(
+				other.m_leadingTrivia,
+				other.m_trailingTrivia,
+				std::move(std::ranges::owning_view<decltype(m_parts)>(std::move(other.m_parts)))
+			)
+		{}
+
+
 		DynamicExpressionNode() = delete;
 		DynamicExpressionNode(const DynamicExpressionNode<StringType>&) = delete;
-		DynamicExpressionNode(DynamicExpressionNode<StringType>&&) = delete;
 
 
 		virtual ~DynamicExpressionNode() override = default;

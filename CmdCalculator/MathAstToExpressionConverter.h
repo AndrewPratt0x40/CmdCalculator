@@ -5,6 +5,7 @@
 #include "utilities.h"
 #include "MathAstNode.h"
 #include "Expression.h"
+#include "utilities.h"
 
 namespace CmdCalculator
 {
@@ -20,8 +21,24 @@ namespace CmdCalculator
 		IntendsToSatisfy<T, MathAstToExpressionConverter_IntendedSatisfaction>
 		&& MathAst::MathAstNode<typename T::RootMathAstNodeType>
 		&& requires(T&& instance, const typename T::RootMathAstNodeType& sourceRootNode)
-	{
-		{ instance.getMathAstAsExpression(sourceRootNode) } -> Expressions::Expression;
-	}
+		{
+			{ instance.getMathAstAsExpression(sourceRootNode) } -> Expressions::Expression;
+		}
+	;
+
+
+	template<MathAstToExpressionConverter MathAstToExpressionConverterT>
+	using ResultOfMathAstToExpressionConverterType =
+		decltype
+		(
+			std::declval<MathAstToExpressionConverterT>()
+			.getMathAstAsExpression
+			(
+				std::declval
+				<
+					const typename MathAstToExpressionConverterT::RootMathAstNodeType&
+				>()
+			)
+		)
 	;
 }

@@ -53,6 +53,12 @@ namespace CmdCalculator::Expressions
 		const BoxedExpressionT& getInnerValue() const;
 
 
+		/// \brief Releases the expression boxed by the object.
+		/// \returns A unique pointer to the value that was boxed by the object.
+		/// \remark After calling this method, the object is left in a valid but unspecified state.
+		std::unique_ptr<BoxedExpressionType> releaseInnerValue();
+
+
 		/*/// \brief Tests whether or not the expression can be simplified.
 		/// \returns True if the expression is simplifiable, false if the expression is already in it's simplest form.
 		inline bool isSimplifiable() const;*/

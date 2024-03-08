@@ -17,6 +17,49 @@ namespace CmdCalculator
 	concept IntendsToSatisfy = std::convertible_to<SatisfierT*, ConceptMarkerT*>;
 
 
+	template<class T>
+	concept CopyButNotMoveConstructible =
+		std::copy_constructible<T>
+		&& !std::move_constructible<T>
+	;
+
+
+	// TODO: moveToUniquePtr would probably be better as a customization point object.
+	/// \brief Moves a value into a unique pointer.
+	/// \tparam T The type of the value to move.
+	/// \param value The value to move.
+	/// \returns A unique pointer instance that owns \p value.
+	template<std::move_constructible T>
+	std::unique_ptr<std::remove_reference_t<T>> moveToUniquePtr(T&& value)
+	{
+		return std::make_unique<std::remove_reference_t<T>>(std::move(value));
+	}
+
+
+	/// \brief Moves a value into a unique pointer.
+	/// \tparam T The type of the value to move.
+	/// \param value The value to move.
+	/// \returns A unique pointer instance that owns \p value.
+	template<CopyButNotMoveConstructible T>
+	std::unique_ptr<std::remove_reference_t<T>> moveToUniquePtr(T&& value)
+	{
+		return std::make_unique<T>(value);
+	}
+
+
+	/// \brief Describes any type that may be moved into a unique pointer.
+	/// \tparam The type of value to move into a unique pointer.
+	template<class T>
+	concept MovableToUniquePtr =
+		requires(T&& instance)
+		{
+			{ ::CmdCalculator::moveToUniquePtr(instance) } ->
+				std::same_as<std::unique_ptr<std::remove_reference_t<T>>>
+			;
+		}
+	;
+
+
 	/// \brief Describes any type that is \ref std::optional.
 	/// \tparam T The optional type.
 	template<class T>

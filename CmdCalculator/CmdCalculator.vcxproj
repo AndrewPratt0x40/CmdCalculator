@@ -112,6 +112,7 @@
     <ClInclude Include="DynamicExpressionPartRecursiveSplitter.h" />
     <ClInclude Include="DynamicExpressionPartSingleSplitResult.h" />
     <ClInclude Include="DynamicExpressionPartSingleSplitter.h" />
+    <ClInclude Include="BasicDynamicMathAstToDynamicExpressionConverter.h" />
     <ClInclude Include="DynamicMathAstToDynamicExpressionConverter.h" />
     <ClInclude Include="DynamicModuloOperation.h" />
     <ClInclude Include="DynamicMultiplicationOperation.h" />
@@ -215,7 +216,7 @@
     <ClCompile Include="DynamicAbsoluteValueOperation.hpp" />
     <ClCompile Include="DynamicExponentiationOperation.hpp" />
     <ClCompile Include="DynamicExpressionBox.hpp" />
-    <ClCompile Include="DynamicMathAstToDynamicExpressionConverter.hpp" />
+    <ClCompile Include="BasicDynamicMathAstToDynamicExpressionConverter.hpp" />
     <ClCompile Include="DynamicModuloOperation.hpp" />
     <ClCompile Include="DynamicMultiplicationOperation.hpp" />
     <ClCompile Include="DynamicNegationOperation.hpp" />

@@ -25,6 +25,13 @@ inline const BoxedExpressionT& CmdCalculator::Expressions::DynamicExpressionBox<
 
 
 template<CmdCalculator::Expressions::BoxableInnerExpression BoxedExpressionT>
+inline std::unique_ptr<BoxedExpressionT> CmdCalculator::Expressions::DynamicExpressionBox<BoxedExpressionT>::releaseInnerValue()
+{
+	return std::move(m_innerValue);
+}
+
+
+template<CmdCalculator::Expressions::BoxableInnerExpression BoxedExpressionT>
 inline typename BoxedExpressionT::NumberType CmdCalculator::Expressions::DynamicExpressionBox<BoxedExpressionT>::getEvaluation() const
 {
 	return m_innerValue->getEvaluation();

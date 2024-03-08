@@ -131,6 +131,7 @@
     <ClCompile Include="StubTrackingConvertedStringTests.cpp" />
     <ClCompile Include="StubTrackingDynamicExpressionNodeTests.cpp" />
     <ClCompile Include="StubTrackingDynamicExpressionTests.cpp" />
+    <ClCompile Include="StubTrackingDynamicMathAstToDynamicExpressionConverterTests.cpp" />
     <ClCompile Include="StubTrackingDynamicOperandToDynamicExpressionConverterTests.cpp" />
     <ClCompile Include="StubTrackingExpressionTests.cpp" />
     <ClCompile Include="StubTrackingExpressionToStringConverterTests.cpp" />
