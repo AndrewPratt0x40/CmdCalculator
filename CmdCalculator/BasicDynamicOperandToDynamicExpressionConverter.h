@@ -33,6 +33,19 @@ namespace CmdCalculator
 
 
 	private:
+		using DynamicExprUniquePtrType = std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>>;
+		using TailMultiplicandRangeIterType =
+			std::ranges::iterator_t
+			<
+				decltype
+				(
+					std::declval<const MathAst::DynamicGroupingMultiplicationNode<MathAstStringT>&>()
+					.getTailMultiplicands()
+				)
+			>
+		;
+		using TailMultiplicandSubrangeType = std::ranges::subrange<TailMultiplicandRangeIterType>;
+
 		std::reference_wrapper<const InnerConverterT> m_innerConverter;
 
 
@@ -54,6 +67,24 @@ namespace CmdCalculator
 
 	private:
 
+		ExpressionNumberType parseNumber(const MathAstStringT& str) const;
+
+
+		ExpressionNumberType parseNumberAsFractionalPart(const MathAstStringT& str) const;
+
+
+		ExpressionNumberType parseWholePart(const std::optional<MathAstStringT>& str) const;
+
+
+		ExpressionNumberType parseFractionalPart(const std::optional<MathAstStringT>& str) const;
+		
+		
+		std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> invokeInnerConverter
+		(
+			const MathAst::DynamicExpressionNode<MathAstStringT>& sourceExpression
+		) const;
+		
+		
 		std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> getAbsoluteValueAsExpression
 		(
 			const MathAst::DynamicAbsoluteValueNode<MathAstStringT>& sourceOperand
@@ -63,6 +94,12 @@ namespace CmdCalculator
 		std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> getGroupingAsExpression
 		(
 			const MathAst::DynamicGroupingNode<MathAstStringT>& sourceOperand
+		) const;
+
+
+		std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> getGroupingMultiplicationTailsAsExpression
+		(
+			TailMultiplicandSubrangeType tails
 		) const;
 
 

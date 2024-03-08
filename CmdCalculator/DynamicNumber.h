@@ -20,6 +20,12 @@ namespace CmdCalculator::Expressions
 		using NumberType = DynamicExpression<NumberT>::NumberType;
 
 
+	private:
+		NumberType m_value;
+
+
+	public:
+
 		/// \brief Creates a new instance of the \ref DynamicNumber class.
 		/// \param value The numeric value of the object.
 		DynamicNumber(const NumberType value);
@@ -30,10 +36,10 @@ namespace CmdCalculator::Expressions
 
 		/// \brief Accessor to the numeric value.
 		/// \returns The value of the number the object represents.
-		NumberType getValue() const;
+		NumberT getValue() const;
 
 
-		NumberType getEvaluation() const override;
+		NumberT getEvaluation() const override;
 
 
 		//bool isSimplifiable() const override;

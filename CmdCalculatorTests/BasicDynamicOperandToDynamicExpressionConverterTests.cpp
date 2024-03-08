@@ -46,9 +46,12 @@ namespace CmdCalculatorTests
 	static std::unique_ptr<CmdCalculator::MathAst::DynamicOperandNode<std::string>>
 		makeOperandNode(const std::string str)
 	{
-		return std::make_unique<CmdCalculatorTestDoubles::MathAst::StubDynamicOperandNode<std::string>>
-			(CmdCalculator::MathAst::EDerivedDynamicOperandNodeKind::NumberLiteral, str, "", "")
-		;
+		return std::make_unique<CmdCalculator::MathAst::DynamicNumberLiteralNode<std::string>>
+		(
+			std::make_optional<std::string>(str),
+			std::optional<std::string>{},
+			false, "", ""
+		);
 	}
 
 
@@ -100,7 +103,7 @@ namespace CmdCalculatorTests
 	{
 		// Arrange
 		const StubInnerConverterType innerConverter{ makeInnerConverter() };
-		const std::string sourceOperandInnerStringRepresentation{ "Source" };
+		const std::string sourceOperandInnerStringRepresentation{ "123.456" };
 		const CmdCalculator::MathAst::DynamicAbsoluteValueNode<std::string> sourceOperand
 		{
 			makeExpressionNode(sourceOperandInnerStringRepresentation),
@@ -159,7 +162,7 @@ namespace CmdCalculatorTests
 	{
 		// Arrange
 		const StubInnerConverterType innerConverter{ makeInnerConverter() };
-		const std::string sourceOperandInnerStringRepresentation{ "Source" };
+		const std::string sourceOperandInnerStringRepresentation{ "123.456" };
 		const CmdCalculator::MathAst::DynamicGroupingNode<std::string> sourceOperand
 		{
 			makeExpressionNode(sourceOperandInnerStringRepresentation),
@@ -417,7 +420,7 @@ namespace CmdCalculatorTests
 	{
 		std::string str;
 		int asWholePart;
-		float asFractionalPart;
+		double asFractionalPart;
 	};
 
 	const std::initializer_list<NumberPartTestData> numberPartTestDataValues
@@ -629,7 +632,7 @@ namespace CmdCalculatorTests
 	{
 		// Arrange
 		const StubInnerConverterType innerConverter{ makeInnerConverter() };
-		const std::string sourceOperandInnerStringRepresentation{ "Source" };
+		const std::string sourceOperandInnerStringRepresentation{ "123.456" };
 		const CmdCalculator::MathAst::DynamicNumberLiteralNode<std::string> sourceOperand
 		{
 			GetParam().wholePart,
@@ -687,7 +690,7 @@ namespace CmdCalculatorTests
 	{
 		// Arrange
 		const StubInnerConverterType innerConverter{ makeInnerConverter() };
-		const std::string sourceOperandInnerStringRepresentation{ "Source" };
+		const std::string sourceOperandInnerStringRepresentation{ "123.456" };
 		const CmdCalculator::MathAst::DynamicSignOperationNode<std::string> sourceOperand
 		{
 			makeOperandNode(sourceOperandInnerStringRepresentation),
@@ -736,7 +739,7 @@ namespace CmdCalculatorTests
 	{
 		// Arrange
 		const StubInnerConverterType innerConverter{ makeInnerConverter() };
-		const std::string sourceOperandInnerStringRepresentation{ "Source" };
+		const std::string sourceOperandInnerStringRepresentation{ "123.456" };
 		const CmdCalculator::MathAst::DynamicSignOperationNode<std::string> sourceOperand
 		{
 			makeOperandNode(sourceOperandInnerStringRepresentation),
@@ -796,7 +799,7 @@ namespace CmdCalculatorTests
 	{
 		// Arrange
 		const StubInnerConverterType innerConverter{ makeInnerConverter() };
-		const std::string sourceOperandInnerStringRepresentation{ "Source" };
+		const std::string sourceOperandInnerStringRepresentation{ "123.456" };
 		const CmdCalculator::MathAst::DynamicSqrtOperationNode<std::string> sourceOperand
 		{
 			makeOperandNode(sourceOperandInnerStringRepresentation),

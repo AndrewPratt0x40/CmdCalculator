@@ -4,17 +4,10 @@
 #include "NotImplementedException.h"
 
 
-#pragma push_macro("THIS_NUMBER_TYPE")
-#define THIS_NUMBER_TYPE CmdCalculator::Expressions::DynamicNumber<NumberT>::NumberType
-#pragma push_macro("THIS_NUMBER_TYPENAME")
-#define THIS_NUMBER_TYPENAME typename THIS_NUMBER_TYPE
-
-
 template<CmdCalculator::Arithmetic::RealNumber NumberT>
-inline CmdCalculator::Expressions::DynamicNumber<NumberT>::DynamicNumber(const NumberType value)
-{
-	throw NotImplementedException{};
-}
+inline CmdCalculator::Expressions::DynamicNumber<NumberT>::DynamicNumber(const NumberType value) :
+	m_value{ value }
+{}
 
 
 template<CmdCalculator::Arithmetic::RealNumber NumberT>
@@ -22,17 +15,16 @@ inline CmdCalculator::Expressions::DynamicNumber<NumberT>::~DynamicNumber() = de
 
 
 template<CmdCalculator::Arithmetic::RealNumber NumberT>
-inline THIS_NUMBER_TYPE CmdCalculator::Expressions::DynamicNumber<NumberT>::getValue() const
+inline NumberT CmdCalculator::Expressions::DynamicNumber<NumberT>::getValue() const
 {
-	throw NotImplementedException{};
+	return m_value;
 }
 
 
 template<CmdCalculator::Arithmetic::RealNumber NumberT>
-inline THIS_NUMBER_TYPE
-	CmdCalculator::Expressions::DynamicNumber<NumberT>::getEvaluation() const
+inline NumberT CmdCalculator::Expressions::DynamicNumber<NumberT>::getEvaluation() const
 {
-	throw NotImplementedException{};
+	return m_value;
 }
 
 

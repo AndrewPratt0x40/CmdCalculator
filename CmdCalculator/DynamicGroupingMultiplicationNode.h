@@ -15,6 +15,20 @@
 
 namespace CmdCalculator::MathAst
 {
+	template<class T>
+	concept DynamicGroupingTailMultiplicandRange =
+		std::ranges::forward_range<T>
+		&& std::convertible_to
+		<
+			std::ranges::range_value_t<T>,
+			const DynamicGroupingNode
+			<
+				typename std::remove_pointer_t<std::ranges::range_value_t<T>>::StringType
+			>*
+		>
+	;
+	
+	
 	/// \brief A multiplication operation using represented by an operand followed by one or more adjacent grouping operations.
 	/// \tparam StringT The string type to use.
 	template<String StringT>
@@ -77,8 +91,8 @@ namespace CmdCalculator::MathAst
 
 		/// \brief Accessor to the tail multiplicands of the operation.
 		/// \returns The grouping operations to multiply the head multiplicand by.
-		/// \example The tail multiplicands of the grouping multiplication expression <tt>1(2)(3)</tt> would be <tt>2</tt> and <tt>3</tt>.
-		std::ranges::forward_range auto getTailMultiplicands() const
+		/// \example The tail multiplicands of the grouping multiplication expression <tt>1(2)(3)</tt> would be <tt>(2)</tt> and <tt>(3)</tt>.
+		DynamicGroupingTailMultiplicandRange auto getTailMultiplicands() const
 		{
 			return
 				m_tailMultiplicands
