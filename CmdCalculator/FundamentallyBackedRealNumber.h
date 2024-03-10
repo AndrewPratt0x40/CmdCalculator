@@ -105,7 +105,7 @@ namespace CmdCalculator::Arithmetic
 
 		/// \brief Creates a new instance of the \ref FundamentallyBackedRealNumber class.
 		/// \param innerValue The numeric value the object represents.
-		FundamentallyBackedRealNumber(const InnerType innerValue = default);
+		FundamentallyBackedRealNumber(const InnerType innerValue = static_cast<InnerType>(0));
 
 
 		FundamentallyBackedRealNumber(const FundamentallyBackedRealNumber<InnerT>&);

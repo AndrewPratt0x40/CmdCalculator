@@ -24,6 +24,18 @@ namespace CmdCalculatorTests
 {
 #pragma region Shared test data
 
+	template<class InnerT>
+	std::ostream& operator<<
+	(
+		std::ostream& ostream,
+		const CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<InnerT> value
+	)
+	{
+		ostream << value.getInnerValue();
+		return ostream;
+	}
+	
+	
 	using ExpressionNumberType = CmdCalculator::Arithmetic::FundamentallyBackedRealNumber<long double>;
 	using StubInnerConverterType = CmdCalculatorTestDoubles::StubTrackingDynamicMathAstToDynamicExpressionConverter
 	<
@@ -55,7 +67,7 @@ namespace CmdCalculatorTests
 	}
 
 
-	static StubInnerConverterType makeInnerConverter(const double convertedEvaluation = 0.0)
+	static StubInnerConverterType makeInnerConverter(const double err = -1.0)
 	{
 		return StubInnerConverterType
 		{
@@ -64,7 +76,22 @@ namespace CmdCalculatorTests
 				[](const StubInnerConverterType::RootMathAstNodeType& sourceRootNode)
 				{ return sourceRootNode.getStringRepresentation(); }
 			},
-			.convertedEvaluation{convertedEvaluation}
+			.convertedEvaluation
+			{
+				[&err](const StubInnerConverterType::RootMathAstNodeType& sourceRootNode)
+				{
+					double eval;
+					try
+					{
+						eval = std::stod(sourceRootNode.getStringRepresentation());
+					}
+					catch (const std::invalid_argument&)
+					{
+						return err;
+					}
+					return eval;
+				}
+			}
 		};
 	}
 
@@ -102,6 +129,7 @@ namespace CmdCalculatorTests
 	)
 	{
 		// Arrange
+		const double innerOperandEvaluation{ 123.456 };
 		const StubInnerConverterType innerConverter{ makeInnerConverter() };
 		const std::string sourceOperandInnerStringRepresentation{ "123.456" };
 		const CmdCalculator::MathAst::DynamicAbsoluteValueNode<std::string> sourceOperand
@@ -119,6 +147,12 @@ namespace CmdCalculatorTests
 		};
 		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
 
+		const ConvertedNumberType expectedOperandEvaluation
+		{
+			instance.getOperandAsExpression(*makeOperandNode(sourceOperandInnerStringRepresentation))->getEvaluation()
+		};
+		ASSERT_EQ(innerOperandEvaluation, expectedOperandEvaluation.getInnerValue());
+
 		// Act
 		const std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<ConvertedNumberType>> returnValue
 		{
@@ -135,17 +169,15 @@ namespace CmdCalculatorTests
 		};
 		ASSERT_NE(nullptr, castedReturnValue);
 
-		const auto* castedReturnValueOperand
+		const auto& returnValueOperand
 		{
-			dynamic_cast<StubInnerConverterBoxedExpressionType*>
-				(&castedReturnValue->getOperand())
+			castedReturnValue->getOperand()
 		};
-		ASSERT_NE(nullptr, castedReturnValueOperand);
 		
 		EXPECT_EQ
 		(
-			sourceOperandInnerStringRepresentation,
-			castedReturnValueOperand->source
+			expectedOperandEvaluation,
+			returnValueOperand.getEvaluation()
 		);
 	}
 
@@ -234,13 +266,13 @@ namespace CmdCalculatorTests
 	const getOperandAsExpression_DynamicGroupingMultiplicationNode_TestData getOperandAsExpression_DynamicGroupingMultiplicationNode_TestDataValues[]
 	{
 		{
-			.multiplicands{ "Head", "Tail" }
+			.multiplicands{ "1", "2" }
 		},
 		{
-			.multiplicands{ "Head", "Tail1", "Tail2" }
+			.multiplicands{ "1", "2", "3" }
 		},
 		{
-			.multiplicands{ "Head", "Tail1", "Tail2", "Tail3" }
+			.multiplicands{ "1", "2", "3", "4" }
 		}
 	};
 
@@ -255,32 +287,36 @@ namespace CmdCalculatorTests
 	TEST_P
 	(
 		BasicDynamicOperandToDynamicExpressionConverter$getOperandAsExpression$with$DynamicGroupingMultiplicationNode$Tests,
-		calling$getOperandAsExpression$with$DynamicAbsoluteValueOperation$returns$DynamicMultiplicationOperation$with$expected$operands
+		calling$getOperandAsExpression$with$DynamicGroupingMultiplicationNode$returns$DynamicMultiplicationOperation$with$expected$operands
 	)
 	{
 		// Arrange
 		ASSERT_TRUE(GetParam().multiplicands.size() > 1);
 
+		const auto strToGroupingNode
+		{
+			[](const std::string& str)
+			{
+				return std::move
+				(
+					std::make_unique<CmdCalculator::MathAst::DynamicGroupingNode<std::string>>
+						(makeExpressionNode(str), "", "")
+				);
+			}
+		};
+
 		const std::vector<std::string> multiplicandStrs{ GetParam().multiplicands };
+		const std::string headMultiplicandStr{ multiplicandStrs.front() };
+		const std::ranges::forward_range auto tailMultiplicandStrs{ multiplicandStrs | std::views::drop(1) };
+
 		const StubInnerConverterType innerConverter{ makeInnerConverter() };
 
 		std::vector<std::unique_ptr<CmdCalculator::MathAst::DynamicGroupingNode<std::string>>> tailMultiplicands
 		{
 			CmdCalculatorTestUtils::moveRangeToVector
 			(
-				multiplicandStrs
-				| std::views::drop(1)
-				| std::views::transform
-				(
-					[](const std::string& str)
-					{
-						return std::move
-						(
-							std::make_unique<CmdCalculator::MathAst::DynamicGroupingNode<std::string>>
-								(makeExpressionNode(str), "", "")
-						);
-					}
-				)
+				tailMultiplicandStrs
+				| std::views::transform(strToGroupingNode)
 			)
 		};
 
@@ -300,6 +336,22 @@ namespace CmdCalculatorTests
 			innerConverter
 		};
 		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
+
+		std::vector<ConvertedNumberType> expectedMultiplicandEvaluations
+		{
+			CmdCalculatorTestUtils::moveRangeToVector
+			(
+				multiplicandStrs
+				| std::views::transform
+				(
+					[&instance, &strToGroupingNode](const std::string& str)
+					{
+						const CmdCalculator::UniquePtr auto tailNode{ strToGroupingNode(str) };
+						return instance.getOperandAsExpression(*tailNode)->getEvaluation();
+					}
+				)
+			)
+		};
 
 		// Act
 		const std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<ConvertedNumberType>> returnValue
@@ -324,40 +376,27 @@ namespace CmdCalculatorTests
 				const size_t
 			)
 		> validateReturnValue;
-		validateReturnValue = [&validateReturnValue, &multiplicandStrs]
+		validateReturnValue = [&validateReturnValue, &expectedMultiplicandEvaluations]
 		(
 			const CmdCalculator::Expressions::DynamicMultiplicationOperation<ConvertedNumberType>& actual,
 			const size_t offset
 		)
 		{
-			const std::string expectedMultiplier{ multiplicandStrs.at(offset) };
-			const auto* actualMultiplier
-			{
-				dynamic_cast<StubInnerConverterBoxedExpressionType*>
-					(&actual.getMultiplier())
-			};
-			ASSERT_TRUE(actualMultiplier);
+			const ConvertedNumberType expectedMultiplier{ expectedMultiplicandEvaluations.at(offset) };
 
 			EXPECT_EQ
 			(
 				expectedMultiplier,
-				actualMultiplier->source
+				actual.getMultiplier().getEvaluation()
 			);
 
-			const std::string expectedMultiplicand{ multiplicandStrs.at(offset + 1) };
-			if (offset == multiplicandStrs.size() - 2)
+			const ConvertedNumberType expectedMultiplicand{ expectedMultiplicandEvaluations.at(offset + 1) };
+			if (offset == expectedMultiplicandEvaluations.size() - 2)
 			{
-				const auto* actualMultiplicand
-				{
-					dynamic_cast<StubInnerConverterBoxedExpressionType*>
-						(&actual.getMultiplicand())
-				};
-				ASSERT_TRUE(actualMultiplicand);
-
 				EXPECT_EQ
 				(
 					expectedMultiplicand,
-					actualMultiplicand->source
+					actual.getMultiplicand().getEvaluation()
 				);
 			}
 			else
@@ -472,7 +511,7 @@ namespace CmdCalculatorTests
 		},
 		{
 			.str{ "50" },
-			.asWholePart{ 5 },
+			.asWholePart{ 50 },
 			.asFractionalPart{ 0.5 }
 		},
 		{
@@ -707,7 +746,7 @@ namespace CmdCalculatorTests
 		};
 		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
 
-		const ExpressionNumberType expectedEvaluation
+		const ConvertedNumberType expectedEvaluation
 		{
 			instance.getOperandAsExpression(*makeOperandNode(sourceOperandInnerStringRepresentation))->getEvaluation()
 		};
@@ -754,7 +793,7 @@ namespace CmdCalculatorTests
 		};
 		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
 
-		const ExpressionNumberType expectedEvaluation
+		const ConvertedNumberType expectedOperandEvaluation
 		{
 			instance.getOperandAsExpression(*makeOperandNode(sourceOperandInnerStringRepresentation))->getEvaluation()
 		};
@@ -779,7 +818,7 @@ namespace CmdCalculatorTests
 
 		EXPECT_EQ
 		(
-			expectedEvaluation,
+			expectedOperandEvaluation,
 			returnValueOperand.getEvaluation()
 		);
 	}
@@ -813,7 +852,7 @@ namespace CmdCalculatorTests
 		};
 		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
 
-		const ExpressionNumberType expectedRadicandEvaluation
+		const ConvertedNumberType expectedRadicandEvaluation
 		{
 			instance.getOperandAsExpression(*makeOperandNode(sourceOperandInnerStringRepresentation))->getEvaluation()
 		};

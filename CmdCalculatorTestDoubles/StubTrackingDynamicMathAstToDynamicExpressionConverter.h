@@ -3,6 +3,7 @@
 #include <concepts>
 #include <string>
 #include <functional>
+#include <variant>
 
 #include "../CmdCalculator/DynamicMathAstToDynamicExpressionConverter.h"
 #include "../CmdCalculator/MathAstNode.h"
@@ -28,19 +29,28 @@ namespace CmdCalculatorTestDoubles
 		<
 			BoxedExpressionType
 		>;
+		using ConvertedEvaluationCalcFuncType = std::function<NumberType(const RootMathAstNodeT&)>;
 
 		std::function<std::string(const RootMathAstNodeT&)> sourceRootNodeFunc;
 		
 		//bool convertedIsSimplifiableValue;
-		NumberType convertedEvaluation;
+		std::variant<NumberType, ConvertedEvaluationCalcFuncType> convertedEvaluation;
 
 		ExpressionType getMathAstAsExpression(const RootMathAstNodeT& sourceRootNode) const
 		{
+			NumberType eval;
+			if (const NumberType* evalPtr = std::get_if<NumberType>(&convertedEvaluation); evalPtr)
+				eval = *evalPtr;
+			else
+			{
+				eval = std::get<ConvertedEvaluationCalcFuncType>(convertedEvaluation)(sourceRootNode);
+			}
+
 			return ExpressionType
 			{
 				std::move
 				(
-					std::make_unique<BoxedExpressionType>(sourceRootNodeFunc(sourceRootNode), convertedEvaluation)
+					std::make_unique<BoxedExpressionType>(sourceRootNodeFunc(sourceRootNode), eval)
 				)
 			};
 		}
