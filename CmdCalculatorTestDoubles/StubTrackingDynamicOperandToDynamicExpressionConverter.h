@@ -20,6 +20,11 @@ namespace CmdCalculatorTestDoubles
 	{
 		using MathAstStringType = MathAstStringT;
 		using ExpressionNumberType = ExpressionNumberT;
+		using ExpressionType = CmdCalculatorTestDoubles::Expressions::StubTrackingDynamicExpression
+		<
+			ExpressionNumberType,
+			std::reference_wrapper<const CmdCalculator::MathAst::DynamicOperandNode<MathAstStringType>>
+		>;
 
 		ExpressionNumberType convertedOperandEvaluation;
 
@@ -27,17 +32,7 @@ namespace CmdCalculatorTestDoubles
 		std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<ExpressionNumberType>> getOperandAsExpression
 			(const CmdCalculator::MathAst::DynamicOperandNode<MathAstStringType>& sourceOperand) const
 		{
-			return
-				std::make_unique
-				<
-					CmdCalculatorTestDoubles::Expressions::StubTrackingDynamicExpression
-					<
-						ExpressionNumberType,
-						std::reference_wrapper<const CmdCalculator::MathAst::DynamicOperandNode<MathAstStringType>>
-					>
-				>
-				(std::ref(sourceOperand), convertedOperandEvaluation)
-			;
+			return std::make_unique<ExpressionType>(std::ref(sourceOperand), convertedOperandEvaluation);
 		}
 	};
 }

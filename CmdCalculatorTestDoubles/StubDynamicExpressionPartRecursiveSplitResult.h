@@ -33,19 +33,19 @@ namespace CmdCalculatorTestDoubles
 		std::unique_ptr<StubDynamicExpressionPartRecursiveSplitResult<MathAstStringT>> rightPart;
 
 
-		StubDynamicExpressionPartRecursiveSplitResult<MathAstStringT>* getLeftPart() const
+		const StubDynamicExpressionPartRecursiveSplitResult<MathAstStringT>* getLeftPart() const
 		{
 			return leftPart.get();
 		}
 
 
-		CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringT>& getSplitPart() const
+		const CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringT>& getSplitPart() const
 		{
 			return splitPart.get();
 		}
 
 
-		StubDynamicExpressionPartRecursiveSplitResult<MathAstStringT>* getRightPart() const
+		const StubDynamicExpressionPartRecursiveSplitResult<MathAstStringT>* getRightPart() const
 		{
 			return rightPart.get();
 		}

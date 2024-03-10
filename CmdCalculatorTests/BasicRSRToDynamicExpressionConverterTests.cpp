@@ -11,6 +11,7 @@
 #include "../CmdCalculator/dynamic_mathast.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpressionPartRecursiveSplitResult.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicOperandToDynamicExpressionConverter.h"
+#include "../CmdCalculatorTestDoubles/StubTrackingDynamicOperandToDynamicExpressionConverter.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpressionNode.h"
 #include "../CmdCalculatorTestDoubles/FakeRealNumber.h"
 
@@ -21,6 +22,11 @@ namespace CmdCalculatorTests
 
 	using ExpressionNumberType = CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber;
 	using StubInnerOperandConverterType = CmdCalculatorTestDoubles::StubDynamicOperandToDynamicExpressionConverter
+	<
+		std::string,
+		ExpressionNumberType
+	>;
+	using StubTrackingInnerOperandConverterType = CmdCalculatorTestDoubles::StubTrackingDynamicOperandToDynamicExpressionConverter
 	<
 		std::string,
 		ExpressionNumberType
@@ -67,6 +73,15 @@ namespace CmdCalculatorTests
 					return eval;
 				}
 			}
+		};
+	}
+
+
+	static StubInnerOperandConverterType makeTrackingInnerOperandConverter()
+	{
+		return StubInnerOperandConverterType
+		{
+			.convertedOperandEvaluation{ 0.0 }
 		};
 	}
 
@@ -273,12 +288,7 @@ namespace CmdCalculatorTests
 			.rightPart{}
 		};
 
-		StubInnerOperandConverterType innerOperandConverter{ makeInnerOperandConverter() };
-
-		const ExpressionNumberType expectedEvaluation
-		{
-			innerOperandConverter.getOperandAsExpression(*splitPart)->getEvaluation()
-		};
+		StubTrackingInnerOperandConverterType innerOperandConverter{ makeTrackingInnerOperandConverter() };
 
 		CmdCalculator::BasicRSRToDynamicExpressionConverter
 		<
@@ -299,10 +309,30 @@ namespace CmdCalculatorTests
 		// Assert
 		ASSERT_NE(nullptr, returnValue.get());
 
-		EXPECT_EQ(expectedEvaluation, returnValue->getEvaluation());
+		const auto* castedReturnValue
+		{
+			dynamic_cast<typename StubTrackingInnerOperandConverterType::ExpressionType*>
+				(returnValue.get())
+		};
+		ASSERT_NE(nullptr, castedReturnValue);
+
+		EXPECT_EQ
+		(
+			splitPart->getStringRepresentation(),
+			castedReturnValue->source.get().getStringRepresentation()
+		);
 	}
 
 #pragma endregion
+
+	TEST
+	(
+		BasicRSRToDynamicExpressionConverterTests,
+		TODO
+	)
+	{
+		FAIL();
+	}
 
 #pragma endregion
 }

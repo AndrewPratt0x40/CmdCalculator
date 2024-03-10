@@ -31,6 +31,12 @@ namespace CmdCalculator
 		using ExpressionNumberType = InnerOperandConverterT::ExpressionNumberType;
 
 
+	private:
+		std::reference_wrapper<const InnerOperandConverterT> m_innerOperandConverter;
+
+
+	public:
+
 		/// \brief Creates a new instance of the \ref BasicRSRToDynamicExpressionConverter class.
 		/// \param innerOperandConverter The object to use for converting inner math operand ASTs into expression objects.
 		BasicRSRToDynamicExpressionConverter(const InnerOperandConverterT& innerOperandConverter);
@@ -42,6 +48,14 @@ namespace CmdCalculator
 		std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> getSplitResultAsExpression
 		(
 			const SourceSplitResultT& sourceSplitResult
+		) const;
+
+
+	private:
+
+		std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> invokeInnerOperandConverter
+		(
+			const MathAst::DynamicOperandNode<MathAstStringT>& operand
 		) const;
 	};
 }

@@ -51,6 +51,13 @@ namespace CmdCalculatorTestDoubles::Arithmetic
 		}
 
 
+		friend std::ostream& operator<<(std::ostream& ostream, const FakeRealNumber& value)
+		{
+			ostream << value.FAKE_getValue();
+			return ostream;
+		}
+
+
 		CmdCalculator::Arithmetic::ESign getSign() const
 		{
 			if (m_value == 0)
