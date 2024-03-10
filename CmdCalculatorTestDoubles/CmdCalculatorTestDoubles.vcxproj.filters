@@ -348,6 +348,9 @@
     <ClInclude Include="StubTrackingDynamicMathAstToDynamicExpressionConverter.h">
       <Filter>Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter</Filter>
     </ClInclude>
+    <ClInclude Include="StubDynamicExpressionPartRecursiveSplitResult.h">
+      <Filter>Source Code\CmdCalculator\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitResult</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StubRawCmdLineArgParser.h">

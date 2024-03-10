@@ -17,7 +17,6 @@ namespace CmdCalculator
 	/// \brief A basic implementation that satisfies the \ref DynamicOperandToDynamicExpressionConverter concept.
 	/// \tparam InnerConverterT The type of object to use for converting inner math ASTs into expression objects.
 	/// \tparam MathAstStringT The string type used by the math AST nodes to convert from.
-	/// \tparam ExpressionNumberT The number type used by the expression objects to convert to.
 	template
 	<
 		DynamicMathAstToDynamicExpressionConverter InnerConverterT,

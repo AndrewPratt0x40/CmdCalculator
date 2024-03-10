@@ -96,6 +96,7 @@
     <ClCompile Include="StubBinaryOperatorAntlrContextTests.cpp" />
     <ClCompile Include="StubDynamicExpressionNodeTests.cpp" />
     <ClCompile Include="StubDynamicExpressionPartNodeTests.cpp" />
+    <ClCompile Include="StubDynamicExpressionPartRecursiveSplitResultTests.cpp" />
     <ClCompile Include="StubTrackingDynamicExpressionPartRecursiveSplitResult.cpp" />
     <ClCompile Include="StubDynamicExpressionPartSingleSplitResultTests.cpp" />
     <ClCompile Include="StubDynamicExpressionTests.cpp" />

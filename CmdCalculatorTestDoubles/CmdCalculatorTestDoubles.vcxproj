@@ -86,6 +86,7 @@
     <ClInclude Include="StubDynamicExpression.h" />
     <ClInclude Include="StubDynamicExpressionNode.h" />
     <ClInclude Include="StubDynamicExpressionPartNode.h" />
+    <ClInclude Include="StubDynamicExpressionPartRecursiveSplitResult.h" />
     <ClInclude Include="StubTrackingDynamicExpressionPartRecursiveSplitResult.h" />
     <ClInclude Include="StubDynamicExpressionPartSingleSplitResult.h" />
     <ClInclude Include="FakeHalfwayDynamicExpressionPartSingleSplitter.h" />

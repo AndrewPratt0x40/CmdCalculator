@@ -313,6 +313,9 @@
     <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter\BasicDynamicMathAstToDynamicExpressionConverter">
       <UniqueIdentifier>{ace7873c-13cd-4246-90b3-70711497b75c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter\BasicRSRToDynamicExpressionConverter">
+      <UniqueIdentifier>{8dc399e7-d3c4-486c-8120-1ee7208351db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -663,6 +666,9 @@
     <ClInclude Include="BasicDynamicMathAstToDynamicExpressionConverter.h">
       <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter\BasicDynamicMathAstToDynamicExpressionConverter</Filter>
     </ClInclude>
+    <ClInclude Include="BasicRSRToDynamicExpressionConverter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter\BasicRSRToDynamicExpressionConverter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -820,6 +826,9 @@
     </ClCompile>
     <ClCompile Include="BasicDynamicMathAstToDynamicExpressionConverter.hpp">
       <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter\BasicDynamicMathAstToDynamicExpressionConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicRSRToDynamicExpressionConverter.hpp">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter\BasicRSRToDynamicExpressionConverter</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

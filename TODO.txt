@@ -12,7 +12,7 @@ DONE - Implement FundamentallyBackedRealNumber
 	DONE - Implement SingularInvokingDEPSplitter
 	DONE - Implement BasicDEPSingleSplitResult
 	DONE - Implement BasicDEPSingleSplitter
-	- Implement BasicDynamicOperandToDynamicExpressionConverter
+	DONE - Implement BasicDynamicOperandToDynamicExpressionConverter
 	- Implement BasicRecursiveSplitResultToDynamicExpressionConverter
 - Implement DynamicExpression types
 - Create DynamicExpressionToStringConverter

@@ -2,6 +2,7 @@
 
 #include <concepts>
 #include <memory>
+#include <variant>
 
 #include "../CmdCalculator/DynamicOperandToDynamicExpressionConverter.h"
 #include "../CmdCalculator/RealNumber.h"
@@ -19,15 +20,24 @@ namespace CmdCalculatorTestDoubles
 	{
 		using MathAstStringType = MathAstStringT;
 		using ExpressionNumberType = ExpressionNumberT;
+		using ConvertedOperandEvaluationCalcFuncType = std::function<ExpressionNumberType(const CmdCalculator::MathAst::DynamicOperandNode<MathAstStringType>&)>;
 
-		ExpressionNumberType convertedOperandEvaluation;
+		std::variant<ExpressionNumberType, ConvertedOperandEvaluationCalcFuncType> convertedOperandEvaluation;
 
 
 		std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<ExpressionNumberType>> getOperandAsExpression
 			(const CmdCalculator::MathAst::DynamicOperandNode<MathAstStringType>& sourceOperand) const
 		{
+			ExpressionNumberType eval;
+			if (const ExpressionNumberType* evalPtr = std::get_if<ExpressionNumberType>(&convertedOperandEvaluation); evalPtr)
+				eval = *evalPtr;
+			else
+			{
+				eval = std::get<ConvertedOperandEvaluationCalcFuncType>(convertedOperandEvaluation)(sourceOperand);
+			}
+
 			return std::make_unique<CmdCalculatorTestDoubles::Expressions::StubDynamicExpression<ExpressionNumberType>>
-				(convertedOperandEvaluation)
+				(eval)
 			;
 		}
 	};

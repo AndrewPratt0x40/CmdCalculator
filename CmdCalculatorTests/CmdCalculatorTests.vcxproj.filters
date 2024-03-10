@@ -160,6 +160,9 @@
     <ClCompile Include="DynamicNumberTests.cpp">
       <Filter>Source Code\Tests\Expressions\Dynamic</Filter>
     </ClCompile>
+    <ClCompile Include="BasicRSRToDynamicExpressionConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -290,6 +293,9 @@
     </Filter>
     <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter">
       <UniqueIdentifier>{d690e296-1dc3-4a70-9ce6-b82ffb7cfa96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter">
+      <UniqueIdentifier>{e010ef9d-f4e4-4d8f-bd1e-da7a12f39e40}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

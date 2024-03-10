@@ -166,6 +166,9 @@
     <ClCompile Include="StubTrackingDynamicMathAstToDynamicExpressionConverterTests.cpp">
       <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter</Filter>
     </ClCompile>
+    <ClCompile Include="StubDynamicExpressionPartRecursiveSplitResultTests.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitResult</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
