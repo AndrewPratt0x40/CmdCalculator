@@ -41,7 +41,3 @@ inline CmdCalculator::Expressions::DynamicExpressionBox<THIS_NUMBER_TYPENAME>
 {
 	return DynamicExpressionBox();
 }*/
-
-
-#pragma pop_macro("THIS_NUMBER_TYPE")
-#pragma pop_macro("THIS_NUMBER_TYPENAME")

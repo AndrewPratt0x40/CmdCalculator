@@ -707,6 +707,11 @@ namespace CmdCalculatorTests
 		};
 		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
 
+		const ExpressionNumberType expectedEvaluation
+		{
+			instance.getOperandAsExpression(*makeOperandNode(sourceOperandInnerStringRepresentation))->getEvaluation()
+		};
+
 		// Act
 		const std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<ConvertedNumberType>> returnValue
 		{
@@ -716,17 +721,10 @@ namespace CmdCalculatorTests
 		// Assert
 		ASSERT_NE(nullptr, returnValue.get());
 
-		const auto* castedReturnValue
-		{
-			dynamic_cast<StubInnerConverterBoxedExpressionType*>
-				(returnValue.get())
-		};
-		ASSERT_NE(nullptr, castedReturnValue);
-
 		EXPECT_EQ
 		(
-			sourceOperandInnerStringRepresentation,
-			castedReturnValue->source
+			returnValue->getEvaluation(),
+			expectedEvaluation
 		);
 	}
 
@@ -756,6 +754,11 @@ namespace CmdCalculatorTests
 		};
 		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
 
+		const ExpressionNumberType expectedEvaluation
+		{
+			instance.getOperandAsExpression(*makeOperandNode(sourceOperandInnerStringRepresentation))->getEvaluation()
+		};
+
 		// Act
 		const std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<ConvertedNumberType>> returnValue
 		{
@@ -772,17 +775,12 @@ namespace CmdCalculatorTests
 		};
 		ASSERT_NE(nullptr, castedReturnValue);
 
-		const auto* castedReturnValueOperand
-		{
-			dynamic_cast<StubInnerConverterBoxedExpressionType*>
-				(&castedReturnValue->getOperand())
-		};
-		ASSERT_NE(nullptr, castedReturnValueOperand);
+		const auto& returnValueOperand{ castedReturnValue->getOperand() };
 
 		EXPECT_EQ
 		(
-			sourceOperandInnerStringRepresentation,
-			castedReturnValueOperand->source
+			expectedEvaluation,
+			returnValueOperand.getEvaluation()
 		);
 	}
 
@@ -815,6 +813,11 @@ namespace CmdCalculatorTests
 		};
 		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
 
+		const ExpressionNumberType expectedRadicandEvaluation
+		{
+			instance.getOperandAsExpression(*makeOperandNode(sourceOperandInnerStringRepresentation))->getEvaluation()
+		};
+
 		// Act
 		const std::unique_ptr<CmdCalculator::Expressions::DynamicExpression<ConvertedNumberType>> returnValue
 		{
@@ -831,17 +834,15 @@ namespace CmdCalculatorTests
 		};
 		ASSERT_NE(nullptr, castedReturnValue);
 
-		const auto* castedReturnValueRadicand
+		const auto& returnValueRadicand
 		{
-			dynamic_cast<StubInnerConverterBoxedExpressionType*>
-				(&castedReturnValue->getRadicand())
+			castedReturnValue->getRadicand()
 		};
-		ASSERT_NE(nullptr, castedReturnValueRadicand);
 		
 		EXPECT_EQ
 		(
-			sourceOperandInnerStringRepresentation,
-			castedReturnValueRadicand->source
+			expectedRadicandEvaluation,
+			returnValueRadicand.getEvaluation()
 		);
 
 		const auto* castedReturnValueDegree
