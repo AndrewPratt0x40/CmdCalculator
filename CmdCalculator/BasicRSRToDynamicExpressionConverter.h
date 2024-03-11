@@ -83,6 +83,30 @@ namespace CmdCalculator
 			const MathAst::DynamicBinaryOperatorNode<MathAstStringT>& splitPart,
 			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> addend
 		) const;
+
+
+		std::unique_ptr<Expressions::DynamicSubtractionOperation<ExpressionNumberType>> getOperandsAndSplitPartAsSubtractionOperation
+		(
+			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> minuend,
+			const MathAst::DynamicBinaryOperatorNode<MathAstStringT>& splitPart,
+			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> subtrahend
+		) const;
+
+
+		std::unique_ptr<Expressions::DynamicMultiplicationOperation<ExpressionNumberType>> getOperandsAndSplitPartAsMultiplicationOperation
+		(
+			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> multiplier,
+			const MathAst::DynamicBinaryOperatorNode<MathAstStringT>& splitPart,
+			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> multiplicand
+		) const;
+
+
+		std::unique_ptr<Expressions::DynamicDivisionOperation<ExpressionNumberType>> getOperandsAndSplitPartAsDivisionOperation
+		(
+			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> dividend,
+			const MathAst::DynamicBinaryOperatorNode<MathAstStringT>& splitPart,
+			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> divisor
+		) const;
 	};
 }
 

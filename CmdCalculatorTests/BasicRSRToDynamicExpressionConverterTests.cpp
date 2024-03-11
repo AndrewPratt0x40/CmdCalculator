@@ -406,16 +406,72 @@ namespace CmdCalculatorTests
 #pragma endregion
 
 
-#pragma region getSplitResultAsExpression(splitPart=Addition)
+#pragma region getSplitResultAsExpression(splitPart=DynamicBinaryOperatorNode)
 
-	TEST
+	struct BasicRSRToDynamicExpressionConverter_DynamicBinaryOperatorNode_TestData
+	{
+		std::string leftSplitPartStr;
+		std::string rightSplitPartStr;
+
+
+		friend std::ostream& operator<<
+		(
+			std::ostream& ostream,
+			const BasicRSRToDynamicExpressionConverter_DynamicBinaryOperatorNode_TestData& testData
+		)
+		{
+			ostream
+				<< "BasicRSRToDynamicExpressionConverter.getSplitResultAsExpression({"
+				<< testData.leftSplitPartStr
+				<< "}<DynamicBinaryOperatorNode>{"
+				<< testData.rightSplitPartStr
+				<< "})"
+			;
+
+			return ostream;
+		}
+	};
+
+	class BasicRSRToDynamicExpressionConverter$getSplitResultAsExpression$DynamicBinaryOperatorNode$Tests :
+		public testing::TestWithParam<BasicRSRToDynamicExpressionConverter_DynamicBinaryOperatorNode_TestData>
+	{};
+
+	const BasicRSRToDynamicExpressionConverter_DynamicBinaryOperatorNode_TestData BasicRSRToDynamicExpressionConverter_DynamicBinaryOperatorNode_TestDataValues[]
+	{
+		{
+			.leftSplitPartStr{ "12.34" },
+			.rightSplitPartStr{ "12.34" },
+		},
+		{
+			.leftSplitPartStr{ "12.34" },
+			.rightSplitPartStr{ "56.78" },
+		},
+		{
+			.leftSplitPartStr{ "56.78" },
+			.rightSplitPartStr{ "12.34" },
+		},
+		{
+			.leftSplitPartStr{ "56.78" },
+			.rightSplitPartStr{ "56.78" },
+		}
+	};
+
+	INSTANTIATE_TEST_CASE_P
 	(
 		BasicRSRToDynamicExpressionConverterTests,
+		BasicRSRToDynamicExpressionConverter$getSplitResultAsExpression$DynamicBinaryOperatorNode$Tests,
+		testing::ValuesIn(BasicRSRToDynamicExpressionConverter_DynamicBinaryOperatorNode_TestDataValues)
+	);
+
+
+	TEST_P
+	(
+		BasicRSRToDynamicExpressionConverter$getSplitResultAsExpression$DynamicBinaryOperatorNode$Tests,
 		calling$getSplitResultAsExpression$with$addition$DynamicBinaryOperatorNode$returns$DynamicAbsoluteValueOperation
 	)
 	{
-		const std::string leftSplitPartStr{ "12.34" };
-		const std::string rightSplitPartStr{ "56.78" };
+		const std::string leftSplitPartStr{ GetParam().leftSplitPartStr };
+		const std::string rightSplitPartStr{ GetParam().rightSplitPartStr };
 		
 		const CmdCalculator::MathAst::DynamicBinaryOperatorNode<std::string> splitPart
 		{
@@ -458,6 +514,7 @@ namespace CmdCalculatorTests
 		};
 		ASSERT_NE(nullptr, castedReturnValue);
 
+
 		const auto& castedReturnValueAugend
 		{
 			dynamic_cast<typename StubTrackingInnerOperandConverterType::ExpressionType*>
@@ -465,12 +522,14 @@ namespace CmdCalculatorTests
 		};
 		ASSERT_NE(nullptr, castedReturnValueAugend);
 
+
 		const auto& castedReturnValueAddend
 		{
 			dynamic_cast<typename StubTrackingInnerOperandConverterType::ExpressionType*>
 				(&castedReturnValue->getAddend())
 		};
 		ASSERT_NE(nullptr, castedReturnValueAddend);
+
 
 		EXPECT_EQ
 		(
@@ -482,6 +541,492 @@ namespace CmdCalculatorTests
 		(
 			rightSplitPartStr,
 			castedReturnValueAddend->source.get().getStringRepresentation()
+		);
+	}
+
+
+	TEST_P
+	(
+		BasicRSRToDynamicExpressionConverter$getSplitResultAsExpression$DynamicBinaryOperatorNode$Tests,
+		calling$getSplitResultAsExpression$with$subtraction$DynamicBinaryOperatorNode$returns$DynamicAbsoluteValueOperation
+	)
+	{
+		const std::string leftSplitPartStr{ GetParam().leftSplitPartStr };
+		const std::string rightSplitPartStr{ GetParam().rightSplitPartStr };
+		
+		const CmdCalculator::MathAst::DynamicBinaryOperatorNode<std::string> splitPart
+		{
+			CmdCalculator::MathAst::EBinaryOperator::Subtraction,
+			"", ""
+		};
+
+		const CompositeSplitResultTestData splitResultData
+		{
+			leftSplitPartStr,
+			splitPart,
+			rightSplitPartStr
+		};
+
+		StubTrackingInnerOperandConverterType innerOperandConverter{ makeTrackingInnerOperandConverter() };
+
+		CmdCalculator::BasicRSRToDynamicExpressionConverter
+		<
+			CompositeSplitResultTestData::SplitResultType,
+			std::remove_cv_t<decltype(innerOperandConverter)>,
+			std::string
+		> instance
+		{
+			innerOperandConverter
+		};
+
+		// Act
+		const CmdCalculator::UniquePtr auto returnValue
+		{
+			instance.getSplitResultAsExpression(splitResultData.getSplitResult())
+		};
+
+		// Assert
+		ASSERT_NE(nullptr, returnValue.get());
+
+		const auto* castedReturnValue
+		{
+			dynamic_cast<CmdCalculator::Expressions::DynamicSubtractionOperation<ExpressionNumberType>*>
+				(returnValue.get())
+		};
+		ASSERT_NE(nullptr, castedReturnValue);
+
+
+		const auto& castedReturnValueMinuend
+		{
+			dynamic_cast<typename StubTrackingInnerOperandConverterType::ExpressionType*>
+				(&castedReturnValue->getMinuend())
+		};
+		ASSERT_NE(nullptr, castedReturnValueMinuend);
+
+
+		const auto& castedReturnValueSubtrahend
+		{
+			dynamic_cast<typename StubTrackingInnerOperandConverterType::ExpressionType*>
+				(&castedReturnValue->getSubtrahend())
+		};
+		ASSERT_NE(nullptr, castedReturnValueSubtrahend);
+
+
+		EXPECT_EQ
+		(
+			leftSplitPartStr,
+			castedReturnValueMinuend->source.get().getStringRepresentation()
+		);
+
+		EXPECT_EQ
+		(
+			rightSplitPartStr,
+			castedReturnValueSubtrahend->source.get().getStringRepresentation()
+		);
+	}
+
+
+	TEST_P
+	(
+		BasicRSRToDynamicExpressionConverter$getSplitResultAsExpression$DynamicBinaryOperatorNode$Tests,
+		calling$getSplitResultAsExpression$with$multiplication$DynamicBinaryOperatorNode$returns$DynamicAbsoluteValueOperation
+	)
+	{
+		const std::string leftSplitPartStr{ GetParam().leftSplitPartStr };
+		const std::string rightSplitPartStr{ GetParam().rightSplitPartStr };
+		
+		const CmdCalculator::MathAst::DynamicBinaryOperatorNode<std::string> splitPart
+		{
+			CmdCalculator::MathAst::EBinaryOperator::Multiplication,
+			"", ""
+		};
+
+		const CompositeSplitResultTestData splitResultData
+		{
+			leftSplitPartStr,
+			splitPart,
+			rightSplitPartStr
+		};
+
+		StubTrackingInnerOperandConverterType innerOperandConverter{ makeTrackingInnerOperandConverter() };
+
+		CmdCalculator::BasicRSRToDynamicExpressionConverter
+		<
+			CompositeSplitResultTestData::SplitResultType,
+			std::remove_cv_t<decltype(innerOperandConverter)>,
+			std::string
+		> instance
+		{
+			innerOperandConverter
+		};
+
+		// Act
+		const CmdCalculator::UniquePtr auto returnValue
+		{
+			instance.getSplitResultAsExpression(splitResultData.getSplitResult())
+		};
+
+		// Assert
+		ASSERT_NE(nullptr, returnValue.get());
+
+		const auto* castedReturnValue
+		{
+			dynamic_cast<CmdCalculator::Expressions::DynamicMultiplicationOperation<ExpressionNumberType>*>
+				(returnValue.get())
+		};
+		ASSERT_NE(nullptr, castedReturnValue);
+
+
+		const auto& castedReturnValueMultiplier
+		{
+			dynamic_cast<typename StubTrackingInnerOperandConverterType::ExpressionType*>
+				(&castedReturnValue->getMultiplier())
+		};
+		ASSERT_NE(nullptr, castedReturnValueMultiplier);
+
+
+		const auto& castedReturnValueMultiplicand
+		{
+			dynamic_cast<typename StubTrackingInnerOperandConverterType::ExpressionType*>
+				(&castedReturnValue->getMultiplicand())
+		};
+		ASSERT_NE(nullptr, castedReturnValueMultiplicand);
+
+
+		EXPECT_EQ
+		(
+			leftSplitPartStr,
+			castedReturnValueMultiplier->source.get().getStringRepresentation()
+		);
+
+		EXPECT_EQ
+		(
+			rightSplitPartStr,
+			castedReturnValueMultiplicand->source.get().getStringRepresentation()
+		);
+	}
+
+
+	TEST_P
+	(
+		BasicRSRToDynamicExpressionConverter$getSplitResultAsExpression$DynamicBinaryOperatorNode$Tests,
+		calling$getSplitResultAsExpression$with$division$DynamicBinaryOperatorNode$returns$DynamicAbsoluteValueOperation
+	)
+	{
+		const std::string leftSplitPartStr{ GetParam().leftSplitPartStr };
+		const std::string rightSplitPartStr{ GetParam().rightSplitPartStr };
+		
+		const CmdCalculator::MathAst::DynamicBinaryOperatorNode<std::string> splitPart
+		{
+			CmdCalculator::MathAst::EBinaryOperator::Division,
+			"", ""
+		};
+
+		const CompositeSplitResultTestData splitResultData
+		{
+			leftSplitPartStr,
+			splitPart,
+			rightSplitPartStr
+		};
+
+		StubTrackingInnerOperandConverterType innerOperandConverter{ makeTrackingInnerOperandConverter() };
+
+		CmdCalculator::BasicRSRToDynamicExpressionConverter
+		<
+			CompositeSplitResultTestData::SplitResultType,
+			std::remove_cv_t<decltype(innerOperandConverter)>,
+			std::string
+		> instance
+		{
+			innerOperandConverter
+		};
+
+		// Act
+		const CmdCalculator::UniquePtr auto returnValue
+		{
+			instance.getSplitResultAsExpression(splitResultData.getSplitResult())
+		};
+
+		// Assert
+		ASSERT_NE(nullptr, returnValue.get());
+
+		const auto* castedReturnValue
+		{
+			dynamic_cast<CmdCalculator::Expressions::DynamicDivisionOperation<ExpressionNumberType>*>
+				(returnValue.get())
+		};
+		ASSERT_NE(nullptr, castedReturnValue);
+
+
+		const auto& castedReturnValueDividend
+		{
+			dynamic_cast<typename StubTrackingInnerOperandConverterType::ExpressionType*>
+				(&castedReturnValue->getDividend())
+		};
+		ASSERT_NE(nullptr, castedReturnValueDividend);
+
+
+		const auto& castedReturnValueDivisor
+		{
+			dynamic_cast<typename StubTrackingInnerOperandConverterType::ExpressionType*>
+				(&castedReturnValue->getDivisor())
+		};
+		ASSERT_NE(nullptr, castedReturnValueDivisor);
+
+
+		EXPECT_EQ
+		(
+			leftSplitPartStr,
+			castedReturnValueDividend->source.get().getStringRepresentation()
+		);
+
+		EXPECT_EQ
+		(
+			rightSplitPartStr,
+			castedReturnValueDivisor->source.get().getStringRepresentation()
+		);
+	}
+
+
+	TEST_P
+	(
+		BasicRSRToDynamicExpressionConverter$getSplitResultAsExpression$DynamicBinaryOperatorNode$Tests,
+		calling$getSplitResultAsExpression$with$exponentiation$DynamicBinaryOperatorNode$returns$DynamicAbsoluteValueOperation
+	)
+	{
+		const std::string leftSplitPartStr{ GetParam().leftSplitPartStr };
+		const std::string rightSplitPartStr{ GetParam().rightSplitPartStr };
+		
+		const CmdCalculator::MathAst::DynamicBinaryOperatorNode<std::string> splitPart
+		{
+			CmdCalculator::MathAst::EBinaryOperator::Exponentiation,
+			"", ""
+		};
+
+		const CompositeSplitResultTestData splitResultData
+		{
+			leftSplitPartStr,
+			splitPart,
+			rightSplitPartStr
+		};
+
+		StubTrackingInnerOperandConverterType innerOperandConverter{ makeTrackingInnerOperandConverter() };
+
+		CmdCalculator::BasicRSRToDynamicExpressionConverter
+		<
+			CompositeSplitResultTestData::SplitResultType,
+			std::remove_cv_t<decltype(innerOperandConverter)>,
+			std::string
+		> instance
+		{
+			innerOperandConverter
+		};
+
+		// Act
+		const CmdCalculator::UniquePtr auto returnValue
+		{
+			instance.getSplitResultAsExpression(splitResultData.getSplitResult())
+		};
+
+		// Assert
+		ASSERT_NE(nullptr, returnValue.get());
+
+		const auto* castedReturnValue
+		{
+			dynamic_cast<CmdCalculator::Expressions::DynamicExponentiationOperation<ExpressionNumberType>*>
+				(returnValue.get())
+		};
+		ASSERT_NE(nullptr, castedReturnValue);
+
+
+		const auto& castedReturnValueBase
+		{
+			dynamic_cast<typename StubTrackingInnerOperandConverterType::ExpressionType*>
+				(&castedReturnValue->getBase())
+		};
+		ASSERT_NE(nullptr, castedReturnValueBase);
+
+
+		const auto& castedReturnValueExponent
+		{
+			dynamic_cast<typename StubTrackingInnerOperandConverterType::ExpressionType*>
+				(&castedReturnValue->getExponent())
+		};
+		ASSERT_NE(nullptr, castedReturnValueExponent);
+
+
+		EXPECT_EQ
+		(
+			leftSplitPartStr,
+			castedReturnValueBase->source.get().getStringRepresentation()
+		);
+
+		EXPECT_EQ
+		(
+			rightSplitPartStr,
+			castedReturnValueExponent->source.get().getStringRepresentation()
+		);
+	}
+
+
+	TEST_P
+	(
+		BasicRSRToDynamicExpressionConverter$getSplitResultAsExpression$DynamicBinaryOperatorNode$Tests,
+		calling$getSplitResultAsExpression$with$nth$root$DynamicBinaryOperatorNode$returns$DynamicAbsoluteValueOperation
+	)
+	{
+		const std::string leftSplitPartStr{ GetParam().leftSplitPartStr };
+		const std::string rightSplitPartStr{ GetParam().rightSplitPartStr };
+		
+		const CmdCalculator::MathAst::DynamicBinaryOperatorNode<std::string> splitPart
+		{
+			CmdCalculator::MathAst::EBinaryOperator::NthRoot,
+			"", ""
+		};
+
+		const CompositeSplitResultTestData splitResultData
+		{
+			leftSplitPartStr,
+			splitPart,
+			rightSplitPartStr
+		};
+
+		StubTrackingInnerOperandConverterType innerOperandConverter{ makeTrackingInnerOperandConverter() };
+
+		CmdCalculator::BasicRSRToDynamicExpressionConverter
+		<
+			CompositeSplitResultTestData::SplitResultType,
+			std::remove_cv_t<decltype(innerOperandConverter)>,
+			std::string
+		> instance
+		{
+			innerOperandConverter
+		};
+
+		// Act
+		const CmdCalculator::UniquePtr auto returnValue
+		{
+			instance.getSplitResultAsExpression(splitResultData.getSplitResult())
+		};
+
+		// Assert
+		ASSERT_NE(nullptr, returnValue.get());
+
+		const auto* castedReturnValue
+		{
+			dynamic_cast<CmdCalculator::Expressions::DynamicNthRootOperation<ExpressionNumberType>*>
+				(returnValue.get())
+		};
+		ASSERT_NE(nullptr, castedReturnValue);
+
+
+		const auto& castedReturnValueDegree
+		{
+			dynamic_cast<typename StubTrackingInnerOperandConverterType::ExpressionType*>
+				(&castedReturnValue->getDegree())
+		};
+		ASSERT_NE(nullptr, castedReturnValueDegree);
+
+
+		const auto& castedReturnValueRadicand
+		{
+			dynamic_cast<typename StubTrackingInnerOperandConverterType::ExpressionType*>
+				(&castedReturnValue->getRadicand())
+		};
+		ASSERT_NE(nullptr, castedReturnValueRadicand);
+
+
+		EXPECT_EQ
+		(
+			leftSplitPartStr,
+			castedReturnValueDegree->source.get().getStringRepresentation()
+		);
+
+		EXPECT_EQ
+		(
+			rightSplitPartStr,
+			castedReturnValueRadicand->source.get().getStringRepresentation()
+		);
+	}
+
+
+	TEST_P
+	(
+		BasicRSRToDynamicExpressionConverter$getSplitResultAsExpression$DynamicBinaryOperatorNode$Tests,
+		calling$getSplitResultAsExpression$with$modulo$DynamicBinaryOperatorNode$returns$DynamicAbsoluteValueOperation
+	)
+	{
+		const std::string leftSplitPartStr{ GetParam().leftSplitPartStr };
+		const std::string rightSplitPartStr{ GetParam().rightSplitPartStr };
+		
+		const CmdCalculator::MathAst::DynamicBinaryOperatorNode<std::string> splitPart
+		{
+			CmdCalculator::MathAst::EBinaryOperator::Modulo,
+			"", ""
+		};
+
+		const CompositeSplitResultTestData splitResultData
+		{
+			leftSplitPartStr,
+			splitPart,
+			rightSplitPartStr
+		};
+
+		StubTrackingInnerOperandConverterType innerOperandConverter{ makeTrackingInnerOperandConverter() };
+
+		CmdCalculator::BasicRSRToDynamicExpressionConverter
+		<
+			CompositeSplitResultTestData::SplitResultType,
+			std::remove_cv_t<decltype(innerOperandConverter)>,
+			std::string
+		> instance
+		{
+			innerOperandConverter
+		};
+
+		// Act
+		const CmdCalculator::UniquePtr auto returnValue
+		{
+			instance.getSplitResultAsExpression(splitResultData.getSplitResult())
+		};
+
+		// Assert
+		ASSERT_NE(nullptr, returnValue.get());
+
+		const auto* castedReturnValue
+		{
+			dynamic_cast<CmdCalculator::Expressions::DynamicModuloOperation<ExpressionNumberType>*>
+				(returnValue.get())
+		};
+		ASSERT_NE(nullptr, castedReturnValue);
+
+
+		const auto& castedReturnValueDividend
+		{
+			dynamic_cast<typename StubTrackingInnerOperandConverterType::ExpressionType*>
+				(&castedReturnValue->getDividend())
+		};
+		ASSERT_NE(nullptr, castedReturnValueDividend);
+
+
+		const auto& castedReturnValueDivisor
+		{
+			dynamic_cast<typename StubTrackingInnerOperandConverterType::ExpressionType*>
+				(&castedReturnValue->getDivisor())
+		};
+		ASSERT_NE(nullptr, castedReturnValueDivisor);
+
+
+		EXPECT_EQ
+		(
+			leftSplitPartStr,
+			castedReturnValueDividend->source.get().getStringRepresentation()
+		);
+
+		EXPECT_EQ
+		(
+			rightSplitPartStr,
+			castedReturnValueDivisor->source.get().getStringRepresentation()
 		);
 	}
 
