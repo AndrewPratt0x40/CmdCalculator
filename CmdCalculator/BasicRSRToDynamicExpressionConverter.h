@@ -6,6 +6,8 @@
 #include "RecursiveSplitResultToDynamicExpressionConverter.h"
 #include "DynamicExpressionPartRecursiveSplitResult.h"
 #include "DynamicOperandToDynamicExpressionConverter.h"
+#include "dynamic_mathast.h"
+#include "dynamic_expressions.h"
 #include "strings.h"
 
 
@@ -56,6 +58,30 @@ namespace CmdCalculator
 		std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> invokeInnerOperandConverter
 		(
 			const MathAst::DynamicOperandNode<MathAstStringT>& operand
+		) const;
+
+
+		std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> getSplitResultAsBinaryOperation
+		(
+			const SourceSplitResultT& leftPart,
+			const MathAst::DynamicBinaryOperatorNode<MathAstStringT>& splitPart,
+			const SourceSplitResultT& rightPart
+		) const;
+
+
+		std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> getOperandsAndSplitPartAsBinaryOperation
+		(
+			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> leftPart,
+			const MathAst::DynamicBinaryOperatorNode<MathAstStringT>& splitPart,
+			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> rightPart
+		) const;
+
+
+		std::unique_ptr<Expressions::DynamicAdditionOperation<ExpressionNumberType>> getOperandsAndSplitPartAsAdditionOperation
+		(
+			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> augend,
+			const MathAst::DynamicBinaryOperatorNode<MathAstStringT>& splitPart,
+			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> addend
 		) const;
 	};
 }

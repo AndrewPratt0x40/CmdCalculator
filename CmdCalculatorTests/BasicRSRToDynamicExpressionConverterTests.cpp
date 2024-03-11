@@ -9,6 +9,7 @@
 #include "../CmdCalculator/BasicRSRToDynamicExpressionConverter.h"
 #include "../CmdCalculator/RecursiveSplitResultToDynamicExpressionConverter.h"
 #include "../CmdCalculator/dynamic_mathast.h"
+#include "../CmdCalculator/dynamic_expressions.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicExpressionPartRecursiveSplitResult.h"
 #include "../CmdCalculatorTestDoubles/StubDynamicOperandToDynamicExpressionConverter.h"
 #include "../CmdCalculatorTestDoubles/StubTrackingDynamicOperandToDynamicExpressionConverter.h"
@@ -84,6 +85,85 @@ namespace CmdCalculatorTests
 			.convertedOperandEvaluation{ 0.0 }
 		};
 	}
+
+
+	class CompositeSplitResultTestData
+	{
+	public:
+		using SplitResultType = CmdCalculatorTestDoubles::StubDynamicExpressionPartRecursiveSplitResult<std::string>;
+
+
+	private:
+		
+		std::string m_leftSplitPartStr;
+		std::string m_rightSplitPartStr;
+
+		std::unique_ptr<CmdCalculator::MathAst::DynamicOperandNode<std::string>> m_leftSplitPart;
+		std::unique_ptr<CmdCalculator::MathAst::DynamicOperandNode<std::string>> m_rightSplitPart;
+
+		SplitResultType m_splitResult;
+
+
+	public:
+
+		CompositeSplitResultTestData
+		(
+			const std::string leftSplitPartStr,
+			const CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>& splitPart,
+			const std::string rightSplitPartStr
+		) :
+			m_leftSplitPartStr{ leftSplitPartStr },
+			m_rightSplitPartStr{ rightSplitPartStr },
+			m_leftSplitPart{ makeOperandNode(leftSplitPartStr) },
+			m_rightSplitPart{ makeOperandNode(rightSplitPartStr) },
+			m_splitResult
+			{
+				.leftPart
+				{
+					std::make_unique<SplitResultType>
+					(
+						SplitResultType
+						{
+							.leftPart{},
+							.splitPart{ std::ref(*m_leftSplitPart) },
+							.rightPart{}
+						}
+					)
+				},
+				.splitPart{ std::ref(splitPart) },
+				.rightPart
+				{
+					std::make_unique<SplitResultType>
+					(
+						SplitResultType
+						{
+							.leftPart{},
+							.splitPart{ std::ref(*m_rightSplitPart) },
+							.rightPart{}
+						}
+					)
+				}
+			}
+		{
+			assert(m_leftSplitPart);
+			assert(m_rightSplitPart);
+
+			assert(m_splitResult.leftPart);
+			assert(m_splitResult.rightPart);
+
+			assert(std::addressof(m_splitResult.leftPart->splitPart.get()) == m_leftSplitPart.get());
+			assert(std::addressof(m_splitResult.rightPart->splitPart.get()) == m_rightSplitPart.get());
+
+			assert(m_leftSplitPart->getStringRepresentation() == m_leftSplitPartStr);
+			assert(m_rightSplitPart->getStringRepresentation() == m_rightSplitPartStr);
+		}
+
+
+		const SplitResultType& getSplitResult() const
+		{
+			return m_splitResult;
+		}
+	};
 
 #pragma endregion
 
@@ -325,13 +405,84 @@ namespace CmdCalculatorTests
 
 #pragma endregion
 
+
+#pragma region getSplitResultAsExpression(splitPart=Addition)
+
 	TEST
 	(
 		BasicRSRToDynamicExpressionConverterTests,
-		TODO
+		calling$getSplitResultAsExpression$with$addition$DynamicBinaryOperatorNode$returns$DynamicAbsoluteValueOperation
 	)
 	{
-		FAIL();
+		const std::string leftSplitPartStr{ "12.34" };
+		const std::string rightSplitPartStr{ "56.78" };
+		
+		const CmdCalculator::MathAst::DynamicBinaryOperatorNode<std::string> splitPart
+		{
+			CmdCalculator::MathAst::EBinaryOperator::Addition,
+			"", ""
+		};
+
+		const CompositeSplitResultTestData splitResultData
+		{
+			leftSplitPartStr,
+			splitPart,
+			rightSplitPartStr
+		};
+
+		StubTrackingInnerOperandConverterType innerOperandConverter{ makeTrackingInnerOperandConverter() };
+
+		CmdCalculator::BasicRSRToDynamicExpressionConverter
+		<
+			CompositeSplitResultTestData::SplitResultType,
+			std::remove_cv_t<decltype(innerOperandConverter)>,
+			std::string
+		> instance
+		{
+			innerOperandConverter
+		};
+
+		// Act
+		const CmdCalculator::UniquePtr auto returnValue
+		{
+			instance.getSplitResultAsExpression(splitResultData.getSplitResult())
+		};
+
+		// Assert
+		ASSERT_NE(nullptr, returnValue.get());
+
+		const auto* castedReturnValue
+		{
+			dynamic_cast<CmdCalculator::Expressions::DynamicAdditionOperation<ExpressionNumberType>*>
+				(returnValue.get())
+		};
+		ASSERT_NE(nullptr, castedReturnValue);
+
+		const auto& castedReturnValueAugend
+		{
+			dynamic_cast<typename StubTrackingInnerOperandConverterType::ExpressionType*>
+				(&castedReturnValue->getAugend())
+		};
+		ASSERT_NE(nullptr, castedReturnValueAugend);
+
+		const auto& castedReturnValueAddend
+		{
+			dynamic_cast<typename StubTrackingInnerOperandConverterType::ExpressionType*>
+				(&castedReturnValue->getAddend())
+		};
+		ASSERT_NE(nullptr, castedReturnValueAddend);
+
+		EXPECT_EQ
+		(
+			leftSplitPartStr,
+			castedReturnValueAugend->source.get().getStringRepresentation()
+		);
+
+		EXPECT_EQ
+		(
+			rightSplitPartStr,
+			castedReturnValueAddend->source.get().getStringRepresentation()
+		);
 	}
 
 #pragma endregion
