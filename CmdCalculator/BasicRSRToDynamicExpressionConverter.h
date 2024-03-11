@@ -16,7 +16,7 @@ namespace CmdCalculator
 	/// \brief A basic implementation that satisfies the \ref RecursiveSplitResultToDynamicExpressionConverter concept.
 	/// \tparam SourceSplitResultT The type of split result to convert from.
 	/// \tparam InnerOperandConverterT The type of object to use for converting inner math operand ASTs into expression objects.
-	/// \tparam StringT The string type that each expression part node in the math AST uses.
+	/// \tparam MathAstStringT The string type that each expression part node in the math AST uses.
 	template
 	<
 		DynamicExpressionPartRecursiveSplitResult SourceSplitResultT,
@@ -74,38 +74,6 @@ namespace CmdCalculator
 			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> leftPart,
 			const MathAst::DynamicBinaryOperatorNode<MathAstStringT>& splitPart,
 			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> rightPart
-		) const;
-
-
-		std::unique_ptr<Expressions::DynamicAdditionOperation<ExpressionNumberType>> getOperandsAndSplitPartAsAdditionOperation
-		(
-			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> augend,
-			const MathAst::DynamicBinaryOperatorNode<MathAstStringT>& splitPart,
-			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> addend
-		) const;
-
-
-		std::unique_ptr<Expressions::DynamicSubtractionOperation<ExpressionNumberType>> getOperandsAndSplitPartAsSubtractionOperation
-		(
-			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> minuend,
-			const MathAst::DynamicBinaryOperatorNode<MathAstStringT>& splitPart,
-			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> subtrahend
-		) const;
-
-
-		std::unique_ptr<Expressions::DynamicMultiplicationOperation<ExpressionNumberType>> getOperandsAndSplitPartAsMultiplicationOperation
-		(
-			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> multiplier,
-			const MathAst::DynamicBinaryOperatorNode<MathAstStringT>& splitPart,
-			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> multiplicand
-		) const;
-
-
-		std::unique_ptr<Expressions::DynamicDivisionOperation<ExpressionNumberType>> getOperandsAndSplitPartAsDivisionOperation
-		(
-			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> dividend,
-			const MathAst::DynamicBinaryOperatorNode<MathAstStringT>& splitPart,
-			std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> divisor
 		) const;
 	};
 }

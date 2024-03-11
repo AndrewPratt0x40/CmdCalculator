@@ -16,6 +16,43 @@
 #include "NotImplementedException.h"
 
 
+
+/// \internal
+template<CmdCalculator::Expressions::Expression ExpressionT>
+using DynamicExpressionOfSameNumberType = CmdCalculator::Expressions::DynamicExpression
+<
+	CmdCalculator::Expressions::ExpressionEvaluationType<ExpressionT>
+>;
+
+/// \internal
+template<class T>
+concept DerivedDynamicBinaryExpression =
+	CmdCalculator::Expressions::Expression<T>
+	&& std::convertible_to
+	<
+		std::unique_ptr<T>,
+		std::unique_ptr<DynamicExpressionOfSameNumberType<T>>
+	>
+	&& requires
+	{
+		std::make_unique<T>
+		(
+			std::move(std::declval<std::unique_ptr<DynamicExpressionOfSameNumberType<T>>>),
+			std::move(std::declval<std::unique_ptr<DynamicExpressionOfSameNumberType<T>>>)
+		);
+	}
+;
+
+
+template<CmdCalculator::String MathAstStringT, DerivedDynamicBinaryExpression ExpressionT>
+static std::unique_ptr<ExpressionT> getOperandsAndSplitPartAsDerivedBinaryOperation
+(
+	std::unique_ptr<DynamicExpressionOfSameNumberType<ExpressionT>> leftOperand,
+	const CmdCalculator::MathAst::DynamicBinaryOperatorNode<MathAstStringT>& splitPart,
+	std::unique_ptr<DynamicExpressionOfSameNumberType<ExpressionT>> rightOperand
+);
+
+
 template
 <
 	CmdCalculator::DynamicExpressionPartRecursiveSplitResult SourceSplitResultT,
@@ -150,144 +187,65 @@ inline std::unique_ptr
 	switch (splitPart.getOperatorKind())
 	{
 	case MathAst::EBinaryOperator::Addition:
-		return getOperandsAndSplitPartAsAdditionOperation(std::move(leftPart), splitPart, std::move(rightPart));
+		return getOperandsAndSplitPartAsDerivedBinaryOperation
+		<
+			MathAstStringT,
+			Expressions::DynamicAdditionOperation<ExpressionNumberType>
+		>(std::move(leftPart), splitPart, std::move(rightPart));
 	case MathAst::EBinaryOperator::Subtraction:
-		return getOperandsAndSplitPartAsSubtractionOperation(std::move(leftPart), splitPart, std::move(rightPart));
+		return getOperandsAndSplitPartAsDerivedBinaryOperation
+		<
+			MathAstStringT,
+			Expressions::DynamicSubtractionOperation<ExpressionNumberType>
+		>(std::move(leftPart), splitPart, std::move(rightPart));
 	case MathAst::EBinaryOperator::Multiplication:
-		return getOperandsAndSplitPartAsMultiplicationOperation(std::move(leftPart), splitPart, std::move(rightPart));
+		return getOperandsAndSplitPartAsDerivedBinaryOperation
+		<
+			MathAstStringT,
+			Expressions::DynamicMultiplicationOperation<ExpressionNumberType>
+		>(std::move(leftPart), splitPart, std::move(rightPart));
 	case MathAst::EBinaryOperator::Division:
-		return getOperandsAndSplitPartAsDivisionOperation(std::move(leftPart), splitPart, std::move(rightPart));
+		return getOperandsAndSplitPartAsDerivedBinaryOperation
+		<
+			MathAstStringT,
+			Expressions::DynamicDivisionOperation<ExpressionNumberType>
+		>(std::move(leftPart), splitPart, std::move(rightPart));
 	case MathAst::EBinaryOperator::Exponentiation:
-		throw NotImplementedException{};
+		return getOperandsAndSplitPartAsDerivedBinaryOperation
+		<
+			MathAstStringT,
+			Expressions::DynamicExponentiationOperation<ExpressionNumberType>
+		>(std::move(leftPart), splitPart, std::move(rightPart));
 	case MathAst::EBinaryOperator::NthRoot:
-		throw NotImplementedException{};
+		return getOperandsAndSplitPartAsDerivedBinaryOperation
+		<
+			MathAstStringT,
+			Expressions::DynamicNthRootOperation<ExpressionNumberType>
+		>(std::move(leftPart), splitPart, std::move(rightPart));
 	case MathAst::EBinaryOperator::Modulo:
-		throw NotImplementedException{};
+		return getOperandsAndSplitPartAsDerivedBinaryOperation
+		<
+			MathAstStringT,
+			Expressions::DynamicModuloOperation<ExpressionNumberType>
+		>(std::move(leftPart), splitPart, std::move(rightPart));
 	default:
 		Polyfills::unreachable();
 	}
 }
 
 
-template
-<
-	CmdCalculator::DynamicExpressionPartRecursiveSplitResult SourceSplitResultT,
-	CmdCalculator::DynamicOperandToDynamicExpressionConverter InnerOperandConverterT,
-	CmdCalculator::String MathAstStringT
->
-inline std::unique_ptr
-<
-	CmdCalculator::Expressions::DynamicAdditionOperation
-	<
-	typename CmdCalculator::BasicRSRToDynamicExpressionConverter<SourceSplitResultT, InnerOperandConverterT, MathAstStringT>
-		::ExpressionNumberType
-	>
->
-	CmdCalculator::BasicRSRToDynamicExpressionConverter<SourceSplitResultT, InnerOperandConverterT, MathAstStringT>
-	::getOperandsAndSplitPartAsAdditionOperation
+template<CmdCalculator::String MathAstStringT, DerivedDynamicBinaryExpression ExpressionT>
+inline std::unique_ptr<ExpressionT> getOperandsAndSplitPartAsDerivedBinaryOperation
 (
-	std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> augend,
-	const MathAst::DynamicBinaryOperatorNode<MathAstStringT>& splitPart,
-	std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> addend
-) const
+	std::unique_ptr<DynamicExpressionOfSameNumberType<ExpressionT>> leftOperand, 
+	const CmdCalculator::MathAst::DynamicBinaryOperatorNode<MathAstStringT>& splitPart,
+	std::unique_ptr<DynamicExpressionOfSameNumberType<ExpressionT>> rightOperand
+)
 {
-	assert(augend);
-	assert(addend);
+	assert(leftOperand);
+	assert(rightOperand);
 
-	return std::make_unique<Expressions::DynamicAdditionOperation<ExpressionNumberType>>
-		(std::move(augend), std::move(addend))
-	;
-}
-
-
-template
-<
-	CmdCalculator::DynamicExpressionPartRecursiveSplitResult SourceSplitResultT,
-	CmdCalculator::DynamicOperandToDynamicExpressionConverter InnerOperandConverterT,
-	CmdCalculator::String MathAstStringT
->
-inline std::unique_ptr
-<
-	CmdCalculator::Expressions::DynamicSubtractionOperation
-	<
-	typename CmdCalculator::BasicRSRToDynamicExpressionConverter<SourceSplitResultT, InnerOperandConverterT, MathAstStringT>
-		::ExpressionNumberType
-	>
->
-	CmdCalculator::BasicRSRToDynamicExpressionConverter<SourceSplitResultT, InnerOperandConverterT, MathAstStringT>
-	::getOperandsAndSplitPartAsSubtractionOperation
-(
-	std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> minuend,
-	const MathAst::DynamicBinaryOperatorNode<MathAstStringT>& splitPart,
-	std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> subtrahend
-) const
-{
-	assert(minuend);
-	assert(subtrahend);
-
-	return std::make_unique<Expressions::DynamicSubtractionOperation<ExpressionNumberType>>
-		(std::move(minuend), std::move(subtrahend))
-	;
-}
-
-
-template
-<
-	CmdCalculator::DynamicExpressionPartRecursiveSplitResult SourceSplitResultT,
-	CmdCalculator::DynamicOperandToDynamicExpressionConverter InnerOperandConverterT,
-	CmdCalculator::String MathAstStringT
->
-inline std::unique_ptr
-<
-	CmdCalculator::Expressions::DynamicMultiplicationOperation
-	<
-	typename CmdCalculator::BasicRSRToDynamicExpressionConverter<SourceSplitResultT, InnerOperandConverterT, MathAstStringT>
-		::ExpressionNumberType
-	>
->
-	CmdCalculator::BasicRSRToDynamicExpressionConverter<SourceSplitResultT, InnerOperandConverterT, MathAstStringT>
-	::getOperandsAndSplitPartAsMultiplicationOperation
-(
-	std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> multiplier,
-	const MathAst::DynamicBinaryOperatorNode<MathAstStringT>& splitPart,
-	std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> multiplicand
-) const
-{
-	assert(multiplier);
-	assert(multiplicand);
-
-	return std::make_unique<Expressions::DynamicMultiplicationOperation<ExpressionNumberType>>
-		(std::move(multiplier), std::move(multiplicand))
-	;
-}
-
-
-template
-<
-	CmdCalculator::DynamicExpressionPartRecursiveSplitResult SourceSplitResultT,
-	CmdCalculator::DynamicOperandToDynamicExpressionConverter InnerOperandConverterT,
-	CmdCalculator::String MathAstStringT
->
-inline std::unique_ptr
-<
-	CmdCalculator::Expressions::DynamicDivisionOperation
-	<
-	typename CmdCalculator::BasicRSRToDynamicExpressionConverter<SourceSplitResultT, InnerOperandConverterT, MathAstStringT>
-		::ExpressionNumberType
-	>
->
-	CmdCalculator::BasicRSRToDynamicExpressionConverter<SourceSplitResultT, InnerOperandConverterT, MathAstStringT>
-	::getOperandsAndSplitPartAsDivisionOperation
-(
-	std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> dividend,
-	const MathAst::DynamicBinaryOperatorNode<MathAstStringT>& splitPart,
-	std::unique_ptr<Expressions::DynamicExpression<ExpressionNumberType>> divisor
-) const
-{
-	assert(dividend);
-	assert(divisor);
-
-	return std::make_unique<Expressions::DynamicDivisionOperation<ExpressionNumberType>>
-		(std::move(dividend), std::move(divisor))
+	return std::make_unique<ExpressionT>
+		(std::move(leftOperand), std::move(rightOperand))
 	;
 }

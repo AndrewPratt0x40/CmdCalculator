@@ -23,4 +23,11 @@ namespace CmdCalculator::Expressions
 			// TODO: { instance.getFullSimplification() } -> IntendsToSatisfy<Expression_IntendedSatisfaction>;
 		}
 	;
+
+
+	template<Expression ExpressionT>
+	using ExpressionEvaluationType = decltype
+	(
+		std::declval<ExpressionT>().getEvaluation()
+	);
 }
