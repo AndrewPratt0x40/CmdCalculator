@@ -316,6 +316,12 @@
     <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter\BasicRSRToDynamicExpressionConverter">
       <UniqueIdentifier>{8dc399e7-d3c4-486c-8120-1ee7208351db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Conversions\Expression to String">
+      <UniqueIdentifier>{16945bd1-fbf3-478a-9436-0ccec3a6e4a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Expression to String\ExpressionEvaluationToStringConverter">
+      <UniqueIdentifier>{284255ca-cee1-4694-bf30-c5e54b9b9466}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -341,9 +347,6 @@
     </ClInclude>
     <ClInclude Include="Expression.h">
       <Filter>Source Code\Expressions</Filter>
-    </ClInclude>
-    <ClInclude Include="ExpressionToStringConverter.h">
-      <Filter>Source Code\Conversions</Filter>
     </ClInclude>
     <ClInclude Include="ProcessConfiguration.h">
       <Filter>Source Code</Filter>
@@ -669,6 +672,12 @@
     <ClInclude Include="BasicRSRToDynamicExpressionConverter.h">
       <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter\BasicRSRToDynamicExpressionConverter</Filter>
     </ClInclude>
+    <ClInclude Include="ExpressionToStringConverter.h">
+      <Filter>Source Code\Conversions\Expression to String</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressionEvaluationToStringConverter.h">
+      <Filter>Source Code\Conversions\Expression to String\ExpressionEvaluationToStringConverter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -829,6 +838,9 @@
     </ClCompile>
     <ClCompile Include="BasicRSRToDynamicExpressionConverter.hpp">
       <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter\BasicRSRToDynamicExpressionConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="ExpressionEvaluationToStringConverter.hpp">
+      <Filter>Source Code\Conversions\Expression to String\ExpressionEvaluationToStringConverter</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

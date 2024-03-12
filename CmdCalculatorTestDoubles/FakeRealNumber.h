@@ -3,6 +3,7 @@
 #include <concepts>
 #include <cmath>
 #include <string>
+#include <optional>
 
 #include "../CmdCalculator/RealNumber.h"
 #include "../CmdCalculator/std_polyfills.h"
@@ -17,14 +18,35 @@ namespace CmdCalculatorTestDoubles::Arithmetic
 	{
 	private:
 		double m_value;
+		std::optional<std::string> m_stringRepresentation;
 
 
 	public:
 
-
 		FakeRealNumber(const double value = 0.0) :
 			m_value{ value }
 		{}
+
+
+		FakeRealNumber(const std::string stringRepresentation, const double value) :
+			m_value{ value },
+			m_stringRepresentation{ stringRepresentation }
+		{}
+
+
+		FakeRealNumber(const std::string stringRepresentation) :
+			m_value{},
+			m_stringRepresentation{ stringRepresentation }
+		{
+			try
+			{
+				m_value = std::stod(stringRepresentation);
+			}
+			catch (const std::invalid_argument&)
+			{
+				m_value = 0.0;
+			}
+		}
 
 
 		double FAKE_getValue() const
@@ -47,7 +69,7 @@ namespace CmdCalculatorTestDoubles::Arithmetic
 
 		std::string getStringRepresentation() const
 		{
-			return std::to_string(m_value);
+			return m_stringRepresentation.value_or(std::to_string(m_value));
 		}
 
 

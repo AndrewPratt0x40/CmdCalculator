@@ -127,6 +127,7 @@
     <ClInclude Include="EmptyInputExpressionException.h" />
     <ClInclude Include="ESign.h" />
     <ClInclude Include="ExpressionEvaluationException.h" />
+    <ClInclude Include="ExpressionEvaluationToStringConverter.h" />
     <ClInclude Include="FundamentallyBackedRealNumber.h" />
     <ClInclude Include="FundamentallyBackedRealNumber.hpp" />
     <ClInclude Include="NegativeRadicandException.h" />
@@ -225,6 +226,7 @@
     <ClCompile Include="DynamicNthRootOperation.hpp" />
     <ClCompile Include="DynamicNumber.hpp" />
     <ClCompile Include="EmptyInputExpressionException.cpp" />
+    <ClCompile Include="ExpressionEvaluationToStringConverter.hpp" />
     <ClCompile Include="NegativeRadicandException.cpp" />
     <ClCompile Include="NotImplementedException.cpp" />
     <ClCompile Include="SingularInvokingDEPSplitter.hpp" />

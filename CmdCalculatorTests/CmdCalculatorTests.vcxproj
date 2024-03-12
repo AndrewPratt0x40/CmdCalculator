@@ -115,6 +115,7 @@
     <ClCompile Include="DynamicSignOperationNodeTests.cpp" />
     <ClCompile Include="DynamicSqrtOperationNodeTest.cpp" />
     <ClCompile Include="DynamicSubtractionOperationTests.cpp" />
+    <ClCompile Include="ExpressionEvaluationToStringConverterTests.cpp" />
     <ClCompile Include="FundamentallyBackedRealNumberTests.cpp" />
     <ClCompile Include="OwningTrueFullExpressionAntlrContextTests.cpp" />
     <ClCompile Include="pch.cpp">

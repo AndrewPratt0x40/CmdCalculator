@@ -10,7 +10,7 @@ namespace CmdCalculator
 		/// \brief How many decimal places are to be included in the answer of a calculation.
 		int m_precision;
 
-		/// \brief True if positive values should be displayed as a sign expression in the answer of a calculation, false if positive values should stay as-is.
+		/// \brief True if integers should have decimal points in the answer of a calculation, false if integers should have no decimal points.
 		bool m_shouldPreferDecimalsOverIntegers;
 
 		/// \brief True if positive values should be displayed as a sign expression in the answer of a calculation, false if positive values should stay as-is.

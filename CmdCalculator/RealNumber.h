@@ -17,6 +17,7 @@ namespace CmdCalculator::Arithmetic
 	/// \brief A real number.
 	/// \tparam T The real number type.
 	/// \remark Modulo operations should use Euclidean division, and always return a positive value.
+	/// \remark <tt>getStringRepresentation()</tt> should return a string that matches the regular expression: <tt>/^[+-]?(\d*\.\d+|\d+\.?)$/</tt>
 	template<class T>
 	concept RealNumber =
 		IntendsToSatisfy<T, RealNumber_IntendedSatisfaction>
