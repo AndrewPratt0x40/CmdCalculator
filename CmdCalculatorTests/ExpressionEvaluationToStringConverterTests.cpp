@@ -136,8 +136,7 @@ namespace CmdCalculatorTests
 
 	const int valid_stringifyExpressionPrecisionValues[]
 	{
-		0, 1, 2, 3, 4, 5,
-		8, 16, 32
+		0, 1, 3, 64
 	};
 
 
@@ -223,25 +222,67 @@ namespace CmdCalculatorTests
 		{
 			std::vector<ExpressionEvaluationToStringConverter_stringifyExpression_TestData> values{};
 
-			for(const CmdCalculatorTestUtils::SharedTestData::CompositeOperandData<double>& compositeValue : operandDataValuesFor_stringifyExpressionTests()){
-			for(const std::string evaluationStr : getPossibleEvaluationStrs(compositeValue)){
 			for(const int precision : valid_stringifyExpressionPrecisionValues){
 			for(const bool shouldPreferDecimalsOverIntegers : CmdCalculatorTestUtils::SharedTestData::allBools){
 			for(const bool shouldPreferSignExpressionForPositiveValues : CmdCalculatorTestUtils::SharedTestData::allBools){
 			for(const bool shouldPreferLeadingZeroOverWholelessNumbers : CmdCalculatorTestUtils::SharedTestData::allBools){
 			for(const bool shouldPreferTrailingZeroOverEmptyDecimalPlace : CmdCalculatorTestUtils::SharedTestData::allBools)
 			{
+				for (const std::string evaluationStr : {"-0", "0", "+0"})
+				{
+					values.push_back
+					(
+						ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+						{
+							.evaluation{ 0 },
+							.evaluationSign{ CmdCalculator::Arithmetic::ESign::Neutral },
+							.evaluationIsInteger{ true },
+							.evaluationWholePartIsZero{ true },
+							.evaluationStr{ evaluationStr },
+							.evaluationWholePartStr{ "0" },
+							.evaluationFractionalPartStr{ "0" },
+							.precision{ precision },
+							.shouldPreferDecimalsOverIntegers{ shouldPreferDecimalsOverIntegers },
+							.shouldPreferSignExpressionForPositiveValues{ shouldPreferSignExpressionForPositiveValues },
+							.shouldPreferLeadingZeroOverWholelessNumbers{ shouldPreferLeadingZeroOverWholelessNumbers },
+							.shouldPreferTrailingZeroOverEmptyDecimalPlace{ shouldPreferTrailingZeroOverEmptyDecimalPlace }
+						}
+					);
+				}
+
+				for (const std::string evaluationStr : {"123", "123."})
+				{
+					values.push_back
+					(
+						ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+						{
+							.evaluation{ 123.0 },
+							.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+							.evaluationIsInteger{ true },
+							.evaluationWholePartIsZero{ false },
+							.evaluationStr{ evaluationStr },
+							.evaluationWholePartStr{ "123" },
+							.evaluationFractionalPartStr{ "0" },
+							.precision{ precision },
+							.shouldPreferDecimalsOverIntegers{ shouldPreferDecimalsOverIntegers },
+							.shouldPreferSignExpressionForPositiveValues{ shouldPreferSignExpressionForPositiveValues },
+							.shouldPreferLeadingZeroOverWholelessNumbers{ shouldPreferLeadingZeroOverWholelessNumbers },
+							.shouldPreferTrailingZeroOverEmptyDecimalPlace{ shouldPreferTrailingZeroOverEmptyDecimalPlace }
+						}
+					);
+				}
+
 				values.push_back
 				(
 					ExpressionEvaluationToStringConverter_stringifyExpression_TestData
 					{
-						.evaluation{ compositeValue.value },
-						.evaluationSign{ compositeValue.sign },
-						.evaluationIsInteger{ compositeValue.isInteger.value() },
-						.evaluationWholePartIsZero{ compositeValue.isAbsoluteValueAtLeastOne.value() },
-						.evaluationStr{ evaluationStr },
-						.evaluationWholePartStr{ static_cast<std::string>(compositeValue.wholePartStr.value()) },
-						.evaluationFractionalPartStr{ static_cast<std::string>(compositeValue.fractionalPartStr.value()) },
+						.evaluation{ 0.123 },
+						.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+						.evaluationIsInteger{ false },
+						.evaluationWholePartIsZero{ true },
+						.evaluationStr{ ".123" },
+						.evaluationWholePartStr{ "0" },
+						.evaluationFractionalPartStr{ "123" },
 						.precision{ precision },
 						.shouldPreferDecimalsOverIntegers{ shouldPreferDecimalsOverIntegers },
 						.shouldPreferSignExpressionForPositiveValues{ shouldPreferSignExpressionForPositiveValues },
@@ -249,7 +290,41 @@ namespace CmdCalculatorTests
 						.shouldPreferTrailingZeroOverEmptyDecimalPlace{ shouldPreferTrailingZeroOverEmptyDecimalPlace }
 					}
 				);
-			}}}}}}}
+
+				for(const CmdCalculatorTestUtils::SharedTestData::CompositeOperandData<double>& compositeValue : operandDataValuesFor_stringifyExpressionTests())
+				{
+					values.push_back
+					(
+						ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+						{
+							.evaluation{ compositeValue.value },
+							.evaluationSign{ compositeValue.sign },
+							.evaluationIsInteger{ compositeValue.isInteger.value() },
+							.evaluationWholePartIsZero{ compositeValue.isAbsoluteValueAtLeastOne.value() },
+							.evaluationStr
+							{
+								std::format
+								(
+									"{}{}.{}",
+									compositeValue.sign == CmdCalculator::Arithmetic::ESign::Negative
+										? "-"
+										: ""
+									,
+									compositeValue.wholePartStr.value(),
+									compositeValue.fractionalPartStr.value()
+								)
+							},
+							.evaluationWholePartStr{ static_cast<std::string>(compositeValue.wholePartStr.value()) },
+							.evaluationFractionalPartStr{ static_cast<std::string>(compositeValue.fractionalPartStr.value()) },
+							.precision{ precision },
+							.shouldPreferDecimalsOverIntegers{ shouldPreferDecimalsOverIntegers },
+							.shouldPreferSignExpressionForPositiveValues{ shouldPreferSignExpressionForPositiveValues },
+							.shouldPreferLeadingZeroOverWholelessNumbers{ shouldPreferLeadingZeroOverWholelessNumbers },
+							.shouldPreferTrailingZeroOverEmptyDecimalPlace{ shouldPreferTrailingZeroOverEmptyDecimalPlace }
+						}
+					);
+				}
+			}}}}}
 
 			return values;
 		}()
