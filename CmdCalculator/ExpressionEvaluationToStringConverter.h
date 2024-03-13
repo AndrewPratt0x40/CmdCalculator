@@ -9,6 +9,7 @@
 
 namespace CmdCalculator
 {
+	// TODO: Support different locales
 	/// \brief An algorithm that converts the evaluation of expression objects to strings.
 	/// \tparam ExpressionT The type of expressions to convert to strings.
 	template<Expressions::Expression ExpressionT>
@@ -21,7 +22,6 @@ namespace CmdCalculator
 		using ExpressionStringType = decltype(std::declval<ExpressionNumberType>().getStringRepresentation());
 		using CharType = ExpressionStringType::value_type;
 		using StringType = std::basic_string<CharType>;
-
 
 		/// \brief Converts an expression's evaluation to a string.
 		/// \param source The expression to convert.

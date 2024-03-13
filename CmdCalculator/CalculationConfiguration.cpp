@@ -22,31 +22,31 @@ CmdCalculator::CalculationConfiguration::CalculationConfiguration
 }
 
 
-int CmdCalculator::CalculationConfiguration::getPrecision()
+int CmdCalculator::CalculationConfiguration::getPrecision() const
 {
 	return m_precision;
 }
 
 
-bool CmdCalculator::CalculationConfiguration::shouldPreferDecimalsOverIntegers()
+bool CmdCalculator::CalculationConfiguration::shouldPreferDecimalsOverIntegers() const
 {
 	return m_shouldPreferDecimalsOverIntegers;
 }
 
 
-bool CmdCalculator::CalculationConfiguration::shouldPreferSignExpressionForPositiveValues()
+bool CmdCalculator::CalculationConfiguration::shouldPreferSignExpressionForPositiveValues() const
 {
 	return m_shouldPreferSignExpressionForPositiveValues;
 }
 
 
-bool CmdCalculator::CalculationConfiguration::shouldPreferLeadingZeroOverWholelessNumbers()
+bool CmdCalculator::CalculationConfiguration::shouldPreferLeadingZeroOverWholelessNumbers() const
 {
 	return m_shouldPreferLeadingZeroOverWholelessNumbers;
 }
 
 
-bool CmdCalculator::CalculationConfiguration::shouldPreferTrailingZeroOverEmptyDecimalPlace()
+bool CmdCalculator::CalculationConfiguration::shouldPreferTrailingZeroOverEmptyDecimalPlace() const
 {
 	return m_shouldPreferTrailingZeroOverEmptyDecimalPlace;
 }

@@ -166,6 +166,7 @@
     <ClCompile Include="ExpressionEvaluationToStringConverterTests.cpp">
       <Filter>Source Code\Tests\Conversions\Expression to String</Filter>
     </ClCompile>
+    <ClCompile Include="..\CmdCalculator\ExpressionEvaluationToStringConverter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">

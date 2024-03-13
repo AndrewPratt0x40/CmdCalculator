@@ -83,6 +83,7 @@
     <ClInclude Include="TrueBinaryOperatorAntlrContextViewTests.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\CmdCalculator\ExpressionEvaluationToStringConverter.cpp" />
     <ClCompile Include="AntlrBasedStringToMathAstConverterTests.cpp" />
     <ClCompile Include="AntlrContextToDynamicMathAstConverterTests.cpp" />
     <ClCompile Include="AntlrInvokingStringToAntlrContextConverterTests.cpp" />

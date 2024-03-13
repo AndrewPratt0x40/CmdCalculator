@@ -25,27 +25,27 @@ namespace CmdCalculator
 	public:
 		/// \brief Accessor for the preferred precision.
 		/// \returns How many decimal places are to be included in the answer of a calculation.
-		int getPrecision();
+		int getPrecision() const;
 
 
 		/// \brief Accessor for the preferred representation of integers.
 		/// \returns True if integers should have decimal points in the answer of a calculation, false if integers should have no decimal points.
-		bool shouldPreferDecimalsOverIntegers();
+		bool shouldPreferDecimalsOverIntegers() const;
 
 
 		/// \brief Accessor for the preferred representation of positive values.
 		/// \returns True if positive values should be displayed as a sign expression in the answer of a calculation, false if positive values should stay as-is.
-		bool shouldPreferSignExpressionForPositiveValues();
+		bool shouldPreferSignExpressionForPositiveValues() const;
 
 
 		/// \brief Accessor for the preferred representation of leading zeros.
 		/// \returns True if numbers with an absolute value greater than zero and less than one should be shown with a leading zero before the decimal point in the answer of a calculation, false to show nothing before the decimal point.
-		bool shouldPreferLeadingZeroOverWholelessNumbers();
+		bool shouldPreferLeadingZeroOverWholelessNumbers() const;
 
 
 		/// \brief Accessor for the preferred representation of trailing zeros.
 		/// \returns True if integers should be shown with a trailing zero after the decimal point in the answer of a calculation, false to show nothing after the decimal point.
-		bool shouldPreferTrailingZeroOverEmptyDecimalPlace();
+		bool shouldPreferTrailingZeroOverEmptyDecimalPlace() const;
 
 
 		/// \brief Creates a new instance of the \ref CalculationConfiguration class.
