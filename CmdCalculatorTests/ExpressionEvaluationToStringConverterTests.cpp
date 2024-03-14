@@ -14,6 +14,9 @@
 #include <regex>
 
 
+using namespace std::string_literals;
+
+
 namespace CmdCalculatorTests
 {
 #pragma region Concept satisfaction
@@ -78,15 +81,15 @@ namespace CmdCalculatorTests
 			ostream
 				<< "ExpressionEvaluationToStringConverter.stringifyExpression(Expression{"
 				<< testData.evaluationStr
-				<< "}, CalculationConfiguration{"
+				<< "}, CalculationConfiguration{precision="
 				<< testData.precision
-				<< ", "
+				<< ", shouldPreferDecimalsOverIntegers="
 				<< testData.shouldPreferDecimalsOverIntegers
-				<< ", "
+				<< ", shouldPreferSignExpressionForPositiveValues="
 				<< testData.shouldPreferSignExpressionForPositiveValues
-				<< ", "
+				<< ", shouldPreferLeadingZeroOverWholelessNumbers="
 				<< testData.shouldPreferLeadingZeroOverWholelessNumbers
-				<< ", "
+				<< ", shouldPreferTrailingZeroOverEmptyDecimalPlace="
 				<< testData.shouldPreferTrailingZeroOverEmptyDecimalPlace
 				<< "})"
 			;
@@ -140,82 +143,30 @@ namespace CmdCalculatorTests
 	};
 
 
-	static const CmdCalculatorTestUtils::ForwardRangeOf<std::string> auto getPossibleEvaluationStrs
-	(
-		const CmdCalculatorTestUtils::SharedTestData::CompositeOperandData<double>& compositeValue
-	)
+	std::string getExpectedPartStr(std::string fullPartStr, bool zeroCharIfEmpty, std::string regexProj)
 	{
-		std::vector<std::string> evalStrs{};
-		if (!isValidOperandDataValuesFor_stringifyExpressionTest(compositeValue))
-			return evalStrs;
+		const bool foo{ fullPartStr == "123" && zeroCharIfEmpty && regexProj == "^0*([1-9]\\d*)?$" };
 
-		std::vector<std::string> signPrefixes{};
-		if (compositeValue.sign != CmdCalculator::Arithmetic::ESign::Negative)
-		{
-			signPrefixes.push_back("");
-			signPrefixes.push_back("+");
-		}
-		if (compositeValue.sign != CmdCalculator::Arithmetic::ESign::Positive)
-			signPrefixes.push_back("-");
+		std::smatch matchResults;
+		const bool couldMatch{ std::regex_match(fullPartStr, matchResults, std::regex{ regexProj }) };
+		if (!couldMatch && !matchResults.ready())
+			throw std::exception{ "Failed to match regex while setting up test data." };
+		
+		const std::string projFullPartStr{ matchResults[1].str() };
 
-
-		for (const std::string signPrefix : signPrefixes)
-		{
-			for (const std::string digitsPrefix : {"", "0", "000"})
-			{
-				if (compositeValue.isInteger)
-				{
-					evalStrs.push_back
-					(
-						std::format
-						(
-							"{}{}{}",
-							signPrefix,
-							digitsPrefix,
-							compositeValue.wholePartStr.value()
-						)
-					);
-				}
-
-				for (const std::string digitsSuffix : {"", "0", "000"})
-				{
-					if (compositeValue.isInteger)
-					{
-						evalStrs.push_back
-						(
-							std::format
-							(
-								"{}{}{}.{}",
-								signPrefix,
-								digitsPrefix,
-								compositeValue.wholePartStr.value(),
-								digitsSuffix
-							)
-						);
-					}
-					else
-					{
-						evalStrs.push_back
-						(
-							std::format
-							(
-								"{}{}{}.{}{}",
-								signPrefix,
-								digitsPrefix,
-								compositeValue.wholePartStr.value(),
-								compositeValue.fractionalPartStr.value(),
-								digitsSuffix
-							)
-						);
-					}
-				}
-			}
-		}
-
-		return evalStrs;
+		return (projFullPartStr.empty() && zeroCharIfEmpty) ? "0" : projFullPartStr;
 	}
 
+	std::string getExpectedPartStr(std::string fullPartStr, bool zeroCharIfEmpty, std::string regexProj, int precision)
+	{
+		return getExpectedPartStr(fullPartStr.substr(0, precision), zeroCharIfEmpty, regexProj);
+	}
 
+	const std::string expectedWholePartRegexProj{ "^0*([1-9]\\d*)?$" };
+	const std::string expectedFractionalPartRegexProj{ "^(\\d*[1-9])?0*$" };
+
+
+	// TODO: This test data collection uses logic that is complex enough that the data itself may need to be unit-tested for validity.
 	const std::ranges::forward_range auto ExpressionEvaluationToStringConverter_stringifyExpression_TestDataValues
 	{
 		[]()
@@ -228,6 +179,9 @@ namespace CmdCalculatorTests
 			for(const bool shouldPreferLeadingZeroOverWholelessNumbers : CmdCalculatorTestUtils::SharedTestData::allBools){
 			for(const bool shouldPreferTrailingZeroOverEmptyDecimalPlace : CmdCalculatorTestUtils::SharedTestData::allBools)
 			{
+				const bool zeroCharIfWholePartEmpty{ shouldPreferLeadingZeroOverWholelessNumbers };
+				const bool zeroCharIfFractionalPartEmpty{ shouldPreferDecimalsOverIntegers && shouldPreferTrailingZeroOverEmptyDecimalPlace };
+
 				for (const std::string evaluationStr : {"-0", "0", "+0"})
 				{
 					values.push_back
@@ -239,8 +193,8 @@ namespace CmdCalculatorTests
 							.evaluationIsInteger{ true },
 							.evaluationWholePartIsZero{ true },
 							.evaluationStr{ evaluationStr },
-							.evaluationWholePartStr{ "0" },
-							.evaluationFractionalPartStr{ "0" },
+							.evaluationWholePartStr{ getExpectedPartStr("0", zeroCharIfWholePartEmpty, expectedWholePartRegexProj) },
+							.evaluationFractionalPartStr{ getExpectedPartStr("0", zeroCharIfFractionalPartEmpty, expectedFractionalPartRegexProj, precision) },
 							.precision{ precision },
 							.shouldPreferDecimalsOverIntegers{ shouldPreferDecimalsOverIntegers },
 							.shouldPreferSignExpressionForPositiveValues{ shouldPreferSignExpressionForPositiveValues },
@@ -261,8 +215,8 @@ namespace CmdCalculatorTests
 							.evaluationIsInteger{ true },
 							.evaluationWholePartIsZero{ false },
 							.evaluationStr{ evaluationStr },
-							.evaluationWholePartStr{ "123" },
-							.evaluationFractionalPartStr{ "0" },
+							.evaluationWholePartStr{ getExpectedPartStr("123", zeroCharIfWholePartEmpty, expectedWholePartRegexProj) },
+							.evaluationFractionalPartStr{ getExpectedPartStr("0", zeroCharIfFractionalPartEmpty, expectedFractionalPartRegexProj, precision) },
 							.precision{ precision },
 							.shouldPreferDecimalsOverIntegers{ shouldPreferDecimalsOverIntegers },
 							.shouldPreferSignExpressionForPositiveValues{ shouldPreferSignExpressionForPositiveValues },
@@ -281,8 +235,8 @@ namespace CmdCalculatorTests
 						.evaluationIsInteger{ false },
 						.evaluationWholePartIsZero{ true },
 						.evaluationStr{ ".123" },
-						.evaluationWholePartStr{ "0" },
-						.evaluationFractionalPartStr{ "123" },
+						.evaluationWholePartStr{ getExpectedPartStr("0", zeroCharIfWholePartEmpty, expectedWholePartRegexProj) },
+						.evaluationFractionalPartStr{ getExpectedPartStr("123", zeroCharIfFractionalPartEmpty, expectedFractionalPartRegexProj, precision) },
 						.precision{ precision },
 						.shouldPreferDecimalsOverIntegers{ shouldPreferDecimalsOverIntegers },
 						.shouldPreferSignExpressionForPositiveValues{ shouldPreferSignExpressionForPositiveValues },
@@ -300,7 +254,7 @@ namespace CmdCalculatorTests
 							.evaluation{ compositeValue.value },
 							.evaluationSign{ compositeValue.sign },
 							.evaluationIsInteger{ compositeValue.isInteger.value() },
-							.evaluationWholePartIsZero{ compositeValue.isAbsoluteValueAtLeastOne.value() },
+							.evaluationWholePartIsZero{ !compositeValue.isAbsoluteValueAtLeastOne.value() },
 							.evaluationStr
 							{
 								std::format
@@ -314,8 +268,25 @@ namespace CmdCalculatorTests
 									compositeValue.fractionalPartStr.value()
 								)
 							},
-							.evaluationWholePartStr{ static_cast<std::string>(compositeValue.wholePartStr.value()) },
-							.evaluationFractionalPartStr{ static_cast<std::string>(compositeValue.fractionalPartStr.value()) },
+							.evaluationWholePartStr
+							{
+								getExpectedPartStr
+								(
+									static_cast<std::string>(compositeValue.wholePartStr.value()),
+									zeroCharIfWholePartEmpty,
+									expectedWholePartRegexProj
+								)
+							},
+							.evaluationFractionalPartStr
+							{
+								getExpectedPartStr
+								(
+									static_cast<std::string>(compositeValue.fractionalPartStr.value()),
+									zeroCharIfFractionalPartEmpty,
+									expectedFractionalPartRegexProj,
+									precision
+								)
+							},
 							.precision{ precision },
 							.shouldPreferDecimalsOverIntegers{ shouldPreferDecimalsOverIntegers },
 							.shouldPreferSignExpressionForPositiveValues{ shouldPreferSignExpressionForPositiveValues },
@@ -512,19 +483,7 @@ namespace CmdCalculatorTests
 
 		const std::string returnValueWholeDigits{ returnValueMatchResult[stringifyExpressionRegexSubgroups::WholeDigits].str() };
 
-		std::smatch returnValueWholeDigitsWithoutLeadingZerosMatchResult;
-		ASSERT_TRUE
-		(
-			std::regex_match
-			(
-				returnValueWholeDigits,
-				returnValueWholeDigitsWithoutLeadingZerosMatchResult,
-				std::regex{ "^0*(\\d*)$" }
-			)
-		);
-		const std::string returnValueWholeDigitsWithoutLeadingZeros{ returnValueWholeDigitsWithoutLeadingZerosMatchResult[1].str() };
-
-		EXPECT_EQ(GetParam().evaluationWholePartStr, returnValueWholeDigitsWithoutLeadingZeros);
+		EXPECT_EQ(GetParam().evaluationWholePartStr, returnValueWholeDigits);
 	}
 
 
@@ -556,23 +515,7 @@ namespace CmdCalculatorTests
 
 		const std::string returnValueFractionalDigits{ returnValueMatchResult[stringifyExpressionRegexSubgroups::FractionalDigits].str() };
 
-		std::smatch returnValueFractionalDigitsWithoutTrailingZerosMatchResult;
-		ASSERT_TRUE
-		(
-			std::regex_match
-			(
-				returnValueFractionalDigits,
-				returnValueFractionalDigitsWithoutTrailingZerosMatchResult,
-				std::regex{ "^(\\d*?)0*$" }
-			)
-		);
-		const std::string returnValueFractionalDigitsWithoutTrailingZeros{ returnValueFractionalDigitsWithoutTrailingZerosMatchResult[1].str() };
-
-		if (GetParam().evaluationIsInteger)
-			EXPECT_EQ(0, returnValueFractionalDigitsWithoutTrailingZeros.size());
-		else
-			EXPECT_EQ(GetParam().evaluationFractionalPartStr, returnValueFractionalDigitsWithoutTrailingZeros);
-
+		EXPECT_EQ(GetParam().evaluationFractionalPartStr, returnValueFractionalDigits);
 	}
 
 
@@ -593,6 +536,13 @@ namespace CmdCalculatorTests
 			GetParam().shouldPreferTrailingZeroOverEmptyDecimalPlace
 		};
 
+		const size_t maxExpectedFractionalDigits
+		{
+			GetParam().precision == 0
+				? GetParam().evaluationFractionalPartStr.size()
+				: GetParam().precision
+		};
+
 		const CmdCalculator::ExpressionEvaluationToStringConverter<SourceExpressionType> instance{};
 
 		// Act
@@ -602,12 +552,15 @@ namespace CmdCalculatorTests
 		std::smatch returnValueMatchResult;
 		ASSERT_TRUE(std::regex_match(returnValue, returnValueMatchResult, stringifyExpressionRegex));
 
-		EXPECT_LE(returnValueMatchResult[stringifyExpressionRegexSubgroups::FractionalDigits].str().size(), GetParam().precision);
+		const std::string returnValueFractionalDigits{ returnValueMatchResult[stringifyExpressionRegexSubgroups::FractionalDigits].str() };
+
+		EXPECT_LE(returnValueFractionalDigits.size(), maxExpectedFractionalDigits);
 	}
 
 
 	TEST_P(ExpressionEvaluationToStringConverter$stringifyExpression$WithIntsOnlyTests, calling$stringifyExpression$with$integer$returns$value$with$decimal$point$iff$shouldPreferDecimalsOverIntegers$is$true)
 	{
+		const bool foo{ GetParam().evaluationStr == "-0" && GetParam().precision == 0 && !GetParam().shouldPreferDecimalsOverIntegers && GetParam().shouldPreferTrailingZeroOverEmptyDecimalPlace };
 		// Arrange
 		using NumberType = CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber;
 		using SourceExpressionType = CmdCalculatorTestDoubles::Expressions::StubDynamicExpression<NumberType>;
@@ -632,15 +585,12 @@ namespace CmdCalculatorTests
 		std::smatch returnValueMatchResult;
 		ASSERT_TRUE(std::regex_match(returnValue, returnValueMatchResult, stringifyExpressionRegex));
 
-		const std::integral auto numFractionalDigits
+		const bool decimalPointExists
 		{
-			returnValueMatchResult[stringifyExpressionRegexSubgroups::FractionalPart].str().size()
+			!returnValueMatchResult[stringifyExpressionRegexSubgroups::FractionalPart].str().empty()
 		};
 
-		if (GetParam().shouldPreferDecimalsOverIntegers)
-			EXPECT_GT(numFractionalDigits, 0);
-		else
-			EXPECT_EQ(numFractionalDigits, 0);
+		EXPECT_EQ(GetParam().shouldPreferDecimalsOverIntegers, decimalPointExists);
 	}
 
 
@@ -706,11 +656,11 @@ namespace CmdCalculatorTests
 
 		const std::string returnValueWholeDigits{ returnValueMatchResult[stringifyExpressionRegexSubgroups::WholeDigits].str() };
 		
-		EXPECT_EQ(GetParam().evaluationWholePartStr, returnValueWholeDigits);
+		EXPECT_TRUE(std::regex_match(returnValueWholeDigits, std::regex{ "^[1-9]\\d*$" }));
 	}
 
 
-	TEST_P(ExpressionEvaluationToStringConverter$stringifyExpression$WithZeroWholePartsOnly$Tests, calling$stringifyExpression$with$integer$returns$value$with$single$zero$fractional$part$iff$shouldPreferDecimalsOverIntegers$and$shouldPreferTrailingZeroOverEmptyDecimalPlace$are$true$otherwise$no$fractional$part)
+	TEST_P(ExpressionEvaluationToStringConverter$stringifyExpression$WithIntsOnlyTests, calling$stringifyExpression$with$integer$returns$value$with$single$zero$fractional$part$iff$shouldPreferDecimalsOverIntegers$and$shouldPreferTrailingZeroOverEmptyDecimalPlace$are$true$otherwise$no$fractional$part)
 	{
 		// Arrange
 		using NumberType = CmdCalculatorTestDoubles::Arithmetic::FakeRealNumber;
@@ -737,6 +687,7 @@ namespace CmdCalculatorTests
 		ASSERT_TRUE(std::regex_match(returnValue, returnValueMatchResult, stringifyExpressionRegex));
 
 		const std::string returnValueFractionalDigits{ returnValueMatchResult[stringifyExpressionRegexSubgroups::FractionalDigits].str() };
+
 		if (GetParam().shouldPreferDecimalsOverIntegers && GetParam().shouldPreferTrailingZeroOverEmptyDecimalPlace)
 			EXPECT_EQ("0", returnValueFractionalDigits);
 		else

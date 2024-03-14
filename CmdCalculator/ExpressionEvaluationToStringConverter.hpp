@@ -17,51 +17,25 @@
 
 namespace
 {
-	using ImplCharType = char;
-	
-	template<class T>
-	concept ImplCharsView =
-		std::ranges::forward_range<T>
-		&& std::convertible_to<std::ranges::range_value_t<T>, ImplCharType>
+	const std::regex numAsStrRegex{ "^[-+]?0*([1-9]\\d*)?(\\.(\\d*[1-9])?0*)?" };
+	enum NumAsStrRegexSubgroups : size_t
+	{
+		WholeDigits = 1,
+		FractionalDigits = 3
+	};
+
+	constexpr inline auto dropLeadingZeros = std::views::drop_while([](const char ch) { return ch == '0'; });
+	constexpr inline auto dropTrailingZeros =
+		std::views::reverse
+		| dropLeadingZeros
+		| std::views::reverse
 	;
 
-	template<class T>
-	concept ImplCharIter =
-		std::input_iterator<T>
-		&& std::convertible_to<std::iter_value_t<T>, ImplCharType>
-	;
 
+	template<std::ranges::input_range CharRangeT>
+		requires std::convertible_to<std::ranges::range_value_t<CharRangeT>, char>
+	inline std::string rangeToString(CharRangeT chars);
 
-	constexpr inline ImplCharsView auto implCharDigits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-	constexpr inline ImplCharType implCharZero{ '0' };
-	constexpr inline ImplCharType implCharMinusSign{ '-' };
-	constexpr inline ImplCharType implCharPlusSign{ '+' };
-	constexpr inline ImplCharType implCharDecimalPointSign{ '.' };
-
-
-	constexpr bool isDigitChar(const ImplCharType ch);
-	constexpr bool isSignChar(const ImplCharType ch);
-	constexpr bool isDecimalPointChar(const ImplCharType ch);
-
-
-	inline ImplCharsView auto dropSignCharView(ImplCharsView auto evalStr);
-
-	inline ImplCharIter auto findDecimalPoint(ImplCharsView auto str);
-
-	inline ImplCharsView auto getWholeDigitsView
-	(
-		ImplCharsView auto unsignedEvalStr,
-		const ImplCharIter auto decimalPointIter
-	);
-
-	inline ImplCharsView auto getFractionalDigitsView
-	(
-		ImplCharsView auto unsignedEvalStr,
-		const ImplCharIter auto decimalPointIter
-	);
-
-	inline ImplCharsView auto dropLeadingZerosView(ImplCharsView auto str);
-	inline ImplCharsView auto dropTrailingZerosView(ImplCharsView auto str);
 
 	inline std::string getSignOutStr
 	(
@@ -71,107 +45,29 @@ namespace
 
 	inline std::string getWholeDigitsOutStr
 	(
-		ImplCharsView auto wholeDigitsStr,
+		std::string_view wholeDigitsStr,
 		const CmdCalculator::CalculationConfiguration& configuration
 	);
 
 	inline std::string getDecimalPointOutStr
 	(
-		ImplCharsView auto wholeDigitsStr,
-		ImplCharsView auto fractionalDigitsStr,
+		std::string_view wholeDigitsStr,
+		std::string_view fractionalDigitsStr,
 		const CmdCalculator::CalculationConfiguration& configuration
 	);
 
 	inline std::string getFractionalDigitsOutStr
 	(
-		ImplCharsView auto fractionalDigitsStr,
+		std::string_view fractionalDigitsStr,
 		const CmdCalculator::CalculationConfiguration& configuration
 	);
 
 
-	inline constexpr bool isDigitChar(const ImplCharType ch)
+	template<std::ranges::input_range CharRangeT>
+		requires std::convertible_to<std::ranges::range_value_t<CharRangeT>, char>
+	std::string rangeToString(CharRangeT chars)
 	{
-		return std::ranges::find(implCharDigits, ch) != std::ranges::end(implCharDigits);
-	}
-
-
-	inline constexpr bool isSignChar(const ImplCharType ch)
-	{
-		return ch == implCharMinusSign || ch == implCharPlusSign;
-	}
-
-
-	inline constexpr bool isDecimalPointChar(const ImplCharType ch)
-	{
-		return ch == implCharDecimalPointSign;
-	}
-
-
-	inline ImplCharsView auto dropSignCharView(ImplCharsView auto evalStr)
-	{
-		assert(!std::ranges::empty(evalStr));
-		const ImplCharType firstChar{ *std::ranges::begin(evalStr) };
-		assert(isDigitChar(firstChar) || isSignChar(firstChar));
-
-		return evalStr | std::views::drop(isSignChar(firstChar) ? 0 : 1);
-	}
-
-
-	inline ImplCharIter auto findDecimalPoint(ImplCharsView auto str)
-	{
-		return std::ranges::find_if(str, implCharDecimalPointSign);
-	}
-
-
-	inline ImplCharsView auto getWholeDigitsView
-	(
-		ImplCharsView auto unsignedEvalStr,
-		const ImplCharIter auto decimalPointIter
-	)
-	{
-		assert
-		(
-			decimalPointIter == std::ranges::end(unsignedEvalStr)
-			|| *decimalPointIter == implCharDecimalPointSign
-		);
-
-		return std::ranges::subrange
-		{
-			std::ranges::begin(unsignedEvalStr),
-			decimalPointIter
-		};
-	}
-
-
-	inline ImplCharsView auto getFractionalDigitsView
-	(
-		ImplCharsView auto unsignedEvalStr,
-		const ImplCharIter auto decimalPointIter
-	)
-	{
-		assert
-		(
-			decimalPointIter == std::ranges::end(unsignedEvalStr)
-			|| *decimalPointIter == implCharDecimalPointSign
-		);
-
-		return std::ranges::subrange
-		{
-			decimalPointIter + (decimalPointIter == std::ranges::end(unsignedEvalStr) ? 0 : 1),
-			std::ranges::end(unsignedEvalStr)
-		};
-	}
-
-
-	inline ImplCharsView auto dropLeadingZerosView(ImplCharsView auto str)
-	{
-		return str | std::views::drop_while([](const ImplCharType ch) { return ch == '0'; });
-	}
-
-
-	inline ImplCharsView auto dropTrailingZerosView(ImplCharsView auto str)
-	{
-		return dropLeadingZerosView(str | std::views::reverse) | std::views::reverse;
+		return std::string{ std::ranges::begin(chars), std::ranges::end(chars) };
 	}
 
 
@@ -193,31 +89,37 @@ namespace
 
 	inline std::string getWholeDigitsOutStr
 	(
-		ImplCharsView auto wholeDigitsStr,
+		std::string_view wholeDigitsStr,
 		const CmdCalculator::CalculationConfiguration& configuration
 	)
 	{
-		if (!std::ranges::empty(wholeDigitsStr))
-			return std::string{ wholeDigitsStr };
+		const std::string trimmedwholeDigitsStr
+		{
+			rangeToString(wholeDigitsStr | dropLeadingZeros)
+		};
 
-		if (configuration.shouldPreferLeadingZeroOverWholelessNumbers())
-			return "0";
-
-		return "";
+		return
+		(
+			trimmedwholeDigitsStr.empty()
+			&& configuration.shouldPreferLeadingZeroOverWholelessNumbers()
+		)
+			? "0"
+			: trimmedwholeDigitsStr
+		;
 	}
 
 
 	inline std::string getDecimalPointOutStr
 	(
-		ImplCharsView auto wholeDigitsStr,
-		ImplCharsView auto fractionalDigitsStr,
+		std::string_view wholeDigitsOutStr,
+		std::string_view fractionalDigitsOutStr,
 		const CmdCalculator::CalculationConfiguration& configuration
 	)
 	{
 		if
 		(
-			std::ranges::empty(wholeDigitsStr)
-			|| !std::ranges::empty(fractionalDigitsStr)
+			(std::ranges::empty(wholeDigitsOutStr) && std::ranges::empty(fractionalDigitsOutStr))
+			|| !std::ranges::empty(fractionalDigitsOutStr)
 			|| configuration.shouldPreferDecimalsOverIntegers()
 		)
 			return ".";
@@ -228,17 +130,24 @@ namespace
 
 	inline std::string getFractionalDigitsOutStr
 	(
-		ImplCharsView auto fractionalDigitsStr,
+		std::string_view fractionalDigitsStr,
 		const CmdCalculator::CalculationConfiguration& configuration
 	)
 	{
-		if (!std::ranges::empty(fractionalDigitsStr))
-			return std::string{ fractionalDigitsStr };
+		const std::string trimmedFractionalDigitsStr
+		{
+			rangeToString(fractionalDigitsStr.substr(0, configuration.getPrecision()) | dropTrailingZeros)
+		};
 
-		if (configuration.shouldPreferTrailingZeroOverEmptyDecimalPlace())
-			return "0";
-
-		return "";
+		return
+		(
+			trimmedFractionalDigitsStr.empty()
+			&& configuration.shouldPreferDecimalsOverIntegers()
+			&& configuration.shouldPreferTrailingZeroOverEmptyDecimalPlace()
+		)
+			? "0"
+			: trimmedFractionalDigitsStr
+		;
 	}
 }
 
@@ -251,20 +160,27 @@ inline typename CmdCalculator::ExpressionEvaluationToStringConverter<ExpressionT
 {
 	const Arithmetic::RealNumber auto eval{ source.getEvaluation() };
 	const std::string evalStr{ convertString<char>(eval.getStringRepresentation()) };
-	assert(std::regex_match(evalStr, std::regex{ "^[+-]?(\\d*\\.\\d+|\\d+\\.?)$" }));
 
-	auto foo{ dropSignCharView(evalStr) };
-	ImplCharsView auto unsignedEvalStr{ dropSignCharView(evalStr) };
-	const ImplCharIter auto decimalPointIter{ findDecimalPoint(unsignedEvalStr) };
+	std::smatch evalStrMatchResult;
+	const bool couldMatch{ std::regex_match(evalStr, evalStrMatchResult, numAsStrRegex) };
+	assert(couldMatch);
+	assert(evalStrMatchResult.ready());
 
-	ImplCharsView auto wholeDigitsStr
+	const std::string wholeDigitsOutStr
 	{
-		dropLeadingZerosView(getWholeDigitsView(unsignedEvalStr, decimalPointIter))
+		getWholeDigitsOutStr
+		(
+			evalStrMatchResult[NumAsStrRegexSubgroups::WholeDigits].str(),
+			configuration
+		)
 	};
-
-	ImplCharsView auto fractionalDigitsStr
+	const std::string fractionalDigitsOutStr
 	{
-		dropTrailingZerosView(getFractionalDigitsView(unsignedEvalStr, decimalPointIter))
+		getFractionalDigitsOutStr
+		(
+			evalStrMatchResult[NumAsStrRegexSubgroups::FractionalDigits].str(),
+			configuration
+		)
 	};
 
 	return convertString<CharType>
@@ -273,9 +189,9 @@ inline typename CmdCalculator::ExpressionEvaluationToStringConverter<ExpressionT
 		(
 			"{}{}{}{}",
 			getSignOutStr(eval.getSign(), configuration),
-			getWholeDigitsOutStr(wholeDigitsStr, configuration),
-			getDecimalPointOutStr(wholeDigitsStr, fractionalDigitsStr, configuration),
-			getFractionalDigitsOutStr(fractionalDigitsStr, configuration)
+			wholeDigitsOutStr,
+			getDecimalPointOutStr(wholeDigitsOutStr, fractionalDigitsOutStr, configuration),
+			fractionalDigitsOutStr
 		)
 	);
 }

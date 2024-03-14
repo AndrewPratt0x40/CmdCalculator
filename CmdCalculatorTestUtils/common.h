@@ -371,8 +371,8 @@ namespace CmdCalculatorTestUtils
 				.sign{ CmdCalculator::Arithmetic::ESign::Negative },
 				.isInteger{ std::make_optional<bool>(false) },
 				.isAbsoluteValueAtLeastOne{ std::make_optional<bool>(true) },
-				.wholePartStr{ std::make_optional<std::string_view>("432177.274912"sv) },
-				.fractionalPartStr{ std::make_optional<std::string_view>("432177.274912"sv) },
+				.wholePartStr{ std::make_optional<std::string_view>("432177"sv) },
+				.fractionalPartStr{ std::make_optional<std::string_view>("274912"sv) },
 				.absoluteValue{ std::make_optional<double>(432177.274912) },
 				.negatedValue{ std::make_optional<double>(432177.274912) },
 				.incrementedValue{ std::make_optional<double>(-432176.274912) },
@@ -427,8 +427,8 @@ namespace CmdCalculatorTestUtils
 				.fractionalPartStr{ std::make_optional<std::string_view>("0"sv) },
 				.absoluteValue{ std::make_optional<double>(10.0) },
 				.negatedValue{ std::make_optional<double>(10.0) },
-				.incrementedValue{ std::make_optional<double>(-10.0) },
-				.decrementedValue{ std::make_optional<double>(-10.0) }
+				.incrementedValue{ std::make_optional<double>(-9.0) },
+				.decrementedValue{ std::make_optional<double>(-11.0) }
 			},
 			CompositeOperandData<double>
 			{
@@ -709,8 +709,8 @@ namespace CmdCalculatorTestUtils
 				.sign{ CmdCalculator::Arithmetic::ESign::Positive },
 				.isInteger{ std::make_optional<bool>(false) },
 				.isAbsoluteValueAtLeastOne{ std::make_optional<bool>(true) },
-				.wholePartStr{ std::make_optional<std::string_view>("432177.274912"sv) },
-				.fractionalPartStr{ std::make_optional<std::string_view>("432177.274912"sv) },
+				.wholePartStr{ std::make_optional<std::string_view>("432177"sv) },
+				.fractionalPartStr{ std::make_optional<std::string_view>("274912"sv) },
 				.absoluteValue{ std::make_optional<double>(432177.274912) },
 				.negatedValue{ std::make_optional<double>(-432177.274912) },
 				.incrementedValue{ std::make_optional<double>(432178.274912) },
