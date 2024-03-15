@@ -4,6 +4,7 @@
 #include <string>
 #include <string_view>
 #include <iostream>
+#include <functional>
 
 #include "Console.h"
 
@@ -23,7 +24,11 @@ namespace CmdCalculator
 
 
 	private:
-		// TODO
+
+		std::reference_wrapper<std::basic_istream<CharT>> m_inputStream;
+		std::reference_wrapper<std::basic_ostream<CharT>> m_infoStream;
+		std::reference_wrapper<std::basic_ostream<CharT>> m_errorStream;
+		std::reference_wrapper<std::basic_ostream<CharT>> m_debugStream;
 
 
 	public:
@@ -57,6 +62,10 @@ namespace CmdCalculator
 		/// \param text The line of text to write.
 		/// \param writeMode The mode to write in. This determines which output stream to write to.
 		void writeLine(StringViewType text, const EWriteMode writeMode);
+
+
+	private:
+		void write(StringViewType text, const EWriteMode writeMode, const bool appendLineFeed);
 	};
 }
 

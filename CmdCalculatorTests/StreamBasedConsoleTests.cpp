@@ -61,20 +61,32 @@ namespace CmdCalculatorTestDoubleTests
 			.expected{ "" }
 		},
 		{
+			.inputStreamData{ "\n" },
+			.expected{ "" }
+		},
+		{
+			.inputStreamData{ "\r" },
+			.expected{ "" }
+		},
+		{
+			.inputStreamData{ "\r\n" },
+			.expected{ "" }
+		},
+		{
+			.inputStreamData{ "\n\r" },
+			.expected{ "" }
+		},
+		{
+			.inputStreamData{ "\n\n\n" },
+			.expected{ "" }
+		},
+		{
 			.inputStreamData{ " " },
 			.expected{ " " }
 		},
 		{
 			.inputStreamData{ "   \t  " },
 			.expected{ "   \t  " }
-		},
-		{
-			.inputStreamData{ "\n" },
-			.expected{ "" }
-		},
-		{
-			.inputStreamData{ "\n\n\n" },
-			.expected{ "" }
 		},
 		{
 			.inputStreamData{ "x" },
@@ -117,6 +129,14 @@ namespace CmdCalculatorTestDoubleTests
 			.expected{ "" }
 		},
 		{
+			.inputStreamData{ "\rHello, world!" },
+			.expected{ "" }
+		},
+		{
+			.inputStreamData{ "\r\nHello, world!" },
+			.expected{ "" }
+		},
+		{
 			.inputStreamData{ "   \t  \n" },
 			.expected{ "   \t  " }
 		},
@@ -133,9 +153,17 @@ namespace CmdCalculatorTestDoubleTests
 			.expected{ "Hello, world!" }
 		},
 		{
-			.inputStreamData{ "Hello, world!\nMore text" },
+			.inputStreamData{ "Hello, world!\r" },
 			.expected{ "Hello, world!" }
 		},
+		{
+			.inputStreamData{ "Hello, world!\r\n" },
+			.expected{ "Hello, world!" }
+		},
+		{
+			.inputStreamData{ "Hello, world!\nMore text" },
+			.expected{ "Hello, world!" }
+		}
 	};
 
 	INSTANTIATE_TEST_CASE_P
@@ -218,6 +246,21 @@ namespace CmdCalculatorTestDoubleTests
 			.expectedWrittenTextFor_writeLine{ "\n" }
 		},
 		{
+			.textToWrite{ "\r" },
+			.expectedWrittenTextFor_write{ "\n" },
+			.expectedWrittenTextFor_writeLine{ "\n" }
+		},
+		{
+			.textToWrite{ "\r\n" },
+			.expectedWrittenTextFor_write{ "\n" },
+			.expectedWrittenTextFor_writeLine{ "\n" }
+		},
+		{
+			.textToWrite{ "\n\r" },
+			.expectedWrittenTextFor_write{ "\n\n" },
+			.expectedWrittenTextFor_writeLine{ "\n\n" }
+		},
+		{
 			.textToWrite{ "\n\n\n" },
 			.expectedWrittenTextFor_write{ "\n\n\n" },
 			.expectedWrittenTextFor_writeLine{ "\n\n\n" }
@@ -233,6 +276,21 @@ namespace CmdCalculatorTestDoubleTests
 			.expectedWrittenTextFor_writeLine{ " \n" }
 		},
 		{
+			.textToWrite{ " \r" },
+			.expectedWrittenTextFor_write{ " \n" },
+			.expectedWrittenTextFor_writeLine{ " \n" }
+		},
+		{
+			.textToWrite{ " \r\n" },
+			.expectedWrittenTextFor_write{ " \n" },
+			.expectedWrittenTextFor_writeLine{ " \n" }
+		},
+		{
+			.textToWrite{ " \n\r" },
+			.expectedWrittenTextFor_write{ " \n\n" },
+			.expectedWrittenTextFor_writeLine{ " \n\n" }
+		},
+		{
 			.textToWrite{ "   \t " },
 			.expectedWrittenTextFor_write{ "   \t " },
 			.expectedWrittenTextFor_writeLine{ "   \t \n" }
@@ -241,6 +299,21 @@ namespace CmdCalculatorTestDoubleTests
 			.textToWrite{ "   \t \n" },
 			.expectedWrittenTextFor_write{ "   \t \n" },
 			.expectedWrittenTextFor_writeLine{ "   \t \n" }
+		},
+		{
+			.textToWrite{ "   \t \r" },
+			.expectedWrittenTextFor_write{ "   \t \n" },
+			.expectedWrittenTextFor_writeLine{ "   \t \n" }
+		},
+		{
+			.textToWrite{ "   \t \r\n" },
+			.expectedWrittenTextFor_write{ "   \t \n" },
+			.expectedWrittenTextFor_writeLine{ "   \t \n" }
+		},
+		{
+			.textToWrite{ "   \t \n\r" },
+			.expectedWrittenTextFor_write{ "   \t \n\n" },
+			.expectedWrittenTextFor_writeLine{ "   \t \n\n" }
 		},
 		{
 			.textToWrite{ "x" },
@@ -253,6 +326,21 @@ namespace CmdCalculatorTestDoubleTests
 			.expectedWrittenTextFor_writeLine{ "x\n" }
 		},
 		{
+			.textToWrite{ "x\r" },
+			.expectedWrittenTextFor_write{ "x\n" },
+			.expectedWrittenTextFor_writeLine{ "x\n" }
+		},
+		{
+			.textToWrite{ "x\r\n" },
+			.expectedWrittenTextFor_write{ "x\n" },
+			.expectedWrittenTextFor_writeLine{ "x\n" }
+		},
+		{
+			.textToWrite{ "x\n\r" },
+			.expectedWrittenTextFor_write{ "x\n\n" },
+			.expectedWrittenTextFor_writeLine{ "x\n\n" }
+		},
+		{
 			.textToWrite{ "abc123" },
 			.expectedWrittenTextFor_write{ "abc123" },
 			.expectedWrittenTextFor_writeLine{ "abc123\n" }
@@ -263,6 +351,21 @@ namespace CmdCalculatorTestDoubleTests
 			.expectedWrittenTextFor_writeLine{ "abc123\n" }
 		},
 		{
+			.textToWrite{ "abc123\r" },
+			.expectedWrittenTextFor_write{ "abc123\n" },
+			.expectedWrittenTextFor_writeLine{ "abc123\n" }
+		},
+		{
+			.textToWrite{ "abc123\r\n" },
+			.expectedWrittenTextFor_write{ "abc123\n" },
+			.expectedWrittenTextFor_writeLine{ "abc123\n" }
+		},
+		{
+			.textToWrite{ "abc123\n\r" },
+			.expectedWrittenTextFor_write{ "abc123\n\n" },
+			.expectedWrittenTextFor_writeLine{ "abc123\n\n" }
+		},
+		{
 			.textToWrite{ "Hello, world!" },
 			.expectedWrittenTextFor_write{ "Hello, world!" },
 			.expectedWrittenTextFor_writeLine{ "Hello, world!\n" }
@@ -271,6 +374,21 @@ namespace CmdCalculatorTestDoubleTests
 			.textToWrite{ "Hello, world!\n" },
 			.expectedWrittenTextFor_write{ "Hello, world!\n" },
 			.expectedWrittenTextFor_writeLine{ "Hello, world!\n" }
+		},
+		{
+			.textToWrite{ "Hello, world!\r" },
+			.expectedWrittenTextFor_write{ "Hello, world!\n" },
+			.expectedWrittenTextFor_writeLine{ "Hello, world!\n" }
+		},
+		{
+			.textToWrite{ "Hello, world!\r\n" },
+			.expectedWrittenTextFor_write{ "Hello, world!\n" },
+			.expectedWrittenTextFor_writeLine{ "Hello, world!\n" }
+		},
+		{
+			.textToWrite{ "Hello, world!\n\r" },
+			.expectedWrittenTextFor_write{ "Hello, world!\n\n" },
+			.expectedWrittenTextFor_writeLine{ "Hello, world!\n\n" }
 		},
 		{
 			.textToWrite{ "\nHello, world!" },
@@ -291,6 +409,21 @@ namespace CmdCalculatorTestDoubleTests
 			.textToWrite{ "Hello, world!\n More text...\n" },
 			.expectedWrittenTextFor_write{ "Hello, world!\n More text...\n" },
 			.expectedWrittenTextFor_writeLine{ "Hello, world!\n More text...\n" }
+		},
+		{
+			.textToWrite{ "Hello, world!\r More text...\n" },
+			.expectedWrittenTextFor_write{ "Hello, world!\n More text...\n" },
+			.expectedWrittenTextFor_writeLine{ "Hello, world!\n More text...\n" }
+		},
+		{
+			.textToWrite{ "Hello, world!\r\n More text...\n" },
+			.expectedWrittenTextFor_write{ "Hello, world!\n More text...\n" },
+			.expectedWrittenTextFor_writeLine{ "Hello, world!\n More text...\n" }
+		},
+		{
+			.textToWrite{ "Hello, world!\n\r More text...\n" },
+			.expectedWrittenTextFor_write{ "Hello, world!\n\n More text...\n" },
+			.expectedWrittenTextFor_writeLine{ "Hello, world!\n\n More text...\n" }
 		},
 		{
 			.textToWrite{ "Hello, world!\n More text...\n\n" },
@@ -395,7 +528,7 @@ namespace CmdCalculatorTestDoubleTests
 		};
 
 		// Act
-		instance.write(textToPass, CmdCalculator::EWriteMode::Error);
+		instance.write(textToPass, CmdCalculator::EWriteMode::Debug);
 
 		// Assert
 		std::string inputStreamAfter;
@@ -432,7 +565,7 @@ namespace CmdCalculatorTestDoubleTests
 		};
 
 		// Act
-		instance.write(textToPass, CmdCalculator::EWriteMode::Info);
+		instance.writeLine(textToPass, CmdCalculator::EWriteMode::Info);
 
 		// Assert
 		std::string inputStreamAfter;
@@ -465,7 +598,7 @@ namespace CmdCalculatorTestDoubleTests
 		};
 
 		// Act
-		instance.write(textToPass, CmdCalculator::EWriteMode::Error);
+		instance.writeLine(textToPass, CmdCalculator::EWriteMode::Error);
 
 		// Assert
 		std::string inputStreamAfter;
@@ -498,7 +631,7 @@ namespace CmdCalculatorTestDoubleTests
 		};
 
 		// Act
-		instance.write(textToPass, CmdCalculator::EWriteMode::Error);
+		instance.writeLine(textToPass, CmdCalculator::EWriteMode::Debug);
 
 		// Assert
 		std::string inputStreamAfter;
