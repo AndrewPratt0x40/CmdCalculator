@@ -322,6 +322,9 @@
     <Filter Include="Source Code\Conversions\Expression to String\ExpressionEvaluationToStringConverter">
       <UniqueIdentifier>{284255ca-cee1-4694-bf30-c5e54b9b9466}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\Console\StreamBasedConsole">
+      <UniqueIdentifier>{69af8f4b-307e-48ca-b975-5f2d8b7abc66}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -678,6 +681,9 @@
     <ClInclude Include="ExpressionEvaluationToStringConverter.h">
       <Filter>Source Code\Conversions\Expression to String\ExpressionEvaluationToStringConverter</Filter>
     </ClInclude>
+    <ClInclude Include="StreamBasedConsole.h">
+      <Filter>Source Code\Console\StreamBasedConsole</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -841,6 +847,9 @@
     </ClCompile>
     <ClCompile Include="ExpressionEvaluationToStringConverter.hpp">
       <Filter>Source Code\Conversions\Expression to String\ExpressionEvaluationToStringConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamBasedConsole.hpp">
+      <Filter>Source Code\Console\StreamBasedConsole</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

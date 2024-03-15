@@ -125,6 +125,7 @@
     <ClCompile Include="ProcessTests.cpp" />
     <ClCompile Include="BasicCalculationTests.cpp" />
     <ClCompile Include="SingularInvokingDEPSplitterTests.cpp" />
+    <ClCompile Include="StreamBasedConsoleTests.cpp" />
     <ClCompile Include="stringsTests.cpp" />
     <ClCompile Include="TrueAbsoluteValueOperationAntlrContextViewTests.cpp" />
     <ClCompile Include="TrueExpressionAntlrContextViewTests.cpp" />

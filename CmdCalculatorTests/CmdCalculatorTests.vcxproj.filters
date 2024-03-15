@@ -166,7 +166,9 @@
     <ClCompile Include="ExpressionEvaluationToStringConverterTests.cpp">
       <Filter>Source Code\Tests\Conversions\Expression to String</Filter>
     </ClCompile>
-    <ClCompile Include="..\CmdCalculator\ExpressionEvaluationToStringConverter.cpp" />
+    <ClCompile Include="StreamBasedConsoleTests.cpp">
+      <Filter>Source Code\Tests\Console</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -303,6 +305,9 @@
     </Filter>
     <Filter Include="Source Code\Tests\Conversions\Expression to String">
       <UniqueIdentifier>{fd3edd71-c2eb-401f-bc61-69364ed71c34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Console">
+      <UniqueIdentifier>{7c859cb9-b729-4d31-bb49-c8068fcf17dc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

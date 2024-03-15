@@ -134,6 +134,7 @@
     <ClInclude Include="RealNumber.h" />
     <ClInclude Include="RecursiveSplitResultToDynamicExpressionConverter.h" />
     <ClInclude Include="SingularInvokingDEPSplitter.h" />
+    <ClInclude Include="StreamBasedConsole.h" />
     <ClInclude Include="TrueAbsoluteValueOperationAntlrContextView.h" />
     <ClInclude Include="TrueAntlrTokenView.h" />
     <ClInclude Include="BinaryOperatorAntlrContext.h" />
@@ -230,6 +231,7 @@
     <ClCompile Include="NegativeRadicandException.cpp" />
     <ClCompile Include="NotImplementedException.cpp" />
     <ClCompile Include="SingularInvokingDEPSplitter.hpp" />
+    <ClCompile Include="StreamBasedConsole.hpp" />
     <ClCompile Include="TrueAbsoluteValueOperationAntlrContextView.cpp" />
     <ClCompile Include="TrueAntlrTokenView.cpp" />
     <ClCompile Include="CalculationConfiguration.cpp" />
