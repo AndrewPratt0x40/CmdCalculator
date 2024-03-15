@@ -116,186 +116,726 @@ namespace CmdCalculatorTests
 	{};
 
 
-	constexpr inline static bool isValidOperandDataValuesFor_stringifyExpressionTest
-	(
-		const CmdCalculatorTestUtils::SharedTestData::CompositeOperandData<double>& compositeValue
-	)
-	{
-		return compositeValue.isInteger.has_value()
-			&& compositeValue.isAbsoluteValueAtLeastOne.has_value()
-			&& compositeValue.wholePartStr.has_value()
-			&& compositeValue.fractionalPartStr.has_value()
-		;
-	}
-
-
-	constexpr inline CmdCalculatorTestUtils::SharedTestData::CompositeOperandDataRange auto operandDataValuesFor_stringifyExpressionTests()
-	{
-		return
-			CmdCalculatorTestUtils::SharedTestData::orderedOperandDataValues
-			| std::views::filter(isValidOperandDataValuesFor_stringifyExpressionTest)
-		;
-	};
-
-	const int valid_stringifyExpressionPrecisionValues[]
-	{
-		0, 1, 3, 64
-	};
-
-
-	std::string getExpectedPartStr(std::string fullPartStr, bool zeroCharIfEmpty, std::string regexProj)
-	{
-		const bool foo{ fullPartStr == "123" && zeroCharIfEmpty && regexProj == "^0*([1-9]\\d*)?$" };
-
-		std::smatch matchResults;
-		const bool couldMatch{ std::regex_match(fullPartStr, matchResults, std::regex{ regexProj }) };
-		if (!couldMatch && !matchResults.ready())
-			throw std::exception{ "Failed to match regex while setting up test data." };
-		
-		const std::string projFullPartStr{ matchResults[1].str() };
-
-		return (projFullPartStr.empty() && zeroCharIfEmpty) ? "0" : projFullPartStr;
-	}
-
-	std::string getExpectedPartStr(std::string fullPartStr, bool zeroCharIfEmpty, std::string regexProj, int precision)
-	{
-		return getExpectedPartStr(fullPartStr.substr(0, precision), zeroCharIfEmpty, regexProj);
-	}
-
-	const std::string expectedWholePartRegexProj{ "^0*([1-9]\\d*)?$" };
-	const std::string expectedFractionalPartRegexProj{ "^(\\d*[1-9])?0*$" };
-
-
-	// TODO: This test data collection uses logic that is complex enough that the data itself may need to be unit-tested for validity.
-	const std::ranges::forward_range auto ExpressionEvaluationToStringConverter_stringifyExpression_TestDataValues
+	std::ranges::forward_range auto ExpressionEvaluationToStringConverter_stringifyExpression_TestDataValues
 	{
 		[]()
 		{
-			std::vector<ExpressionEvaluationToStringConverter_stringifyExpression_TestData> values{};
+			std::vector<ExpressionEvaluationToStringConverter_stringifyExpression_TestData> values;
 
-			for(const int precision : valid_stringifyExpressionPrecisionValues){
-			for(const bool shouldPreferDecimalsOverIntegers : CmdCalculatorTestUtils::SharedTestData::allBools){
-			for(const bool shouldPreferSignExpressionForPositiveValues : CmdCalculatorTestUtils::SharedTestData::allBools){
-			for(const bool shouldPreferLeadingZeroOverWholelessNumbers : CmdCalculatorTestUtils::SharedTestData::allBools){
-			for(const bool shouldPreferTrailingZeroOverEmptyDecimalPlace : CmdCalculatorTestUtils::SharedTestData::allBools)
+			// 0.0
+			for
+			(
+				const std::string evaluationStr :
+				{
+					"0", "-0", "+0",
+					"000", "-000", "+000",
+
+					".0", "-.0", "+.0",
+					".000", "-.000", "+.000",
+
+					"0.", "-0.", "+0.",
+					"0.0", "-0.0", "+0.0",
+					"0.000", "-0.000", "+0.000",
+
+					"000.", "-000.", "+000.",
+					"000.0", "-000.0", "+000.0",
+					"000.000", "-000.000", "+000.000"
+				}
+			)
 			{
-				const bool zeroCharIfWholePartEmpty{ shouldPreferLeadingZeroOverWholelessNumbers };
-				const bool zeroCharIfFractionalPartEmpty{ shouldPreferDecimalsOverIntegers && shouldPreferTrailingZeroOverEmptyDecimalPlace };
+				values.push_back
+				(
+					ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+					{
+					.evaluation{ 0.0 },
+					.evaluationSign{ CmdCalculator::Arithmetic::ESign::Neutral },
+					.evaluationIsInteger{ true },
+					.evaluationWholePartIsZero{ true },
+					.evaluationStr{ evaluationStr },
+					.evaluationWholePartStr{ "0" },
+					.evaluationFractionalPartStr{ "0" },
+					.precision{ 8 },
+					.shouldPreferDecimalsOverIntegers{ true },
+					.shouldPreferSignExpressionForPositiveValues{ false },
+					.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+					.shouldPreferTrailingZeroOverEmptyDecimalPlace{ true }
+					}
+				);
+			}
 
-				for (const std::string evaluationStr : {"-0", "0", "+0"})
+			// 123.0
+			for
+			(
+				const std::string evaluationStr :
 				{
-					values.push_back
-					(
-						ExpressionEvaluationToStringConverter_stringifyExpression_TestData
-						{
-							.evaluation{ 0 },
-							.evaluationSign{ CmdCalculator::Arithmetic::ESign::Neutral },
-							.evaluationIsInteger{ true },
-							.evaluationWholePartIsZero{ true },
-							.evaluationStr{ evaluationStr },
-							.evaluationWholePartStr{ getExpectedPartStr("0", zeroCharIfWholePartEmpty, expectedWholePartRegexProj) },
-							.evaluationFractionalPartStr{ getExpectedPartStr("0", zeroCharIfFractionalPartEmpty, expectedFractionalPartRegexProj, precision) },
-							.precision{ precision },
-							.shouldPreferDecimalsOverIntegers{ shouldPreferDecimalsOverIntegers },
-							.shouldPreferSignExpressionForPositiveValues{ shouldPreferSignExpressionForPositiveValues },
-							.shouldPreferLeadingZeroOverWholelessNumbers{ shouldPreferLeadingZeroOverWholelessNumbers },
-							.shouldPreferTrailingZeroOverEmptyDecimalPlace{ shouldPreferTrailingZeroOverEmptyDecimalPlace }
-						}
-					);
+					"123", "0123", "00123",
+					"123.", "0123.", "00123.",
+					"123.0", "0123.0", "00123.0",
+					"123.000", "0123.000", "00123.000"
 				}
+			)
+			{
+				values.push_back
+				(
+					ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+					{
+					.evaluation{ 123.0 },
+					.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+					.evaluationIsInteger{ true },
+					.evaluationWholePartIsZero{ false },
+					.evaluationStr{ evaluationStr },
+					.evaluationWholePartStr{ "123" },
+					.evaluationFractionalPartStr{ "0" },
+					.precision{ 8 },
+					.shouldPreferDecimalsOverIntegers{ true },
+					.shouldPreferSignExpressionForPositiveValues{ false },
+					.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+					.shouldPreferTrailingZeroOverEmptyDecimalPlace{ true }
+					}
+				);
+			}
 
-				for (const std::string evaluationStr : {"123", "123."})
+			// 0.123
+			for
+			(
+				const std::string evaluationStr :
 				{
-					values.push_back
-					(
-						ExpressionEvaluationToStringConverter_stringifyExpression_TestData
-						{
-							.evaluation{ 123.0 },
-							.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
-							.evaluationIsInteger{ true },
-							.evaluationWholePartIsZero{ false },
-							.evaluationStr{ evaluationStr },
-							.evaluationWholePartStr{ getExpectedPartStr("123", zeroCharIfWholePartEmpty, expectedWholePartRegexProj) },
-							.evaluationFractionalPartStr{ getExpectedPartStr("0", zeroCharIfFractionalPartEmpty, expectedFractionalPartRegexProj, precision) },
-							.precision{ precision },
-							.shouldPreferDecimalsOverIntegers{ shouldPreferDecimalsOverIntegers },
-							.shouldPreferSignExpressionForPositiveValues{ shouldPreferSignExpressionForPositiveValues },
-							.shouldPreferLeadingZeroOverWholelessNumbers{ shouldPreferLeadingZeroOverWholelessNumbers },
-							.shouldPreferTrailingZeroOverEmptyDecimalPlace{ shouldPreferTrailingZeroOverEmptyDecimalPlace }
-						}
-					);
+					".123", "0.123", "000.123",
+					".1230", "0.1230", "000.1230",
+					".123000", "0.123000", "000.123000"
 				}
+			)
+			{
+				values.push_back
+				(
+					ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+					{
+					.evaluation{ 0.123 },
+					.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+					.evaluationIsInteger{ false },
+					.evaluationWholePartIsZero{ true },
+					.evaluationStr{ evaluationStr },
+					.evaluationWholePartStr{ "0" },
+					.evaluationFractionalPartStr{ "123" },
+					.precision{ 8 },
+					.shouldPreferDecimalsOverIntegers{ true },
+					.shouldPreferSignExpressionForPositiveValues{ false },
+					.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+					.shouldPreferTrailingZeroOverEmptyDecimalPlace{ true }
+					}
+				);
+			}
+
+			// 123.456
+			for
+			(
+				const std::string evaluationStr :
+				{
+					"123.456", "123.4560", "123.456000",
+					"0123.456", "0123.4560", "0123.456000",
+					"000123.456", "000123.4560", "000123.456000",
+				}
+			)
+			{
+				values.push_back
+				(
+					ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+					{
+					.evaluation{ 123.456 },
+					.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+					.evaluationIsInteger{ false },
+					.evaluationWholePartIsZero{ false },
+					.evaluationStr{ evaluationStr },
+					.evaluationWholePartStr{ "123" },
+					.evaluationFractionalPartStr{ "456" },
+					.precision{ 8 },
+					.shouldPreferDecimalsOverIntegers{ true },
+					.shouldPreferSignExpressionForPositiveValues{ false },
+					.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+					.shouldPreferTrailingZeroOverEmptyDecimalPlace{ true }
+					}
+				);
+			}
+
+			// 0.0012034
+			for
+			(
+				const std::string evaluationStr :
+				{
+					".0012034", ".00120340", ".0012034000",
+					"0.0012034", "0.00120340", "0.0012034000",
+					"000.0012034", "000.00120340", "000.0012034000"
+				}
+			)
+			{
+				values.push_back
+				(
+					ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+					{
+					.evaluation{ 0012034 },
+					.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+					.evaluationIsInteger{ false },
+					.evaluationWholePartIsZero{ true },
+					.evaluationStr{ evaluationStr },
+					.evaluationWholePartStr{ "0" },
+					.evaluationFractionalPartStr{ "0012034" },
+					.precision{ 8 },
+					.shouldPreferDecimalsOverIntegers{ true },
+					.shouldPreferSignExpressionForPositiveValues{ false },
+					.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+					.shouldPreferTrailingZeroOverEmptyDecimalPlace{ true }
+					}
+				);
+			}
+
+			// 1203400.0
+			for
+			(
+				const std::string evaluationStr :
+				{
+					"1203400", "1203400.", "1203400.0", "1203400.000",
+					"01203400", "01203400.", "01203400.0", "01203400.000",
+					"0001203400", "0001203400.", "0001203400.0", "0001203400.000"
+				}
+			)
+			{
+				values.push_back
+				(
+					ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+					{
+					.evaluation{ 1203400.0 },
+					.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+					.evaluationIsInteger{ true },
+					.evaluationWholePartIsZero{ false },
+					.evaluationStr{ evaluationStr },
+					.evaluationWholePartStr{ "1203400" },
+					.evaluationFractionalPartStr{ "0" },
+					.precision{ 8 },
+					.shouldPreferDecimalsOverIntegers{ true },
+					.shouldPreferSignExpressionForPositiveValues{ false },
+					.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+					.shouldPreferTrailingZeroOverEmptyDecimalPlace{ true }
+					}
+				);
+			}
+
+			// 1203400.0056078
+			for
+			(
+				const std::string evaluationStr :
+				{
+					"1203400.0056078", "1203400.00560780", "1203400.0056078000",
+					"01203400.0056078", "01203400.00560780", "01203400.0056078000",
+					"0001203400.0056078", "0001203400.00560780", "0001203400.0056078000"
+				}
+			)
+			{
+				values.push_back
+				(
+					ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+					{
+					.evaluation{ 1203400.0 },
+					.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+					.evaluationIsInteger{ false },
+					.evaluationWholePartIsZero{ false },
+					.evaluationStr{ evaluationStr },
+					.evaluationWholePartStr{ "1203400" },
+					.evaluationFractionalPartStr{ "0056078" },
+					.precision{ 8 },
+					.shouldPreferDecimalsOverIntegers{ true },
+					.shouldPreferSignExpressionForPositiveValues{ false },
+					.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+					.shouldPreferTrailingZeroOverEmptyDecimalPlace{ true }
+					}
+				);
+			}
+
+			// Varying precision and shouldPreferTrailingZeroOverEmptyDecimalPlace with 123.0
+			for
+			(
+				const std::tuple<int, bool, std::string> data :
+				{
+					std::make_tuple(0, false, ""),
+					std::make_tuple(0, true, "0"),
+					std::make_tuple(1, false, ""),
+					std::make_tuple(1, true, "0"),
+					std::make_tuple(64, false, ""),
+					std::make_tuple(64, true, "0")
+				}
+			)
+			{
+				values.push_back
+				(
+					ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+					{
+					.evaluation{ 123.0 },
+					.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+					.evaluationIsInteger{ true },
+					.evaluationWholePartIsZero{ false },
+					.evaluationStr{ "123.0"},
+					.evaluationWholePartStr{ "123" },
+					.evaluationFractionalPartStr{ std::get<std::string>(data) },
+					.precision{ std::get<int>(data) },
+					.shouldPreferDecimalsOverIntegers{ true },
+					.shouldPreferSignExpressionForPositiveValues{ false },
+					.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+					.shouldPreferTrailingZeroOverEmptyDecimalPlace{ std::get<bool>(data) }
+					}
+				);
+			}
+
+			// Varying precision and shouldPreferTrailingZeroOverEmptyDecimalPlace with 123.456789
+			for
+			(
+				//tuple<precision, shouldPreferTrailingZeroOverEmptyDecimalPlace, evaluationFractionalPartStr>
+				const std::tuple<int, bool, std::string> data :
+				{
+					std::make_tuple(0, false, ""),
+					std::make_tuple(0, true, "0"),
+					std::make_tuple(1, false, "4"),
+					std::make_tuple(1, true, "4"),
+					std::make_tuple(2, false, "45"),
+					std::make_tuple(2, true, "45"),
+					std::make_tuple(3, false, "456"),
+					std::make_tuple(3, true, "456"),
+					std::make_tuple(3, false, "456"),
+					std::make_tuple(3, true, "456"),
+					std::make_tuple(5, false, "45678"),
+					std::make_tuple(5, true, "45678"),
+					std::make_tuple(6, false, "456789"),
+					std::make_tuple(6, true, "456789"),
+					std::make_tuple(7, false, "456789"),
+					std::make_tuple(7, true, "456789"),
+					std::make_tuple(64, false, "456789"),
+					std::make_tuple(64, true, "456789")
+				}
+			)
+			{
+				values.push_back
+				(
+					ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+					{
+					.evaluation{ 123.456789 },
+					.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+					.evaluationIsInteger{ false },
+					.evaluationWholePartIsZero{ false },
+					.evaluationStr{ "123.456789"},
+					.evaluationWholePartStr{ "123" },
+					.evaluationFractionalPartStr{ std::get<std::string>(data) },
+					.precision{ std::get<int>(data) },
+					.shouldPreferDecimalsOverIntegers{ true },
+					.shouldPreferSignExpressionForPositiveValues{ false },
+					.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+					.shouldPreferTrailingZeroOverEmptyDecimalPlace{ std::get<bool>(data) }
+					}
+				);
+			}
+
+			// Varying evaluations and shouldPreferSignExpressionForPositiveValues
+			for (const bool shouldPreferSignExpressionForPositiveValues : CmdCalculatorTestUtils::SharedTestData::allBools)
+			{
 
 				values.push_back
 				(
 					ExpressionEvaluationToStringConverter_stringifyExpression_TestData
 					{
-						.evaluation{ 0.123 },
-						.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
-						.evaluationIsInteger{ false },
-						.evaluationWholePartIsZero{ true },
-						.evaluationStr{ ".123" },
-						.evaluationWholePartStr{ getExpectedPartStr("0", zeroCharIfWholePartEmpty, expectedWholePartRegexProj) },
-						.evaluationFractionalPartStr{ getExpectedPartStr("123", zeroCharIfFractionalPartEmpty, expectedFractionalPartRegexProj, precision) },
-						.precision{ precision },
-						.shouldPreferDecimalsOverIntegers{ shouldPreferDecimalsOverIntegers },
-						.shouldPreferSignExpressionForPositiveValues{ shouldPreferSignExpressionForPositiveValues },
-						.shouldPreferLeadingZeroOverWholelessNumbers{ shouldPreferLeadingZeroOverWholelessNumbers },
-						.shouldPreferTrailingZeroOverEmptyDecimalPlace{ shouldPreferTrailingZeroOverEmptyDecimalPlace }
+					.evaluation{ 0.0 },
+					.evaluationSign{ CmdCalculator::Arithmetic::ESign::Neutral },
+					.evaluationIsInteger{ true },
+					.evaluationWholePartIsZero{ true },
+					.evaluationStr{ "0.0"},
+					.evaluationWholePartStr{ "0" },
+					.evaluationFractionalPartStr{ "" },
+					.precision{ 8 },
+					.shouldPreferDecimalsOverIntegers{ true },
+					.shouldPreferSignExpressionForPositiveValues{ shouldPreferSignExpressionForPositiveValues },
+					.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+					.shouldPreferTrailingZeroOverEmptyDecimalPlace{ false }
 					}
 				);
+				values.push_back
+				(
+					ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+					{
+					.evaluation{ 0.0 },
+					.evaluationSign{ CmdCalculator::Arithmetic::ESign::Neutral },
+					.evaluationIsInteger{ true },
+					.evaluationWholePartIsZero{ true },
+					.evaluationStr{ "+0.0"},
+					.evaluationWholePartStr{ "0" },
+					.evaluationFractionalPartStr{ "" },
+					.precision{ 8 },
+					.shouldPreferDecimalsOverIntegers{ true },
+					.shouldPreferSignExpressionForPositiveValues{ shouldPreferSignExpressionForPositiveValues },
+					.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+					.shouldPreferTrailingZeroOverEmptyDecimalPlace{ false }
+					}
+				);
+				values.push_back
+				(
+					ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+					{
+					.evaluation{ 0.0 },
+					.evaluationSign{ CmdCalculator::Arithmetic::ESign::Neutral },
+					.evaluationIsInteger{ true },
+					.evaluationWholePartIsZero{ true },
+					.evaluationStr{ "-0.0"},
+					.evaluationWholePartStr{ "0" },
+					.evaluationFractionalPartStr{ "" },
+					.precision{ 8 },
+					.shouldPreferDecimalsOverIntegers{ true },
+					.shouldPreferSignExpressionForPositiveValues{ shouldPreferSignExpressionForPositiveValues },
+					.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+					.shouldPreferTrailingZeroOverEmptyDecimalPlace{ false }
+					}
+				);
+				values.push_back
+				(
+					ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+					{
+					.evaluation{ 123.456 },
+					.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+					.evaluationIsInteger{ false },
+					.evaluationWholePartIsZero{ false },
+					.evaluationStr{ "123.456"},
+					.evaluationWholePartStr{ "123" },
+					.evaluationFractionalPartStr{ "456" },
+					.precision{ 8 },
+					.shouldPreferDecimalsOverIntegers{ true },
+					.shouldPreferSignExpressionForPositiveValues{ shouldPreferSignExpressionForPositiveValues },
+					.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+					.shouldPreferTrailingZeroOverEmptyDecimalPlace{ false }
+					}
+				);
+				values.push_back
+				(
+					ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+					{
+					.evaluation{ 123.456 },
+					.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+					.evaluationIsInteger{ false },
+					.evaluationWholePartIsZero{ false },
+					.evaluationStr{ "+123.456"},
+					.evaluationWholePartStr{ "123" },
+					.evaluationFractionalPartStr{ "456" },
+					.precision{ 8 },
+					.shouldPreferDecimalsOverIntegers{ true },
+					.shouldPreferSignExpressionForPositiveValues{ shouldPreferSignExpressionForPositiveValues },
+					.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+					.shouldPreferTrailingZeroOverEmptyDecimalPlace{ false }
+					}
+				);
+				values.push_back
+				(
+					ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+					{
+					.evaluation{ -123.456 },
+					.evaluationSign{ CmdCalculator::Arithmetic::ESign::Negative },
+					.evaluationIsInteger{ false },
+					.evaluationWholePartIsZero{ false },
+					.evaluationStr{ "-123.456"},
+					.evaluationWholePartStr{ "123" },
+					.evaluationFractionalPartStr{ "456" },
+					.precision{ 8 },
+					.shouldPreferDecimalsOverIntegers{ true },
+					.shouldPreferSignExpressionForPositiveValues{ shouldPreferSignExpressionForPositiveValues },
+					.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+					.shouldPreferTrailingZeroOverEmptyDecimalPlace{ false }
+					}
+				);
+			}
 
-				for(const CmdCalculatorTestUtils::SharedTestData::CompositeOperandData<double>& compositeValue : operandDataValuesFor_stringifyExpressionTests())
+			// Varying evaluations and shouldPreferLeadingZeroOverWholelessNumbers
+			values.push_back
+			(
+				ExpressionEvaluationToStringConverter_stringifyExpression_TestData
 				{
-					values.push_back
-					(
-						ExpressionEvaluationToStringConverter_stringifyExpression_TestData
-						{
-							.evaluation{ compositeValue.value },
-							.evaluationSign{ compositeValue.sign },
-							.evaluationIsInteger{ compositeValue.isInteger.value() },
-							.evaluationWholePartIsZero{ !compositeValue.isAbsoluteValueAtLeastOne.value() },
-							.evaluationStr
-							{
-								std::format
-								(
-									"{}{}.{}",
-									compositeValue.sign == CmdCalculator::Arithmetic::ESign::Negative
-										? "-"
-										: ""
-									,
-									compositeValue.wholePartStr.value(),
-									compositeValue.fractionalPartStr.value()
-								)
-							},
-							.evaluationWholePartStr
-							{
-								getExpectedPartStr
-								(
-									static_cast<std::string>(compositeValue.wholePartStr.value()),
-									zeroCharIfWholePartEmpty,
-									expectedWholePartRegexProj
-								)
-							},
-							.evaluationFractionalPartStr
-							{
-								getExpectedPartStr
-								(
-									static_cast<std::string>(compositeValue.fractionalPartStr.value()),
-									zeroCharIfFractionalPartEmpty,
-									expectedFractionalPartRegexProj,
-									precision
-								)
-							},
-							.precision{ precision },
-							.shouldPreferDecimalsOverIntegers{ shouldPreferDecimalsOverIntegers },
-							.shouldPreferSignExpressionForPositiveValues{ shouldPreferSignExpressionForPositiveValues },
-							.shouldPreferLeadingZeroOverWholelessNumbers{ shouldPreferLeadingZeroOverWholelessNumbers },
-							.shouldPreferTrailingZeroOverEmptyDecimalPlace{ shouldPreferTrailingZeroOverEmptyDecimalPlace }
-						}
-					);
+				.evaluation{ 0.0 },
+				.evaluationSign{ CmdCalculator::Arithmetic::ESign::Neutral },
+				.evaluationIsInteger{ true },
+				.evaluationWholePartIsZero{ true },
+				.evaluationStr{ "0.0"},
+				.evaluationWholePartStr{ "" },
+				.evaluationFractionalPartStr{ "" },
+				.precision{ 8 },
+				.shouldPreferDecimalsOverIntegers{ true },
+				.shouldPreferSignExpressionForPositiveValues{ false },
+				.shouldPreferLeadingZeroOverWholelessNumbers{ false },
+				.shouldPreferTrailingZeroOverEmptyDecimalPlace{ false }
 				}
-			}}}}}
+			);
+			values.push_back
+			(
+				ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+				{
+				.evaluation{ 0.0 },
+				.evaluationSign{ CmdCalculator::Arithmetic::ESign::Neutral },
+				.evaluationIsInteger{ true },
+				.evaluationWholePartIsZero{ true },
+				.evaluationStr{ "0.0"},
+				.evaluationWholePartStr{ "0" },
+				.evaluationFractionalPartStr{ "" },
+				.precision{ 8 },
+				.shouldPreferDecimalsOverIntegers{ true },
+				.shouldPreferSignExpressionForPositiveValues{ false },
+				.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+				.shouldPreferTrailingZeroOverEmptyDecimalPlace{ false }
+				}
+			);
+			values.push_back
+			(
+				ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+				{
+				.evaluation{ 123.0 },
+				.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.evaluationIsInteger{ true },
+				.evaluationWholePartIsZero{ false },
+				.evaluationStr{ "123.0"},
+				.evaluationWholePartStr{ "123" },
+				.evaluationFractionalPartStr{ "" },
+				.precision{ 8 },
+				.shouldPreferDecimalsOverIntegers{ true },
+				.shouldPreferSignExpressionForPositiveValues{ false },
+				.shouldPreferLeadingZeroOverWholelessNumbers{ false },
+				.shouldPreferTrailingZeroOverEmptyDecimalPlace{ false }
+				}
+			);
+			values.push_back
+			(
+				ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+				{
+				.evaluation{ 123.0 },
+				.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.evaluationIsInteger{ true },
+				.evaluationWholePartIsZero{ false },
+				.evaluationStr{ "123.0"},
+				.evaluationWholePartStr{ "123" },
+				.evaluationFractionalPartStr{ "" },
+				.precision{ 8 },
+				.shouldPreferDecimalsOverIntegers{ true },
+				.shouldPreferSignExpressionForPositiveValues{ false },
+				.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+				.shouldPreferTrailingZeroOverEmptyDecimalPlace{ false }
+				}
+			);
+			values.push_back
+			(
+				ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+				{
+				.evaluation{ 0.123 },
+				.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.evaluationIsInteger{ false },
+				.evaluationWholePartIsZero{ true },
+				.evaluationStr{ "0.123"},
+				.evaluationWholePartStr{ "" },
+				.evaluationFractionalPartStr{ "123" },
+				.precision{ 8 },
+				.shouldPreferDecimalsOverIntegers{ true },
+				.shouldPreferSignExpressionForPositiveValues{ false },
+				.shouldPreferLeadingZeroOverWholelessNumbers{ false },
+				.shouldPreferTrailingZeroOverEmptyDecimalPlace{ false }
+				}
+			);
+			values.push_back
+			(
+				ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+				{
+				.evaluation{ 0.123 },
+				.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.evaluationIsInteger{ false },
+				.evaluationWholePartIsZero{ true },
+				.evaluationStr{ "0.123"},
+				.evaluationWholePartStr{ "0" },
+				.evaluationFractionalPartStr{ "123" },
+				.precision{ 8 },
+				.shouldPreferDecimalsOverIntegers{ true },
+				.shouldPreferSignExpressionForPositiveValues{ false },
+				.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+				.shouldPreferTrailingZeroOverEmptyDecimalPlace{ false }
+				}
+			);
+			values.push_back
+			(
+				ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+				{
+				.evaluation{ 123.456 },
+				.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.evaluationIsInteger{ false },
+				.evaluationWholePartIsZero{ false },
+				.evaluationStr{ "123.456"},
+				.evaluationWholePartStr{ "123" },
+				.evaluationFractionalPartStr{ "456" },
+				.precision{ 8 },
+				.shouldPreferDecimalsOverIntegers{ true },
+				.shouldPreferSignExpressionForPositiveValues{ false },
+				.shouldPreferLeadingZeroOverWholelessNumbers{ false },
+				.shouldPreferTrailingZeroOverEmptyDecimalPlace{ false }
+				}
+			);
+			values.push_back
+			(
+				ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+				{
+				.evaluation{ 123.456 },
+				.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.evaluationIsInteger{ false },
+				.evaluationWholePartIsZero{ false },
+				.evaluationStr{ "123.456"},
+				.evaluationWholePartStr{ "123" },
+				.evaluationFractionalPartStr{ "456" },
+				.precision{ 8 },
+				.shouldPreferDecimalsOverIntegers{ true },
+				.shouldPreferSignExpressionForPositiveValues{ false },
+				.shouldPreferLeadingZeroOverWholelessNumbers{ true },
+				.shouldPreferTrailingZeroOverEmptyDecimalPlace{ false }
+				}
+			);
+
+			// Varying evaluation and shouldPreferTrailingZeroOverEmptyDecimalPlace
+			values.push_back
+			(
+				ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+				{
+				.evaluation{ 0.0 },
+				.evaluationSign{ CmdCalculator::Arithmetic::ESign::Neutral },
+				.evaluationIsInteger{ true },
+				.evaluationWholePartIsZero{ true },
+				.evaluationStr{ "0.0"},
+				.evaluationWholePartStr{ "" },
+				.evaluationFractionalPartStr{ "" },
+				.precision{ 8 },
+				.shouldPreferDecimalsOverIntegers{ true },
+				.shouldPreferSignExpressionForPositiveValues{ false },
+				.shouldPreferLeadingZeroOverWholelessNumbers{ false },
+				.shouldPreferTrailingZeroOverEmptyDecimalPlace{ false }
+				}
+			);
+			values.push_back
+			(
+				ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+				{
+				.evaluation{ 0.0 },
+				.evaluationSign{ CmdCalculator::Arithmetic::ESign::Neutral },
+				.evaluationIsInteger{ true },
+				.evaluationWholePartIsZero{ true },
+				.evaluationStr{ "0.0"},
+				.evaluationWholePartStr{ "" },
+				.evaluationFractionalPartStr{ "0" },
+				.precision{ 8 },
+				.shouldPreferDecimalsOverIntegers{ true },
+				.shouldPreferSignExpressionForPositiveValues{ false },
+				.shouldPreferLeadingZeroOverWholelessNumbers{ false },
+				.shouldPreferTrailingZeroOverEmptyDecimalPlace{ true }
+				}
+			);
+			values.push_back
+			(
+				ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+				{
+				.evaluation{ 123.0 },
+				.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.evaluationIsInteger{ true },
+				.evaluationWholePartIsZero{ false },
+				.evaluationStr{ "123.0"},
+				.evaluationWholePartStr{ "123" },
+				.evaluationFractionalPartStr{ "" },
+				.precision{ 8 },
+				.shouldPreferDecimalsOverIntegers{ true },
+				.shouldPreferSignExpressionForPositiveValues{ false },
+				.shouldPreferLeadingZeroOverWholelessNumbers{ false },
+				.shouldPreferTrailingZeroOverEmptyDecimalPlace{ false }
+				}
+			);
+			values.push_back
+			(
+				ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+				{
+				.evaluation{ 123.0 },
+				.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.evaluationIsInteger{ true },
+				.evaluationWholePartIsZero{ false },
+				.evaluationStr{ "123.0"},
+				.evaluationWholePartStr{ "123" },
+				.evaluationFractionalPartStr{ "0" },
+				.precision{ 8 },
+				.shouldPreferDecimalsOverIntegers{ true },
+				.shouldPreferSignExpressionForPositiveValues{ false },
+				.shouldPreferLeadingZeroOverWholelessNumbers{ false },
+				.shouldPreferTrailingZeroOverEmptyDecimalPlace{ true }
+				}
+			);
+			values.push_back
+			(
+				ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+				{
+				.evaluation{ 0.123 },
+				.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.evaluationIsInteger{ false },
+				.evaluationWholePartIsZero{ true },
+				.evaluationStr{ "0.123"},
+				.evaluationWholePartStr{ "" },
+				.evaluationFractionalPartStr{ "123" },
+				.precision{ 8 },
+				.shouldPreferDecimalsOverIntegers{ true },
+				.shouldPreferSignExpressionForPositiveValues{ false },
+				.shouldPreferLeadingZeroOverWholelessNumbers{ false },
+				.shouldPreferTrailingZeroOverEmptyDecimalPlace{ false }
+				}
+			);
+			values.push_back
+			(
+				ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+				{
+				.evaluation{ 0.123 },
+				.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.evaluationIsInteger{ false },
+				.evaluationWholePartIsZero{ true },
+				.evaluationStr{ "0.123"},
+				.evaluationWholePartStr{ "" },
+				.evaluationFractionalPartStr{ "123" },
+				.precision{ 8 },
+				.shouldPreferDecimalsOverIntegers{ true },
+				.shouldPreferSignExpressionForPositiveValues{ false },
+				.shouldPreferLeadingZeroOverWholelessNumbers{ false },
+				.shouldPreferTrailingZeroOverEmptyDecimalPlace{ true }
+				}
+			);
+			values.push_back
+			(
+				ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+				{
+				.evaluation{ 123.456 },
+				.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.evaluationIsInteger{ false },
+				.evaluationWholePartIsZero{ false },
+				.evaluationStr{ "123.456"},
+				.evaluationWholePartStr{ "123" },
+				.evaluationFractionalPartStr{ "456" },
+				.precision{ 8 },
+				.shouldPreferDecimalsOverIntegers{ true },
+				.shouldPreferSignExpressionForPositiveValues{ false },
+				.shouldPreferLeadingZeroOverWholelessNumbers{ false },
+				.shouldPreferTrailingZeroOverEmptyDecimalPlace{ false }
+				}
+			);
+			values.push_back
+			(
+				ExpressionEvaluationToStringConverter_stringifyExpression_TestData
+				{
+				.evaluation{ 123.456 },
+				.evaluationSign{ CmdCalculator::Arithmetic::ESign::Positive },
+				.evaluationIsInteger{ false },
+				.evaluationWholePartIsZero{ false },
+				.evaluationStr{ "123.456"},
+				.evaluationWholePartStr{ "123" },
+				.evaluationFractionalPartStr{ "456" },
+				.precision{ 8 },
+				.shouldPreferDecimalsOverIntegers{ true },
+				.shouldPreferSignExpressionForPositiveValues{ false },
+				.shouldPreferLeadingZeroOverWholelessNumbers{ false },
+				.shouldPreferTrailingZeroOverEmptyDecimalPlace{ true }
+				}
+			);
 
 			return values;
 		}()
