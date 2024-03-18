@@ -14,6 +14,17 @@ namespace CmdCalculator
 	template<class T, class CharT>
 	concept StringOfChar = std::convertible_to<T, std::basic_string<CharT>>;
 
+
+	/// \brief A forward range of strings.
+	/// \tparam T The range type
+	/// \tparam CharT The type of characters of the strings.
+	template<class T, class CharT>
+	concept StringOfCharForwardRange =
+		std::ranges::forward_range<T>
+		&& StringOfChar<std::ranges::range_value_t<T>, CharT>
+	;
+
+
 	/// \brief A string type.
 	/// \tparam T The string type.
 	/// \details To satisfy this concept, \p T must be able to be represented by std::basic_string.
@@ -26,6 +37,15 @@ namespace CmdCalculator
 			typename T::allocator_type;
 		}
 		&& StringOfChar<T, typename T::value_type>
+	;
+
+
+	/// \brief A forward range of strings.
+	/// \tparam T The range type
+	template<class T>
+	concept StringForwardRange =
+		std::ranges::forward_range<T>
+		&& String<std::ranges::range_value_t<T>>
 	;
 
 

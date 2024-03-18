@@ -325,6 +325,18 @@
     <Filter Include="Source Code\Console\StreamBasedConsole">
       <UniqueIdentifier>{69af8f4b-307e-48ca-b975-5f2d8b7abc66}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\RawCmdLineArgParser">
+      <UniqueIdentifier>{c9beef9e-2e19-463d-8cbc-5b7365ced736}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\RawCmdLineArgParser\BasicRawCmdLineArgParser">
+      <UniqueIdentifier>{781628d2-c413-4f87-928c-adbfb82116ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\Raw Cmd Line Args\DuplicateCmdLineArgException">
+      <UniqueIdentifier>{31c19792-6cb7-42a2-b85c-48a20deed075}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\Raw Cmd Line Args\ContradictingCmdLineArgException">
+      <UniqueIdentifier>{7a8e7883-e921-4e89-8bdd-11a89f000c7b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationConfiguration.h">
@@ -335,9 +347,6 @@
     </ClInclude>
     <ClInclude Include="Console.h">
       <Filter>Source Code\Console</Filter>
-    </ClInclude>
-    <ClInclude Include="RawCmdLineArgParser.h">
-      <Filter>Source Code</Filter>
     </ClInclude>
     <ClInclude Include="MathAstNode.h">
       <Filter>Source Code\Math AST</Filter>
@@ -684,6 +693,18 @@
     <ClInclude Include="StreamBasedConsole.h">
       <Filter>Source Code\Console\StreamBasedConsole</Filter>
     </ClInclude>
+    <ClInclude Include="RawCmdLineArgParser.h">
+      <Filter>Source Code\RawCmdLineArgParser</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicRawCmdLineArgParser.h">
+      <Filter>Source Code\RawCmdLineArgParser\BasicRawCmdLineArgParser</Filter>
+    </ClInclude>
+    <ClInclude Include="DuplicateCmdLineArgException.h">
+      <Filter>Source Code\Exceptions\Raw Cmd Line Args\DuplicateCmdLineArgException</Filter>
+    </ClInclude>
+    <ClInclude Include="ContradictingCmdLineArgException.h">
+      <Filter>Source Code\Exceptions\Raw Cmd Line Args\ContradictingCmdLineArgException</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalculationConfiguration.cpp">
@@ -850,6 +871,15 @@
     </ClCompile>
     <ClCompile Include="StreamBasedConsole.hpp">
       <Filter>Source Code\Console\StreamBasedConsole</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicRawCmdLineArgParser.hpp">
+      <Filter>Source Code\RawCmdLineArgParser\BasicRawCmdLineArgParser</Filter>
+    </ClCompile>
+    <ClCompile Include="DuplicateCmdLineArgException.cpp">
+      <Filter>Source Code\Exceptions\Raw Cmd Line Args\DuplicateCmdLineArgException</Filter>
+    </ClCompile>
+    <ClCompile Include="ContradictingCmdLineArgException.cpp">
+      <Filter>Source Code\Exceptions\Raw Cmd Line Args\ContradictingCmdLineArgException</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

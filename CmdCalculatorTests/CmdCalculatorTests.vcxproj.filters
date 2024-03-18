@@ -169,6 +169,9 @@
     <ClCompile Include="StreamBasedConsoleTests.cpp">
       <Filter>Source Code\Tests\Console</Filter>
     </ClCompile>
+    <ClCompile Include="BasicRawCmdLineArgParserTests.cpp">
+      <Filter>Source Code\Tests\RawCmdLineArgParser</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Code">
@@ -308,6 +311,9 @@
     </Filter>
     <Filter Include="Source Code\Tests\Console">
       <UniqueIdentifier>{7c859cb9-b729-4d31-bb49-c8068fcf17dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\RawCmdLineArgParser">
+      <UniqueIdentifier>{2693d9a8-fb91-417a-8915-c240d85d24c9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

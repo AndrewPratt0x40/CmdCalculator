@@ -16,7 +16,6 @@ DONE - Implement FundamentallyBackedRealNumber
 	DONE - Implement BasicRecursiveSplitResultToDynamicExpressionConverter
 - DONE Implement DynamicExpression types
 - DONE Create DynamicExpressionToStringConverter
-- Create StreamBasedConsole
-- Install 3rd part library for parsing cmd-line args
-- Create ???BasedRawCmdLineArgParser
+- DONE Create StreamBasedConsole
+- Create BasicRawCmdLineArgParser
 - Wrap everything together in CmdCalculatorExe

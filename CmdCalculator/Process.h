@@ -19,8 +19,10 @@
 #include "StringToMathAstConverter.h"
 #include "MathAstToExpressionConverter.h"
 #include "ExpressionToStringConverter.h"
-#include "UnknownCmdLineArgException.h"
 #include "MissingCmdLineArgValueException.h"
+#include "DuplicateCmdLineArgException.h"
+#include "ContradictingCmdLineArgException.h"
+#include "UnknownCmdLineArgException.h"
 #include "InvalidInputExpressionException.h"
 #include "EmptyInputExpressionException.h"
 #include "UnexpectedInputExpressionCharException.h"
@@ -216,6 +218,12 @@ namespace CmdCalculator
 					),
 					EWriteMode::Error
 				);
+				writeLineToConsole
+				(
+					console,
+					"Ensure each argument begins with a \"-\" character and has correct capitalization."s,
+					EWriteMode::Error
+				);
 				return {};
 			}
 			catch (const MissingCmdLineArgValueException<ArgType>& exception)
@@ -227,6 +235,35 @@ namespace CmdCalculator
 					(
 						"Missing value for argument, \"{}\"",
 						convertString<char>(exception.getArg())
+					),
+					EWriteMode::Error
+				);
+				return {};
+			}
+			catch (const DuplicateCmdLineArgException<ArgType>& exception)
+			{
+				writeLineToConsole
+				(
+					console,
+					std::format
+					(
+						"Argument, \"{}\" was given more than once",
+						convertString<char>(exception.getArg())
+					),
+					EWriteMode::Error
+				);
+				return {};
+			}
+			catch (const ContradictingCmdLineArgException<ArgType>& exception)
+			{
+				writeLineToConsole
+				(
+					console,
+					std::format
+					(
+						"Argument, \"{}\" and, \"{}\" contradict each other",
+						convertString<char>(exception.getArgs().first),
+						convertString<char>(exception.getArgs().second)
 					),
 					EWriteMode::Error
 				);

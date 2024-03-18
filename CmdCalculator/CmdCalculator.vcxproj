@@ -98,9 +98,12 @@
     <ClInclude Include="BasicDEPSingleSplitResult.h" />
     <ClInclude Include="BasicDEPSingleSplitter.h" />
     <ClInclude Include="BasicDynamicOperandToDynamicExpressionConverter.h" />
+    <ClInclude Include="BasicRawCmdLineArgParser.h" />
     <ClInclude Include="BasicRSRToDynamicExpressionConverter.h" />
     <ClInclude Include="CommonDynamicBinaryOperation.h" />
+    <ClInclude Include="ContradictingCmdLineArgException.h" />
     <ClInclude Include="DivisionByZeroException.h" />
+    <ClInclude Include="DuplicateCmdLineArgException.h" />
     <ClInclude Include="DynamicAbsoluteValueOperation.h" />
     <ClInclude Include="DynamicAdditionOperation.h" />
     <ClInclude Include="DynamicAdditionOperation.hpp" />
@@ -214,9 +217,12 @@
     <ClCompile Include="BasicDEPSingleSplitResult.hpp" />
     <ClCompile Include="BasicDEPSingleSplitter.hpp" />
     <ClCompile Include="BasicDynamicOperandToDynamicExpressionConverter.hpp" />
+    <ClCompile Include="BasicRawCmdLineArgParser.hpp" />
     <ClCompile Include="BasicRSRToDynamicExpressionConverter.hpp" />
     <ClCompile Include="CommonDynamicBinaryOperation.hpp" />
+    <ClCompile Include="ContradictingCmdLineArgException.cpp" />
     <ClCompile Include="DivisionByZeroException.cpp" />
+    <ClCompile Include="DuplicateCmdLineArgException.cpp" />
     <ClCompile Include="DynamicAbsoluteValueOperation.hpp" />
     <ClCompile Include="DynamicExponentiationOperation.hpp" />
     <ClCompile Include="DynamicExpressionBox.hpp" />

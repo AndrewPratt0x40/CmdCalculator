@@ -21,7 +21,7 @@ namespace CmdCalculator
 	concept RawCmdLineArgParser =
 		IntendsToSatisfy<T, RawCmdLineArgParser_IntendedSatisfaction>
 		&& std::ranges::forward_range<ArgsT>
-		&& String<std::ranges::range_value_t<ArgsT>>
+		&& StringForwardRange<ArgsT>
 		&& String<typename T::ExpressionStringType>
 		&& requires()
 		{
@@ -29,7 +29,7 @@ namespace CmdCalculator
 		}
 		&& requires(T && instance, ArgsT rawCmdLineArgs, const ProcessConfiguration<typename T::ExpressionStringType>& defaultConfiguration)
 		{
-			{ instance.parseRawCmdLineArgs(rawCmdLineArgs, defaultConfiguration) } -> std::same_as <ProcessConfiguration<typename T::ExpressionStringType>>;
+			{ instance.parseRawCmdLineArgs(rawCmdLineArgs, defaultConfiguration) } -> std::same_as<ProcessConfiguration<typename T::ExpressionStringType>>;
 		}
 	;
 }
