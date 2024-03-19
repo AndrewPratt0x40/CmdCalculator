@@ -19,7 +19,7 @@ namespace CmdCalculator::MathAst
 		&& std::ranges::forward_range<T>
 		&& std::convertible_to
 		<
-			std::remove_cv_t<std::ranges::range_value_t<T>>,
+			std::ranges::range_value_t<T>,
 			const DynamicExpressionPartNode<StringT>&
 		>
 	;

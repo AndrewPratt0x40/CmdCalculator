@@ -14,21 +14,32 @@
 
 namespace CmdCalculator
 {
+	namespace
+	{
+		using DefaultNumberType = Arithmetic::FundamentallyBackedRealNumber<long double>;
+	}
+
+
 	/// \brief A basic implementation that satisfies the \ref DynamicOperandToDynamicExpressionConverter concept.
-	/// \tparam InnerConverterT The type of object to use for converting inner math ASTs into expression objects.
 	/// \tparam MathAstStringT The string type used by the math AST nodes to convert from.
+	/// \tparam InnerConverterExpressionT The boxed expression type returned by the object's inner converter.
 	template
 	<
-		DynamicMathAstToDynamicExpressionConverter InnerConverterT,
-		String MathAstStringT
+		String MathAstStringT,
+		Expressions::BoxableInnerExpression InnerConverterExpressionT =
+			Expressions::DynamicExpression<DefaultNumberType>
 	>
 	class BasicDynamicOperandToDynamicExpressionConverter :
 		public DynamicOperandToDynamicExpressionConverter_IntendedSatisfaction
 	{
 	public:
-		using InnerConverterType = InnerConverterT;
 		using MathAstStringType = MathAstStringT;
-		using ExpressionNumberType = Arithmetic::FundamentallyBackedRealNumber<long double>;
+		using ExpressionNumberType = DefaultNumberType;
+		using InnerConverterFunctorType = std::function
+		<
+			Expressions::DynamicExpressionBox<InnerConverterExpressionT>
+			(const MathAst::DynamicExpressionNode<MathAstStringT>&)
+		>;
 
 
 	private:
@@ -45,14 +56,14 @@ namespace CmdCalculator
 		;
 		using TailMultiplicandSubrangeType = std::ranges::subrange<TailMultiplicandRangeIterType>;
 
-		std::reference_wrapper<const InnerConverterT> m_innerConverter;
+		InnerConverterFunctorType m_innerConverter;
 
 
 	public:
 
 		/// \brief Creates a new instance of the \ref BasicDynamicOperandToDynamicExpressionConverter class.
 		/// \param innerConverter The object to use for converting inner math ASTs into expression objects.
-		BasicDynamicOperandToDynamicExpressionConverter(const InnerConverterT& innerConverter);
+		BasicDynamicOperandToDynamicExpressionConverter(InnerConverterFunctorType innerConverter);
 
 
 		/// \brief Converts a math AST operand into an expression object.

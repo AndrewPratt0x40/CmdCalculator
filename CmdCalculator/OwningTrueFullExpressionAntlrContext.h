@@ -22,9 +22,10 @@ namespace CmdCalculator
 		using AntlrCharType = AntlrStringType::value_type;
 
 
-		const std::unique_ptr<antlr4::ANTLRInputStream> m_inputStream;
-		const std::unique_ptr<CmdCalculator::Antlr::CmdCalculatorExpressionLexer> m_lexer;
-		const std::unique_ptr<CmdCalculator::Antlr::CmdCalculatorExpressionParser> m_parser;
+		std::unique_ptr<antlr4::ANTLRInputStream> m_inputStream;
+		std::unique_ptr<CmdCalculator::Antlr::CmdCalculatorExpressionLexer> m_lexer;
+		std::unique_ptr<antlr4::CommonTokenStream> m_tokenStream;
+		std::unique_ptr<CmdCalculator::Antlr::CmdCalculatorExpressionParser> m_parser;
 		const CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext* m_fullExpressionContext;
 
 
@@ -32,6 +33,7 @@ namespace CmdCalculator
 		(
 			std::unique_ptr<antlr4::ANTLRInputStream> inputStream,
 			std::unique_ptr<CmdCalculator::Antlr::CmdCalculatorExpressionLexer> lexer,
+			std::unique_ptr<antlr4::CommonTokenStream> tokenStream,
 			std::unique_ptr<CmdCalculator::Antlr::CmdCalculatorExpressionParser> parser,
 			const CmdCalculator::Antlr::CmdCalculatorExpressionParser::Full_expressionContext* fullExpressionContext
 		);
@@ -41,7 +43,7 @@ namespace CmdCalculator
 		/// \brief Creates a new instance of the \ref OwningTrueFullExpressionAntlrContext class by invoking the ANTLR runtime and parsing a given expression.
 		/// \param input The expression to parse.
 		/// \returns A new \ref OwningTrueFullExpressionAntlrContext instance.
-		static OwningTrueFullExpressionAntlrContext parse(StringView auto input);
+		static OwningTrueFullExpressionAntlrContext parse(String auto input);
 
 
 		/// \brief Accessor to the leading trivia of the full expression, if any.
@@ -58,4 +60,39 @@ namespace CmdCalculator
 		/// \returns The trailing trivia, or an empty object if no trailing trivia exists.
 		std::optional<TrueAntlrTokenView> getTrailingTrivia() const;
 	};
+
+
+	CmdCalculator::OwningTrueFullExpressionAntlrContext CmdCalculator::OwningTrueFullExpressionAntlrContext::parse(String auto input)
+	{
+		try
+		{
+			const AntlrStringType inputString{ convertString<AntlrCharType>(input) };
+			auto inputStream{ std::make_unique<antlr4::ANTLRInputStream>(inputString) };
+
+			auto lexer{ std::make_unique<Antlr::CmdCalculatorExpressionLexer>(inputStream.get()) };
+			lexer->removeErrorListeners();
+
+			auto tokenStream{ std::make_unique<antlr4::CommonTokenStream>(lexer.get()) };
+
+			auto parser{ std::make_unique<Antlr::CmdCalculatorExpressionParser>(tokenStream.get()) };
+			const auto parserErrorHandler{ std::make_shared<antlr4::BailErrorStrategy>() };
+			parser->setErrorHandler(parserErrorHandler);
+			parser->removeErrorListeners();
+
+			const auto* fullExpressionContext{ parser->full_expression() };
+
+			return OwningTrueFullExpressionAntlrContext
+			{
+				std::move(inputStream),
+				std::move(lexer),
+				std::move(tokenStream),
+				std::move(parser),
+				fullExpressionContext
+			};
+		}
+		catch (antlr4::ParseCancellationException& exception)
+		{
+			std::rethrow_if_nested(exception);
+		}
+	}
 }

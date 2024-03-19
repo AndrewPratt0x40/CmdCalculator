@@ -95,6 +95,20 @@ namespace CmdCalculatorTests
 		};
 	}
 
+
+	using InnerConverterFunctorType =
+		CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<std::string, StubInnerConverterBoxedExpressionType>
+		::InnerConverterFunctorType
+	;
+
+	static InnerConverterFunctorType getInnerConverterFunctor(const StubInnerConverterType& innerConverter)
+	{
+		return [&innerConverter](const CmdCalculator::MathAst::DynamicExpressionNode<std::string>& sourceRootNode)
+		{
+			return innerConverter.getMathAstAsExpression(sourceRootNode);
+		};
+	}
+
 #pragma endregion
 
 
@@ -108,8 +122,8 @@ namespace CmdCalculatorTests
 			<
 				CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter
 				<
-					StubInnerConverterType,
-					std::string
+					std::string,
+					StubInnerConverterBoxedExpressionType
 				>
 			>
 		);
@@ -139,11 +153,11 @@ namespace CmdCalculatorTests
 		};
 		const CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter
 		<
-			StubInnerConverterType,
-			std::string
+			std::string,
+			StubInnerConverterBoxedExpressionType
 		> instance
 		{
-			innerConverter
+			getInnerConverterFunctor(innerConverter)
 		};
 		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
 
@@ -202,11 +216,11 @@ namespace CmdCalculatorTests
 		};
 		const CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter
 		<
-			StubInnerConverterType,
-			std::string
+			std::string,
+			StubInnerConverterBoxedExpressionType
 		> instance
 		{
-			innerConverter
+			getInnerConverterFunctor(innerConverter)
 		};
 		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
 
@@ -329,11 +343,11 @@ namespace CmdCalculatorTests
 		};
 		const CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter
 		<
-			StubInnerConverterType,
-			std::string
+			std::string,
+			StubInnerConverterBoxedExpressionType
 		> instance
 		{
-			innerConverter
+			getInnerConverterFunctor(innerConverter)
 		};
 		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
 
@@ -685,11 +699,11 @@ namespace CmdCalculatorTests
 
 		const CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter
 		<
-			StubInnerConverterType,
-			std::string
+			std::string,
+			StubInnerConverterBoxedExpressionType
 		> instance
 		{
-			innerConverter
+			getInnerConverterFunctor(innerConverter)
 		};
 		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
 
@@ -738,11 +752,11 @@ namespace CmdCalculatorTests
 		};
 		const CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter
 		<
-			StubInnerConverterType,
-			std::string
+			std::string,
+			StubInnerConverterBoxedExpressionType
 		> instance
 		{
-			innerConverter
+			getInnerConverterFunctor(innerConverter)
 		};
 		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
 
@@ -785,11 +799,11 @@ namespace CmdCalculatorTests
 		};
 		const CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter
 		<
-			StubInnerConverterType,
-			std::string
+			std::string,
+			StubInnerConverterBoxedExpressionType
 		> instance
 		{
-			innerConverter
+			getInnerConverterFunctor(innerConverter)
 		};
 		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
 
@@ -844,11 +858,11 @@ namespace CmdCalculatorTests
 		};
 		const CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter
 		<
-			StubInnerConverterType,
-			std::string
+			std::string,
+			StubInnerConverterBoxedExpressionType
 		> instance
 		{
-			innerConverter
+			getInnerConverterFunctor(innerConverter)
 		};
 		using ConvertedNumberType = decltype(instance)::ExpressionNumberType;
 

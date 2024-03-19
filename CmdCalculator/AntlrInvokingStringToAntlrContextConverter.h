@@ -25,7 +25,19 @@ namespace CmdCalculator
 		/// \returns An owning pointer to an ANTLR context object.
 		std::unique_ptr<OwningTrueFullExpressionAntlrContext> getStringAsAntlrContext(StringViewType source)
 		{
-			return std::make_unique<OwningTrueFullExpressionAntlrContext>(OwningTrueFullExpressionAntlrContext::parse(source));
+			return std::make_unique<OwningTrueFullExpressionAntlrContext>
+			(
+				std::move
+				(
+					OwningTrueFullExpressionAntlrContext::parse
+					(
+						std::basic_string<typename StringViewType::value_type>
+						{
+							std::basic_string_view<typename StringViewType::value_type>{ source }
+						}
+					)
+				)
+			);
 		}
 	};
 }

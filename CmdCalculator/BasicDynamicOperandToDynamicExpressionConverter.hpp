@@ -11,35 +11,23 @@
 #include "NotImplementedException.h"
 
 
-template
-<
-	CmdCalculator::DynamicMathAstToDynamicExpressionConverter InnerConverterT,
-	CmdCalculator::String MathAstStringT
->
-inline CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter
-<
-	InnerConverterT,
-	MathAstStringT
->::
-	BasicDynamicOperandToDynamicExpressionConverter(const InnerConverterT& innerConverter) :
-	m_innerConverter{ std::ref(innerConverter) }
+template<CmdCalculator::String MathAstStringT, CmdCalculator::Expressions::BoxableInnerExpression InnerConverterExpressionT>
+inline CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>::
+	BasicDynamicOperandToDynamicExpressionConverter(InnerConverterFunctorType innerConverter) :
+	m_innerConverter{ innerConverter }
 {}
 
 
-template
-<
-	CmdCalculator::DynamicMathAstToDynamicExpressionConverter InnerConverterT,
-	CmdCalculator::String MathAstStringT
->
+template<CmdCalculator::String MathAstStringT, CmdCalculator::Expressions::BoxableInnerExpression InnerConverterExpressionT>
 inline std::unique_ptr
 <
 	CmdCalculator::Expressions::DynamicExpression
 	<
-		typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>
+		typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>
 			::ExpressionNumberType
 	>
 >
-	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>::
+	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>::
 	getOperandAsExpression(const MathAst::DynamicOperandNode<MathAstStringT>& sourceOperand) const
 {
 	switch (sourceOperand.getDerivedOperandKind())
@@ -104,13 +92,9 @@ inline std::unique_ptr
 }
 
 
-template
-<
-	CmdCalculator::DynamicMathAstToDynamicExpressionConverter InnerConverterT,
-	CmdCalculator::String MathAstStringT
->
-inline typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>::ExpressionNumberType
-	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>
+template<CmdCalculator::String MathAstStringT, CmdCalculator::Expressions::BoxableInnerExpression InnerConverterExpressionT>
+inline typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>::ExpressionNumberType
+	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>
 	::parseNumber(const MathAstStringT& str) const
 {
 	return ExpressionNumberType
@@ -120,13 +104,9 @@ inline typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<I
 }
 
 
-template
-<
-	CmdCalculator::DynamicMathAstToDynamicExpressionConverter InnerConverterT,
-	CmdCalculator::String MathAstStringT
->
-inline typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>::ExpressionNumberType
-	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>
+template<CmdCalculator::String MathAstStringT, CmdCalculator::Expressions::BoxableInnerExpression InnerConverterExpressionT>
+inline typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>::ExpressionNumberType
+	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>
 	::parseNumberAsFractionalPart(const MathAstStringT& str) const
 {
 	return ExpressionNumberType
@@ -136,13 +116,9 @@ inline typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<I
 }
 
 
-template
-<
-	CmdCalculator::DynamicMathAstToDynamicExpressionConverter InnerConverterT,
-	CmdCalculator::String MathAstStringT
->
-inline typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>::ExpressionNumberType
-	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>
+template<CmdCalculator::String MathAstStringT, CmdCalculator::Expressions::BoxableInnerExpression InnerConverterExpressionT>
+inline typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>::ExpressionNumberType
+	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>
 	::parseWholePart(const std::optional<MathAstStringT>& str) const
 {
 	return str.has_value()
@@ -152,13 +128,9 @@ inline typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<I
 }
 
 
-template
-<
-	CmdCalculator::DynamicMathAstToDynamicExpressionConverter InnerConverterT,
-	CmdCalculator::String MathAstStringT
->
-inline typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>::ExpressionNumberType
-	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>
+template<CmdCalculator::String MathAstStringT, CmdCalculator::Expressions::BoxableInnerExpression InnerConverterExpressionT>
+inline typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>::ExpressionNumberType
+	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>
 	::parseFractionalPart(const std::optional<MathAstStringT>& str) const
 {
 	return str.has_value()
@@ -168,43 +140,35 @@ inline typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<I
 }
 
 
-template
-<
-	CmdCalculator::DynamicMathAstToDynamicExpressionConverter InnerConverterT,
-	CmdCalculator::String MathAstStringT
->
+template<CmdCalculator::String MathAstStringT, CmdCalculator::Expressions::BoxableInnerExpression InnerConverterExpressionT>
 inline std::unique_ptr
 <
 	CmdCalculator::Expressions::DynamicExpression
 	<
-		typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>
+		typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>
 			::ExpressionNumberType
 	>
 >
-	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>::
+	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>::
 	invokeInnerConverter(const MathAst::DynamicExpressionNode<MathAstStringT>& sourceExpression) const
 {
 	return std::move
 	(
-		m_innerConverter.get().getMathAstAsExpression(sourceExpression).releaseInnerValue()
+		m_innerConverter(sourceExpression).releaseInnerValue()
 	);
 }
 
 
-template
-<
-	CmdCalculator::DynamicMathAstToDynamicExpressionConverter InnerConverterT,
-	CmdCalculator::String MathAstStringT
->
+template<CmdCalculator::String MathAstStringT, CmdCalculator::Expressions::BoxableInnerExpression InnerConverterExpressionT>
 inline std::unique_ptr
 <
 	CmdCalculator::Expressions::DynamicExpression
 	<
-		typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>
+		typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>
 			::ExpressionNumberType
 	>
 >
-	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>::
+	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>::
 	getAbsoluteValueAsExpression(const MathAst::DynamicAbsoluteValueNode<MathAstStringT>& sourceOperand) const
 {
 	assert(sourceOperand.getContainedExpression());
@@ -216,40 +180,32 @@ inline std::unique_ptr
 }
 
 
-template
-<
-	CmdCalculator::DynamicMathAstToDynamicExpressionConverter InnerConverterT,
-	CmdCalculator::String MathAstStringT
->
+template<CmdCalculator::String MathAstStringT, CmdCalculator::Expressions::BoxableInnerExpression InnerConverterExpressionT>
 inline std::unique_ptr
 <
 	CmdCalculator::Expressions::DynamicExpression
 	<
-		typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>
+		typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>
 			::ExpressionNumberType
 	>
 >
-	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>::
+	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>::
 	getGroupingAsExpression(const MathAst::DynamicGroupingNode<MathAstStringT>& sourceOperand) const
 {
 	return std::move(invokeInnerConverter(*sourceOperand.getContainedExpression()));
 }
 
 
-template
-<
-	CmdCalculator::DynamicMathAstToDynamicExpressionConverter InnerConverterT,
-	CmdCalculator::String MathAstStringT
->
+template<CmdCalculator::String MathAstStringT, CmdCalculator::Expressions::BoxableInnerExpression InnerConverterExpressionT>
 inline std::unique_ptr
 <
 	CmdCalculator::Expressions::DynamicExpression
 	<
-		typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>
+		typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>
 			::ExpressionNumberType
 	>
 >
-	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>::
+	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>::
 	getGroupingMultiplicationAsExpression(const MathAst::DynamicGroupingMultiplicationNode<MathAstStringT>& sourceOperand) const
 {
 	DynamicExprUniquePtrType multiplier{ getOperandAsExpression(*sourceOperand.getHeadMultiplicand()) };
@@ -279,23 +235,19 @@ inline std::unique_ptr
 }
 
 
-template
-<
-	CmdCalculator::DynamicMathAstToDynamicExpressionConverter InnerConverterT,
-	CmdCalculator::String MathAstStringT
->
+template<CmdCalculator::String MathAstStringT, CmdCalculator::Expressions::BoxableInnerExpression InnerConverterExpressionT>
 inline std::unique_ptr
 <
 	CmdCalculator::Expressions::DynamicExpression
 	<
-		typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>
+		typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>
 			::ExpressionNumberType
 	>
 >
-	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>
+	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>
 	::getGroupingMultiplicationTailsAsExpression
 (
-	typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>
+	typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>
 		::TailMultiplicandSubrangeType tails
 ) const
 {
@@ -317,20 +269,16 @@ inline std::unique_ptr
 }
 
 
-template
-<
-	CmdCalculator::DynamicMathAstToDynamicExpressionConverter InnerConverterT,
-	CmdCalculator::String MathAstStringT
->
+template<CmdCalculator::String MathAstStringT, CmdCalculator::Expressions::BoxableInnerExpression InnerConverterExpressionT>
 inline std::unique_ptr
 <
 	CmdCalculator::Expressions::DynamicExpression
 	<
-		typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>
+		typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>
 			::ExpressionNumberType
 	>
 >
-	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>::
+	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>::
 	getNumberLiteralAsExpression(const MathAst::DynamicNumberLiteralNode<MathAstStringT>& sourceOperand) const
 {
 	return std::move
@@ -344,20 +292,16 @@ inline std::unique_ptr
 }
 
 
-template
-<
-	CmdCalculator::DynamicMathAstToDynamicExpressionConverter InnerConverterT,
-	CmdCalculator::String MathAstStringT
->
+template<CmdCalculator::String MathAstStringT, CmdCalculator::Expressions::BoxableInnerExpression InnerConverterExpressionT>
 inline std::unique_ptr
 <
 	CmdCalculator::Expressions::DynamicExpression
 	<
-	typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>
+	typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>
 	::ExpressionNumberType
 	>
 >
-	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>::
+	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>::
 	getSignOperationAsExpression(const MathAst::DynamicSignOperationNode<MathAstStringT>& sourceOperand) const
 {
 	DynamicExprUniquePtrType operand{ getOperandAsExpression(*sourceOperand.getOperand()) };
@@ -375,20 +319,16 @@ inline std::unique_ptr
 }
 
 
-template
-<
-	CmdCalculator::DynamicMathAstToDynamicExpressionConverter InnerConverterT,
-	CmdCalculator::String MathAstStringT
->
+template<CmdCalculator::String MathAstStringT, CmdCalculator::Expressions::BoxableInnerExpression InnerConverterExpressionT>
 inline std::unique_ptr
 <
 	CmdCalculator::Expressions::DynamicExpression
 	<
-	typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>
+	typename CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>
 	::ExpressionNumberType
 	>
 >
-	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<InnerConverterT, MathAstStringT>::
+	CmdCalculator::BasicDynamicOperandToDynamicExpressionConverter<MathAstStringT, InnerConverterExpressionT>::
 	getSqrtAsExpression(const MathAst::DynamicSqrtOperationNode<MathAstStringT>& sourceOperand) const
 {
 	return std::move

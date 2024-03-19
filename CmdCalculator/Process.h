@@ -59,6 +59,7 @@ namespace CmdCalculator
 		using MathAstToExpressionConverterType = MathAstToExpressionConverterT;
 		using ExpressionToStringConverterType = ExpressionToStringConverterT;
 
+		using CalculationOutputExpressionType = decltype(std::declval<CalculationT>().getOutputExpression());
 
 	private:
 
@@ -67,12 +68,9 @@ namespace CmdCalculator
 		MathAstToExpressionConverterType m_mathAstToExpressionConverter;
 		ExpressionToStringConverterType m_expressionToStringConverter;
 
-		template<String ExpressionT>
 		struct CalculationResult
 		{
-			using ExpressionType = ExpressionT;
-
-			std::optional<ExpressionT> outputExpression;
+			std::optional<CalculationOutputExpressionType> outputExpression;
 			bool shouldReprompt;
 		};
 
@@ -88,6 +86,7 @@ namespace CmdCalculator
 		/// \returns True if the process ran successfully, false if the process exited due to an error.
 		template<Console ConsoleT, String ExpressionStringT, std::ranges::forward_range ArgsT>
 			requires String<std::ranges::range_value_t<ArgsT>>
+		// TODO: Does rawCmdLineArgs really need to be a forwarding reference?
 		bool run(ArgsT&& rawCmdLineArgs, const ProcessConfiguration<ExpressionStringT> defaultConfig, ConsoleT& console)
 		{
 			static_assert(std::convertible_to<typename ConsoleT::StringType, ExpressionStringT>);
@@ -99,16 +98,12 @@ namespace CmdCalculator
 			if (!processConfiguration.has_value())
 				return false;
 
-			CalculationResult<ExpressionStringT> result;
+			CalculationResult result;
 
 			do
 			{
 				result =
-					tryCalculate
-					<
-						ConsoleT,
-						ExpressionStringT
-					>
+					tryCalculate<ConsoleT>
 					(
 						getinputExpression(processConfiguration.value(), console),
 						processConfiguration.value().calculationConfiguration,
@@ -119,7 +114,7 @@ namespace CmdCalculator
 
 			if (result.outputExpression.has_value())
 			{
-				console.write(std::format("= {}", result.outputExpression.value()), EWriteMode::Info);
+				writeToConsole(console, std::format("= {}", result.outputExpression.value()), EWriteMode::Info);
 				return true;
 			}
 
@@ -307,13 +302,12 @@ namespace CmdCalculator
 
 		/// \brief Attempts to calculate an expression.
 		/// \tparam ConsoleT The type of the console object to be used by the process.
-		/// \tparam OutputExpressionT The string type that represents a calculated expression.
 		/// \param inputExpression The expression to calculate.
 		/// \param config The calculation configuration to use.
 		/// \param console The text console to use for input and output.
 		/// \returns The result .
-		template<Console ConsoleT, String OutputExpressionT>
-		CalculationResult<OutputExpressionT> tryCalculate
+		template<Console ConsoleT>
+		CalculationResult tryCalculate
 		(
 			typename CalculationType::InputExpressionType inputExpression,
 			CalculationConfiguration config,
@@ -322,14 +316,11 @@ namespace CmdCalculator
 		{
 			CalculationType calculation
 			{
-				CalculationType
-				(
-					inputExpression,
-					config,
-					m_stringToMathAstConverter,
-					m_mathAstToExpressionConverter,
-					m_expressionToStringConverter
-				)
+				inputExpression,
+				config,
+				m_stringToMathAstConverter,
+				m_mathAstToExpressionConverter,
+				m_expressionToStringConverter
 			};
 
 			bool shouldRepromptOnFailure{};
@@ -337,10 +328,10 @@ namespace CmdCalculator
 			// TODO: Error message generation should be handled by a separate component.
 			try
 			{
-				OutputExpressionT outputExpression{ calculation.getOutputExpression() };
-				return CalculationResult<OutputExpressionT>
+				CalculationOutputExpressionType outputExpression{ calculation.getOutputExpression() };
+				return CalculationResult
 				{
-					.outputExpression{ std::make_optional<OutputExpressionT>(outputExpression) },
+					.outputExpression{ std::make_optional<CalculationOutputExpressionType>(outputExpression) },
 					.shouldReprompt{ false }
 				};
 			}
@@ -526,7 +517,7 @@ namespace CmdCalculator
 				shouldRepromptOnFailure = false;
 			}
 
-			return CalculationResult<OutputExpressionT>
+			return CalculationResult
 			{
 				.outputExpression{},
 				.shouldReprompt{ shouldRepromptOnFailure }

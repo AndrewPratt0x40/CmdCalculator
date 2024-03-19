@@ -53,6 +53,19 @@ namespace CmdCalculator
 
 	public:
 
+		/// \brief Creates a new instance of the \ref AntlrBasedStringToMathAstConverter class.
+		/// \param stringToAntlrContextConverter The object to convert strings into ANTLR context objects.
+		/// \param antlrContextToMathAstConverter The object to convert ANTLR context objects into mathematical abstract syntax trees.
+		AntlrBasedStringToMathAstConverter
+		(
+			StringToAntlrContextConverterType&& stringToAntlrContextConverter,
+			AntlrContextToMathAstConverterType&& antlrContextToMathAstConverter
+		) :
+			m_stringToAntlrContextConverter{ std::move(stringToAntlrContextConverter) },
+			m_antlrContextToMathAstConverter{ std::move(antlrContextToMathAstConverter) }
+		{}
+
+
 		/// \brief Converts a string into a mathematical abstract syntax tree.
 		/// \param source The string to convert.
 		/// \returns The root node of the resulting mathematical abstract syntax tree.
@@ -65,7 +78,7 @@ namespace CmdCalculator
 
 			try
 			{
-				auto fullExpressionContextPtr{ m_stringToAntlrContextConverter.getStringAsAntlrContext(source) };
+				auto fullExpressionContextPtr{ std::move(m_stringToAntlrContextConverter.getStringAsAntlrContext(source)) };
 				assert(fullExpressionContextPtr);
 				return m_antlrContextToMathAstConverter.getConvertedFullExpressionContext(*fullExpressionContextPtr);
 			}
@@ -120,18 +133,5 @@ namespace CmdCalculator
 				};
 			}
 		}
-		
-
-		/// \brief Creates a new instance of the \ref AntlrBasedStringToMathAstConverter class.
-		/// \param stringToAntlrContextConverter The object to convert strings into ANTLR context objects.
-		/// \param antlrContextToMathAstConverter The object to convert ANTLR context objects into mathematical abstract syntax trees.
-		AntlrBasedStringToMathAstConverter
-		(
-			StringToAntlrContextConverterType&& stringToAntlrContextConverter,
-			AntlrContextToMathAstConverterType&& antlrContextToMathAstConverter
-		) :
-			m_stringToAntlrContextConverter{ stringToAntlrContextConverter },
-			m_antlrContextToMathAstConverter{ antlrContextToMathAstConverter }
-		{}
 	};
 }

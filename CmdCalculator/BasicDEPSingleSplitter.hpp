@@ -4,6 +4,7 @@
 #include<ranges>
 #include<algorithm>
 #include<iterator>
+#include<functional>
 
 #include "BasicDEPSingleSplitter.h"
 #include "std_polyfills.h"
@@ -54,7 +55,7 @@ static inline bool canSplitWithGivenSize
 			{
 				return
 					(i % 2 != 0)
-					== static_cast<const CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>&>
+					== static_cast<const CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringT>&>
 						(*(std::ranges::begin(parts) + i))
 						.isBinaryOperator()
 				;
@@ -107,12 +108,6 @@ static inline std::optional<CmdCalculator::BasicDEPSingleSplitResult<MathAstStri
 		// the last one instead of the first.
 		| std::views::reverse
 	};
-
-	const std::vector<int64_t> DELETE_ME_possibleSplitPartsIndexes
-	{
-		std::ranges::begin(possibleSplitPartsIndexes),
-		std::ranges::end(possibleSplitPartsIndexes)
-	};
 	
 	const std::input_iterator auto splitPartIndexIter
 	{
@@ -124,9 +119,9 @@ static inline std::optional<CmdCalculator::BasicDEPSingleSplitResult<MathAstStri
 			{
 				return getPrecedenceLevel
 				(
-					reinterpret_cast<const CmdCalculator::MathAst::DynamicBinaryOperatorNode<std::string>&>
+					reinterpret_cast<const CmdCalculator::MathAst::DynamicBinaryOperatorNode<MathAstStringT>&>
 					(
-						static_cast<const CmdCalculator::MathAst::DynamicExpressionPartNode<std::string>&>
+						static_cast<const CmdCalculator::MathAst::DynamicExpressionPartNode<MathAstStringT>&>
 						(*(std::ranges::begin(parts) + possibleSplitPartsIndex))
 					)
 					.getOperatorKind()

@@ -68,7 +68,7 @@ namespace CmdCalculator
 
 		/// \brief Accessor to the calculated expression.
 		/// \returns The calculated expression as a string.
-		OutputExpressionType getOutputExpression() const
+		OutputExpressionType getOutputExpression()
 		{
 			return m_expressionToStringConverter.stringifyExpression
 			(

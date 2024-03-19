@@ -220,7 +220,10 @@ inline CmdCalculator::ProcessConfiguration<ExpressionStringT>
 	}
 
 	if (expectedArgValueKind != ECmdLineArgKind::None)
-		throw MissingCmdLineArgValueException<ExpressionStringT>{ *std::ranges::begin(rawCmdLineArgs | std::views::reverse) };
+	{
+		assert(!std::ranges::empty(rawCmdLineArgs));
+		throw MissingCmdLineArgValueException<ExpressionStringT>{ *std::ranges::rbegin(rawCmdLineArgs) };
+	}
 
 	return ProcessConfiguration<ExpressionStringT>
 	{

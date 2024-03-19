@@ -92,7 +92,7 @@ namespace
 	{
 		assert(!istream.bad());
 
-		std::basic_stringstream<CharT> readCharsStream{ "" };
+		std::basic_stringstream<CharT> readCharsStream{};
 
 		while (istream.good())
 		{

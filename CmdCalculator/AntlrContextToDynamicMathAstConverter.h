@@ -59,7 +59,7 @@ namespace CmdCalculator
 			requires AntlrToken<OptionalValueType<decltype(token)>>
 		{
 			return token.has_value()
-				? token.value().getText()
+				? convertString<CharT>(token.value().getText())
 				: getEmptyString()
 			;
 		}
@@ -69,7 +69,7 @@ namespace CmdCalculator
 			requires AntlrToken<OptionalValueType<decltype(token)>>
 		{
 			return token.has_value()
-				? std::make_optional<StringType>(token.value().getText())
+				? std::make_optional<StringType>(convertString<CharT>(token.value().getText()))
 				: std::optional<StringType>{}
 			;
 		}
@@ -169,7 +169,7 @@ namespace CmdCalculator
 		{
 			return std::make_unique<MathAst::DynamicNumberLiteralNode<StringType>>
 			(
-				std::make_optional<StringType>(context.getWholePart().getText()),
+				std::make_optional<StringType>(convertString<CharT>(context.getWholePart().getText())),
 				getOptionalTokenAsOptionalString(context.getFractionalPart()),
 				context.getDecimalPoint().has_value(),
 				getEmptyString(),
@@ -184,7 +184,7 @@ namespace CmdCalculator
 			return std::make_unique<MathAst::DynamicNumberLiteralNode<StringType>>
 			(
 				std::optional<StringType>{},
-				context.getFractionalPart().getText(),
+				convertString<CharT>(context.getFractionalPart().getText()),
 				true,
 				getEmptyString(),
 				getEmptyString()

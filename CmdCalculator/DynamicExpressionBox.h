@@ -10,10 +10,6 @@
 
 namespace CmdCalculator::Expressions
 {
-	//template<Arithmetic::RealNumber NumberT>
-	//class DynamicExpression;
-
-
 	template<class T>
 	concept BoxableInnerExpression =
 		Expression<T>
