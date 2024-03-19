@@ -22,8 +22,9 @@ All whitespace in the expression will be ignored.
 The following operators are available:
 |Operator|Name|Example|Evaluation of Example|
 |-|-|-|-|
+|`-`|Negation|`-5`|$-5=-5$|
 |`+`|Addition|`7+3`|$7+3=10$|
-|`-`|Subtraction|`7-3`|$7-3=-4$|
+|`-`|Subtraction|`7-3`|$7-3=4$|
 |`*`|Multiplication|`7*3`|$7*3=21$|
 |`/`|Division|`7/3`|$\frac{7}{3}=2.333...$|
 |`^`|Exponentiation|`7^3`|$7^3=343$|
