@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespace_cmd_calculator" kind="namespace" language="C++">
+    <compoundname>CmdCalculator</compoundname>
+    <innerclass refid="class_cmd_calculator_1_1_antlr_based_string_to_math_ast_converter" prot="public">CmdCalculator::AntlrBasedStringToMathAstConverter</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_bad_raw_cmd_line_args_exception" prot="public">CmdCalculator::BadRawCmdLineArgsException</innerclass>
+    <innerclass refid="struct_cmd_calculator_1_1_calculation___intended_satisfaction" prot="public">CmdCalculator::Calculation_IntendedSatisfaction</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_calculation_configuration" prot="public">CmdCalculator::CalculationConfiguration</innerclass>
+    <innerclass refid="struct_cmd_calculator_1_1_console___intended_satisfaction" prot="public">CmdCalculator::Console_IntendedSatisfaction</innerclass>
+    <innerclass refid="struct_cmd_calculator_1_1_expression_to_string_converter___intended_satisfaction" prot="public">CmdCalculator::ExpressionToStringConverter_IntendedSatisfaction</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_invalid_input_expression_exception" prot="public">CmdCalculator::InvalidInputExpressionException</innerclass>
+    <innerclass refid="struct_cmd_calculator_1_1_math_ast_to_expression_converter___intended_satisfaction" prot="public">CmdCalculator::MathAstToExpressionConverter_IntendedSatisfaction</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception" prot="public">CmdCalculator::MissingCmdLineArgValueException</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_not_implemented_exception" prot="public">CmdCalculator::NotImplementedException</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_process" prot="public">CmdCalculator::Process</innerclass>
+    <innerclass refid="struct_cmd_calculator_1_1_process_configuration" prot="public">CmdCalculator::ProcessConfiguration</innerclass>
+    <innerclass refid="struct_cmd_calculator_1_1_raw_cmd_line_arg_parser___intended_satisfaction" prot="public">CmdCalculator::RawCmdLineArgParser_IntendedSatisfaction</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_simple_calculation" prot="public">CmdCalculator::SimpleCalculation</innerclass>
+    <innerclass refid="struct_cmd_calculator_1_1_string_to_math_ast_converter___intended_satisfaction" prot="public">CmdCalculator::StringToMathAstConverter_IntendedSatisfaction</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_unknown_cmd_line_arg_exception" prot="public">CmdCalculator::UnknownCmdLineArgException</innerclass>
+    <innernamespace refid="namespace_cmd_calculator_1_1_expressions">CmdCalculator::Expressions</innernamespace>
+    <innernamespace refid="namespace_cmd_calculator_1_1_math_ast">CmdCalculator::MathAst</innernamespace>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespace_cmd_calculator_1a8e769d3360222ca267d3f48bfb16f5b1" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>EWriteMode</name>
+        <qualifiedname>CmdCalculator::EWriteMode</qualifiedname>
+        <enumvalue id="namespace_cmd_calculator_1a8e769d3360222ca267d3f48bfb16f5b1a4059b0251f66a18cb56f544728796875" prot="public">
+          <name>Info</name>
+          <briefdescription>
+<para>General information. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_cmd_calculator_1a8e769d3360222ca267d3f48bfb16f5b1a902b0d55fddef6f8d651fe1035b7d4bd" prot="public">
+          <name>Error</name>
+          <briefdescription>
+<para>An error message. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_cmd_calculator_1a8e769d3360222ca267d3f48bfb16f5b1aa603905470e2a5b8c13e96b579ef0dba" prot="public">
+          <name>Debug</name>
+          <briefdescription>
+<para>Debug information. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>A mode to write text to a console. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Console.h" line="9" column="1" bodyfile="Console.h" bodystart="10" bodyend="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="AntlrBasedStringToMathAstConverter.h" line="16" column="1"/>
+  </compounddef>
+</doxygen>

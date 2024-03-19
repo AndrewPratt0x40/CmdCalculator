@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="concept_cmd_calculator_1_1_math_ast_1_1_expression_node" kind="concept">
+    <compoundname>CmdCalculator::MathAst::ExpressionNode</compoundname>
+    <includes refid="_expression_node_8h" local="no">ExpressionNode.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+    <initializer>template&lt;class T&gt;
+concept <ref refid="concept_cmd_calculator_1_1_math_ast_1_1_expression_node" kindref="compound">CmdCalculator::MathAst::ExpressionNode</ref> = 
+		std::derived_from&lt;T, ExpressionNode_IntendedSatisfaction&gt;
+		&amp;&amp; MathAstNode&lt;T&gt;
+		&amp;&amp; requires(T&amp;&amp; instance)
+		{
+			{ instance.getParts() } -&gt; std::ranges::input_range;
+			ExpressionPartNode&lt;std::ranges::range_value_t&lt;decltype(instance.getParts())&gt;&gt;;
+		}
+	    </initializer>
+    <briefdescription>
+<para>A single node in an abstract syntax tree (AST) representing a mathematical expression. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the AST node. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="ExpressionNode.h" line="23" column="1"/>
+  </compounddef>
+</doxygen>

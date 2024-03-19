@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_cmd_calculator_1_1_string_to_math_ast_converter___intended_satisfaction" kind="struct" language="C++" prot="public">
+    <compoundname>CmdCalculator::StringToMathAstConverter_IntendedSatisfaction</compoundname>
+    <derivedcompoundref refid="class_cmd_calculator_1_1_antlr_based_string_to_math_ast_converter" prot="public" virt="non-virtual">CmdCalculator::AntlrBasedStringToMathAstConverter&lt; StringViewT &gt;</derivedcompoundref>
+    <includes refid="_string_to_math_ast_converter_8h" local="no">StringToMathAstConverter.h</includes>
+    <briefdescription>
+<para>The base type for types that are intended to satisfy the StringToMathConverter concept. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>CmdCalculator::AntlrBasedStringToMathAstConverter&lt; StringViewT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_antlr_based_string_to_math_ast_converter"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CmdCalculator::StringToMathAstConverter_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_string_to_math_ast_converter___intended_satisfaction"/>
+      </node>
+    </inheritancegraph>
+    <location file="StringToMathAstConverter.h" line="11" column="1" bodyfile="StringToMathAstConverter.h" bodystart="12" bodyend="12"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

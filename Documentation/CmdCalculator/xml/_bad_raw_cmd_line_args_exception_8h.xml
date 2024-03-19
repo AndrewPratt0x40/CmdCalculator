@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_bad_raw_cmd_line_args_exception_8h" kind="file" language="C++">
+    <compoundname>BadRawCmdLineArgsException.h</compoundname>
+    <includes local="no">exception</includes>
+    <includedby refid="_missing_cmd_line_arg_value_exception_8h" local="yes">MissingCmdLineArgValueException.h</includedby>
+    <includedby refid="_unknown_cmd_line_arg_exception_8h" local="yes">UnknownCmdLineArgException.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>BadRawCmdLineArgsException.h</label>
+        <link refid="_bad_raw_cmd_line_args_exception_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>exception</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>BadRawCmdLineArgsException.h</label>
+        <link refid="_bad_raw_cmd_line_args_exception_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>MissingCmdLineArgValueException.cpp</label>
+        <link refid="_missing_cmd_line_arg_value_exception_8cpp"/>
+      </node>
+      <node id="2">
+        <label>MissingCmdLineArgValueException.h</label>
+        <link refid="_missing_cmd_line_arg_value_exception_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Process.cpp</label>
+        <link refid="_process_8cpp"/>
+      </node>
+      <node id="4">
+        <label>Process.h</label>
+        <link refid="_process_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>UnknownCmdLineArgException.cpp</label>
+        <link refid="_unknown_cmd_line_arg_exception_8cpp"/>
+      </node>
+      <node id="6">
+        <label>UnknownCmdLineArgException.h</label>
+        <link refid="_unknown_cmd_line_arg_exception_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_cmd_calculator_1_1_bad_raw_cmd_line_args_exception" prot="public">CmdCalculator::BadRawCmdLineArgsException</innerclass>
+    <innernamespace refid="namespace_cmd_calculator">CmdCalculator</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;exception&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_cmd_calculator" kindref="compound">CmdCalculator</ref></highlight></codeline>
+<codeline lineno="6"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8" refid="class_cmd_calculator_1_1_bad_raw_cmd_line_args_exception" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_cmd_calculator_1_1_bad_raw_cmd_line_args_exception" kindref="compound">BadRawCmdLineArgsException</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>std::exception</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>{};</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="BadRawCmdLineArgsException.h"/>
+  </compounddef>
+</doxygen>

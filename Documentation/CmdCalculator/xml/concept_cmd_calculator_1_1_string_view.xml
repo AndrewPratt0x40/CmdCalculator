@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="concept_cmd_calculator_1_1_string_view" kind="concept">
+    <compoundname>CmdCalculator::StringView</compoundname>
+    <includes refid="strings_8h" local="no">strings.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+    <initializer>template&lt;class T&gt;
+concept <ref refid="concept_cmd_calculator_1_1_string_view" kindref="compound">CmdCalculator::StringView</ref> = 
+		requires()
+		{
+			typename T::value_type;
+			typename T::traits_type;
+		}
+		&amp;&amp; StringViewOfChar&lt;T, typename T::value_type&gt;
+	    </initializer>
+    <briefdescription>
+<para>A string view type. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string view type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+To satisfy this concept, <computeroutput>T</computeroutput> must be able to be represented by std::basic_string_view. </para>
+    </detaileddescription>
+    <location file="strings.h" line="41" column="1"/>
+  </compounddef>
+</doxygen>

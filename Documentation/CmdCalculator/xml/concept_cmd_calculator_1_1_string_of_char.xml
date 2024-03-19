@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="concept_cmd_calculator_1_1_string_of_char" kind="concept">
+    <compoundname>CmdCalculator::StringOfChar</compoundname>
+    <includes refid="strings_8h" local="no">strings.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+      <param>
+        <type>class CharT</type>
+      </param>
+    </templateparamlist>
+    <initializer>template&lt;class T, class CharT&gt;
+concept <ref refid="concept_cmd_calculator_1_1_string_of_char" kindref="compound">CmdCalculator::StringOfChar</ref> =  std::convertible_to&lt;T, std::basic_string&lt;CharT&gt;&gt;    </initializer>
+    <briefdescription>
+<para>A string type. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>CharT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the characters of <computeroutput>T</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+To satisfy this concept, <computeroutput>T</computeroutput> must be able to be represented by std::basic_string&lt;<computeroutput>CharT&gt;&gt;</computeroutput>. </para>
+    </detaileddescription>
+    <location file="strings.h" line="13" column="1"/>
+  </compounddef>
+</doxygen>

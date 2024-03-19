@@ -1,0 +1,105 @@
+\doxysection{Cmd\+Calculator\+::Math\+Ast Namespace Reference}
+\hypertarget{namespace_cmd_calculator_1_1_math_ast}{}\label{namespace_cmd_calculator_1_1_math_ast}\index{CmdCalculator::MathAst@{CmdCalculator::MathAst}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node}{Dynamic\+Absolute\+Value\+Node}}
+\begin{DoxyCompactList}\small\item\em An absolute value operation expression. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node}{Dynamic\+Binary\+Operator\+Node}}
+\begin{DoxyCompactList}\small\item\em A node holding a binary operator. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node}{Dynamic\+Expression\+Containing\+Node}}
+\begin{DoxyCompactList}\small\item\em A node that holds an expression inside of it. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{Dynamic\+Expression\+Containing\+Node\+With\+Underlying\+Collection}}
+\begin{DoxyCompactList}\small\item\em A base class for types that subclass \doxylink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node}{Dynamic\+Expression\+Containing\+Node} that are implemented via an underlying collection of a given type to store all parts of the contained expression. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_node}{Dynamic\+Expression\+Node}}
+\begin{DoxyCompactList}\small\item\em A type that satisfies Expression\+Node that is implemented via dynamic polymorphism. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node}{Dynamic\+Expression\+Part\+Node}}
+\begin{DoxyCompactList}\small\item\em A type that satisfies Expression\+Part\+Node that is implemented via dynamic polymorphism. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node}{Dynamic\+Grouping\+Multiplication\+Node}}
+\begin{DoxyCompactList}\small\item\em A multiplication operation using represented by an operand followed by one or more adjacent grouping operations. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node}{Dynamic\+Grouping\+Node}}
+\begin{DoxyCompactList}\small\item\em An expression grouped by parentheses. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node}{Dynamic\+Math\+Ast\+Node}}
+\begin{DoxyCompactList}\small\item\em A type that satisfies Math\+Ast\+Node that is implemented via dynamic polymorphism. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node}{Dynamic\+Number\+Literal\+Node}}
+\begin{DoxyCompactList}\small\item\em A node that holds an expression inside of it. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node}{Dynamic\+Operand\+Node}}
+\begin{DoxyCompactList}\small\item\em A node that may be used as an operand for an operation. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_sign_operation_node}{Dynamic\+Sign\+Operation\+Node}}
+\begin{DoxyCompactList}\small\item\em A sign operation. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node}{Dynamic\+Sqrt\+Operation\+Node}}
+\begin{DoxyCompactList}\small\item\em A square root operation. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_unary_operation_node}{Dynamic\+Unary\+Operation\+Node}}
+\begin{DoxyCompactList}\small\item\em A unary operation. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_cmd_calculator_1_1_math_ast_1_1_expression_node___intended_satisfaction}{Expression\+Node\+\_\+\+Intended\+Satisfaction}}
+\begin{DoxyCompactList}\small\item\em The base type for types that are intended to satisfy the Expression\+Node concept. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_cmd_calculator_1_1_math_ast_1_1_expression_part_node___intended_satisfaction}{Expression\+Part\+Node\+\_\+\+Intended\+Satisfaction}}
+\begin{DoxyCompactList}\small\item\em The base type for types that are intended to satisfy the Expression\+Part\+Node concept. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction}{Math\+Ast\+Node\+\_\+\+Intended\+Satisfaction}}
+\begin{DoxyCompactList}\small\item\em The base type for types that are intended to satisfy the Math\+Ast\+Node concept. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Concepts}
+\begin{DoxyCompactItemize}
+\item 
+concept \mbox{\hyperlink{concept_cmd_calculator_1_1_math_ast_1_1_expression_node}{Expression\+Node}}
+\begin{DoxyCompactList}\small\item\em A single node in an abstract syntax tree (AST) representing a mathematical expression. \end{DoxyCompactList}\item 
+concept \mbox{\hyperlink{concept_cmd_calculator_1_1_math_ast_1_1_expression_part_node}{Expression\+Part\+Node}}
+\begin{DoxyCompactList}\small\item\em A single node in an abstract syntax tree (AST) representing a mathematical expression. \end{DoxyCompactList}\item 
+concept \mbox{\hyperlink{concept_cmd_calculator_1_1_math_ast_1_1_math_ast_node}{Math\+Ast\+Node}}
+\begin{DoxyCompactList}\small\item\em A single node in an abstract syntax tree (AST) representing a mathematical expression. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34}{EBinary\+Operator}} \{ \newline
+\mbox{\hyperlink{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34a7c5531bbefed0945814f874baf9e0e0f}{Addition}}
+, \mbox{\hyperlink{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34a6eb8b8b560161603402c0238b3a7d8b0}{Subtraction}}
+, \mbox{\hyperlink{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34a27d1a1f7b7c2180e5b20ce9e3d00e2dd}{Multiplication}}
+, \mbox{\hyperlink{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34a3025cdaab2deb0bb2cd642449e570833}{Division}}
+, \newline
+\mbox{\hyperlink{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34af66a8bcbb231ea7a3e07c4ad109c8478}{Exponentiation}}
+, \mbox{\hyperlink{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34ae070928708638f8670415b50d2d14eb6}{Nth\+Root}}
+, \mbox{\hyperlink{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34a4cde2424cf960a70b7fc5fda1119143d}{Modulo}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumerates the types of binary operators that may appear in a mathematical abstract syntax tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34}\label{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34} 
+\index{CmdCalculator::MathAst@{CmdCalculator::MathAst}!EBinaryOperator@{EBinaryOperator}}
+\index{EBinaryOperator@{EBinaryOperator}!CmdCalculator::MathAst@{CmdCalculator::MathAst}}
+\doxysubsubsection{\texorpdfstring{EBinaryOperator}{EBinaryOperator}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{enum}} \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{class}} \mbox{\hyperlink{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34}{Cmd\+Calculator\+::\+Math\+Ast\+::\+EBinary\+Operator}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enumerates the types of binary operators that may appear in a mathematical abstract syntax tree. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Addition@{Addition}!CmdCalculator::MathAst@{CmdCalculator::MathAst}}\index{CmdCalculator::MathAst@{CmdCalculator::MathAst}!Addition@{Addition}}}\Hypertarget{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34a7c5531bbefed0945814f874baf9e0e0f}\label{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34a7c5531bbefed0945814f874baf9e0e0f} 
+Addition&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Subtraction@{Subtraction}!CmdCalculator::MathAst@{CmdCalculator::MathAst}}\index{CmdCalculator::MathAst@{CmdCalculator::MathAst}!Subtraction@{Subtraction}}}\Hypertarget{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34a6eb8b8b560161603402c0238b3a7d8b0}\label{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34a6eb8b8b560161603402c0238b3a7d8b0} 
+Subtraction&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Multiplication@{Multiplication}!CmdCalculator::MathAst@{CmdCalculator::MathAst}}\index{CmdCalculator::MathAst@{CmdCalculator::MathAst}!Multiplication@{Multiplication}}}\Hypertarget{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34a27d1a1f7b7c2180e5b20ce9e3d00e2dd}\label{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34a27d1a1f7b7c2180e5b20ce9e3d00e2dd} 
+Multiplication&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Division@{Division}!CmdCalculator::MathAst@{CmdCalculator::MathAst}}\index{CmdCalculator::MathAst@{CmdCalculator::MathAst}!Division@{Division}}}\Hypertarget{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34a3025cdaab2deb0bb2cd642449e570833}\label{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34a3025cdaab2deb0bb2cd642449e570833} 
+Division&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Exponentiation@{Exponentiation}!CmdCalculator::MathAst@{CmdCalculator::MathAst}}\index{CmdCalculator::MathAst@{CmdCalculator::MathAst}!Exponentiation@{Exponentiation}}}\Hypertarget{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34af66a8bcbb231ea7a3e07c4ad109c8478}\label{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34af66a8bcbb231ea7a3e07c4ad109c8478} 
+Exponentiation&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NthRoot@{NthRoot}!CmdCalculator::MathAst@{CmdCalculator::MathAst}}\index{CmdCalculator::MathAst@{CmdCalculator::MathAst}!NthRoot@{NthRoot}}}\Hypertarget{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34ae070928708638f8670415b50d2d14eb6}\label{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34ae070928708638f8670415b50d2d14eb6} 
+Nth\+Root&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Modulo@{Modulo}!CmdCalculator::MathAst@{CmdCalculator::MathAst}}\index{CmdCalculator::MathAst@{CmdCalculator::MathAst}!Modulo@{Modulo}}}\Hypertarget{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34a4cde2424cf960a70b7fc5fda1119143d}\label{namespace_cmd_calculator_1_1_math_ast_a57b2e3630e0e6d815a069cfa6670bc34a4cde2424cf960a70b7fc5fda1119143d} 
+Modulo&\\
+\hline
+
+\end{DoxyEnumFields}

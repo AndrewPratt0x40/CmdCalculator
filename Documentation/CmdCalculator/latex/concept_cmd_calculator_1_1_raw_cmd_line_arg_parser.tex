@@ -1,0 +1,42 @@
+\doxysection{Cmd\+Calculator\+::Raw\+Cmd\+Line\+Arg\+Parser Concept Reference}
+\hypertarget{concept_cmd_calculator_1_1_raw_cmd_line_arg_parser}{}\label{concept_cmd_calculator_1_1_raw_cmd_line_arg_parser}\index{CmdCalculator::RawCmdLineArgParser@{CmdCalculator::RawCmdLineArgParser}}
+
+
+An object that can parse raw command-\/line arguments passed to \doxylink{namespace_cmd_calculator}{Cmd\+Calculator}.  
+
+
+
+
+{\ttfamily \#include $<$Raw\+Cmd\+Line\+Arg\+Parser.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T,\ \textcolor{keyword}{class}\ ArgsT>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_raw_cmd_line_arg_parser}{CmdCalculator::RawCmdLineArgParser}}\ =\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::ranges::input\_range<ArgsT>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string}{String<std::ranges::range\_value\_t<ArgsT>}}>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string}{String<typename\ T::ExpressionStringType>}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \textcolor{keyword}{requires}()}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ ProcessConfiguration<typename\ T::ExpressionStringType>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \textcolor{keyword}{requires}(T\ \&\&\ instance,\ ArgsT\ rawCmdLineArgs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cmd_calculator_1_1_process_configuration}{ProcessConfiguration<typename\ T::ExpressionStringType>}}\&\ defaultConfiguration)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.parseRawCmdLineArgs(rawCmdLineArgs,\ defaultConfiguration)\ \}\ -\/>\ std::same\_as\ <ProcessConfiguration<typename\ T::ExpressionStringType>>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+An object that can parse raw command-\/line arguments passed to \doxylink{namespace_cmd_calculator}{Cmd\+Calculator}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the parser. \\
+\hline
+{\em ArgsT} & The type of ranges of command-\/line arguments to parse. \\
+\hline
+\end{DoxyTemplParams}

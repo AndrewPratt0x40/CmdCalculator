@@ -1,0 +1,13 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Target Name="Build">
+		<Error Text="Build target not implemented. Should be defined in project.targets"/>
+	</Target>
+	
+	<Target Name="Clean">
+		<Error Text="Clean target not implemented. Should be defined in project.targets"/>
+	</Target>
+
+	<Target Name="Run">
+		<Error Text="Debug target not implemented. Should be defined in project.targets"/>
+	</Target>
+</Project>

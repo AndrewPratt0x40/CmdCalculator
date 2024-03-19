@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
-      <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
@@ -27,66 +19,57 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <EnableASAN>true</EnableASAN>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <EnableASAN>false</EnableASAN>
+  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings" />
   <ImportGroup Label="Shared" />
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(SolutionDir)submodules/Antlr4CppRuntime/src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)submodules/Antlr4CppRuntime/src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup />
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <WarningLevel>Level3</WarningLevel>
-    </ClCompile>
-    <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
-    </Link>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>X64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ANTLR4CPP_STATIC;X64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <DisableSpecificWarnings>4584</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>$(SolutionDir)submodules/Antlr4CppRuntime/src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-    </ClCompile>
-    <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <PreprocessorDefinitions>X64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ANTLR4CPP_STATIC;X64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <DisableSpecificWarnings>4584</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>$(SolutionDir)submodules/Antlr4CppRuntime/src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -97,17 +80,80 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="TrueBinaryOperatorAntlrContextViewTests.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test.cpp" />
+    <ClCompile Include="AntlrBasedStringToMathAstConverterTests.cpp" />
+    <ClCompile Include="AntlrContextToDynamicMathAstConverterTests.cpp" />
+    <ClCompile Include="AntlrInvokingStringToAntlrContextConverterTests.cpp" />
+    <ClCompile Include="BasicDEPSingleSplitResultTests.cpp" />
+    <ClCompile Include="BasicDEPSingleSplitterTests.cpp" />
+    <ClCompile Include="BasicDynamicOperandToDynamicExpressionConverterTests.cpp" />
+    <ClCompile Include="BasicRawCmdLineArgParserTests.cpp" />
+    <ClCompile Include="BasicRSRToDynamicExpressionConverterTests.cpp" />
+    <ClCompile Include="CalculationConfigurationTests.cpp" />
+    <ClCompile Include="DynamicAbsoluteValueNodeTests.cpp" />
+    <ClCompile Include="DynamicAbsoluteValueOperationTests.cpp" />
+    <ClCompile Include="DynamicAdditionOperationTests.cpp" />
+    <ClCompile Include="DynamicBinaryOperatorNodeTests.cpp" />
+    <ClCompile Include="DynamicDivisionOperationTests.cpp" />
+    <ClCompile Include="DynamicExponentiationOperationTests.cpp" />
+    <ClCompile Include="DynamicExpressionBoxTests.cpp" />
+    <ClCompile Include="DynamicExpressionNodeTests.cpp" />
+    <ClCompile Include="DynamicExpressionPartNodeTests.cpp" />
+    <ClCompile Include="BasicDEPRecursiveSplitResultTests.cpp" />
+    <ClCompile Include="DynamicExpressionTests.cpp" />
+    <ClCompile Include="DynamicGroupingMultiplicationNodeTests.cpp" />
+    <ClCompile Include="DynamicGroupingNodeTests.cpp" />
+    <ClCompile Include="DynamicMathAstNodeTests.cpp" />
+    <ClCompile Include="BasicDynamicMathAstToDynamicExpressionConverterTests.cpp" />
+    <ClCompile Include="DynamicModuloOperationTests.cpp" />
+    <ClCompile Include="DynamicMultiplicationOperationTests.cpp" />
+    <ClCompile Include="DynamicNegationOperationTests.cpp" />
+    <ClCompile Include="DynamicNthRootOperationTests.cpp" />
+    <ClCompile Include="DynamicNumberLiteralNodeTests.cpp" />
+    <ClCompile Include="DynamicNumberTests.cpp" />
+    <ClCompile Include="DynamicSignOperationNodeTests.cpp" />
+    <ClCompile Include="DynamicSqrtOperationNodeTest.cpp" />
+    <ClCompile Include="DynamicSubtractionOperationTests.cpp" />
+    <ClCompile Include="ExpressionEvaluationToStringConverterTests.cpp" />
+    <ClCompile Include="FundamentallyBackedRealNumberTests.cpp" />
+    <ClCompile Include="OwningTrueFullExpressionAntlrContextTests.cpp" />
     <ClCompile Include="pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ProcessTests.cpp" />
+    <ClCompile Include="BasicCalculationTests.cpp" />
+    <ClCompile Include="SingularInvokingDEPSplitterTests.cpp" />
+    <ClCompile Include="StreamBasedConsoleTests.cpp" />
+    <ClCompile Include="stringsTests.cpp" />
+    <ClCompile Include="TrueAbsoluteValueOperationAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueExpressionAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueGroupingAntlrContextViewTest.cpp" />
+    <ClCompile Include="TrueGroupingMultiplicationAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueGroupingTailMultiplicandAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueNonGroupingMultiplicationAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueNumberLiteralAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueOperandAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueOperationPartPairAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueSignOperationAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueSignOperatorAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueSqrtOperationAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueWholefulNumberLiteralAntlrContextViewTests.cpp" />
+    <ClCompile Include="TrueWholelessNumberLiteralAntlrContextViewTests.cpp" />
+    <ClCompile Include="utilitiesTests.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CmdCalculatorAntlr\CmdCalculatorAntlr.vcxproj">
+      <Project>{eb525848-c145-4190-8c59-856a35ea2f49}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CmdCalculatorTestDoubles\CmdCalculatorTestDoubles.vcxproj">
+      <Project>{80aa43e2-f1c0-4a47-b09f-1656a1c96fae}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CmdCalculatorTestUtils\CmdCalculatorTestUtils.vcxproj">
+      <Project>{1cac90e9-39e9-49d5-9683-601b4de41e30}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\CmdCalculator\CmdCalculator.vcxproj">
       <Project>{04baed67-6b9a-4d4d-a1a1-cbb2eb87ecd5}</Project>
     </ProjectReference>

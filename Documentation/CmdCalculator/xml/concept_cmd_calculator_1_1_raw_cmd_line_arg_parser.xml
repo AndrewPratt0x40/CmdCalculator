@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="concept_cmd_calculator_1_1_raw_cmd_line_arg_parser" kind="concept">
+    <compoundname>CmdCalculator::RawCmdLineArgParser</compoundname>
+    <includes refid="_raw_cmd_line_arg_parser_8h" local="no">RawCmdLineArgParser.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+      <param>
+        <type>class ArgsT</type>
+      </param>
+    </templateparamlist>
+    <initializer>template&lt;class T, class ArgsT&gt;
+concept <ref refid="concept_cmd_calculator_1_1_raw_cmd_line_arg_parser" kindref="compound">CmdCalculator::RawCmdLineArgParser</ref> = 
+		std::ranges::input_range&lt;ArgsT&gt;
+		&amp;&amp; String&lt;std::ranges::range_value_t&lt;ArgsT&gt;&gt;
+		&amp;&amp; String&lt;typename T::ExpressionStringType&gt;
+		&amp;&amp; requires()
+		{
+			typename ProcessConfiguration&lt;typename T::ExpressionStringType&gt;;
+		}
+		&amp;&amp; requires(T &amp;&amp; instance, ArgsT rawCmdLineArgs, const ProcessConfiguration&lt;typename T::ExpressionStringType&gt;&amp; defaultConfiguration)
+		{
+			{ instance.parseRawCmdLineArgs(rawCmdLineArgs, defaultConfiguration) } -&gt; std::same_as &lt;ProcessConfiguration&lt;typename T::ExpressionStringType&gt;&gt;;
+		}
+	    </initializer>
+    <briefdescription>
+<para>An object that can parse raw command-line arguments passed to <ref refid="namespace_cmd_calculator" kindref="compound">CmdCalculator</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the parser. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ArgsT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of ranges of command-line arguments to parse. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="RawCmdLineArgParser.h" line="20" column="1"/>
+  </compounddef>
+</doxygen>

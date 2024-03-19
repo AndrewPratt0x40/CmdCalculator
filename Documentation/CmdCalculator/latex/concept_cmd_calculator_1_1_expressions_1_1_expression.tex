@@ -1,0 +1,37 @@
+\doxysection{Cmd\+Calculator\+::Expressions\+::Expression Concept Reference}
+\hypertarget{concept_cmd_calculator_1_1_expressions_1_1_expression}{}\label{concept_cmd_calculator_1_1_expressions_1_1_expression}\index{CmdCalculator::Expressions::Expression@{CmdCalculator::Expressions::Expression}}
+
+
+A mathematical expression.  
+
+
+
+
+{\ttfamily \#include $<$Expression.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_expressions_1_1_expression}{CmdCalculator::Expressions::Expression}}\ =\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::derived\_from<T,\ Expression\_IntendedSatisfaction>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \textcolor{keyword}{requires}(T\&\&\ instance)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.isSimplifiable()\ \}\ -\/>\ std::same\_as<bool>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.getFullSimplification()\ \}\ -\/>\ std::derived\_from<Expression\_IntendedSatisfaction>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+A mathematical expression. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the expression. \\
+\hline
+\end{DoxyTemplParams}

@@ -1,0 +1,53 @@
+\doxysection{Dynamic\+Grouping\+Node.\+h}
+\hypertarget{_dynamic_grouping_node_8h_source}{}\label{_dynamic_grouping_node_8h_source}\mbox{\hyperlink{_dynamic_grouping_node_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dynamic_expression_containing_node_8h}{DynamicExpressionContainingNode.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{strings_8h}{strings.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_not_implemented_exception_8h}{NotImplementedException.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <concepts>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <ranges>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_cmd_calculator_1_1_math_ast}{CmdCalculator::MathAst}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{template}<String\ StringT,\ std::ranges::range\ UnderlyingPartsT>}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ \textcolor{keyword}{requires}\ \{\ \textcolor{keyword}{typename}\ DynamicExpressionContainingNodeWithUnderlyingCollection<StringT,\ UnderlyingPartsT>;\ \}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node}{DynamicGroupingNode}}\ :}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{DynamicExpressionContainingNodeWithUnderlyingCollection}}<StringT,\ UnderlyingPartsT>}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{StringType}}\ =\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{DynamicExpressionContainingNodeWithUnderlyingCollection<StringT,\ UnderlyingPartsT>::StringType}};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{PartsType}}\ =\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{DynamicExpressionContainingNodeWithUnderlyingCollection<StringT,\ UnderlyingPartsT>::PartsType}};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{UnderlyingPartsType}}\ =\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{DynamicExpressionContainingNodeWithUnderlyingCollection<StringT,\ UnderlyingPartsT>::UnderlyingPartsType}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{DynamicExpressionNode<StringT,\ PartsType>}}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_a4e45cadf7d497866085825780b4c5e8b}{getContainedExpression}}()\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{NotImplementedException}}\{\};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{StringT}}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_a314a51741f50a0aa154c7ca11a061a87}{getLeadingTrivia}}()\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00035\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{NotImplementedException}}\{\};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{StringT}}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_aba1851eba715799c3615d9d1b5c8372c}{getTrailingTrivia}}()\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{NotImplementedException}}\{\};}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{StringT}}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_ad9176a1677ef3b54a6e9434fd4b60a22}{getStringRepresentation}}()\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00047\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{NotImplementedException}}\{\};}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \};}
+\DoxyCodeLine{00051\ \}}
+
+\end{DoxyCode}

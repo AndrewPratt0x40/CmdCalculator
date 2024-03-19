@@ -1,0 +1,31 @@
+\doxysection{Math\+Ast\+Node.\+h}
+\hypertarget{_math_ast_node_8h_source}{}\label{_math_ast_node_8h_source}\mbox{\hyperlink{_math_ast_node_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <concepts>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{strings_8h}{strings.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_cmd_calculator_1_1_math_ast}{CmdCalculator::MathAst}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction}{MathAstNode\_IntendedSatisfaction}}}
+\DoxyCodeLine{00013\ \ \ \ \ \{\};}
+\DoxyCodeLine{00014\ \ \ \ \ }
+\DoxyCodeLine{00015\ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_math_ast_1_1_math_ast_node}{MathAstNode}}\ =}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ std::derived\_from<T,\ MathAstNode\_IntendedSatisfaction>}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string}{String<typename\ T::StringType>}}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \&\&\ \textcolor{keyword}{requires}(T\&\&\ instance)}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.getLeadingTrivia()\ \}\ -\/>\ std::same\_as<typename\ T::StringType>;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.getTrailingTrivia()\ \}\ -\/>\ std::same\_as<typename\ T::StringType>;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.getStringRepresentation()\ \}\ -\/>\ std::same\_as<typename\ T::StringType>;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ ;}
+\DoxyCodeLine{00029\ \}}
+
+\end{DoxyCode}

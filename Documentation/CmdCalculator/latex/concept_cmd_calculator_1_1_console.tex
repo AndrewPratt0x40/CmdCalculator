@@ -1,0 +1,41 @@
+\doxysection{Cmd\+Calculator\+::Console Concept Reference}
+\hypertarget{concept_cmd_calculator_1_1_console}{}\label{concept_cmd_calculator_1_1_console}\index{CmdCalculator::Console@{CmdCalculator::Console}}
+
+
+A text console.  
+
+
+
+
+{\ttfamily \#include $<$Console.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_console}{CmdCalculator::Console}}\ =\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::derived\_from<T,\ Console\_IntendedSatisfaction>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string}{String<typename\ T::StringType>}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string_view}{StringView<typename\ T::StringViewType>}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \textcolor{keyword}{requires}(T\ \&\&\ instance)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.getInput()\ \}\ -\/>\ std::same\_as<typename\ T::StringType>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \textcolor{keyword}{requires}(T\&\&\ instance,\ \textcolor{keyword}{typename}\ T::StringViewType\ text,\ \mbox{\hyperlink{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1}{EWriteMode}}\ writeMode)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ instance.write(text,\ writeMode);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ instance.writeLine(text,\ writeMode);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+A text console. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The console type. \\
+\hline
+\end{DoxyTemplParams}

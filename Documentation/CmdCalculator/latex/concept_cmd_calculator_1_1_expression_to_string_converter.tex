@@ -1,0 +1,35 @@
+\doxysection{Cmd\+Calculator\+::Expression\+To\+String\+Converter Concept Reference}
+\hypertarget{concept_cmd_calculator_1_1_expression_to_string_converter}{}\label{concept_cmd_calculator_1_1_expression_to_string_converter}\index{CmdCalculator::ExpressionToStringConverter@{CmdCalculator::ExpressionToStringConverter}}
+
+
+A type that converts mathematical expressions into strings.  
+
+
+
+
+{\ttfamily \#include $<$Expression\+To\+String\+Converter.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_expression_to_string_converter}{CmdCalculator::ExpressionToStringConverter}}\ =\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::derived\_from<T,\ ExpressionToStringConverter\_IntendedSatisfaction>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_expressions_1_1_expression}{Expressions::Expression<typename\ T::ExpressionType>}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \&\&\ \textcolor{keyword}{requires}(T\&\&\ instance,\ \textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ T::ExpressionType\&\ source,\ \textcolor{keyword}{const}\ CalculationConfiguration\ configuration)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\ instance.stringifyExpression(source,\ configuration)\ \}\ -\/>\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string}{String}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+A type that converts mathematical expressions into strings. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The converter type. \\
+\hline
+\end{DoxyTemplParams}

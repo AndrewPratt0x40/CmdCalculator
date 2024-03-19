@@ -4,5 +4,882 @@
     <Filter Include="Source Code">
       <UniqueIdentifier>{d9c1e6b0-97ca-4c73-a701-6133e954e817}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Code\CalculationConfiguration">
+      <UniqueIdentifier>{2d53abbe-d655-46e6-a863-3db42d185559}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Console">
+      <UniqueIdentifier>{03fd4d71-8fcb-4692-8d31-8b286168e75b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Math AST">
+      <UniqueIdentifier>{8668adda-befc-4fab-8630-231000c77fa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions">
+      <UniqueIdentifier>{bf3f20b8-da31-4638-8f4a-f770dd8c5095}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions">
+      <UniqueIdentifier>{ddb9ad41-d3b7-44c1-bd38-8e61fe661325}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Process">
+      <UniqueIdentifier>{7b39565f-8813-4a14-b834-c3eb35cd9f79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Calculation">
+      <UniqueIdentifier>{ede9fcfe-95b9-45c8-b886-b11d6f49f670}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions">
+      <UniqueIdentifier>{a8c73f27-97cb-4a2a-954f-054261803597}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\Raw Cmd Line Args">
+      <UniqueIdentifier>{53b396ec-e194-4442-bc4c-1499e4613189}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\Raw Cmd Line Args\UnknownCmdLineArgException">
+      <UniqueIdentifier>{49d30086-081e-4b54-942c-cbaac956a248}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\Raw Cmd Line Args\MissingCmdLineArgValueException">
+      <UniqueIdentifier>{35892eca-46a2-44c0-880b-f48668ea598f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\Invalid Input Expression">
+      <UniqueIdentifier>{7a408c41-e6f1-497a-97fd-816488463bd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Math AST\Dynamic">
+      <UniqueIdentifier>{016fde12-93c5-487f-be83-6fceaf21108e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Math AST\Dynamic\DynamicBinaryOperatorNode">
+      <UniqueIdentifier>{2c2cfad5-c59a-44d7-ae3a-afc748ab32d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Math AST\Dynamic\DynamicGroupingMultiplicationNode">
+      <UniqueIdentifier>{ecc5791e-8598-428a-b506-f6090624daa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Math AST\Dynamic\DynamicGroupingNode">
+      <UniqueIdentifier>{9acec865-82ef-431a-bcc1-c95c810c0a75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Math AST\Dynamic\DynamicAbsoluteValueNode">
+      <UniqueIdentifier>{ba1e3e96-bd75-4b59-b0e7-2a1fd09d773d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Math AST\Dynamic\DynamicNumberLiteralNode">
+      <UniqueIdentifier>{428d90ea-27c1-4206-b791-ce8f8200943a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Math AST\Dynamic\DynamicSignOperationNode">
+      <UniqueIdentifier>{0c5c7033-4cd6-4286-988f-6707082c2483}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Math AST\Dynamic\DynamicSqrtOperationNode">
+      <UniqueIdentifier>{a1c2d165-264a-4836-a253-4fb057fe7194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST">
+      <UniqueIdentifier>{9ba44115-1c87-43da-84c7-9c73f54edf21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR">
+      <UniqueIdentifier>{9503466b-234e-456e-8a7e-3c0bec4ebefb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrBasedStringToMathAstConverter">
+      <UniqueIdentifier>{51a6fc16-88da-4be1-aedf-49e133c5fe65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Calculation\BasicCalculation">
+      <UniqueIdentifier>{48546601-64b7-462e-b56a-d7fc3cafdaf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter">
+      <UniqueIdentifier>{4b982796-2712-41b2-8062-45aa7a280ea8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\StringToAntlrContextConverter">
+      <UniqueIdentifier>{7342e866-5ab3-49bc-982b-148acd641fa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects">
+      <UniqueIdentifier>{3f087724-7fde-4105-90fe-1a1248d8937f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrToken">
+      <UniqueIdentifier>{6ae61add-c146-4aea-9638-95541374e112}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext">
+      <UniqueIdentifier>{cdf9bd18-4b79-4f8d-8904-63aa377b86d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\OperandAntlrContext">
+      <UniqueIdentifier>{a3cdb57f-62df-476c-8f05-d57fd0639036}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\ExpressionAntlrContext">
+      <UniqueIdentifier>{59d1c69a-94db-4548-96c3-877f2da2857f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\NonGroupingMultiplicationAntlrContext">
+      <UniqueIdentifier>{6dd8e0bc-2f03-4a58-9b73-1a84c62c2c8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\NumberLiteralAntlrContext">
+      <UniqueIdentifier>{56732f83-81e2-43e3-93a6-ded229909faa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholefulNumberLiteralAntlrContext">
+      <UniqueIdentifier>{e1032c61-504d-455c-b958-4b77fbcc8072}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext">
+      <UniqueIdentifier>{c45adb4c-5c19-41d0-b0cf-1bba2c29a912}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperationAntlrContext">
+      <UniqueIdentifier>{4d862e95-e393-47b7-88e1-c44013995a44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext">
+      <UniqueIdentifier>{f91e0457-bc8b-40c4-a954-60a1d318173c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext">
+      <UniqueIdentifier>{32ac3f32-f2e5-4e48-9c01-c820cafcd051}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingAntlrContext">
+      <UniqueIdentifier>{a355168e-23e9-46b6-b6c9-48bb1b0400e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext">
+      <UniqueIdentifier>{541f6275-2634-4165-837a-439d038cafae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingMultiplicationAntlrContext">
+      <UniqueIdentifier>{a84217cf-d94a-4709-8155-03acaee5534b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingTailMultiplicandAntlrContext">
+      <UniqueIdentifier>{73b4acdf-819b-4f48-96ff-caf9140a24eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\OperationPartPairAntlrContext">
+      <UniqueIdentifier>{bbb5f641-5bf6-49df-a2c7-a4cdaf459191}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext">
+      <UniqueIdentifier>{382c6546-987e-426e-a993-ac3ff7800438}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext\OwningTrueFullExpressionAntlrContext">
+      <UniqueIdentifier>{66aa539c-b62a-40ba-a645-c2147e0e77d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrToken\TrueAntlrTokenView">
+      <UniqueIdentifier>{97a6e0b1-45d8-49c3-b4ec-fcdad592f5ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\ExpressionAntlrContext\TrueExpressionAntlrContextView">
+      <UniqueIdentifier>{2687a26e-863e-4141-83cc-46e508c91931}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\OperandAntlrContext\TrueOperandAntlrContextView">
+      <UniqueIdentifier>{4d9d55bd-c864-4eb0-8fd2-790a00aaf757}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\NonGroupingMultiplicationAntlrContext\TrueNonGroupingMultiplicationAntlrContextView">
+      <UniqueIdentifier>{7988846a-6ad8-4c33-ae8d-3466577676e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\NumberLiteralAntlrContext\TrueNumberLiteralAntlrContextView">
+      <UniqueIdentifier>{540ea2af-7829-473b-9d95-d7ff3e86337c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholefulNumberLiteralAntlrContext\TrueWholefulNumberLiteralAntlrContextView">
+      <UniqueIdentifier>{dfabb191-3696-4324-8cd2-c7006cb5fdd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext\TrueWholelessNumberLiteralAntlrContextView">
+      <UniqueIdentifier>{1d17ec63-6a16-4d26-b961-39bb95f7b2f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperationAntlrContext\TrueSignOperationAntlrContextView">
+      <UniqueIdentifier>{d2982b75-451d-44ab-a593-ebdbc7cfd3c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext\TrueSignOperatorAntlrContextView">
+      <UniqueIdentifier>{8dcf3b11-e1ef-45d3-bc36-4bb4f72ab9a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext\TrueSqrtOperationAntlrContextView">
+      <UniqueIdentifier>{ffa4b074-ae1e-4779-a02e-e5f7e7798f68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext\TrueAbsoluteValueOperationAntlrContextView">
+      <UniqueIdentifier>{0215584e-8595-4b45-9189-6c3a00452845}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingAntlrContext\TrueGroupingAntlrContextView">
+      <UniqueIdentifier>{7df5fe1f-b31a-4f63-a5be-b086f8824198}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingMultiplicationAntlrContext\TrueGroupingMultiplicationAntlrContextView">
+      <UniqueIdentifier>{2695e607-290a-4011-bb4e-a8c458cbe941}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingTailMultiplicandAntlrContext\TrueGroupingTailMultiplicandAntlrContextView">
+      <UniqueIdentifier>{79f20925-7082-4b84-8551-2a2b908c46ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\OperationPartPairAntlrContext\TrueOperationPartPairAntlrContextView">
+      <UniqueIdentifier>{63014b22-f751-4ea9-a9e5-595421a859b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext\TrueBinaryOperatorAntlrContextView">
+      <UniqueIdentifier>{e9fa4844-c51a-400d-8418-225e14bb684f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\NotImplementedException">
+      <UniqueIdentifier>{4ee76b1a-13bc-49d8-b78e-d5964c434918}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\Invalid Input Expression\EmptyInputExpressionException">
+      <UniqueIdentifier>{605c9926-ba04-430f-9cc5-d6c7c708b326}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\Invalid Input Expression\UnexpectedInputExpressionCharException">
+      <UniqueIdentifier>{64c494a9-e8de-4238-b74d-c0b2cd94b63d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\StringToAntlrContextConverter\AntlrInvokingStringToAntlrContextConverter">
+      <UniqueIdentifier>{17e0cc17-5f89-43a1-9825-d4913e271de2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter\AntlrContextToDynamicMathAstConverter">
+      <UniqueIdentifier>{ea0f5851-67db-48af-93f5-2b3ab9fb2d25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic">
+      <UniqueIdentifier>{388ef0c7-ba6b-4ca3-ac1d-9f2e8b08ed85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicExpressionBox">
+      <UniqueIdentifier>{80f38f30-3df7-4f68-bc7e-974f29e1ac9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicNumber">
+      <UniqueIdentifier>{eaec103d-4cb5-4be5-888d-1cd025bfe842}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Arithmetic">
+      <UniqueIdentifier>{d967c03b-c2a4-48f0-8520-c87ceb865247}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicNegationOperation">
+      <UniqueIdentifier>{8fef2f13-c122-4dd4-9c42-220dd0c1c39d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicAdditionOperation">
+      <UniqueIdentifier>{65b25256-1750-4bc8-a4f5-1f6d85e263a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicSubtractionOperation">
+      <UniqueIdentifier>{3d788480-ec6c-44ae-ad3f-1c434ed85fb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicMultiplicationOperation">
+      <UniqueIdentifier>{6d16e2c5-7d1f-4b01-adae-af4bf88cf123}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicDivisionOperation">
+      <UniqueIdentifier>{0286e3eb-9319-41e1-b512-0c77840f9f1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicExponentiationOperation">
+      <UniqueIdentifier>{58c2e267-4e7c-479e-b492-5d66b023fd59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicNthRootOperation">
+      <UniqueIdentifier>{4b02a9a8-afea-4f78-aea8-c5324f12f969}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicModuloOperation">
+      <UniqueIdentifier>{c96a89f6-02af-4f5f-9af2-d890b3192b77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\DynamicAbsoluteValueOperation">
+      <UniqueIdentifier>{5da6d1b3-0434-42f0-9776-bc65d62d7157}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Expressions\Dynamic\CommonDynamicBinaryOperation">
+      <UniqueIdentifier>{efabf42c-22d7-4bd5-8f0f-d97a5a682e99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\ExpressionEvaluationException">
+      <UniqueIdentifier>{9ad88c69-225f-4730-8f88-9d2648a95fdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\ExpressionEvaluationException\DivisionByZeroException">
+      <UniqueIdentifier>{6f199a57-0cf5-423e-b1c1-e2add6bad1a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\ExpressionEvaluationException\NegativeRadicandException">
+      <UniqueIdentifier>{bdb9caba-d564-41c7-8cb1-7fbe0db7b523}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Arithmetic\RealNumber">
+      <UniqueIdentifier>{5eb00000-b345-4061-90a8-6d0ba5f09454}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Arithmetic\RealNumber\FundamentallyBackedRealNumber">
+      <UniqueIdentifier>{e04d6432-e705-48fa-8862-e6e4bfd3fdaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression">
+      <UniqueIdentifier>{5803058d-d854-4f51-9caa-604b096f466f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression">
+      <UniqueIdentifier>{a8aeb0b4-7caf-4401-b859-800f233d629a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter">
+      <UniqueIdentifier>{9682bb30-f64c-4225-8524-66d061c0b5c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter">
+      <UniqueIdentifier>{30527aad-ff6a-48c5-a8a4-a026df885741}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter\BasicDynamicOperandToDynamicExpressionConverter">
+      <UniqueIdentifier>{cc893260-480b-44b7-ba1f-8994afc8457a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting">
+      <UniqueIdentifier>{2a959cbb-8b8d-433e-8194-6beadfc34fdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting">
+      <UniqueIdentifier>{72e7e024-e77d-4b22-b4c8-a5f65f2da7a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitResult">
+      <UniqueIdentifier>{2d617037-61d5-418e-8a2b-5773b0b0bd8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitter">
+      <UniqueIdentifier>{f67b9b47-838f-404d-92f6-2a8641f76366}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting">
+      <UniqueIdentifier>{5488fbe3-7b4b-45a8-b22b-ea94c704a60c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitResult">
+      <UniqueIdentifier>{345f36b7-170c-429c-90a7-add4a020409b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter">
+      <UniqueIdentifier>{4490b619-5515-4113-b565-aaf38a5d995d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter">
+      <UniqueIdentifier>{70da2a39-45b2-4015-a9fa-b0d3f955b37e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter\SingularInvokingDEPSplitter">
+      <UniqueIdentifier>{267aac73-8843-47eb-8437-031956771a3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitResult\BasicDEPRecursiveSplitResult">
+      <UniqueIdentifier>{9a6a2ed0-8f27-415e-8930-9cdb29213753}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitResult\BasicDEPSingleSplitResult">
+      <UniqueIdentifier>{f80fbc8d-d64e-4471-a8c5-1aa4854a3e35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitter\BasicDEPSingleSplitter">
+      <UniqueIdentifier>{c2e8c2b1-afbb-4f82-90ee-91064fe9565e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter\BasicDynamicMathAstToDynamicExpressionConverter">
+      <UniqueIdentifier>{ace7873c-13cd-4246-90b3-70711497b75c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter\BasicRSRToDynamicExpressionConverter">
+      <UniqueIdentifier>{8dc399e7-d3c4-486c-8120-1ee7208351db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Expression to String">
+      <UniqueIdentifier>{16945bd1-fbf3-478a-9436-0ccec3a6e4a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Conversions\Expression to String\ExpressionEvaluationToStringConverter">
+      <UniqueIdentifier>{284255ca-cee1-4694-bf30-c5e54b9b9466}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Console\StreamBasedConsole">
+      <UniqueIdentifier>{69af8f4b-307e-48ca-b975-5f2d8b7abc66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\RawCmdLineArgParser">
+      <UniqueIdentifier>{c9beef9e-2e19-463d-8cbc-5b7365ced736}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\RawCmdLineArgParser\BasicRawCmdLineArgParser">
+      <UniqueIdentifier>{781628d2-c413-4f87-928c-adbfb82116ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\Raw Cmd Line Args\DuplicateCmdLineArgException">
+      <UniqueIdentifier>{31c19792-6cb7-42a2-b85c-48a20deed075}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Exceptions\Raw Cmd Line Args\ContradictingCmdLineArgException">
+      <UniqueIdentifier>{7a8e7883-e921-4e89-8bdd-11a89f000c7b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CalculationConfiguration.h">
+      <Filter>Source Code\CalculationConfiguration</Filter>
+    </ClInclude>
+    <ClInclude Include="strings.h">
+      <Filter>Source Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Console.h">
+      <Filter>Source Code\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="MathAstNode.h">
+      <Filter>Source Code\Math AST</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressionNode.h">
+      <Filter>Source Code\Math AST</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressionPartNode.h">
+      <Filter>Source Code\Math AST</Filter>
+    </ClInclude>
+    <ClInclude Include="Expression.h">
+      <Filter>Source Code\Expressions</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessConfiguration.h">
+      <Filter>Source Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Process.h">
+      <Filter>Source Code\Process</Filter>
+    </ClInclude>
+    <ClInclude Include="Calculation.h">
+      <Filter>Source Code\Calculation</Filter>
+    </ClInclude>
+    <ClInclude Include="BadRawCmdLineArgsException.h">
+      <Filter>Source Code\Exceptions\Raw Cmd Line Args</Filter>
+    </ClInclude>
+    <ClInclude Include="UnknownCmdLineArgException.h">
+      <Filter>Source Code\Exceptions\Raw Cmd Line Args\UnknownCmdLineArgException</Filter>
+    </ClInclude>
+    <ClInclude Include="MissingCmdLineArgValueException.h">
+      <Filter>Source Code\Exceptions\Raw Cmd Line Args\MissingCmdLineArgValueException</Filter>
+    </ClInclude>
+    <ClInclude Include="InvalidInputExpressionException.h">
+      <Filter>Source Code\Exceptions\Invalid Input Expression</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicCalculation.h">
+      <Filter>Source Code\Calculation\BasicCalculation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicMathAstNode.h">
+      <Filter>Source Code\Math AST\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicExpressionPartNode.h">
+      <Filter>Source Code\Math AST\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicExpressionContainingNode.h">
+      <Filter>Source Code\Math AST\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicBinaryOperatorNode.h">
+      <Filter>Source Code\Math AST\Dynamic\DynamicBinaryOperatorNode</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicGroupingMultiplicationNode.h">
+      <Filter>Source Code\Math AST\Dynamic\DynamicGroupingMultiplicationNode</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicGroupingNode.h">
+      <Filter>Source Code\Math AST\Dynamic\DynamicGroupingNode</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicAbsoluteValueNode.h">
+      <Filter>Source Code\Math AST\Dynamic\DynamicAbsoluteValueNode</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicNumberLiteralNode.h">
+      <Filter>Source Code\Math AST\Dynamic\DynamicNumberLiteralNode</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicSignOperationNode.h">
+      <Filter>Source Code\Math AST\Dynamic\DynamicSignOperationNode</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicSqrtOperationNode.h">
+      <Filter>Source Code\Math AST\Dynamic\DynamicSqrtOperationNode</Filter>
+    </ClInclude>
+    <ClInclude Include="StringToMathAstConverter.h">
+      <Filter>Source Code\Conversions\String to Math AST</Filter>
+    </ClInclude>
+    <ClInclude Include="AntlrBasedStringToMathAstConverter.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrBasedStringToMathAstConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="dynamic_mathast.h">
+      <Filter>Source Code\Math AST\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="StringToAntlrContextConverter.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\StringToAntlrContextConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="AntlrContextToMathAstConverter.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="AntlrContextToDynamicMathAstConverter.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter\AntlrContextToDynamicMathAstConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="AntlrToken.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrToken</Filter>
+    </ClInclude>
+    <ClInclude Include="FullExpressionAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities.h">
+      <Filter>Source Code</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressionAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\ExpressionAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="OperandAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\OperandAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="NonGroupingMultiplicationAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\NonGroupingMultiplicationAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberLiteralAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\NumberLiteralAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="WholefulNumberLiteralAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholefulNumberLiteralAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="WholelessNumberLiteralAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="SignOperationAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperationAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="SignOperatorAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="SqrtOperationAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupingAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="AbsoluteValueOperationAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupingMultiplicationAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingMultiplicationAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupingTailMultiplicandAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingTailMultiplicandAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="OperationPartPairAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\OperationPartPairAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryOperatorAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="AntlrContextTypeDeductions.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicExpressionNode.h">
+      <Filter>Source Code\Math AST\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicUnaryOperationNode.h">
+      <Filter>Source Code\Math AST\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="std_polyfills.h">
+      <Filter>Source Code</Filter>
+    </ClInclude>
+    <ClInclude Include="OwningTrueFullExpressionAntlrContext.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext\OwningTrueFullExpressionAntlrContext</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueAntlrTokenView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrToken\TrueAntlrTokenView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueExpressionAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\ExpressionAntlrContext\TrueExpressionAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueOperandAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\OperandAntlrContext\TrueOperandAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueNonGroupingMultiplicationAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\NonGroupingMultiplicationAntlrContext\TrueNonGroupingMultiplicationAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueNumberLiteralAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\NumberLiteralAntlrContext\TrueNumberLiteralAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueWholefulNumberLiteralAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholefulNumberLiteralAntlrContext\TrueWholefulNumberLiteralAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueWholelessNumberLiteralAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext\TrueWholelessNumberLiteralAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueSignOperationAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperationAntlrContext\TrueSignOperationAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueSignOperatorAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext\TrueSignOperatorAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueSqrtOperationAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext\TrueSqrtOperationAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueGroupingAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingAntlrContext\TrueGroupingAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueAbsoluteValueOperationAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext\TrueAbsoluteValueOperationAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueGroupingMultiplicationAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingMultiplicationAntlrContext\TrueGroupingMultiplicationAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueGroupingTailMultiplicandAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingTailMultiplicandAntlrContext\TrueGroupingTailMultiplicandAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueOperationPartPairAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\OperationPartPairAntlrContext\TrueOperationPartPairAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="TrueBinaryOperatorAntlrContextView.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext\TrueBinaryOperatorAntlrContextView</Filter>
+    </ClInclude>
+    <ClInclude Include="NotImplementedException.h">
+      <Filter>Source Code\Exceptions\NotImplementedException</Filter>
+    </ClInclude>
+    <ClInclude Include="EmptyInputExpressionException.h">
+      <Filter>Source Code\Exceptions\Invalid Input Expression\EmptyInputExpressionException</Filter>
+    </ClInclude>
+    <ClInclude Include="UnexpectedInputExpressionCharException.h">
+      <Filter>Source Code\Exceptions\Invalid Input Expression\UnexpectedInputExpressionCharException</Filter>
+    </ClInclude>
+    <ClInclude Include="AntlrInvokingStringToAntlrContextConverter.h">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\StringToAntlrContextConverter\AntlrInvokingStringToAntlrContextConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="EBinaryOperator.h">
+      <Filter>Source Code\Math AST</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicExpression.h">
+      <Filter>Source Code\Expressions\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicExpressionBox.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicExpressionBox</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicNumber.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicNumber</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicNegationOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicNegationOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicAdditionOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicAdditionOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicAdditionOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicAdditionOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicSubtractionOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicSubtractionOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicSubtractionOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicSubtractionOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicMultiplicationOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicMultiplicationOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicDivisionOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicDivisionOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicDivisionOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicDivisionOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicExponentiationOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicExponentiationOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicNthRootOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicNthRootOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicModuloOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicModuloOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicAbsoluteValueOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\DynamicAbsoluteValueOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="ESign.h">
+      <Filter>Source Code\Arithmetic</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonDynamicBinaryOperation.h">
+      <Filter>Source Code\Expressions\Dynamic\CommonDynamicBinaryOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="DivisionByZeroException.h">
+      <Filter>Source Code\Exceptions\ExpressionEvaluationException\DivisionByZeroException</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressionEvaluationException.h">
+      <Filter>Source Code\Exceptions\ExpressionEvaluationException</Filter>
+    </ClInclude>
+    <ClInclude Include="NegativeRadicandException.h">
+      <Filter>Source Code\Exceptions\ExpressionEvaluationException\NegativeRadicandException</Filter>
+    </ClInclude>
+    <ClInclude Include="RealNumber.h">
+      <Filter>Source Code\Arithmetic\RealNumber</Filter>
+    </ClInclude>
+    <ClInclude Include="FundamentallyBackedRealNumber.h">
+      <Filter>Source Code\Arithmetic\RealNumber\FundamentallyBackedRealNumber</Filter>
+    </ClInclude>
+    <ClInclude Include="FundamentallyBackedRealNumber.hpp">
+      <Filter>Source Code\Arithmetic\RealNumber\FundamentallyBackedRealNumber</Filter>
+    </ClInclude>
+    <ClInclude Include="MathAstToExpressionConverter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicOperandToDynamicExpressionConverter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicOperandNode.h">
+      <Filter>Source Code\Math AST\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicExpressionPartSingleSplitter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitter</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicExpressionPartSingleSplitResult.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitResult</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicExpressionPartRecursiveSplitResult.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitResult</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicExpressionPartRecursiveSplitter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter</Filter>
+    </ClInclude>
+    <ClInclude Include="RecursiveSplitResultToDynamicExpressionConverter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="SingularInvokingDEPSplitter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter\SingularInvokingDEPSplitter</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicDEPRecursiveSplitResult.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitResult\BasicDEPRecursiveSplitResult</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicDEPSingleSplitResult.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitResult\BasicDEPSingleSplitResult</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicDEPSingleSplitter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitter\BasicDEPSingleSplitter</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicDynamicOperandToDynamicExpressionConverter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter\BasicDynamicOperandToDynamicExpressionConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="dynamic_expressions.h">
+      <Filter>Source Code\Expressions\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicMathAstToDynamicExpressionConverter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicDynamicMathAstToDynamicExpressionConverter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter\BasicDynamicMathAstToDynamicExpressionConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicRSRToDynamicExpressionConverter.h">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter\BasicRSRToDynamicExpressionConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressionToStringConverter.h">
+      <Filter>Source Code\Conversions\Expression to String</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressionEvaluationToStringConverter.h">
+      <Filter>Source Code\Conversions\Expression to String\ExpressionEvaluationToStringConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamBasedConsole.h">
+      <Filter>Source Code\Console\StreamBasedConsole</Filter>
+    </ClInclude>
+    <ClInclude Include="RawCmdLineArgParser.h">
+      <Filter>Source Code\RawCmdLineArgParser</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicRawCmdLineArgParser.h">
+      <Filter>Source Code\RawCmdLineArgParser\BasicRawCmdLineArgParser</Filter>
+    </ClInclude>
+    <ClInclude Include="DuplicateCmdLineArgException.h">
+      <Filter>Source Code\Exceptions\Raw Cmd Line Args\DuplicateCmdLineArgException</Filter>
+    </ClInclude>
+    <ClInclude Include="ContradictingCmdLineArgException.h">
+      <Filter>Source Code\Exceptions\Raw Cmd Line Args\ContradictingCmdLineArgException</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CalculationConfiguration.cpp">
+      <Filter>Source Code\CalculationConfiguration</Filter>
+    </ClCompile>
+    <ClCompile Include="Process.cpp">
+      <Filter>Source Code\Process</Filter>
+    </ClCompile>
+    <ClCompile Include="UnknownCmdLineArgException.cpp">
+      <Filter>Source Code\Exceptions\Raw Cmd Line Args\UnknownCmdLineArgException</Filter>
+    </ClCompile>
+    <ClCompile Include="MissingCmdLineArgValueException.cpp">
+      <Filter>Source Code\Exceptions\Raw Cmd Line Args\MissingCmdLineArgValueException</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicCalculation.cpp">
+      <Filter>Source Code\Calculation\BasicCalculation</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicBinaryOperatorNode.cpp">
+      <Filter>Source Code\Math AST\Dynamic\DynamicBinaryOperatorNode</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicGroupingMultiplicationNode.cpp">
+      <Filter>Source Code\Math AST\Dynamic\DynamicGroupingMultiplicationNode</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicGroupingNode.cpp">
+      <Filter>Source Code\Math AST\Dynamic\DynamicGroupingNode</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicAbsoluteValueNode.cpp">
+      <Filter>Source Code\Math AST\Dynamic\DynamicAbsoluteValueNode</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicNumberLiteralNode.cpp">
+      <Filter>Source Code\Math AST\Dynamic\DynamicNumberLiteralNode</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicSignOperationNode.cpp">
+      <Filter>Source Code\Math AST\Dynamic\DynamicSignOperationNode</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicSqrtOperationNode.cpp">
+      <Filter>Source Code\Math AST\Dynamic\DynamicSqrtOperationNode</Filter>
+    </ClCompile>
+    <ClCompile Include="AntlrBasedStringToMathAstConverter.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrBasedStringToMathAstConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="AntlrContextToDynamicMathAstConverter.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrContextToMathAstConverter\AntlrContextToDynamicMathAstConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="OwningTrueFullExpressionAntlrContext.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext\OwningTrueFullExpressionAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueAntlrTokenView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\AntlrToken\TrueAntlrTokenView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueExpressionAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\ExpressionAntlrContext\TrueExpressionAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueOperandAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\OperandAntlrContext\TrueOperandAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueNonGroupingMultiplicationAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\NonGroupingMultiplicationAntlrContext\TrueNonGroupingMultiplicationAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueNumberLiteralAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\NumberLiteralAntlrContext\TrueNumberLiteralAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueWholefulNumberLiteralAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholefulNumberLiteralAntlrContext\TrueWholefulNumberLiteralAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueWholelessNumberLiteralAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext\TrueWholelessNumberLiteralAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueSignOperationAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperationAntlrContext\TrueSignOperationAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueSignOperatorAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext\TrueSignOperatorAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueSqrtOperationAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext\TrueSqrtOperationAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueGroupingAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingAntlrContext\TrueGroupingAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueAbsoluteValueOperationAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext\TrueAbsoluteValueOperationAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueGroupingMultiplicationAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingMultiplicationAntlrContext\TrueGroupingMultiplicationAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueGroupingTailMultiplicandAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\GroupingTailMultiplicandAntlrContext\TrueGroupingTailMultiplicandAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueOperationPartPairAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\OperationPartPairAntlrContext\TrueOperationPartPairAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="TrueBinaryOperatorAntlrContextView.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext\TrueBinaryOperatorAntlrContextView</Filter>
+    </ClCompile>
+    <ClCompile Include="NotImplementedException.cpp">
+      <Filter>Source Code\Exceptions\NotImplementedException</Filter>
+    </ClCompile>
+    <ClCompile Include="EmptyInputExpressionException.cpp">
+      <Filter>Source Code\Exceptions\Invalid Input Expression\EmptyInputExpressionException</Filter>
+    </ClCompile>
+    <ClCompile Include="UnexpectedInputExpressionCharException.cpp">
+      <Filter>Source Code\Exceptions\Invalid Input Expression\UnexpectedInputExpressionCharException</Filter>
+    </ClCompile>
+    <ClCompile Include="AntlrInvokingStringToAntlrContextConverter.cpp">
+      <Filter>Source Code\Conversions\String to Math AST\ANTLR\StringToAntlrContextConverter\AntlrInvokingStringToAntlrContextConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicExpressionBox.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicExpressionBox</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicNumber.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicNumber</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicNegationOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicNegationOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicMultiplicationOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicMultiplicationOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicExponentiationOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicExponentiationOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicNthRootOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicNthRootOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicModuloOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicModuloOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicAbsoluteValueOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\DynamicAbsoluteValueOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonDynamicBinaryOperation.hpp">
+      <Filter>Source Code\Expressions\Dynamic\CommonDynamicBinaryOperation</Filter>
+    </ClCompile>
+    <ClCompile Include="DivisionByZeroException.cpp">
+      <Filter>Source Code\Exceptions\ExpressionEvaluationException\DivisionByZeroException</Filter>
+    </ClCompile>
+    <ClCompile Include="NegativeRadicandException.cpp">
+      <Filter>Source Code\Exceptions\ExpressionEvaluationException\NegativeRadicandException</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicDEPRecursiveSplitResult.hpp">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitResult\BasicDEPRecursiveSplitResult</Filter>
+    </ClCompile>
+    <ClCompile Include="SingularInvokingDEPSplitter.hpp">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter\SingularInvokingDEPSplitter</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicDEPSingleSplitResult.hpp">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitResult\BasicDEPSingleSplitResult</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicDEPSingleSplitter.hpp">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitter\BasicDEPSingleSplitter</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicDynamicOperandToDynamicExpressionConverter.hpp">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter\BasicDynamicOperandToDynamicExpressionConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicDynamicMathAstToDynamicExpressionConverter.hpp">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter\BasicDynamicMathAstToDynamicExpressionConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicRSRToDynamicExpressionConverter.hpp">
+      <Filter>Source Code\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter\BasicRSRToDynamicExpressionConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="ExpressionEvaluationToStringConverter.hpp">
+      <Filter>Source Code\Conversions\Expression to String\ExpressionEvaluationToStringConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamBasedConsole.hpp">
+      <Filter>Source Code\Console\StreamBasedConsole</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicRawCmdLineArgParser.hpp">
+      <Filter>Source Code\RawCmdLineArgParser\BasicRawCmdLineArgParser</Filter>
+    </ClCompile>
+    <ClCompile Include="DuplicateCmdLineArgException.cpp">
+      <Filter>Source Code\Exceptions\Raw Cmd Line Args\DuplicateCmdLineArgException</Filter>
+    </ClCompile>
+    <ClCompile Include="ContradictingCmdLineArgException.cpp">
+      <Filter>Source Code\Exceptions\Raw Cmd Line Args\ContradictingCmdLineArgException</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

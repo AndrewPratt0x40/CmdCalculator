@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_cmd_calculator_1_1_console___intended_satisfaction" kind="struct" language="C++" prot="public">
+    <compoundname>CmdCalculator::Console_IntendedSatisfaction</compoundname>
+    <includes refid="_console_8h" local="no">Console.h</includes>
+    <briefdescription>
+<para>The base type for types that are intended to satisfy the Console concept. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Console.h" line="21" column="1" bodyfile="Console.h" bodystart="22" bodyend="22"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

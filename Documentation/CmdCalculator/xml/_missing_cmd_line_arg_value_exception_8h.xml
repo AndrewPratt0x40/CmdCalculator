@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_missing_cmd_line_arg_value_exception_8h" kind="file" language="C++">
+    <compoundname>MissingCmdLineArgValueException.h</compoundname>
+    <includes local="no">string_view</includes>
+    <includes refid="_bad_raw_cmd_line_args_exception_8h" local="yes">BadRawCmdLineArgsException.h</includes>
+    <includes refid="strings_8h" local="yes">strings.h</includes>
+    <includedby refid="_missing_cmd_line_arg_value_exception_8cpp" local="yes">MissingCmdLineArgValueException.cpp</includedby>
+    <includedby refid="_process_8h" local="yes">Process.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>BadRawCmdLineArgsException.h</label>
+        <link refid="_bad_raw_cmd_line_args_exception_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>MissingCmdLineArgValueException.h</label>
+        <link refid="_missing_cmd_line_arg_value_exception_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>strings.h</label>
+        <link refid="strings_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>exception</label>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="2">
+        <label>string_view</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>MissingCmdLineArgValueException.cpp</label>
+        <link refid="_missing_cmd_line_arg_value_exception_8cpp"/>
+      </node>
+      <node id="1">
+        <label>MissingCmdLineArgValueException.h</label>
+        <link refid="_missing_cmd_line_arg_value_exception_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Process.cpp</label>
+        <link refid="_process_8cpp"/>
+      </node>
+      <node id="3">
+        <label>Process.h</label>
+        <link refid="_process_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception" prot="public">CmdCalculator::MissingCmdLineArgValueException</innerclass>
+    <innernamespace refid="namespace_cmd_calculator">CmdCalculator</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string_view&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_bad_raw_cmd_line_args_exception_8h" kindref="compound">BadRawCmdLineArgsException.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="strings_8h" kindref="compound">strings.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_cmd_calculator" kindref="compound">CmdCalculator</ref></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;String<sp/>ArgT&gt;</highlight></codeline>
+<codeline lineno="13" refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception" kindref="compound">MissingCmdLineArgValueException</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_cmd_calculator_1_1_bad_raw_cmd_line_args_exception" kindref="compound">BadRawCmdLineArgsException</ref></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ArgT<sp/>m_arg;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="19" refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_1a2c9a547827ef88634718ab35363d4775" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_1a2c9a547827ef88634718ab35363d4775" kindref="member">ArgType</ref><sp/>=<sp/>ArgT;</highlight></codeline>
+<codeline lineno="20" refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_1a4c8980254a79bd771d758c8c6d2a739d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_1a4c8980254a79bd771d758c8c6d2a739d" kindref="member">ArgViewType</ref><sp/>=<sp/>std::basic_string_view&lt;typename<sp/>ArgType::value_type&gt;;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_1a19533eeecd17c078aeccf20472abed27" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_1a19533eeecd17c078aeccf20472abed27" kindref="member">MissingCmdLineArgValueException</ref>(ArgT<sp/>arg)<sp/>:</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_arg{<sp/>arg<sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_1ad3dd4ebc3b79e5f168de2977f2ca6aa5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_1a4c8980254a79bd771d758c8c6d2a739d" kindref="member">ArgViewType</ref><sp/><ref refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_1ad3dd4ebc3b79e5f168de2977f2ca6aa5" kindref="member">getArg</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="33"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_arg;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="MissingCmdLineArgValueException.h"/>
+  </compounddef>
+</doxygen>

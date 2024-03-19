@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_the-example" kind="example">
+    <compoundname>The</compoundname>
+    <briefdescription>
+<para>Accessor to the head multiplicand of the operation. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Accessor to the head multiplicand of the operation. <simplesect kind="return"><para>The operand to be multiplied by the grouping operations that follow it. head multiplicand of the grouping multiplication expression <computeroutput>1(2)(3)</computeroutput> would be <computeroutput>1</computeroutput>. <programlisting filename="The"></programlisting> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="DynamicGroupingMultiplicationNode.h"/>
+  </compounddef>
+</doxygen>

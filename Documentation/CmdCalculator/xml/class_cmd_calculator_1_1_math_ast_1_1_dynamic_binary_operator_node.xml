@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node" kind="class" language="C++" prot="public">
+    <compoundname>CmdCalculator::MathAst::DynamicBinaryOperatorNode</compoundname>
+    <basecompoundref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node" prot="public" virt="non-virtual">CmdCalculator::MathAst::DynamicExpressionPartNode&lt; StringT &gt;</basecompoundref>
+    <includes refid="_dynamic_binary_operator_node_8h" local="no">DynamicBinaryOperatorNode.h</includes>
+    <templateparamlist>
+      <param>
+        <type>String</type>
+        <declname>StringT</declname>
+        <defname>StringT</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node_1a542ff585b814d7e306a97ee637d4c619" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34" kindref="member">EBinaryOperator</ref></type>
+        <definition>EBinaryOperator CmdCalculator::MathAst::DynamicBinaryOperatorNode&lt; StringT &gt;::getOperatorKind</definition>
+        <argsstring>() const</argsstring>
+        <name>getOperatorKind</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicBinaryOperatorNode::getOperatorKind</qualifiedname>
+        <briefdescription>
+<para>Accessor to the kind of operator the node holds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The operator kind. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicBinaryOperatorNode.h" line="20" column="17" bodyfile="DynamicBinaryOperatorNode.h" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node_1a3ebfd4c8e069d7de703ae44c48b73fc8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref></type>
+        <definition>StringT CmdCalculator::MathAst::DynamicBinaryOperatorNode&lt; StringT &gt;::getLeadingTrivia</definition>
+        <argsstring>() const override</argsstring>
+        <name>getLeadingTrivia</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicBinaryOperatorNode::getLeadingTrivia</qualifiedname>
+        <reimplements refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1ab119030478dfccaaae343daec89c93c2">getLeadingTrivia</reimplements>
+        <briefdescription>
+<para>Accessor to the AST node&apos;s leading trivia. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Trivial content at the beginning of the string contents of the node. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicBinaryOperatorNode.h" line="26" column="9" bodyfile="DynamicBinaryOperatorNode.h" bodystart="26" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node_1a4badcf6f21c0ca53e19facf1643a82c9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref></type>
+        <definition>StringT CmdCalculator::MathAst::DynamicBinaryOperatorNode&lt; StringT &gt;::getTrailingTrivia</definition>
+        <argsstring>() const override</argsstring>
+        <name>getTrailingTrivia</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicBinaryOperatorNode::getTrailingTrivia</qualifiedname>
+        <reimplements refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1a5e3b93b8fe74dccdfb351d216607d01d">getTrailingTrivia</reimplements>
+        <briefdescription>
+<para>Accessor to the AST node&apos;s trailing trivia. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Trivial content at the end of the string contents of the node. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicBinaryOperatorNode.h" line="32" column="9" bodyfile="DynamicBinaryOperatorNode.h" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node_1a9ca7f1ffea0f6b2d803412e352ac8d2b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref></type>
+        <definition>StringT CmdCalculator::MathAst::DynamicBinaryOperatorNode&lt; StringT &gt;::getStringRepresentation</definition>
+        <argsstring>() const override</argsstring>
+        <name>getStringRepresentation</name>
+        <qualifiedname>CmdCalculator::MathAst::DynamicBinaryOperatorNode::getStringRepresentation</qualifiedname>
+        <reimplements refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1a06c7437a7e811c1db2821bbd73a3e97a">getStringRepresentation</reimplements>
+        <briefdescription>
+<para>Accessor to the AST node&apos;s string representation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>All non-trivial string contents of the node. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DynamicBinaryOperatorNode.h" line="38" column="9" bodyfile="DynamicBinaryOperatorNode.h" bodystart="38" bodyend="41"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A node holding a binary operator. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>StringT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string type to use. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CmdCalculator::MathAst::DynamicBinaryOperatorNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CmdCalculator::MathAst::DynamicExpressionPartNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>CmdCalculator::MathAst::DynamicMathAstNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>CmdCalculator::MathAst::ExpressionPartNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_part_node___intended_satisfaction"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CmdCalculator::MathAst::DynamicBinaryOperatorNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CmdCalculator::MathAst::DynamicExpressionPartNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>CmdCalculator::MathAst::DynamicMathAstNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>CmdCalculator::MathAst::ExpressionPartNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_part_node___intended_satisfaction"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction"/>
+      </node>
+    </collaborationgraph>
+    <location file="DynamicBinaryOperatorNode.h" line="13" column="1" bodyfile="DynamicBinaryOperatorNode.h" bodystart="15" bodyend="42"/>
+    <listofallmembers>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node_1a3ebfd4c8e069d7de703ae44c48b73fc8" prot="public" virt="virtual"><scope>CmdCalculator::MathAst::DynamicBinaryOperatorNode</scope><name>getLeadingTrivia</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node_1a542ff585b814d7e306a97ee637d4c619" prot="public" virt="non-virtual"><scope>CmdCalculator::MathAst::DynamicBinaryOperatorNode</scope><name>getOperatorKind</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node_1a9ca7f1ffea0f6b2d803412e352ac8d2b" prot="public" virt="virtual"><scope>CmdCalculator::MathAst::DynamicBinaryOperatorNode</scope><name>getStringRepresentation</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node_1a4badcf6f21c0ca53e19facf1643a82c9" prot="public" virt="virtual"><scope>CmdCalculator::MathAst::DynamicBinaryOperatorNode</scope><name>getTrailingTrivia</name></member>
+      <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node_1a10f39d5e0fee951cac396f4803a1ddc2" prot="public" virt="non-virtual"><scope>CmdCalculator::MathAst::DynamicBinaryOperatorNode</scope><name>StringType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

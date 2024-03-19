@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_e_binary_operator_8h" kind="file" language="C++">
+    <compoundname>EBinaryOperator.h</compoundname>
+    <includedby refid="_dynamic_binary_operator_node_8h" local="yes">DynamicBinaryOperatorNode.h</includedby>
+    <invincdepgraph>
+      <node id="3">
+        <label>DynamicBinaryOperatorNode.cpp</label>
+        <link refid="_dynamic_binary_operator_node_8cpp"/>
+      </node>
+      <node id="2">
+        <label>DynamicBinaryOperatorNode.h</label>
+        <link refid="_dynamic_binary_operator_node_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>EBinaryOperator.h</label>
+        <link refid="_e_binary_operator_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespace_cmd_calculator">CmdCalculator</innernamespace>
+    <innernamespace refid="namespace_cmd_calculator_1_1_math_ast">CmdCalculator::MathAst</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_cmd_calculator_1_1_math_ast" kindref="compound">CmdCalculator::MathAst</ref></highlight></codeline>
+<codeline lineno="4"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="6" refid="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34" kindref="member">EBinaryOperator</ref></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34a7c5531bbefed0945814f874baf9e0e0f" kindref="member">Addition</ref>,</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34a6eb8b8b560161603402c0238b3a7d8b0" kindref="member">Subtraction</ref>,</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34a27d1a1f7b7c2180e5b20ce9e3d00e2dd" kindref="member">Multiplication</ref>,</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34a3025cdaab2deb0bb2cd642449e570833" kindref="member">Division</ref>,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34af66a8bcbb231ea7a3e07c4ad109c8478" kindref="member">Exponentiation</ref>,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34ae070928708638f8670415b50d2d14eb6" kindref="member">NthRoot</ref>,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34a4cde2424cf960a70b7fc5fda1119143d" kindref="member">Modulo</ref></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="EBinaryOperator.h"/>
+  </compounddef>
+</doxygen>

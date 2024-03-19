@@ -1,0 +1,426 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="strings_8h" kind="file" language="C++">
+    <compoundname>strings.h</compoundname>
+    <includes local="no">string</includes>
+    <includedby refid="_antlr_based_string_to_math_ast_converter_8h" local="yes">AntlrBasedStringToMathAstConverter.h</includedby>
+    <includedby refid="_calculation_8h" local="yes">Calculation.h</includedby>
+    <includedby refid="_console_8h" local="yes">Console.h</includedby>
+    <includedby refid="_dynamic_absolute_value_node_8h" local="yes">DynamicAbsoluteValueNode.h</includedby>
+    <includedby refid="_dynamic_binary_operator_node_8h" local="yes">DynamicBinaryOperatorNode.h</includedby>
+    <includedby refid="_dynamic_expression_containing_node_8h" local="yes">DynamicExpressionContainingNode.h</includedby>
+    <includedby refid="_dynamic_expression_node_8h" local="yes">DynamicExpressionNode.h</includedby>
+    <includedby refid="_dynamic_expression_part_node_8h" local="yes">DynamicExpressionPartNode.h</includedby>
+    <includedby refid="_dynamic_grouping_multiplication_node_8h" local="yes">DynamicGroupingMultiplicationNode.h</includedby>
+    <includedby refid="_dynamic_grouping_node_8h" local="yes">DynamicGroupingNode.h</includedby>
+    <includedby refid="_dynamic_math_ast_node_8h" local="yes">DynamicMathAstNode.h</includedby>
+    <includedby refid="_dynamic_number_literal_node_8h" local="yes">DynamicNumberLiteralNode.h</includedby>
+    <includedby refid="_dynamic_operand_node_8h" local="yes">DynamicOperandNode.h</includedby>
+    <includedby refid="_dynamic_sign_operation_node_8h" local="yes">DynamicSignOperationNode.h</includedby>
+    <includedby refid="_dynamic_sqrt_operation_node_8h" local="yes">DynamicSqrtOperationNode.h</includedby>
+    <includedby refid="_dynamic_unary_operation_node_8h" local="yes">DynamicUnaryOperationNode.h</includedby>
+    <includedby refid="_expression_node_8h" local="yes">ExpressionNode.h</includedby>
+    <includedby refid="_expression_part_node_8h" local="yes">ExpressionPartNode.h</includedby>
+    <includedby refid="_expression_to_string_converter_8h" local="yes">ExpressionToStringConverter.h</includedby>
+    <includedby refid="_math_ast_node_8h" local="yes">MathAstNode.h</includedby>
+    <includedby refid="_missing_cmd_line_arg_value_exception_8h" local="yes">MissingCmdLineArgValueException.h</includedby>
+    <includedby refid="_process_8h" local="yes">Process.h</includedby>
+    <includedby refid="_process_configuration_8h" local="yes">ProcessConfiguration.h</includedby>
+    <includedby refid="_raw_cmd_line_arg_parser_8h" local="yes">RawCmdLineArgParser.h</includedby>
+    <includedby refid="_simple_calculation_8h" local="yes">SimpleCalculation.h</includedby>
+    <includedby refid="_string_to_math_ast_converter_8h" local="yes">StringToMathAstConverter.h</includedby>
+    <includedby refid="_unknown_cmd_line_arg_exception_8h" local="yes">UnknownCmdLineArgException.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>strings.h</label>
+        <link refid="strings_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>AntlrBasedStringToMathAstConverter.cpp</label>
+        <link refid="_antlr_based_string_to_math_ast_converter_8cpp"/>
+      </node>
+      <node id="2">
+        <label>AntlrBasedStringToMathAstConverter.h</label>
+        <link refid="_antlr_based_string_to_math_ast_converter_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Calculation.h</label>
+        <link refid="_calculation_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Console.h</label>
+        <link refid="_console_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>DynamicAbsoluteValueNode.cpp</label>
+        <link refid="_dynamic_absolute_value_node_8cpp"/>
+      </node>
+      <node id="10">
+        <label>DynamicAbsoluteValueNode.h</label>
+        <link refid="_dynamic_absolute_value_node_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>DynamicBinaryOperatorNode.cpp</label>
+        <link refid="_dynamic_binary_operator_node_8cpp"/>
+      </node>
+      <node id="12">
+        <label>DynamicBinaryOperatorNode.h</label>
+        <link refid="_dynamic_binary_operator_node_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>DynamicExpressionContainingNode.h</label>
+        <link refid="_dynamic_expression_containing_node_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>DynamicExpressionNode.h</label>
+        <link refid="_dynamic_expression_node_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>DynamicExpressionPartNode.h</label>
+        <link refid="_dynamic_expression_part_node_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>DynamicGroupingMultiplicationNode.cpp</label>
+        <link refid="_dynamic_grouping_multiplication_node_8cpp"/>
+      </node>
+      <node id="16">
+        <label>DynamicGroupingMultiplicationNode.h</label>
+        <link refid="_dynamic_grouping_multiplication_node_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>DynamicGroupingNode.cpp</label>
+        <link refid="_dynamic_grouping_node_8cpp"/>
+      </node>
+      <node id="15">
+        <label>DynamicGroupingNode.h</label>
+        <link refid="_dynamic_grouping_node_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>DynamicMathAstNode.h</label>
+        <link refid="_dynamic_math_ast_node_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>DynamicNumberLiteralNode.cpp</label>
+        <link refid="_dynamic_number_literal_node_8cpp"/>
+      </node>
+      <node id="22">
+        <label>DynamicNumberLiteralNode.h</label>
+        <link refid="_dynamic_number_literal_node_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>DynamicOperandNode.h</label>
+        <link refid="_dynamic_operand_node_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>DynamicSignOperationNode.cpp</label>
+        <link refid="_dynamic_sign_operation_node_8cpp"/>
+      </node>
+      <node id="25">
+        <label>DynamicSignOperationNode.h</label>
+        <link refid="_dynamic_sign_operation_node_8h"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>DynamicSqrtOperationNode.cpp</label>
+        <link refid="_dynamic_sqrt_operation_node_8cpp"/>
+      </node>
+      <node id="27">
+        <label>DynamicSqrtOperationNode.h</label>
+        <link refid="_dynamic_sqrt_operation_node_8h"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>DynamicUnaryOperationNode.cpp</label>
+        <link refid="_dynamic_unary_operation_node_8cpp"/>
+      </node>
+      <node id="24">
+        <label>DynamicUnaryOperationNode.h</label>
+        <link refid="_dynamic_unary_operation_node_8h"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>ExpressionNode.h</label>
+        <link refid="_expression_node_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>ExpressionPartNode.h</label>
+        <link refid="_expression_part_node_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>ExpressionToStringConverter.h</label>
+        <link refid="_expression_to_string_converter_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>MathAstNode.h</label>
+        <link refid="_math_ast_node_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>MathAstToExpressionConverter.h</label>
+        <link refid="_math_ast_to_expression_converter_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>MissingCmdLineArgValueException.cpp</label>
+        <link refid="_missing_cmd_line_arg_value_exception_8cpp"/>
+      </node>
+      <node id="37">
+        <label>MissingCmdLineArgValueException.h</label>
+        <link refid="_missing_cmd_line_arg_value_exception_8h"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Process.cpp</label>
+        <link refid="_process_8cpp"/>
+      </node>
+      <node id="5">
+        <label>Process.h</label>
+        <link refid="_process_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>ProcessConfiguration.h</label>
+        <link refid="_process_configuration_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>RawCmdLineArgParser.h</label>
+        <link refid="_raw_cmd_line_arg_parser_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>SimpleCalculation.cpp</label>
+        <link refid="_simple_calculation_8cpp"/>
+      </node>
+      <node id="7">
+        <label>SimpleCalculation.h</label>
+        <link refid="_simple_calculation_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>StringToMathAstConverter.h</label>
+        <link refid="_string_to_math_ast_converter_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>UnknownCmdLineArgException.cpp</label>
+        <link refid="_unknown_cmd_line_arg_exception_8cpp"/>
+      </node>
+      <node id="41">
+        <label>UnknownCmdLineArgException.h</label>
+        <link refid="_unknown_cmd_line_arg_exception_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>strings.h</label>
+        <link refid="strings_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespace_cmd_calculator">CmdCalculator</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_cmd_calculator" kindref="compound">CmdCalculator</ref></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>T,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>CharT&gt;</highlight></codeline>
+<codeline lineno="13" refid="concept_cmd_calculator_1_1_string_of_char" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">concept<sp/></highlight><highlight class="normal"><ref refid="concept_cmd_calculator_1_1_string_of_char" kindref="compound">StringOfChar</ref><sp/>=<sp/>std::convertible_to&lt;T,<sp/>std::basic_string&lt;CharT&gt;&gt;;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="19" refid="concept_cmd_calculator_1_1_string" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">concept<sp/></highlight><highlight class="normal"><ref refid="concept_cmd_calculator_1_1_string" kindref="compound">String</ref><sp/>=</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">requires</highlight><highlight class="normal">()</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T::value_type;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T::traits_type;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T::allocator_type;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;&amp;<sp/><ref refid="concept_cmd_calculator_1_1_string_of_char" kindref="compound">StringOfChar&lt;T, typename T::value_type&gt;</ref></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>T,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>CharT&gt;</highlight></codeline>
+<codeline lineno="35" refid="concept_cmd_calculator_1_1_string_view_of_char" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">concept<sp/></highlight><highlight class="normal"><ref refid="concept_cmd_calculator_1_1_string_view_of_char" kindref="compound">StringViewOfChar</ref><sp/>=<sp/>std::convertible_to&lt;T,<sp/>std::basic_string_view&lt;CharT&gt;&gt;;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="41" refid="concept_cmd_calculator_1_1_string_view" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">concept<sp/></highlight><highlight class="normal"><ref refid="concept_cmd_calculator_1_1_string_view" kindref="compound">StringView</ref><sp/>=</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">requires</highlight><highlight class="normal">()</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T::value_type;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T::traits_type;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;&amp;<sp/><ref refid="concept_cmd_calculator_1_1_string_view_of_char" kindref="compound">StringViewOfChar&lt;T, typename T::value_type&gt;</ref></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="strings.h"/>
+  </compounddef>
+</doxygen>

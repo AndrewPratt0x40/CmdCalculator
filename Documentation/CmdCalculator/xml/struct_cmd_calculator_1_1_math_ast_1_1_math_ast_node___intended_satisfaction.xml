@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction" kind="struct" language="C++" prot="public">
+    <compoundname>CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction</compoundname>
+    <derivedcompoundref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node" prot="public" virt="non-virtual">CmdCalculator::MathAst::DynamicMathAstNode&lt; StringT &gt;</derivedcompoundref>
+    <derivedcompoundref refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_node___intended_satisfaction" prot="public" virt="non-virtual">CmdCalculator::MathAst::ExpressionNode_IntendedSatisfaction</derivedcompoundref>
+    <derivedcompoundref refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_part_node___intended_satisfaction" prot="public" virt="non-virtual">CmdCalculator::MathAst::ExpressionPartNode_IntendedSatisfaction</derivedcompoundref>
+    <includes refid="_math_ast_node_8h" local="no">MathAstNode.h</includes>
+    <briefdescription>
+<para>The base type for types that are intended to satisfy the MathAstNode concept. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="9">
+        <label>CmdCalculator::MathAst::DynamicAbsoluteValueNode&lt; StringT, UnderlyingPartsT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>CmdCalculator::MathAst::DynamicBinaryOperatorNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>CmdCalculator::MathAst::DynamicExpressionContainingNode&lt; StringT, PartsT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>CmdCalculator::MathAst::DynamicExpressionContainingNodeWithUnderlyingCollection&lt; StringT, UnderlyingPartsT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>CmdCalculator::MathAst::DynamicExpressionNode&lt; StringT, PartsT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_node"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>CmdCalculator::MathAst::DynamicExpressionNode&lt; StringT, PartsT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_node"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>CmdCalculator::MathAst::DynamicExpressionPartNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>CmdCalculator::MathAst::DynamicExpressionPartNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>CmdCalculator::MathAst::DynamicGroupingMultiplicationNode&lt; StringT, TailMultiplicandsT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>CmdCalculator::MathAst::DynamicGroupingNode&lt; StringT, UnderlyingPartsT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CmdCalculator::MathAst::DynamicMathAstNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>CmdCalculator::MathAst::DynamicNumberLiteralNode&lt; StringT, IntT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>CmdCalculator::MathAst::DynamicOperandNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>CmdCalculator::MathAst::DynamicSignOperationNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sign_operation_node"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>CmdCalculator::MathAst::DynamicSqrtOperationNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>CmdCalculator::MathAst::DynamicUnaryOperationNode&lt; StringT &gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_unary_operation_node"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>CmdCalculator::MathAst::ExpressionNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_node___intended_satisfaction"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>CmdCalculator::MathAst::ExpressionPartNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_part_node___intended_satisfaction"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction</label>
+        <link refid="struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction"/>
+      </node>
+      <node id="7">
+        <label>CmdCalculator::MathAst::DynamicExpressionContainingNode&lt; StringT, decltype(std::declval&lt; UnderlyingPartsT &gt;|std::views::all)&gt;</label>
+        <link refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="MathAstNode.h" line="12" column="1" bodyfile="MathAstNode.h" bodystart="13" bodyend="13"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

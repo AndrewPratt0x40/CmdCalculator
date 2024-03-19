@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{80aa43e2-f1c0-4a47-b09f-1656a1c96fae}</ProjectGuid>
+    <RootNamespace>CmdCalculatorTestDoubles</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="FakeCalculation.h" />
+    <ClInclude Include="FakeConsole.h" />
+    <ClInclude Include="FakeRealNumber.h" />
+    <ClInclude Include="FakeHalfwayDynamicExpressionPartRecursiveSplitter.h" />
+    <ClInclude Include="StubAbsoluteValueOperationAntlrContext.h" />
+    <ClInclude Include="StubAntlrToken.h" />
+    <ClInclude Include="StubBinaryOperatorAntlrContext.h" />
+    <ClInclude Include="StubDynamicExpression.h" />
+    <ClInclude Include="StubDynamicExpressionNode.h" />
+    <ClInclude Include="StubDynamicExpressionPartNode.h" />
+    <ClInclude Include="StubDynamicExpressionPartRecursiveSplitResult.h" />
+    <ClInclude Include="StubTrackingDynamicExpressionPartRecursiveSplitResult.h" />
+    <ClInclude Include="StubDynamicExpressionPartSingleSplitResult.h" />
+    <ClInclude Include="FakeHalfwayDynamicExpressionPartSingleSplitter.h" />
+    <ClInclude Include="StubDynamicGroupingNode.h" />
+    <ClInclude Include="StubDynamicOperandNode.h" />
+    <ClInclude Include="StubDynamicOperandToDynamicExpressionConverter.h" />
+    <ClInclude Include="StubExpressionAntlrContext.h" />
+    <ClInclude Include="StubFullExpressionAntlrContext.h" />
+    <ClInclude Include="StubGroupingAntlrContext.h" />
+    <ClInclude Include="StubGroupingMultiplicationAntlrContext.h" />
+    <ClInclude Include="StubGroupingTailMultiplicandAntlrContext.h" />
+    <ClInclude Include="StubNonGroupingMultiplicationAntlrContext.h" />
+    <ClInclude Include="StubNumberLiteralAntlrContext.h" />
+    <ClInclude Include="StubOperandAntlrContext.h" />
+    <ClInclude Include="StubOperationPartPairAntlrContext.h" />
+    <ClInclude Include="StubSignOperationAntlrContext.h" />
+    <ClInclude Include="StubSignOperatorAntlrContext.h" />
+    <ClInclude Include="StubSqrtOperationAntlrContext.h" />
+    <ClInclude Include="StubTrackingAntlrContextToMathAstConverter.h" />
+    <ClInclude Include="StubCalculation.h" />
+    <ClInclude Include="StubThrowingStringToAntlrContextConverter.h" />
+    <ClInclude Include="StubTrackingDynamicExpression.h" />
+    <ClInclude Include="StubTrackingDynamicExpressionNode.h" />
+    <ClInclude Include="StubTrackingDynamicMathAstToDynamicExpressionConverter.h" />
+    <ClInclude Include="StubTrackingDynamicOperandToDynamicExpressionConverter.h" />
+    <ClInclude Include="StubTrackingExpression.h" />
+    <ClInclude Include="StubTrackingFullExpressionAntlrContext.h" />
+    <ClInclude Include="StubTrackingRecursiveSplitResultToDynamicExpressionConverter.h" />
+    <ClInclude Include="StubTrackingStringToAntlrContextConverter.h" />
+    <ClInclude Include="StubTrackingConvertedString.h" />
+    <ClInclude Include="StubExpression.h" />
+    <ClInclude Include="StubExpressionToStringConverter.h" />
+    <ClInclude Include="DummyInvalidInputExpressionException.h" />
+    <ClInclude Include="StubMathAstNode.h" />
+    <ClInclude Include="StubMathAstToExpressionConverter.h" />
+    <ClInclude Include="StubStringToMathAstConverter.h" />
+    <ClInclude Include="StubThrowingCalculation.h" />
+    <ClInclude Include="StubThrowingRawCmdLineArgParser.h" />
+    <ClInclude Include="StubTrackingExpressionToStringConverter.h" />
+    <ClInclude Include="StubTrackingMathAstNode.h" />
+    <ClInclude Include="StubTrackingMathAstToExpressionConverter.h" />
+    <ClInclude Include="StubTrackingStringToMathAstConverter.h" />
+    <ClInclude Include="StubValidatingStringToMathAstConverter.h" />
+    <ClInclude Include="StubWholefulNumberLiteralAntlrContext.h" />
+    <ClInclude Include="StubWholelessNumberLiteralAntlrContext.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CmdCalculator\CmdCalculator.vcxproj">
+      <Project>{04baed67-6b9a-4d4d-a1a1-cbb2eb87ecd5}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="StubRawCmdLineArgParser.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_dynamic_expression_part_node_8h" kind="file" language="C++">
+    <compoundname>DynamicExpressionPartNode.h</compoundname>
+    <includes refid="_expression_part_node_8h" local="yes">ExpressionPartNode.h</includes>
+    <includes refid="_dynamic_math_ast_node_8h" local="yes">DynamicMathAstNode.h</includes>
+    <includes refid="strings_8h" local="yes">strings.h</includes>
+    <includedby refid="_antlr_based_string_to_math_ast_converter_8h" local="yes">AntlrBasedStringToMathAstConverter.h</includedby>
+    <includedby refid="_dynamic_binary_operator_node_8h" local="yes">DynamicBinaryOperatorNode.h</includedby>
+    <includedby refid="_dynamic_expression_node_8h" local="yes">DynamicExpressionNode.h</includedby>
+    <includedby refid="_dynamic_operand_node_8h" local="yes">DynamicOperandNode.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>DynamicExpressionPartNode.h</label>
+        <link refid="_dynamic_expression_part_node_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>DynamicMathAstNode.h</label>
+        <link refid="_dynamic_math_ast_node_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ExpressionPartNode.h</label>
+        <link refid="_expression_part_node_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>MathAstNode.h</label>
+        <link refid="_math_ast_node_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>strings.h</label>
+        <link refid="strings_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>concepts</label>
+      </node>
+      <node id="5">
+        <label>ranges</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>AntlrBasedStringToMathAstConverter.cpp</label>
+        <link refid="_antlr_based_string_to_math_ast_converter_8cpp"/>
+      </node>
+      <node id="2">
+        <label>AntlrBasedStringToMathAstConverter.h</label>
+        <link refid="_antlr_based_string_to_math_ast_converter_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>DynamicAbsoluteValueNode.cpp</label>
+        <link refid="_dynamic_absolute_value_node_8cpp"/>
+      </node>
+      <node id="8">
+        <label>DynamicAbsoluteValueNode.h</label>
+        <link refid="_dynamic_absolute_value_node_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>DynamicBinaryOperatorNode.cpp</label>
+        <link refid="_dynamic_binary_operator_node_8cpp"/>
+      </node>
+      <node id="4">
+        <label>DynamicBinaryOperatorNode.h</label>
+        <link refid="_dynamic_binary_operator_node_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>DynamicExpressionContainingNode.h</label>
+        <link refid="_dynamic_expression_containing_node_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>DynamicExpressionNode.h</label>
+        <link refid="_dynamic_expression_node_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>DynamicExpressionPartNode.h</label>
+        <link refid="_dynamic_expression_part_node_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>DynamicGroupingMultiplicationNode.cpp</label>
+        <link refid="_dynamic_grouping_multiplication_node_8cpp"/>
+      </node>
+      <node id="11">
+        <label>DynamicGroupingMultiplicationNode.h</label>
+        <link refid="_dynamic_grouping_multiplication_node_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>DynamicGroupingNode.cpp</label>
+        <link refid="_dynamic_grouping_node_8cpp"/>
+      </node>
+      <node id="10">
+        <label>DynamicGroupingNode.h</label>
+        <link refid="_dynamic_grouping_node_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>DynamicNumberLiteralNode.cpp</label>
+        <link refid="_dynamic_number_literal_node_8cpp"/>
+      </node>
+      <node id="15">
+        <label>DynamicNumberLiteralNode.h</label>
+        <link refid="_dynamic_number_literal_node_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>DynamicOperandNode.h</label>
+        <link refid="_dynamic_operand_node_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>DynamicSignOperationNode.cpp</label>
+        <link refid="_dynamic_sign_operation_node_8cpp"/>
+      </node>
+      <node id="18">
+        <label>DynamicSignOperationNode.h</label>
+        <link refid="_dynamic_sign_operation_node_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>DynamicSqrtOperationNode.cpp</label>
+        <link refid="_dynamic_sqrt_operation_node_8cpp"/>
+      </node>
+      <node id="20">
+        <label>DynamicSqrtOperationNode.h</label>
+        <link refid="_dynamic_sqrt_operation_node_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>DynamicUnaryOperationNode.cpp</label>
+        <link refid="_dynamic_unary_operation_node_8cpp"/>
+      </node>
+      <node id="17">
+        <label>DynamicUnaryOperationNode.h</label>
+        <link refid="_dynamic_unary_operation_node_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node" prot="public">CmdCalculator::MathAst::DynamicExpressionPartNode</innerclass>
+    <innernamespace refid="namespace_cmd_calculator">CmdCalculator</innernamespace>
+    <innernamespace refid="namespace_cmd_calculator_1_1_math_ast">CmdCalculator::MathAst</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_expression_part_node_8h" kindref="compound">ExpressionPartNode.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_dynamic_math_ast_node_8h" kindref="compound">DynamicMathAstNode.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="strings_8h" kindref="compound">strings.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_cmd_calculator_1_1_math_ast" kindref="compound">CmdCalculator::MathAst</ref></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;String<sp/>StringT&gt;</highlight></codeline>
+<codeline lineno="12" refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node" kindref="compound">DynamicExpressionPartNode</ref><sp/>:</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_part_node___intended_satisfaction" kindref="compound">ExpressionPartNode_IntendedSatisfaction</ref>,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node" kindref="compound">DynamicMathAstNode</ref>&lt;StringT&gt;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="17" refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node_1a10f39d5e0fee951cac396f4803a1ddc2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node_1a10f39d5e0fee951cac396f4803a1ddc2" kindref="member">StringType</ref><sp/>=<sp/><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1acc2fe21193b097d0e31982af261c9244" kindref="member">DynamicMathAstNode&lt;StringT&gt;::StringType</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="DynamicExpressionPartNode.h"/>
+  </compounddef>
+</doxygen>

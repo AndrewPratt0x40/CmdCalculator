@@ -1,0 +1,53 @@
+\doxysection{Dynamic\+Absolute\+Value\+Node.\+h}
+\hypertarget{_dynamic_absolute_value_node_8h_source}{}\label{_dynamic_absolute_value_node_8h_source}\mbox{\hyperlink{_dynamic_absolute_value_node_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dynamic_expression_containing_node_8h}{DynamicExpressionContainingNode.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{strings_8h}{strings.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_not_implemented_exception_8h}{NotImplementedException.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <concepts>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <ranges>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_cmd_calculator_1_1_math_ast}{CmdCalculator::MathAst}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{template}<String\ StringT,\ std::ranges::range\ UnderlyingPartsT>}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ \textcolor{keyword}{requires}\ \{\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{DynamicExpressionContainingNodeWithUnderlyingCollection<StringT,\ UnderlyingPartsT>}};\ \}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node}{DynamicAbsoluteValueNode}}\ :}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection}{DynamicExpressionContainingNodeWithUnderlyingCollection}}<StringT,\ UnderlyingPartsT>}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node_a84429e49e53725200168dc85c632dcfc}{StringType}}\ =\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection_a1eacda91face708831fdff7f0fe06fd6}{DynamicExpressionContainingNodeWithUnderlyingCollection<StringT,\ UnderlyingPartsT>::StringType}};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node_a970b7a8c5d08d32cc1ff7f3e61e3f8ba}{PartsType}}\ =\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection_a90b04dea01178c12675e3b8d6f57badf}{DynamicExpressionContainingNodeWithUnderlyingCollection<StringT,\ UnderlyingPartsT>::PartsType}};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node_a421e7ce8b93cc591844e287385a6b937}{UnderlyingPartsType}}\ =\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection_ad17704b7224b94e11c6559d4f64a2329}{DynamicExpressionContainingNodeWithUnderlyingCollection<StringT,\ UnderlyingPartsT>::UnderlyingPartsType}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_node}{DynamicExpressionNode<StringT,\ PartsType>}}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node_af96c9ab6b46d5135d60350c7dcf8b414}{getContainedExpression}}()\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{NotImplementedException}}\{\};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ StringT\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node_a56e203d4b741bfea917e2d5f6c93ea7e}{getLeadingTrivia}}()\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00035\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{NotImplementedException}}\{\};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ StringT\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node_af96b62d28bae0d47775a7545250d59bd}{getTrailingTrivia}}()\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{NotImplementedException}}\{\};}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ StringT\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node_a122b815ef8b23f3167bb56406c82e0ac}{getStringRepresentation}}()\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00047\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{NotImplementedException}}\{\};}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \};}
+\DoxyCodeLine{00051\ \}}
+
+\end{DoxyCode}

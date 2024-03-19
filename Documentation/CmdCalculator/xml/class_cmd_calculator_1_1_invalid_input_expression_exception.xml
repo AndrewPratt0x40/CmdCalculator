@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_cmd_calculator_1_1_invalid_input_expression_exception" kind="class" language="C++" prot="public">
+    <compoundname>CmdCalculator::InvalidInputExpressionException</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::exception</basecompoundref>
+    <includes refid="_invalid_input_expression_exception_8h" local="no">InvalidInputExpressionException.h</includes>
+    <briefdescription>
+<para>An exception that is thrown when an invalid input expression is given. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CmdCalculator::InvalidInputExpressionException</label>
+        <link refid="class_cmd_calculator_1_1_invalid_input_expression_exception"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::exception</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CmdCalculator::InvalidInputExpressionException</label>
+        <link refid="class_cmd_calculator_1_1_invalid_input_expression_exception"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::exception</label>
+      </node>
+    </collaborationgraph>
+    <location file="InvalidInputExpressionException.h" line="8" column="1" bodyfile="InvalidInputExpressionException.h" bodystart="9" bodyend="9"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

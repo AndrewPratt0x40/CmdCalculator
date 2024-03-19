@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespace_cmd_calculator_1_1_math_ast" kind="namespace" language="C++">
+    <compoundname>CmdCalculator::MathAst</compoundname>
+    <innerclass refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node" prot="public">CmdCalculator::MathAst::DynamicAbsoluteValueNode</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node" prot="public">CmdCalculator::MathAst::DynamicBinaryOperatorNode</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node" prot="public">CmdCalculator::MathAst::DynamicExpressionContainingNode</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" prot="public">CmdCalculator::MathAst::DynamicExpressionContainingNodeWithUnderlyingCollection</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_node" prot="public">CmdCalculator::MathAst::DynamicExpressionNode</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node" prot="public">CmdCalculator::MathAst::DynamicExpressionPartNode</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node" prot="public">CmdCalculator::MathAst::DynamicGroupingMultiplicationNode</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node" prot="public">CmdCalculator::MathAst::DynamicGroupingNode</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node" prot="public">CmdCalculator::MathAst::DynamicMathAstNode</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node" prot="public">CmdCalculator::MathAst::DynamicNumberLiteralNode</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node" prot="public">CmdCalculator::MathAst::DynamicOperandNode</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sign_operation_node" prot="public">CmdCalculator::MathAst::DynamicSignOperationNode</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node" prot="public">CmdCalculator::MathAst::DynamicSqrtOperationNode</innerclass>
+    <innerclass refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_unary_operation_node" prot="public">CmdCalculator::MathAst::DynamicUnaryOperationNode</innerclass>
+    <innerclass refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_node___intended_satisfaction" prot="public">CmdCalculator::MathAst::ExpressionNode_IntendedSatisfaction</innerclass>
+    <innerclass refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_part_node___intended_satisfaction" prot="public">CmdCalculator::MathAst::ExpressionPartNode_IntendedSatisfaction</innerclass>
+    <innerclass refid="struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction" prot="public">CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>EBinaryOperator</name>
+        <qualifiedname>CmdCalculator::MathAst::EBinaryOperator</qualifiedname>
+        <enumvalue id="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34a7c5531bbefed0945814f874baf9e0e0f" prot="public">
+          <name>Addition</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34a6eb8b8b560161603402c0238b3a7d8b0" prot="public">
+          <name>Subtraction</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34a27d1a1f7b7c2180e5b20ce9e3d00e2dd" prot="public">
+          <name>Multiplication</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34a3025cdaab2deb0bb2cd642449e570833" prot="public">
+          <name>Division</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34af66a8bcbb231ea7a3e07c4ad109c8478" prot="public">
+          <name>Exponentiation</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34ae070928708638f8670415b50d2d14eb6" prot="public">
+          <name>NthRoot</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34a4cde2424cf960a70b7fc5fda1119143d" prot="public">
+          <name>Modulo</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enumerates the types of binary operators that may appear in a mathematical abstract syntax tree. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="EBinaryOperator.h" line="6" column="1" bodyfile="EBinaryOperator.h" bodystart="7" bodyend="15"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DynamicAbsoluteValueNode.h" line="11" column="1"/>
+  </compounddef>
+</doxygen>

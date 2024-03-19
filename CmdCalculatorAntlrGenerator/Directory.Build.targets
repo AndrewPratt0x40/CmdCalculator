@@ -1,0 +1,110 @@
+<Project>
+	<Target Name="DeleteAntlrOutput">
+		<Delete Files="@(LastAntlrGenerationTime)" />
+		<RemoveDir Directories="$(CmdCalculatorAntlrOutputDir)" />
+	</Target>
+	
+	<Target
+		Name="RunAntlr"
+	>
+		<Exec
+			Command="&quot;$(JavaExePath)&quot; -jar &quot;$(Antlr4JarPath)&quot; -o &quot;$(CmdCalculatorAntlrOutputDir)&quot; -Dlanguage=Cpp -package &quot;CmdCalculator::Antlr&quot; -no-listener @(AntlrLexerGrammar)"
+			ContinueOnError="false"
+			LogStandardErrorAsError="true"
+		/>
+
+		<Exec
+			Command="&quot;$(JavaExePath)&quot; -jar &quot;$(Antlr4JarPath)&quot; -lib &quot;$(CmdCalculatorAntlrOutputDir)&quot; -o &quot;$(CmdCalculatorAntlrOutputDir)&quot; -Dlanguage=Cpp -package &quot;CmdCalculator::Antlr&quot; -no-listener @(AntlrParserGrammar)"
+			ContinueOnError="false"
+			LogStandardErrorAsError="true"
+		/>
+	</Target>
+
+
+	<UsingTask
+		TaskName="FixAntlrOutputIncludesTask"
+		TaskFactory="CodeTaskFactory"
+		AssemblyFile="$(MSBuildToolsPath)/Microsoft.Build.Tasks.Core.dll"
+	>
+		<ParameterGroup>
+			<OutputFiles
+				ParameterType="Microsoft.Build.Framework.ITaskItem[]"
+				Required="true"
+			/>
+		</ParameterGroup>
+		<Task>
+			<Code Type="Fragment" Language="cs">
+<![CDATA[
+foreach (Microsoft.Build.Framework.ITaskItem filepathTaskItem in OutputFiles)
+{
+	string filepath = filepathTaskItem.ItemSpec;
+
+	File.WriteAllText
+	(
+		filepath,
+		File.ReadAllText(filepath).Replace("antlr4-runtime.h", "../../submodules/Antlr4CppRuntime/src/antlr4-runtime.h")
+	);
+}
+]]>
+			</Code>
+		</Task>
+	</UsingTask>
+
+	<Target
+		Name="FixAllAntlrOutputIncludes"
+		AfterTargets="RunAntlr"
+		DependsOnTargets="RunAntlr"
+	>
+		<ItemGroup>
+			<AntlrOutput Include="$(CmdCalculatorAntlrOutputDir)/*.h; $(CmdCalculatorAntlrOutputDir)/*.cpp" />
+		</ItemGroup>
+
+		<FixAntlrOutputIncludesTask
+			OutputFiles="@(AntlrOutput)"
+		/>
+	</Target>
+
+	<Target
+		Name="UpdateLastAntlrGenerationTimeFile"
+		AfterTargets="FixAllAntlrOutputIncludes"
+		DependsOnTargets="RunAntlr"
+	>
+		<Touch
+			Files="@(LastAntlrGenerationTime)"
+			AlwaysCreate="true"
+		/>
+	</Target>
+
+	<Target
+		Name="Build"
+		Inputs="@(AntlrLexerGrammar); @(AntlrParserGrammar);"
+		Outputs="@(LastAntlrGenerationTime)"
+	>
+		<CallTarget Targets="RunAntlr"/>
+	</Target>
+
+	<Target
+		Name="PreBuild"
+		BeforeTargets="Build"
+	>
+		<Message Text="Starting PreBuild"/>
+	</Target>
+
+	<Target
+		Name="PostBuild"
+		AfterTargets="Build"
+	>
+		<Message Text="Starting PostBuild"/>
+	</Target>
+
+	<Target
+		Name="Clean"
+	>
+		<CallTarget Targets="DeleteAntlrOutput" />
+	</Target>
+
+	<Target Name="Rebuild">
+		<CallTarget Targets="Clean" />
+		<CallTarget Targets="Build" />
+	</Target>
+</Project>

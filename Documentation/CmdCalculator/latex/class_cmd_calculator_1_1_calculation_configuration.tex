@@ -1,0 +1,142 @@
+\doxysection{Cmd\+Calculator\+::Calculation\+Configuration Class Reference}
+\hypertarget{class_cmd_calculator_1_1_calculation_configuration}{}\label{class_cmd_calculator_1_1_calculation_configuration}\index{CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}}
+
+
+A collection of settings for how calculations should be done.  
+
+
+
+
+{\ttfamily \#include $<$Calculation\+Configuration.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_a145e305db4994417b9df79c5f8109352}{get\+Precision}} ()
+\begin{DoxyCompactList}\small\item\em Accessor for the preferred precision. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_a97b1721dbc47612ad98d4d4e61c400e7}{should\+Prefer\+Decimals\+Over\+Integers}} ()
+\begin{DoxyCompactList}\small\item\em Accessor for the preferred representation of integers. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_ac4ce56163602dca95bfb6be6c680d330}{should\+Prefer\+Sign\+Expression\+For\+Positive\+Values}} ()
+\begin{DoxyCompactList}\small\item\em Accessor for the preferred representation of positive values. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_ac3e3d539a6e80b00a15495a0490aa106}{should\+Prefer\+Leading\+Zero\+Over\+Wholeless\+Numbers}} ()
+\begin{DoxyCompactList}\small\item\em Accessor for the preferred representation of leading zeros. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_a49c9954eb90bfb41da179e7c5fd1b871}{should\+Prefer\+Trailing\+Zero\+Over\+Empty\+Decimal\+Place}} ()
+\begin{DoxyCompactList}\small\item\em Accessor for the preferred representation of trailing zeros. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_a728f7de916eb80d91db47fc49d6d4258}{Calculation\+Configuration}} (int precision, bool \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_a97b1721dbc47612ad98d4d4e61c400e7}{should\+Prefer\+Decimals\+Over\+Integers}}, bool \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_ac4ce56163602dca95bfb6be6c680d330}{should\+Prefer\+Sign\+Expression\+For\+Positive\+Values}}, bool \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_ac3e3d539a6e80b00a15495a0490aa106}{should\+Prefer\+Leading\+Zero\+Over\+Wholeless\+Numbers}}, bool \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_a49c9954eb90bfb41da179e7c5fd1b871}{should\+Prefer\+Trailing\+Zero\+Over\+Empty\+Decimal\+Place}})
+\begin{DoxyCompactList}\small\item\em Creates a new instance of the \doxylink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration} class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration_adb71ca68ae5e4ece3b726e8f629aa184}{operator==}} (const \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration}} \&other) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A collection of settings for how calculations should be done. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_cmd_calculator_1_1_calculation_configuration_a728f7de916eb80d91db47fc49d6d4258}\label{class_cmd_calculator_1_1_calculation_configuration_a728f7de916eb80d91db47fc49d6d4258} 
+\index{CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}!CalculationConfiguration@{CalculationConfiguration}}
+\index{CalculationConfiguration@{CalculationConfiguration}!CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}}
+\doxysubsubsection{\texorpdfstring{CalculationConfiguration()}{CalculationConfiguration()}}
+{\footnotesize\ttfamily Cmd\+Calculator\+::\+Calculation\+Configuration\+::\+Calculation\+Configuration (\begin{DoxyParamCaption}\item[{int}]{precision,  }\item[{bool}]{should\+Prefer\+Decimals\+Over\+Integers,  }\item[{bool}]{should\+Prefer\+Sign\+Expression\+For\+Positive\+Values,  }\item[{bool}]{should\+Prefer\+Leading\+Zero\+Over\+Wholeless\+Numbers,  }\item[{bool}]{should\+Prefer\+Trailing\+Zero\+Over\+Empty\+Decimal\+Place }\end{DoxyParamCaption})}
+
+
+
+Creates a new instance of the \doxylink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration} class. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em precision} & How many decimal places are to be included in the answer of a calculation. \\
+\hline
+\mbox{\texttt{ in}}  & {\em should\+Prefer\+Decimals\+Over\+Integers} & True if integers should have decimal points in the answer of a calculation, false if integers should have no decimal points. \\
+\hline
+\mbox{\texttt{ in}}  & {\em should\+Prefer\+Sign\+Expression\+For\+Positive\+Values} & True if positive values should be displayed as a sign expression in the answer of a calculation, false if positive values should stay as-\/is. \\
+\hline
+\mbox{\texttt{ in}}  & {\em should\+Prefer\+Leading\+Zero\+Over\+Wholeless\+Numbers} & True if numbers with an absolute value greater than zero and less than one should be shown with a leading zero before the decimal point in the answer of a calculation, false to show nothing before the decimal point. \\
+\hline
+\mbox{\texttt{ in}}  & {\em should\+Prefer\+Trailing\+Zero\+Over\+Empty\+Decimal\+Place} & True if integers should be shown with a trailing zero after the decimal point in the answer of a calculation, false to show nothing after the decimal point. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & {\ttfamily precision} is negative. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_cmd_calculator_1_1_calculation_configuration_a145e305db4994417b9df79c5f8109352}\label{class_cmd_calculator_1_1_calculation_configuration_a145e305db4994417b9df79c5f8109352} 
+\index{CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}!getPrecision@{getPrecision}}
+\index{getPrecision@{getPrecision}!CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}}
+\doxysubsubsection{\texorpdfstring{getPrecision()}{getPrecision()}}
+{\footnotesize\ttfamily int Cmd\+Calculator\+::\+Calculation\+Configuration\+::get\+Precision (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accessor for the preferred precision. 
+
+\begin{DoxyReturn}{Returns}
+How many decimal places are to be included in the answer of a calculation. 
+\end{DoxyReturn}
+\Hypertarget{class_cmd_calculator_1_1_calculation_configuration_adb71ca68ae5e4ece3b726e8f629aa184}\label{class_cmd_calculator_1_1_calculation_configuration_adb71ca68ae5e4ece3b726e8f629aa184} 
+\index{CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}!operator==@{operator==}}
+\index{operator==@{operator==}!CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Cmd\+Calculator\+::\+Calculation\+Configuration\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration}} \&}]{other }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_cmd_calculator_1_1_calculation_configuration_a97b1721dbc47612ad98d4d4e61c400e7}\label{class_cmd_calculator_1_1_calculation_configuration_a97b1721dbc47612ad98d4d4e61c400e7} 
+\index{CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}!shouldPreferDecimalsOverIntegers@{shouldPreferDecimalsOverIntegers}}
+\index{shouldPreferDecimalsOverIntegers@{shouldPreferDecimalsOverIntegers}!CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}}
+\doxysubsubsection{\texorpdfstring{shouldPreferDecimalsOverIntegers()}{shouldPreferDecimalsOverIntegers()}}
+{\footnotesize\ttfamily bool Cmd\+Calculator\+::\+Calculation\+Configuration\+::should\+Prefer\+Decimals\+Over\+Integers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accessor for the preferred representation of integers. 
+
+\begin{DoxyReturn}{Returns}
+True if integers should have decimal points in the answer of a calculation, false if integers should have no decimal points. 
+\end{DoxyReturn}
+\Hypertarget{class_cmd_calculator_1_1_calculation_configuration_ac3e3d539a6e80b00a15495a0490aa106}\label{class_cmd_calculator_1_1_calculation_configuration_ac3e3d539a6e80b00a15495a0490aa106} 
+\index{CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}!shouldPreferLeadingZeroOverWholelessNumbers@{shouldPreferLeadingZeroOverWholelessNumbers}}
+\index{shouldPreferLeadingZeroOverWholelessNumbers@{shouldPreferLeadingZeroOverWholelessNumbers}!CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}}
+\doxysubsubsection{\texorpdfstring{shouldPreferLeadingZeroOverWholelessNumbers()}{shouldPreferLeadingZeroOverWholelessNumbers()}}
+{\footnotesize\ttfamily bool Cmd\+Calculator\+::\+Calculation\+Configuration\+::should\+Prefer\+Leading\+Zero\+Over\+Wholeless\+Numbers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accessor for the preferred representation of leading zeros. 
+
+\begin{DoxyReturn}{Returns}
+True if numbers with an absolute value greater than zero and less than one should be shown with a leading zero before the decimal point in the answer of a calculation, false to show nothing before the decimal point. 
+\end{DoxyReturn}
+\Hypertarget{class_cmd_calculator_1_1_calculation_configuration_ac4ce56163602dca95bfb6be6c680d330}\label{class_cmd_calculator_1_1_calculation_configuration_ac4ce56163602dca95bfb6be6c680d330} 
+\index{CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}!shouldPreferSignExpressionForPositiveValues@{shouldPreferSignExpressionForPositiveValues}}
+\index{shouldPreferSignExpressionForPositiveValues@{shouldPreferSignExpressionForPositiveValues}!CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}}
+\doxysubsubsection{\texorpdfstring{shouldPreferSignExpressionForPositiveValues()}{shouldPreferSignExpressionForPositiveValues()}}
+{\footnotesize\ttfamily bool Cmd\+Calculator\+::\+Calculation\+Configuration\+::should\+Prefer\+Sign\+Expression\+For\+Positive\+Values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accessor for the preferred representation of positive values. 
+
+\begin{DoxyReturn}{Returns}
+True if positive values should be displayed as a sign expression in the answer of a calculation, false if positive values should stay as-\/is. 
+\end{DoxyReturn}
+\Hypertarget{class_cmd_calculator_1_1_calculation_configuration_a49c9954eb90bfb41da179e7c5fd1b871}\label{class_cmd_calculator_1_1_calculation_configuration_a49c9954eb90bfb41da179e7c5fd1b871} 
+\index{CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}!shouldPreferTrailingZeroOverEmptyDecimalPlace@{shouldPreferTrailingZeroOverEmptyDecimalPlace}}
+\index{shouldPreferTrailingZeroOverEmptyDecimalPlace@{shouldPreferTrailingZeroOverEmptyDecimalPlace}!CmdCalculator::CalculationConfiguration@{CmdCalculator::CalculationConfiguration}}
+\doxysubsubsection{\texorpdfstring{shouldPreferTrailingZeroOverEmptyDecimalPlace()}{shouldPreferTrailingZeroOverEmptyDecimalPlace()}}
+{\footnotesize\ttfamily bool Cmd\+Calculator\+::\+Calculation\+Configuration\+::should\+Prefer\+Trailing\+Zero\+Over\+Empty\+Decimal\+Place (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accessor for the preferred representation of trailing zeros. 
+
+\begin{DoxyReturn}{Returns}
+True if integers should be shown with a trailing zero after the decimal point in the answer of a calculation, false to show nothing after the decimal point. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_calculation_configuration_8h}{Calculation\+Configuration.\+h}}\item 
+\mbox{\hyperlink{_calculation_configuration_8cpp}{Calculation\+Configuration.\+cpp}}\end{DoxyCompactItemize}

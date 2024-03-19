@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="concept_cmd_calculator_1_1_expression_to_string_converter" kind="concept">
+    <compoundname>CmdCalculator::ExpressionToStringConverter</compoundname>
+    <includes refid="_expression_to_string_converter_8h" local="no">ExpressionToStringConverter.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+    <initializer>template&lt;class T&gt;
+concept <ref refid="concept_cmd_calculator_1_1_expression_to_string_converter" kindref="compound">CmdCalculator::ExpressionToStringConverter</ref> = 
+		std::derived_from&lt;T, ExpressionToStringConverter_IntendedSatisfaction&gt;
+		&amp;&amp; Expressions::Expression&lt;typename T::ExpressionType&gt;
+		&amp;&amp; requires(T&amp;&amp; instance, const typename T::ExpressionType&amp; source, const CalculationConfiguration configuration)
+		{
+			{ instance.stringifyExpression(source, configuration) } -&gt; String;
+		}
+	    </initializer>
+    <briefdescription>
+<para>A type that converts mathematical expressions into strings. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The converter type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="ExpressionToStringConverter.h" line="19" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="concept_cmd_calculator_1_1_console" kind="concept">
+    <compoundname>CmdCalculator::Console</compoundname>
+    <includes refid="_console_8h" local="no">Console.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+    <initializer>template&lt;class T&gt;
+concept <ref refid="concept_cmd_calculator_1_1_console" kindref="compound">CmdCalculator::Console</ref> = 
+		std::derived_from&lt;T, Console_IntendedSatisfaction&gt;
+		&amp;&amp; String&lt;typename T::StringType&gt;
+		&amp;&amp; StringView&lt;typename T::StringViewType&gt;
+		&amp;&amp; requires(T &amp;&amp; instance)
+		{
+			{ instance.getInput() } -&gt; std::same_as&lt;typename T::StringType&gt;;
+		}
+		&amp;&amp; requires(T&amp;&amp; instance, typename T::StringViewType text, EWriteMode writeMode)
+		{
+			instance.write(text, writeMode);
+			instance.writeLine(text, writeMode);
+		}
+	    </initializer>
+    <briefdescription>
+<para>A text console. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The console type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="Console.h" line="28" column="1"/>
+  </compounddef>
+</doxygen>

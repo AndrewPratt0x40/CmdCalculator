@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespace_cmd_calculator_1_1_expressions" kind="namespace" language="C++">
+    <compoundname>CmdCalculator::Expressions</compoundname>
+    <innerclass refid="struct_cmd_calculator_1_1_expressions_1_1_expression___intended_satisfaction" prot="public">CmdCalculator::Expressions::Expression_IntendedSatisfaction</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Expression.h" line="5" column="1"/>
+  </compounddef>
+</doxygen>

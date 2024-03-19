@@ -1,0 +1,688 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_cmd_calculator_1_1_process" kind="class" language="C++" prot="public">
+    <compoundname>CmdCalculator::Process</compoundname>
+    <includes refid="_process_8h" local="no">Process.h</includes>
+    <innerclass refid="struct_cmd_calculator_1_1_process_1_1_calculation_result" prot="private">CmdCalculator::Process::CalculationResult</innerclass>
+    <templateparamlist>
+      <param>
+        <type>Calculation</type>
+        <declname>CalculationT</declname>
+        <defname>CalculationT</defname>
+      </param>
+      <param>
+        <type>class RawCmdLineArgParserT</type>
+      </param>
+      <param>
+        <type>class RawCmdLineArgsT</type>
+      </param>
+      <param>
+        <type>StringToMathAstConverter</type>
+        <declname>StringToMathAstConverterT</declname>
+        <defname>StringToMathAstConverterT</defname>
+      </param>
+      <param>
+        <type>MathAstToExpressionConverter</type>
+        <declname>MathAstToExpressionConverterT</declname>
+        <defname>MathAstToExpressionConverterT</defname>
+      </param>
+      <param>
+        <type>ExpressionToStringConverter</type>
+        <declname>ExpressionToStringConverterT</declname>
+        <defname>ExpressionToStringConverterT</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="class_cmd_calculator_1_1_process_1abd8f50535c900e8c2cb7b84326a8cc41" prot="public" static="no">
+        <type>CalculationT</type>
+        <definition>using CmdCalculator::Process&lt; CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT &gt;::CalculationType =  CalculationT</definition>
+        <argsstring></argsstring>
+        <name>CalculationType</name>
+        <qualifiedname>CmdCalculator::Process::CalculationType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Process.h" line="48" column="1" bodyfile="Process.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_cmd_calculator_1_1_process_1adc575bdd1973f404a07395128757f6d7" prot="public" static="no">
+        <type>RawCmdLineArgParserT</type>
+        <definition>using CmdCalculator::Process&lt; CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT &gt;::RawCmdLineArgParserType =  RawCmdLineArgParserT</definition>
+        <argsstring></argsstring>
+        <name>RawCmdLineArgParserType</name>
+        <qualifiedname>CmdCalculator::Process::RawCmdLineArgParserType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Process.h" line="49" column="1" bodyfile="Process.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_cmd_calculator_1_1_process_1a99a9c784b7a8253002a7acc8eeaca32a" prot="public" static="no">
+        <type>StringToMathAstConverterT</type>
+        <definition>using CmdCalculator::Process&lt; CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT &gt;::StringToMathAstConverterType =  StringToMathAstConverterT</definition>
+        <argsstring></argsstring>
+        <name>StringToMathAstConverterType</name>
+        <qualifiedname>CmdCalculator::Process::StringToMathAstConverterType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Process.h" line="50" column="1" bodyfile="Process.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_cmd_calculator_1_1_process_1a6633a6a0750d27bedbc1214f34a30d2c" prot="public" static="no">
+        <type>MathAstToExpressionConverterT</type>
+        <definition>using CmdCalculator::Process&lt; CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT &gt;::MathAstToExpressionConverterType =  MathAstToExpressionConverterT</definition>
+        <argsstring></argsstring>
+        <name>MathAstToExpressionConverterType</name>
+        <qualifiedname>CmdCalculator::Process::MathAstToExpressionConverterType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Process.h" line="51" column="1" bodyfile="Process.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_cmd_calculator_1_1_process_1ae140c4bb26636f14e77183e3a2b7749f" prot="public" static="no">
+        <type>ExpressionToStringConverterT</type>
+        <definition>using CmdCalculator::Process&lt; CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT &gt;::ExpressionToStringConverterType =  ExpressionToStringConverterT</definition>
+        <argsstring></argsstring>
+        <name>ExpressionToStringConverterType</name>
+        <qualifiedname>CmdCalculator::Process::ExpressionToStringConverterType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Process.h" line="52" column="1" bodyfile="Process.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_cmd_calculator_1_1_process_1abf32f9528a2bd59dc78f7460df03cc4e" prot="private" static="no" mutable="no">
+        <type><ref refid="class_cmd_calculator_1_1_process_1adc575bdd1973f404a07395128757f6d7" kindref="member">RawCmdLineArgParserType</ref></type>
+        <definition>RawCmdLineArgParserType CmdCalculator::Process&lt; CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT &gt;::m_rawCmdLineArgParser</definition>
+        <argsstring></argsstring>
+        <name>m_rawCmdLineArgParser</name>
+        <qualifiedname>CmdCalculator::Process::m_rawCmdLineArgParser</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Process.h" line="57" column="25" bodyfile="Process.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cmd_calculator_1_1_process_1a547f9fda0ccebacab4927114fd029af9" prot="private" static="no" mutable="no">
+        <type><ref refid="class_cmd_calculator_1_1_process_1a99a9c784b7a8253002a7acc8eeaca32a" kindref="member">StringToMathAstConverterType</ref></type>
+        <definition>StringToMathAstConverterType CmdCalculator::Process&lt; CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT &gt;::m_stringToMathAstConverter</definition>
+        <argsstring></argsstring>
+        <name>m_stringToMathAstConverter</name>
+        <qualifiedname>CmdCalculator::Process::m_stringToMathAstConverter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Process.h" line="58" column="30" bodyfile="Process.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cmd_calculator_1_1_process_1a0a7c3aa670920339ff6c790a1746ae76" prot="private" static="no" mutable="no">
+        <type><ref refid="class_cmd_calculator_1_1_process_1a6633a6a0750d27bedbc1214f34a30d2c" kindref="member">MathAstToExpressionConverterType</ref></type>
+        <definition>MathAstToExpressionConverterType CmdCalculator::Process&lt; CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT &gt;::m_mathAstToExpressionConverter</definition>
+        <argsstring></argsstring>
+        <name>m_mathAstToExpressionConverter</name>
+        <qualifiedname>CmdCalculator::Process::m_mathAstToExpressionConverter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Process.h" line="59" column="34" bodyfile="Process.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_cmd_calculator_1_1_process_1a3bfe22e862f2fa8090f103f1ca16a23a" prot="private" static="no" mutable="no">
+        <type><ref refid="class_cmd_calculator_1_1_process_1ae140c4bb26636f14e77183e3a2b7749f" kindref="member">ExpressionToStringConverterType</ref></type>
+        <definition>ExpressionToStringConverterType CmdCalculator::Process&lt; CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT &gt;::m_expressionToStringConverter</definition>
+        <argsstring></argsstring>
+        <name>m_expressionToStringConverter</name>
+        <qualifiedname>CmdCalculator::Process::m_expressionToStringConverter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Process.h" line="60" column="33" bodyfile="Process.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_cmd_calculator_1_1_process_1a3c791aae5b621424cdc28e7b11c89610" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>Console</type>
+            <declname>ConsoleT</declname>
+            <defname>ConsoleT</defname>
+          </param>
+          <param>
+            <type>String</type>
+            <declname>ExpressionStringT</declname>
+            <defname>ExpressionStringT</defname>
+          </param>
+          <param>
+            <type>std::ranges::input_range</type>
+            <declname>ArgsT</declname>
+            <defname>ArgsT</defname>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CmdCalculator::Process&lt; CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT &gt;::run</definition>
+        <argsstring>(ArgsT &amp;&amp;rawCmdLineArgs, const ProcessConfiguration&lt; ExpressionStringT &gt; defaultConfig, ConsoleT &amp;console)</argsstring>
+        <name>run</name>
+        <qualifiedname>CmdCalculator::Process::run</qualifiedname>
+        <param>
+          <type>ArgsT &amp;&amp;</type>
+          <declname>rawCmdLineArgs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_cmd_calculator_1_1_process_configuration" kindref="compound">ProcessConfiguration</ref>&lt; ExpressionStringT &gt;</type>
+          <declname>defaultConfig</declname>
+        </param>
+        <param>
+          <type>ConsoleT &amp;</type>
+          <declname>console</declname>
+        </param>
+    <requiresclause>String&lt;std::ranges::range_value_t&lt;ArgsT&gt;&gt;    </requiresclause>
+        <briefdescription>
+<para>Executes the process. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>ConsoleT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the console object to be used by the process. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ExpressionStringT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string type that represents a given expression. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ArgsT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type to use for the range of command-line arguments passed to the process. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rawCmdLineArgs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A range of the command-line parameters passed to the process. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The process configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>console</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The text console to use for input and output. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the process ran successfully, false if the process exited due to an error. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Process.h" line="81" column="6" bodyfile="Process.h" bodystart="81" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_process_1aa3d4fb07acd701fb43ce9ea4c013c349" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CmdCalculator::Process&lt; CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT &gt;::Process</definition>
+        <argsstring>(RawCmdLineArgParserT &amp;&amp;rawCmdLineArgParser, StringToMathAstConverterT &amp;&amp;stringToMathAstConverter, MathAstToExpressionConverterT &amp;&amp;mathAstToExpressionConverter, ExpressionToStringConverterT &amp;&amp;expressionToStringConverter)</argsstring>
+        <name>Process</name>
+        <qualifiedname>CmdCalculator::Process::Process</qualifiedname>
+        <param>
+          <type>RawCmdLineArgParserT &amp;&amp;</type>
+          <declname>rawCmdLineArgParser</declname>
+        </param>
+        <param>
+          <type>StringToMathAstConverterT &amp;&amp;</type>
+          <declname>stringToMathAstConverter</declname>
+        </param>
+        <param>
+          <type>MathAstToExpressionConverterT &amp;&amp;</type>
+          <declname>mathAstToExpressionConverter</declname>
+        </param>
+        <param>
+          <type>ExpressionToStringConverterT &amp;&amp;</type>
+          <declname>expressionToStringConverter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new instance of the <ref refid="class_cmd_calculator_1_1_process" kindref="compound">Process</ref> class. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rawCmdLineArgParser</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The raw command-line argument parser to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>expressionToStringConverter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object to convert the calculated expression into a human-readable string for output. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mathAstToExpressionConverter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object to convert a mathematical abstract syntax tree into an expression object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stringToMathAstConverter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object to parse the input expression into an abstract syntax tree. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Process.h" line="125" column="1" bodyfile="Process.h" bodystart="126" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_process_1a63d5b20c73d20c85169fecc11040aa2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CmdCalculator::Process&lt; CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT &gt;::Process</definition>
+        <argsstring>(RawCmdLineArgParserT &amp;rawCmdLineArgParser, StringToMathAstConverterT &amp;stringToMathAstConverter, MathAstToExpressionConverterT &amp;mathAstToExpressionConverter, ExpressionToStringConverterT &amp;expressionToStringConverter)=delete</argsstring>
+        <name>Process</name>
+        <qualifiedname>CmdCalculator::Process::Process</qualifiedname>
+        <param>
+          <type>RawCmdLineArgParserT &amp;</type>
+          <declname>rawCmdLineArgParser</declname>
+        </param>
+        <param>
+          <type>StringToMathAstConverterT &amp;</type>
+          <declname>stringToMathAstConverter</declname>
+        </param>
+        <param>
+          <type>MathAstToExpressionConverterT &amp;</type>
+          <declname>mathAstToExpressionConverter</declname>
+        </param>
+        <param>
+          <type>ExpressionToStringConverterT &amp;</type>
+          <declname>expressionToStringConverter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Process.h" line="140" column="1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_cmd_calculator_1_1_process_1aae34280ee764f6203733f2c3f1e23546" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>Console</type>
+            <declname>ConsoleT</declname>
+            <defname>ConsoleT</defname>
+          </param>
+          <param>
+            <type>String</type>
+            <declname>ExpressionStringT</declname>
+            <defname>ExpressionStringT</defname>
+          </param>
+          <param>
+            <type>std::ranges::input_range</type>
+            <declname>ArgsT</declname>
+            <defname>ArgsT</defname>
+          </param>
+        </templateparamlist>
+        <type>std::optional&lt; <ref refid="struct_cmd_calculator_1_1_process_configuration" kindref="compound">ProcessConfiguration</ref>&lt; ExpressionStringT &gt; &gt;</type>
+        <definition>std::optional&lt; ProcessConfiguration&lt; ExpressionStringT &gt; &gt; CmdCalculator::Process&lt; CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT &gt;::parseCmdLineArgs</definition>
+        <argsstring>(ArgsT &amp;&amp;rawCmdLineArgs, const ProcessConfiguration&lt; ExpressionStringT &gt; defaultConfig, ConsoleT &amp;console)</argsstring>
+        <name>parseCmdLineArgs</name>
+        <qualifiedname>CmdCalculator::Process::parseCmdLineArgs</qualifiedname>
+        <param>
+          <type>ArgsT &amp;&amp;</type>
+          <declname>rawCmdLineArgs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_cmd_calculator_1_1_process_configuration" kindref="compound">ProcessConfiguration</ref>&lt; ExpressionStringT &gt;</type>
+          <declname>defaultConfig</declname>
+        </param>
+        <param>
+          <type>ConsoleT &amp;</type>
+          <declname>console</declname>
+        </param>
+    <requiresclause>String&lt;std::ranges::range_value_t&lt;ArgsT&gt;&gt;    </requiresclause>
+        <briefdescription>
+<para>Attempts to parse the raw command-line arguments given to the process. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>ConsoleT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the console object to be used by the process. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ExpressionStringT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string type that represents a given expression. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ArgsT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type to use for the range of command-line arguments passed to the process. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rawCmdLineArgs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A range of the command-line parameters passed to the process. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>defaultConfig</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The default process configuration to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>console</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The text console to use for input and output. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The process configuration resulting from the parsed command-line arguments, or an empty value if parsing failed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Process.h" line="161" column="15" bodyfile="Process.h" bodystart="162" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_process_1a890e20a11745ac58867c763ee1156f63" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>Console</type>
+            <declname>ConsoleT</declname>
+            <defname>ConsoleT</defname>
+          </param>
+          <param>
+            <type>String</type>
+            <declname>ExpressionStringT</declname>
+            <defname>ExpressionStringT</defname>
+          </param>
+        </templateparamlist>
+        <type>ExpressionStringT</type>
+        <definition>ExpressionStringT CmdCalculator::Process&lt; CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT &gt;::getinputExpression</definition>
+        <argsstring>(const ProcessConfiguration&lt; ExpressionStringT &gt; config, ConsoleT &amp;console)</argsstring>
+        <name>getinputExpression</name>
+        <qualifiedname>CmdCalculator::Process::getinputExpression</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_cmd_calculator_1_1_process_configuration" kindref="compound">ProcessConfiguration</ref>&lt; ExpressionStringT &gt;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>ConsoleT &amp;</type>
+          <declname>console</declname>
+        </param>
+        <briefdescription>
+<para>Determines the string representing the expression to be calculated. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>ConsoleT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the console object to be used by the process. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ExpressionStringT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string type that represents a given expression. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The process configuration to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>console</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The text console to use for input and output. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The string representation of the expression to calculate. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Process.h" line="204" column="19" bodyfile="Process.h" bodystart="205" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_process_1aac93ccae05feed27b0d2f6cd5659dba2" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>Console</type>
+            <declname>ConsoleT</declname>
+            <defname>ConsoleT</defname>
+          </param>
+          <param>
+            <type>String</type>
+            <declname>OutputExpressionT</declname>
+            <defname>OutputExpressionT</defname>
+          </param>
+        </templateparamlist>
+        <type>CalculationResult&lt; OutputExpressionT &gt;</type>
+        <definition>CalculationResult&lt; OutputExpressionT &gt; CmdCalculator::Process&lt; CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT &gt;::tryCalculate</definition>
+        <argsstring>(typename CalculationType::InputExpressionType inputExpression, CalculationConfiguration config, ConsoleT &amp;console)</argsstring>
+        <name>tryCalculate</name>
+        <qualifiedname>CmdCalculator::Process::tryCalculate</qualifiedname>
+        <param>
+          <type>typename CalculationType::InputExpressionType</type>
+          <declname>inputExpression</declname>
+        </param>
+        <param>
+          <type><ref refid="class_cmd_calculator_1_1_calculation_configuration" kindref="compound">CalculationConfiguration</ref></type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>ConsoleT &amp;</type>
+          <declname>console</declname>
+        </param>
+        <briefdescription>
+<para>Attempts to calculate an expression. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>ConsoleT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the console object to be used by the process. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>OutputExpressionT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string type that represents a calculated expression. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inputExpression</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The expression to calculate. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The calculation configuration to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>console</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The text console to use for input and output. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The result . </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Process.h" line="225" column="19" bodyfile="Process.h" bodystart="226" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="class_cmd_calculator_1_1_process_1a9c2ebf5d3c45275324bd00d26d193fcc" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>Console</type>
+            <declname>ConsoleT</declname>
+            <defname>ConsoleT</defname>
+          </param>
+        </templateparamlist>
+        <type>ConsoleT::StringType</type>
+        <definition>ConsoleT::StringType CmdCalculator::Process&lt; CalculationT, RawCmdLineArgParserT, RawCmdLineArgsT, StringToMathAstConverterT, MathAstToExpressionConverterT, ExpressionToStringConverterT &gt;::promptForExpression</definition>
+        <argsstring>(ConsoleT &amp;console)</argsstring>
+        <name>promptForExpression</name>
+        <qualifiedname>CmdCalculator::Process::promptForExpression</qualifiedname>
+        <param>
+          <type>ConsoleT &amp;</type>
+          <declname>console</declname>
+        </param>
+        <briefdescription>
+<para>Prompts the user for an expression to calculate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>ConsoleT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the console object to be used by the process. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>console</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The text console to use for input and output. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The expression inputted by the user. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Process.h" line="280" column="22" bodyfile="Process.h" bodystart="280" bodyend="284"/>
+      </memberdef>
+    </sectiondef>
+    <requiresclause>RawCmdLineArgParser&lt;RawCmdLineArgParserT, RawCmdLineArgsT&gt; &amp;&amp; std::same_as&lt;StringToMathAstConverterT, typename CalculationT::StringToMathAstConverterType&gt; &amp;&amp; std::same_as&lt;MathAstToExpressionConverterT, typename CalculationT::MathAstToExpressionConverterType&gt; &amp;&amp; std::same_as&lt;ExpressionToStringConverterT, typename CalculationT::ExpressionToStringConverterType&gt;    </requiresclause>
+    <briefdescription>
+<para>A <ref refid="namespace_cmd_calculator" kindref="compound">CmdCalculator</ref> process. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Process.h" line="44" column="1" bodyfile="Process.h" bodystart="45" bodyend="285"/>
+    <listofallmembers>
+      <member refid="class_cmd_calculator_1_1_process_1abd8f50535c900e8c2cb7b84326a8cc41" prot="public" virt="non-virtual"><scope>CmdCalculator::Process</scope><name>CalculationType</name></member>
+      <member refid="class_cmd_calculator_1_1_process_1ae140c4bb26636f14e77183e3a2b7749f" prot="public" virt="non-virtual"><scope>CmdCalculator::Process</scope><name>ExpressionToStringConverterType</name></member>
+      <member refid="class_cmd_calculator_1_1_process_1a890e20a11745ac58867c763ee1156f63" prot="private" virt="non-virtual"><scope>CmdCalculator::Process</scope><name>getinputExpression</name></member>
+      <member refid="class_cmd_calculator_1_1_process_1a3bfe22e862f2fa8090f103f1ca16a23a" prot="private" virt="non-virtual"><scope>CmdCalculator::Process</scope><name>m_expressionToStringConverter</name></member>
+      <member refid="class_cmd_calculator_1_1_process_1a0a7c3aa670920339ff6c790a1746ae76" prot="private" virt="non-virtual"><scope>CmdCalculator::Process</scope><name>m_mathAstToExpressionConverter</name></member>
+      <member refid="class_cmd_calculator_1_1_process_1abf32f9528a2bd59dc78f7460df03cc4e" prot="private" virt="non-virtual"><scope>CmdCalculator::Process</scope><name>m_rawCmdLineArgParser</name></member>
+      <member refid="class_cmd_calculator_1_1_process_1a547f9fda0ccebacab4927114fd029af9" prot="private" virt="non-virtual"><scope>CmdCalculator::Process</scope><name>m_stringToMathAstConverter</name></member>
+      <member refid="class_cmd_calculator_1_1_process_1a6633a6a0750d27bedbc1214f34a30d2c" prot="public" virt="non-virtual"><scope>CmdCalculator::Process</scope><name>MathAstToExpressionConverterType</name></member>
+      <member refid="class_cmd_calculator_1_1_process_1aae34280ee764f6203733f2c3f1e23546" prot="private" virt="non-virtual"><scope>CmdCalculator::Process</scope><name>parseCmdLineArgs</name></member>
+      <member refid="class_cmd_calculator_1_1_process_1aa3d4fb07acd701fb43ce9ea4c013c349" prot="public" virt="non-virtual"><scope>CmdCalculator::Process</scope><name>Process</name></member>
+      <member refid="class_cmd_calculator_1_1_process_1a63d5b20c73d20c85169fecc11040aa2e" prot="public" virt="non-virtual"><scope>CmdCalculator::Process</scope><name>Process</name></member>
+      <member refid="class_cmd_calculator_1_1_process_1a9c2ebf5d3c45275324bd00d26d193fcc" prot="private" virt="non-virtual"><scope>CmdCalculator::Process</scope><name>promptForExpression</name></member>
+      <member refid="class_cmd_calculator_1_1_process_1adc575bdd1973f404a07395128757f6d7" prot="public" virt="non-virtual"><scope>CmdCalculator::Process</scope><name>RawCmdLineArgParserType</name></member>
+      <member refid="class_cmd_calculator_1_1_process_1a3c791aae5b621424cdc28e7b11c89610" prot="public" virt="non-virtual"><scope>CmdCalculator::Process</scope><name>run</name></member>
+      <member refid="class_cmd_calculator_1_1_process_1a99a9c784b7a8253002a7acc8eeaca32a" prot="public" virt="non-virtual"><scope>CmdCalculator::Process</scope><name>StringToMathAstConverterType</name></member>
+      <member refid="class_cmd_calculator_1_1_process_1aac93ccae05feed27b0d2f6cd5659dba2" prot="private" virt="non-virtual"><scope>CmdCalculator::Process</scope><name>tryCalculate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

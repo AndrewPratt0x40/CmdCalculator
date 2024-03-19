@@ -1,0 +1,36 @@
+\doxysection{Missing\+Cmd\+Line\+Arg\+Value\+Exception.\+h}
+\hypertarget{_missing_cmd_line_arg_value_exception_8h_source}{}\label{_missing_cmd_line_arg_value_exception_8h_source}\mbox{\hyperlink{_missing_cmd_line_arg_value_exception_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string\_view>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_bad_raw_cmd_line_args_exception_8h}{BadRawCmdLineArgsException.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{strings_8h}{strings.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_cmd_calculator}{CmdCalculator}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{template}<String\ ArgT>}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception}{MissingCmdLineArgValueException}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_cmd_calculator_1_1_bad_raw_cmd_line_args_exception}{BadRawCmdLineArgsException}}}
+\DoxyCodeLine{00014\ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ ArgT\ m\_arg;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_a2c9a547827ef88634718ab35363d4775}{ArgType}}\ =\ ArgT;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_a4c8980254a79bd771d758c8c6d2a739d}{ArgViewType}}\ =\ std::basic\_string\_view<typename\ ArgType::value\_type>;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_a19533eeecd17c078aeccf20472abed27}{MissingCmdLineArgValueException}}(ArgT\ arg)\ :}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ m\_arg\{\ arg\ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_a4c8980254a79bd771d758c8c6d2a739d}{ArgViewType}}\ \mbox{\hyperlink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_ad3dd4ebc3b79e5f168de2977f2ca6aa5}{getArg}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00033\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_arg;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \};}
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}

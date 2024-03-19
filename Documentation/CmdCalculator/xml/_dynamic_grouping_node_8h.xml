@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_dynamic_grouping_node_8h" kind="file" language="C++">
+    <compoundname>DynamicGroupingNode.h</compoundname>
+    <includes refid="_dynamic_expression_containing_node_8h" local="yes">DynamicExpressionContainingNode.h</includes>
+    <includes refid="strings_8h" local="yes">strings.h</includes>
+    <includes refid="_not_implemented_exception_8h" local="yes">NotImplementedException.h</includes>
+    <includes local="no">concepts</includes>
+    <includes local="no">ranges</includes>
+    <includes local="no">utility</includes>
+    <includedby refid="_dynamic_grouping_multiplication_node_8h" local="yes">DynamicGroupingMultiplicationNode.h</includedby>
+    <includedby refid="_dynamic_grouping_node_8cpp" local="yes">DynamicGroupingNode.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>DynamicExpressionContainingNode.h</label>
+        <link refid="_dynamic_expression_containing_node_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>DynamicExpressionNode.h</label>
+        <link refid="_dynamic_expression_node_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>DynamicExpressionPartNode.h</label>
+        <link refid="_dynamic_expression_part_node_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>DynamicGroupingNode.h</label>
+        <link refid="_dynamic_grouping_node_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>DynamicMathAstNode.h</label>
+        <link refid="_dynamic_math_ast_node_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>DynamicOperandNode.h</label>
+        <link refid="_dynamic_operand_node_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>ExpressionNode.h</label>
+        <link refid="_expression_node_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ExpressionPartNode.h</label>
+        <link refid="_expression_part_node_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>MathAstNode.h</label>
+        <link refid="_math_ast_node_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>NotImplementedException.h</label>
+        <link refid="_not_implemented_exception_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>strings.h</label>
+        <link refid="strings_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>concepts</label>
+      </node>
+      <node id="16">
+        <label>exception</label>
+      </node>
+      <node id="8">
+        <label>ranges</label>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="14">
+        <label>utility</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>DynamicGroupingMultiplicationNode.cpp</label>
+        <link refid="_dynamic_grouping_multiplication_node_8cpp"/>
+      </node>
+      <node id="2">
+        <label>DynamicGroupingMultiplicationNode.h</label>
+        <link refid="_dynamic_grouping_multiplication_node_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>DynamicGroupingNode.cpp</label>
+        <link refid="_dynamic_grouping_node_8cpp"/>
+      </node>
+      <node id="1">
+        <label>DynamicGroupingNode.h</label>
+        <link refid="_dynamic_grouping_node_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node" prot="public">CmdCalculator::MathAst::DynamicGroupingNode</innerclass>
+    <innernamespace refid="namespace_cmd_calculator">CmdCalculator</innernamespace>
+    <innernamespace refid="namespace_cmd_calculator_1_1_math_ast">CmdCalculator::MathAst</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_dynamic_expression_containing_node_8h" kindref="compound">DynamicExpressionContainingNode.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="strings_8h" kindref="compound">strings.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_not_implemented_exception_8h" kindref="compound">NotImplementedException.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;concepts&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ranges&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;utility&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_cmd_calculator_1_1_math_ast" kindref="compound">CmdCalculator::MathAst</ref></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;String<sp/>StringT,<sp/>std::ranges::range<sp/>UnderlyingPartsT&gt;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">requires</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">requires</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>DynamicExpressionContainingNodeWithUnderlyingCollection&lt;StringT,<sp/>UnderlyingPartsT&gt;;<sp/>}</highlight></codeline>
+<codeline lineno="18" refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node" kindref="compound">DynamicGroupingNode</ref><sp/>:</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">DynamicExpressionContainingNodeWithUnderlyingCollection</ref>&lt;StringT,<sp/>UnderlyingPartsT&gt;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1a083ebf1c5cecc9945ae7192174f4843e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringType</ref><sp/>=<sp/><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">DynamicExpressionContainingNodeWithUnderlyingCollection&lt;StringT, UnderlyingPartsT&gt;::StringType</ref>;</highlight></codeline>
+<codeline lineno="24" refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1afa89bef043eddca31df4d568be04f08e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">PartsType</ref><sp/>=<sp/><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">DynamicExpressionContainingNodeWithUnderlyingCollection&lt;StringT, UnderlyingPartsT&gt;::PartsType</ref>;</highlight></codeline>
+<codeline lineno="25" refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1a61f4ab9343694bac8d824e434ee5cc24" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">UnderlyingPartsType</ref><sp/>=<sp/><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">DynamicExpressionContainingNodeWithUnderlyingCollection&lt;StringT, UnderlyingPartsT&gt;::UnderlyingPartsType</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1a4e45cadf7d497866085825780b4c5e8b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">DynamicExpressionNode&lt;StringT, PartsType&gt;</ref><sp/><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1a4e45cadf7d497866085825780b4c5e8b" kindref="member">getContainedExpression</ref>()</highlight><highlight class="keyword"><sp/>const<sp/>override</highlight></codeline>
+<codeline lineno="29"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/><ref refid="class_cmd_calculator_1_1_not_implemented_exception" kindref="compound">NotImplementedException</ref>{};</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1a314a51741f50a0aa154c7ca11a061a87" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref><sp/><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1a314a51741f50a0aa154c7ca11a061a87" kindref="member">getLeadingTrivia</ref>()</highlight><highlight class="keyword"><sp/>const<sp/>override</highlight></codeline>
+<codeline lineno="35"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/><ref refid="class_cmd_calculator_1_1_not_implemented_exception" kindref="compound">NotImplementedException</ref>{};</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1aba1851eba715799c3615d9d1b5c8372c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref><sp/><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1aba1851eba715799c3615d9d1b5c8372c" kindref="member">getTrailingTrivia</ref>()</highlight><highlight class="keyword"><sp/>const<sp/>override</highlight></codeline>
+<codeline lineno="41"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/><ref refid="class_cmd_calculator_1_1_not_implemented_exception" kindref="compound">NotImplementedException</ref>{};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1ad9176a1677ef3b54a6e9434fd4b60a22" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kindref="compound">StringT</ref><sp/><ref refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1ad9176a1677ef3b54a6e9434fd4b60a22" kindref="member">getStringRepresentation</ref>()</highlight><highlight class="keyword"><sp/>const<sp/>override</highlight></codeline>
+<codeline lineno="47"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/><ref refid="class_cmd_calculator_1_1_not_implemented_exception" kindref="compound">NotImplementedException</ref>{};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="DynamicGroupingNode.h"/>
+  </compounddef>
+</doxygen>

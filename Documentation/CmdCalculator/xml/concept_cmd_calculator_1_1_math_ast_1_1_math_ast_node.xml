@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="concept_cmd_calculator_1_1_math_ast_1_1_math_ast_node" kind="concept">
+    <compoundname>CmdCalculator::MathAst::MathAstNode</compoundname>
+    <includes refid="_math_ast_node_8h" local="no">MathAstNode.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+    <initializer>template&lt;class T&gt;
+concept <ref refid="concept_cmd_calculator_1_1_math_ast_1_1_math_ast_node" kindref="compound">CmdCalculator::MathAst::MathAstNode</ref> = 
+		std::derived_from&lt;T, MathAstNode_IntendedSatisfaction&gt;
+		&amp;&amp; String&lt;typename T::StringType&gt;
+		&amp;&amp; requires(T&amp;&amp; instance)
+		{
+			{ instance.getLeadingTrivia() } -&gt; std::same_as&lt;typename T::StringType&gt;;
+			{ instance.getTrailingTrivia() } -&gt; std::same_as&lt;typename T::StringType&gt;;
+			{ instance.getStringRepresentation() } -&gt; std::same_as&lt;typename T::StringType&gt;;
+		}
+	    </initializer>
+    <briefdescription>
+<para>A single node in an abstract syntax tree (AST) representing a mathematical expression. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the AST node. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="MathAstNode.h" line="19" column="1"/>
+  </compounddef>
+</doxygen>

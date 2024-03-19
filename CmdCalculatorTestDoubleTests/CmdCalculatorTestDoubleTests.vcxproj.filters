@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Code\pch</Filter>
+    </ClCompile>
+    <ClCompile Include="FakeConsoleTests.cpp">
+      <Filter>Source Code\Tests\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="StubMathAstNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst</Filter>
+    </ClCompile>
+    <ClCompile Include="StubRawCmdLineArgParserTests.cpp">
+      <Filter>Source Code\Tests\RawCmdLineArgParser</Filter>
+    </ClCompile>
+    <ClCompile Include="StubThrowingRawCmdLineArgParserTests.cpp">
+      <Filter>Source Code\Tests\RawCmdLineArgParser</Filter>
+    </ClCompile>
+    <ClCompile Include="StubCalculationTests.cpp">
+      <Filter>Source Code\Tests\Calculation</Filter>
+    </ClCompile>
+    <ClCompile Include="StubThrowingCalculationTests.cpp">
+      <Filter>Source Code\Tests\Calculation</Filter>
+    </ClCompile>
+    <ClCompile Include="StubExpressionToStringConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\ExpressionToStringConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubMathAstToExpressionConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\MathAstToExpressionConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubStringToMathAstConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubValidatingStringToMathAstConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingStringToMathAstConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingMathAstNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingMathAstToExpressionConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\MathAstToExpressionConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingConvertedStringTests.cpp">
+      <Filter>Source Code\Tests\String</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingExpressionToStringConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\ExpressionToStringConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingStringToAntlrContextConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\StringToAntlrContextConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubThrowingStringToAntlrContextConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\StringToAntlrContextConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingAntlrContextToMathAstConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\AntlrContextToMathAstConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubAntlrTokenTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\AntlrToken</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingFullExpressionAntlrContextTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="StubExpressionAntlrContextTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\ExpressionAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="StubOperandAntlrContextTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperandAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="StubNonGroupingMultiplicationAntlrContextTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NonGroupingMultiplicationAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="StubNumberLiteralAntlrContextTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NumberLiteralAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="StubWholefulNumberLiteralAntlrContextTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholefulNumberLiteralAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="StubWholelessNumberLiteralAntlrContextTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="StubSignOperationAntlrContextTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperationAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="StubSignOperatorAntlrContextTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="StubSqrtOperationAntlrContextTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="StubGroupingAntlrContextTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="StubAbsoluteValueOperationAntlrContextTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="StubGroupingMultiplicationAntlrContextTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingMultiplicationAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="StubGroupingTailMultiplicandAntlrContextTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingTailMultiplicandAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="StubOperationPartPairAntlrContextTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperationPartPairAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="StubBinaryOperatorAntlrContextTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingDynamicExpressionNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="StubDynamicExpressionNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="StubDynamicExpressionPartNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="StubFullExpressionAntlrContextTests.cpp">
+      <Filter>Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext</Filter>
+    </ClCompile>
+    <ClCompile Include="FakeRealNumberTests.cpp">
+      <Filter>Source Code\Tests\Arithmetic\RealNumber</Filter>
+    </ClCompile>
+    <ClCompile Include="StubExpressionTests.cpp">
+      <Filter>Source Code\Tests\Expressions\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="StubDynamicExpressionTests.cpp">
+      <Filter>Source Code\Tests\Expressions\Dynamic\DynamicExpression</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingExpressionTests.cpp">
+      <Filter>Source Code\Tests\Expressions\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="StubDynamicOperandToDynamicExpressionConverter.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubDynamicOperandNodeTests.cpp">
+      <Filter>Source Code\Tests\MathAst\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="StubDynamicExpressionPartSingleSplitResultTests.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitResult</Filter>
+    </ClCompile>
+    <ClCompile Include="FakeHalfwayDynamicExpressionPartSingleSplitterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingDynamicExpressionPartRecursiveSplitResult.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitResult</Filter>
+    </ClCompile>
+    <ClCompile Include="FakeHalfwayDynamicExpressionPartRecursiveSplitterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter</Filter>
+    </ClCompile>
+    <ClCompile Include="shared_splitting_test_utils.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Shared Splitting Test Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingDynamicExpressionTests.cpp">
+      <Filter>Source Code\Tests\Expressions\Dynamic\DynamicExpression</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingDynamicOperandToDynamicExpressionConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingRecursiveSplitResultToDynamicExpressionConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubTrackingDynamicMathAstToDynamicExpressionConverterTests.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="StubDynamicExpressionPartRecursiveSplitResultTests.cpp">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitResult</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Code">
+      <UniqueIdentifier>{f319242c-9958-4e41-b080-5e9afbc611ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\pch">
+      <UniqueIdentifier>{df293621-6d26-4827-b12a-00a5961cd155}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests">
+      <UniqueIdentifier>{a0f3f260-0f09-46d9-beb6-51a624fa7257}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Console">
+      <UniqueIdentifier>{9b2cec71-fb98-48d8-8b04-cee73e042049}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions">
+      <UniqueIdentifier>{9e29f757-e175-4c65-ae9b-94585de87f0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Expressions">
+      <UniqueIdentifier>{cb1ed799-06a2-433b-afe1-82718eab37ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\MathAst">
+      <UniqueIdentifier>{9d50dce3-e664-4d24-9a7a-d6691e271e62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\RawCmdLineArgParser">
+      <UniqueIdentifier>{93f9a107-e4b4-45c3-b9fb-48695198ae80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Calculation">
+      <UniqueIdentifier>{d47e4ed8-9aba-4be3-bd4b-480a056485c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\ExpressionToStringConverter">
+      <UniqueIdentifier>{edd3a2a7-fc25-4118-9913-a66568a98a20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\String">
+      <UniqueIdentifier>{48a46ac3-c962-4bd7-ad7c-5f366a72f160}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\MathAst\Dynamic">
+      <UniqueIdentifier>{a34021a8-3ebd-466c-b878-55140f1a3c7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Arithmetic">
+      <UniqueIdentifier>{f9815e6b-d740-4c84-9be6-c0098e294f94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Arithmetic\RealNumber">
+      <UniqueIdentifier>{e01b6e22-905d-4dc9-83cd-20e7efdbb811}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Expressions\Expression">
+      <UniqueIdentifier>{86922ebf-4e6a-48bf-8331-5d19ffad4cac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Expressions\Dynamic">
+      <UniqueIdentifier>{e770efcb-c713-40b6-a8e9-7a3711f79f16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Expressions\Dynamic\DynamicExpression">
+      <UniqueIdentifier>{3642df62-54fa-47be-a290-769b7769ff6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST">
+      <UniqueIdentifier>{6b1b59ac-a013-43a8-b688-a31d01994e2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter">
+      <UniqueIdentifier>{c024f50c-e35a-4ecf-b401-089611c81516}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR">
+      <UniqueIdentifier>{43787c9f-164c-4eb8-a5c8-10bf97ede755}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\StringToAntlrContextConverter">
+      <UniqueIdentifier>{58c88fb6-386e-4947-abe9-f35751c310b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\AntlrContextToMathAstConverter">
+      <UniqueIdentifier>{a0049ffd-f85f-4d0a-8136-e21f9bfe776c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\AntlrToken">
+      <UniqueIdentifier>{a42c1944-b2f6-40d3-b82d-95ed4335ba5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects">
+      <UniqueIdentifier>{413703ce-0c65-4b5e-b865-51b3ab167f17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\FullExpressionAntlrContext">
+      <UniqueIdentifier>{bca2b048-c152-4e56-882a-e59974d174b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\ExpressionAntlrContext">
+      <UniqueIdentifier>{220d06f5-ed4b-4ef4-991e-6b7bc82644ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperandAntlrContext">
+      <UniqueIdentifier>{dcb7c614-ce51-492e-af14-9e9f3d9664fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NonGroupingMultiplicationAntlrContext">
+      <UniqueIdentifier>{bbe6db83-50ba-409e-8777-7437b4af730b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\NumberLiteralAntlrContext">
+      <UniqueIdentifier>{fc8c13a8-d261-42e7-b455-f6a8df4d2d7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholefulNumberLiteralAntlrContext">
+      <UniqueIdentifier>{1006de42-3f2a-446b-b792-929b907c795a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\WholelessNumberLiteralAntlrContext">
+      <UniqueIdentifier>{df58ef9b-42f6-433f-a419-d00c3c09712d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperationAntlrContext">
+      <UniqueIdentifier>{b7556b34-4a3d-484e-8989-d3343bef78b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SignOperatorAntlrContext">
+      <UniqueIdentifier>{423b10f1-4167-4655-8146-23dcdaf7624f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\SqrtOperationAntlrContext">
+      <UniqueIdentifier>{3cbc69aa-f885-4d4e-8307-189fdc84a09b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingAntlrContext">
+      <UniqueIdentifier>{19359ded-e4c8-472b-9b03-9c4310578ccb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\AbsoluteValueOperationAntlrContext">
+      <UniqueIdentifier>{13bfd92f-d316-434a-a5a0-ed96533cefcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingMultiplicationAntlrContext">
+      <UniqueIdentifier>{a70258f6-da80-49a5-b762-8e56b9151624}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\GroupingTailMultiplicandAntlrContext">
+      <UniqueIdentifier>{886fe41b-e7b8-4f7e-a7f2-3a91512d7d1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\OperationPartPairAntlrContext">
+      <UniqueIdentifier>{e38591b7-b965-4801-a8b5-bd7c83aed97e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\String to Math AST\StringToMathAstConverter\ANTLR\ANTLR Context Objects\BinaryOperatorAntlrContext">
+      <UniqueIdentifier>{9951ba43-c608-4c96-8c68-ff342f7d3bef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression">
+      <UniqueIdentifier>{0e0d2dae-3e9c-42aa-893d-abc486971a5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\MathAstToExpressionConverter">
+      <UniqueIdentifier>{ccc57f9f-4acd-4fbd-9af3-f4f84c111f3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression">
+      <UniqueIdentifier>{dbbcfa50-9e8f-4d85-a108-88b099a21ae8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicOperandToDynamicExpressionConverter">
+      <UniqueIdentifier>{c2666bd0-2ce4-498b-aa42-0275e12c2344}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting">
+      <UniqueIdentifier>{0764ea79-43ed-4efe-a894-cb0f98dc9bae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting">
+      <UniqueIdentifier>{61678cf0-a4b2-4edb-9f58-c558248d498e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitResult">
+      <UniqueIdentifier>{b5bdbea5-e0fa-4a9a-9a80-a128679ead44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Single Splitting\DynamicExpressionPartSingleSplitter">
+      <UniqueIdentifier>{e6a23db6-fbe3-4284-a9e8-d3be581146f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting">
+      <UniqueIdentifier>{33e89542-85cf-4249-8dd6-cf8b6ed6ee7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitResult">
+      <UniqueIdentifier>{4e952a31-d39a-43c6-9bca-a5ad86cade95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\DynamicExpressionPartRecursiveSplitter">
+      <UniqueIdentifier>{485420fa-318e-4ece-a6af-4414ed5d3efd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Shared Splitting Test Utils">
+      <UniqueIdentifier>{e9078b84-d20d-41b7-8df7-f22bb0e481d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Recursive Splitting\RecursiveSplitResultToDynamicExpressionConverter">
+      <UniqueIdentifier>{5e42c3c8-22b3-4c55-9662-744872e68ab4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicMathAstToDynamicExpressionConverter">
+      <UniqueIdentifier>{dd7f0959-346e-4e09-bdde-bd4d05bda86a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Source Code\pch</Filter>
+    </ClInclude>
+    <ClInclude Include="shared_splitting_test_utils.h">
+      <Filter>Source Code\Tests\Conversions\Math AST to Expression\Dynamic Math AST to Dynamic Expression\DynamicExpressionPart Splitting\Shared Splitting Test Utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

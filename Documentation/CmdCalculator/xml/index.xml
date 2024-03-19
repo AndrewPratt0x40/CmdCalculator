@@ -1,0 +1,350 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="class_cmd_calculator_1_1_antlr_based_string_to_math_ast_converter" kind="class"><name>CmdCalculator::AntlrBasedStringToMathAstConverter</name>
+    <member refid="class_cmd_calculator_1_1_antlr_based_string_to_math_ast_converter_1aa3b92143931584cd7e14cb0632882f59" kind="typedef"><name>StringType</name></member>
+    <member refid="class_cmd_calculator_1_1_antlr_based_string_to_math_ast_converter_1a7ef9eff7a35e35632bfe9b4794982015" kind="typedef"><name>StringViewType</name></member>
+    <member refid="class_cmd_calculator_1_1_antlr_based_string_to_math_ast_converter_1aeda09dda4c55038d900cdc0c088fce06" kind="typedef"><name>UnderlyingPartsType</name></member>
+    <member refid="class_cmd_calculator_1_1_antlr_based_string_to_math_ast_converter_1a233bd95533863329d04dcb785065b4b8" kind="function"><name>getStringAsMathAst</name></member>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_bad_raw_cmd_line_args_exception" kind="class"><name>CmdCalculator::BadRawCmdLineArgsException</name>
+  </compound>
+  <compound refid="struct_cmd_calculator_1_1_calculation___intended_satisfaction" kind="struct"><name>CmdCalculator::Calculation_IntendedSatisfaction</name>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_calculation_configuration" kind="class"><name>CmdCalculator::CalculationConfiguration</name>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1a6d63a128eeffb60054c003693de279d9" kind="variable"><name>m_precision</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1a5ea12308cbbcc4a6a9ab3dc7f90b1dd3" kind="variable"><name>m_shouldPreferDecimalsOverIntegers</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1a3d6fa3508ef55e34eacb09046a0d566e" kind="variable"><name>m_shouldPreferSignExpressionForPositiveValues</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1a8489170745681b397cb5de6b18f9c6dd" kind="variable"><name>m_shouldPreferLeadingZeroOverWholelessNumbers</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1a6789121d2e790a46298aa8dc9a6cab71" kind="variable"><name>m_shouldPreferTrailingZeroOverEmptyDecimalPlace</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1a145e305db4994417b9df79c5f8109352" kind="function"><name>getPrecision</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1a97b1721dbc47612ad98d4d4e61c400e7" kind="function"><name>shouldPreferDecimalsOverIntegers</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1ac4ce56163602dca95bfb6be6c680d330" kind="function"><name>shouldPreferSignExpressionForPositiveValues</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1ac3e3d539a6e80b00a15495a0490aa106" kind="function"><name>shouldPreferLeadingZeroOverWholelessNumbers</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1a49c9954eb90bfb41da179e7c5fd1b871" kind="function"><name>shouldPreferTrailingZeroOverEmptyDecimalPlace</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1a728f7de916eb80d91db47fc49d6d4258" kind="function"><name>CalculationConfiguration</name></member>
+    <member refid="class_cmd_calculator_1_1_calculation_configuration_1adb71ca68ae5e4ece3b726e8f629aa184" kind="function"><name>operator==</name></member>
+  </compound>
+  <compound refid="struct_cmd_calculator_1_1_process_1_1_calculation_result" kind="struct"><name>CmdCalculator::Process::CalculationResult</name>
+    <member refid="struct_cmd_calculator_1_1_process_1_1_calculation_result_1a5181a83ef6f80f8abcef3bfa71da55f8" kind="variable"><name>outputExpression</name></member>
+    <member refid="struct_cmd_calculator_1_1_process_1_1_calculation_result_1aeccdbbba6ac331eb505b6c42c5ea28c9" kind="variable"><name>shouldReprompt</name></member>
+  </compound>
+  <compound refid="struct_cmd_calculator_1_1_console___intended_satisfaction" kind="struct"><name>CmdCalculator::Console_IntendedSatisfaction</name>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node" kind="class"><name>CmdCalculator::MathAst::DynamicAbsoluteValueNode</name>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node_1a84429e49e53725200168dc85c632dcfc" kind="typedef"><name>StringType</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node_1a970b7a8c5d08d32cc1ff7f3e61e3f8ba" kind="typedef"><name>PartsType</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node_1a421e7ce8b93cc591844e287385a6b937" kind="typedef"><name>UnderlyingPartsType</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node_1af96c9ab6b46d5135d60350c7dcf8b414" kind="function"><name>getContainedExpression</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node_1a56e203d4b741bfea917e2d5f6c93ea7e" kind="function"><name>getLeadingTrivia</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node_1af96b62d28bae0d47775a7545250d59bd" kind="function"><name>getTrailingTrivia</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_absolute_value_node_1a122b815ef8b23f3167bb56406c82e0ac" kind="function"><name>getStringRepresentation</name></member>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node" kind="class"><name>CmdCalculator::MathAst::DynamicBinaryOperatorNode</name>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node_1a542ff585b814d7e306a97ee637d4c619" kind="function"><name>getOperatorKind</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node_1a3ebfd4c8e069d7de703ae44c48b73fc8" kind="function"><name>getLeadingTrivia</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node_1a4badcf6f21c0ca53e19facf1643a82c9" kind="function"><name>getTrailingTrivia</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_binary_operator_node_1a9ca7f1ffea0f6b2d803412e352ac8d2b" kind="function"><name>getStringRepresentation</name></member>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node" kind="class"><name>CmdCalculator::MathAst::DynamicExpressionContainingNode</name>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_1a1724ed1d42bfac75a1a2a14c0cdb1b3c" kind="typedef"><name>StringType</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_1af9767cac7b2e4b6d046105cf5fec7726" kind="typedef"><name>PartsType</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_1af8c1b3e69ecd19df667e3531ae9c4f24" kind="function"><name>getContainedExpression</name></member>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection" kind="class"><name>CmdCalculator::MathAst::DynamicExpressionContainingNodeWithUnderlyingCollection</name>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection_1a18e229a4d6e2352ad78df4db6703f44a" kind="typedef"><name>ParentDynamicExpressionContainingNode</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection_1a1eacda91face708831fdff7f0fe06fd6" kind="typedef"><name>StringType</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection_1a90b04dea01178c12675e3b8d6f57badf" kind="typedef"><name>PartsType</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_containing_node_with_underlying_collection_1ad17704b7224b94e11c6559d4f64a2329" kind="typedef"><name>UnderlyingPartsType</name></member>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_node" kind="class"><name>CmdCalculator::MathAst::DynamicExpressionNode</name>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_node_1a333adad0256fb42148d6ce7cf3b851cc" kind="function"><name>getParts</name></member>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node" kind="class"><name>CmdCalculator::MathAst::DynamicExpressionPartNode</name>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_expression_part_node_1a10f39d5e0fee951cac396f4803a1ddc2" kind="typedef"><name>StringType</name></member>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node" kind="class"><name>CmdCalculator::MathAst::DynamicGroupingMultiplicationNode</name>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_1a9e54b3d2de45e05fe945ba027af83c95" kind="function"><name>getHeadMultiplicand</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_1af15702f71bef6b78041b0141fbb4facb" kind="function"><name>getTailMultiplicands</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_1ad56c7220f8153a3bd9a6872053281723" kind="function"><name>getLeadingTrivia</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_1ae1c230a23ac84556f20376af9e833768" kind="function"><name>getTrailingTrivia</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_1ace4359a1023b690c00686140e804725a" kind="function"><name>getStringRepresentation</name></member>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node" kind="class"><name>CmdCalculator::MathAst::DynamicGroupingNode</name>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1a083ebf1c5cecc9945ae7192174f4843e" kind="typedef"><name>StringType</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1afa89bef043eddca31df4d568be04f08e" kind="typedef"><name>PartsType</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1a61f4ab9343694bac8d824e434ee5cc24" kind="typedef"><name>UnderlyingPartsType</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1a4e45cadf7d497866085825780b4c5e8b" kind="function"><name>getContainedExpression</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1a314a51741f50a0aa154c7ca11a061a87" kind="function"><name>getLeadingTrivia</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1aba1851eba715799c3615d9d1b5c8372c" kind="function"><name>getTrailingTrivia</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_node_1ad9176a1677ef3b54a6e9434fd4b60a22" kind="function"><name>getStringRepresentation</name></member>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node" kind="class"><name>CmdCalculator::MathAst::DynamicMathAstNode</name>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1acc2fe21193b097d0e31982af261c9244" kind="typedef"><name>StringType</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1ab119030478dfccaaae343daec89c93c2" kind="function"><name>getLeadingTrivia</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1a5e3b93b8fe74dccdfb351d216607d01d" kind="function"><name>getTrailingTrivia</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_math_ast_node_1a06c7437a7e811c1db2821bbd73a3e97a" kind="function"><name>getStringRepresentation</name></member>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node" kind="class"><name>CmdCalculator::MathAst::DynamicNumberLiteralNode</name>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a036463a906907fd257b7f7a5bcffe208" kind="typedef"><name>StringType</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a8c81ce58dc128ad905816701c89652c0" kind="typedef"><name>IntType</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a71f65ab162f226831ea1c1a409d27b6e" kind="function"><name>getWholePart</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1adce0f6957e6cb75961b239871424f1f9" kind="function"><name>getFractionalPart</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a0aac55f255c4473403033e1dffa76472" kind="function"><name>isDecimalPointVisible</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1aa2d5bc6f71ed5b9e44b8b1a3cd69333f" kind="function"><name>isWholePartVisible</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a8671cf3a3c448430eb44119ca862484d" kind="function"><name>isFractionalPartVisible</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1aef0992ab70befe3a81a0766e31d4867b" kind="function"><name>getLeadingTrivia</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a280f100429dd33181aa61663ce5e6aa6" kind="function"><name>getTrailingTrivia</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_number_literal_node_1a718e5a0419075860fd31df7f82d003f3" kind="function"><name>getStringRepresentation</name></member>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node" kind="class"><name>CmdCalculator::MathAst::DynamicOperandNode</name>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node_1a3bc54139067a9e01d7d88b239188edf9" kind="typedef"><name>StringType</name></member>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sign_operation_node" kind="class"><name>CmdCalculator::MathAst::DynamicSignOperationNode</name>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sign_operation_node_1a1f563e55b7d2de3ceb6cce29702ff34f" kind="typedef"><name>StringType</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sign_operation_node_1a727485c96142ce048f2ce02d526d18f9" kind="function"><name>isPositive</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sign_operation_node_1a400ceb903bef7548a92ede6f6028b79e" kind="function"><name>getInnerTrivia</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sign_operation_node_1a99765bef5c082b5ae02289e748417815" kind="function"><name>getLeadingTrivia</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sign_operation_node_1a9260c6574b056a0a739cb4c46a720614" kind="function"><name>getTrailingTrivia</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sign_operation_node_1a83556f553d6e02f9ca191cc76f52d638" kind="function"><name>getStringRepresentation</name></member>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node" kind="class"><name>CmdCalculator::MathAst::DynamicSqrtOperationNode</name>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_1ad0055a393da8ad6955699e111fefa23c" kind="typedef"><name>StringType</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_1a1ba9a52403b7eeee631d26edc490170f" kind="function"><name>getInnerTrivia</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_1a7091e70f8a8ddb59899073aa470c6060" kind="function"><name>getLeadingTrivia</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_1a0fcf38334749048651f4fe0a1cb3c30b" kind="function"><name>getTrailingTrivia</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_sqrt_operation_node_1ae26d15aff333c3c679ebfb1abebd84f2" kind="function"><name>getStringRepresentation</name></member>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_unary_operation_node" kind="class"><name>CmdCalculator::MathAst::DynamicUnaryOperationNode</name>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_unary_operation_node_1a2764c162511c8c7d916301714f8967ba" kind="typedef"><name>StringType</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_unary_operation_node_1a1fa11ddeaf3082fe935e7a07bb0aa99f" kind="function"><name>getOperand</name></member>
+    <member refid="class_cmd_calculator_1_1_math_ast_1_1_dynamic_unary_operation_node_1a56a6c97edbd0404a4122422f03278b69" kind="function"><name>getInnerTrivia</name></member>
+  </compound>
+  <compound refid="struct_cmd_calculator_1_1_expressions_1_1_expression___intended_satisfaction" kind="struct"><name>CmdCalculator::Expressions::Expression_IntendedSatisfaction</name>
+  </compound>
+  <compound refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_node___intended_satisfaction" kind="struct"><name>CmdCalculator::MathAst::ExpressionNode_IntendedSatisfaction</name>
+  </compound>
+  <compound refid="struct_cmd_calculator_1_1_math_ast_1_1_expression_part_node___intended_satisfaction" kind="struct"><name>CmdCalculator::MathAst::ExpressionPartNode_IntendedSatisfaction</name>
+  </compound>
+  <compound refid="struct_cmd_calculator_1_1_expression_to_string_converter___intended_satisfaction" kind="struct"><name>CmdCalculator::ExpressionToStringConverter_IntendedSatisfaction</name>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_invalid_input_expression_exception" kind="class"><name>CmdCalculator::InvalidInputExpressionException</name>
+  </compound>
+  <compound refid="struct_cmd_calculator_1_1_math_ast_1_1_math_ast_node___intended_satisfaction" kind="struct"><name>CmdCalculator::MathAst::MathAstNode_IntendedSatisfaction</name>
+  </compound>
+  <compound refid="struct_cmd_calculator_1_1_math_ast_to_expression_converter___intended_satisfaction" kind="struct"><name>CmdCalculator::MathAstToExpressionConverter_IntendedSatisfaction</name>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception" kind="class"><name>CmdCalculator::MissingCmdLineArgValueException</name>
+    <member refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_1a2c9a547827ef88634718ab35363d4775" kind="typedef"><name>ArgType</name></member>
+    <member refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_1a4c8980254a79bd771d758c8c6d2a739d" kind="typedef"><name>ArgViewType</name></member>
+    <member refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_1a18b7ac862d32fbc97652d5be2fc0e6b9" kind="variable"><name>m_arg</name></member>
+    <member refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_1a19533eeecd17c078aeccf20472abed27" kind="function"><name>MissingCmdLineArgValueException</name></member>
+    <member refid="class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception_1ad3dd4ebc3b79e5f168de2977f2ca6aa5" kind="function"><name>getArg</name></member>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_not_implemented_exception" kind="class"><name>CmdCalculator::NotImplementedException</name>
+    <member refid="class_cmd_calculator_1_1_not_implemented_exception_1adf953109a6c4dd067db41dc5af237e96" kind="function"><name>what</name></member>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_process" kind="class"><name>CmdCalculator::Process</name>
+    <member refid="class_cmd_calculator_1_1_process_1abd8f50535c900e8c2cb7b84326a8cc41" kind="typedef"><name>CalculationType</name></member>
+    <member refid="class_cmd_calculator_1_1_process_1adc575bdd1973f404a07395128757f6d7" kind="typedef"><name>RawCmdLineArgParserType</name></member>
+    <member refid="class_cmd_calculator_1_1_process_1a99a9c784b7a8253002a7acc8eeaca32a" kind="typedef"><name>StringToMathAstConverterType</name></member>
+    <member refid="class_cmd_calculator_1_1_process_1a6633a6a0750d27bedbc1214f34a30d2c" kind="typedef"><name>MathAstToExpressionConverterType</name></member>
+    <member refid="class_cmd_calculator_1_1_process_1ae140c4bb26636f14e77183e3a2b7749f" kind="typedef"><name>ExpressionToStringConverterType</name></member>
+    <member refid="class_cmd_calculator_1_1_process_1abf32f9528a2bd59dc78f7460df03cc4e" kind="variable"><name>m_rawCmdLineArgParser</name></member>
+    <member refid="class_cmd_calculator_1_1_process_1a547f9fda0ccebacab4927114fd029af9" kind="variable"><name>m_stringToMathAstConverter</name></member>
+    <member refid="class_cmd_calculator_1_1_process_1a0a7c3aa670920339ff6c790a1746ae76" kind="variable"><name>m_mathAstToExpressionConverter</name></member>
+    <member refid="class_cmd_calculator_1_1_process_1a3bfe22e862f2fa8090f103f1ca16a23a" kind="variable"><name>m_expressionToStringConverter</name></member>
+    <member refid="class_cmd_calculator_1_1_process_1a3c791aae5b621424cdc28e7b11c89610" kind="function"><name>run</name></member>
+    <member refid="class_cmd_calculator_1_1_process_1aa3d4fb07acd701fb43ce9ea4c013c349" kind="function"><name>Process</name></member>
+    <member refid="class_cmd_calculator_1_1_process_1a63d5b20c73d20c85169fecc11040aa2e" kind="function"><name>Process</name></member>
+    <member refid="class_cmd_calculator_1_1_process_1aae34280ee764f6203733f2c3f1e23546" kind="function"><name>parseCmdLineArgs</name></member>
+    <member refid="class_cmd_calculator_1_1_process_1a890e20a11745ac58867c763ee1156f63" kind="function"><name>getinputExpression</name></member>
+    <member refid="class_cmd_calculator_1_1_process_1aac93ccae05feed27b0d2f6cd5659dba2" kind="function"><name>tryCalculate</name></member>
+    <member refid="class_cmd_calculator_1_1_process_1a9c2ebf5d3c45275324bd00d26d193fcc" kind="function"><name>promptForExpression</name></member>
+  </compound>
+  <compound refid="struct_cmd_calculator_1_1_process_configuration" kind="struct"><name>CmdCalculator::ProcessConfiguration</name>
+    <member refid="struct_cmd_calculator_1_1_process_configuration_1a2f09596a830390d3bbb8a1ff6a523d09" kind="variable"><name>givenExpression</name></member>
+    <member refid="struct_cmd_calculator_1_1_process_configuration_1a4019c25414a60a434df07e66a5dfed9b" kind="variable"><name>calculationConfiguration</name></member>
+  </compound>
+  <compound refid="struct_cmd_calculator_1_1_raw_cmd_line_arg_parser___intended_satisfaction" kind="struct"><name>CmdCalculator::RawCmdLineArgParser_IntendedSatisfaction</name>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_simple_calculation" kind="class"><name>CmdCalculator::SimpleCalculation</name>
+    <member refid="class_cmd_calculator_1_1_simple_calculation_1a148e178be837b1cd87189367869e717e" kind="typedef"><name>InputExpressionType</name></member>
+    <member refid="class_cmd_calculator_1_1_simple_calculation_1a33e8f8c83cd14af4379b61afce4f35f9" kind="typedef"><name>StringToMathAstConverterType</name></member>
+    <member refid="class_cmd_calculator_1_1_simple_calculation_1af22e405837f605b73c67dac038e1b8fa" kind="typedef"><name>MathAstToExpressionConverterType</name></member>
+    <member refid="class_cmd_calculator_1_1_simple_calculation_1ac46409178d56abd2d331fbbd96320d96" kind="typedef"><name>ExpressionToStringConverterType</name></member>
+    <member refid="class_cmd_calculator_1_1_simple_calculation_1a75933a780497527784ee001b0a375515" kind="typedef"><name>OutputExpressionType</name></member>
+    <member refid="class_cmd_calculator_1_1_simple_calculation_1a831c3fce4c27b73bf6b5f44bd767ecda" kind="variable"><name>m_inputExpression</name></member>
+    <member refid="class_cmd_calculator_1_1_simple_calculation_1aeabdda5de82c34c4d260977d91a20d5e" kind="variable"><name>m_configuration</name></member>
+    <member refid="class_cmd_calculator_1_1_simple_calculation_1abfa843c0c807ff54c56e2caa0e356c74" kind="variable"><name>m_stringToMathAstConverter</name></member>
+    <member refid="class_cmd_calculator_1_1_simple_calculation_1a4533ad84feef07f957219d97b3338e95" kind="variable"><name>m_mathAstToExpressionConverter</name></member>
+    <member refid="class_cmd_calculator_1_1_simple_calculation_1a2dd10204077a516dc215f8f724d3194b" kind="variable"><name>m_expressionToStringConverter</name></member>
+    <member refid="class_cmd_calculator_1_1_simple_calculation_1aca8613d2cddff442f77f79badd099540" kind="function"><name>getInputExpression</name></member>
+    <member refid="class_cmd_calculator_1_1_simple_calculation_1ad2f44edcf633ed3cdb5734effcec09c0" kind="function"><name>getOutputExpression</name></member>
+    <member refid="class_cmd_calculator_1_1_simple_calculation_1ac6b0e6de40df011ba40c9b3764bfc35e" kind="function"><name>getConfiguration</name></member>
+    <member refid="class_cmd_calculator_1_1_simple_calculation_1ae453bf4550e1328454ccec15845f57a1" kind="function"><name>getStringToMathAstConverter</name></member>
+    <member refid="class_cmd_calculator_1_1_simple_calculation_1ae47ca88c9894dc1ada62c82e0dee9442" kind="function"><name>getMathAstToExpressionConverter</name></member>
+    <member refid="class_cmd_calculator_1_1_simple_calculation_1a0bbaf3db1699f597eac61bf6cf9c428d" kind="function"><name>getExpressionToStringConverter</name></member>
+    <member refid="class_cmd_calculator_1_1_simple_calculation_1a17f2a7de86aa27d4428249864bb3cba0" kind="function"><name>SimpleCalculation</name></member>
+  </compound>
+  <compound refid="struct_cmd_calculator_1_1_string_to_math_ast_converter___intended_satisfaction" kind="struct"><name>CmdCalculator::StringToMathAstConverter_IntendedSatisfaction</name>
+  </compound>
+  <compound refid="class_cmd_calculator_1_1_unknown_cmd_line_arg_exception" kind="class"><name>CmdCalculator::UnknownCmdLineArgException</name>
+    <member refid="class_cmd_calculator_1_1_unknown_cmd_line_arg_exception_1af628409b82f2aae53dd03735cba39d4c" kind="typedef"><name>ArgType</name></member>
+    <member refid="class_cmd_calculator_1_1_unknown_cmd_line_arg_exception_1aab61f3f2e196ec5b10b7584ed8a2f9b5" kind="typedef"><name>ArgViewType</name></member>
+    <member refid="class_cmd_calculator_1_1_unknown_cmd_line_arg_exception_1ad0f71ddc4e42d198eccf8c14dd9744a5" kind="variable"><name>m_arg</name></member>
+    <member refid="class_cmd_calculator_1_1_unknown_cmd_line_arg_exception_1a76589391a63fc517883993673550073f" kind="function"><name>UnknownCmdLineArgException</name></member>
+    <member refid="class_cmd_calculator_1_1_unknown_cmd_line_arg_exception_1a2b490424c4bd73e263a3bef5c60d5fd6" kind="function"><name>getArg</name></member>
+  </compound>
+  <compound refid="concept_cmd_calculator_1_1_calculation" kind="concept"><name>CmdCalculator::Calculation</name>
+  </compound>
+  <compound refid="concept_cmd_calculator_1_1_console" kind="concept"><name>CmdCalculator::Console</name>
+  </compound>
+  <compound refid="concept_cmd_calculator_1_1_expressions_1_1_expression" kind="concept"><name>CmdCalculator::Expressions::Expression</name>
+  </compound>
+  <compound refid="concept_cmd_calculator_1_1_expression_to_string_converter" kind="concept"><name>CmdCalculator::ExpressionToStringConverter</name>
+  </compound>
+  <compound refid="concept_cmd_calculator_1_1_math_ast_1_1_expression_node" kind="concept"><name>CmdCalculator::MathAst::ExpressionNode</name>
+  </compound>
+  <compound refid="concept_cmd_calculator_1_1_math_ast_1_1_expression_part_node" kind="concept"><name>CmdCalculator::MathAst::ExpressionPartNode</name>
+  </compound>
+  <compound refid="concept_cmd_calculator_1_1_math_ast_1_1_math_ast_node" kind="concept"><name>CmdCalculator::MathAst::MathAstNode</name>
+  </compound>
+  <compound refid="concept_cmd_calculator_1_1_math_ast_to_expression_converter" kind="concept"><name>CmdCalculator::MathAstToExpressionConverter</name>
+  </compound>
+  <compound refid="concept_cmd_calculator_1_1_raw_cmd_line_arg_parser" kind="concept"><name>CmdCalculator::RawCmdLineArgParser</name>
+  </compound>
+  <compound refid="concept_cmd_calculator_1_1_string" kind="concept"><name>CmdCalculator::String</name>
+  </compound>
+  <compound refid="concept_cmd_calculator_1_1_string_of_char" kind="concept"><name>CmdCalculator::StringOfChar</name>
+  </compound>
+  <compound refid="concept_cmd_calculator_1_1_string_to_math_ast_converter" kind="concept"><name>CmdCalculator::StringToMathAstConverter</name>
+  </compound>
+  <compound refid="concept_cmd_calculator_1_1_string_view" kind="concept"><name>CmdCalculator::StringView</name>
+  </compound>
+  <compound refid="concept_cmd_calculator_1_1_string_view_of_char" kind="concept"><name>CmdCalculator::StringViewOfChar</name>
+  </compound>
+  <compound refid="namespace_cmd_calculator" kind="namespace"><name>CmdCalculator</name>
+    <member refid="namespace_cmd_calculator_1a8e769d3360222ca267d3f48bfb16f5b1" kind="enum"><name>EWriteMode</name></member>
+    <member refid="namespace_cmd_calculator_1a8e769d3360222ca267d3f48bfb16f5b1a4059b0251f66a18cb56f544728796875" kind="enumvalue"><name>Info</name></member>
+    <member refid="namespace_cmd_calculator_1a8e769d3360222ca267d3f48bfb16f5b1a902b0d55fddef6f8d651fe1035b7d4bd" kind="enumvalue"><name>Error</name></member>
+    <member refid="namespace_cmd_calculator_1a8e769d3360222ca267d3f48bfb16f5b1aa603905470e2a5b8c13e96b579ef0dba" kind="enumvalue"><name>Debug</name></member>
+  </compound>
+  <compound refid="namespace_cmd_calculator_1_1_expressions" kind="namespace"><name>CmdCalculator::Expressions</name>
+  </compound>
+  <compound refid="namespace_cmd_calculator_1_1_math_ast" kind="namespace"><name>CmdCalculator::MathAst</name>
+    <member refid="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34" kind="enum"><name>EBinaryOperator</name></member>
+    <member refid="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34a7c5531bbefed0945814f874baf9e0e0f" kind="enumvalue"><name>Addition</name></member>
+    <member refid="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34a6eb8b8b560161603402c0238b3a7d8b0" kind="enumvalue"><name>Subtraction</name></member>
+    <member refid="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34a27d1a1f7b7c2180e5b20ce9e3d00e2dd" kind="enumvalue"><name>Multiplication</name></member>
+    <member refid="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34a3025cdaab2deb0bb2cd642449e570833" kind="enumvalue"><name>Division</name></member>
+    <member refid="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34af66a8bcbb231ea7a3e07c4ad109c8478" kind="enumvalue"><name>Exponentiation</name></member>
+    <member refid="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34ae070928708638f8670415b50d2d14eb6" kind="enumvalue"><name>NthRoot</name></member>
+    <member refid="namespace_cmd_calculator_1_1_math_ast_1a57b2e3630e0e6d815a069cfa6670bc34a4cde2424cf960a70b7fc5fda1119143d" kind="enumvalue"><name>Modulo</name></member>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="namespacestd_1_1string__literals" kind="namespace"><name>std::string_literals</name>
+  </compound>
+  <compound refid="namespacestd_1_1string__view__literals" kind="namespace"><name>std::string_view_literals</name>
+  </compound>
+  <compound refid="_antlr_based_string_to_math_ast_converter_8cpp" kind="file"><name>AntlrBasedStringToMathAstConverter.cpp</name>
+  </compound>
+  <compound refid="_antlr_based_string_to_math_ast_converter_8h" kind="file"><name>AntlrBasedStringToMathAstConverter.h</name>
+  </compound>
+  <compound refid="_bad_raw_cmd_line_args_exception_8h" kind="file"><name>BadRawCmdLineArgsException.h</name>
+  </compound>
+  <compound refid="_calculation_8h" kind="file"><name>Calculation.h</name>
+  </compound>
+  <compound refid="_calculation_configuration_8cpp" kind="file"><name>CalculationConfiguration.cpp</name>
+  </compound>
+  <compound refid="_calculation_configuration_8h" kind="file"><name>CalculationConfiguration.h</name>
+  </compound>
+  <compound refid="_console_8h" kind="file"><name>Console.h</name>
+  </compound>
+  <compound refid="_dynamic_absolute_value_node_8cpp" kind="file"><name>DynamicAbsoluteValueNode.cpp</name>
+  </compound>
+  <compound refid="_dynamic_absolute_value_node_8h" kind="file"><name>DynamicAbsoluteValueNode.h</name>
+  </compound>
+  <compound refid="_dynamic_binary_operator_node_8cpp" kind="file"><name>DynamicBinaryOperatorNode.cpp</name>
+  </compound>
+  <compound refid="_dynamic_binary_operator_node_8h" kind="file"><name>DynamicBinaryOperatorNode.h</name>
+  </compound>
+  <compound refid="_dynamic_expression_containing_node_8h" kind="file"><name>DynamicExpressionContainingNode.h</name>
+  </compound>
+  <compound refid="_dynamic_expression_node_8h" kind="file"><name>DynamicExpressionNode.h</name>
+  </compound>
+  <compound refid="_dynamic_expression_part_node_8h" kind="file"><name>DynamicExpressionPartNode.h</name>
+  </compound>
+  <compound refid="_dynamic_grouping_multiplication_node_8cpp" kind="file"><name>DynamicGroupingMultiplicationNode.cpp</name>
+  </compound>
+  <compound refid="_dynamic_grouping_multiplication_node_8h" kind="file"><name>DynamicGroupingMultiplicationNode.h</name>
+  </compound>
+  <compound refid="_dynamic_grouping_node_8cpp" kind="file"><name>DynamicGroupingNode.cpp</name>
+  </compound>
+  <compound refid="_dynamic_grouping_node_8h" kind="file"><name>DynamicGroupingNode.h</name>
+  </compound>
+  <compound refid="_dynamic_math_ast_node_8h" kind="file"><name>DynamicMathAstNode.h</name>
+  </compound>
+  <compound refid="_dynamic_number_literal_node_8cpp" kind="file"><name>DynamicNumberLiteralNode.cpp</name>
+  </compound>
+  <compound refid="_dynamic_number_literal_node_8h" kind="file"><name>DynamicNumberLiteralNode.h</name>
+  </compound>
+  <compound refid="_dynamic_operand_node_8h" kind="file"><name>DynamicOperandNode.h</name>
+  </compound>
+  <compound refid="_dynamic_sign_operation_node_8cpp" kind="file"><name>DynamicSignOperationNode.cpp</name>
+  </compound>
+  <compound refid="_dynamic_sign_operation_node_8h" kind="file"><name>DynamicSignOperationNode.h</name>
+  </compound>
+  <compound refid="_dynamic_sqrt_operation_node_8cpp" kind="file"><name>DynamicSqrtOperationNode.cpp</name>
+  </compound>
+  <compound refid="_dynamic_sqrt_operation_node_8h" kind="file"><name>DynamicSqrtOperationNode.h</name>
+  </compound>
+  <compound refid="_dynamic_unary_operation_node_8cpp" kind="file"><name>DynamicUnaryOperationNode.cpp</name>
+  </compound>
+  <compound refid="_dynamic_unary_operation_node_8h" kind="file"><name>DynamicUnaryOperationNode.h</name>
+  </compound>
+  <compound refid="_e_binary_operator_8h" kind="file"><name>EBinaryOperator.h</name>
+  </compound>
+  <compound refid="_expression_8h" kind="file"><name>Expression.h</name>
+  </compound>
+  <compound refid="_expression_node_8h" kind="file"><name>ExpressionNode.h</name>
+  </compound>
+  <compound refid="_expression_part_node_8h" kind="file"><name>ExpressionPartNode.h</name>
+  </compound>
+  <compound refid="_expression_to_string_converter_8h" kind="file"><name>ExpressionToStringConverter.h</name>
+  </compound>
+  <compound refid="_invalid_input_expression_exception_8h" kind="file"><name>InvalidInputExpressionException.h</name>
+  </compound>
+  <compound refid="_math_ast_node_8h" kind="file"><name>MathAstNode.h</name>
+  </compound>
+  <compound refid="_math_ast_to_expression_converter_8h" kind="file"><name>MathAstToExpressionConverter.h</name>
+  </compound>
+  <compound refid="_missing_cmd_line_arg_value_exception_8cpp" kind="file"><name>MissingCmdLineArgValueException.cpp</name>
+  </compound>
+  <compound refid="_missing_cmd_line_arg_value_exception_8h" kind="file"><name>MissingCmdLineArgValueException.h</name>
+  </compound>
+  <compound refid="_not_implemented_exception_8h" kind="file"><name>NotImplementedException.h</name>
+  </compound>
+  <compound refid="_process_8cpp" kind="file"><name>Process.cpp</name>
+  </compound>
+  <compound refid="_process_8h" kind="file"><name>Process.h</name>
+  </compound>
+  <compound refid="_process_configuration_8h" kind="file"><name>ProcessConfiguration.h</name>
+  </compound>
+  <compound refid="_raw_cmd_line_arg_parser_8h" kind="file"><name>RawCmdLineArgParser.h</name>
+  </compound>
+  <compound refid="_simple_calculation_8cpp" kind="file"><name>SimpleCalculation.cpp</name>
+  </compound>
+  <compound refid="_simple_calculation_8h" kind="file"><name>SimpleCalculation.h</name>
+  </compound>
+  <compound refid="strings_8h" kind="file"><name>strings.h</name>
+  </compound>
+  <compound refid="_string_to_math_ast_converter_8h" kind="file"><name>StringToMathAstConverter.h</name>
+  </compound>
+  <compound refid="_unknown_cmd_line_arg_exception_8cpp" kind="file"><name>UnknownCmdLineArgException.cpp</name>
+  </compound>
+  <compound refid="_unknown_cmd_line_arg_exception_8h" kind="file"><name>UnknownCmdLineArgException.h</name>
+  </compound>
+  <compound refid="_the-example" kind="example"><name>The</name>
+  </compound>
+</doxygenindex>

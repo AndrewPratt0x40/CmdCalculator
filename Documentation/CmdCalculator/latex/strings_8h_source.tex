@@ -1,0 +1,40 @@
+\doxysection{strings.\+h}
+\hypertarget{strings_8h_source}{}\label{strings_8h_source}\mbox{\hyperlink{strings_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_cmd_calculator}{CmdCalculator}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T,\ \textcolor{keyword}{class}\ CharT>}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_string_of_char}{StringOfChar}}\ =\ std::convertible\_to<T,\ std::basic\_string<CharT>>;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_string}{String}}\ =}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}()}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ T::value\_type;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ T::traits\_type;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ T::allocator\_type;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string_of_char}{StringOfChar<T,\ typename\ T::value\_type>}}}
+\DoxyCodeLine{00027\ \ \ \ \ ;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T,\ \textcolor{keyword}{class}\ CharT>}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_string_view_of_char}{StringViewOfChar}}\ =\ std::convertible\_to<T,\ std::basic\_string\_view<CharT>>;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_cmd_calculator_1_1_string_view}{StringView}}\ =}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}()}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ T::value\_type;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ T::traits\_type;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string_view_of_char}{StringViewOfChar<T,\ typename\ T::value\_type>}}}
+\DoxyCodeLine{00048\ \ \ \ \ ;}
+\DoxyCodeLine{00049\ \}}
+
+\end{DoxyCode}

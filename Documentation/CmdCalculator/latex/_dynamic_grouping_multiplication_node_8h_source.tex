@@ -1,0 +1,59 @@
+\doxysection{Dynamic\+Grouping\+Multiplication\+Node.\+h}
+\hypertarget{_dynamic_grouping_multiplication_node_8h_source}{}\label{_dynamic_grouping_multiplication_node_8h_source}\mbox{\hyperlink{_dynamic_grouping_multiplication_node_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dynamic_operand_node_8h}{DynamicOperandNode.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dynamic_grouping_node_8h}{DynamicGroupingNode.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{strings_8h}{strings.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_not_implemented_exception_8h}{NotImplementedException.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_cmd_calculator_1_1_math_ast}{CmdCalculator::MathAst}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{template}<String\ StringT,\ std::ranges::range\ TailMultiplicandsT>}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ std::same\_as}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ <}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ DynamicGroupingNode}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ <}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ TailMultiplicandsT::StringType,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ TailMultiplicandsT::UnderlyingPartsType}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ >,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ std::ranges::range\_value\_t<TailMultiplicandsT>}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ >}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node}{DynamicGroupingMultiplicationNode}}\ :}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node}{DynamicOperandNode}}<StringT>}
+\DoxyCodeLine{00025\ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_operand_node}{DynamicOperandNode<StringT>}}\&\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_a9e54b3d2de45e05fe945ba027af83c95}{getHeadMultiplicand}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00032\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{NotImplementedException}}\{\};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ TailMultiplicandsT\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_af15702f71bef6b78041b0141fbb4facb}{getTailMultiplicands}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{NotImplementedException}}\{\};}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ StringT\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_ad56c7220f8153a3bd9a6872053281723}{getLeadingTrivia}}()\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00047\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{NotImplementedException}}\{\};}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ StringT\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_ae1c230a23ac84556f20376af9e833768}{getTrailingTrivia}}()\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00053\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{NotImplementedException}}\{\};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ StringT\ \mbox{\hyperlink{class_cmd_calculator_1_1_math_ast_1_1_dynamic_grouping_multiplication_node_ace4359a1023b690c00686140e804725a}{getStringRepresentation}}()\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00059\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{NotImplementedException}}\{\};}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \};}
+\DoxyCodeLine{00063\ \}}
+
+\end{DoxyCode}

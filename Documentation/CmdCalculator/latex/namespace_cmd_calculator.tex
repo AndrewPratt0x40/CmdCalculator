@@ -1,0 +1,102 @@
+\doxysection{Cmd\+Calculator Namespace Reference}
+\hypertarget{namespace_cmd_calculator}{}\label{namespace_cmd_calculator}\index{CmdCalculator@{CmdCalculator}}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_cmd_calculator_1_1_expressions}{Expressions}}
+\item 
+namespace \mbox{\hyperlink{namespace_cmd_calculator_1_1_math_ast}{Math\+Ast}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_antlr_based_string_to_math_ast_converter}{Antlr\+Based\+String\+To\+Math\+Ast\+Converter}}
+\begin{DoxyCompactList}\small\item\em An algorithm to convert a string into a mathematical abstract syntax tree using ANTLR. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_bad_raw_cmd_line_args_exception}{Bad\+Raw\+Cmd\+Line\+Args\+Exception}}
+\begin{DoxyCompactList}\small\item\em An exception that is thrown when command-\/line arguments are invalid. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_cmd_calculator_1_1_calculation___intended_satisfaction}{Calculation\+\_\+\+Intended\+Satisfaction}}
+\begin{DoxyCompactList}\small\item\em The base type for types that are intended to satisfy the Calculation concept. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_calculation_configuration}{Calculation\+Configuration}}
+\begin{DoxyCompactList}\small\item\em A collection of settings for how calculations should be done. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_cmd_calculator_1_1_console___intended_satisfaction}{Console\+\_\+\+Intended\+Satisfaction}}
+\begin{DoxyCompactList}\small\item\em The base type for types that are intended to satisfy the Console concept. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_cmd_calculator_1_1_expression_to_string_converter___intended_satisfaction}{Expression\+To\+String\+Converter\+\_\+\+Intended\+Satisfaction}}
+\begin{DoxyCompactList}\small\item\em The base type for types that are intended to satisfy the Expression\+To\+String\+Converter concept. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_invalid_input_expression_exception}{Invalid\+Input\+Expression\+Exception}}
+\begin{DoxyCompactList}\small\item\em An exception that is thrown when an invalid input expression is given. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_cmd_calculator_1_1_math_ast_to_expression_converter___intended_satisfaction}{Math\+Ast\+To\+Expression\+Converter\+\_\+\+Intended\+Satisfaction}}
+\begin{DoxyCompactList}\small\item\em The base type for types that are intended to satisfy the Math\+Ast\+To\+Expression\+Converter concept. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception}{Missing\+Cmd\+Line\+Arg\+Value\+Exception}}
+\begin{DoxyCompactList}\small\item\em An exception that is thrown when a command-\/line argument is missing a value. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_not_implemented_exception}{Not\+Implemented\+Exception}}
+\begin{DoxyCompactList}\small\item\em An exception to be thrown when non-\/implemented code is invoked. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_process}{Process}}
+\begin{DoxyCompactList}\small\item\em A \doxylink{namespace_cmd_calculator}{Cmd\+Calculator} process. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_cmd_calculator_1_1_process_configuration}{Process\+Configuration}}
+\begin{DoxyCompactList}\small\item\em A collection of settings for a \doxylink{namespace_cmd_calculator}{Cmd\+Calculator} process. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_cmd_calculator_1_1_raw_cmd_line_arg_parser___intended_satisfaction}{Raw\+Cmd\+Line\+Arg\+Parser\+\_\+\+Intended\+Satisfaction}}
+\begin{DoxyCompactList}\small\item\em The base type for types that are intended to satisfy the Raw\+Cmd\+Line\+Arg\+Parser concept. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_simple_calculation}{Simple\+Calculation}}
+\begin{DoxyCompactList}\small\item\em A simple implementation that satisfies the Calculation concept. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_cmd_calculator_1_1_string_to_math_ast_converter___intended_satisfaction}{String\+To\+Math\+Ast\+Converter\+\_\+\+Intended\+Satisfaction}}
+\begin{DoxyCompactList}\small\item\em The base type for types that are intended to satisfy the String\+To\+Math\+Converter concept. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cmd_calculator_1_1_unknown_cmd_line_arg_exception}{Unknown\+Cmd\+Line\+Arg\+Exception}}
+\begin{DoxyCompactList}\small\item\em An exception that is thrown when an unknown command-\/line argument is given. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Concepts}
+\begin{DoxyCompactItemize}
+\item 
+concept \mbox{\hyperlink{concept_cmd_calculator_1_1_calculation}{Calculation}}
+\begin{DoxyCompactList}\small\item\em A singular calculation. \end{DoxyCompactList}\item 
+concept \mbox{\hyperlink{concept_cmd_calculator_1_1_console}{Console}}
+\begin{DoxyCompactList}\small\item\em A text console. \end{DoxyCompactList}\item 
+concept \mbox{\hyperlink{concept_cmd_calculator_1_1_expression_to_string_converter}{Expression\+To\+String\+Converter}}
+\begin{DoxyCompactList}\small\item\em A type that converts mathematical expressions into strings. \end{DoxyCompactList}\item 
+concept \mbox{\hyperlink{concept_cmd_calculator_1_1_math_ast_to_expression_converter}{Math\+Ast\+To\+Expression\+Converter}}
+\begin{DoxyCompactList}\small\item\em A type that converts mathematical abstract syntax trees into mathematical expressions. \end{DoxyCompactList}\item 
+concept \mbox{\hyperlink{concept_cmd_calculator_1_1_raw_cmd_line_arg_parser}{Raw\+Cmd\+Line\+Arg\+Parser}}
+\begin{DoxyCompactList}\small\item\em An object that can parse raw command-\/line arguments passed to \doxylink{namespace_cmd_calculator}{Cmd\+Calculator}. \end{DoxyCompactList}\item 
+concept \mbox{\hyperlink{concept_cmd_calculator_1_1_string_of_char}{String\+Of\+Char}}
+\begin{DoxyCompactList}\small\item\em A string type. \end{DoxyCompactList}\item 
+concept \mbox{\hyperlink{concept_cmd_calculator_1_1_string}{String}}
+\begin{DoxyCompactList}\small\item\em A string type. \end{DoxyCompactList}\item 
+concept \mbox{\hyperlink{concept_cmd_calculator_1_1_string_view_of_char}{String\+View\+Of\+Char}}
+\begin{DoxyCompactList}\small\item\em A string view type. \end{DoxyCompactList}\item 
+concept \mbox{\hyperlink{concept_cmd_calculator_1_1_string_view}{String\+View}}
+\begin{DoxyCompactList}\small\item\em A string view type. \end{DoxyCompactList}\item 
+concept \mbox{\hyperlink{concept_cmd_calculator_1_1_string_to_math_ast_converter}{String\+To\+Math\+Ast\+Converter}}
+\begin{DoxyCompactList}\small\item\em A type that parses strings into mathematical abstract syntax trees. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1}{EWrite\+Mode}} \{ \mbox{\hyperlink{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1a4059b0251f66a18cb56f544728796875}{Info}}
+, \mbox{\hyperlink{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1a902b0d55fddef6f8d651fe1035b7d4bd}{Error}}
+, \mbox{\hyperlink{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1aa603905470e2a5b8c13e96b579ef0dba}{Debug}}
+ \}
+\begin{DoxyCompactList}\small\item\em A mode to write text to a console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1}\label{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1} 
+\index{CmdCalculator@{CmdCalculator}!EWriteMode@{EWriteMode}}
+\index{EWriteMode@{EWriteMode}!CmdCalculator@{CmdCalculator}}
+\doxysubsubsection{\texorpdfstring{EWriteMode}{EWriteMode}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1}{Cmd\+Calculator\+::\+EWrite\+Mode}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+A mode to write text to a console. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Info@{Info}!CmdCalculator@{CmdCalculator}}\index{CmdCalculator@{CmdCalculator}!Info@{Info}}}\Hypertarget{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1a4059b0251f66a18cb56f544728796875}\label{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1a4059b0251f66a18cb56f544728796875} 
+Info&General information. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Error@{Error}!CmdCalculator@{CmdCalculator}}\index{CmdCalculator@{CmdCalculator}!Error@{Error}}}\Hypertarget{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1a902b0d55fddef6f8d651fe1035b7d4bd}\label{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1a902b0d55fddef6f8d651fe1035b7d4bd} 
+Error&An error message. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Debug@{Debug}!CmdCalculator@{CmdCalculator}}\index{CmdCalculator@{CmdCalculator}!Debug@{Debug}}}\Hypertarget{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1aa603905470e2a5b8c13e96b579ef0dba}\label{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1aa603905470e2a5b8c13e96b579ef0dba} 
+Debug&Debug information. \\
+\hline
+
+\end{DoxyEnumFields}

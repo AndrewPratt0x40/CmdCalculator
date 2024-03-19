@@ -1,0 +1,1010 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="generated_code\CmdCalculatorExpressionLexer.h">
+      <Filter>Generated\Source Code\CmdCalculatorExpressionLexer</Filter>
+    </ClInclude>
+    <ClInclude Include="generated_code\CmdCalculatorExpressionParser.h">
+      <Filter>Generated\Source Code\CmdCalculatorExpressionParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\antlr4-common.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\antlr4-runtime.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\ANTLRErrorListener.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\ANTLRErrorStrategy.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\ANTLRFileStream.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\ANTLRInputStream.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\BailErrorStrategy.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\BaseErrorListener.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\BufferedTokenStream.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\CharStream.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\CommonToken.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\CommonTokenFactory.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\CommonTokenStream.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\ConsoleErrorListener.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\DefaultErrorStrategy.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\DiagnosticErrorListener.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\Exceptions.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\FailedPredicateException.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\FlatHashMap.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\FlatHashSet.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\InputMismatchException.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\InterpreterRuleContext.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\IntStream.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\Lexer.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\LexerInterpreter.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\LexerNoViableAltException.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\ListTokenSource.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\NoViableAltException.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\Parser.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\ParserInterpreter.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\ParserRuleContext.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\ProxyErrorListener.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\RecognitionException.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\Recognizer.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\RuleContext.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\RuleContextWithAltNum.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\RuntimeMetaData.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\Token.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\TokenFactory.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\TokenSource.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\TokenStream.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\TokenStreamRewriter.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\UnbufferedCharStream.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\UnbufferedTokenStream.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\Version.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\Vocabulary.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\WritableToken.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\ActionTransition.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\AmbiguityInfo.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\ArrayPredictionContext.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\ATN.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\ATNConfig.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\ATNConfigSet.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\ATNDeserializationOptions.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\ATNDeserializer.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\ATNSimulator.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\ATNState.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\ATNStateType.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\ATNType.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\AtomTransition.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\BasicBlockStartState.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\BasicState.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\BlockEndState.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\BlockStartState.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\ContextSensitivityInfo.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\DecisionEventInfo.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\DecisionInfo.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\DecisionState.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\EpsilonTransition.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\ErrorInfo.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\HashUtils.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\LexerAction.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\LexerActionExecutor.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\LexerActionType.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\LexerATNConfig.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\LexerATNSimulator.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\LexerChannelAction.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\LexerCustomAction.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\LexerIndexedCustomAction.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\LexerModeAction.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\LexerMoreAction.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\LexerPopModeAction.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\LexerPushModeAction.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\LexerSkipAction.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\LexerTypeAction.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\LL1Analyzer.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\LookaheadEventInfo.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\LoopEndState.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\NotSetTransition.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\OrderedATNConfigSet.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\ParseInfo.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\ParserATNSimulator.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\ParserATNSimulatorOptions.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\PlusBlockStartState.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\PlusLoopbackState.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\PrecedencePredicateTransition.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\PredicateEvalInfo.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\PredicateTransition.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\PredictionContext.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\PredictionContextCache.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\PredictionContextMergeCache.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\PredictionContextMergeCacheOptions.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\PredictionContextType.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\PredictionMode.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\ProfilingATNSimulator.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\RangeTransition.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\RuleStartState.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\RuleStopState.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\RuleTransition.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\SemanticContext.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\SemanticContextType.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\SerializedATNView.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\SetTransition.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\SingletonPredictionContext.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\StarBlockStartState.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\StarLoopbackState.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\StarLoopEntryState.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\TokensStartState.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\Transition.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\TransitionType.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\atn\WildcardTransition.h">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\dfa\DFA.h">
+      <Filter>ANTLR Runtime\dfa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\dfa\DFASerializer.h">
+      <Filter>ANTLR Runtime\dfa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\dfa\DFAState.h">
+      <Filter>ANTLR Runtime\dfa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\dfa\LexerDFASerializer.h">
+      <Filter>ANTLR Runtime\dfa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\internal\Synchronization.h">
+      <Filter>ANTLR Runtime\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\misc\InterpreterDataReader.h">
+      <Filter>ANTLR Runtime\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\misc\Interval.h">
+      <Filter>ANTLR Runtime\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\misc\IntervalSet.h">
+      <Filter>ANTLR Runtime\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\misc\MurmurHash.h">
+      <Filter>ANTLR Runtime\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\misc\Predicate.h">
+      <Filter>ANTLR Runtime\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\support\Any.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\support\Arrays.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\support\BitSet.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\support\Casts.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\support\CPPUtils.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\support\Declarations.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\support\StringUtils.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\support\Unicode.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\support\Utf8.h">
+      <Filter>ANTLR Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\AbstractParseTreeVisitor.h">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\ErrorNode.h">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\ErrorNodeImpl.h">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\IterativeParseTreeWalker.h">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\ParseTree.h">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\ParseTreeListener.h">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\ParseTreeProperty.h">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\ParseTreeType.h">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\ParseTreeVisitor.h">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\ParseTreeWalker.h">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\TerminalNode.h">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\TerminalNodeImpl.h">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\Trees.h">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\pattern\Chunk.h">
+      <Filter>ANTLR Runtime\tree\pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\pattern\ParseTreeMatch.h">
+      <Filter>ANTLR Runtime\tree\pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\pattern\ParseTreePattern.h">
+      <Filter>ANTLR Runtime\tree\pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\pattern\ParseTreePatternMatcher.h">
+      <Filter>ANTLR Runtime\tree\pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\pattern\RuleTagToken.h">
+      <Filter>ANTLR Runtime\tree\pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\pattern\TagChunk.h">
+      <Filter>ANTLR Runtime\tree\pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\pattern\TextChunk.h">
+      <Filter>ANTLR Runtime\tree\pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\pattern\TokenTagToken.h">
+      <Filter>ANTLR Runtime\tree\pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPath.h">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathElement.h">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathLexer.h">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathLexerErrorListener.h">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathRuleAnywhereElement.h">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathRuleElement.h">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathTokenAnywhereElement.h">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathTokenElement.h">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathWildcardAnywhereElement.h">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathWildcardElement.h">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="generated_code\CmdCalculatorExpressionLexer.cpp">
+      <Filter>Generated\Source Code\CmdCalculatorExpressionLexer</Filter>
+    </ClCompile>
+    <ClCompile Include="generated_code\CmdCalculatorExpressionParser.cpp">
+      <Filter>Generated\Source Code\CmdCalculatorExpressionParser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\ANTLRErrorListener.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\ANTLRErrorStrategy.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\ANTLRFileStream.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\ANTLRInputStream.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\BailErrorStrategy.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\BaseErrorListener.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\BufferedTokenStream.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\CharStream.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\CommonToken.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\CommonTokenFactory.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\CommonTokenStream.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\ConsoleErrorListener.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\DefaultErrorStrategy.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\DiagnosticErrorListener.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\Exceptions.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\FailedPredicateException.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\InputMismatchException.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\InterpreterRuleContext.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\IntStream.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\Lexer.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\LexerInterpreter.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\LexerNoViableAltException.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\ListTokenSource.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\NoViableAltException.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\Parser.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\ParserInterpreter.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\ParserRuleContext.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\ProxyErrorListener.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\RecognitionException.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\Recognizer.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\RuleContext.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\RuleContextWithAltNum.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\RuntimeMetaData.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\Token.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\TokenSource.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\TokenStream.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\TokenStreamRewriter.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\UnbufferedCharStream.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\UnbufferedTokenStream.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\Vocabulary.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\WritableToken.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\ActionTransition.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\AmbiguityInfo.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\ArrayPredictionContext.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\ATN.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\ATNConfig.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\ATNConfigSet.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\ATNDeserializationOptions.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\ATNDeserializer.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\ATNSimulator.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\ATNState.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\ATNStateType.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\AtomTransition.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\ContextSensitivityInfo.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\DecisionEventInfo.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\DecisionInfo.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\DecisionState.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\EpsilonTransition.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\ErrorInfo.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\LexerAction.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\LexerActionExecutor.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\LexerATNConfig.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\LexerATNSimulator.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\LexerChannelAction.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\LexerCustomAction.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\LexerIndexedCustomAction.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\LexerModeAction.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\LexerMoreAction.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\LexerPopModeAction.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\LexerPushModeAction.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\LexerSkipAction.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\LexerTypeAction.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\LL1Analyzer.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\LookaheadEventInfo.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\NotSetTransition.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\OrderedATNConfigSet.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\ParseInfo.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\ParserATNSimulator.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\PrecedencePredicateTransition.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\PredicateEvalInfo.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\PredicateTransition.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\PredictionContext.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\PredictionContextCache.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\PredictionContextMergeCache.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\PredictionMode.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\ProfilingATNSimulator.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\RangeTransition.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\RuleTransition.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\SemanticContext.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\SetTransition.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\SingletonPredictionContext.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\StarLoopbackState.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\Transition.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\TransitionType.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\atn\WildcardTransition.cpp">
+      <Filter>ANTLR Runtime\atn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\dfa\DFA.cpp">
+      <Filter>ANTLR Runtime\dfa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\dfa\DFASerializer.cpp">
+      <Filter>ANTLR Runtime\dfa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\dfa\DFAState.cpp">
+      <Filter>ANTLR Runtime\dfa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\dfa\LexerDFASerializer.cpp">
+      <Filter>ANTLR Runtime\dfa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\internal\Synchronization.cpp">
+      <Filter>ANTLR Runtime\internal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\misc\InterpreterDataReader.cpp">
+      <Filter>ANTLR Runtime\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\misc\Interval.cpp">
+      <Filter>ANTLR Runtime\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\misc\IntervalSet.cpp">
+      <Filter>ANTLR Runtime\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\misc\MurmurHash.cpp">
+      <Filter>ANTLR Runtime\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\misc\Predicate.cpp">
+      <Filter>ANTLR Runtime\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\support\Any.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\support\Arrays.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\support\CPPUtils.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\support\StringUtils.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\support\Utf8.cpp">
+      <Filter>ANTLR Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\ErrorNodeImpl.cpp">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\IterativeParseTreeWalker.cpp">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\ParseTree.cpp">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\ParseTreeListener.cpp">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\ParseTreeVisitor.cpp">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\ParseTreeWalker.cpp">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\TerminalNodeImpl.cpp">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\Trees.cpp">
+      <Filter>ANTLR Runtime\tree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\pattern\Chunk.cpp">
+      <Filter>ANTLR Runtime\tree\pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\pattern\ParseTreeMatch.cpp">
+      <Filter>ANTLR Runtime\tree\pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\pattern\ParseTreePattern.cpp">
+      <Filter>ANTLR Runtime\tree\pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\pattern\ParseTreePatternMatcher.cpp">
+      <Filter>ANTLR Runtime\tree\pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\pattern\RuleTagToken.cpp">
+      <Filter>ANTLR Runtime\tree\pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\pattern\TagChunk.cpp">
+      <Filter>ANTLR Runtime\tree\pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\pattern\TextChunk.cpp">
+      <Filter>ANTLR Runtime\tree\pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\pattern\TokenTagToken.cpp">
+      <Filter>ANTLR Runtime\tree\pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPath.cpp">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathElement.cpp">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathLexer.cpp">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathLexerErrorListener.cpp">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathRuleAnywhereElement.cpp">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathRuleElement.cpp">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathTokenAnywhereElement.cpp">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathTokenElement.cpp">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathWildcardAnywhereElement.cpp">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathWildcardElement.cpp">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="generated_code\CmdCalculatorExpressionLexer.interp">
+      <Filter>Generated\Misc Antlr Files\CmdCalculatorExpressionLexer</Filter>
+    </None>
+    <None Include="generated_code\CmdCalculatorExpressionLexer.tokens">
+      <Filter>Generated\Misc Antlr Files\CmdCalculatorExpressionLexer</Filter>
+    </None>
+    <None Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathLexer.g4">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </None>
+    <None Include="..\submodules\Antlr4CppRuntime\src\tree\xpath\XPathLexer.tokens">
+      <Filter>ANTLR Runtime\tree\xpath</Filter>
+    </None>
+    <None Include="generated_code\CmdCalculatorExpressionParser.interp">
+      <Filter>Generated\Misc Antlr Files\CmdCalculatorExpressionParser</Filter>
+    </None>
+    <None Include="generated_code\CmdCalculatorExpressionParser.tokens">
+      <Filter>Generated\Misc Antlr Files\CmdCalculatorExpressionParser</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Generated">
+      <UniqueIdentifier>{4b88d9be-cf72-4405-baf9-4736bad24c3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated\Source Code">
+      <UniqueIdentifier>{add35a55-31af-44c4-8d28-95cf10cd12c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated\Source Code\CmdCalculatorExpressionLexer">
+      <UniqueIdentifier>{7b1d4271-c72a-4d71-b7c1-756da90f2486}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated\Source Code\CmdCalculatorExpressionParser">
+      <UniqueIdentifier>{7ecdac7d-d5f3-4270-bb32-e709954d3c5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated\Misc Antlr Files">
+      <UniqueIdentifier>{199d5d72-6acc-4f9c-a643-5cefcd434f9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated\Misc Antlr Files\CmdCalculatorExpressionLexer">
+      <UniqueIdentifier>{5a479b6c-48bf-47ec-9be0-157d4653cb24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ANTLR Runtime">
+      <UniqueIdentifier>{60a43995-1d3e-49c3-ab96-28fd0b8fad93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ANTLR Runtime\atn">
+      <UniqueIdentifier>{cb9a8ae3-811f-4e7c-8e35-de9ac7013829}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ANTLR Runtime\dfa">
+      <UniqueIdentifier>{d5fe5c1d-5af7-4d26-bee4-09fa1c9b2e1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ANTLR Runtime\internal">
+      <UniqueIdentifier>{6624f3ea-6b2a-44ed-9b9b-514e43d3653b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ANTLR Runtime\misc">
+      <UniqueIdentifier>{fedbf93a-46ea-455c-bba2-7e9e03872739}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ANTLR Runtime\support">
+      <UniqueIdentifier>{313f9ab5-b7ce-41fb-99d1-629db8a19eb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ANTLR Runtime\tree">
+      <UniqueIdentifier>{80b81c1f-08f7-48e4-b220-13b9c3bc8419}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ANTLR Runtime\tree\pattern">
+      <UniqueIdentifier>{3e3d1175-4606-4512-9791-330c114926a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ANTLR Runtime\tree\xpath">
+      <UniqueIdentifier>{8e081ef9-a173-4954-be3e-928d9430aefa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated\Misc Antlr Files\CmdCalculatorExpressionParser">
+      <UniqueIdentifier>{030b762a-4076-4ce4-a250-646ac4b06039}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

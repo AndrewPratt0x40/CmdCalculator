@@ -1,0 +1,252 @@
+\doxysection{Process.\+h}
+\hypertarget{_process_8h_source}{}\label{_process_8h_source}\mbox{\hyperlink{_process_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string\_view>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <format>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <concepts>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <ranges>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <assert.h>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_not_implemented_exception_8h}{NotImplementedException.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_calculation_8h}{Calculation.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{strings_8h}{strings.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_process_configuration_8h}{ProcessConfiguration.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_console_8h}{Console.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_raw_cmd_line_arg_parser_8h}{RawCmdLineArgParser.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_string_to_math_ast_converter_8h}{StringToMathAstConverter.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_math_ast_to_expression_converter_8h}{MathAstToExpressionConverter.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_expression_to_string_converter_8h}{ExpressionToStringConverter.h}}"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_unknown_cmd_line_arg_exception_8h}{UnknownCmdLineArgException.h}}"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_missing_cmd_line_arg_value_exception_8h}{MissingCmdLineArgValueException.h}}"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_invalid_input_expression_exception_8h}{InvalidInputExpressionException.h}}"{}}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{using\ namespace\ }std::string\_literals;}
+\DoxyCodeLine{00025\ \textcolor{keyword}{using\ namespace\ }std::string\_view\_literals;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_cmd_calculator}{CmdCalculator}}}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{template}}
+\DoxyCodeLine{00031\ \ \ \ \ <}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ Calculation\ CalculationT,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }RawCmdLineArgParserT,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }RawCmdLineArgsT,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ StringToMathAstConverter\ StringToMathAstConverterT,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ MathAstToExpressionConverter\ MathAstToExpressionConverterT,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ ExpressionToStringConverter\ ExpressionToStringConverterT}
+\DoxyCodeLine{00038\ \ \ \ \ >}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ RawCmdLineArgParser<RawCmdLineArgParserT,\ RawCmdLineArgsT>}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ std::same\_as<StringToMathAstConverterT,\ typename\ CalculationT::StringToMathAstConverterType>}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ std::same\_as<MathAstToExpressionConverterT,\ typename\ CalculationT::MathAstToExpressionConverterType>}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ std::same\_as<ExpressionToStringConverterT,\ typename\ CalculationT::ExpressionToStringConverterType>}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cmd_calculator_1_1_process}{Process}}}
+\DoxyCodeLine{00045\ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_process_abd8f50535c900e8c2cb7b84326a8cc41}{CalculationType}}\ =\ CalculationT;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_process_adc575bdd1973f404a07395128757f6d7}{RawCmdLineArgParserType}}\ =\ RawCmdLineArgParserT;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_process_a99a9c784b7a8253002a7acc8eeaca32a}{StringToMathAstConverterType}}\ =\ StringToMathAstConverterT;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_process_a6633a6a0750d27bedbc1214f34a30d2c}{MathAstToExpressionConverterType}}\ =\ MathAstToExpressionConverterT;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_cmd_calculator_1_1_process_ae140c4bb26636f14e77183e3a2b7749f}{ExpressionToStringConverterType}}\ =\ ExpressionToStringConverterT;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_process_adc575bdd1973f404a07395128757f6d7}{RawCmdLineArgParserType}}\ m\_rawCmdLineArgParser;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_process_a99a9c784b7a8253002a7acc8eeaca32a}{StringToMathAstConverterType}}\ m\_stringToMathAstConverter;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_process_a6633a6a0750d27bedbc1214f34a30d2c}{MathAstToExpressionConverterType}}\ m\_mathAstToExpressionConverter;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_process_ae140c4bb26636f14e77183e3a2b7749f}{ExpressionToStringConverterType}}\ m\_expressionToStringConverter;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<String\ ExpressionT>}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }CalculationResult}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<ExpressionT>\ outputExpression;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ shouldReprompt;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<Console\ ConsoleT,\ String\ ExpressionStringT,\ std::ranges::input\_range\ ArgsT>}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string}{String<std::ranges::range\_value\_t<ArgsT>}}>}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_cmd_calculator_1_1_process_a3c791aae5b621424cdc28e7b11c89610}{run}}(ArgsT\&\&\ rawCmdLineArgs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cmd_calculator_1_1_process_configuration}{ProcessConfiguration<ExpressionStringT>}}\ defaultConfig,\ ConsoleT\&\ console)}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(std::convertible\_to<typename\ ConsoleT::StringType,\ ExpressionStringT>);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::optional<ProcessConfiguration<ExpressionStringT>>\ processConfiguration}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parseCmdLineArgs(std::forward<\textcolor{keyword}{decltype}(rawCmdLineArgs)>(rawCmdLineArgs),\ defaultConfig,\ console)}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!processConfiguration.has\_value())}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ CalculationResult<ExpressionStringT>\ result;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result\ =}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tryCalculate}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ConsoleT,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ExpressionStringT}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ >}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getinputExpression(processConfiguration.value(),\ console),}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ processConfiguration.value().calculationConfiguration,}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ console}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (result.shouldReprompt\ \&\&\ !processConfiguration.value().givenExpression.has\_value());}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result.outputExpression.has\_value())}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ console.write(std::format(\textcolor{stringliteral}{"{}=\ \{\}"{}},\ result.outputExpression.value()),\ \mbox{\hyperlink{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1a4059b0251f66a18cb56f544728796875}{EWriteMode::Info}});}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_process_aa3d4fb07acd701fb43ce9ea4c013c349}{Process}}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ RawCmdLineArgParserT\&\&\ rawCmdLineArgParser,}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ StringToMathAstConverterT\&\&\ stringToMathAstConverter,}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ MathAstToExpressionConverterT\&\&\ mathAstToExpressionConverter,}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ ExpressionToStringConverterT\&\&\ expressionToStringConverter}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ )\ :}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ m\_rawCmdLineArgParser\{\ rawCmdLineArgParser\ \},}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ m\_stringToMathAstConverter\{\ stringToMathAstConverter\ \},}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ m\_mathAstToExpressionConverter\{\ mathAstToExpressionConverter\ \},}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ m\_expressionToStringConverter\{\ expressionToStringConverter\ \}}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ overload\ is\ deleted\ to\ ensure\ only\ rvalue\ references\ are\ passed\ for\ the\ above\ constructor.}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_process_a63d5b20c73d20c85169fecc11040aa2e}{Process}}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ RawCmdLineArgParserT\&\ rawCmdLineArgParser,}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ StringToMathAstConverterT\&\ stringToMathAstConverter,}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ MathAstToExpressionConverterT\&\ mathAstToExpressionConverter,}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ ExpressionToStringConverterT\&\ expressionToStringConverter}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ )\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<Console\ ConsoleT,\ String\ ExpressionStringT,\ std::ranges::input\_range\ ArgsT>}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{concept_cmd_calculator_1_1_string}{String<std::ranges::range\_value\_t<ArgsT>}}>}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ std::optional<ProcessConfiguration<ExpressionStringT>>\ parseCmdLineArgs}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ ArgsT\&\&\ rawCmdLineArgs,}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cmd_calculator_1_1_process_configuration}{ProcessConfiguration<ExpressionStringT>}}\ defaultConfig,}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ ConsoleT\&\ console}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }ArgType\ =\ std::ranges::range\_value\_t<ArgsT>;}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<ProcessConfiguration<ExpressionStringT>>\ processConfiguration;}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ processConfiguration\ =\ m\_rawCmdLineArgParser.parseRawCmdLineArgs(std::forward<\textcolor{keyword}{decltype}(rawCmdLineArgs)>(rawCmdLineArgs),\ defaultConfig);}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cmd_calculator_1_1_unknown_cmd_line_arg_exception}{UnknownCmdLineArgException<ArgType>}}\&\ exception)}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ console.writeLine(std::format(\textcolor{stringliteral}{"{}Unknown\ argument,\ \(\backslash\)"{}\{\}\(\backslash\)"{}"{}},\ exception.\mbox{\hyperlink{class_cmd_calculator_1_1_unknown_cmd_line_arg_exception_a2b490424c4bd73e263a3bef5c60d5fd6}{getArg}}()),\ \mbox{\hyperlink{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1a902b0d55fddef6f8d651fe1035b7d4bd}{EWriteMode::Error}});}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cmd_calculator_1_1_missing_cmd_line_arg_value_exception}{MissingCmdLineArgValueException<ArgType>}}\&\ exception)}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ console.writeLine(std::format(\textcolor{stringliteral}{"{}Missing\ value\ for\ argument,\ \(\backslash\)"{}\{\}\(\backslash\)"{}"{}},\ exception.\mbox{\hyperlink{class_cmd_calculator_1_1_unknown_cmd_line_arg_exception_a2b490424c4bd73e263a3bef5c60d5fd6}{getArg}}()),\ \mbox{\hyperlink{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1a902b0d55fddef6f8d651fe1035b7d4bd}{EWriteMode::Error}});}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (...)}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ console.writeLine(\textcolor{stringliteral}{"{}An\ unknown\ error\ occurred\ while\ reading\ the\ command-\/line\ arguments."{}},\ \mbox{\hyperlink{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1a902b0d55fddef6f8d651fe1035b7d4bd}{EWriteMode::Error}});}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ assert(processConfiguration.has\_value());}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ processConfiguration;}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<Console\ ConsoleT,\ String\ ExpressionStringT>}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ ExpressionStringT\ getinputExpression}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cmd_calculator_1_1_process_configuration}{ProcessConfiguration<ExpressionStringT>}}\ config,}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ ConsoleT\&\ console}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ config.\mbox{\hyperlink{struct_cmd_calculator_1_1_process_configuration_a2f09596a830390d3bbb8a1ff6a523d09}{givenExpression}}.has\_value()}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ?\ config.\mbox{\hyperlink{struct_cmd_calculator_1_1_process_configuration_a2f09596a830390d3bbb8a1ff6a523d09}{givenExpression}}.value()}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ promptForExpression(console)}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<Console\ ConsoleT,\ String\ OutputExpressionT>}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ CalculationResult<OutputExpressionT>\ tryCalculate}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ CalculationType::InputExpressionType\ inputExpression,}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ CalculationConfiguration\ config,}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ ConsoleT\&\ console}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_process_abd8f50535c900e8c2cb7b84326a8cc41}{CalculationType}}\ calculation}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cmd_calculator_1_1_process_abd8f50535c900e8c2cb7b84326a8cc41}{CalculationType}}}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inputExpression,}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ config,}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_stringToMathAstConverter,}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_mathAstToExpressionConverter,}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_expressionToStringConverter}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ shouldRepromptOnFailure\{\};}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OutputExpressionT\ outputExpression\{\ calculation.getOutputExpression()\ \};}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ CalculationResult<OutputExpressionT>}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .outputExpression\{\ std::make\_optional<OutputExpressionT>(outputExpression)\ \},}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .shouldReprompt\{\ \textcolor{keyword}{false}\ \}}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ Catch\ other\ errors}}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ InvalidInputExpressionException\&)}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ console.writeLine(\textcolor{stringliteral}{"{}Expression\ is\ invalid\ for\ unknown\ reasons."{}},\ \mbox{\hyperlink{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1a902b0d55fddef6f8d651fe1035b7d4bd}{EWriteMode::Error}});}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shouldRepromptOnFailure\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (...)}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ console.writeLine(\textcolor{stringliteral}{"{}An\ unknown\ error\ occurred\ while\ calculating."{}},\ \mbox{\hyperlink{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1a902b0d55fddef6f8d651fe1035b7d4bd}{EWriteMode::Error}});}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shouldRepromptOnFailure\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ CalculationResult<OutputExpressionT>}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .outputExpression\{\},}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .shouldReprompt\{\ shouldRepromptOnFailure\ \}}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<Console\ ConsoleT>}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ ConsoleT::StringType\ promptForExpression(ConsoleT\&\ console)}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ console.write(\textcolor{stringliteral}{"{}Enter\ an\ expression:\ "{}},\ \mbox{\hyperlink{namespace_cmd_calculator_a8e769d3360222ca267d3f48bfb16f5b1a4059b0251f66a18cb56f544728796875}{EWriteMode::Info}});}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ console.getInput();}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00285\ \ \ \ \ \};}
+\DoxyCodeLine{00286\ \}}
+
+\end{DoxyCode}

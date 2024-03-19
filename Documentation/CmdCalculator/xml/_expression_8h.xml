@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_expression_8h" kind="file" language="C++">
+    <compoundname>Expression.h</compoundname>
+    <includes local="no">concepts</includes>
+    <includedby refid="_calculation_8h" local="yes">Calculation.h</includedby>
+    <includedby refid="_expression_to_string_converter_8h" local="yes">ExpressionToStringConverter.h</includedby>
+    <includedby refid="_math_ast_to_expression_converter_8h" local="yes">MathAstToExpressionConverter.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Expression.h</label>
+        <link refid="_expression_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>concepts</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>Calculation.h</label>
+        <link refid="_calculation_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Expression.h</label>
+        <link refid="_expression_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>ExpressionToStringConverter.h</label>
+        <link refid="_expression_to_string_converter_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>MathAstToExpressionConverter.h</label>
+        <link refid="_math_ast_to_expression_converter_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Process.cpp</label>
+        <link refid="_process_8cpp"/>
+      </node>
+      <node id="3">
+        <label>Process.h</label>
+        <link refid="_process_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>SimpleCalculation.cpp</label>
+        <link refid="_simple_calculation_8cpp"/>
+      </node>
+      <node id="5">
+        <label>SimpleCalculation.h</label>
+        <link refid="_simple_calculation_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_cmd_calculator_1_1_expressions_1_1_expression___intended_satisfaction" prot="public">CmdCalculator::Expressions::Expression_IntendedSatisfaction</innerclass>
+    <innernamespace refid="namespace_cmd_calculator">CmdCalculator</innernamespace>
+    <innernamespace refid="namespace_cmd_calculator_1_1_expressions">CmdCalculator::Expressions</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include&lt;concepts&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="namespace_cmd_calculator_1_1_expressions" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_cmd_calculator_1_1_expressions" kindref="compound">CmdCalculator::Expressions</ref></highlight></codeline>
+<codeline lineno="6"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8" refid="struct_cmd_calculator_1_1_expressions_1_1_expression___intended_satisfaction" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_cmd_calculator_1_1_expressions_1_1_expression___intended_satisfaction" kindref="compound">Expression_IntendedSatisfaction</ref></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>{};</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="15" refid="concept_cmd_calculator_1_1_expressions_1_1_expression" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">concept<sp/></highlight><highlight class="normal"><ref refid="concept_cmd_calculator_1_1_expressions_1_1_expression" kindref="compound">Expression</ref><sp/>=</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::derived_from&lt;T,<sp/>Expression_IntendedSatisfaction&gt;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;&amp;<sp/></highlight><highlight class="keyword">requires</highlight><highlight class="normal">(T&amp;&amp;<sp/>instance)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>instance.isSimplifiable()<sp/>}<sp/>-&gt;<sp/>std::same_as&lt;bool&gt;;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>The<sp/>following<sp/>line<sp/>causes<sp/>a<sp/>C7598<sp/>error<sp/>in<sp/>Visual<sp/>Studio,<sp/>and<sp/>an<sp/>infinite<sp/>loop<sp/>when<sp/>compiling.<sp/>Possibly<sp/>a<sp/>bug<sp/>in<sp/>MSVC.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//{<sp/>instance.getFullSimplification()<sp/>}<sp/>-&gt;<sp/>Expression;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>instance.getFullSimplification()<sp/>}<sp/>-&gt;<sp/>std::derived_from&lt;Expression_IntendedSatisfaction&gt;;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Expression.h"/>
+  </compounddef>
+</doxygen>

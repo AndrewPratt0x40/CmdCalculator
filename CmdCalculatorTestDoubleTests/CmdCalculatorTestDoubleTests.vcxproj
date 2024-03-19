@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{99091eb1-272b-4168-b042-aae57c8c5e20}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <EnableASAN>true</EnableASAN>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(SolutionDir)submodules/Antlr4CppRuntime/src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)submodules/Antlr4CppRuntime/src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>ANTLR4CPP_STATIC;X64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4584</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>$(SolutionDir)submodules/Antlr4CppRuntime/src</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>ANTLR4CPP_STATIC;X64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4584</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>$(SolutionDir)submodules/Antlr4CppRuntime/src</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="shared_splitting_test_utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FakeConsoleTests.cpp" />
+    <ClCompile Include="FakeHalfwayDynamicExpressionPartRecursiveSplitterTests.cpp" />
+    <ClCompile Include="FakeHalfwayDynamicExpressionPartSingleSplitterTests.cpp" />
+    <ClCompile Include="FakeRealNumberTests.cpp" />
+    <ClCompile Include="shared_splitting_test_utils.cpp" />
+    <ClCompile Include="StubAbsoluteValueOperationAntlrContextTests.cpp" />
+    <ClCompile Include="StubAntlrTokenTests.cpp" />
+    <ClCompile Include="StubBinaryOperatorAntlrContextTests.cpp" />
+    <ClCompile Include="StubDynamicExpressionNodeTests.cpp" />
+    <ClCompile Include="StubDynamicExpressionPartNodeTests.cpp" />
+    <ClCompile Include="StubDynamicExpressionPartRecursiveSplitResultTests.cpp" />
+    <ClCompile Include="StubTrackingDynamicExpressionPartRecursiveSplitResult.cpp" />
+    <ClCompile Include="StubDynamicExpressionPartSingleSplitResultTests.cpp" />
+    <ClCompile Include="StubDynamicExpressionTests.cpp" />
+    <ClCompile Include="StubDynamicOperandNodeTests.cpp" />
+    <ClCompile Include="StubDynamicOperandToDynamicExpressionConverter.cpp" />
+    <ClCompile Include="StubExpressionAntlrContextTests.cpp" />
+    <ClCompile Include="StubFullExpressionAntlrContextTests.cpp" />
+    <ClCompile Include="StubGroupingAntlrContextTests.cpp" />
+    <ClCompile Include="StubGroupingMultiplicationAntlrContextTests.cpp" />
+    <ClCompile Include="StubGroupingTailMultiplicandAntlrContextTests.cpp" />
+    <ClCompile Include="StubNonGroupingMultiplicationAntlrContextTests.cpp" />
+    <ClCompile Include="StubNumberLiteralAntlrContextTests.cpp" />
+    <ClCompile Include="StubOperandAntlrContextTests.cpp" />
+    <ClCompile Include="StubOperationPartPairAntlrContextTests.cpp" />
+    <ClCompile Include="StubSignOperationAntlrContextTests.cpp" />
+    <ClCompile Include="StubSignOperatorAntlrContextTests.cpp" />
+    <ClCompile Include="StubSqrtOperationAntlrContextTests.cpp" />
+    <ClCompile Include="StubTrackingAntlrContextToMathAstConverterTests.cpp" />
+    <ClCompile Include="StubCalculationTests.cpp" />
+    <ClCompile Include="StubExpressionTests.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StubExpressionToStringConverterTests.cpp" />
+    <ClCompile Include="StubMathAstNodeTests.cpp" />
+    <ClCompile Include="StubMathAstToExpressionConverterTests.cpp" />
+    <ClCompile Include="StubRawCmdLineArgParserTests.cpp" />
+    <ClCompile Include="StubStringToMathAstConverterTests.cpp" />
+    <ClCompile Include="StubThrowingCalculationTests.cpp" />
+    <ClCompile Include="StubThrowingRawCmdLineArgParserTests.cpp" />
+    <ClCompile Include="StubThrowingStringToAntlrContextConverterTests.cpp" />
+    <ClCompile Include="StubTrackingConvertedStringTests.cpp" />
+    <ClCompile Include="StubTrackingDynamicExpressionNodeTests.cpp" />
+    <ClCompile Include="StubTrackingDynamicExpressionTests.cpp" />
+    <ClCompile Include="StubTrackingDynamicMathAstToDynamicExpressionConverterTests.cpp" />
+    <ClCompile Include="StubTrackingDynamicOperandToDynamicExpressionConverterTests.cpp" />
+    <ClCompile Include="StubTrackingExpressionTests.cpp" />
+    <ClCompile Include="StubTrackingExpressionToStringConverterTests.cpp" />
+    <ClCompile Include="StubTrackingFullExpressionAntlrContextTests.cpp" />
+    <ClCompile Include="StubTrackingMathAstNodeTests.cpp" />
+    <ClCompile Include="StubTrackingMathAstToExpressionConverterTests.cpp" />
+    <ClCompile Include="StubTrackingRecursiveSplitResultToDynamicExpressionConverterTests.cpp" />
+    <ClCompile Include="StubTrackingStringToAntlrContextConverterTests.cpp" />
+    <ClCompile Include="StubTrackingStringToMathAstConverterTests.cpp" />
+    <ClCompile Include="StubValidatingStringToMathAstConverterTests.cpp" />
+    <ClCompile Include="StubWholefulNumberLiteralAntlrContextTests.cpp" />
+    <ClCompile Include="StubWholelessNumberLiteralAntlrContextTests.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CmdCalculatorTestDoubles\CmdCalculatorTestDoubles.vcxproj">
+      <Project>{80aa43e2-f1c0-4a47-b09f-1656a1c96fae}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CmdCalculatorTestUtils\CmdCalculatorTestUtils.vcxproj">
+      <Project>{1cac90e9-39e9-49d5-9683-601b4de41e30}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CmdCalculator\CmdCalculator.vcxproj">
+      <Project>{04baed67-6b9a-4d4d-a1a1-cbb2eb87ecd5}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\build\native\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets" Condition="Exists('..\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\build\native\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\build\native\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\build\native\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.targets'))" />
+  </Target>
+</Project>
