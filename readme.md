@@ -32,7 +32,7 @@ The following operators are available:
 |`sqrt`|Square Root|`sqrt 64`|$\sqrt{64}=8$|
 |`%`|Modulo|`7%3`|$7\mod 3=1$|
 |`(...)`|Grouping|`3^(2+1)`|$3^{2+1}=27$|
-|`|...|`|Absolute Value|`|-5|`|$|-5|=5$|
+|`\|...\|`|Absolute Value|`\|-5\|`|$\|-5\|=5$|
 
 Grouping operations may be placed to the right of numbers and other groupngs for multiplication. For example, `5(6)(7)(8+9)(10)` is the same as `5*6*7*(8+9)*10`.
 
